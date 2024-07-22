@@ -1,0 +1,156 @@
+%! TeX program = xelatex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\makelectureweek{11}{Week 11}
+
+
+\section{Indefinite Integrals}
+
+% {{{1
+Let \(f(x)\) be a {continuous} function. An \emph{indefinite integral} of \(f(x)\) is 
+\vspace{3in}
+
+\begin{example}
+  Verify that \(\int \sin(\theta) \cos(\theta) \; d\theta = \frac{1}{2} \cos^{2}(\theta) + C\).
+\end{example}
+\vspace{2in}
+\bigskip
+
+\faComments{} State the Fundamental Theorem of Calculus (Part 2) in terms of \emph{indefinite integrals}. 
+\vspace{2in}
+
+\clearpage
+
+% properties of the indefinite integral {{{2
+\begin{mdframed}[style=simple]
+  Properties of indefinite integrals. Let \(f,g\) be continuous functions and \(c\) be a constant.
+  \begin{enumerate}[label=(\alph*)]
+    \item  \(\int c f(x) \;dx = \)
+    \item  \(\int f(x) + g(x) \;dx = \)
+    \item  \(\int f(x) - g(x) \;dx = \)
+  \end{enumerate}
+\end{mdframed}
+\faStar{} Make sure you know Table~\ref{table:indefinite-integrals} well.
+
+\begin{example}
+  Evaluate \(\int 6 \cdot 2^{x} + \frac{1}{10} \sqrt[5]{x} + \frac{\sqrt{x}}{x^{2}} \; dx\).
+\end{example}
+% 2}}}
+% 1}}}
+
+\clearpage
+
+Fill in the following table.
+
+\begin{table}[h!]  % [h] for here, [ht] for here top, [hb] for here bottom 
+\centering
+\includegraphics{../standalones/build/table_indefinite_integrals}
+\caption{Table of Indefinite Integrals}
+\label{table:indefinite-integrals}
+\end{table}
+
+\clearpage
+
+\section{The Net Change Theorem}
+% {{{1
+\begin{mdframed}[style=withref]
+  The integral of a rate of the change is the \emph{net change}:
+  \[
+    \int_{a}^{b} F'(x) \; dx = F(b) - F(a).
+  \]
+
+  \textbook{\stewart{412}{Net Change Theorem}}
+\end{mdframed}
+\vspace{1in}
+% integration is the accumulation of change.
+
+% examples {{{2
+\begin{example}
+  The linear density of a rod of length \(4\) metres is given by \(\rho(x) = 9 + \sqrt{2} x\) measured in kilograms per metre, where \(x\) is measure in metres from one end of the rod. Find the total mass of the rod. 
+\end{example}
+\clearpage
+
+\begin{example}
+  Suppose an object moves along a straight line with position function \(s(t)\). 
+ 
+  \begin{enumerate}[label=(\alph*)]
+  \item The velocity function is \(v(t) = s'(t)\). Interpret
+    \[
+      \int_{t_{1}}^{t_{2}} v(t) \;dt = s(t_{2}) - s(t_{1})
+    \]
+    in terms of displacement.
+    \vspace{1in}
+
+  \item Let \(v(t)\) be defined as in part (a). What is the physical interpretation of the following integral?
+    \[
+      \int_{t_{1}}^{t_{2}} |v(t)| \; dt.
+    \]
+    \vspace{2in}
+  \end{enumerate}
+\end{example}
+
+\begin{example}
+  Let \(x\) be a physical quantity whose unit is \emph{foot}. Let \(a\) be a quantity whose unit is \emph{pound per foot}.
+  \begin{enumerate}
+  \item What is the unit for \(\frac{da}{dx}\)?
+    \vspace{1in}
+  \item What is the unit for \(\int_{0}^{1} a(x) \;dx\)?
+    \vspace{1in}
+  \end{enumerate}
+\end{example}
+% 2}}}
+
+% 1}}}
+\clearpage
+
+\section{The Substitution Rule}
+
+\begin{mdframed}[style=withref]
+  If \(u = g(x)\) is a differentiable function whose range is an interval \(I\) and \(f\) is continuous on \(I\), then
+  \[
+    {\int f(g(x)) g'(x) \;dx = \int f(u) \;du}
+  \]
+  \textbook{\stewart{420}{\fbox{4} The Substitution Rule}}
+\end{mdframed}
+\vspace{2in}
+
+\begin{example}
+  Evaluate \(\int \frac{\ln(x)}{x} \;dx\).
+
+\end{example}
+
+\clearpage
+\begin{mdframed}[style=withref]
+  If \(g'\) is continuous on \([a,b]\) and \(f\) is continuous on the range of \(u = g(x)\), then
+  \[
+    {\int_{a}^{b} f(g(x)) g'(x) \;dx = \int_{u(a)}^{u(b)} f(u) \;du}
+  \]
+  \textbook{\stewart{423}{The Substitution Rule for Definite Integrals}}
+\end{mdframed}
+\vspace{1in}
+
+\begin{example}
+  Evaluate \(\int_{1}^{e} \frac{\ln(x)}{x} \;dx\) in two different ways.
+
+  \begin{enumerate}
+  \item Use the Fundamental Theorem of Calculus.
+    \vspace{2in}
+
+  \item Use the Substitution Rule for Definite Integral directly.
+
+  \end{enumerate}
+\end{example}
+
+\clearpage
+\begin{example}
+  Evaluate \(\int \frac{x^{2}}{x^{3} + 1} \;dx\).
+\end{example}
+\clearpage
+
+\begin{example}
+  Evaluate \(\int_{-1}^{-2} \frac{(x+1)^{2}}{(x+1)^{3} + 12} \;dx\).
+\end{example}
+\clearpage
+
+\end{document}

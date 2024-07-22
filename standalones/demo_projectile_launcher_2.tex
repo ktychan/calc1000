@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usetikzlibrary{patterns, decorations}
+\pgfplotsset{
+  compat=1.18, 
+  trig format=rad, 
+  ticklabel style = {font=\footnotesize},
+  axis equal image,
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      % width=5in, height=5in,
+      clip=false,
+      ymin=0, ymax=1,
+      xmin=0, xmax=1.8,
+      % ymin=-4, ymax=4,
+      % xlabel={\footnotesize \(x\)},
+      % xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      % ylabel={\footnotesize \(y\)},
+      % ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {very thin},
+      xticklabels={,,},
+      yticklabels={,,},
+      samples=500,
+      % grid=both,
+      % grid style={line width=.2pt, draw=gray!20},
+      % minor tick num=1, 
+      smooth,
+      % thick,
+      no markers,
+      tickwidth={1pt},
+      ]
+      \addplot[dotted, smooth, domain=0:0.575] ( {4*cos(pi/4)*x}, {4*sin(pi/4)*x - 9.8/2*x*x} );
+      \addplot[thin, blue, ->] coordinates { (0,0) ({cos(pi/4)},{sin(pi/4}) };
+      \addplot[thin, blue, domain=0:pi/4] ( {cos(x)/3}, {sin(x)/3} );
+      \node[above] at (0.4,0) {\footnotesize \(\theta\)};
+      \draw [decorate, decoration={brace, amplitude=5pt, raise=2pt}] 
+        (axis cs:1.627,0) -- (axis cs:0,0) node[midway,below=\pgfdecorationsegmentamplitude] {\footnotesize \(d\)};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}
+

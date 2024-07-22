@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tikz,amsmath}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{scope}[shift={(-5,0)}]
+    \draw[->] (6,0) -- (19, 0);
+    \foreach \n in {6,7,...,11} {
+      \draw (\n, 0.1) -- (\n, -0.1) node[below right, rotate=-45] { \tiny {\n} am };
+    }
+    \draw (12, 0.1) -- (12, -0.1) node[below right, rotate=-45] { \tiny 12 pm };
+  \end{scope}
+  \begin{scope}[shift={(7,0)}]
+    \foreach \n in {1,...,6} {
+      \draw (\n, 0.1) -- (\n, -0.1) node[below right, rotate=-45] { \tiny {\n} pm };
+    }
+  \end{scope}
+  \begin{scope}[shift={(0,-3)}]
+    \draw[->] (0,4) -- (0, 11);
+    \foreach \y in {4,...,10} {
+      \draw (0.1, {\y}) -- (-0.1, {\y}) node[left] { \tiny \({\y}^{\circ}\text{C}\) };
+    }
+  \end{scope}
+  \begin{scope}[shift={(1,1)}]
+    \draw[dotted, thin] (0,0) grid (12,6);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+

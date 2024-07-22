@@ -1,0 +1,43 @@
+\documentclass{standalone}
+\usepackage{pgfplots,xcolor}
+\pgfplotsset{compat=1.18}
+
+% see https://tex.stackexchange.com/questions/18359/plotting-an-implicit-function-using-pgfplots
+% for implicit plots using gnuplot
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={\footnotesize \(x\)},
+    ylabel={\footnotesize \(y\)},
+    xmin={-1.5},
+    xmax={1.5},
+    ymin={-1.5},
+    ymax={1.5},
+    axis x line={middle},
+    axis y line={middle},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+    x={15pt},
+    y={15pt},
+    yticklabels={,,},
+    xticklabels={,,},
+    ]
+
+    \addplot+ [no markers,
+      raw gnuplot,
+      thick,
+      empty line = jump,
+      smooth,
+      ] gnuplot {
+      set contour base;
+      set cntrparam levels discrete 0.003;
+      unset surface;
+      set view map;
+      set isosamples 500;
+      splot x^2 + 2*x*y + y^3;
+    };
+
+  \node[right] at (0.5,-4) {\footnotesize \(x^{2} + 2xy + y^{3} = 0\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

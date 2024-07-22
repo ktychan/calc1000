@@ -1,0 +1,31 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+compat=1.18, 
+trig format=rad, 
+ticklabel style = {font=\footnotesize},
+axis equal image,
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      width=5in, height=5in,
+      xmin=-1, xmax=20,
+      ymin=-10, ymax=10,
+      xlabel={\footnotesize time},
+      xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      % ylabel={\footnotesize \(y\)},
+      ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {thin},
+      grid=both,
+      grid style={line width=.2pt, draw=gray!20},
+      minor tick num=1, 
+      xticklabels={,,},
+      yticklabels={,,},
+      ]
+    \end{axis}
+  \end{tikzpicture}
+\end{document}
+

@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18, 
+  trig format=rad, 
+  ticklabel style = {font=\footnotesize},
+  axis equal image,
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      ymin=-1.5, ymax=1.5,
+      xmin=-pi-pi/8, xmax=pi+pi/8,
+      xlabel={\footnotesize \(x\)},
+      xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      ylabel={\footnotesize \(y\)},
+      ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {very thin},
+      yticklabels={,,},
+      xticklabels={,,},
+      smooth,
+      thick,
+      no markers,
+      tickwidth={1pt},
+      ]
+      \addplot[smooth, domain=-pi:pi] {cos(x)} node[below left] {\footnotesize \(y = \cos(x)\)};
+      % \addplot[smooth, domain=-pi:0, dashed] {cos(x)};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18, 
+  trig format=rad, 
+  ticklabel style = {font=\footnotesize},
+  axis equal image,
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      ymin=-1.5, ymax=1.5,
+      xmin=-1.5, xmax=1.5,
+      xlabel={\footnotesize \(x\)},
+      xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      ylabel={\footnotesize \(y\)},
+      ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {very thin},
+      yticklabels={,,},
+      xticklabels={,,},
+      smooth,
+      thick,
+      no markers,
+      tickwidth={1pt},
+      ]
+      \addplot[smooth, domain=-1:1] {x^3} node[above] {\footnotesize \(y = x^{3}\)};
+      % \addplot[smooth, domain=-1:0, dashed] {x^3};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

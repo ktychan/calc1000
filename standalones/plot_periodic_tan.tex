@@ -1,0 +1,38 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18, 
+  trig format=rad, 
+  ticklabel style = {font=\footnotesize},
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      ymin=-5, ymax=5,
+      xmin=-3/2*pi-pi/8, xmax=3/2*pi+pi/8,
+      xlabel={\footnotesize \(x\)},
+      xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      ylabel={\footnotesize \(y\)},
+      ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {very thin},
+      yticklabels={,,},
+      xticklabels={,,},
+      smooth,
+      thick,
+      no markers,
+      tickwidth={1pt},
+      samples=500,
+      ]
+      \addplot[dotted, thin] coordinates { (pi/2-2*pi, 5) (pi/2-2*pi,-5) };
+      \addplot[smooth, domain=-pi/2+0.01-pi:pi/2-0.01-pi, dashed] {tan(x)};
+      \addplot[dotted, thin] coordinates { (pi/2-pi, 5) (pi/2-pi,-5) };
+      \addplot[smooth, domain=-pi/2+0.01:pi/2-0.01] {tan(x)};
+      \addplot[dotted, thin] coordinates { (pi/2, 5) (pi/2,-5) };
+      \addplot[smooth, domain=-pi/2+0.01+pi:pi/2-0.01+pi, dashed] {tan(x)};
+      \addplot[dotted, thin] coordinates { (pi/2+pi, 5) (pi/2+pi,-5) };
+      \node[right] at (pi/2,4) {\footnotesize \(y = \tan(x)\)};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

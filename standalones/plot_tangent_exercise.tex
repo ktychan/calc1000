@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=3]
+    \draw[gray, dotted] (-1,-1) grid[step=1/3] (2,2); 
+
+    % \node[left] at (-2,-2) {\footnotesize \(-2\)};
+    \node[left] at (-1,-1) {\footnotesize \(-1\)};
+    \node[left] at (-1, 0) {\footnotesize \(0\)};
+    \node[left] at (-1, 1) {\footnotesize \(1\)};
+    \node[left] at (-1, 2) {\footnotesize \(2\)};
+
+    % \node[below] at (-2, -1) {\footnotesize \(-2\)};
+    \node[below] at (-1, -1) {\footnotesize \(-1\)};
+    \node[below] at ( 0, -1) {\footnotesize \(0\)};
+    \node[below] at ( 1, -1) {\footnotesize \(1\)};
+    \node[below] at ( 2, -1) {\footnotesize \(2\)};
+
+    \draw[thin, ->] (-1,0) -- (2,0) node[right] {\(x\)};
+    \draw[thin, ->] (0,-1) -- (0,2) node[above] {\(y\)};
+
+    \begin{scope}
+      \clip (-1,-1) rectangle (2,2);
+      \draw[smooth, domain={-2}:{2}] plot ({\x}, {\x*\x*\x});
+    \end{scope}
+    \fill (1,1) circle (0.025); % node[right] {\footnotesize \(P = (1,1)\)};
+    
+    \node[above right] at (1,2) {\(y = x^{3}\)};
+  \end{tikzpicture}
+\end{document}
+

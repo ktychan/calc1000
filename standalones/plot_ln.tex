@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tikz, pgfplots, amsmath}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis equal image,
+    enlargelimits=true,
+    thin,
+    axis lines=middle, 
+    xlabel={\(x\)},
+    ylabel={\(y\)},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west}, % Place the xlabel at the end of the x-axis
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south}, % Place the ylabel at the end of the y-axis
+    tick label style={font=\footnotesize},
+    xmin=-2,
+    ymin=-2,
+    ]
+    \addplot[domain=0.01:5, samples=100, smooth, black, thick]{ln(x)};
+    \node[above left] at (axis cs:3,{ln(3)}) {\(\ln(x)\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

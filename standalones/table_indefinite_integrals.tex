@@ -1,0 +1,29 @@
+
+\documentclass{standalone}
+\usepackage{amsmath}
+
+
+\usepackage{cellspace}
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
+
+\usepackage[table]{xcolor}
+
+\begin{document}
+\rowcolors{2}{white}{teal!10}
+\begin{tabular}{Sc | Sc }
+  \parbox{2.5cm}{\centering\textbf{Function}\\\(f(x)\)} & \parbox{4cm}{\centering\textbf{Indefinite integral}\\\(\int f(x) dx\)} \\
+  \hline\hline
+  \(x^{n}, \text{ if } n \ne -1\)  & \\[2ex]
+  \(\frac{1}{x}\) & \\[2ex]
+  \(e^{x}\) & \\[2ex]
+  \(b^{x}, \text{ if } b > 0\) &  \\[2ex]
+  \(\cos(x)\) & \\[2ex]
+  \(\sin(x)\) & \\[2ex]
+  \(\sec^{2}(x)\) &  \\[2ex]
+  \(\sec(x)\tan(x)\) & \\[2ex]
+  \(\frac{1}{\sqrt{1 - x^{2}}}\) & \\[2ex]
+  \(\frac{1}{1 + x^{2}}\) &
+\end{tabular}
+\end{document}
+

@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{tikz,xcolor}
+\usetikzlibrary{decorations.pathreplacing,calligraphy}
+
+\begin{document}
+\begin{tikzpicture}
+  \draw[dashed] (0,0) -- (0,3);
+  \draw[decorate, decoration = {brace, mirror}] (0.2,0) -- (0.2,3);
+  \draw[dashed] (0,0) -- (-3,3);
+
+  \draw[fill] (0,0) circle (0.025) node[below] {\footnotesize \(O\)};
+  \draw[fill] (0,3) circle (0.025) node[above] {\footnotesize \(A\)};
+  \draw[fill] (-3,3) circle (0.025) node[above] {\footnotesize \(B\)};
+  \draw[->] (0,3) -- (-2,3);
+  \draw[decorate, decoration = {brace}] (0,2.8) -- (-2,2.8);
+  \node[below] at (-1, 2.8) {\footnotesize \(w\)};
+  \draw[dotted] (-2,3) -- (-3,3);
+  \begin{scope}[shift={(0,1)}]
+    \draw[blue, ->] (0,0) arc (90:120:1) node[above] {\footnotesize \(\theta\)};
+  \end{scope}
+  % \node[right] at (0,1) {\footnotesize measure rotational velocity \(\frac{d\theta}{dt}\)};
+  % \node[right] at (0,3) {\footnotesize walk from A to B at \(1\) m/s};
+  \node[right] at (0.2, 1.5) {\footnotesize \(d\)};
+\end{tikzpicture}
+\end{document}

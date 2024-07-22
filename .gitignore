@@ -1,0 +1,19 @@
+# two generic but ignored directories
+generated
+untracked
+
+# student data
+confidential
+
+# OS level junk
+.DS_Store
+
+# latex generated files
+*.pdf
+*.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.xdv

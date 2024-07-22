@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18, 
+  trig format=rad, 
+  ticklabel style = {font=\footnotesize},
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      ymin=-2.5, ymax=2.5,
+      xmin=-2, xmax=2,
+      xlabel={\footnotesize \(x\)},
+      xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      ylabel={\footnotesize \(y\)},
+      ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {very thin},
+      yticklabels={,,},
+      xticklabels={,,},
+      smooth,
+      thick,
+      no markers,
+      tickwidth={1pt},
+      samples=100
+      ]
+      \addplot[smooth] {2*(x-1.5)*(x+1)*x};
+      \node[left] at (1.7,2) {\footnotesize \(y = 2x^{3} - x^{2} - 3x\)};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

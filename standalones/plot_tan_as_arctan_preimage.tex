@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18, 
+  trig format=rad, 
+  ticklabel style = {font=\tiny},
+  axis equal image,
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={\footnotesize \(x\)},
+    ylabel={\footnotesize \(y\)},
+    xmin={-pi-pi/2-pi/4},
+    xmax={pi+pi/2+pi/4},
+    ymin={-5.25},
+    ymax={5.25},
+    restrict y to domain={-5.25:5.25},
+    axis x line={middle},
+    axis y line={middle},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+    ytick={-5, -4, -3, -2,-1,0,1, 2, 3, 4, 5},
+    xtick={-3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2},
+    yticklabels={,-4,,-2,,0,,2,,4,},
+    xticklabels={,,\(-\frac{\pi}{2}\),,\(\frac{\pi}{2}\)},
+    no marks
+    ]
+
+    % \addplot[thick, smooth, samples=1000, domain=-1:1] {asin(x)/180*pi};
+    \addplot[ForestGreen, thick, smooth, domain={-pi/2}:{pi/2}] {tan(x)};
+    \addplot[ForestGreen, smooth, dashed, domain={-pi-pi/2}:{-pi/2}] {tan(x)};
+    \addplot[ForestGreen, smooth, dashed, domain={pi/2}:{pi+pi/2}] {tan(x)};
+    \addplot[dotted, gray] coordinates {(  -pi/2, 4) (  -pi/2, -4)};
+    \addplot[dotted, gray] coordinates {(   pi/2, 4) (   pi/2, -4)};
+    \addplot[dotted, gray] coordinates {(-3*pi/2, 4) (-3*pi/2, -4)};
+    \addplot[dotted, gray] coordinates {( 3*pi/2, 4) ( 3*pi/2, -4)};
+    % \addplot[ForestGreen, thick, dotted, smooth, samples=1000, domain={-pi-pi/4}:{-pi/2}] {tan(x)};
+    % \addplot[ForestGreen, thick, dotted, smooth, samples=1000, domain={pi/2}:{pi+pi/4}] {sin(x)};
+    \node[right] at (pi/2,2) {\footnotesize \(y = \tan(x)\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

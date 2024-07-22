@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+
+
+\usepackage{cellspace}
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
+
+\usepackage[table]{xcolor}
+
+\begin{document}
+\rowcolors{2}{white}{teal!10}
+\begin{tabular}{Sc | Sc | Sc}
+  \parbox{2.5cm}{\centering\textbf{Function}}& \parbox{3cm}{\centering\textbf{A particular}\\\textbf{antiderivative}} & \parbox{4cm}{\centering\textbf{The most general}\\\textbf{antiderivative}} \\
+  \hline\hline
+  \(x^{n}, \text{ if } n \ne -1\)  & \(\frac{1}{n+1} x^{n+1}\) & \\ % \(\frac{1}{n+1} x^{n+1} + C\) \\
+  \(\frac{1}{x}\) & \(\ln|x|\) & \\ % \(\ln|x| + C\) \\
+  \(e^{x}\) & \(e^{x}\) & \\ % \(e^{x} + C\) \\
+  \(b^{x}, \text{ if } b > 0\) & \(\frac{b^{x}}{\ln(b)}\) & \\ % \(\frac{1}{\ln(b)} + C\) \\
+  \(\cos(x)\) & \(\sin(x)\) & \\ % \(\sin(x) + C\) \\
+  \(\sin(x)\) & \(-\cos(x)\) & \\ % \(-\cos(x) + C\) \\
+  \(\sec^{2}(x)\) & \(\tan(x)\) & \\ % \(\tan(x) + C\) \\
+  \(\sec(x)\tan(x)\) & \(\sec(x)\) & \\ % \(\sec(x) + C\) \\
+  \(\frac{1}{\sqrt{1 - x^{2}}}\) &  \(\arcsin(x)\) & \\ % \(\arcsin(x) + C\) \\
+  \(\frac{1}{1 + x^{2}}\) & \(\arctan(x)\) & \\ % \(\arctan(x) + C\) \\
+\end{tabular}
+\end{document}
+

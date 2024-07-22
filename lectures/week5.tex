@@ -1,0 +1,223 @@
+%! TeX program = xelatex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\makelectureweek{5}{Week 5}
+
+\section{The Chain Rule}
+Recall to differentiate a composite function \(F = f \circ g\) we use the chain rule
+\[
+  \frac{d}{dx} F(x) = f'( g(x) ) g'(x) \quad\text{or}\quad \frac{dy}{dx} = \frac{dy}{du} \frac{du}{dx} \text{ if } y = f(u) \text{ and } u = g(x).
+\]
+
+\begin{example}
+  Differentiate \(\cos(\sin(x^{-2}) + \pi/2)\) with respect to \(x\).
+\end{example}
+
+\clearpage
+
+\begin{example}
+  Let \(g = g(x)\) be a function. Differentiate \(g(x)^{2}\) with respect to \(x\).
+\end{example}
+\vspace{2in}
+
+\section{A familiar yet strange question?}
+The \href{https://www.wolframalpha.com/input?i=implicit+plot+%28P+%2B+1%2FV%5E2%29%28V+-+1%29+%3D+1}{equation} relating the pressure \(P\) and the volume \(V\) of a made-up gas is
+\[
+  \left( P + \frac{1}{V^{2}} \right)(V - 1) = 1.
+\]
+How can we mathematically \emph{formulate} and \emph{make sense} of the question 
+\begin{center}
+  ``\emph{Find the rate of change of volume with respect to pressure?}''
+\end{center}
+\clearpage
+
+\section{Implicit differentiation}
+\vspace{1in}
+\begin{mdframed}[style=simple]
+  The \emph{method of implicit differentiation} says to find \hlattn{the slope \(\frac{dy}{dx}\)} at \hlmain{a point \((x,y)\)} on the curve defined by an equation in which \hlattn{both  \(x,y\) are variables}, differentiate both sides of the equation \hlattn{with respect to \(x\)}, using the chain rule to differentiate \hlattn{expressions in \(y\)}, then finally solve for \hlattn{\(\frac{dy}{dx}\)}.
+\end{mdframed}
+\vspace{2in}
+
+\begin{example}
+  Find the slope at the point \((3,4)\) given \(x^{2} + y^{2} = 25\). 
+
+  \begin{mdframed}[style=sidenote]
+    \footnotesize 
+    Recall that the solutions of \[ (x - a)^{2} + (y - b)^{2} = r^{2} \] form the circle of radius \(r\) and centred at the point \((a,b)\).
+    \bigskip
+
+    For example, \[ (x+1)^{2} + (y-1)^{2} = 3 \] is the equation of the circle of radius \(\sqrt{3}\) and centred at \((-1,1)\). Notice \((\sqrt{3}-1,1)\) is on the circle. But \((1,1)\) is not on this circle.
+  \end{mdframed}
+
+\end{example}
+\clearpage
+
+\begin{example}
+  Find \(x'\) given \(\cos(t) = \sin(x)\). Assume \(x\) is a function of \(t\).
+\end{example}
+\clearpage
+% \begin{example}
+%   Find the centre and the radius of the \href{https://www.wolframalpha.com/input?i=plot+%28x%2B1%29%5E2+%2B+%28y+-+2%29%5E2+%3D+5&assumption=%7B%22C%22%2C+%22plot%22%7D+-%3E+%7B%22GeometryProperty%22%7D}{circle} described by \((x+1)^{2} + (y - 2)^{2} = 3\).
+% \end{example}
+% \vspace{1in}
+
+
+\begin{example}
+  Consider the following attempt to find functions implicitly defined by an equation.
+  \begin{align*}
+    && \sin(y^{2}) + \frac{x^{2}}{3} &= 1 \\[3ex]
+    &\implies& \sin(y^{2}) &= 1 - \frac{x^{2}}{3} &&\text{(add \(-x^{3}/3\) to both sides)}\\[3ex]
+    &\implies& y^{2} &= \arcsin\left( 1 - \frac{x^{2}}{3} \right) &&\text{(apply \(\arcsin\) to both sides)} \\[3ex]
+    &\implies& y &= \pm \sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}.
+  \end{align*}
+
+  If the above calculations were correct, then the graphs of \(y = \pm \sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}\) should decompose the curve \(\sin(y^{2}) + \frac{x^{2}}{3} = 1\).
+  
+  \centerline{
+    \includegraphics{../standalones/build/plot_fun}
+    \includegraphics{../standalones/build/plot_fun_tricky_pos}
+    \includegraphics{../standalones/build/plot_fun_tricky_neg}
+  }
+\end{example}
+\clearpage
+
+\section{Logarithmic Functions}
+For a constant \(b > 0\) and \(b \ne 1\), the logarithmic function with base \(b\), denoted by \(\log_{b}(x)\) is defined as the \emph{inverse} of the exponential function \(b^{x}\). The two functions are related by
+\[
+  \log_{b}(x) = y \quad\text{ if and only if }\quad b^{y} = x.
+\]
+
+\begin{mdframed}[style=sidenote]
+  Recall the base change formula
+  \[
+    \log_{b}(x) = \frac{\ln(x)}{\ln(b)}.
+  \]
+
+  Review Laws of Exponents and Laws of Logarithms. See pages 47 and 58 of the textbook.
+\end{mdframed}
+
+
+\begin{example}
+  Find the derivative of \(\log_{b}(x)\).  Assume \(b > 0\) and \(b \ne 1\).
+\end{example}
+
+\clearpage
+
+\section{Inverse trigonometric functions}
+The inverse tangent function \(\arctan(x)\) is defined as the \emph{inverse} of the tangent function \(\tan(x)\). The two functions are related by
+\[
+  \arctan(x) = y \quad\text{ if and only if }\quad \tan(y) = x, \quad\text{ restricted to } -\frac{\pi}{2} < x < \frac{\pi}{2}.
+\]
+\begin{mdframed}[style=sidenote]
+  Recall two identities:
+  \begin{align*}
+    &\sin^{2}(x)& &+ &\cos^{2}(x) & = &1 \\[1ex]
+    &\tan^{2}(x)& &+ &1& = &\sec^{2}(x)
+  \end{align*}
+\end{mdframed}
+\begin{example}
+  Find the derivative of \(\arctan(x)\). 
+\end{example}
+\clearpage
+
+\section{Why should we think about \texorpdfstring{\(\frac{d}{dx}\ln(x)\)}{ln'(x)} and \texorpdfstring{\(\frac{d}{dx}\arctan(x)\)}{arctan'(x)} together?}
+
+Let's explore \(\ln(x)\) and \(\arctan(x)\) using using this GeoGebra worksheet 
+
+\url{https://www.geogebra.org/calculator/emkf3fut}
+
+\clearpage
+
+\section{The derivatives of \(\log_{b}(x)\) and \(\arctan(x)\)}
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(b > 0\) and \(b \ne 1\), then
+  \[
+    \frac{d}{dx} \left( \log_{b}(x) \right) = \frac{1}{x \ln(b)}.
+  \]
+
+  \textbook{\stewart{217}{\fbox{1}}}
+\end{mdframed}
+
+\vspace{3in}
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. 
+  \[
+    \frac{d}{dx} (\arctan(x)) = \frac{1}{1 + x^{2}}.
+  \]
+
+  \textbook{Page 223}
+\end{mdframed}
+\begin{mdframed}[style=sidenote, userdefinedwidth=.4\textwidth]
+Useful prerequisite knowledge. 
+\begin{align} 
+    &\sin^{2}(x)& &+ &\cos^{2}(x) & = 1 \\[1ex]
+    &\tan^{2}(x)& &+ &1& = \sec^{2}(x)
+\end{align}
+\end{mdframed}
+\clearpage
+\section{Logarithmic Differentiation}
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(g(x)\) is a differentiable function, then 
+  \[
+    \frac{d}{dx} \ln( g(x) ) = \frac{g'(x)}{g(x)}.
+  \]
+
+  \textbook{\stewart{218}{\fbox{3}}}
+\end{mdframed}
+\begin{mdframed}[style=sidenote, userdefinedwidth=.4\textwidth]
+Useful prerequisite knowledge. 
+\begin{align} 
+  \ln(f(x)^{n}) &= n\ln(f(x))
+\end{align}
+\end{mdframed}
+
+\begin{example}
+  Differentiate \(\ln(x^{3/4})\).
+\end{example}
+\vfill
+
+\begin{example}
+  Differentiate \(\ln(\sqrt{x^{2}+1})\).
+\end{example}
+\vfill
+
+\begin{example}
+  Differentiate \(\ln((3x+2)^{5})\).
+\end{example}
+\vfill
+
+\clearpage
+The Theorem on page 3 can be used to quickly differentiate complex functions. This method is called \emph{logarithmic differentiation}. \faExclamationTriangle{} Warning: Logarithmic differentiation only works for products and quotients.
+
+
+\begin{example}
+  Differentiate \(y = \frac{x^{3/4} \sqrt{x^{2}+1}}{(3x + 2)^{5}}\).
+\end{example}
+\textbf{Step 1}. Take the natural logarithm \(\ln\) of both sides of the equation.
+
+\begin{mdframed}[style=sidenote, userdefinedwidth=.5\textwidth]
+Useful prerequisite knowledge. 
+\begin{align} 
+  \ln\big(f(x) \cdot g(x)\big) &= \ln\big(f(x)\big) + \ln\big(g(x)\big) \\
+  \ln\left(\frac{f(x)}{g(x)}\right) &= \ln\big(f(x)\big) - \ln\big(g(x)\big) 
+\end{align}
+\end{mdframed}
+\vspace{1in}
+
+\textbf{Step 2}. Implicitly differentiate with respect to \(x\).
+\vfill
+
+\textbf{Step 3}. Solve for \(\frac{dy}{dx}\) and rewrite your expression as \(\frac{dy}{dx} = \cdots\). 
+\vspace{1in}
+
+\textbf{Step 4}. Replace every occurrence of \(y\) on the right-hand side by the original expression.
+\vspace{1in}
+\clearpage
+\phantom{blank page}
+
+\clearpage
+\phantom{blank page}
+
+\end{document}

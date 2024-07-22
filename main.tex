@@ -1,0 +1,379 @@
+\documentclass[11pt, twoside]{memoir}
+
+\def\theinstitute{University of Western Ontario}
+\def\thecourseterm{Fall 2024}
+\def\thecoursecode{CALC 1000A}
+\def\thecoursesection{}
+\def\thecoursename{Calculus I}
+\def\thecourseinstructor{Kelvin Chan}
+\def\thecourselms{BrightSpace}
+\def\thecoursetextbook{Stewart Calculus (9th edition)}
+
+\makepagestyle{syllabus}
+\makeoddfoot{syllabus}{}{}{Page~\thepage}
+\makeevenfoot{syllabus}{Page~\thepage}{}{}
+
+\makepagestyle{lectures}
+\makeoddfoot{lectures}{}{}{\footnotesize Page~\thepage}
+\makeevenfoot{lectures}{\footnotesize Page~\thepage}{}{}
+
+\newcommand{\makelectureweek}[2]{
+  \clearpage
+
+  % chapter and section numbering
+  \setcounter{chapter}{#1}
+  \setcounter{section}{0}
+
+  % 
+  \phantomsection{}
+  \addcontentsline{toc}{chapter}{#2}
+
+
+  % heading
+  \parbox{.333\textwidth}{\thecoursecode{}~(Section~\thecoursesection)\hfill} % left
+  \parbox{.333\textwidth}{\centering{} #2} % centre
+  \parbox{.333\textwidth}{} % right
+  \par\nointerlineskip\vspace{-3pt}\noindent\rule{\textwidth}{0.4pt}
+  \par
+}
+
+% ------------------------------------------------------------
+%
+%             TITLE
+%
+% ------------------------------------------------------------
+\title{\thecoursecode\thecoursesection --- \thecoursename}
+\author{Kelvin Chan}
+\date{\today}
+
+
+% ------------------------------------------------------------
+%
+%             PAGE SETUP
+%
+% ------------------------------------------------------------
+\settypeblocksize{9.5in}{7in}{*}
+\setlrmargins{0.75in}{*}{*} 
+\setulmargins{0.75in}{*}{*} 
+\setheadfoot{14pt}{14pt}
+\setheaderspaces{*}{11pt}{*}
+\checkandfixthelayout{}
+%\usepackage{layout}
+%\usepackage{showframe}
+
+% ------------------------------------------------------------
+%
+%           PACKAGES
+%
+% ------------------------------------------------------------
+
+% typography
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{microtype} 
+
+% colours
+\usepackage[dvipsnames]{xcolor}
+% https://coolors.co/363946-af2bbf-2a9d8f-fa8334-ff4242
+\definecolor{info}{HTML}{953946}  % supplementary information
+\definecolor{supp}{HTML}{AF2BBF}  % supplementary information
+\definecolor{main}{HTML}{2A9D8F}  % main message
+\definecolor{attn}{HTML}{FA8334}  % subtle easy to miss bits
+\definecolor{warn}{HTML}{FF4242}  % warning for common mistake
+\definecolor{discord}{RGB}{88,101,242}
+
+\newcommand{\hlinfo}[1]{\textcolor{info}{#1}}
+\newcommand{\hlsupp}[1]{\textcolor{supp}{#1}}
+\newcommand{\hlmain}[1]{\textcolor{main}{#1}}
+\newcommand{\hlattn}[1]{\textcolor{attn}{#1}}
+\newcommand{\hlwarn}[1]{\textcolor{warn}{#1}}
+
+% links and references
+\usepackage{hyperref}
+\renewcommand{\UrlFont}{\footnotesize\ttfamily}
+\hypersetup{
+  plainpages=false,             % needed if Roman numbers in frontpages
+  colorlinks=true,              % false: boxed links; true: colored links
+  linkcolor=black,              % color of internal links
+  citecolor=black,              % color of links to bibliography
+  filecolor=black,              % color of file links
+  urlcolor=black,               % color of external links
+  pdftitle={\thecoursecode{}: \thecoursename{} (\thecourseterm{})},
+  pdfauthor={\theauthor}
+}
+
+% lists
+\usepackage[inline]{enumitem}
+
+% figures
+\usepackage{float, caption}
+
+% plots
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% tables
+\usepackage{booktabs}
+
+% framed callout boxes
+\usepackage[framemethod=tikz]{mdframed}
+\mdfdefinestyle{wide}{
+  % userdefinedwidth=0.95\textwidth,
+  innertopmargin=1em,
+  innerleftmargin=1em,
+  innerbottommargin=1em,
+  innerrightmargin=1em,
+  skipabove=1em,
+  skipbelow=1em,
+  align=center,
+  roundcorner=3pt,
+}
+\mdfdefinestyle{simple}{
+  userdefinedwidth=0.9\textwidth,
+  innertopmargin=1em,
+  innerleftmargin=1em,
+  innerbottommargin=1em,
+  innerrightmargin=1em,
+  skipabove=1em,
+  skipbelow=1em,
+  align=center,
+  roundcorner=3pt,
+  startinnercode={\linespread{1.5}\selectfont}
+}
+
+\mdfdefinestyle{simple-compact}{
+  userdefinedwidth=0.9\textwidth,
+  innertopmargin=1em,
+  innerleftmargin=1em,
+  innerbottommargin=1em,
+  innerrightmargin=1em,
+  skipabove=1em,
+  skipbelow=1em,
+  align=center,
+  roundcorner=3pt,
+}
+
+\mdfdefinestyle{sidenote}{
+  userdefinedwidth=0.3\textwidth,
+  innertopmargin=1em,
+  innerleftmargin=1em,
+  innerbottommargin=1em,
+  innerrightmargin=1em,
+  skipabove=1em,
+  skipbelow=1em,
+  align=right,
+  topline=false,
+  rightline=false,
+  bottomline=false,
+  startinnercode={\footnotesize}
+}
+
+\mdfdefinestyle{withref}{
+  userdefinedwidth=0.9\textwidth,
+  innertopmargin=1em,
+  innerleftmargin=1em,
+  innerbottommargin=0.25em,
+  innerrightmargin=1em,
+  skipabove=1em,
+  skipbelow=1em,
+  align=center,
+  roundcorner=3pt,
+  startinnercode={\linespread{1.5}\selectfont}
+}
+
+\mdfdefinestyle{withref-compact}{
+  userdefinedwidth=0.9\textwidth,
+  innertopmargin=1em,
+  innerleftmargin=1em,
+  innerbottommargin=0.25em,
+  innerrightmargin=1em,
+  skipabove=1em,
+  skipbelow=1em,
+  align=center,
+  roundcorner=3pt,
+}
+
+% math
+\usepackage{amsmath,amsthm}
+\everymath{\displaystyle}
+
+\usepackage{cancel}
+\usepackage{ragged2e}
+
+% fonts
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[mathcal]{euscript}
+\usepackage{fontawesome5}
+
+\usepackage[sc,center,tiny]{titlesec}
+\titlelabel{\thetitle.\;}
+
+% subfiles
+\usepackage{subfiles}
+
+% better looking symbols
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
+
+% ------------------------------------------------------------
+%
+%           Math
+%
+% ------------------------------------------------------------
+\theoremstyle{definition}
+\newtheorem{thm}{Section}
+\newtheorem{example}[thm]{Example}
+
+\newcommand{\textbook}[1]{\noindent{} {\footnotesize \faBookReader{} #1 \hfill}}
+\newcommand{\stewart}[3][red]{Page #2, \textcolor{#1}{#3}}
+
+% ------------------------------------------------------------
+%
+%           Outlines
+%
+% ------------------------------------------------------------
+\newcounter{theoutline}
+\setcounter{theoutline}{0}
+\newenvironment{outline}[3]{
+  %
+  % increment the outline counter
+  %
+  \refstepcounter{theoutline}
+  \addcontentsline{toc}{section}{\arabic{theoutline}~#2}
+
+  \def\textbooksection{#1}
+  \def\textbooktitle{#2}
+  \def\textbookpage{#3}
+
+  %
+  % start of the outline
+  % 
+  \noindent\textbf{Outline~\arabic{theoutline}}~(#2).
+} {
+  \clearpage
+}
+
+
+% ------------------------------------------------------------
+%
+%           Fill in the blanks
+%
+% ------------------------------------------------------------
+\newcommand{\makelinedspace}[2][1ex]{
+  \par\nointerlineskip\vspace{#1}\noindent
+  \begin{tikzpicture}[x=\textwidth,y={1cm},yscale={-1}]
+    \foreach \y in {1,...,#2} {
+      \draw[gray!40, very thin] (0,\y) -- (1,\y);
+      \node[gray!40, above right] at (0, \y) {\(\y\)};
+    }
+  \end{tikzpicture}
+}
+
+% ------------------------------------------------------------
+%
+%           Styles
+%
+% ------------------------------------------------------------
+\pagestyle{plain} % don't use running headers
+\SingleSpacing{}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\medskipamount}
+\setdefaultlanguage[variant=canadian]{english}
+
+
+\begin{document}
+  % --------------------
+  % 
+  % title
+  % 
+  % --------------------
+  \begin{titlingpage}
+    \thispagestyle{empty}
+    
+    \begin{center}
+      % title
+      \phantom{top}
+      \vspace{1in}
+
+      {\huge\bfseries \thecoursecode{}: \thecoursename}
+
+      \vspace{2em}
+      {\large \thecourseinstructor}
+      \vspace{2em}
+
+      {\large \theinstitute}
+
+      \vfill{}
+      {\large \thecourseterm}
+    \end{center}
+    \cleardoublepage
+  \end{titlingpage}
+
+  % --------------------
+  % 
+  % FRONT MATTER
+  % 
+  % --------------------
+  \frontmatter{}
+  \pagenumbering{roman}
+  
+  \phantomsection{}
+  \addcontentsline{toc}{chapter}{Table of Contents}
+  \renewcommand{\contentsname}{Table of Contents}
+  \tableofcontents*{}
+  \clearpage
+
+  \phantomsection{}
+  \addcontentsline{toc}{chapter}{Course Syllabus}
+  \subfile{./syllabus.tex}
+  \clearpage
+  
+  %--------------------
+  % 
+  % MAIN MATTER
+  % 
+  % --------------------
+  \mainmatter{}
+
+  % % outlines
+  \phantomsection{}
+  \addcontentsline{toc}{chapter}{Outlines}
+  \subfile{outlines/week1.tex}
+  \subfile{outlines/week2.tex}
+  \subfile{outlines/week3.tex}
+  \subfile{outlines/week4.tex}
+  \subfile{outlines/week5.tex}
+  \subfile{outlines/week6.tex}
+  \subfile{outlines/week7.tex}
+  \subfile{outlines/week8.tex}
+  \subfile{outlines/week9.tex}
+  \subfile{outlines/week10.tex}
+  \subfile{outlines/week11.tex}
+
+  % % lectures
+  \pagestyle{lectures}
+  \subfile{lectures/week1.tex}
+  \subfile{lectures/week2.tex}
+  \subfile{lectures/week3.tex}
+  \subfile{lectures/week4.tex}
+  \subfile{lectures/week5.tex}
+  \subfile{lectures/week6.tex}
+  \subfile{lectures/week7.tex}
+  \subfile{lectures/week8.tex}
+  \subfile{lectures/week9.tex}
+  \subfile{lectures/week10.tex}
+  \subfile{lectures/week11.tex}
+  \subfile{lectures/week12.tex}
+
+  \clearpage
+  
+  %--------------------
+  % 
+  % BACL MATTER
+  % 
+  % --------------------
+  \backmatter{}
+  \subfile{lectures/review.tex}
+\end{document}

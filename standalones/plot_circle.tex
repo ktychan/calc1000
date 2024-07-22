@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage{pgfplots,xcolor}
+\pgfplotsset{compat=1.18}
+
+% see https://tex.stackexchange.com/questions/18359/plotting-an-implicit-function-using-pgfplots
+% for implicit plots using gnuplot
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={\footnotesize \(x\)},
+    ylabel={\footnotesize \(y\)},
+    xmin={-5.5},
+    xmax={5.5},
+    ymin={-5.5},
+    ymax={5.5},
+    axis x line={middle},
+    axis y line={middle},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+    x={15pt},
+    y={15pt},
+    yticklabels={,,},
+    xticklabels={,,},
+    ]
+
+    \addplot+ [no markers,
+      raw gnuplot,
+      thick,
+      empty line = jump,
+      % smooth,
+      ] gnuplot {
+      set contour base;
+      set cntrparam levels discrete 0;
+      unset surface;
+      set view map;
+      set isosamples 1000;
+      splot x^2 + y^2 - 25;
+    };
+    % \addplot[thick, blue, smooth, domain=-5:5, samples=2500] {sqrt(25 - \x^2)) };
+    % \addplot[thick, blue, smooth, domain=-5:5, samples=2500] {-sqrt(25 - \x^2)) };
+
+    \node[right] at (1.5,5) {\footnotesize \(x^{2} + y^{2} = 25\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

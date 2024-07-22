@@ -1,0 +1,297 @@
+\documentclass[../main]{subfiles} 
+
+% \title{Integration 2}
+% \date{November 20 to 24}
+
+% {Stewart (9E). Sections 5.2 and 5.3. Pages 384 to 398.}
+
+\begin{document}
+
+
+%--------------------------------------------------
+%
+% instructor notes
+%
+%--------------------------------------------------
+% Notes.
+% 
+%
+
+
+%--------------------------------------------------
+%
+% learning objectives
+%
+%--------------------------------------------------
+
+  At the end of the lecture, students should be able to
+  \begin{itemize}
+    \item define the definite integral and interpret it as a net area,
+    \item approximate a definite integral by sampling at left endpoints, right endpoints and midpoints,
+    \item use properties of the definite integral,
+    \item state and apply the Fundamental Theorem of Calculus parts 1 and 2, and
+    \item understand the relationship between differentiation and integration through the Fundamental Theorem of Calculus.
+  \end{itemize}
+
+
+
+
+%--------------------------------------------------
+%
+% General instructions
+%
+%--------------------------------------------------
+% \begin{instruction}[Instruction]{How to ...}
+%   \begin{enumerate}[label=(\alph*)]
+%     \item TODO
+%   \end{enumerate}
+% \end{instruction}
+%
+
+
+%--------------------------------------------------
+%
+% activities
+%
+%--------------------------------------------------
+\begin{outline}{sec}{The Riemann Sum}{page} \label{outline:riemann-sum}
+  We now consider all functions. That means we \emph{no longer} require a function to stay above the horizontal axis.
+  \begin{enumerate}
+    \item \textbf{Definition}. If \(f(x)\) is a function defined for \(a \le x \le b\), we divide the interval \([a,b]\) into \(n\) subintervals of \emph{equal width} \(\Delta x = \frac{b-a}{n}\). We let
+      \[
+        x_{0} = a, \quad x_{1} = a + \Delta x, \quad x_{2} = a + 2 \Delta x, \quad \dots, \quad x_{n} = a + n \Delta x = b
+      \]
+      be the endpoints of these intervals and we let \(x_{1}^{*}, x_{2}^{*}, \dots, x_{n}^{*}\) be any \emph{sample points} in these subintervals, so \(x_{i}^{*}\) lies in the \(i\)-th interval \([x_{i-1}, x_{i}]\). Note \(x_{i} = a + i \Delta x\). 
+      \begin{mdframed}[style=simple]
+        Then the summation of the form
+        \[
+          \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x
+        \]
+        is called a \emph{Riemann sum}.       
+      \end{mdframed}
+
+
+      Commonly used Riemann sums are shown in Figure~\ref{fig:riemann-sums}.
+      \begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
+        \centering
+        \includegraphics[width=0.3\linewidth]{../standalones/build/plot_left_sum}
+        \includegraphics[width=0.3\linewidth]{../standalones/build/plot_right_sum}
+        \includegraphics[width=0.3\linewidth]{../standalones/build/plot_mid_sum}
+        \caption{Geometric interpretation of commonly used Riemann sums.}
+        \label{fig:riemann-sums}
+      \end{figure}
+
+
+    \item By a sample point \(x_{i}^{*}\), we mean any choice of a number inside the interval \([x_{i-1}, x_{i}]\). 
+
+    \item A summand \(f(x_{i}^{*}) \Delta x\) in a Riemann sum can be interpreted as the ``signed'' area of a rectangle, call it \(R_{i}\), with one side being the interval \([x_{i-1}, x_{i}]\) and the ``signed'' height being \(f(x_{i}^{*})\). The adjective ``signed'' indicates we take into consideration whether the rectangle is above or below the horizontal axis. If \(f(x_{i}) > 0\), then the rectangle \(R_{i}\) is drawn with one side above the horizontal axis and its ``signed'' area is a positive number. If \(f(x_{i}) > 0\), then the rectangle \(R_{i}\) is drawn with one side below the horizontal axis and its ``signed'' area is a negative number.
+
+    \item \label{part:riemann-sum} Consider the function \(-x^{3} + 2 x^{2} + x - 2\) over the interval \([-2,3]\). See Figure~\ref{fig:squiggly} in Appendix.
+      \begin{enumerate}[label=(\alph*)]
+        \item \label{part:riemann-sum-left} Write down the Riemann sum with \(n = 5\) intervals and taking the sample points to be left endpoints. Draw the corresponding rectangles.
+        \item \label{part:riemann-sum-right} Write down the Riemann sum with \(n = 5\) intervals and taking the sample points to be right endpoints. Draw the corresponding rectangles.
+        \item \label{part:riemann-sum-mid} Write down the Riemann sum with \(n = 5\) intervals and taking the sample points to be midpoints. Draw the corresponding rectangles. We write \(\overline{x_{i}}\) to mean the midpoint of the interval \([x_{i-1}, x_{i}]\). That is \(\overline{x_{i}} = \frac{x_{i-1} + x_{i}}{2}\).% \todo{Check the quiz bank for the usage of this notation.}
+
+        \item Write down a Riemann sum with \(n = 5\) intervals and taking the sample points to be none of left, right or midpoints. Draw the corresponding rectangles.
+          % \item Why can we say ``\textit{the} Riemann sum'' in parts \ref{part:riemann-sum-left} to \ref{part:riemann-sum-mid} but we have to say ``\textit{a} Riemann sum'' in part (d)?
+      \end{enumerate}
+      % Considering turn this part as an in-class activity.
+    \item Suggested variations. Repeat Part~\ref{part:riemann-sum} with
+      \begin{enumerate}
+        \item \(e^{x}\) over the interval \([-2, 3]\) and \(n = 3\).
+        \item \(\sin(x)\) over the interval \([0,\pi]\) and \(n = 6\).
+        \item \(\sqrt{4 - x^{2}}\) over the interval \([1,2]\) and \(n = 5\).
+      \end{enumerate}
+      % Consider using one of 2(a), 2(b) or 2(c) as an in-class activity. 
+    \item {If a function \(f(x)\) stays above the horizontal axis, then a Riemann sum is another name for the approximation of the area under the curve \(y = f(x)\) over some interval \([a,b]\) using rectangles.}
+    \item {The Riemann sum is a way to generalize the area problem (from last week) to all functions. We will use it to define the definite integral.}
+  \end{enumerate}
+\end{outline}
+
+
+
+
+\begin{outline}{sec}{The Definite Integral}{page} \label{outline:definite-integral}
+  \begin{enumerate}
+    \item \textbf{Definition}. 
+      \begin{mdframed}[style=simple]
+        The \emph{definite integral} of a function \(f\) from \(a\) to \(b\) is
+        \[
+          \int_{a}^{b} f(x) dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x,
+        \]
+        provided that the limit exists and gives the same values for all possible choices of sample points. If the limit does exist, we say that \(f\) is \emph{integrable} on \([a,b]\). 
+      \end{mdframed}
+    \item A definite integral \(\int_{a}^{b} f(x) dx\) is a number. The procedure of calculating an integral is called \emph{integration}. 
+      \begin{itemize}
+        \item The integral sign is the symbol \(\int\) which is an elongated \(\sum\).
+        \item The integrand is everything between \(\int_{a}^{b}\) and \(dx\). The symbol \(dx\) tells us that the independent variable for the integrand is \(x\), called the variable of integration. We can use any letter as long as we use the same letter for the independent variable for the integrand. For example, \(\int_{a}^{b} f(x) dx = \int_{a}^{b} f(t) dt = \int_{a}^{b} f(r) dr\).
+        \item The lower limit is the subscript of \(\int_{a}^{b}\).
+        \item The upper limit is the superscript of \(\int_{a}^{b}\).
+        \item The limits of integration refers to the lower limit and the upper limit.
+        \item We say ``\textit{integrate \(f\) from \(a\) to \(b\) with respect to \(x\)},'' to mean calculate the value of \(\int_{a}^{b} f(x) dx\).
+      \end{itemize}
+
+      \begin{mdframed}[style=simple]
+        \huge
+        \[
+          \normalsize
+          \int^{\fbox{upper limit}}_{\fbox{lower limit}} \fbox{\parbox{2.5in}{\centering integrand\\\small (a function in the variable of integration)}} \; d \fbox{variable of integration}
+        \]
+      \end{mdframed}
+    \item \textbf{Definition}. The \emph{net area} of the region bounded by the graph of \(f\) and the horizontal axis is the area of the portion above the horizontal axis plus the negative of the portion below the horizontal axis. See Figure~\ref{fig:net-area} for an illustration.
+
+    \item The definite integral can be interpreted as a \emph{net area}. 
+      \begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
+        \centering
+        \includegraphics{../standalones/build/plot_net_area}
+        \caption{A net area is the sum of the areas with the appropriate signs.}
+        \label{fig:net-area}
+      \end{figure}
+    \item \textbf{Theorem}. If \(f\) is continuous on \([a,b]\), or if \(f\) has only a finite number of jump discontinuities, then \(f\) is integrable on \([a,b]\); that is the definite integral \(\int_{a}^{b} f(x) dx\) exists.
+    \item Suggested problems.
+      \begin{enumerate}
+        \item Evaluate \(\int_{1}^{2} (x^{2} - 2x) dx\) using the definition of the definite integral.
+        \item Evaluate the integral \(\int_{0}^{2} \sqrt{4 - t^{2}} dt\) geometrically. Hint: Graph the integrand.
+        \item \label{part:rocket} A rock at rest launched straight up has a velocity function \(v(t) = v_{0} - gt\) where \(g\) is the acceleration due to gravity. It is known that the initial velocity \(v_{0} = 10\) metres per second. Approximate the displacement of the rock after \(2\) seconds from launch using \(3\) rectangles by sampling at midpoints? 
+      \end{enumerate}
+    \item {The definite integral is defined as the limit of the Riemann sum as \(n\) approaches infinity.}
+    \item {A geometric interpretation of the Riemann sum is net area.}
+  \end{enumerate}
+\end{outline}
+
+
+
+\begin{outline}{sec}{Properties of the Definite Integral}{page} \label{outline:integral-properties}
+  \begin{enumerate}
+    \item \textbf{}
+      \begin{enumerate}[label=(\arabic*), start=0] 
+        \item \(\int_{a}^{b} f(x) dx = -\int_{b}^{a} f(x) dx\) and \(\int_{a}^{a}f(x)dx = 0\).
+        \item \(\int_{a}^{b} c dx = c(b-a)\), where \(c\) is any constant.
+        \item \(\int_{a}^{b} [f(x) + g(x) ] dx = \int_{a}^{b} f(x) dx + \int_{a}^{b} g(x) dx\).
+        \item \(\int_{a}^{b} c f(x) dx = c \int_{a}^{b} f(x) dx\), where \(c\) is any constant.
+        \item \(\int_{a}^{b} [f(x) - g(x) ] dx = \int_{a}^{b} f(x) dx - \int_{a}^{b} g(x) dx\).
+        \item \(\int_{a}^{b} f(x) dx + \int_{b}^{c} f(x) dx = \int_{a}^{c} f(x) dx\), where \(b\) is a number in the interval \([a,c]\).
+        \item If \(f(x) \ge 0\) for \(a \le x \le b\), then \(\int_{a}^{b} f(x) dx \ge 0\).
+        \item If \(f(x) \ge g(x)\) for \(a \le x \le b\), then \(\int_{a}^{b} f(x) dx \ge \int_{a}^{b} g(x) dx\).
+        \item If \(m \le f(x) \le M\) for \(a \le x \le b\), then \(m(b-a) \le \int_{a}^{b} f(x) dx \le M(b-a)\). 
+
+          Notice \(m,M\) are constants.
+      \end{enumerate}
+    \item Properties (6), (7) and (8) are called comparison properties of the integral.
+    \item Suggested problems:
+      \begin{enumerate}
+        \item If \(\int_{0}^{1} f(x) dx = 5\) and \(\int_{0}^{5} f(x) = -3\), find \(\int_{1}^{5} f(x) dx\).
+        \item Estimate \(\int_{0}^{1} e^{-x^{2}} dx\). % See \textit{The Gaussian Integral} in Appendix for context.
+      \end{enumerate}
+
+    \item {Properties of the definite integral can be used to calculate definite integral from known definite integrals.}
+  \end{enumerate}
+\end{outline}
+
+
+
+\begin{outline}{sec}{The Fundamental Theorem of Calculus}{page} \label{outline:ftc}
+  \begin{enumerate}
+    \item Let \(v(t) = v_{0} - gt\) be the velocity function of a rock launched straight up as in Part~\ref{part:rocket} of Outline~\ref{outline:definite-integral}. A plot is shown in Figure~\ref{fig:rocket}.
+      \begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
+      \centering
+      \includegraphics{../standalones/build/plot_rock}
+      \caption{A plot of the rock's velocity function \(v(t) = v_{0} - gt\).}
+      \label{fig:rocket}
+      \end{figure}
+      \begin{enumerate}
+        \item What are the physical meaning of \(\int_{0}^{{\color{attn} 1}} v(t) dt, \quad \int_{0}^{{\color{attn} 2}} v(t) dt, \quad \int_{0}^{{\color{attn} 3}} v(t) dt, \; \dots \;, \quad \int_{0}^{{\color{attn} 6}} v(t) dt\)?
+        \item Discuss the physical meaning of the function
+          \[
+            d({\color{attn} t}) = \int_{0}^{{\color{attn} t}} v(x) dx.
+          \]
+        \faComment{} Can you express \(v\) in terms of \(d\)?
+        \item Assume \(a,b\) are constants. Use Properties of Definite Integrals to find the physical meaning of the number
+          \[
+            D = \int_{a}^{b} v(x) dx.
+          \]
+          \faComment{} Can you express \(D\) in terms of \(d(a)\) and \(d(b)\)? Use the physical meaning of \(d\) to help you.
+      \end{enumerate}
+    \item \textbf{Theorem} (The Fundamental Theorem of Calculus, Part 1).
+      \begin{mdframed}[style=simple]
+        If \(f\) is continuous on \([a,b]\), then the function \(g\) defined by
+        \[
+          g(x) = \int_{a}^{x} f(t) dt, \quad a \le x \le b,
+        \]
+        is continuous on \([a,b]\) and differentiable on \((a,b)\), and \(g'(x) = f(x)\).
+      \end{mdframed}
+    \item \textbf{Theorem} (The Fundamental Theorem of Calculus, Part 2).
+      \begin{mdframed}[style=simple]
+        If \(f\) is continuous on \([a,b]\), then 
+        \[
+          \int_{a}^{b} f(x) dx = F(b) - F(a),
+        \]
+        where \(F\) is any antiderivative of \(f\), that is, a function \(F\) such that \(F' = f\).
+      \end{mdframed}
+    \item Suggested problems:
+      \begin{enumerate}
+        \item Find the derivative of the function \(g(x) = \int_{1}^{x} e^{-t^{2}} dt\).
+        \item Find the derivative of the function \(h(x) = \int_{1}^{x^{3}} e^{-t^{2}} dt\).
+        \item Evaluate \(\dfrac{d}{dt} \int_{1}^{f(t)} \sqrt{1 + x^{2}} dx\) where \(f(x)\) is an arbitrary differentiable function.
+        \item Evaluate the integral \(\int_{1}^{e} \frac{1}{x} dx\).
+        \item Suppose an antiderivative of \(f(x)\) is \(F(x) = \sqrt{2 + \sqrt{x}}\). Is it possible that \(\int_{1}^{4} f(x) dx = -1\)?
+      \end{enumerate}
+    \item {The \underline{\large F}undamental \underline{\large T}heorem of \underline{\large C}alculus (FTC) tells us that differentiation and integration are inverse process of each other. FTC has a central importance in Calculus.}
+  \end{enumerate}
+\end{outline}
+
+
+
+
+
+%--------------------------------------------------
+%
+% additional problems
+%
+%--------------------------------------------------
+Exercises.
+\begin{enumerate}
+\item Find the error in the following argument. 
+  \begin{quote}
+    Let \(f(x)\) be a continuous function and let \(L = \int_{a}^{b} f(x) dx\). Any calculation that shows \(L < 0\) must be wrong because an definite integral can be interpreted as an area which is a non-negative number.
+  \end{quote}
+\item Describe the geometric meaning of \(\lim_{t \to 0^{+}} \int_{t}^{1} \frac{1}{x} dx\). 
+\item   From the textbook, exercises  1-10, 19-30, 35-36, 41-48, 51-52, 57-71, 83 in Section 5.2%includes midpoint questions
+\item   From the textbook, exercises  1-20, 25-58, 72-76, 80, 83-84,93-94 in Section 5.3
+\end{enumerate}
+
+
+
+%--------------------------------------------------
+%
+% appendix
+%
+%--------------------------------------------------
+% \noindent\textbf{Appendix}. 
+%
+% \noindent\textbf{The Gaussian integral}.
+% The integral \(\int e^{-x^{2}} dx\) is called the Gaussian integral and it plays an important role in physical science due to the integral's connection to the so-called normal distribution in statistics. But this indefinite integral cannot be expressed using elementary functions. The ability to approximate any definite version of this integral has central importance in physical science. 
+%
+% However, using more advanced mathematics, \(\lim_{t \to \infty} \int_{-t}^{t} e^{-x^{2}} dx\) can be calculated to be \(\sqrt{\pi}\). In MATH 1014, you will learn the geometric meaning of this limit as the generalization of the area problem.
+%
+% \clearpage
+
+\pagestyle{empty}
+\begin{figure}[h!]  % [h] for here, [ht] for here top, [hb] for here bottom
+\centering
+
+\includegraphics{../standalones/build/plot_squiggly}
+\hspace{2em}
+\includegraphics{../standalones/build/plot_squiggly}
+
+\vspace{2em}
+
+\includegraphics{../standalones/build/plot_squiggly}
+\hspace{2em}
+\includegraphics{../standalones/build/plot_squiggly}
+
+\caption{The graph of \(-x^{3} + 2 x^{2} + x - 2\) over \([-2,3]\)}
+\label{fig:squiggly}
+\end{figure}
+
+\end{document}

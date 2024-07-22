@@ -1,0 +1,34 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18, 
+  ticklabel style = {font=\footnotesize},
+  axis equal image,
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=middle,
+      % width=5in, height=5in,
+      xmin=0, xmax=5,
+      ymin=0, ymax=5,
+      xlabel={\footnotesize \(x\)},
+      xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+      ylabel={\footnotesize \(y\)},
+      ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+      axis line style = {thin},
+      grid=both,
+      grid style={line width=.2pt, draw=gray!20},
+      % minor tick num=1, 
+      ]
+      % \addplot[no marks] coordinates { (1,1) (2,4) };
+      % \addplot[no marks] coordinates { (2,3) (4,1) };
+      % \draw[fill=white] (axis cs:2,4) circle[radius=0.05];
+      % \filldraw (axis cs:2,3) circle[radius=0.05];
+      % \filldraw (axis cs:1,1) circle[radius=0.05];
+      % \filldraw (axis cs:4,1) circle[radius=0.05];
+    \end{axis}
+  \end{tikzpicture}
+\end{document}
+

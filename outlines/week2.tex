@@ -1,0 +1,381 @@
+\documentclass[../main]{subfiles} 
+
+% \title{Continuity}
+% \topic{Continuity}
+% \date{September 18 to 22, 2023}
+% Stewart (9E). Sections 2.5 and Section 2.6. Pages 115 to 140.
+
+\begin{document}
+
+%--------------------------------------------------
+%
+% instructor notes
+%
+%--------------------------------------------------
+\textbf{Notes}.
+\begin{enumerate}
+  \item We use \(\arctan(x)\) to denote the inverse tangent function.  See the textbook page 63 for references.
+\end{enumerate}
+
+
+%--------------------------------------------------
+%
+% learning objectives
+%
+%--------------------------------------------------
+\textbf{Learning Objectives}.
+At the end of the lectures, students should be able to
+\begin{itemize}
+  \item identify left, right, and two-sided continuity at a number on graphs,
+  \item identify discontinuities and their types on graphs,
+  \item identify intervals of continuity of elementary functions,
+  \item use algebraic properties of continuous functions to identify their intervals of continuity and discontinuities,
+  \item given a continuous function \(f\) and a function \(g\) not necessarily continous at \(a\), evaluate \(\lim_{x \to a} f(g(x))\).
+  \item apply the Intermediate Value Theorem (IVT) to answer existence questions,
+  \item evaluate limits at infinity of simple functions, and
+  \item identify horizontal asymptotes.
+\end{itemize}
+\clearpage
+
+%--------------------------------------------------
+%
+% General instructions
+%
+%--------------------------------------------------
+% \includegraphics[width=2in,trim={0 9in 0 0},clip]{./images/acc_wo_g_stopped.PNG}
+% \includegraphics[width=2in,trim={0 9in 0 0},clip]{./images/acc_wo_g_running.PNG}
+% \includegraphics[width=2in,trim={0 9in 0 0},clip]{./images/acc_wo_g_end.PNG}
+
+% \begin{instruction}[Instruction]{How to use \href{https://phyphox.org/}{phyphox}}
+%   Upon opening the phyphox app, you are presented with a list of sensors as shown below on the left.  Each sensor captures data in the form of a graph.  Once you have chosen a sensor, you should see a data screen, as shown in the middle below. The horizontal axis is typically time, and the vertical axis is the sensor data. Press \raisebox{-0.3em}{\includegraphics[height=1.2em]{images/button_resume.PNG}} to start or resume capturing data, \raisebox{-0.3em}{\includegraphics[height=1.2em]{images/button_pause.PNG}} to pause, and \raisebox{-0.3em}{\includegraphics[height=1.2em]{images/button_trashcan.PNG}} to clear the graph. You can enlarge the graph by tapping on it. You should see a screen like the one on the left below.  To examine a data point, choose \texttt{Pick Data} \raisebox{-0.3em}{\includegraphics[height=1.5em]{images/button_pick_data}} and click somewhere on the graph. The right screenshot below shows at time \(0.37949935 \; \text{s}\), the acceleration is \(0.17750651 \; \text{m}/\text{s}^{2}\).
+%
+%   \begin{figure}[ht]
+%     \centering
+%     \begin{minipage}[m]{.32\textwidth}
+%       \centering
+%       \includegraphics[width=2in,trim={0 0in 0 0},clip]{./images/phyphox_main.PNG}
+%     \end{minipage}
+%     \begin{minipage}[m]{.32\textwidth}
+%       \includegraphics[width=2in,trim={0 9.5in 0 0},clip]{./images/acc_wo_g_stopped.PNG}
+%       \vspace{0.6em}
+%
+%       \includegraphics[width=2in,trim={0 9.5in 0 0},clip]{./images/acc_wo_g_running.PNG}
+%     \end{minipage}
+%     \begin{minipage}[m]{.32\textwidth}
+%       \centering
+%       \includegraphics[width=2in,trim={0 0in 0 0},clip]{./images/acc_wo_g_graph.jpeg}
+%     \end{minipage}
+%   \end{figure}
+% \end{instruction}
+
+
+%--------------------------------------------------
+%
+% activities
+%
+%--------------------------------------------------
+\begin{outline}{sec}{The definition of continuity}{page}
+  \label{act:definition}
+  The definition of \emph{continuity at a number} reads as follows.
+  \begin{mdframed}[style=simple]
+    A function \(f(x)\) is continuous at a number \(a\) if
+    \begin{equation} \label{eq:continuity}
+      \lim_{x \to a} f(x) = f(a).
+    \end{equation}
+  \end{mdframed}
+
+  \begin{enumerate}
+    \item Discuss mathematical functions as models for physical quantities. Demonstrate continuity using a ball drop and its height function over time.  Discuss continuous functions are convenient mathematical objects to model physical quantities.
+    \item Discuss the three defining conditions for a function \(f\) to be continuous at a number \(a\).
+          \begin{enumerate}
+            \item The function \(f\) is defined at \(a\). % In other words, the right-hand side of Equation~\eqref{eq:continuity} is well-defined.
+            \item The limit \(L = \lim_{x \to a} f(x)\) exists. % In other words, the left-hand side of Equation~\eqref{eq:continuity} is well-defined.
+            \item The limit \(L\) and the function value \(f(a)\) equal each other. % In other words, both sides of Equation~\eqref{eq:continuity} agree.
+          \end{enumerate}
+    \item Terminology: A function \(f\) is \textit{continuous on an interval} \(I\) if \(f\) is continuous at \emph{every} number in \(I\).
+    \item Describe polynomials, rational functions, \(\sqrt[n]{x}\), \(e^{x}\), \(\sin(x)\), and \(\cos(x)\) as continuous everywhere on their domains.
+
+    \item Terminology: We say ``\(f\) is discontinuous at \(a\)'' or ``\(f\) has a discontinuity at \(a\)'' to mean \(f\) is not continuous at \(a\).
+    \item Review \(\ln(x)\), its domain, and its graph.
+
+    \item Describe the continuity of \(\ln(x)\) at a positive number. Discuss the continuity of \(\ln(x)\) at \(0\).
+          Discuss the continuity of \(\ln(x)\) on the interval \((-1,1)\).
+    \item {Given a function \(f\) and a number \(a\), compute the limit \(L = \lim_{x \to a} f(x)\) and compare it with \(f(a)\). If \(L\) agrees with \(f(a)\), then \(f\) is continuous at \(a\). Otherwise, \(f\) is discontinuous at \(a\). If at least one of \(L\) or \(f(a)\) does not exist, then \(f\) is also discontinuous at \(a\).}
+
+    \item {Continuity is always associated with a number or an interval. When describing continuity, we need to specify where a function is continuous.}
+  \end{enumerate}
+\end{outline}
+
+
+\begin{outline}{sec}{Types of discontinuities}{page}
+  \label{act:discontinuity}
+  If a function \(f\) is discontinuous at a number \(a\), then the discontinuity at \(a\) can be one of the three types: (1) removable, (2) jump, (3) infinite.
+
+  \begin{enumerate}
+    \item \label{part:gs} Describe discontinuities and their types of the following functions.
+          \begin{figure}[ht]
+            \centering
+            % \includegraphics{../standalones/build/plot_discontinuity_examples}
+            % g1
+            \begin{tikzpicture}
+              \begin{axis}[
+                axis lines=middle, 
+                axis equal image, 
+                xmin=-1, xmax=3, ymin=-1, ymax=4, 
+                no markers,
+                title={The graph of \(g_{1}(x)\)},
+                ]
+                \addplot {x + 1};
+                \draw[fill=white] (axis cs:1,2) circle (0.075);
+              \end{axis}
+            \end{tikzpicture}
+            % g2
+            \begin{tikzpicture}
+              \begin{axis}[
+                axis lines=middle, 
+                axis equal image, 
+                xmin=-1, xmax=3, ymin=-1, ymax=4,
+                no markers,
+                title={The graph of \(g_{2}(x)\)},
+                ]
+                \addplot[domain=-1:1] {(x-1)^2} circle (0.075);
+                \addplot[domain=1:3] {x + 1};
+                \draw[fill=black] (axis cs:1,0) circle (0.075);
+                \draw[fill=white] (axis cs:1,2) circle (0.075);
+              \end{axis}
+            \end{tikzpicture}
+            % g3
+            \begin{tikzpicture}
+              \begin{axis}[
+                axis lines=middle, 
+                axis equal image, 
+                xmin=-1, xmax=3, ymin=-1, ymax=4,
+                no markers,
+                title={The graph of \(g_{3}(x)\)},
+                ]
+                \addplot[domain=-1:1] {1/(x-1) + 2};
+                \addplot[domain=1:3] {1/(x-1) + 2};
+                \addplot[dotted] coordinates { (1,4) (1,-1) };
+              \end{axis}
+            \end{tikzpicture}
+          \end{figure}
+
+    \item A function \(f\) is continous from the left at a number \(a\) if \(\lim_{x \to a^{-}} f(x)= f(a)\).
+    \item A function \(f\) is continous from the right at a number \(a\) if \(\lim_{x \to a^{+}} f(x)= f(a)\).
+    \item Which function in Part~\ref{part:gs} is continuous from the left at a number but discontinuous from the right at the same number?
+    \item {There are three types of discontinuities: (1) removable, (2) jump, (3) infinite. Similar to left and right limits, there are left and right continuties.}
+  \end{enumerate}
+\end{outline}
+
+
+\begin{outline}{sec}{Properties of continuous function}{page}
+  \label{act:properties}
+  \begin{enumerate}
+    \item \textbf{Theorem.} If functions \(f,g\) are \emph{both} continuous at a number \(a\), then the following are all continuous at \(a\)
+          \[
+            f+g,
+            \hspace{2em} f-g,
+            \hspace{2em} cf \quad\text{where }c \text{ is a constant},
+            \hspace{2em} fg,
+            \hspace{2em} \frac{f}{g}\quad\text{if } g(a) \ne 0.
+          \]
+
+    \item For each of the function below, use properties of continuous functions to \emph{justify} whether they are continuous at \(0\), \(1\), and \(2\).
+          \[
+            g_{1}(x) = \frac{x^{2} - 1}{x-1},
+            \hspace{2em}
+            g_{2}(x) =
+            \begin{cases}
+              x^{2} & \text{if } x \le 0 \\
+              x + 1 & \text{if } x > 0
+            \end{cases},
+            \hspace{2em}
+            g_{3}(x) = \frac{x^{2} - 2x - 3}{x - 5}.
+          \]
+    \item Review function composition \(f(g(x))\) and the circle notation \(f \circ g\).
+
+    \item \textbf{Theorem.} If \(g\) is continuous at \(a\) and \(f\) is continuous at \(g(a)\), then \(f \circ g\) is continuous at \(a\).
+
+    \item Discuss the continuity of \(\ln\left( \sin(x) \right)\).
+
+    \item \textbf{Theorem.} If \(\lim_{x \to a} g(x) = b\) and \(f\) is continuous at \(b\), then \(\lim_{x \to a} f(g(x)) = f(b)\).
+
+    \item Evaluate \(\lim_{x \to 1} \sin(g_{1}(x))\).
+
+    \item {Complicated continuous functions can be built from simpler continuous functions using addition, subtraction, multiplication, division (if well-defined) and composition.}
+    \item {The limit operator commutes with continuous functions. Note \emph{commute} means order does not matter.}
+  \end{enumerate}
+\end{outline}
+
+\begin{outline}{sec}{Intermediate Value Theorem}{page}
+  \label{act:ivt}
+
+  \begin{enumerate}
+    \item[\faIcon{comments}] (Group discussion) \label{part:ivt-example} If the temperature is \(5^{\circ}\)C at \(7 \text{ am}\) and \({10}^{\circ}\)C at \(5\text{ pm}\), does it have to be \({8}^{\circ}\)C \emph{sometime} between 7 am and 5 pm?  Imagine a temperature function over time that fits the above data. Draw the corresponding graph. Use the graph to support your reasoning. Compare graphs within groups. What \emph{mathematical property} of a temperature function over time guides you to think this way?
+          \begin{figure}[H]
+            \centering
+            % \includegraphics[scale=1]{plot_ivt_motivation}
+            \begin{tikzpicture}
+              \begin{scope}[shift={(-5,0)}]
+                \draw[->] (6,0) -- (19, 0);
+                \foreach \n in {6,7,...,11} {
+                    \draw (\n, 0.1) -- (\n, -0.1) node[below right, rotate=-45] { \tiny {\n} am };
+                  }
+                \draw (12, 0.1) -- (12, -0.1) node[below right, rotate=-45] { \tiny 12 pm };
+              \end{scope}
+              \begin{scope}[shift={(7,0)}]
+                \foreach \n in {1,...,6} {
+                    \draw (\n, 0.1) -- (\n, -0.1) node[below right, rotate=-45] { \tiny {\n} pm };
+                  }
+              \end{scope}
+              \begin{scope}[shift={(0,-3)}]
+                \draw[->] (0,4) -- (0, 11);
+                \foreach \y in {4,...,10} {
+                    \draw (0.1, {\y}) -- (-0.1, {\y}) node[left] { \tiny \({\y}^{\circ}\text{C}\) };
+                  }
+              \end{scope}
+              \begin{scope}[shift={(1,1)}]
+                \draw[dotted, thin] (0,0) grid (12,6);
+              \end{scope}
+            \end{tikzpicture}
+          \end{figure}
+
+    \item The Intermediate Value Theorem (IVT) states the following.
+
+          \begin{mdframed}[style=simple]
+            Suppose \(f(t)\) is continuous on the closed interval \([a,b]\) and let \(N\) be any number between \(f(a)\) and \(f(b)\), where \(f(a) \ne f(b)\). Then \textit{there exists} a number \(c\) in \((a,b)\) such that \(f(c) = N\).
+          \end{mdframed}
+
+          The \emph{intermediate value} is \(f(c)\) because \(a < c < b\), and \(f(a) < f(c) < f(b)\) or \(f(b) < f(c) < f(a)\).
+
+    \item Discuss the assumptions of the theorem in detail.  Discuss the existential nature of its conclusion.  Discuss its importance as a necessary property to model physical quantities.
+
+          % Visualize the theorem below. \todo{Needs more instructions or omit this.}
+          %
+          % \begin{figure}[ht]
+          %   \centering
+          %   \begin{tikzpicture}[scale=0.5]
+          %     \draw[->] (1,0) -- (13, 0);
+          %     \foreach \n in {1,...,12} {
+          %       \draw (\n, 0.1) -- (\n, -0.1); 
+          %     }
+          %     \draw[->] (0,1) -- (0, 8);
+          %     \foreach \y in {1,...,7} {
+          %       \draw (0.1, {\y}) -- (-0.1, {\y}); 
+          %     }
+          %     \draw[dotted, thin] (1,1) grid (12,7);
+          %     \node[below] at (2, 0) {\footnotesize \(a\)};
+          %     \node[below] at (12, 0) {\footnotesize \(b\)};
+          %
+          %     \node[left] at (0, 2) {\footnotesize \(f(a)\)};
+          %     \node[left] at (0, 6) {\footnotesize \(f(b)\)};
+          %
+          %   \end{tikzpicture}
+          %   \quad
+          %   \begin{tikzpicture}[scale=0.5]
+          %     \draw[->] (1,0) -- (13, 0);
+          %     \foreach \n in {1,...,12} {
+          %       \draw (\n, 0.1) -- (\n, -0.1); 
+          %     }
+          %     \draw[->] (0,1) -- (0, 8);
+          %     \foreach \y in {1,...,7} {
+          %       \draw (0.1, {\y}) -- (-0.1, {\y}); 
+          %     }
+          %     \draw[dotted, thin] (1,1) grid (12,7);
+          %     \node[below] at (2, 0) {\footnotesize \(a\)};
+          %     \node[below] at (12, 0) {\footnotesize \(b\)};
+          %
+          %     \node[left] at (0, 2) {\footnotesize \(f(b)\)};
+          %     \node[left] at (0, 6) {\footnotesize \(f(a)\)};
+          %
+          %   \end{tikzpicture}
+          % \end{figure}
+
+          % \item[\faIcon{lightbulb}] IVT says the intermediate value can be found under appropriate continuity conditions. Use it like this:
+          %   \begin{enumerate}
+          %     \item You have a \emph{continuous} function \(f(t)\) on a closed interval \([a,b]\) and \(f(a) \ne f(b)\).
+          %     \item You have a value \(N\) \emph{between} \(f(a)\) and \(f(b)\).
+          %     \item You want an YES-or-NO answer to the question: 
+          %       \begin{center}
+          %         \setlength\fboxsep{1em}
+          %         \fbox{
+          %             \emph{Is it possible} to solve for \(f(c) = N\) where \(c\) is in the open interval \((a,b)\)?
+          %         }
+          %       \end{center}
+          %
+          %     \item[\faIcon{check}] If both (a) and (b) are satisfied, then the answer is YES!
+          %     \item[\faIcon{exclamation}] However, if \(f\) is not continuous on \([a,b]\) or \(N\) is not between \(f(a)\) and \(f(b)\), then there is \emph{no answer}. You have to find another method to answer this question. 
+          %   \end{enumerate}
+          %
+          % \item Reconsider the scenario in Part~\eqref{part:ivt-example}. IVT can be used to justify your answer.
+          %   \begin{enumerate}
+          %     \item What are \(f(t)\) and \([a,b]\)?  Is \(f(t)\) continuous on \([a,b]\) and \(f(a) \ne f(b)\)?
+          %     \item What is the value \(N\)? Is \(N\) between \(f(a)\) and \(f(b)\)?
+          %     \item What is the YES-or-NO question?
+          %   \end{enumerate}
+
+    \item Use IVT to show the function \(f(t) = t^{3} - t^{2} + 1\) has a root between \(-1\) and \(1\).
+
+    \item Use IVT to show the function \(f(t) = \sin(t) - t^{3}\) satisfy \(f(c) = -100\) for some number \(c\). Highlight that IVT does not give us a method to find the exact value for \(c\).
+
+    \item {IVT says a function \(f(t)\) continuous on \([a,b]\) must take on a value between \(f(a)\) and \(f(b)\) on the interval \([a,b]\). Before applying IVT, make sure to check the requirements of IVT.}
+    \item {IVT is an \emph{existence} statement. It tells you that something can be found but does not tell you how to find it.  We will see more existence statements in future lectures.}
+
+  \end{enumerate}
+\end{outline}
+
+
+\begin{outline}{sec}{Limits at infinity and horizontal asymptotes}{page}
+  \begin{enumerate}
+    \item Discuss the following scenario to motivate limits at infinity. There is an apple a metre away from you.  You start by taking a step of half of a metre towards the apple.  Then each subsequent step is half the length of the previous one.
+          \begin{enumerate}
+            \item Can you get as close to the apple as you want?
+            \item If you are allowed to take ``infinitely'' many steps, do you \emph{expect} to reach the apple?
+          \end{enumerate}
+
+    \item {The limit at infinity is defined as follows.}
+          \begin{mdframed}[style=simple]
+            Let \(f\) be a function defined on some interval \((a,\infty)\). If \(L\) is a number such that \(f(x)\) can be made arbitrarily close to \(L\) by requiring \(x\) to be sufficiently large, then we say
+            \[
+              \lim_{x \to \infty} f(x) = L.
+            \]
+
+            Similarly, if \(f\) is defined on some interval \((-\infty, a)\) and \(L\) is a number such that \(f(x)\) can be made arbitrarily close to \(L\) by requiring \(x\) to be sufficiently large negative, then we say
+            \[
+              \lim_{x \to -\infty} f(x) = L.
+            \]
+          \end{mdframed}
+
+
+    \item Review the inverse tangent function \(\arctan(x)\).
+    \item Evaluate \(\lim_{x \to \infty} \arctan(x)\), \(\lim_{x \to -\infty} \arctan(x)\), and \({\lim_{x \to -\infty}} e^{-x}\).
+    \item Evaluate \({\lim_{x \to \infty}} \frac{1}{x^{r}}\) and \({\lim_{x \to -\infty}} \frac{1}{x^{r}}\) for a rational number \(r\) if \(x^{r}\) is well-defined.
+    \item Evaluate \(\lim_{x \to \infty} \frac{x^{2} - 1}{x^{2} + 1}\) and \(\lim_{x \to -\infty} \frac{x^{2} - 1}{x^{2} + 1}\).
+    \item {Let \(L\) be a number. A horizontal line \(y = L\) is \emph{a horizontal asymptote} of a function \(f\) if \(\lim_{x \to \infty} f(x) = L\) or \(\lim_{x \to -\infty} f(x) = L\).}
+          \begin{enumerate}
+            \item Describe the horizontal asymptotes of \(\arctan(x)\) and \(\frac{x^{2} - 1}{x^{2} + 1}\).
+            \item Discuss the number of horizonal asymptotes a function can have.
+          \end{enumerate}
+    \item Do \(x^{2}\) and \(\sin(x)\) have horizontal asymptotes?
+    \item {Infinities cannot be manipulated like numbers. In particular, \(\infty, -\infty, \frac{\infty}{\infty}, \frac{0}{\infty}\) are \emph{not numbers}. Limit laws \emph{do not apply} to infinite limits.}
+    \item {A horizontal asymptote is a horizontal line defined by the limit of a function at an infinity. If neither \({\lim_{x \to \infty}} f(x)\) nor \({\lim_{x \to -\infty}} f(x)\) exists, then the function \(f(x)\) has no horizontal asymptote.  A function can have at most \(2\) distinct horizontal asymptotes.}
+    \item {A function with a horizontal asymptote does not need to attain the value at the said asymptote.}
+  \end{enumerate}
+\end{outline}
+
+
+%--------------------------------------------------
+%
+% additional problems
+%
+%--------------------------------------------------
+\textbf{Exercises}.
+\begin{enumerate}
+\item Use properties of continuous functions to identify intervals on which \(\tan(x)\) is continuous.
+\item If \({\lim_{x \to \infty}} f(x) = \infty\), does \(f(x)\) have a horizontal asymnptote at \(y = \infty\)?
+\item From the textbook, exercises 3-11, 13-16, 19-20, 47-50 in Section 2.5
+\item From the textbook, exercises 3-10, 15-41, 55, 65a, 67 in Section 2.6
+\end{enumerate}
+
+\end{document}
+

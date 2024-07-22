@@ -1,0 +1,32 @@
+%! TeX program = xelatex
+\documentclass{standalone}
+
+\usepackage{amsmath}
+
+\usepackage{cellspace}
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
+
+\usepackage{microtype}
+
+\author{Kelvin Chan}
+% \date{\today}
+
+\begin{document}
+\begin{tabular}{Sl|Sl|Sl}
+  \textbf{Function} & \textbf{Expression} & \textbf{Domain} \\
+  \hline\hline
+  polynomial & \(a_{n} x^{n} + \cdots + a_{1} x + a_{0}\) such that & \phantom{all numbers} \\
+             & \footnotesize \(\bullet\) \(a_{n} \ne 0\) & \\
+             & \footnotesize \(\bullet\) \(n\) is a \phantom{\large non-negative integer} & \\
+  \hline
+  root       & \(x^{\frac{1}{n}}\) or equivalently \(\sqrt[n]{x}\) such that & \phantom{\(\bullet\) \large non-negative numbers if \(n\) is even} \\
+             & \footnotesize \(\bullet\) \(n\) is a \phantom{\large positive integer} & \phantom{\(\bullet\) all numbers if \(n\) is odd} \\
+  \hline
+  sine       & \(\sin(x)\) & \phantom{all numbers} \\
+  cosine       & \(\cos(x)\) & \phantom{all numbers} \\
+  \hline
+  (general) exponential       & \(b^{x}\) such that \phantom{\(b > 0\)} & \phantom{all numbers} \\
+  the natural exponential       & \(e^{x}\) & \phantom{all numbers}
+\end{tabular}
+\end{document}

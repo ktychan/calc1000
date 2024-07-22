@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{pgfplots,xcolor}
+\pgfplotsset{compat=1.18}
+
+% see https://tex.stackexchange.com/questions/18359/plotting-an-implicit-function-using-pgfplots
+% for implicit plots using gnuplot
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={\footnotesize \(x\)},
+    ylabel={\footnotesize \(y\)},
+    xmin={-5.5},
+    xmax={5.5},
+    ymin={-5.5},
+    ymax={5.5},
+    axis x line={middle},
+    axis y line={middle},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+    x={15pt},
+    y={15pt},
+    yticklabels={,,},
+    xticklabels={,,},
+    ]
+
+    \addplot+ [no markers,
+      raw gnuplot,
+      thick,
+      empty line = jump,
+      % smooth,
+      ] gnuplot {
+      set samples 1000;
+      plot -sqrt(asin(1 - x^2/3));
+    };
+
+  \node[right] at (-1, -2) {\footnotesize \(y = -\sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

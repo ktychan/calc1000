@@ -1,0 +1,417 @@
+%! TeX program = xelatex
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\makelectureweek{2}{Week 2}
+
+\section{Continuity}
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. A function \(f(x)\) is \emph{continuous at a number \(a\)} if 
+  \[
+    {\lim_{x \to a} f(x) = f(a).}
+  \]
+  \textbook{\stewart{115}{\fbox{1} Definition}}
+\end{mdframed}
+This definition says if you know \(f(x)\) is {continuous} at \(a\), then you can use {direct substitution} to evaluate \(\lim_{x \to a} f(x)\). 
+
+This definition says to check whether a function \(f(x)\) is continuous at a number \(a\), we need to make sure we successfully complete the following three tasks:
+\begin{enumerate}[label=(C\arabic*)]
+  \item calculate the number {\(f(a)\),}
+  \item calculate the number {\(L = \lim_{x \to a} f(x)\), and} 
+  \item verify {\(f(a)\) and \(L\) both exist and are the same.}
+\end{enumerate}
+\bigskip
+
+\begin{minipage}{.6\textwidth}
+\begin{example}
+  Is \(\ln(x)\) continuous at \(1\)? 
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  Is \(\ln(x)\) continuous at \(0\)? 
+\end{example}
+\vspace{1in}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}{.35\textwidth}
+  \includegraphics[width=\textwidth]{standalones/build/plot_ln}
+\end{minipage}
+
+If \(f\) is \emph{not} continuous at \(a\), then we say
+\begin{center}
+  ``\(f\) is {discontinuous} at \(a\)'' \quad or \quad ``\(f\) has a {discontinuity} at \(a\).''
+\end{center}
+
+If \(f\) is continuous at every number on an interval \(I\), then we say 
+\begin{center}
+  ``\(f\) is continuous on \(I\).''
+\end{center}
+\bigskip
+
+\begin{example}
+  Is \(\ln(x)\) continuous on \((-1,1)\)?
+\end{example}
+\clearpage
+
+In practice, we want to build continuous functions from a collection of known continuous functions. We start with familiar functions.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. The following \emph{types} of functions are continuous at every number in their domain:
+  \begin{center}
+  \begin{itemize*}
+    \item polynomials \phantom{------}
+    \item rational functions \phantom{------}
+    \item root functions
+  \end{itemize*}
+  \end{center}
+
+  \begin{minipage}{.45\textwidth}
+  \begin{itemize}
+    \item trigonometric functions
+    \item exponential functions
+  \end{itemize}
+  \end{minipage}
+  \begin{minipage}{.45\textwidth}
+  \begin{itemize}
+    \item inverse trigonometric functions
+    \item logarithmic functions
+  \end{itemize}
+  \end{minipage}
+
+  \textbook{\stewart{120}{\fbox{7} Theorem}}
+\end{mdframed}
+
+Another way to say ``continuous at every number in their domain'' is 
+\begin{center}
+  ``continuous {everywhere} in their domain.''
+\end{center}
+
+\section{More on discontinuity}
+
+There are three \emph{types} of discontinuities.
+
+\begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
+\centering
+\includegraphics{../standalones/build/plot_discontinuity_examples}
+\caption{Three types of discontinuity}
+\label{fig:discontinuities}
+\end{figure}
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. We say a function \(f\) is 
+  \begin{itemize}
+    \item continuous from the {MMMMM} at a number \(a\) if \(\lim_{{x \to a^{+}}} f(x) = f(a)\).
+    \item continuous from the {MMMMM} at a number \(a\) if \(\lim_{{x \to a^{-}}} f(x) = f(a)\).
+  \end{itemize}
+
+  \textbook{\stewart{117}{\fbox{2} Definition}}
+\end{mdframed}
+
+\begin{example}
+  Which function in Figure~\ref{fig:discontinuities} is continuous from the left at a number but discontinuous from the right at the same number?
+\end{example}
+\vspace{2in}
+
+\begin{example}
+  If a function \(f\) is continuous at \(a\), is it
+  \begin{itemize}
+  \item continuous from the left at \(a\)?
+  \item continuous from the right at \(a\)?
+  \end{itemize}
+\end{example}
+\vfill
+
+\section{Properties of Continuous functions}
+We now study the effect of algebraic operations \(+, -, \times, \div, \circ\) on continuous functions.
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(f\) and \(g\) are {both continuous at a number \(a\)}, then the following are all {continuous at \(a\)}
+  \[
+    f + g, \qquad f - g, \qquad cf \text{ where \(c\) is a constant}, \qquad fg, \qquad \frac{f}{g} \text{ if } g(a) \ne 0.
+  \]
+  
+  \textbook{\stewart{118}{\fbox{4} Theorem}}
+\end{mdframed}
+This theorem says if you ``build'' functions using \(+, -, \times, \div\) from continuous functions, then you are guaranteed to get a continuous functions. 
+
+\clearpage
+\begin{example}
+  Is \(\sin(x) + 2e^{x}\) continuous at \(0\)?
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  Is \(\sqrt{u}\ln(u)\) continuous on the interval \((0,1)\)?
+\end{example}
+\vspace{1in}
+
+\begin{example}
+  Is \(g_{1}(x) = \frac{x^{2} - 1}{x-1}\) continuous on the interval \((1,2]\)?
+\end{example}
+\vspace{1.5in}
+
+In high school, we learned to interpret expressions such as \((x-1)^{2}\) as shifting the graph of \(f(x) = x^{2}\) to the right by \(1\) because
+\[
+  (x-1)^{2} = f(x-1).
+\]
+
+This is an example of a general operation called {function composition}, denoted by \(\circ\). 
+
+The symbol \(f \circ g\) means ``plug \(g\) into \(f\).'' In symbols, 
+\[
+  f \circ g = {f(g).}
+\]
+\begin{example}
+  Let \(\alpha(x) = \sin(x)\) and let \(\beta(x) = x^{2} + \sqrt[3]{x - 1} + 1\). What is \(\alpha \circ \beta\)? What is \(\beta \circ \alpha\)?
+\end{example}
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(g\) is continuous at \(a\) and \(f\) is continuous at \(g(a)\), then \(f \circ g\) is continuous at \(a\).
+
+  \textbook{\stewart{121}{\fbox{9} Theorem}}
+\end{mdframed}
+
+\begin{example}
+  Is \(\ln(\sin(x))\) continuous at \(0\)?
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  Is \(\ln(\sin(x))\) continuous on \((0,\pi)\)?
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  Is \(\ln(\sin(x))\) continuous on \((\pi,2 \pi)\)?
+\end{example}
+\vspace{1.5in}
+
+\section{Limits and Continuity}
+Whenever a function \(f(x)\) is {continuous} at \(a\), then you can evaluate \(\lim_{x \to a} f(x)\) by direct substitution.
+
+\begin{example}
+  Evaluate \(\lim_{x \to 2} \left( - x^{3} + 7  \right)^{100}\) if it exists.
+\end{example}
+\clearpage
+
+The next theorem says being able to recognize function composition is useful.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then 
+  \[
+    {\color{main} \lim_{x \to a}} {\color{attn}f({\color{black}g(x)})} = {\color{attn}f \left( {\color{main} \lim_{x \to a}} {\color{black} g(x) }\right)}.
+  \]
+
+  \textbook{\stewart{120}{\fbox{8} Theorem}}
+\end{mdframed}
+Notice the ``inside function'' \(g(x)\) does not need to be continuous at \(a\).
+
+\begin{example}
+  Evaluate \(\lim_{x \to 1} \sin\left( \frac{x^{2}-1}{x-1} \right)\) if it exists.
+\end{example}
+\vfill
+\clearpage
+
+\begin{example}
+  Use \textcolor{red}{\fbox{8} Theorem} to prove the power and root limit laws. 
+
+  Suppose \(\lim_{x \to a} f(x)\) exists. Then
+  \begin{enumerate}[label=(\arabic*), start=6]
+    \item \(\lim_{x \to a} [f(x)]^{n} = \left[ \lim_{x \to a} f(x) \right]^{n}\) \hfill (power)
+    \item \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a} f(x)}\), \quad if \(n\) is even, we assume {\(\lim_{x \to a} f(x) > 0\)} \hfill (root)
+  \end{enumerate}
+\end{example}
+
+\clearpage
+
+\section{The Intermediate Value Theorem}
+
+(Work in small groups) Suppose you went to Montreal for a day trip. If your thermometer reads \(5^{\circ}\)C at \(7 \text{ am}\) and \({10}^{\circ}\)C at \(5\text{ pm}\), does it \underline{have to} be \({8}^{\circ}\)C \emph{sometime} between 7 am and 5 pm?
+
+\vspace{1in}
+
+Imagine and draw the graph of a temperature function \(H(t)\) that fits the above data. Use the graph to support your reasoning. Compare graphs within your group. 
+
+\begin{figure}[!h]  % [h] for here, [ht] for here top, [hb] for here bottom
+  \centering
+  \includegraphics[width=\textwidth]{standalones/build/plot_ivt_motivation}
+  \label{fig:label}
+\end{figure}
+
+What \underline{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
+\vspace{1in}
+
+Can you tell \underline{exactly} when (down to seconds) the temperature reached \(8^{\circ}\)C?
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Intermediate Value Theorem} (IVT). Suppose \(f\) is continuous on a closed interval \([a,b]\) and let \(N\) be any number between \(f(a)\) and \(f(b)\), where \(f(a) \ne f(b)\). Then there exists a number \(c\) in \((a,b)\) such that \(f(c) = N\).
+
+  \textbook{\stewart{122}{\fbox{3} The Intermediate Value Theorem}}
+\end{mdframed}
+When is IVT useful? You wish to {solve an equation \(f(x) = N\).}
+\vspace{1cm}
+
+How do you use IVT? You need to be able to successfully complete all three tasks: 
+\begin{enumerate}[label=(IVT \arabic*)]
+  \item Find or guess {a \emph{closed} interval \([a,b]\)}
+  \item Verify {\(f\) is continuous on \([a,b]\)}
+  \item Verify {\(N\) is between \(f(a)\) and \(f(b)\)}
+\end{enumerate}
+\bigskip
+
+\begin{example}
+  Show the function \(f(t) = t^{3} - t^{2} + 1\) has a root between \(-1\) and \(1\).
+\end{example}
+\vspace{2.5in}
+
+\begin{example}
+  Show the function \(f(t) = \sin(t) - t^{3}\) satisfy \(f(c) = -100\) for some number \(c\). 
+\end{example}
+\clearpage
+
+\section{Limits at infinity and horizontal asymptotes}
+
+This is the \emph{intuition} of a \textbf{limit at infinity}. There is an apple a metre away from you. You start by taking a step \(1/2\) metre away towards the apple. Then each subsequent step is half the length of the previous one. 
+
+\begin{center}
+  \begin{tikzpicture}[scale=0.8]
+    \draw[dotted, thin] (0,0) grid (15,9);
+    \begin{scope}[shift={(1,1)}]
+      \draw[->] (-1,0) -- (14.2,0) node[right] {\footnotesize steps};
+      \draw[->] (0,-1) -- (0,8.2) node[above right] {\footnotesize distance to apple};
+      \node[left] at (0,8) {\footnotesize \(1\)};
+      \node[left] at (0,4) {\footnotesize \(1/2\)};
+      \node[left] at (0,2) {\footnotesize \(1/4\)};
+      \node[left] at (0,1) {\footnotesize \(1/8\)};
+      \node[below] at (3,0) {\footnotesize \(1\)};
+      \node[below] at (6,0) {\footnotesize \(2\)};
+      \node[below] at (9,0) {\footnotesize \(3\)};
+      \node[below] at (12,0) {\footnotesize \(4\)};
+    \end{scope}
+  \end{tikzpicture}
+\end{center}
+\begin{enumerate}[label=(\alph*)]
+  \item Can you get as close to the apple as you want?
+    \vspace{1em}
+  \item If you are allowed to take ``infinitely'' many steps, do you \emph{expect} to reach the apple?
+    \vspace{1em}
+\end{enumerate}
+\vfill
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. When a limit at infinity exists and is equal to a number \(L\), we give the \emph{horizontal} line \(y=L\) a special name, called a {horizontal asymptote.}
+
+  \textbook{\stewart{128}{\fbox{3} Definition}}
+\end{mdframed}
+\clearpage
+
+\begin{example}
+  Recall the inverse tangent function \(\arctan(x)\).
+  % \[ y = \arctan(x) \qquad \text{if }\qquad \tan(y) = x \quad \text{and} \quad -\frac{\pi}{2} < y < \frac{\pi}{2}.\]
+
+  \includegraphics{../standalones/build/plot_arctan}
+\end{example}
+\vspace{1in}
+
+\begin{example}
+  Different types of limits at infinite that do not exist.
+
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics{../standalones/build/plot_sin}
+  \end{minipage}
+  \bigskip
+
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics{../standalones/build/plot_cos}
+  \end{minipage}
+  \bigskip
+
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics{../standalones/build/plot_polynomials}
+  \end{minipage}
+  \bigskip
+\end{example}
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} (x^{2} - x)\) if it exists.
+\end{example}
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. Let \(f\) be a function defined on some interval \((a,\infty)\). If \(L\) is a number such that \(f(x)\) can be made arbitrarily close to \(L\) by requiring \(x\) to be sufficiently large, then we write
+  \[ 
+    \lim_{x \to \infty} f(x) = L.
+  \]
+  Otherwise, the limit of \(f(x)\), as \(x\) approaches (\emph{positive}) infinity, does not exists.
+
+  \textbook{\stewart{127}{\fbox{1} Intuitive Definition of a Limit at Infinity}}
+\end{mdframed}
+
+Our main tool to calculate limits at infinity is the following theorem.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. Suppose \(r > 0\) is a rational number. Then
+  \[
+    \lim_{x \to \infty} \frac{1}{x^{r}} = 0 \quad\text{and}\quad \lim_{x \to -\infty} \frac{1}{x^{r}} = 0.
+  \]
+
+  The second part only applies if \(x^{r}\) is well-defined for all number \(x\).
+
+  \textbook{\stewart{130}{\fbox{5} Theorem}}
+\end{mdframed}
+
+\begin{example}
+  Let \(f(x) = \frac{x^{2}-1}{x^{2} + 1}\). 
+  Evaluate \(\lim_{x \to \infty} f(x)\) and \(\lim_{x \to -\infty} f(x)\) if they exist. 
+
+  What is (or are) the horizontal asymptote(s) of \(f(x)\)?
+\end{example}
+\vfill
+
+\begin{example}
+  Evaluate \(\lim_{x \to -\infty} \frac{3x - x^{7}}{- x^{5} + 1}\) if it exists.
+\end{example}
+\vfill
+\clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to -\infty} \frac{\sqrt[3]{x^{3} + x}}{-x^{2} - 1}\) if it exists.
+\end{example}
+\vspace{6in}
+
+\begin{example}
+  Evaluate \(\lim_{x \to -\infty} \sqrt{e^{x}}\) if it exists.
+\end{example}
+\vfill
+\clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} (\sqrt{4x^{2} - 5} - 2x)\) if it exists.
+\end{example}
+\clearpage
+
+
+\section{A Common Mistake}
+When we \emph{simplify} expressions in quotients, we must be careful \textbf{not to change the domain} of the function. 
+
+
+\begin{example}
+  Find the mistake(s) in the following \emph{incorrect} reasoning about the continuity of \(f(x) = \frac{(3x-1)(x-2)}{(x-2)}\).
+  \bigskip
+
+  \begin{quote}
+    \itshape
+    We can cancel the common factor. So
+    \[
+      f(x) = \frac{(3x - 1)\cancel{(x - 2)}}{\cancel{(x-2)}} = 3x - 1.
+    \]
+    Because \(3x - 1\) is a polynomial, we can conclude \(f(x)\) is continuous at every number, including \(x=2\).
+  \end{quote}
+\end{example}
+
+\end{document}

@@ -1,0 +1,37 @@
+%! TeX program = xelatex
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.18}
+
+\author{Kelvin Chan}
+% \date{\today}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines=center,
+    xlabel={\(x\)},
+    ylabel={\(y\)},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west}, % Place the xlabel at the end of the x-axis
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south}, % Place the ylabel at the end of the y-axis
+    ymax=6,
+    enlargelimits=true,
+    xtick={0, 1/3, 1/2, 1},
+    xticklabels={\(0\), \(3\), \(5\), \(10\)},
+    ytick={0, 3, 4, 5, 6},
+    no markers
+  ]
+    \addplot[dotted] coordinates { (1/2,0) (1/2,2+2) (0,4) };
+    \addplot[magenta] coordinates { (1/3,0) (1/3,3+2) (0,5) };
+    \addplot[magenta] coordinates { (1/1,0) (1/1,1+2) (0,3) };
+    \addplot[thick, domain=0:0.491, teal, smooth, samples=100] {1/x + 2};
+    \addplot[thick, domain=0.508:1.1, teal, smooth, samples=100] {1/x + 2};
+    \node[right] at (1/4-0.02,6.3) {\footnotesize \color{main} \(g(x)\)};
+    \node at (0.5,4) {\footnotesize \(\circ\)};
+    \node at (0.5,6) {\footnotesize \(\bullet\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
