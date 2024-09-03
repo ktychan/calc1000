@@ -1,430 +1,421 @@
 %! TeX program = xelatex
 \documentclass[../main.tex]{subfiles}
 
-\begin{document}
-\makelectureweek{3}{Week 3}
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week3}}
+\fi
 
-\section{The tangent line of a curve}
+\begin{document} \makelectureweek{3}
 
-\begin{example}
-  A line \(L\) passes through the point \(P = (-1,\frac{3}{2})\) and has a slope of \(m = -\frac{1}{2}\). 
-  \begin{enumerate}
-    \item Write down the \emph{point-slope form} of the line \(L\).
-      \vspace{2in}
+\section{Continuity}
 
-    \item Write down the \emph{slope-intercept form} of the line \(L\).
-      \vspace{2in}
-
-    \item Draw \(L\).
-  \end{enumerate}
-
-  \begin{tikzpicture}
-    \begin{axis}[
-      axis equal,
-      axis lines=center,
-      grid=both,
-      ymin=-1, ymax=3,
-      xmin=-3, xmax=3,
-      xlabel={\(x\)},
-      ylabel={\(y\)},
-      xlabel style={ at={(ticklabel* cs:1)}, font=\footnotesize, anchor=west  },
-      ylabel style={ at={(ticklabel* cs:1)}, font=\footnotesize, anchor=south },
-      yticklabel style={font=\footnotesize, /pgf/number format/.cd,frac},
-      xticklabel style={font=\footnotesize, /pgf/number format/.cd,frac},
-      ]
-      % \addplot[blue,domain=-3:3] {-1/2*x + 1};
-    \end{axis}
-  \end{tikzpicture}
-
-  \vfill
-  \faBookReader{} Review page 22 for the point-slope form and page 141 for the slope-intercept form of a line.
-\end{example}
-\clearpage
-
-% The line \(L\) is tangentially related to the fuction \(f(x)\) at the point \(P\).
 \begin{mdframed}[style=withref]
-  \textbf{Definition}. The \emph{tangent line to the curve \(y = f(x)\) through a point \(P = (a,f(a))\)} is the line through \(P\) with slope 
-  \begin{equation} \label{eq:tangent1}
-    m = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
-  \end{equation}
-  provided that this limit exists. The slope of the tangent line (at a point \(P\)) is also called the \emph{slope of the curve} (at the point \(P\)).
-  
-  \textbook{\stewart{141}{\fbox{1} Definition}}
+  \textbf{Definition}. A function \(f(x)\) is \emph{continuous at a number \(a\)} if 
+  \[
+    {\lim_{x \to a} f(x) = f(a).}
+  \]
+  \textbook{\stewart{115}{\fbox{1} Definition}}
 \end{mdframed}
-% the tangent line does not exists if you cannot calculate this limit.
+This definition says if you know \(f(x)\) is {continuous} at \(a\), then you can use {direct substitution} to evaluate \(\lim_{x \to a} f(x)\). 
 
-\begin{example} \label{ex:cubic}
-  Consider the curve \(y = x^{3}\) through the point \(P = (1,1)\).
-
-  \begin{enumerate}
-    \item Calculate the slope \(m\) of the tangent line at \(P\) from the definition if the tangent line exists.
-      \vfill
-
-    \item Write down the \emph{point-slope} form of the equation of the tangent line. Draw the tangent line on the graph below.
-
-      \includegraphics{../standalones/build/plot_tangent_exercise}
-  \end{enumerate}
-\end{example}
-\clearpage
-
-We use Example~\ref{ex:cubic} to demonstrate why the slope of a curve is defined as \(m = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}\).
-
-% when we think about the slope of a straight line, we think about how fast it changes at a point.
-% we want the slope of the curve to say mean exactly that --- how fast the it changes around P. 
-% the slope should make sense for more general curves.
-\includegraphics{../standalones/build/plot_tangent_exercise}
+This definition says to check whether a function \(f(x)\) is continuous at a number \(a\), we need to make sure we successfully complete the following three tasks:
+\begin{enumerate}[label=(C\arabic*)]
+  \item calculate the number {\(f(a)\),}
+  \item calculate the number {\(L = \lim_{x \to a} f(x)\), and} 
+  \item verify {\(f(a)\) and \(L\) both exist and are the same.}
+\end{enumerate}
 \bigskip
 
+\begin{minipage}{.6\textwidth}
+\begin{example}
+  Is \(\ln(x)\) continuous at \(1\)? 
+\end{example}
+\vspace{1.5in}
 
 \begin{example}
-  Study the curve \(y = |x|\) at the origin in two different ways.
-  \begin{enumerate}
-    \item Calculate the slope of the curve at the origin from the definition, if the slope exists. 
-      \vfill
-
-    \item Use the graph below to \emph{reason} if the tangent line to \(y = |x|\) exists at the origin.
-  \end{enumerate}
-  \includegraphics{../standalones/build/plot_abs}
+  Is \(\ln(x)\) continuous at \(0\)? 
 \end{example}
-\clearpage
+\vspace{1in}
+\end{minipage}
+\hfill\vline\hfill
+\begin{minipage}{.35\textwidth}
+  \includegraphics[width=\textwidth]{standalones/build/plot_ln}
+\end{minipage}
 
-\section{The Derivative}
+If \(f\) is \emph{not} continuous at \(a\), then we say
+\begin{center}
+  ``\(f\) is {discontinuous} at \(a\)'' \quad or \quad ``\(f\) has a {discontinuity} at \(a\).''
+\end{center}
 
-% read "f prime of a"
-\begin{mdframed}[style=withref]
-  \textbf{Definition}. The \emph{derivative} of a function \(f(x)\) \emph{at a number} \(a\), denoted by \(f'(a)\), is
-  \begin{equation} \label{eq:tangent2}
-    f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a},
-  \end{equation}
-  \emph{provided} that this limit exists. If the limit does not exists, then we say \(f\) is \emph{not differentiable} at \(a\).
-
-  \textbook{\stewart{144}{\fbox{4} Definition}}
-\end{mdframed}
-\vspace{2in}
-
+If \(f\) is continuous at every number on an interval \(I\), then we say 
+\begin{center}
+  ``\(f\) is continuous on \(I\).''
+\end{center}
 \bigskip
-\begin{example}
-  Find the derivative of \(f(x) = 3x^{2} - x\) at \(2\) from the definition. And find the tangent line to \(y = f(x)\) at the point \((2, f(2))\).
-\end{example}
-\clearpage
-\begin{example}
-  Find the derivative of \(\sqrt{x - 1}\) at \(2\) from the definition.
-\end{example}
-\vspace{2in}
 
 \begin{example}
-  Find the derivative of \(\frac{x + 1}{x - 1}\) at \(-1\) from the definition.
-\end{example}
-\vspace{3in}
-
-\begin{example}
-  Let \(f(x) = \sqrt{x}\). Find a number \(a\) such that \(f'(a) = 3\). 
-
-  For this example, you are only allowed to calculate derivatives from the definition.
+  Is \(\ln(x)\) continuous on \((-1,1)\)?
 \end{example}
 \clearpage
 
-\section{Instantaneous Rates of Change}
-\begin{example}
-  Let \(h(t)\) be the \emph{displacement} of a balloon over time \(t\). Assume the displacement is measured with respect to the bottom edge of a chalkboard.
+In practice, we want to build continuous functions from a collection of known continuous functions. We start with familiar functions.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. The following \emph{types} of functions are continuous at every number in their domain:
+  \begin{center}
+  \begin{itemize*}
+    \item polynomials \phantom{------}
+    \item rational functions \phantom{------}
+    \item root functions
+  \end{itemize*}
+  \end{center}
 
-  What does the expression \(\frac{h(t_{2}) - h(t_{1})}{t_{2} - t_{1}}\) mean in physical terms?
-  \vfill
-
-  % Assume \(t_{1} < t_{2}\). For each of the condition below, describe the displacement of the balloon at time \(t_{2}\) relative to its displacement at time \(t_{1}\).
-  % \begin{itemize}
-  % \item \(\frac{h(t_{2}) - h(t_{1})}{t_{2} - t_{1}} > 0\).
-  %   \vspace{1in}
-  %
-  % \item \(\frac{h(t_{2}) - h(t_{1})}{t_{2} - t_{1}} = 0\).
-  %   \vspace{1in}
-  %
-  % \item \(\frac{h(t_{2}) - h(t_{1})}{t_{2} - t_{1}} < 0\).
-  %   \vspace{1in}
-  %
-  % \end{itemize}
-\end{example}
-
-In general, the physical meaning of the \(f'(a)\) is 
-\vspace{2in}
-\clearpage
-
-% eventually vanishing
-\begin{example}
-  Let \(v(t)\) be the \emph{velocity} function of a car travelling in a straight line on a \emph{frictionless} surface. 
-  Assume the drive can change the velocity of the car.
-  \vspace{1in}
-
-  What is the physical interpretation of \(v'(a)\) where \(a\) is number?
-  \vspace{1in}
-
-  \begin{enumerate}
-  \item Can you think of an action by the drive that causes \(v'(1) > 0\)?
-    \vfill
-
-  \item How can the driver achieve \(v'(2) = 0\)?
-    \vfill
-
-  \item What can you say about \(v'(3)\) if the car is slowing down at time \(t = 3\)?
-    \vfill
-  \end{enumerate}
-\end{example}
-
-\clearpage
-\section{More Examples}
-\begin{example}
-  Let \(f(t)\) be the population of a city over time. Draw the graph of \(f(t)\) satisfying all of the following:
+  \begin{minipage}{.45\textwidth}
   \begin{itemize}
-    \item The curve \(y = f(t)\) passes thought the point \((0,1)\).
-    \item The population does not change at \(t = 0\).
-    \item The population is growing faster at \(t = 1\) than at \(t = 2\).
-    \item The population is in decline at \(t = 2\).
-    \item The tangent line of \(y=f(t)\) at \((3,f(3))\) is parallel to the line \(y = -2t + 5\).
-    \item \(f(t)\) is not differentiable at \(4\).
-    \item The line \(y = 2\) is a horizontal asymptote of \(f(x)\).
+    \item trigonometric functions
+    \item exponential functions
+  \end{itemize}
+  \end{minipage}
+  \begin{minipage}{.45\textwidth}
+  \begin{itemize}
+    \item inverse trigonometric functions
+    \item logarithmic functions
+  \end{itemize}
+  \end{minipage}
+
+  \textbook{\stewart{120}{\fbox{7} Theorem}}
+\end{mdframed}
+
+Another way to say ``continuous at every number in their domain'' is 
+\begin{center}
+  ``continuous {everywhere} in their domain.''
+\end{center}
+
+\section{More on discontinuity}
+
+There are three \emph{types} of discontinuities.
+
+\begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
+\centering
+\includegraphics{../standalones/build/plot_discontinuity_examples}
+\caption{Three types of discontinuity}
+\label{fig:discontinuities}
+\end{figure}
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. We say a function \(f\) is 
+  \begin{itemize}
+    \item continuous from the {MMMMM} at a number \(a\) if \(\lim_{{x \to a^{+}}} f(x) = f(a)\).
+    \item continuous from the {MMMMM} at a number \(a\) if \(\lim_{{x \to a^{-}}} f(x) = f(a)\).
   \end{itemize}
 
-  \begin{tikzpicture}
-    \draw[thin, dotted] (-2,-5) grid (10,5);
-    \draw[->] (-2.2,0) -- (10.2,0) node[right] {\footnotesize \(t\)};
-    \draw[->] (0,-5.2) -- (0,5.2) node[above] {\footnotesize \(y\)};
-    \node[left] at (0,-2) {\footnotesize \(-1\)};
-    \node[left] at (0,-4) {\footnotesize \(-2\)};
-    \node[left] at (0,2) {\footnotesize \(1\)};
-    \node[left] at (0,4) {\footnotesize \(2\)};
-    \node[below] at (-1,0) {\footnotesize \(-1\)};
-    \node[below] at (2,0) {\footnotesize \(1\)};
-    \node[below] at (4,0) {\footnotesize \(2\)};
-    \node[below] at (6,0) {\footnotesize \(3\)};
-    \node[below] at (8,0) {\footnotesize \(4\)};
-    \node[below] at (10,0) {\footnotesize \(5\)};
-  \end{tikzpicture}
-\end{example}
-
-\clearpage
-
-% The next few questions fall into the same category: Are we paying \emph{enough} attention to the \emph{hypotheses} of theorems and applying theorems correctly? 
-%
-% \begin{itemize}
-% \item \emph{True or false?} If \(\lim_{x \to c} f(x)\) exists, then \(\lim_{x \to c} \sqrt{f(x)}\) exists.
-% \vfill
-% \item \emph{True or false?} If \(f\) is a function with \(f(1) > 0\) and \(f(3) < 0\), then there exists a number between \(1\) and \(3\) such that \(f(c) = 0\). 
-%   \vfill
-% \item \emph{True or false?} If \(f\) is a continuous function with \(f(2) > 0\) and \(f(5) < 0\), then there exists a number between \(-2\) and \(-5\) such that \(f(c) = 0\). 
-%   \vfill
-% \end{itemize}
-% \clearpage
-
-\section{The Derivative as a function}
-% Do change of variable.
-
-\begin{mdframed}[style=withref]
-  \textbf{Definition}. The \emph{derivative} of a \(f(x)\) as a function, denoted by \(f'(x)\), is
-  \begin{equation} \label{eq:derivative}
-    f'(x) = {\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}}
-  \end{equation}
-  The function \(f'(x)\) is defined wherever the limit in Equation~\eqref{eq:derivative} exists.
-
-  \textbook{\stewart{153}{\fbox{2}}}
+  \textbook{\stewart{117}{\fbox{2} Definition}}
 \end{mdframed}
-\textbf{Terminologies}. Let \(f(x)\) be a function and \(a\) be a number.
-\begin{itemize}
-  \item ``differentiate \(f\) (with respect to \(x\))'' means \phantom{\huge to differentiate}
-  \item ``\(f(x)\) is differentiable at \(a\)'' means \phantom{\huge differentiable at \(a\)}
-  \item ``\(f(x)\) is differentiable on \((a,b)\)'' means \phantom{\huge differentiable on \((a,b)\)}
-\end{itemize}
-
-\bigskip
-\begin{example}
-  Let \(f(x) = x^{2}\). Find a formula for \(f'(x)\) from the definition and determine the domain of \(f'(x)\).
-\end{example}
-\vfill
-
-\clearpage
-
-\textbf{Notations}. If we write \(y = f(x)\) to denote a function, then \emph{all} of the following denote the function that is the derivative of \(f(x)\).
-\[
-  f'(x) 
-  \;=\; f' 
-  \;=\; y' 
-  \qquad =\qquad  
-  {\color{main} \frac{d}{dx}} \, f(x) \;=\; \frac{df}{dx} \;=\; \frac{dy}{dx}
-  \qquad=\quad 
-  Df(x) 
-  \;=\; D_{x} f(x)
-\]
-
-\emph{All} of the following denote the derivative of \(f(x)\) at a number \(a\).
-\begin{align*}
-  & f'(a) \quad=\quad \frac{dy}{dx} \bigg|_{x = a} \quad=\quad \frac{dy}{dx} \bigg]_{x = a}
-\end{align*}
 
 \begin{example}
-  Differentiate \(\sqrt{t - a}\) with respect to \(t\) from the definition. Where is \(\sqrt{t - a}\) differentiable?
-\end{example}
-% \vfill
-%
-% \begin{example}
-%   The number of organisms in a bateria colony is modelled by the function \(f(x) = \sqrt{x}\). Let \(g(x)\) be the growth function of this bacteria cology. Find a formula for \(g(x)\) and determine the domain of \(g(x)\). 
-% \end{example}
-\vfill
-\clearpage
-
-\section{Higher derivatives}
-
-\begin{example}
-  What is the physical interpretation of the derivative of the derivative of a displacement function \(f(x)\)?
+  Which function in Figure~\ref{fig:discontinuities} is continuous from the left at a number but discontinuous from the right at the same number?
 \end{example}
 \vspace{2in}
 
-In general, we define \(f^{(0)} = f\) and the \(n\)-th derivative to be
-\[
-  \overbrace{f^{' \cdots '}}^{\text{\(n\) primes}} \quad=\quad f^{(n)} \quad=\quad \frac{d^{n}}{dx^{n}} f \quad=\quad \frac{d}{dx} f^{(n-1)} \quad\text{for integers } n \ge 1.
-\]
-\vspace{2cm}
-
 \begin{example}
-  Find the third derivative of \(x^{2}\).
+  If a function \(f\) is continuous at \(a\), is it
+  \begin{itemize}
+  \item continuous from the left at \(a\)?
+  \item continuous from the right at \(a\)?
+  \end{itemize}
 \end{example}
 \vfill
 
-\clearpage
-\section{Graphs of derivatives}
-\begin{example}
-  Use the graph of \(f(x)\) to sketch its derivative. Recall \(f'(a)\) is the slope of \(y = f(x)\) at \((a, f(a))\), if \(f'(a)\) exists.
-
-  \begin{center}
-    \begin{tikzpicture}
-      \begin{axis}[width=4in, height=4in, smooth, samples=1000, grid=major, ymin=-2,ymax=2, xmin=-2, xmax=2, axis equal, xtick={-1,0,1}, ytick={-1,0,1,2},
-        title={The graph of \(f(x)\)}
-        ]
-        \addplot[thick, black] {x^3 - x};
-        % \node[right] (axis cs:1.5,1) {\footnotesize \(f'(x)\)};
-      \end{axis}
-    \end{tikzpicture}  
-
-    \begin{tikzpicture}
-      \begin{axis}[width=4in, height=4in, smooth, samples=1000, grid=major, ymin=-1.5,ymax=2.5, xmin=-2, xmax=2, axis equal, xtick={-1,0,1}, ytick={-1,0,1,2},
-        title={The graph of \(f'(x)\)}
-        ]
-        % \addplot[thick, black] {3*x^2 - 1};
-      \end{axis}
-    \end{tikzpicture}  
-  \end{center}
-\end{example}
-
-\clearpage
-
-\section{Continuity and Non-differentiability}
+\section{Properties of Continuous functions}
+We now study the effect of algebraic operations \(+, -, \times, \div, \circ\) on continuous functions.
 
 \begin{mdframed}[style=withref]
-  \textbf{Theorem}. If \(f\) is {differentiable} at \(a\), then \(f\) is {continuous} at \(a\).
+  \textbf{Theorem}. If \(f\) and \(g\) are {both continuous at a number \(a\)}, then the following are all {continuous at \(a\)}
+  \[
+    f + g, \qquad f - g, \qquad cf \text{ where \(c\) is a constant}, \qquad fg, \qquad \frac{f}{g} \text{ if } g(a) \ne 0.
+  \]
+  
+  \textbook{\stewart{118}{\fbox{4} Theorem}}
+\end{mdframed}
+This theorem says if you ``build'' functions using \(+, -, \times, \div\) from continuous functions, then you are guaranteed to get a continuous functions. 
 
-  \textbook{\stewart{157}{\fbox{4} Theorem}}
+\clearpage
+\begin{example}
+  Is \(\sin(x) + 2e^{x}\) continuous at \(0\)?
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  Is \(\sqrt{u}\ln(u)\) continuous on the interval \((0,1)\)?
+\end{example}
+\vspace{1in}
+
+\begin{example}
+  Is \(g_{1}(x) = \frac{x^{2} - 1}{x-1}\) continuous on the interval \((1,2]\)?
+\end{example}
+\vspace{1.5in}
+
+In high school, we learned to interpret expressions such as \((x-1)^{2}\) as shifting the graph of \(f(x) = x^{2}\) to the right by \(1\) because
+\[
+  (x-1)^{2} = f(x-1).
+\]
+
+This is an example of a general operation called {function composition}, denoted by \(\circ\). 
+
+The symbol \(f \circ g\) means ``plug \(g\) into \(f\).'' In symbols, 
+\[
+  f \circ g = {f(g).}
+\]
+\begin{example}
+  Let \(\alpha(x) = \sin(x)\) and let \(\beta(x) = x^{2} + \sqrt[3]{x - 1} + 1\). What is \(\alpha \circ \beta\)? What is \(\beta \circ \alpha\)?
+\end{example}
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(g\) is continuous at \(a\) and \(f\) is continuous at \(g(a)\), then \(f \circ g\) is continuous at \(a\).
+
+  \textbook{\stewart{121}{\fbox{9} Theorem}}
 \end{mdframed}
 
-There are a few ways that a functions can fail to be differentiable.
-\begin{enumerate}[label=(\alph*)]
-  \item If a function is not continuous \(a\), then it is not differentiable at \(a\).
-
-  \item If a function has a ``corner'' or a ``kink'', then it is not differentiable. 
-
-  \item If a function \(f\) has a vertical tangent line at a point \((a,f(a))\), then it is also not differentiable.
-\end{enumerate}
-
-\bigskip
 \begin{example}
-  Explain (using one of the reasons above) why the following functions are not differentiable.
+  Is \(\ln(\sin(x))\) continuous at \(0\)?
+\end{example}
+\vspace{1.5in}
 
-  \begin{enumerate}
-    \item \(g_{1}(x) = \frac{x - 1}{x}\). \vfill
-    \item \(g_{2}(x) = \begin{cases} 1 &\text{if } x \ge 0 \\ 0 &\text{if } x < 0 \end{cases}\). \vfill
-    \item \(g_{3}(x) = x^{1/3}\). See its graph below.
+\begin{example}
+  Is \(\ln(\sin(x))\) continuous on \((0,\pi)\)?
+\end{example}
+\vspace{1.5in}
 
-      \begin{tikzpicture}[yscale=2, xscale=1.5]
-        \draw[domain=-1:1] plot[samples=1000, smooth] ( {\x}, {\x^(1/3)} );
-        \node[below] at (1,1) {\footnotesize \(x^{1/3}\)};
-        \draw[thin, dotted] (-1,-1) grid (1,1);
-        \node[left] at (-1, 1) {\footnotesize \(1\)};
-        \node[left] at (-1, 0) {\footnotesize \(0\)};
-        \node[left] at (-1,-1) {\footnotesize \(-1\)};
+\begin{example}
+  Is \(\ln(\sin(x))\) continuous on \((\pi,2 \pi)\)?
+\end{example}
+\vspace{1.5in}
 
-        \node[below] at ( 1,-1) {\footnotesize \(1\)};
-        \node[below] at ( 0,-1) {\footnotesize \(0\)};
-        \node[below] at (-1,-1) {\footnotesize \(-1\)};
-      \end{tikzpicture}
-    \item \(g_{4}(x) = |x|\).  \vfill
+\section{Limits and Continuity}
+Whenever a function \(f(x)\) is {continuous} at \(a\), then you can evaluate \(\lim_{x \to a} f(x)\) by direct substitution.
+
+\begin{example}
+  Evaluate \(\lim_{x \to 2} \left( - x^{3} + 7  \right)^{100}\) if it exists.
+\end{example}
+\clearpage
+
+The next theorem says being able to recognize function composition is useful.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then 
+  \[
+    {\color{main} \lim_{x \to a}} {\color{attn}f({\color{black}g(x)})} = {\color{attn}f \left( {\color{main} \lim_{x \to a}} {\color{black} g(x) }\right)}.
+  \]
+
+  \textbook{\stewart{120}{\fbox{8} Theorem}}
+\end{mdframed}
+Notice the ``inside function'' \(g(x)\) does not need to be continuous at \(a\).
+
+\begin{example}
+  Evaluate \(\lim_{x \to 1} \sin\left( \frac{x^{2}-1}{x-1} \right)\) if it exists.
+\end{example}
+\vfill
+\clearpage
+
+\begin{example}
+  Use \textcolor{red}{\fbox{8} Theorem} to prove the power and root limit laws. 
+
+  Suppose \(\lim_{x \to a} f(x)\) exists. Then
+  \begin{enumerate}[label=(\arabic*), start=6]
+    \item \(\lim_{x \to a} [f(x)]^{n} = \left[ \lim_{x \to a} f(x) \right]^{n}\) \hfill (power)
+    \item \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a} f(x)}\), \quad if \(n\) is even, we assume {\(\lim_{x \to a} f(x) > 0\)} \hfill (root)
   \end{enumerate}
 \end{example}
 
-% \clearpage
-% \section{Using information from \(f'(x)\)}
-%
-% \begin{example}
-%   The velocity function \(g'(x)\) is given below. Sketch the displacement function \(g(x)\). Assume \(g(x)\) passes through the origin.
-%
-%   \begin{tikzpicture}
-%     \begin{axis}[width=4in, height=4in, smooth, samples=1000, grid=major, ymin=-2,ymax=2, xmin=-3, xmax=3, axis equal, xtick={-2,-1,0,1,2}, ytick={-2,-1,0,1,2}, yticklabels={\phantom{-2},0,\phantom{-1},},
-%       title={Displacement function \(g(x)\)}
-%       ]
-%       % \addplot[thick, black] {ln(4*x^2 + 1)/4 - 1};
-%       \addplot coordinates { (0,-1) };
-%     \end{axis}
-%   \end{tikzpicture}  
-%
-%   \begin{tikzpicture}
-%     \begin{axis}[width=4in, height=4in, smooth, samples=1000, grid=major, ymin=-2,ymax=2, xmin=-3, xmax=3, axis equal, xtick={-2,-1,0,1,2}, ytick={-2,-1,0,1,2},
-%       title={Velocity function \(g'(x)\)}
-%       ]
-%       \addplot[thick, black] {rad(atan(x*2))};
-%     \end{axis}
-%   \end{tikzpicture}  
-% \end{example}
-
 \clearpage
 
-Prove that if \(f\) is differentiable at \(a\), then \(f\) is continuous at \(a\).
+\section{The Intermediate Value Theorem}
 
-Observation: \(\lim_{x \to a} f(x) = f(a)\) is equivalent to \(\lim_{x \to a} (f(x) - f(a)) = 0\).
+(Work in small groups) Suppose you went to Montreal for a day trip. If your thermometer reads \(5^{\circ}\)C at \(7 \text{ am}\) and \({10}^{\circ}\)C at \(5\text{ pm}\), does it \underline{have to} be \({8}^{\circ}\)C \emph{sometime} between 7 am and 5 pm?
 
-\clearpage
-\section{Selected questions from quiz 1}
-\emph{True or false?} Suppose \(\lim_{x \to 1}f(x) = 0\) and \(\lim_{x \to 1}g(x) = 0\), then \(\lim_{x \to 1} \frac{f(x)}{g(x)}\) does not exist.
-\vfill
-
-
-If \(f\) is continuous at \(5\) and \(f(5) = 1\) and \(f(1) = 2\), then 
-\vspace{1em}
-
-\[
-  \lim_{x \to 1} \phantom{x} f( \phantom{x} 4x^{2} + 1 \phantom{x}) = \phantom{MMMMMMMMMMMMMMMMMMMMMMM}
-\]
 \vspace{1in}
 
+Imagine and draw the graph of a temperature function \(H(t)\) that fits the above data. Use the graph to support your reasoning. Compare graphs within your group. 
 
-\emph{True or false?} If \(|f|\) is continuous at \(c\), then \(f\) is continuous at \(c\). 
+\begin{figure}[!h]  % [h] for here, [ht] for here top, [hb] for here bottom
+  \centering
+  \includegraphics[width=\textwidth]{standalones/build/plot_ivt_motivation}
+  \label{fig:label}
+\end{figure}
 
-\begin{tikzpicture}
-  \begin{axis}[height=1.5in, width=2in, smooth, samples=100, ymin=-1, ymax=1, axis lines=middle, xticklabels={,,}, yticklabels={,,}, enlargelimits=true]
-    \addplot[teal] coordinates { (0,1/2) (1,1/2) };
-    \draw[teal, fill=white] (axis cs:1,1/2) circle (2pt);
-    \fill[magenta] (axis cs:1,-1/2) circle (2pt);
-    \addplot[magenta] coordinates { (1,-1/2) (2,-1/2) };
+What \underline{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
+\vspace{1in}
 
-    \node[below right] at (axis cs:0,0) {\footnotesize \(f(x)\)}; 
-  \end{axis}
-\end{tikzpicture}
-\quad
-\begin{tikzpicture}
-  \begin{axis}[height=1.5in, width=2in, smooth, samples=100, ymin=-1, ymax=1, axis lines=middle, xticklabels={,,}, yticklabels={,,}, enlargelimits=true]
-    \addplot[teal] coordinates { (0,1/2) (1,1/2) };
-    % \draw[teal, fill=white] (axis cs:1,1/2) circle (1pt);
-    \fill[magenta] (axis cs:1,1/2) circle (2pt);
-    \addplot[magenta] coordinates { (1,1/2) (2,1/2) };
-    \node[below right] at (axis cs:0,0) {\footnotesize \(|f(x)|\)}; 
-  \end{axis}
-\end{tikzpicture}
+Can you tell \underline{exactly} when (down to seconds) the temperature reached \(8^{\circ}\)C?
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Intermediate Value Theorem} (IVT). Suppose \(f\) is continuous on a closed interval \([a,b]\) and let \(N\) be any number between \(f(a)\) and \(f(b)\), where \(f(a) \ne f(b)\). Then there exists a number \(c\) in \((a,b)\) such that \(f(c) = N\).
+
+  \textbook{\stewart{122}{\fbox{3} The Intermediate Value Theorem}}
+\end{mdframed}
+When is IVT useful? You wish to {solve an equation \(f(x) = N\).}
+\vspace{1cm}
+
+How do you use IVT? You need to be able to successfully complete all three tasks: 
+\begin{enumerate}[label=(IVT \arabic*)]
+  \item Find or guess {a \emph{closed} interval \([a,b]\)}
+  \item Verify {\(f\) is continuous on \([a,b]\)}
+  \item Verify {\(N\) is between \(f(a)\) and \(f(b)\)}
+\end{enumerate}
+\bigskip
+
+\begin{example}
+  Show the function \(f(t) = t^{3} - t^{2} + 1\) has a root between \(-1\) and \(1\).
+\end{example}
+\vspace{2.5in}
+
+\begin{example}
+  Show the function \(f(t) = \sin(t) - t^{3}\) satisfy \(f(c) = -100\) for some number \(c\). 
+\end{example}
+\clearpage
+
+\section{Limits at infinity and horizontal asymptotes}
+
+This is the \emph{intuition} of a \textbf{limit at infinity}. There is an apple a metre away from you. You start by taking a step \(1/2\) metre away towards the apple. Then each subsequent step is half the length of the previous one. 
+
+\begin{center}
+  \begin{tikzpicture}[scale=0.8]
+    \draw[dotted, thin] (0,0) grid (15,9);
+    \begin{scope}[shift={(1,1)}]
+      \draw[->] (-1,0) -- (14.2,0) node[right] {\footnotesize steps};
+      \draw[->] (0,-1) -- (0,8.2) node[above right] {\footnotesize distance to apple};
+      \node[left] at (0,8) {\footnotesize \(1\)};
+      \node[left] at (0,4) {\footnotesize \(1/2\)};
+      \node[left] at (0,2) {\footnotesize \(1/4\)};
+      \node[left] at (0,1) {\footnotesize \(1/8\)};
+      \node[below] at (3,0) {\footnotesize \(1\)};
+      \node[below] at (6,0) {\footnotesize \(2\)};
+      \node[below] at (9,0) {\footnotesize \(3\)};
+      \node[below] at (12,0) {\footnotesize \(4\)};
+    \end{scope}
+  \end{tikzpicture}
+\end{center}
+\begin{enumerate}[label=(\alph*)]
+  \item Can you get as close to the apple as you want?
+    \vspace{1em}
+  \item If you are allowed to take ``infinitely'' many steps, do you \emph{expect} to reach the apple?
+    \vspace{1em}
+\end{enumerate}
+\vfill
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. When a limit at infinity exists and is equal to a number \(L\), we give the \emph{horizontal} line \(y=L\) a special name, called a {horizontal asymptote.}
+
+  \textbook{\stewart{128}{\fbox{3} Definition}}
+\end{mdframed}
+\clearpage
+
+\begin{example}
+  Recall the inverse tangent function \(\arctan(x)\).
+  % \[ y = \arctan(x) \qquad \text{if }\qquad \tan(y) = x \quad \text{and} \quad -\frac{\pi}{2} < y < \frac{\pi}{2}.\]
+
+  \includegraphics{../standalones/build/plot_arctan}
+\end{example}
+\vspace{1in}
+
+\begin{example}
+  Different types of limits at infinite that do not exist.
+
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics{../standalones/build/plot_sin}
+  \end{minipage}
+  \bigskip
+
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics{../standalones/build/plot_cos}
+  \end{minipage}
+  \bigskip
+
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \includegraphics{../standalones/build/plot_polynomials}
+  \end{minipage}
+  \bigskip
+\end{example}
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} (x^{2} - x)\) if it exists.
+\end{example}
+\clearpage
+
+\begin{mdframed}[style=withref]
+  \textbf{Definition}. Let \(f\) be a function defined on some interval \((a,\infty)\). If \(L\) is a number such that \(f(x)\) can be made arbitrarily close to \(L\) by requiring \(x\) to be sufficiently large, then we write
+  \[ 
+    \lim_{x \to \infty} f(x) = L.
+  \]
+  Otherwise, the limit of \(f(x)\), as \(x\) approaches (\emph{positive}) infinity, does not exists.
+
+  \textbook{\stewart{127}{\fbox{1} Intuitive Definition of a Limit at Infinity}}
+\end{mdframed}
+
+Our main tool to calculate limits at infinity is the following theorem.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. Suppose \(r > 0\) is a rational number. Then
+  \[
+    \lim_{x \to \infty} \frac{1}{x^{r}} = 0 \quad\text{and}\quad \lim_{x \to -\infty} \frac{1}{x^{r}} = 0.
+  \]
+
+  The second part only applies if \(x^{r}\) is well-defined for all number \(x\).
+
+  \textbook{\stewart{130}{\fbox{5} Theorem}}
+\end{mdframed}
+
+\begin{example}
+  Let \(f(x) = \frac{x^{2}-1}{x^{2} + 1}\). 
+  Evaluate \(\lim_{x \to \infty} f(x)\) and \(\lim_{x \to -\infty} f(x)\) if they exist. 
+
+  What is (or are) the horizontal asymptote(s) of \(f(x)\)?
+\end{example}
+\vfill
+
+\begin{example}
+  Evaluate \(\lim_{x \to -\infty} \frac{3x - x^{7}}{- x^{5} + 1}\) if it exists.
+\end{example}
 \vfill
 \clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to -\infty} \frac{\sqrt[3]{x^{3} + x}}{-x^{2} - 1}\) if it exists.
+\end{example}
+\vspace{6in}
+
+\begin{example}
+  Evaluate \(\lim_{x \to -\infty} \sqrt{e^{x}}\) if it exists.
+\end{example}
+\vfill
+\clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} (\sqrt{4x^{2} - 5} - 2x)\) if it exists.
+\end{example}
+\clearpage
+
+
+\section{A Common Mistake}
+When we \emph{simplify} expressions in quotients, we must be careful \textbf{not to change the domain} of the function. 
+
+
+\begin{example}
+  Find the mistake(s) in the following \emph{incorrect} reasoning about the continuity of \(f(x) = \frac{(3x-1)(x-2)}{(x-2)}\).
+  \bigskip
+
+  \begin{quote}
+    \itshape
+    We can cancel the common factor. So
+    \[
+      f(x) = \frac{(3x - 1)\cancel{(x - 2)}}{\cancel{(x-2)}} = 3x - 1.
+    \]
+    Because \(3x - 1\) is a polynomial, we can conclude \(f(x)\) is continuous at every number, including \(x=2\).
+  \end{quote}
+\end{example}
 
 \end{document}

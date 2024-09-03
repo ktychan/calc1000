@@ -1,246 +1,225 @@
-%! TeX program = xelatex
+%! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 
-\begin{document}
-\makelectureweek{8}{Week 8}
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week8}}
+\fi
 
-\section{L'H\^opital's Rule}
-L'H\^opital's rule can be used to evaluate \emph{indeterminante forms}. We demonstrate its applications through examples and cautions. The precise theorem statement can be found in \href{https://eclass.yorku.ca/pluginfile.php/5312855/mod_resource/content/3/08_applications_2.pdf}{the weekly content pdf (week 8)} and page 310 of the textbook. 
+\begin{document} \makelectureweek{8}
 
-\medskip
+\section{Linear approximation}
 
-A limit \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an \emph{indeterminate form}
-\begin{itemize}
-  \item of type \hspace{2cm} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are 
-    \bigskip
-  \item of type \hspace{2cm} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are 
-\end{itemize}
-\medskip
+\begin{mdframed}[style=withref]
+  Let \(f(x)\) be a function and let \(a\) be a constant. A linear function \(L(x)\), defined by
+  \[
+    L(x) = {f'(a) (x - a) + f(a)}
+  \]
+  is called the {linear approximation} of \(f(x)\) near the point \((a, f(a))\). Sometimes, we also say \(L(x)\) is the linear approximation of \(f(x)\) at \(a\).
 
-\begin{example}
-  Evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\).
-\end{example}
-\vfill
-
-\clearpage
-\begin{example}
-  Evaluate \(\lim_{x \to \infty} \frac{e^{x}}{x^{2}}\).
-\end{example}
-\vfill
-
-
-In general, L'H\^opital's rule can be used to evaluate limits (approaching a number or an infinity) of types
-\[
-  \frac{0}{0}, \quad \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty, \hspace{1in} \infty - \infty, \hspace{1in} \quad 0^{0}, \quad \infty^{0}, \quad 1^{\infty}.
-\]
+  \textbook{\stewart{254}{\fbox{1}}}
+\end{mdframed}
 \vspace{1in}
 
-\bigskip
-
-% \clearpage
-% 0/0 or oo/oo are foundation. 
-% convert all other types to either 0/0 or oo/oo.
+\begin{example}
+  Approximate \(\sqrt{2}\) by linearizing \(\sqrt{x}\) at \(1\).
+\end{example}
+\vfill{}
 
 \begin{example}
-  % Convert \(\lim_{x \to 0^{+}} x \ln(x)\) to one of \(\frac{0}{0}\) orssheirf@yorku.ca \(\frac{\infty}{\infty}\). Then apply L'H\^opital's Rule.
-  Evaluate \(\lim_{x \to 0^{+}} x \ln(x)\).
+  Is it better to approximate \(\sqrt{2}\) by linearizing \(\sqrt{x}\) at \(1\) or at \(3\)? Can you explain this graphically?
 \end{example}
-\vfill
+
+\begin{tikzpicture}
+  \begin{axis}[
+    xlabel={\footnotesize \(x\)},
+    ylabel={\footnotesize \(y\)},
+    % width={5in},
+    xmin={0.5},
+    xmax={3.5},
+    ymin={-0.5},
+    ymax={2},
+    % xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+    % ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+    grid=both,
+    ]
+    \addplot[domain=0:5, no markers, smooth, samples=1000]{sqrt(x)};
+    \addplot[domain=0:5, no markers, smooth, samples=1000, magenta]{sqrt(3) + 1/(2*sqrt(3))*(x-3)};
+    \addplot[domain=0:5, no markers, smooth, samples=1000, teal]{1 + 1/2*(x-1)};
+    \node[below left] at (axis cs:5,{sqrt(5)}) {\footnotesize \(\sqrt{x}\)};
+    \draw (axis cs:1,1) circle (0.1);
+  \end{axis}
+\end{tikzpicture}
+
 \clearpage
 
 \begin{example}
-  % Convert \(\lim_{x \to \infty} (e^{x} - x)\) to one of \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\). Then apply L'H\^opital's Rule.
-  Evaluate \(\lim_{x \to \infty} (e^{x} - x)\).
-\end{example}
-\vfill
+  Approximate \(\sin(3)\).
 
-\begin{example}
-  Evaluate \(\lim_{x \to 0^{+}} \sqrt[x]{x}\).
-\end{example}
-\vfill
+  \bigskip
+  \textbf{Step 1}. \emph{What} function \(f(x)\) should we linearize to approximate \(\sin(3)\)?
+  \vspace{1.5in}
 
+  \textbf{Step 2}. \emph{Where} should we linearize \(f(x)\) to approximate \(\sin(3)\)?
+  \vspace{1.5in}
+
+  \textbf{Step 3}. Linearize \(f(x)\) and find the answer.
+  \vspace{2in}
+\end{example}
+
+% \hrule
+% \textbf{Clarification of terminology.} Let \(f\) be a function and let \(a\) be a constant.
+%
+% When we say ``the tangent line of \(f(x)\) at \(x=a\),'' we mean
+% \vfill
+%
+% When we say ``linearize \(f(x)\) at \(x=a\),'' we mean
+% \vfill
+%
+% When we say ``find the linear approximation of \(f(a)\),'' we mean
+% \vfill
+%
 \clearpage
-\section{Curve Sketching}
-Why do we learn curve sketching if a computer can do it? 
-\[
-  \href{https://www.geogebra.org/calculator/cpjqfsen}{y = 6x^{5} - 521 x^{4} + 2122 x^{3} - 3300 x^{2}.}
-\]
 
-\vfill
-
-We will sketch graphs of functions using the folloing information if exists.
-\begin{enumerate}[label={\Alph*}.]
-  \item Domain. 
-    \hfill
-    {\footnotesize (from prerequisite knowledge)}
-
-    \medskip
-
-  \item Intercepts if exist and can be easily obtained.
-    \hfill
-    {\footnotesize (from prerequisite knowledge)}
-
-    \medskip
-
-  \item Symmetry (even/odd and periodic) if applicable.
-    \hfill
-    {\footnotesize (from prerequisite knowledge)}
-
-    \medskip
-
-  \item Asymptotes if exist.
-    \hfill
-    {\footnotesize (Sep. 7 and 21)}
-
-    \medskip
-
-  \item Intervals of increase or decrease.
-    \hfill
-    {\footnotesize (Oct. 31)}
-
-    \medskip
-
-  \item Local maximum or minimum values.
-    \hfill
-    {\footnotesize (Oct. 31)}
-
-    \medskip
-
-  \item Concavity and inflection points.
-    \hfill
-    {\footnotesize (Nov. 2)}
-
-\end{enumerate}
-\bigskip
-
-\faExclamationTriangle{} 
-If we are asked to sketch a curve on an assessment and such information is not given, then we must calculate them before sketching a curve. 
-
-\bigskip
-
-Remember to
+\section{Exponential Growth and Decay}
+Consider a special type of equation
+\begin{equation} \label{eq:exp-de}
+  \frac{dy}{dt} = ky,
+\end{equation}
+where 
 \begin{itemize}
-  \item draw and label the axes,
-  \item draw asymptotes with dashed lines,
-  \item label intervals with relevant information, and
-  \item label points on the curve using notation \((x,y)\).
+  \item \(k\) is {a constant}
+    \bigskip
+
+  \item \(y\) is {a function of \(t\)}
+\end{itemize}
+\vspace{1in}
+
+Suppose \(k = 1\). Can you guess a solution to \(\frac{dy}{dt} = y\)?
+\vspace{1in}
+
+What does Equation~\eqref{eq:exp-de} tell us 
+\vfill
+
+\clearpage
+
+\begin{mdframed}[style=withref]
+  The only solutions to \(\frac{dy}{dt} = ky\) are 
+  \begin{equation} \label{eq:exp-model}
+    {y(t) = y(0) e^{kt}.}
+  \end{equation}
+
+  \textbook{\stewart{239}{\fbox{2} Theorem}}
+\end{mdframed}
+
+\textbf{Terminologies}. 
+\begin{itemize}
+
+\item The constant \(k\) is called
+  \bigskip
+
+\item The value \(y(0)\) is called the 
+  \bigskip
 \end{itemize}
 
-\clearpage
-\begin{tikzpicture}
-  \draw[gray, very thin] (0,0) grid[step=0.5] (9,7);
-\end{tikzpicture}
+Explore Equation~\eqref{eq:exp-model} using GeoGebra: \url{https://www.geogebra.org/calculator/rjdp3zxd}
 
-\vfill
-
-\begin{tikzpicture}
-  \draw[gray, very thin] (0,0) grid[step=0.5] (9,7);
-\end{tikzpicture}
-
-\vfill
-\begin{tikzpicture}
-  \draw[gray, very thin] (0,0) grid[step=0.5] (9,7);
-\end{tikzpicture}
-\clearpage
-
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_symmetry_x_squared}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_symmetry_cos}
-\end{minipage}
-\vfill
-
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_symmetry_x_cubed}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_symmetry_sin}
-\end{minipage}
-\vfill
-
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_periodic_sin}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_periodic_tan}
-\end{minipage}
-\vfill
-
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_no_symmetry_poly}
-\end{minipage}
-\hfill
-\begin{minipage}{.45\textwidth}
-  \centering
-  \includegraphics[scale=.8]{../standalones/build/plot_no_symmetry_wavy}
-\end{minipage}
-\clearpage
-
-\begin{tikzpicture}
-  \draw[gray, very thin] (0,0) grid[step=0.5] (9,7);
-\end{tikzpicture}
-
-\vfill
-
-\begin{tikzpicture}
-  \draw[gray, very thin] (0,0) grid[step=0.5] (9,7);
-\end{tikzpicture}
-
-\vfill
-\begin{tikzpicture}
-  \draw[gray, very thin] (0,0) grid[step=0.5] (9,7);
-\end{tikzpicture}
-\clearpage
-
-\phantom{top}
-\vfill
-\centerline{
-  \begin{tikzpicture}
-    \draw[gray, very thin] (0,0) grid[step=0.5] (18,10);
-  \end{tikzpicture}
-}
-\clearpage
-
-\section{Optimization Problems}
+\bigskip
 
 \begin{example}
-  Consider a ball placed at height \(y = 0\). The ball is launched with initial velocity \(v_{0}\) and initial angle \(\theta\). 
-
-  Ignore air resistance and assume gravity is the only force acting on the ball during flight. Then the horizontal range \(d\) is a function of the initial angle
-  \[
-    d(\theta) = \frac{v_{0}^{2}}{g} \sin(2 \theta).
-  \]
-
-  Find the initial angle \(\theta\) that maximizes the horizontal range \(d\).
+  Let's develop a mathematical model for the world population since 1950. 
+  Assume that the growth rate is proportional to the population size.
 \end{example}
 \clearpage
 
 \begin{example}
-  Suppose we want to build a rectangular fence that encloses an area of \(100\) square feet. What dimension (length and width) minimizes the cost of the fence?
+  The half-life of radium-226 is 1590 years. 
+  \begin{enumerate}[label=(\alph*)]
+  \item A sample of radium-226 has mass \(100\) milligram.  Find a formula for the mass of the sample that remains after \(1\) year.
+  \item Find the mass remaining after \(1000\) years, correct up to the nearest milligram.
+  \item When will the mass be reduced to \(30\) milligram?
+  \end{enumerate}
+\end{example}
+\clearpage
+\section{Summary of exponential growth and decay}
+
+If \(k > 0\) in \(y = Ce^{kt}\), we have
+\vspace{1in}
+
+If \(k < 0\) in \(y = Ce^{kt}\), we have
+\vspace{1in}
+
+Keywords for using the model \(y = C e^{kt}\) in real-life applications include
+\vspace{2in}
+
+To determine the constants \(C\) and \(k\) in \(y = Ce^{kt}\), we need
+\vspace{2in}
+
+\clearpage
+
+Newton's Law of cooling states that the rate of cooling of an object is proportional to the temperature difference between the object and its surroundings.
+
+How is Newton's Law of cooling relevant to \cancel{today's lecture} \cancel{our life} our party life?
+\vspace{4in}
+
+\begin{example}
+  The temperature of a bottle of your favourite beverage measures \({22}^{\circ}\)C. You place the bottle in a fridge that measures \({4}^{\circ}\)C. After \(10\) minutes, the bottle measures \({20}^{\circ}\)C. 
+
+  How long does it take for the bottle to cool to \({10}^{\circ}\)C?
 \end{example}
 \clearpage
 
-\phantom{in case we need more space.}
+\section{Related Rates}
+
+Given a \emph{relation} among two quantities, we can use implicit differentiation with respect to time \(t\) to find the \emph{relation} among rates of changes with respect to time \(t\).
+
+\renewcommand{\baselinestretch}{2} \selectfont
+\begin{example}
+  A student walks along a straight path at \(1\) metre per second.  A spotlight is located on the ground (to be measured) \fbox{\phantom{\huge MM} metres} away from the path and is kept focused on the student. At what rate is the spotlight rotating when the student is (to be measured) \fbox{\phantom{\huge MM} metres} away from the point on the path closest to the spotlight?
+\end{example}
+\renewcommand{\baselinestretch}{1} \selectfont
+
+\clearpage
+
+Let's analyze Example~1 to describe a \emph{general method} applicable to all \emph{related rates} problems. 
+
+\begin{enumerate}
+  \item How do we know we are dealing with a related rates problem?
+    \vspace{1.5in}
+    % typically we are given information about the relation of two quantities both are functions of time.
+
+  \item How do we mathematically describe the given information?
+    \vfill
+
+  \item What do we find the relation among rate\underline{s} (of change) of given quantities?
+    \vspace{1in}
+
+  \item How do we find the unknown rate?
+    \vspace{1.5in}
+\end{enumerate}
+
 \clearpage
 
 \begin{example}
-  A haunted house is trying to maximize revenue for next year. This year, if the ticket price was \textdollar{20}, then the average attendance was \(500\) visitors per evening. If the ticket price was \textdollar{15}, then the average attendance was \(800\) visitors per evening. 
-
-  Find the ticket price that maximizes revenue.
+  A \(10\) feet long ladder rests against a vertical wall. If the bottom of the ladder slides away from the wall at a rate of \(4\) feet per second, how fast is the top of the ladder shifting down when the bottom of the ladder is \(6\) feet from the wall?
 \end{example}
 \clearpage
 
-\phantom{in case we need more space.}
+\begin{example}
+  The radius of a sphere is increasing at a rate of \(4\) millimetres per second. How fast is the volume increasing when the diameter is \(80\) millimetres?
+
+  \begin{mdframed}[style=sidenote]
+    Useful prerequisite knowledge.
+
+    The volume \(V\) of a sphere is 
+    \[
+      V = \frac{4}{3} \pi r^{3},
+    \]
+    where \(r\) is the radius.
+  \end{mdframed}
+\end{example}
 \clearpage
+
 \end{document}
+
+

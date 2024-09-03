@@ -1,0 +1,47 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week14}}
+\fi
+
+\begin{document} \makelectureweek{14}
+
+\clearpage
+\section{Review}
+\begin{example}
+  Evaluate the following indefinite integrals. Assume \(n \ne 1\).
+  \vspace{2cm}
+  \begin{align*}
+    &\int x^{n} \;dx &=& \hspace{4in} \\
+    &\int \frac{1}{x} \;dx &=& \hspace{4in}\\
+    &\int e^{x} \;dx &=& \hspace{4in}\\
+    &\int \cos(x) \;dx &=& \hspace{4in}\\
+    &\int \sin(x) \;dx &=& \hspace{4in}\\
+    &\int \sec^{2}(x) \;dx &=& \hspace{4in}\\
+    &\int \sec(x)\tan(x) \;dx &=& \hspace{4in}\\
+    &\int \frac{1}{1 + x^{2}} \;dx &=& \hspace{4in} \\
+    &\int \frac{1}{\sqrt{1 - x^{2}}} \;dx &=& \hspace{4in}
+  \end{align*}
+\end{example}
+
+\begin{example}
+  Evaluate \(\int 3 \sqrt[5]{x}^{7} + \sec(x)\tan(x) \;dx\).
+\end{example}
+\clearpage
+
+\begin{example}
+  If the two equal sides of an isosceles triangle have length \(2\), find the length of the third side that maximizes the area of the triangle. Denote the length of the third side by \(x\).
+\end{example}
+\clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} \frac{x + e^{x}}{x + e^{2x}}\).
+\end{example}
+\clearpage
+
+\begin{example}
+  A particle is moving along a curve \(x^{2}y^{3} = 4\). At some time \(t_{0}\), the particle reaches the point \((-2,1)\) and the \(y\)-coordinate is increasing at a rate of \(3\) metres per second. How fast is the \(x\)-coordinate of the  particle changing at \(t_{0}\).
+\end{example}
+\end{document}

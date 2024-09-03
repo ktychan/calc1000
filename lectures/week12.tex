@@ -1,43 +1,268 @@
-%! TeX program = xelatex
+%! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 
-\begin{document}
-\makelectureweek{12}{Week 12}
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week12}}
+\fi
+
+\begin{document} \makelectureweek{12}
+
+% The Riemann sum {{{
+\section{The Riemann Sum}
+We now generalize the area and distance problems from last week.
+
+\textbf{Definition}. Suppose \(f(x)\) is a function defined for \(a \le x \le b\). We divide the interval \([a,b]\) into \(n\) subintervals of \emph{equal width} \(\Delta{x} = \frac{b-a}{n}\). We let \(x_{0}, x_{1}, \dots, x_{n}\) be the endpoints of these subintervals and we let \(x_{1}^{*}, \dots, x_{n}^{*}\) be any \emph{sample points} in these subintervals so \(x_{i}^{*}\) lies in the \(i\)-th interval \([x_{i-1}, x_{i}]\). 
+
+% Notice \(x_{i} = a + i \Delta x\).
+
+\vspace{3cm}
+
+\begin{mdframed}[style=simple]
+  A Riemann sum is {\(\sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\).}
+
+  \textbook{\stewart{385}{\hlmain{Note 3} }}
+\end{mdframed}
+
+\bigskip
+
+\begin{center}
+  \includegraphics[width=.3\textwidth]{../standalones/build/plot_left_sum}
+  \includegraphics[width=.3\textwidth]{../standalones/build/plot_right_sum}
+  \includegraphics[width=.3\textwidth]{../standalones/build/plot_mid_sum}
+\end{center}
+\vspace{2cm}
+
+\faExclamationTriangle{} In last week's lecture, we learned that \(f(x_{i}^{*}) \Delta x\) is the area of the \(i\)-th approximating rectangle. BUT ...
 
 \clearpage
-\section{Review}
+
 \begin{example}
-  Evaluate the following indefinite integrals. Assume \(n \ne 1\).
+  The graph of a function \(f(x) = -(x+1)(x-1)(x-2)\) is given below. Evaluate the Riemann sum for \(f(x)\) on \(-2 \le x \le 3\) with \(n=5\) subintervals, taking the sample points to be one of the following. Draw the corresponding approximating rectangles.
   \vspace{2cm}
-  \begin{align*}
-    &\int x^{n} \;dx &=& \hspace{4in} \\
-    &\int \frac{1}{x} \;dx &=& \hspace{4in}\\
-    &\int e^{x} \;dx &=& \hspace{4in}\\
-    &\int \cos(x) \;dx &=& \hspace{4in}\\
-    &\int \sin(x) \;dx &=& \hspace{4in}\\
-    &\int \sec^{2}(x) \;dx &=& \hspace{4in}\\
-    &\int \sec(x)\tan(x) \;dx &=& \hspace{4in}\\
-    &\int \frac{1}{1 + x^{2}} \;dx &=& \hspace{4in} \\
-    &\int \frac{1}{\sqrt{1 - x^{2}}} \;dx &=& \hspace{4in}
-  \end{align*}
+
+  \begin{enumerate}
+    \item Take the sample points to be the \emph{left endpoints}.
+
+      \includegraphics[height=2in]{../standalones/build/plot_riemann_sum_exercise}
+      \vfill
+
+    \item Take the sample points to be the \emph{right endpoints}.
+
+      \includegraphics[height=2in]{../standalones/build/plot_riemann_sum_exercise}
+      \vfill
+
+    \item Take the sample points to be the \emph{midpoints} \(\overline{x_{1}}, \dots, \overline{x}_{n}\), defined by \(\bar{x}_{i} = \frac{x_{i-1} + x_{i}}{2}\).
+
+      \includegraphics[height=2in]{../standalones/build/plot_riemann_sum_exercise}
+  \end{enumerate}
+
+  {\footnotesize The answer is here: \url{https://www.geogebra.org/calculator/p3bygtpy}.}
 \end{example}
 
+\clearpage
+% End of the Riemann Sum. }}}
+
+
+% The Definite Integral {{{
+\section{The Definite Integral}
+\begin{mdframed}[style=withref]
+  If \(f\) is a function defined for \(a \le x \le b\), then the \emph{definite integral of \(f\) from \(a\) to \(b\)} is
+  \begin{equation}
+    {\int_{a}^{b} f(x) dx = \lim_{x \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x,}
+  \end{equation}
+  \emph{provided} {that the limit exists and gives the same value for all possible choices of sample points. }
+  \vspace{1in}
+
+  \textbook{\stewart{384}{\fbox{2} Definition of a Defnite Integral}}
+\end{mdframed}
+\vfill
+% A definite integral is a number. 
+
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(f\) is continuous on \([a,b]\), or if \(f\) has only a finite number of jump discontinuities, then \(f\) is integrable on \([a,b]\).
+
+  \textbook{\stewart{386}{\fbox{3} Theorem}}
+\end{mdframed}
+\bigskip
+
+\clearpage
 \begin{example}
-  Evaluate \(\int 3 \sqrt[5]{x}^{7} + \sec(x)\tan(x) \;dx\).
+  \href{https://www.wolframalpha.com/input?i=integrate+x%5E2+-+2x+dx+from+1+to+2}{Evaluate} \(\int_{1}^{2} (x^{2} - 2x) \; dx\) using the definition of the definite integral.
 \end{example}
 \clearpage
 
+\section{The geometric meaning of \texorpdfstring{\(\int_{a}^{b} f(x) dx\)}{definite integrals}}
+
+% You should always think about an integral from a geometric point of view.
+
+\vspace{1in}
+
+A definite integral can be interpreted as a \emph{net area}.
+
+\includegraphics[height=4cm]{../standalones/build/plot_net_area}
+\vspace{1in}
+
 \begin{example}
-  If the two equal sides of an isosceles triangle have length \(2\), find the length of the third side that maximizes the area of the triangle. Denote the length of the third side by \(x\).
+  \href{https://www.wolframalpha.com/input?i=integrate+sqrt%284+-+t%5E2%29+from+0+to+2}{Evaluate} the integral \(\int_{0}^{2} \sqrt{4 - t^{2}} \;dt\) geometrically. Hint: Graph the integrand.
 \end{example}
+
+\begin{tikzpicture}
+  % \draw[very thin, gray] (-2,0) grid (2,3); 
+  \draw[->] (-2.5,0) -- (2.5,0) node[right] {\footnotesize \(t\)};
+  \draw[->] (0,0) -- (0,3) node[above] {\footnotesize \(y\)};
+  \foreach \n in {-1,-2,0,1,2} {
+    \draw (\n, 0.05) -- (\n, -0.05) node[below] {\footnotesize \(\n\)};
+  }
+  \foreach \n in {1,2} {
+    \draw (0.05, \n) -- (-0.05, \n) node[left]  {\footnotesize \(\n\)};
+  }
+\end{tikzpicture}
+\vspace{1in}
+
+\begin{example}
+  Suppose \(\int_{a}^{b} f(x) dx\) exists. What is the geometric interpretation of \(\int_{a}^{b} |f(x)| \; dx\)?
+\end{example}
+
+\clearpage
+% }}}
+
+% Properties of the integral {{{
+\section{Properties of the definite integral}
+
+There are \(9\) elementary properties of the definite integral.
+\hfill {\footnotesize (\faBookReader{} Pages 391 to 393)}
+
+\begin{enumerate}[label=(\arabic*), start=0]
+  \item \(\int_{b}^{a} f(x) dx = - \int_{a}^{b} f(x) dx\).
+    \vspace{2in}
+
+  \item \(\int_{a}^{b} c \; dx = c (b-a)\).
+    \vspace{1in}
+
+  \item \(\int_{a}^{b} \left[ f(x) + g(x) \right] \; dx = \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx\).
+  \item \(\int_{a}^{b} {\color{attn}c} f(x) \; dx = {\color{attn} c} \int_{a}^{b} f(x) \;dx\), where \(c\) is any constant.
+  \item \(\int_{a}^{b} \left[ f(x) - g(x) \right] \; dx = \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx\).
+    \vspace{1in}
+\end{enumerate}
+
+\clearpage
+
+The next four properties of the definite integral are geometric in nature. They should feel intuitive if we are willing to think about each integral as the net area of the integrand. We now try to reinvent them on our own.
+
+For each part below, find a geometric interpretation of the hypothesis (the ``if...'' part) and each definite integral, and try to fill in the blanks with \(=\), \(\le\) or \(\ge\). 
+
+\begin{enumerate}[label=(\arabic*), start=5]
+  \item \(\int_{a}^{b} f(x) \;dx + \int_{b}^{c} f(x) \;dx \hspace{1cm} \int_{a}^{c} f(x) \; dx\)
+    \vspace{1in}
+
+  \item If \(f(x) \ge 0\) for \(a \le x \le b\), then \(\int_{a}^{b} f(x) \;dx \hspace{1cm} 0\).
+    \vspace{1.5in}
+
+  \item If \(f(x) \ge g(x)\) for \(a \le x \le b\), then \(\int_{a}^{b} f(x) \;dx \hspace{1cm} \int_{a}^{b} g(x) \;dx\).
+    \vspace{1.5in}
+
+  \item If \(m \le f(x) \le M\) for \(a \le x \le b\), then \(m(b-a) \hspace{1cm} \int_{a}^{b} f(x) \;dx \hspace{1cm} M (b-a)\). 
+
+    Notice \(m\) and \(M\) are constants.
+    \vspace{1.5in}
+\end{enumerate}
 \clearpage
 
 \begin{example}
-  Evaluate \(\lim_{x \to \infty} \frac{x + e^{x}}{x + e^{2x}}\).
+  If \(\int_{0}^{1} f(x) dx = 5\) and \(\int_{0}^{5} f(x) = -3\), find \(\int_{1}^{5} f(x) dx\).
 \end{example}
-\clearpage
+\vfill
 
 \begin{example}
-  A particle is moving along a curve \(x^{2}y^{3} = 4\). At some time \(t_{0}\), the particle reaches the point \((-2,1)\) and the \(y\)-coordinate is increasing at a rate of \(3\) metres per second. How fast is the \(x\)-coordinate of the  particle changing at \(t_{0}\).
+  Estimate \(\int_{0}^{1} e^{-x^{2}} \;dx\).
 \end{example}
+\vfill
+%  }}}
+
+\clearpage
+
+\section{The Big ideas}
+% Idea {{{
+\begin{example}
+  Let \(v(t)\) be the velocity function of a rock launched straight up. 
+
+  \faComments{} What is the physical meaning of \(\int_{0}^{t} v(x) \;dx\) if \(t = 1\)? If \(t = 2\)? If \(t = 3\)? \ldots{}
+  \vspace{2in}
+
+  \faComments{} What kind of mathematical object is defined by \(\int_{0}^{t} v(x) \;dx\) if \(0 \le t \le 5\)?
+  \vspace{1in}
+
+  \faComments{} Can you express \(v(t)\) in terms of \(\int_{0}^{t} v(x) \;dx\)?
+  \vfill
+
+  \faComments{} If \(p(t)\) is the \emph{position} function of the rock, can you express \(\int_{a}^{b} v(x) dx\) in terms of \(p(t)\)? 
+  \vfill
+\end{example}
+\vfill
+
+\clearpage
+% }}}
+
+\section{The Fundamental Theorem of Calculus (Part 1)}
+% FTC (Part 1) {{{
+\begin{mdframed}[style=withref]
+  \vspace{2in}
+
+  \textbook{\stewart{400}{The Fundamental Theorem of Calculus, Part 1}}
+\end{mdframed}
+\vspace{1.5in}
+
+\begin{example}
+  Find the \href{https://www.wolframalpha.com/input?i=differentiate+the+integral+e%5E%28-t%5E2%29+dt+from+1+to+x+with+respect+to+x}{derivative} of \(g(x) = \int_{1}^{x} e^{-t^{2}} dt\). Assume the domain of \(g\) is \([1,2]\).
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  Find the \href{https://www.wolframalpha.com/input?i=differentiate+the+integral+e%5E%28-t%5E2%29+dt+from+1+to+x%5E3+with+respect+to+x}{derivative} of \(h(x) = \int_{1}^{x^{3}} e^{-t^{2}} dt\). Assume the domain of \(h\) is \([1,2]\).
+\end{example}
+\clearpage
+% }}}
+
+% FTC (part 1) additional exercise {{{2
+\begin{example}
+  Evaluate \(\frac{d}{dt} \int_{1}^{f(t)} \sqrt{1 + x^{2}} \;dx\) where \(f(t)\) is an arbitrary differentiable function.
+\end{example}
+\vfill
+
+\begin{example}
+  Find the \href{https://www.wolframalpha.com/input?i=differentiate+the+integral+2+sin%28x%29+e%5Ex+dx+from+t+to+1+with+respect+to+t}{derivative} of \href{https://www.wolframalpha.com/input?i=integrate+2+sin%28x%29+e%5Ex+dx+from+t+to+1}{\(\int_{t}^{1} 2 \sin(x) e^{x} dx\)}. Assume \(-1 \le t \le 1\).
+\end{example}
+\vfill
+\clearpage
+
+% }}}
+
+
+\clearpage
+% }}}
+
+% FTC (part 2) {{{
+\section{The Fundamental Theorem of Calculus (Part 2)}
+\begin{mdframed}[style=withref]
+  \vspace{2in}
+
+  \textbook{\stewart{403}{The Fundamental Theorem of Calculus, Part 2}}
+\end{mdframed}
+\vspace{1.5in}
+
+\begin{example}
+  Evaluate the integral \href{https://www.wolframalpha.com/input?i=integrate+1%2Fx+dx+from+1+to+e}{\(\int_{1}^{e} \frac{1}{x} dx\)}.
+\end{example}
+\vspace{1.5in}
+
+\begin{example}
+  If \(F(x) = \sqrt{2 + \sqrt{x}}\) is an antiderivative of \(f(x)\), then is it true that \(\int_{1}^{4} f(x) dx = -1\)?
+\end{example}
+\vspace{1.5in}
+
+\clearpage
+% }}}
+
 \end{document}

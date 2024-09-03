@@ -1,441 +1,245 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 
-\begin{document}
-\makelectureweek{1}{Week 1}
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week1}}
+\fi
 
-\section{Overview of the course syllabus}
+\begin{document} \makelectureweek{1}
 
+\subfile{../lessons/review-function-basics.tex}
 
-\begin{itemize}
-  \item Learn ``new'' operations such as limits \(\lim_{x \to a} f(x)\), differentiation \(\frac{d}{dx} f(x)\) and integration \(\int_{a}^{b}f(x)\;dx\).
-  \item Use these operations to gain \emph{new} insights of functions you learned in high school.
-  \item Apply calculus to solve problems.
-\end{itemize}
+\begin{example}[Horizontal compression and stretch] \label{ex:ecg}
+  The graph of a function \(h(t)\) that models an electrocardiography (ECG) is shown below. Identify the graphs of \(h(2t)\) and \(h(t/3)\).
 
-Teach student technical skills. Ask students to identify transferable skills (where to do you math?).
+  \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+      axis lines = middle, % boxed, middle
+      axis on top,
+      axis equal image,
+      width={7in},
+      %
+      % domain and range
+      %
+      % xmin={}, xmax={},
+      % ymin={}, ymax={},
+      enlargelimits=true,
+      %
+      % axis labels
+      %
+      xlabel={time $t$ (ms)}, xlabel style={anchor=west},
+      ylabel={$y$}, ylabel style={anchor=south},
+      label style={at={(ticklabel* cs:1)}, font=\footnotesize},
+      %
+      % ticks
+      %
+      xtick={0, 15, ..., 60}, % xticklabels={},
+      % ytick={}, yticklabels={},
+      ticklabel style={font=\footnotesize},
+      %
+      % grid
+      % none, major, minor, both
+      grid=none, grid style={gray!20},
+      % minor tick num=1, 
+      % minor grid style={gray!20},
+      % 
+      % plot parameters
+      %
+      smooth, samples=100, no markers,
+      title={The graph of \(h(t)\)}
+      ]
+      % \usepackage{pgfplots}
+      % \pgfplotsset{compat=newest, trig format=rad} 
+      % \pgfplotsset{label style={font=\footnotesize}}
+      %
+      % python:
+      % L = lambda n: [(n + 0,0), (n + 1,0), (n +2,1), (n +3,0), (n +4.5,0), (n +5,-0.25), (n +6,10), (n +7,-3), (n +8,0), (n +10,0), (n +12,2), (n +13,0), (n +15,0)]
+      % " ".join(map(str, L(0)))
+      % " ".join(map(str, L(15)))
+      % " ".join(map(str, L(30)))
+      % " ".join(map(str, L(45)))
+      %
+      \addplot[thick,supp] coordinates {
+          (0,0) (1,0) (2,1) (3,0) (4.5,0) (5,-0.25) (6,10) (7,-3) (8,0) (10,0) (12,2) (13,0) (15,0)
+          (15, 0) (16, 0) (17, 1) (18, 0) (19.5, 0) (20, -0.25) (21, 10) (22, -3) (23, 0) (25, 0) (27, 2) (28, 0) (30, 0)
+          (30, 0) (31, 0) (32, 1) (33, 0) (34.5, 0) (35, -0.25) (36, 10) (37, -3) (38, 0) (40, 0) (42, 2) (43, 0) (45, 0)
+          (45, 0) (46, 0) (47, 1) (48, 0) (49.5, 0) (50, -0.25) (51, 10) (52, -3) (53, 0) (55, 0) (57, 2) (58, 0) (60, 0)
+        };
+    \end{axis}
+  \end{tikzpicture}
 
-Treat exams a little bit like a job interview. Are you ready to take on a bigger challenge?
-
-\section{A Brief Review of Functions}
+\end{example}
 
 \begin{example}
-  Which one of the following is \emph{not} a function?
-  \begin{enumerate}[label=(\alph*)]
-    \item \(h = \frac{7t^{3} + 2t^{2} + 5}{t - 1}\).
-    \item \(y = x^{2} - 1\).
-    \item \(y = x^{2} - 1\) restricted to \(0 \le x < 1\).
-    \item \(H(\theta) = (e^{\theta} - e^{-\theta})/2\).
-    \item \(x^{2} + y^{2} = 1\).
-    \item \(g(t) = \frac{f(a + t) - f(a)}{t}\) where \(f\) is a function and \(a\) is a constant.
-    \item \(f(t) = \begin{cases} 1, &\text{if } t < 2 \\ 2, &\text{otherwise} \end{cases}\).
+  Sketch the graph of \(y = 3 \sin\left(\frac{x}{2\pi} + \frac{\pi}{4}\right)\) and label the axes.
+\end{example}
+
+\begin{example}
+  Let's consider the graph of \(h(t)\) in Example~\ref{ex:ecg} again. 
+\end{example}
+
+\section{Trigonometric Functions}
+
+The sine and cosine functions, denoted by \(\sin(x)\) and \(\cos(x)\), are fundamental to all trig functions. 
+
+How do you think about \(\sin(x)\) and \(\cos(x)\)? For example, how do you calculate \(\sin(\pi/3)\)?
+
+\blanklines{10}
+
+
+What identity is central to \hlmain{all} trig calculations?
+\blanklines{10}
+
+Listed below are all commonly used trig functions. Write each function in terms of \(\sin(x)\) and \(\cos(x)\).
+\begin{align*}
+  \tan(x) &= \hspace{3in} \\[2ex]
+  \cot(x) &= \hspace{3in} \\[2ex]
+  \sec(x) &= \hspace{3in} \\[2ex]
+  \csc(x) &= \hspace{3in} \\[2ex]
+\end{align*}
+
+
+\section{Algebraic operations on functions}
+
+Algebraic operations \[+, \quad -, \quad \times, \quad \div, \quad \text{exponentiation} \quad\text{and}\quad \text{composition}\] are ``verbs'' of the mathematical language. By \emph{legally} combining verbs (operations) with nouns (functions) we can build sophisticated mathematical functions to describe natural phenomena. 
+
+We review algebraic operations, so we can correctly \hlmain{parse} mathematical expressions and \hlmain{apply formulas}. 
+
+\begin{example}
+  To calculate \(3 \times 4 + 2\), we perform the multiplication before the addition. 
+  
+  \blanklines{6}
+\end{example}
+
+\begin{mdframed}[style=simple-compact]
+  Algebraic operations must be applied in the following order
+  \[ \underbrace{( \cdots )}_{\text{first}} \quad\longrightarrow\quad \text{exponentiation} \quad\longrightarrow\quad \times, \div \quad\longrightarrow\quad \underbrace{+, -}_{\text{last}}. \]
+
+  \begin{enumerate}[itemsep=0pt]
+    \item Parentheses are always applied first. If there are multiple parentheses, the innermost ones should be applied first.
+    \item Exponentiation are applied next, before \(\times\) and \(\div\).
+    \item Multiplication and division have the third highest precedence.
+    \item Addition and subtraction division have the lowest precedence.
   \end{enumerate}
-\end{example}
-\vfill
 
-A function, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses the relationship between two quantities: the {independent variable} (or input) \(x\) and the {dependent variable} (or output) \(y\).
-
-\begin{mdframed}[style=withref]
-  Review. A function \(f\) is a rule that assigns to {each} element \(x\) in a set \(D\) {exactly one} element called \(f(x)\). The {domain} of a function is the set \(D\).
-
-  \textbook{\stewart[black]{8}{Section 1.1}}
+  Operations with the same precedence can be performed \hlsupp{in parallel}.
 \end{mdframed}
 
-\section{One-sided Limits}
-We introduce limits of a function. We will learn to \hlsupp{make sense} of an abstract definition by \hlmain{estimating limits numerically and graphically}.
-
-%--------------------
-% left-hand limit
-%--------------------
-\begin{example}
-  The table below samples the function \(y = t^{2}\) \emph{near} the number \(t = 1\).
-  What pattern of \(t^{2}\) do you observe as \(t\) gets closer to \(1\) from the left \hlattn{but is not allowed to be \(1\)}?
-
-  \includegraphics{../standalones/build/table_t_squared}
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-small}
-
-\begin{mdframed}[style=withref]
-  \textbf{Definition} (left-hand limit). Suppose \(f(x)\) is defined near the number \(a\).
-
-  We write {\(\lim_{x \to a^{-}} f(x) = L\)} and say that
-  \begin{center}
-    "\emph{the {left-hand limit} of \(f(x)\) as \(x\) approaches \(a\) is equal to \(L\)}"
-  \end{center}
-  or
-  \begin{center}
-    "\emph{the {limit} of \(f(x)\) as \(x\) approaches \(a\) {from the left} is equal to \(L\)}"
-  \end{center}
-  if we can make the value of \(f(x)\) arbitrarily close to \(L\) by restricting \(x\) to be sufficiently close to \(a\) with \(x < a\). If \(L\) does not exists, then we say the limit \emph{does not exist}.
-
-  \textbook{\stewart{86}{\fbox{2} Intuitive Definition of One-Sided Limits}}
-\end{mdframed}
-\vfill
+Know the order of operations well. Applying operations out of order is a major but avoidable mistake.
 
 \begin{example}
-  Use the graph below to estimate the limit of \(p(x)\) as \(x\) approaches \(\frac{\pi}{2}\) from the left.
-
-  \includegraphics{../standalones/build/plot_piecewise}
+  Describe the order of operations in the function \( f(x) = (x^{3/2}+1)^{2} + x - \frac{3 (x + 1)}{x}\).  
 \end{example}
 
-\includegraphics{../standalones/build/paper-dotted-small}
+\section{Exponentials and Logarithms}
 
-%--------------------
-% right-hand limit
-%--------------------
-\begin{mdframed}[style=withref]
-  \textbf{Definition} (right-hand limit). Suppose \(f(x)\) is defined {near} the number \(a\).
-
-  We write \({\lim_{x \to a^{+}} f(x)} = L\) and say that
-  \begin{center}
-    "\emph{the {right-hand limit} of \(f(x)\) as \(x\) {approaches} \(a\) is equal to \(L\)}"
-  \end{center}
-  or
-  \begin{center}
-    "\emph{the {limit} of \(f(x)\) as \(x\) {approaches} \(a\) {from the right} is equal to \(L\)}"
-  \end{center}
-  if we can make the value of \(f(x)\) {arbitrarily} close to \(L\) by {restricting} \(x\) to be {sufficiently close} to \(a\) with {\(x > a\)}. If \(L\) does not exists, then we say the limit does not exist.
-
-  \textbook{\stewart{86}{\fbox{2} Intuitive Definition of One-Sided Limits}}
-\end{mdframed}
-\includegraphics{../standalones/build/paper-dotted-small}
-
-\begin{example} \label{activity:one-sided}
-  Use the GeoGebra worksheet \url{https://www.geogebra.org/calculator/xzawxtcy}.
-  \begin{enumerate}[label=(\alph*)]
-    \item Estimate \(\lim_{t \to 1^{-}} t^{2}\) and \(\lim_{t \to 1^{+}} t^{2}\).
-          \vfill{}
-
-    \item \label{part:piecewise} Estimate the left-hand and right-hand limits of \(f(t) =
-          \begin{cases}
-            1, & \text{if } t < 2 \\
-            2, & \text{otherwise}
-          \end{cases}\) as \(t\) approaches \(2\).
-          \vfill{}
-  \end{enumerate}
-\end{example}
-
-\includegraphics{../standalones/build/paper-dotted-large}
-
-\section{Two-sided Limits}
-\begin{mdframed}[style=withref]
-  \textbf{Definition} (Two-sided limit). Suppose \(f(x)\) is {defined when \(x\) is near the number \(a\).}
-
-  We write \({\lim_{x \to a} f(x)} = L\) and say
-  \begin{center}
-    "the {limit} of \(f(x)\), as {\(x\) approaches \(a\)}, equals to \(L\)"
-  \end{center}
-  if we can {make the value of \(f(x)\) arbitrarily close to \(L\) by restricting \(x\) to be sufficiently close to \(a\) (on either side of \(a\))} {but not equal to \(a\).}
-
-  If \(L\) does not exists, then we say the limit {does not exist.}
-
-  \textbook{\stewart{83}{\fbox{1} Intuitive Definition of a Limit}}
-\end{mdframed}
-\includegraphics{../standalones/build/paper-dotted-small}
-
+A function \(b^{x}\), where \(b\) is a \emph{positive} constant and \(x\) is the independent variable, is called \emph{an} exponential function. 
 \begin{example}
-  Use the GeoGebra worksheet \url{https://www.geogebra.org/calculator/xzawxtcy} to estimate \(\lim_{t \to \pi/2} \sin(t)\).
+  Which of the following is an exponential function?
+
+  \begin{enumerate*}
+    \item \(2^{-x}\)
+    \item \((1/2)^{x}\)
+    \item \(x^{3}\)
+    \item \(e^{x}\)
+    \item \(x^{x}\)
+  \end{enumerate*}
 \end{example}
-\includegraphics{../standalones/build/paper-dotted-small}
 
-\begin{mdframed}[style=withref]
-  \textbf{Theorem}.
-  \[
-    \lim_{x \to a} f(x) = L \qquad\text{if and only if}\qquad {\lim_{x \to a^{-}} f(x) = L \quad\text{and}\quad \lim_{x \to a^{+}} f(x) = L.}
-  \]
 
-  \textbook{\stewart{87}{\fbox{3}}}
-\end{mdframed}
-\includegraphics{../standalones/build/paper-dotted-small}
+Let's recall some basic properties of an exponential function.  Assume \(b\) is a positive constant. 
+\begin{enumerate}[itemsep={1ex}]
+  \item The domain of \(b^{x}\) is 
+  \item The range of \(b^{x}\) is 
+\end{enumerate}
 
-\begin{example}
-  Let \(f(t)\) be the function in Example~\ref{activity:one-sided}\ref{part:piecewise}. Does \(\lim_{t \to 2} f(t)\) exist?
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-small}
 
-\begin{example}
-  Use the GeoGebra worksheet \url{https://www.geogebra.org/calculator/xzawxtcy} to explore limits of other functions.
-\end{example}
-\clearpage
 
-\begin{example}
-  Find \(\lim_{x \to 0} \frac{1}{x^{2}}\) if it exists.
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
+Take it for granted, for now, that \(b^{x}\) has an inverse\footnote{The only exponential function without an inverse is \(1^{x}\).} as long as \(b > 0\) and \(b \ne 1\).  The inverse of \(b^{x}\) is called an logarithm of base \(b\), denoted as \(\log_{b}(x)\).  
 
-\begin{mdframed}[style=withref]
-  \textbf{Definition}. Let \(f\) be a function defined on both sides of \(a\), except possibly at \(a\) itself. Then
-  \[
-    \lim_{x \to a} f(x) = \infty
-    \quad\text{or}\quad
-    \lim_{x \to a} f(x) = -\infty
-  \]
-  means that the value of \(f(x)\) can be made arbitrarily large (or small respectively) by taking \(x\) sufficiently close to \(a\), but not equal to \(a\).
+\faComment{} Consider the logarithm \(\log_{2}(x)\). How can we \emph{verify} (without using any rules) that \(\log_{2}(8) = 3\)?
+\blanklines{4}
 
-  \textbook{\stewart{89}{\fbox{4} Intuitive Definition of an Infinite Limit} and \stewart{90}{\fbox{5} Definition}}
-\end{mdframed}
-\includegraphics{../standalones/build/paper-dotted-small}
+The Euler's number is a \hlmain{very special} constant, denoted simply as \(e\). The exponential function \(e^{x}\) is called the \emph{natural exponential function}. The inverse of \(e^{x}\) is given a special symbol \(\ln(x)\). In other words, \(\ln(x) = \log_{e}(x)\).
 
-\begin{example}
-  Find \(\lim_{t \to (\pi/2)^{-}} \tan(t)\) if it exists.
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-small}
 
-\begin{mdframed}[style=withref]
-  \textbf{Definition}. A vertical line \(t = a\) is a {vertical asymptote} of a function \(f(t)\) if one of its \emph{one-sided} limits, as \(t\) approaches \(a\), goes to an infinity.
+You have probably memorized various logarithmic identities such as \(\ln(ab) = \ln(a) + \ln(b)\) and \(\ln(a/b) = \ln(a) - \ln(b)\) provided that \(a > 0\) and \(b > 0\). However, students often \hlwarn{misremember} the identity leading to preventable mistakes in tests and exams (hopefully not in rocket science).
 
-  \textbook{Page 90, \textcolor{red}{\fbox{6} Definition}}
-\end{mdframed}
-\vfill
-
-\begin{example}
-  Identify vertical asymptote(s) of \(\tan(\theta)\).
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-small}
-\clearpage
-
-\section{Review of polynomials, roots, sine, cosine, and exponentials}
-
-\begin{example}
-  Label the function with its type: polynomial, root function, sine, cosine, or exponential. The independent variables are \(x\) and \(t\). % If a function is none of the above, then leave its label blank.
-  % Anticipate the question: Can a function have multiple types?
-
-  \begin{figure}[h!]  % [h] for here, [ht] for here top, [hb] for here bottom
-    \centering
-    \begin{tikzpicture}
-      \node at ( 0, 4) {\large \(x^{2} + 1\)};
-      \node at ( 2,-2) {\large \(\frac{1}{2} x^{5} + x^{3} - \frac{2}{3} + \sqrt{x}\)};
-      \node at (-4,-1) {\large \(- \frac{3}{7} t^{359} - 2 t^{5} + \pi t^{3}\)};
-      \node at ( 0,-5) {\large \(x^{\pi}\)};
-      \node at ( 5,-3) {\large \(x^{-1}\)};
-      \node at (-6,-3) {\large \(\sqrt{x}\)};
-      \node at (-5, 4) {\large \(\sqrt[3]{x}\)};
-      \node at (-7, 3) {\large \(x^{1/5}\)};
-      \node at (-5, 6) {\large \(x^{3/2}\)};
-      \node at ( 2,-6) {\large \(\sin(x)\)};
-      \node at (-2, 7) {\large \(\cos(t)\)};
-      \node at ( 6,-2) {\large \(\frac{\sin(\theta)}{\cos(\theta)}\)};
-      \node at ( 6, 6) {\large \(\sin(x) + \cos(x)\)};
-      \node at (-4, 2) {\large \(2^{x}\)};
-      \node at (-5,-6) {\large \(2^{2x}\)};
-      \node at ( 2, 5) {\large \(\left(\frac{1}{2}\right)^{x}\)};
-      \node at (-2, 1) {\large \(e^{x}\)};
-      \node at ( 5,-7) {\large \((-2)^{x}\)};
-      \node at ( 7, 2) {\large \(x^{x}\)};
-    \end{tikzpicture}
-  \end{figure}
-\end{example}
-If a function does not match one of the types above, then leave it blank.
-
-\includegraphics{../standalones/build/paper-dotted-small}
-
-Use ALEKS (Google "YorkU Bethune ALEKS" or use link below) to review background material.
-
-Link: \url{https://www.yorku.ca/colleges/bethune/orientation/aleks-math-help-and-diagnostic/}
-
-\clearpage
-
-\begin{table}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
-  \centering
-  \includegraphics{../standalones/build/table_basic_functions}
-  \caption{Basic functions}
-  \label{table:basic_functions}
-\end{table}
-
-\section{Limit Laws}
-
-Last week, we learned how to estimate limits of functions. We now learn how to \hlsupp{evaluate} limits \emph{exactly}.
-\faExclamationTriangle{} This section covers a bit more than the corresponding textbook section and is organized differently to minimize redundancy. See the last page for a short comparison.
+Let's \hlmain{consolidate our understanding} of logarithm laws using the Basis Change Trick. 
 
 \begin{mdframed}[style=simple]
-  \textbf{Theorem \faStar{}}. If a function \(f(x)\) is one of the functions in Table~\ref{table:basic_functions} and \(a\) is a number in the {domain} of \(f(x)\), then
+  \textbf{The Basis Change Trick}. Given any positive constant \(b\), we have an identity
   \[
-    \lim_{x \to a} f(x) = {f(a).}
+    b = e^{\ln(b)}.
   \]
+
+  \faStar{} This identity provides a \hlmain{uniform method} to understand all logarithms in term of the easier base \(e\).
 \end{mdframed}
-\includegraphics{../standalones/build/paper-dotted-small}
 
-\begin{example}
-  Evaluate \(\lim_{x \to -2} (x^{2} + 5 x^{3})\).
-
-  \includegraphics{../standalones/build/paper-dotted-medium}
-\end{example}
-\clearpage
+Although \(b = \ln(e^{b})\) is true for any constant \(b > 0\), but it is admittedly less useful in computations. 
 
 
-\begin{mdframed}[style=withref]
-  \textbf{Theorem} (Limit Laws). Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) {both exist}. Then
-  \begin{enumerate}[label=(\arabic*)]
-    \item \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\) \hfill (sum)
-    \item \(\lim_{x \to a} [f(x) - g(x)] = \lim_{t \to a} f(x) - \lim_{x \to a} g(x)\) \hfill (difference)
-    \item \(\lim_{x \to a} [c \; f(x)] = c \lim_{t \to a} f(x)\), where \(c\) is a constant \hfill (constant multiple)
-    \item \(\lim_{x \to a} [f(x) \; g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)\) \hfill (product)
-    \item \(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}\), \quad if {\(\lim_{x \to a}g(x) \ne 0\)} \hfill (quotient)
+\begin{example}[Logarithm Laws]
+  Let \(a,b\) be positive constants. Use the Basis Change Trick to help you remember the three most frequently used logarithm laws.
+  \begin{enumerate}[topsep={0in}, itemsep={1ex}]
+    \item \(\ln(ab) = \ln(a) + \ln(b) \)
+    \item \(\ln(a/b) = \ln(a) - \ln(b) \)
+    \item \(\ln(a^{x}) = x \ln(a) \)
   \end{enumerate}
-  \textbook{\stewart{95}{Limit Laws}}
-\end{mdframed}
-% Before applying the limit laws, make sure the limit exists!
-
-\begin{example}
-  Evaluate \(\lim_{x \to 2} \left(\sin(x)\cos(x) - 2 e^{x} + \sqrt[3]{x}\right)\), if it exists.
 \end{example}
-\includegraphics{../standalones/build/paper-dotted-large}
-\clearpage
+\blanklines{10}
 
-\begin{mdframed}[style=withref]
-  \textbf{Theorem} (Limit Laws continued).
-  \begin{enumerate}[label=(\arabic*), start=6]
-    \item \(\lim_{x \to a} [f(x)]^{n} = \left[ \lim_{x \to a} f(x) \right]^{n}\) \hfill (power)
-    \item \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a} f(x)}\), \quad if \(n\) is even, we assume {\(\lim_{x \to a} f(x) > 0\)} \hfill (root)
-  \end{enumerate}
 
-  \textbook{\stewart[ForestGreen]{96}{Power Law} and \stewart[ForestGreen]{96}{Root Law}}
-\end{mdframed}
+\faStar{} The Basis Change Trick can be used to rewrite ``weird'' exponential-like functions into a familiar form. We demonstrate this technique in the following three examples.
 
-\begin{example}
-  Suppose \(\lim_{x \to -3}f(x) = 4\). Evaluate \(\lim_{x \to 2} (f(x))^{3/2}\), if it exists.
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
+\begin{example} \label{ex:x-to-x}
+  Find a function \(f(x)\) so that \(x^{x} = e^{f(x)}\). Assume \(x > 0\).
 
-\faLightbulb{} Limit laws also apply to piecewise functions and one-sided limits.
-\begin{example}
-  Evaluate \(\lim_{\theta \to (\pi/2)} F(x)\) where \(F(x) = \begin{cases} \cos(\theta), & \text{if } \theta > 0 \\ e^{\theta}, &\text{if } \theta \le 0 \end{cases}\).
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
-\begin{example}
-  Recall \(|x| = \begin{cases} x, &\text{if } x \ge 0 \\ -x, &\text{if } x < 0 \end{cases}\). Evaluate \(\lim_{x \to 0} |x|\).
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
-\clearpage
-
-\section{More on Quotients}\label{sec:quotients}
-
-If \(f(x)\) and \(g(x)\) are functions, then \(\frac{f(x)}{g(x)}\) is a {quotient} function. The domain of \(\frac{f(x)}{g(x)}\) is the domain of \(f(x)\) excluding the numbers \(x\) such that {\(g(x) = 0\).}
-
-A {rational function} is a quotient where both the numerator and the denominator are {polynomials.}
-
-\begin{example}
-  Evaluate \(\lim_{t \to 3} \frac{t^{2} - 3t + 2}{t - 2}\), if it exists.
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
-
-\begin{example}
-  Evaluate \(\lim_{t \to 2} \frac{t^{2} - 3t + 2}{t - 2}\), if it exists.
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
-\clearpage
-
-\begin{example}
-  Evaluate \(\lim_{t \to 0} \frac{\sqrt{t^{2}+1}-1}{t^{2}}\), if it exists.
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
-
-\faExclamationTriangle{} Theorem~\faStar{} on page 2 does not appear in the textbook. Limit laws 8, 9, 10, 11 on page 96 and 97 of the textbook are special cases of Theorem~1. Theorem~1 also overlaps with the box entitled \textcolor{red}{Direct Substitution Property} on page 97.
-
-\clearpage
-
-\section{The Squeeze Theorem}
-\begin{mdframed}[style=withref]
-  \textbf{The Squeeze Theorem}. Let {\(f(x) \le g(x) \le h(x)\)} when \(x\) is near \(a\) (except possibly at \(a\)) and
-  \includegraphics{../standalones/build/paper-dotted-small}
-  % \[ { \lim_{x \to a} f(x) = \lim_{x \to a} h(x) = L,} \]
-  then
-  \includegraphics{../standalones/build/paper-dotted-small}
-  % {\(\lim_{x \to a} g(x) = L\).}
-
-  \textbook{\stewart{101}{\fbox{3} The Squeeze Theorem}}
-\end{mdframed}
-\includegraphics{../standalones/build/paper-dotted-small}
-
-\begin{example}
-  Evaluate \(\lim_{x \to 0} x \sin\left(\frac{1}{x}\right)\).
-
-  \hfill\includegraphics[width=2in]{../standalones/build/plot_squeeze}
-\end{example}
-\clearpage
-
-\begin{example}
-  Suppose \(x+1 \le h(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} h(x)\).
-  
-\includegraphics{../standalones/build/paper-dotted-medium}
+  {\footnotesize Preview: Example~\ref{ex:x-to-x} is an intermediate step in calculating the derivative of \(x^{x}\).}
+  \blanklines{5}
 \end{example}
 
-\section{The Precise Definition of a limit}
 
-\begin{example} \label{example:delta}
-  Let \(f(t) = t^{2}\) be a function. Find a number \(\delta > 0\) such that
-  \begin{center}
-    if \(0 < | t - 1 | < \delta\), then \(|f(t) - 1| < \fbox{{1/2}}\).
-  \end{center}
+
+\begin{example}
+  Simplify the function \(x^{\arctan(x)}\) into a more familiar exponential function. Assume \(x > 0\). 
+  \blanklines{5}
+\end{example}
+
+
+\begin{example}
+  Simplify the function \(\left( 1 + \frac{1}{x} \right)^{x}\) into a more familiar exponential function. Assume \(x > 0\). 
+  \blanklines{5}
+\end{example}
+
+
+\begin{example} \label{ex:b(x)-to-f(x)}
+  Notice the calculations in the previous three examples follow a pattern! In this example, we summarize this pattern in a more general language. 
+
+  Assume \(b(x)\) and \(f(x)\) are both functions. 
 
   \begin{enumerate}
-    \item ``\textit{Find a number \(\delta > 0\)}'' means \\
-          \includegraphics{../standalones/build/paper-dotted-small}
-          % {you have control of \(\delta\).}
-    \item ``\textit{such that if ... then ...}'' means \\
-          \includegraphics{../standalones/build/paper-dotted-small}
-          % {your choice of \(\delta\) should make the above ``\textit{if... then...}'' statement true.}
-          \includegraphics{../standalones/build/paper-dotted-small}
-          \begin{enumerate}
-            \item ``\textit{if \(0 < |t - 1| < \delta\)}'' means \\
-                  \includegraphics{../standalones/build/paper-dotted-small}
-                  % {you restrict the domain of \(f\) to the interval \(1 - \delta < t < 1 + \delta\) but \(t \ne 1\).} 
-
-            \item ``\textit{then \(|f(t) - 1| < \fbox{{1/2}}\)}'' means \\
-                  \includegraphics{../standalones/build/paper-dotted-small}
-                  % {you must show the values of \(y = f(t)\) is at most \(\fbox{{1/2}}\) away from \(y = 1\) when the domain of \(t\) is restricted according to your choice of \(\delta\).}
-          \end{enumerate}
+    \item Rewrite \(b(x)^{f(x)}\) as a more familiar exponential function. 
+    \item What restrictions are needed on the domains and ranges of \(b(x)\) and \(f(x)\) to make part 1 work?
   \end{enumerate}
-
-  Use the GeoGebra worksheet \url{https://www.geogebra.org/calculator/jskb97hf} to help you answer the example. (1) Choose the function \(f(t)\) to be \(t^2\). (2) Choose the limit point \(t_{0}\) to be \(1\). (3) Enter \(1\) for the would-be limit \(L\). (4) Set the \(\epsilon\) slider to value specified above.
-
-  Which value(s) below are suitable choice(s) for \(\delta\)?
-  \begin{center}
-    (a) \(\delta = 1/3\), \hspace{1em}
-    (b) \(\delta = 1/4\), \hspace{1em}
-    (c) \(\delta = 1/5\), \hspace{1em}
-    (d) \(\delta < 1/5\).
-  \end{center}
 \end{example}
-\clearpage
+
+Example~\ref{ex:b(x)-to-f(x)} is a more general version of Example~\ref{ex:x-to-x} and describes a \hlsupp{reusable} pattern of calculations that typically come up in calculations of limits and derivatives. 
 
 \begin{example}
-  Use the given graph of \(g\) to find a number \(\delta > 0\) such that
-  \begin{center}
-    if \(0 < |x - 5| < \delta\), then \(|g(x) - 4| < 1\).
-  \end{center}
+  Try the following exercises if you are familiar with l'H\^opital's rule and the Chain Rule.
 
-  \begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
-    \centering
-    \includegraphics{../standalones/build/plot_delta_epsilon}
-    \label{fig:plot_delta_epsilon}
-  \end{figure}
+  \begin{enumerate}
+    \item Find the derivative of \(\left(\frac{1}{x}\right)^{\sin(x)}\) by first applying Example~\ref{ex:b(x)-to-f(x)} then the Chain Rule. 
+
+      % {\footnotesize The answer can be written many forms. One of them is \(-\left( \frac{\sin(x)}{x} + \ln(x)\cos(x) \right) e^{-\ln(x)\sin(x)}\).}
+
+    \item Evaluate \(\lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). 
+
+      % {\footnotesize The answer is \(e\).}
+
+  \end{enumerate}
 \end{example}
-\includegraphics{../standalones/build/paper-dotted-medium}
 
-\begin{mdframed}[style=withref]
-  Let \(f(t)\) be a function and \(a\) be a real number. A candidate limit \(L\), also a real number, is the limit of \(f(t)\) as \(t\) approaches \(a\) if
-  \begin{center}
-    for every \(\epsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |t - a| < \delta\), then \(|f(t) - L| < \epsilon\).
-  \end{center}
-
-  \textbook{\stewart{106}{\fbox{2} Precise Definition of a Limit}}
-\end{mdframed}
-
-To {prove} \(\lim_{t \to a} f(t) = L\) using the precise definition of limit,
-\includegraphics{../standalones/build/paper-dotted-medium}
-\clearpage
-
-\begin{example}
-  Prove that \(\lim_{t \to 3} (4t - 5) = 7\). \hfill \textbook{\stewart[blue]{108}{Example 2}}
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-huge}
-\clearpage
-
-\begin{example}
-  Prove that \(\lim_{x \to 2} x^{2} = 4\).
-
-    {\footnotesize See \textcolor{blue}{Example 3} on page 109 of the textbook for a similar example.}
-\end{example}
-\includegraphics{../standalones/build/paper-dotted-huge}
 \end{document}

@@ -1,49 +1,52 @@
-\documentclass[11pt, twoside]{memoir}
+\documentclass[12pt, letterpaper]{book}
 
+\usepackage{luacode}
+\begin{luacode}
+  weeks = {
+    "Week 1 (September 5 and 6)",
+    "Week 2 (September 9 to 13)",
+    "Week 3 (September 16 to 20)",
+    "Week 4 (September 23 to 27)",
+    "Week 5 (September 30 to October 4)",
+    "Week 6 (October 7 to 11)",
+    "Week 7 (October 14 to 18)",
+    "Week 8 (October 21 to 25)",
+    "Week 9 (October 28 to November 1)",
+    "Week 10 (November 4 to 8)",
+    "Week 11 (November 11 to 15)",
+    "Week 12 (November 18 to 22)",
+    "Week 13 (November 25 to 29)",
+    "Week 14 (December 2 to 6)",
+  }
+\end{luacode}
+
+\def\theauthor{Kelvin Chan}
 \def\theinstitute{University of Western Ontario}
-\def\thecourseterm{Fall 2024}
-\def\thecoursecode{CALC 1000A}
-\def\thecoursesection{}
+\def\thecourseterm{Fall}
+\def\thecourseyear{2024}
+\def\thecoursesubj{Calc}
+\def\thecoursenumb{1000A}
+\def\thecoursesect{002}
 \def\thecoursename{Calculus I}
-\def\thecourseinstructor{Kelvin Chan}
+\def\thecoursetitle{\thecoursesubj~\thecoursenumb~\thecoursesect: \thecoursename}
+\def\thecoursecoordinator{}
+\def\thecourseinstructor{\theauthor}
 \def\thecourselms{BrightSpace}
-\def\thecoursetextbook{Stewart Calculus (9th edition)}
 
-\makepagestyle{syllabus}
-\makeoddfoot{syllabus}{}{}{Page~\thepage}
-\makeevenfoot{syllabus}{Page~\thepage}{}{}
+\def\thecoursetextbooktitle{Calculus, Volume 1}
+\def\thecoursetextbookurl{\url{https://openstax.org/details/books/calculus-volume-1}}
+\def\thecoursetextbookpublisher{OpenStax}
+\def\thecoursetextbook{\href{https://openstax.org/details/books/calculus-volume-1}{\thecoursetextbooktitle}}
 
-\makepagestyle{lectures}
-\makeoddfoot{lectures}{}{}{\footnotesize Page~\thepage}
-\makeevenfoot{lectures}{\footnotesize Page~\thepage}{}{}
-
-\newcommand{\makelectureweek}[2]{
-  \clearpage
-
-  % chapter and section numbering
-  \setcounter{chapter}{#1}
-  \setcounter{section}{0}
-
-  % 
-  \phantomsection{}
-  \addcontentsline{toc}{chapter}{#2}
-
-
-  % heading
-  \parbox{.333\textwidth}{\thecoursecode{}~(Section~\thecoursesection)\hfill} % left
-  \parbox{.333\textwidth}{\centering{} #2} % centre
-  \parbox{.333\textwidth}{} % right
-  \par\nointerlineskip\vspace{-3pt}\noindent\rule{\textwidth}{0.4pt}
-  \par
-}
+\newcommand{\theweek}[1]{\directlua{tex.print(weeks[#1])}}
 
 % ------------------------------------------------------------
 %
 %             TITLE
 %
 % ------------------------------------------------------------
-\title{\thecoursecode\thecoursesection --- \thecoursename}
-\author{Kelvin Chan}
+\title{\thecoursetitle}
+\author{\theauthor}
 \date{\today}
 
 
@@ -52,66 +55,113 @@
 %             PAGE SETUP
 %
 % ------------------------------------------------------------
-\settypeblocksize{9.5in}{7in}{*}
-\setlrmargins{0.75in}{*}{*} 
-\setulmargins{0.75in}{*}{*} 
-\setheadfoot{14pt}{14pt}
-\setheaderspaces{*}{11pt}{*}
-\checkandfixthelayout{}
-%\usepackage{layout}
-%\usepackage{showframe}
+\usepackage[margin=0.75in, top=0.25in, bottom=0.25in, nofoot, nomarginpar, includehead, includefoot, headheight=15pt, footskip=5pt]{geometry}
+
+% header and footers
+\usepackage{fancyhdr} % must be loaded after geometry
+
+% base style for all pages
+\fancypagestyle{base}{
+  \fancyhf{}
+  \fancyhead[OR, EL]{\small Page~\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+\pagestyle{base}
+
+\fancypagestyle{draft}[base]{
+  \fancyhead[OL, ER]{\small \hlwarn{Draft}}
+  \renewcommand{\headrulewidth}{.4pt}
+}
+
+% base style for the first page of a chapter
+\fancypagestyle{firstpage}[base]{
+  \fancyhead[OL, ER]{\small \thecoursesubj{}~\thecoursenumb~\thecoursesect{}}
+  \renewcommand{\headrulewidth}{.4pt}
+}
+
+% for syllabus
+\fancypagestyle{syllabus}[firstpage]{
+  \fancyhead[C]{\small Syllabus}
+}
+
+% one style for each week of class
+\fancypagestyle{week1}[firstpage]{\fancyhead[C]{\small\theweek{1}} }
+\fancypagestyle{week2}[firstpage]{\fancyhead[C]{\small\theweek{2}} }
+\fancypagestyle{week3}[firstpage]{\fancyhead[C]{\small\theweek{3}} }
+\fancypagestyle{week4}[firstpage]{\fancyhead[C]{\small\theweek{4}} }
+\fancypagestyle{week5}[firstpage]{\fancyhead[C]{\small\theweek{5}} }
+\fancypagestyle{week6}[firstpage]{\fancyhead[C]{\small\theweek{6}} }
+\fancypagestyle{week7}[firstpage]{\fancyhead[C]{\small\theweek{7}} }
+\fancypagestyle{week8}[firstpage]{\fancyhead[C]{\small\theweek{8}} }
+\fancypagestyle{week9}[firstpage]{\fancyhead[C]{\small\theweek{9}} }
+\fancypagestyle{week10}[firstpage]{\fancyhead[C]{\small\theweek{10}} }
+\fancypagestyle{week11}[firstpage]{\fancyhead[C]{\small\theweek{11}} }
+\fancypagestyle{week12}[firstpage]{\fancyhead[C]{\small\theweek{12}} }
+\fancypagestyle{week13}[firstpage]{\fancyhead[C]{\small\theweek{13}} }
+\fancypagestyle{week14}[firstpage]{\fancyhead[C]{\small\theweek{14}} }
+
+\newcommand{\makelectureweek}[1]{
+
+  % chapter and section numbering
+  \setcounter{chapter}{#1}
+  \setcounter{section}{0}
+
+  % add to TOC
+  \phantomsection{}\label{week#1}
+  \addcontentsline{toc}{chapter}{\theweek{#1}}
+
+  \thispagestyle{week#1}
+}
+
+\newenvironment{lesson}[1]{
+  % before code
+  \def\thistextbooksectionnumber{#1}
+  \section{#1}
+}{
+  % after code
+}
 
 % ------------------------------------------------------------
 %
 %           PACKAGES
 %
 % ------------------------------------------------------------
+% colours
+\input{./colours.tex.preamble}
+
+% math
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{cancel}
+\everymath{\displaystyle}
 
 % typography
 \usepackage{fontspec}
-\usepackage{polyglossia}
 \usepackage{microtype} 
+\usepackage{parskip}
+\usepackage{ragged2e}
 
-% colours
-\usepackage[dvipsnames]{xcolor}
-% https://coolors.co/363946-af2bbf-2a9d8f-fa8334-ff4242
-\definecolor{info}{HTML}{953946}  % supplementary information
-\definecolor{supp}{HTML}{AF2BBF}  % supplementary information
-\definecolor{main}{HTML}{2A9D8F}  % main message
-\definecolor{attn}{HTML}{FA8334}  % subtle easy to miss bits
-\definecolor{warn}{HTML}{FF4242}  % warning for common mistake
-\definecolor{discord}{RGB}{88,101,242}
+% embedded markups
+\usepackage{markdown}
 
-\newcommand{\hlinfo}[1]{\textcolor{info}{#1}}
-\newcommand{\hlsupp}[1]{\textcolor{supp}{#1}}
-\newcommand{\hlmain}[1]{\textcolor{main}{#1}}
-\newcommand{\hlattn}[1]{\textcolor{attn}{#1}}
-\newcommand{\hlwarn}[1]{\textcolor{warn}{#1}}
+% subfiles
+\usepackage{refcount, xr, subfiles}
 
 % links and references
-\usepackage{hyperref}
+\usepackage[hidelinks, pdfusetitle]{hyperref}
 \renewcommand{\UrlFont}{\footnotesize\ttfamily}
-\hypersetup{
-  plainpages=false,             % needed if Roman numbers in frontpages
-  colorlinks=true,              % false: boxed links; true: colored links
-  linkcolor=black,              % color of internal links
-  citecolor=black,              % color of links to bibliography
-  filecolor=black,              % color of file links
-  urlcolor=black,               % color of external links
-  pdftitle={\thecoursecode{}: \thecoursename{} (\thecourseterm{})},
-  pdfauthor={\theauthor}
-}
 
 % lists
 \usepackage[inline]{enumitem}
 
 % figures
-\usepackage{float, caption}
+\usepackage{float}
 
 % plots
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+\pgfplotsset{trig format=rad} 
+\pgfplotsset{label style={font=\footnotesize}}
 
 % tables
 \usepackage{booktabs}
@@ -194,28 +244,14 @@
   roundcorner=3pt,
 }
 
-% math
-\usepackage{amsmath,amsthm}
-\everymath{\displaystyle}
-
-\usepackage{cancel}
-\usepackage{ragged2e}
-
 % fonts
-\usepackage{amssymb}
-\usepackage{amsfonts}
 \usepackage[mathcal]{euscript}
 \usepackage{fontawesome5}
 
+% section titles
 \usepackage[sc,center,tiny]{titlesec}
 \titlelabel{\thetitle.\;}
 
-% subfiles
-\usepackage{subfiles}
-
-% better looking symbols
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\emptyset}{\varnothing}
 
 % ------------------------------------------------------------
 %
@@ -223,37 +259,15 @@
 %
 % ------------------------------------------------------------
 \theoremstyle{definition}
-\newtheorem{thm}{Section}
+\newtheorem{thm}{Theorem}
 \newtheorem{example}[thm]{Example}
 
 \newcommand{\textbook}[1]{\noindent{} {\footnotesize \faBookReader{} #1 \hfill}}
-\newcommand{\stewart}[3][red]{Page #2, \textcolor{#1}{#3}}
+\newcommand{\stewart}[1]{#1}
 
-% ------------------------------------------------------------
-%
-%           Outlines
-%
-% ------------------------------------------------------------
-\newcounter{theoutline}
-\setcounter{theoutline}{0}
-\newenvironment{outline}[3]{
-  %
-  % increment the outline counter
-  %
-  \refstepcounter{theoutline}
-  \addcontentsline{toc}{section}{\arabic{theoutline}~#2}
-
-  \def\textbooksection{#1}
-  \def\textbooktitle{#2}
-  \def\textbookpage{#3}
-
-  %
-  % start of the outline
-  % 
-  \noindent\textbf{Outline~\arabic{theoutline}}~(#2).
-} {
-  \clearpage
-}
+% better looking symbols
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\emptyset}{\varnothing}
 
 
 % ------------------------------------------------------------
@@ -261,55 +275,53 @@
 %           Fill in the blanks
 %
 % ------------------------------------------------------------
-\newcommand{\makelinedspace}[2][1ex]{
-  \par\nointerlineskip\vspace{#1}\noindent
-  \begin{tikzpicture}[x=\textwidth,y={1cm},yscale={-1}]
-    \foreach \y in {1,...,#2} {
-      \draw[gray!40, very thin] (0,\y) -- (1,\y);
-      \node[gray!40, above right] at (0, \y) {\(\y\)};
+\newcommand{\blanklines}[2][40]{
+  % assume textarea is 7in wide.
+  % need to scale ever so slightly to avoid overfull box warning
+  \par{}
+  \begin{tikzpicture}[x=.175in,y=.175in,scale=0.99]
+    \foreach \x in {0,1,...,#1}
+    {
+      \foreach \y in {0,1,...,#2}
+      {
+        \fill[gray!40] (\x,\y) circle[radius=0.5pt];
+      }
     }
   \end{tikzpicture}
+  \smallskip
 }
-
-% ------------------------------------------------------------
-%
-%           Styles
-%
-% ------------------------------------------------------------
-\pagestyle{plain} % don't use running headers
-\SingleSpacing{}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{\medskipamount}
-\setdefaultlanguage[variant=canadian]{english}
-
 
 \begin{document}
   % --------------------
   % 
-  % title
+  % TITLE PAGE
   % 
   % --------------------
-  \begin{titlingpage}
+  \begin{titlepage}
     \thispagestyle{empty}
+    \huge
     
     \begin{center}
       % title
       \phantom{top}
       \vspace{1in}
 
-      {\huge\bfseries \thecoursecode{}: \thecoursename}
+      {\Huge\bfseries \thecoursetitle}
 
-      \vspace{2em}
-      {\large \thecourseinstructor}
-      \vspace{2em}
+      \vspace{1cm}
+      \theauthor
 
-      {\large \theinstitute}
-
+      \theinstitute
       \vfill{}
-      {\large \thecourseterm}
+
+      \thecourseterm~\thecourseyear
+
+      \vspace{2in}
     \end{center}
-    \cleardoublepage
-  \end{titlingpage}
+
+    % creaate a blank page
+    \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \end{titlepage}
 
   % --------------------
   % 
@@ -319,16 +331,14 @@
   \frontmatter{}
   \pagenumbering{roman}
   
-  \phantomsection{}
-  \addcontentsline{toc}{chapter}{Table of Contents}
   \renewcommand{\contentsname}{Table of Contents}
-  \tableofcontents*{}
+  \phantomsection{} \label{toc}
+  \addcontentsline{toc}{chapter}{\contentsname}
+  \tableofcontents{}
   \clearpage
 
-  \phantomsection{}
-  \addcontentsline{toc}{chapter}{Course Syllabus}
-  \subfile{./syllabus.tex}
-  \clearpage
+  \clearpage{\thispagestyle{empty}\cleardoublepage}
+
   
   %--------------------
   % 
@@ -337,43 +347,25 @@
   % --------------------
   \mainmatter{}
 
-  % % outlines
-  \phantomsection{}
-  \addcontentsline{toc}{chapter}{Outlines}
-  \subfile{outlines/week1.tex}
-  \subfile{outlines/week2.tex}
-  \subfile{outlines/week3.tex}
-  \subfile{outlines/week4.tex}
-  \subfile{outlines/week5.tex}
-  \subfile{outlines/week6.tex}
-  \subfile{outlines/week7.tex}
-  \subfile{outlines/week8.tex}
-  \subfile{outlines/week9.tex}
-  \subfile{outlines/week10.tex}
-  \subfile{outlines/week11.tex}
+  \subfile{./lectures/week1.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week2.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week3.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week4.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week5.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week6.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week7.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week8.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week9.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week10.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week11.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week12.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week13.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \subfile{./lectures/week14.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
 
-  % % lectures
-  \pagestyle{lectures}
-  \subfile{lectures/week1.tex}
-  \subfile{lectures/week2.tex}
-  \subfile{lectures/week3.tex}
-  \subfile{lectures/week4.tex}
-  \subfile{lectures/week5.tex}
-  \subfile{lectures/week6.tex}
-  \subfile{lectures/week7.tex}
-  \subfile{lectures/week8.tex}
-  \subfile{lectures/week9.tex}
-  \subfile{lectures/week10.tex}
-  \subfile{lectures/week11.tex}
-  \subfile{lectures/week12.tex}
-
-  \clearpage
-  
   %--------------------
   % 
-  % BACL MATTER
+  % BACK MATTER
   % 
   % --------------------
   \backmatter{}
-  \subfile{lectures/review.tex}
 \end{document}

@@ -1,221 +1,227 @@
-%! TeX program = xelatex
+%! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 
-\begin{document}
-\makelectureweek{6}{Week 6}
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week6}}
+\fi
 
-\section{Linear approximation}
+\begin{document} \makelectureweek{6}
 
-\begin{mdframed}[style=withref]
-  Let \(f(x)\) be a function and let \(a\) be a constant. A linear function \(L(x)\), defined by
-  \[
-    L(x) = {f'(a) (x - a) + f(a)}
-  \]
-  is called the {linear approximation} of \(f(x)\) near the point \((a, f(a))\). Sometimes, we also say \(L(x)\) is the linear approximation of \(f(x)\) at \(a\).
+\section{The Chain Rule}
+Recall to differentiate a composite function \(F = f \circ g\) we use the chain rule
+\[
+  \frac{d}{dx} F(x) = f'( g(x) ) g'(x) \quad\text{or}\quad \frac{dy}{dx} = \frac{dy}{du} \frac{du}{dx} \text{ if } y = f(u) \text{ and } u = g(x).
+\]
 
-  \textbook{\stewart{254}{\fbox{1}}}
-\end{mdframed}
+\begin{example}
+  Differentiate \(\cos(\sin(x^{-2}) + \pi/2)\) with respect to \(x\).
+\end{example}
+
+\clearpage
+
+\begin{example}
+  Let \(g = g(x)\) be a function. Differentiate \(g(x)^{2}\) with respect to \(x\).
+\end{example}
+\vspace{2in}
+
+\section{A familiar yet strange question?}
+The \href{https://www.wolframalpha.com/input?i=implicit+plot+%28P+%2B+1%2FV%5E2%29%28V+-+1%29+%3D+1}{equation} relating the pressure \(P\) and the volume \(V\) of a made-up gas is
+\[
+  \left( P + \frac{1}{V^{2}} \right)(V - 1) = 1.
+\]
+How can we mathematically \emph{formulate} and \emph{make sense} of the question 
+\begin{center}
+  ``\emph{Find the rate of change of volume with respect to pressure?}''
+\end{center}
+\clearpage
+
+\section{Implicit differentiation}
 \vspace{1in}
+\begin{mdframed}[style=simple]
+  The \emph{method of implicit differentiation} says to find \hlattn{the slope \(\frac{dy}{dx}\)} at \hlmain{a point \((x,y)\)} on the curve defined by an equation in which \hlattn{both  \(x,y\) are variables}, differentiate both sides of the equation \hlattn{with respect to \(x\)}, using the chain rule to differentiate \hlattn{expressions in \(y\)}, then finally solve for \hlattn{\(\frac{dy}{dx}\)}.
+\end{mdframed}
+\vspace{2in}
 
 \begin{example}
-  Approximate \(\sqrt{2}\) by linearizing \(\sqrt{x}\) at \(1\).
-\end{example}
-\vfill{}
+  Find the slope at the point \((3,4)\) given \(x^{2} + y^{2} = 25\). 
 
-\begin{example}
-  Is it better to approximate \(\sqrt{2}\) by linearizing \(\sqrt{x}\) at \(1\) or at \(3\)? Can you explain this graphically?
-\end{example}
-
-\begin{tikzpicture}
-  \begin{axis}[
-    xlabel={\footnotesize \(x\)},
-    ylabel={\footnotesize \(y\)},
-    % width={5in},
-    xmin={0.5},
-    xmax={3.5},
-    ymin={-0.5},
-    ymax={2},
-    % xlabel style={at={(ticklabel* cs:1)}, anchor=west},
-    % ylabel style={at={(ticklabel* cs:1)}, anchor=south},
-    grid=both,
-    ]
-    \addplot[domain=0:5, no markers, smooth, samples=1000]{sqrt(x)};
-    \addplot[domain=0:5, no markers, smooth, samples=1000, magenta]{sqrt(3) + 1/(2*sqrt(3))*(x-3)};
-    \addplot[domain=0:5, no markers, smooth, samples=1000, teal]{1 + 1/2*(x-1)};
-    \node[below left] at (axis cs:5,{sqrt(5)}) {\footnotesize \(\sqrt{x}\)};
-    \draw (axis cs:1,1) circle (0.1);
-  \end{axis}
-\end{tikzpicture}
-
-\clearpage
-
-\begin{example}
-  Approximate \(\sin(3)\).
-
-  \bigskip
-  \textbf{Step 1}. \emph{What} function \(f(x)\) should we linearize to approximate \(\sin(3)\)?
-  \vspace{1.5in}
-
-  \textbf{Step 2}. \emph{Where} should we linearize \(f(x)\) to approximate \(\sin(3)\)?
-  \vspace{1.5in}
-
-  \textbf{Step 3}. Linearize \(f(x)\) and find the answer.
-  \vspace{2in}
-\end{example}
-
-% \hrule
-% \textbf{Clarification of terminology.} Let \(f\) be a function and let \(a\) be a constant.
-%
-% When we say ``the tangent line of \(f(x)\) at \(x=a\),'' we mean
-% \vfill
-%
-% When we say ``linearize \(f(x)\) at \(x=a\),'' we mean
-% \vfill
-%
-% When we say ``find the linear approximation of \(f(a)\),'' we mean
-% \vfill
-%
-\clearpage
-
-\section{Exponential Growth and Decay}
-Consider a special type of equation
-\begin{equation} \label{eq:exp-de}
-  \frac{dy}{dt} = ky,
-\end{equation}
-where 
-\begin{itemize}
-  \item \(k\) is {a constant}
+  \begin{mdframed}[style=sidenote]
+    \footnotesize 
+    Recall that the solutions of \[ (x - a)^{2} + (y - b)^{2} = r^{2} \] form the circle of radius \(r\) and centred at the point \((a,b)\).
     \bigskip
 
-  \item \(y\) is {a function of \(t\)}
-\end{itemize}
-\vspace{1in}
+    For example, \[ (x+1)^{2} + (y-1)^{2} = 3 \] is the equation of the circle of radius \(\sqrt{3}\) and centred at \((-1,1)\). Notice \((\sqrt{3}-1,1)\) is on the circle. But \((1,1)\) is not on this circle.
+  \end{mdframed}
 
-Suppose \(k = 1\). Can you guess a solution to \(\frac{dy}{dt} = y\)?
-\vspace{1in}
+\end{example}
+\clearpage
 
-What does Equation~\eqref{eq:exp-de} tell us 
+\begin{example}
+  Find \(x'\) given \(\cos(t) = \sin(x)\). Assume \(x\) is a function of \(t\).
+\end{example}
+\clearpage
+% \begin{example}
+%   Find the centre and the radius of the \href{https://www.wolframalpha.com/input?i=plot+%28x%2B1%29%5E2+%2B+%28y+-+2%29%5E2+%3D+5&assumption=%7B%22C%22%2C+%22plot%22%7D+-%3E+%7B%22GeometryProperty%22%7D}{circle} described by \((x+1)^{2} + (y - 2)^{2} = 3\).
+% \end{example}
+% \vspace{1in}
+
+
+\begin{example}
+  Consider the following attempt to find functions implicitly defined by an equation.
+  \begin{align*}
+    && \sin(y^{2}) + \frac{x^{2}}{3} &= 1 \\[3ex]
+    &\implies& \sin(y^{2}) &= 1 - \frac{x^{2}}{3} &&\text{(add \(-x^{3}/3\) to both sides)}\\[3ex]
+    &\implies& y^{2} &= \arcsin\left( 1 - \frac{x^{2}}{3} \right) &&\text{(apply \(\arcsin\) to both sides)} \\[3ex]
+    &\implies& y &= \pm \sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}.
+  \end{align*}
+
+  If the above calculations were correct, then the graphs of \(y = \pm \sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}\) should decompose the curve \(\sin(y^{2}) + \frac{x^{2}}{3} = 1\).
+  
+  \centerline{
+    \includegraphics{../standalones/build/plot_fun}
+    \includegraphics{../standalones/build/plot_fun_tricky_pos}
+    \includegraphics{../standalones/build/plot_fun_tricky_neg}
+  }
+\end{example}
+\clearpage
+
+\section{Logarithmic Functions}
+For a constant \(b > 0\) and \(b \ne 1\), the logarithmic function with base \(b\), denoted by \(\log_{b}(x)\) is defined as the \emph{inverse} of the exponential function \(b^{x}\). The two functions are related by
+\[
+  \log_{b}(x) = y \quad\text{ if and only if }\quad b^{y} = x.
+\]
+
+\begin{mdframed}[style=sidenote]
+  Recall the base change formula
+  \[
+    \log_{b}(x) = \frac{\ln(x)}{\ln(b)}.
+  \]
+
+  Review Laws of Exponents and Laws of Logarithms. See pages 47 and 58 of the textbook.
+\end{mdframed}
+
+
+\begin{example}
+  Find the derivative of \(\log_{b}(x)\).  Assume \(b > 0\) and \(b \ne 1\).
+\end{example}
+
+\clearpage
+
+\section{Inverse trigonometric functions}
+The inverse tangent function \(\arctan(x)\) is defined as the \emph{inverse} of the tangent function \(\tan(x)\). The two functions are related by
+\[
+  \arctan(x) = y \quad\text{ if and only if }\quad \tan(y) = x, \quad\text{ restricted to } -\frac{\pi}{2} < x < \frac{\pi}{2}.
+\]
+\begin{mdframed}[style=sidenote]
+  Recall two identities:
+  \begin{align*}
+    &\sin^{2}(x)& &+ &\cos^{2}(x) & = &1 \\[1ex]
+    &\tan^{2}(x)& &+ &1& = &\sec^{2}(x)
+  \end{align*}
+\end{mdframed}
+\begin{example}
+  Find the derivative of \(\arctan(x)\). 
+\end{example}
+\clearpage
+
+\section{Why should we think about \texorpdfstring{\(\frac{d}{dx}\ln(x)\)}{ln'(x)} and \texorpdfstring{\(\frac{d}{dx}\arctan(x)\)}{arctan'(x)} together?}
+
+Let's explore \(\ln(x)\) and \(\arctan(x)\) using using this GeoGebra worksheet 
+
+\url{https://www.geogebra.org/calculator/emkf3fut}
+
+\clearpage
+
+\section{The derivatives of \(\log_{b}(x)\) and \(\arctan(x)\)}
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(b > 0\) and \(b \ne 1\), then
+  \[
+    \frac{d}{dx} \left( \log_{b}(x) \right) = \frac{1}{x \ln(b)}.
+  \]
+
+  \textbook{\stewart{217}{\fbox{1}}}
+\end{mdframed}
+
+\vspace{3in}
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. 
+  \[
+    \frac{d}{dx} (\arctan(x)) = \frac{1}{1 + x^{2}}.
+  \]
+
+  \textbook{Page 223}
+\end{mdframed}
+\begin{mdframed}[style=sidenote, userdefinedwidth=.4\textwidth]
+Useful prerequisite knowledge. 
+\begin{align} 
+    &\sin^{2}(x)& &+ &\cos^{2}(x) & = 1 \\[1ex]
+    &\tan^{2}(x)& &+ &1& = \sec^{2}(x)
+\end{align}
+\end{mdframed}
+\clearpage
+\section{Logarithmic Differentiation}
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \(g(x)\) is a differentiable function, then 
+  \[
+    \frac{d}{dx} \ln( g(x) ) = \frac{g'(x)}{g(x)}.
+  \]
+
+  \textbook{\stewart{218}{\fbox{3}}}
+\end{mdframed}
+\begin{mdframed}[style=sidenote, userdefinedwidth=.4\textwidth]
+Useful prerequisite knowledge. 
+\begin{align} 
+  \ln(f(x)^{n}) &= n\ln(f(x))
+\end{align}
+\end{mdframed}
+
+\begin{example}
+  Differentiate \(\ln(x^{3/4})\).
+\end{example}
+\vfill
+
+\begin{example}
+  Differentiate \(\ln(\sqrt{x^{2}+1})\).
+\end{example}
+\vfill
+
+\begin{example}
+  Differentiate \(\ln((3x+2)^{5})\).
+\end{example}
 \vfill
 
 \clearpage
+The Theorem on page 3 can be used to quickly differentiate complex functions. This method is called \emph{logarithmic differentiation}. \faExclamationTriangle{} Warning: Logarithmic differentiation only works for products and quotients.
 
-\begin{mdframed}[style=withref]
-  The only solutions to \(\frac{dy}{dt} = ky\) are 
-  \begin{equation} \label{eq:exp-model}
-    {y(t) = y(0) e^{kt}.}
-  \end{equation}
 
-  \textbook{\stewart{239}{\fbox{2} Theorem}}
+\begin{example}
+  Differentiate \(y = \frac{x^{3/4} \sqrt{x^{2}+1}}{(3x + 2)^{5}}\).
+\end{example}
+\textbf{Step 1}. Take the natural logarithm \(\ln\) of both sides of the equation.
+
+\begin{mdframed}[style=sidenote, userdefinedwidth=.5\textwidth]
+Useful prerequisite knowledge. 
+\begin{align} 
+  \ln\big(f(x) \cdot g(x)\big) &= \ln\big(f(x)\big) + \ln\big(g(x)\big) \\
+  \ln\left(\frac{f(x)}{g(x)}\right) &= \ln\big(f(x)\big) - \ln\big(g(x)\big) 
+\end{align}
 \end{mdframed}
-
-\textbf{Terminologies}. 
-\begin{itemize}
-
-\item The constant \(k\) is called
-  \bigskip
-
-\item The value \(y(0)\) is called the 
-  \bigskip
-\end{itemize}
-
-Explore Equation~\eqref{eq:exp-model} using GeoGebra: \url{https://www.geogebra.org/calculator/rjdp3zxd}
-
-\bigskip
-
-\begin{example}
-  Let's develop a mathematical model for the world population since 1950. 
-  Assume that the growth rate is proportional to the population size.
-\end{example}
-\clearpage
-
-\begin{example}
-  The half-life of radium-226 is 1590 years. 
-  \begin{enumerate}[label=(\alph*)]
-  \item A sample of radium-226 has mass \(100\) milligram.  Find a formula for the mass of the sample that remains after \(1\) year.
-  \item Find the mass remaining after \(1000\) years, correct up to the nearest milligram.
-  \item When will the mass be reduced to \(30\) milligram?
-  \end{enumerate}
-\end{example}
-\clearpage
-\section{Summary of exponential growth and decay}
-
-If \(k > 0\) in \(y = Ce^{kt}\), we have
 \vspace{1in}
 
-If \(k < 0\) in \(y = Ce^{kt}\), we have
+\textbf{Step 2}. Implicitly differentiate with respect to \(x\).
+\vfill
+
+\textbf{Step 3}. Solve for \(\frac{dy}{dx}\) and rewrite your expression as \(\frac{dy}{dx} = \cdots\). 
 \vspace{1in}
 
-Keywords for using the model \(y = C e^{kt}\) in real-life applications include
-\vspace{2in}
-
-To determine the constants \(C\) and \(k\) in \(y = Ce^{kt}\), we need
-\vspace{2in}
+\textbf{Step 4}. Replace every occurrence of \(y\) on the right-hand side by the original expression.
+\vspace{1in}
+\clearpage
+\phantom{blank page}
 
 \clearpage
-
-Newton's Law of cooling states that the rate of cooling of an object is proportional to the temperature difference between the object and its surroundings.
-
-How is Newton's Law of cooling relevant to \cancel{today's lecture} \cancel{our life} our party life?
-\vspace{4in}
-
-\begin{example}
-  The temperature of a bottle of your favourite beverage measures \({22}^{\circ}\)C. You place the bottle in a fridge that measures \({4}^{\circ}\)C. After \(10\) minutes, the bottle measures \({20}^{\circ}\)C. 
-
-  How long does it take for the bottle to cool to \({10}^{\circ}\)C?
-\end{example}
-\clearpage
-
-\section{Related Rates}
-
-Given a \emph{relation} among two quantities, we can use implicit differentiation with respect to time \(t\) to find the \emph{relation} among rates of changes with respect to time \(t\).
-
-\renewcommand{\baselinestretch}{2} \selectfont
-\begin{example}
-  A student walks along a straight path at \(1\) metre per second.  A spotlight is located on the ground (to be measured) \fbox{\phantom{\huge MM} metres} away from the path and is kept focused on the student. At what rate is the spotlight rotating when the student is (to be measured) \fbox{\phantom{\huge MM} metres} away from the point on the path closest to the spotlight?
-\end{example}
-\renewcommand{\baselinestretch}{1} \selectfont
-
-\clearpage
-
-Let's analyze Example~1 to describe a \emph{general method} applicable to all \emph{related rates} problems. 
-
-\begin{enumerate}
-  \item How do we know we are dealing with a related rates problem?
-    \vspace{1.5in}
-    % typically we are given information about the relation of two quantities both are functions of time.
-
-  \item How do we mathematically describe the given information?
-    \vfill
-
-  \item What do we find the relation among rate\underline{s} (of change) of given quantities?
-    \vspace{1in}
-
-  \item How do we find the unknown rate?
-    \vspace{1.5in}
-\end{enumerate}
-
-\clearpage
-
-\begin{example}
-  A \(10\) feet long ladder rests against a vertical wall. If the bottom of the ladder slides away from the wall at a rate of \(4\) feet per second, how fast is the top of the ladder shifting down when the bottom of the ladder is \(6\) feet from the wall?
-\end{example}
-\clearpage
-
-\begin{example}
-  The radius of a sphere is increasing at a rate of \(4\) millimetres per second. How fast is the volume increasing when the diameter is \(80\) millimetres?
-
-  \begin{mdframed}[style=sidenote]
-    Useful prerequisite knowledge.
-
-    The volume \(V\) of a sphere is 
-    \[
-      V = \frac{4}{3} \pi r^{3},
-    \]
-    where \(r\) is the radius.
-  \end{mdframed}
-\end{example}
-\clearpage
+\phantom{blank page}
 
 \end{document}
-
-

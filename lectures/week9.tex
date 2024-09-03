@@ -1,459 +1,508 @@
-%! TeX program = xelatex
+%! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 
-\begin{document}
-\makelectureweek{9}{Week 9}
+\ifcsname preamble@file\endcsname
+  \externaldocument[main-]{../../build/main}
+  \setcounter{page}{\getpagerefnumber{main-week9}}
+\fi
 
-\section{Antiderivatives}
+\begin{document} \makelectureweek{9}
 
+\section{Extreme Values}
 \begin{mdframed}[style=withref]
-  \textbf{Definition}. Let \(f\) be a function. A function \(F\) is called an \emph{antiderivative} of \(f\) on an interval \(I\) if 
-  \[
-    {F'(x) = f(x) \text{ for all } x \text{ in } I.}
-  \]
+  Let \(c\) be a number in the domain \(D\) of a function \(f\). Then \(f(c)\) is called the
+  \begin{itemize}
+    \item \emph{absolute (or global) maximum} value of \(f\) if \(f(c) \hspace{2em} f(x)\) for all \(x \in D\).
 
-  \textbook{\stewart{357}{Definition}}
+    \item \emph{absolute (or global) minimum} value of \(f\) if \(f(c) \hspace{2em} f(x)\) for all \(x \in D\).
+
+    \item \emph{local maximum} value of \(f\) if \(f(c) \hspace{2em} f(x)\) when \(x\) is near \(c\).
+
+    \item \emph{local minimum} value of \(f\) if \(f(c) \hspace{2em} f(x)\) when \(x\) is near \(c\).
+  \end{itemize}
+  \textbook{\stewart{280}{\fbox{1} Defintion \textcolor{black}{and} \fbox{2} Defintion}}
 \end{mdframed}
+Maximum and minimum values are called \emph{extreme} values.
 
-\begin{example}
-  Find an antiderivative of \(1/x\).
-\end{example}
-\vspace{1in}
-
-\begin{example}
-  Assume \(n \ne 1\). Find an antiderivative of \(x^{n}\).
-\end{example}
-\vspace{2in}
-
-\begin{example}
-  Is \(F(t) = \cos(t)\sin(t)\) an antiderivative of \(f(t) = -\sin(t)\cos(t)\)?
-
-  % We want to find the antiderivative of \(f(t) = -\sin(t) \cos(t)\). Is the following reasoning correct?
-  %
-  % We know 
-  % \begin{equation} \label{eq:wrong}
-  %   \frac{d}{dt} \cos(t) = -\sin(t) \quad\text{and}\quad \frac{d}{dt} \sin(t) = \cos(t).
-  % \end{equation} 
-  %
-  % Therefore, the antiderivative of \(-\sin(t)\) is \(\cos(t)\) and the antiderivative of \(\cos(t)\) is \(\sin(t)\).
-  %
-  % Because \(f(t)\) is the product of the right-hand sides of Equation~\eqref{eq:wrong}, we just take the product of their individual antiderivatives. 
-  %
-  % Therefore, the antiderivative of \(f(t)\) is
-  % \[
-  %   F(t) = \cos(t) \sin(t).
-  % \]
-\end{example}
-\vspace{1in}
-
-\clearpage
-\begin{example} \label{ex:rock}
-Assume all measurements are taken from the sea level.
-
-A rock launched straight up with initial velocity \(2\) metres per second. The rock's vertical velocity function with respect to time is
-\[
-  v(t) = 2 - gt
-\]
-where \(g\) is the acceleration due to gravity.  We wish to find the height function \(h(t)\) of the rock. 
-
-\faComment{} What is the relation between \(h(t)\) and \(v(t)\)?
-\vspace{1in}
-
-\faComment{} What are some possible expressions for \(h(t)\)?
-\vspace{2in}
-
-\faComment{} What is \emph{the most general} expression for \(h(t)\)?
-\vspace{1in}
-  
-\end{example}
-\begin{mdframed}[style=withref]
-  \textbf{Theorem}. Let \(f\) be a function. If \(F\) is \emph{an} antiderivative of \(f\) on an interval \(I\), then \emph{the most general antiderivative} of \(f\) is
-  \[
-    F(x) + C
-  \]
-  where \(C\) is a symbol representing an arbitrary constant.
-
-  \textbook{\stewart{357}{\fbox{1} Theorem}}
-\end{mdframed}
-\clearpage
-
-\begin{example}
-  We continue from Example~\ref{ex:rock}. Assume further that \(h(2) = 204\). Find the height function \(h(t)\).
-\end{example}
-\vspace{3in}
-
-\begin{example}
-  Find the function \(f\) if \(f'(x) = \sin(x) + e^{x} - \frac{1}{x}\) and \(f(1) = 3\).
-\end{example}
-\clearpage
-
-
-Fill in the last column of Table~\ref{table:antiderivatives}.
-\bigskip
-\begin{table}[h!]
-  \centering
-  \includegraphics{../standalones/build/table_antiderivatives}
-  \caption{Some well-known antiderivatives.}
-  \label{table:antiderivatives}
-\end{table}
-
-\clearpage
-
-\section{Sigma notation of summation}
-
-The Sigma notation is a succint notation for adding a list of numbers.
-\vspace{3in}
-
-\begin{example}
-  Expand the following summation in expanded forms.
-  \bigskip
-
-  \(\sum_{i=1}^{5} \sqrt[3]{i}\)
-  \vspace{2cm}
-
-  \(\sum_{j=3}^{5} (2j^{3} + 5^{j} + 1)\)
-  \vspace{2cm}
-  
-  \(\sum_{k=10}^{15} x\)
-  \vspace{2cm}
-\end{example}
-
-\clearpage
-
-\begin{example}
-  Express the \emph{total area} of the rectangles shown below in Sigma notation. The height of each rectangle is labelled on their top edge.
-
-  \begin{center}
-    \includegraphics{../standalones/build/plot_rectangles}
-  \end{center}
-\end{example}
-\vfill
-
-\clearpage
-\begin{mdframed}[style=withref]
-  \textbf{Theorem}. Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be a list of numbers. We have
-  \begin{align}
-    \sum_{i=1}^{n} c a_{i} 
-    &= c \sum_{i=1}^{n} a_{i} \\[2ex]
-    \sum_{i=1}^{n} a_{i} + \sum_{i=1}^{n} b_{i} 
-    &= \sum_{i=1}^{n} (a_{i} + b_{i}) \\[2ex]
-    \sum_{i=1}^{n} a_{i} - \sum_{i=1}^{n} b_{i} 
-    &= \sum_{i=1}^{n} (a_{i} - b_{i}).
-  \end{align}
-
-  \textbook{\stewart{A37}{\fbox{2} Theorem}}
-\end{mdframed}
-
-% \begin{example}
-%   Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be a list of numbers. 
-%
-%   Are the following equations true?
-%   \begin{align}
-%     \sum_{i=1}^{n} c a_{i} 
-%     &= c \sum_{i=1}^{n} a_{i} \\[2ex]
-%     \sum_{i=1}^{n} a_{i} + \sum_{i=1}^{n} b_{i} 
-%     &= c \sum_{i=1}^{n} (a_{i} + b_{i}) \\[2ex]
-%     \sum_{i=1}^{n} a_{i} - \sum_{i=1}^{n} b_{i} 
-%     &= c \sum_{i=1}^{n} (a_{i} - b_{i}).
-%   \end{align}
-% \end{example}
-
-\begin{example}
-  Use the formula \(\sum_{i=1}^{n} i = \frac{n(n+1)}{2}\) to simplify \(\sum_{i=1}^{n}(2i + 1)\).
-\end{example}
-\clearpage
-
-\begin{example}
-  Use the formula \(\sum_{i=1}^{n} i^{2} = \frac{n(n+1)(2n+1)}{6}\) to evaluate \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\).
-\end{example}
-\vfill
-\clearpage
-
-\section{The Area Problem}
-Invent and \emph{explore} different \underline{methods} to \emph{approximate} the area (without units) of the bounded region with the following goals in mind:
-\begin{enumerate}
-  \item Your approximation can be expressed in Sigma notation. 
-  \item The accuracy of your approximation can be improved.
-  \item Your method works for other shapes. 
-\end{enumerate}
-
-% \begin{tikzpicture}
-%
-%   \begin{scope}[rotate=17.5]
-%     \clip (4.5,-2) rectangle (17.5,9);
-%     \node[opacity=1, above right] at (0,0) {\includegraphics[scale=0.8]{../standalones/map_campus}};
-%   \end{scope}
-%
-%   \begin{scope}[rotate=17.5]
-%     % help lines for clipping the photo
-%     % \draw (0,-3) grid (18,10);
-%     % \fill[red] (0,0) circle (5pt);
-%
-%     \begin{scope}[shift={(4,-2.5)}]
-%       \draw[thick, white] (0,0) grid (14, 12);
-%       \foreach \x in {1,...,13} {
-%         \draw (\x, 0.05) -- (\x, -0.05) node[below] {\footnotesize \(\x\)};
-%       }
-%       \foreach \y in {1,...,11} {
-%         \draw (0.05, \y) -- (-0.05, \y) node[left] {\footnotesize \(\y\)};
-%       }
-%
-%       \begin{scope}[shift={(0,12)}]
-%         \foreach \x in {1,...,13} {
-%           \draw (\x, -0.05) -- (\x, 0.05) node[above] {\footnotesize \(\x\)};
-%         }
-%       \end{scope}
-%       \begin{scope}[shift={(14,0)}]
-%         \foreach \y in {1,...,11} {
-%           \draw (-0.05, \y) -- (0.05, \y) node[right] {\footnotesize \(\y\)};
-%         }
-%       \end{scope}
-%     \end{scope}
-%   \end{scope}
-%
-% \end{tikzpicture}
-
-\faComments{} \emph{How} can you do better than simply counting the number of squares inside the bounded region?
-
-{\footnotesize{} See \href{}{FIXME (link here)} for a version where the map and the grid are plotted on separate pages.}
-\vspace{1em}
-
-\begin{tikzpicture}[x=1cm]
-  \begin{scope}
-    \clip (0,0) rectangle (15,15);
-    %
-    % no rotation (START HERE)
-    %
-    % \node[above right] at (0,0) {\includegraphics[width=14.7cm]{../standalones/map_campus}};
-
-    % 
-    % alinged at the bottom
-    %
-    \node[rotate={-17.5+180}] at (15/2+0.2, 15/2-2.5) {\includegraphics[width=14.7cm]{../standalones/map_campus}};
-  \end{scope}
-
-  % coarse grid
-  % \draw[thick] (0,0) grid[step=1] (15,15);
-
-  % finer grid
-  \draw (0,0) grid[step=0.5] (15,15);
-
-  % no grid
-  % \draw (0,0) rectangle (15,15);
-
-  \foreach \x in {1,...,15} {
-    \draw (\x, 0.05) -- (\x, -0.05) node[below] {\footnotesize \(\x\)};
-  }
-  \foreach \y in {1,...,15} {
-    \draw (0.05, \y) -- (-0.05, \y) node[left] {\footnotesize \(\y\)};
-  }
-\end{tikzpicture}
-\clearpage
-
-\begin{mdframed}[style=withref]
-  The \emph{area} \(A\) that lies under the graph of a \emph{continuous} function \(f\) is the limit of sum of approximating rectangle:
-  \vspace{1in}
-
-  \textbook{\stewart{377}{\fbox{2} Definition}}
-\end{mdframed}
-\clearpage
-
-\begin{example}
-  Show the area under the curve \(y = x^{2}\) from \(a = 0\) to \(b = 1\) is \(1/3\). 
-
-  \begin{tikzpicture}[scale=3]
-    \begin{scope}
-      \clip (-0.5,0) rectangle (1.5, 1.5);
-      \draw[thick, dashed] plot[domain=-0.5:0] (\x, \x*\x);
-      \draw[thick, teal] plot[domain=0:1] (\x, \x*\x);
-      \draw[thick, dashed] plot[domain=1:1.5] (\x, \x*\x);
-    \end{scope}
-    \draw[very thin, ->] (-0.5,0) -- (1.2,0) node[right] {\footnotesize \(x\)};
-    \draw[very thin, ->] (0,-0.2) -- (0,1.2) node[above] {\footnotesize \(y\)};
-    \foreach \x in {1} {
-      \draw (\x, 0.05) -- (\x, -0.05) node[below] {\footnotesize \(\x\)};
-    }
-    \foreach \y in {1} {
-      \draw (0.05, \y) -- (-0.05, \y) node[left] {\footnotesize \(\y\)};
+\begin{center}
+  \begin{tikzpicture}
+    \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+    \draw[->] (0,0) -- (0,4);
+    \draw[->] (0,0) -- (5,0);
+    \foreach \n in {1,2,3,4,4} {
+      \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+      \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
     }
   \end{tikzpicture}
-\end{example}
+  \hfill
+  \begin{tikzpicture}
+    \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+    \draw[->] (0,0) -- (0,4);
+    \draw[->] (0,0) -- (5,0);
+    \foreach \n in {1,2,3,4,4} {
+      \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+      \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+  \hfill
+  \begin{tikzpicture}
+    \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+    \draw[->] (0,0) -- (0,4);
+    \draw[->] (0,0) -- (5,0);
+    \foreach \n in {1,2,3,4} {
+      \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+      \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+\end{center}
+\vfill
+
+``Near \(c\)'' means ``on an \emph{open} interval containing \(c\).''  That means
+\begin{enumerate}
+  \item \emph{local} extreme values \emph{cannot} occur at endpoints of a \emph{closed} interval. 
+  \item \emph{global} extreme values \emph{can} occur at endpoints of a \emph{closed} interval.
+\end{enumerate}
+\begin{center}
+  \begin{tikzpicture}
+    \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+    \draw[->] (0,0) -- (0,4);
+    \draw[->] (0,0) -- (5,0);
+    \foreach \n in {1,2,3,4} {
+      \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+      \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+  \hfill
+  \begin{tikzpicture}
+    \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+    \draw[->] (0,0) -- (0,4);
+    \draw[->] (0,0) -- (5,0);
+    \foreach \n in {1,2,3,4} {
+      \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+      \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+  \hfill
+  \begin{tikzpicture}
+    \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+    \draw[->] (0,0) -- (0,4);
+    \draw[->] (0,0) -- (5,0);
+    \foreach \n in {1,2,3,4} {
+      \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+      \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+\end{center}
 \clearpage
-
-In general, we have a lot of flexibility in choosing approximating rectangles.
+ 
 \begin{mdframed}[style=withref]
-  \vspace{1in}
+  \textbf{The Extreme Value Theorem}. If \(f\) is \emph{continuous} on a \emph{closed} interval \([a,b]\), then \(f\) attains an absolute maximum value \(f(c)\) \emph{and} an absolute minimum value \(f(d)\) at some numbers \(c\) and \(d\) in \([a,b]\).
 
-  \textbook{\stewart{377}{\fbox{4}}}
+  \textbook{\stewart{281}{\fbox{3}}}
 \end{mdframed}
 
-\vspace{1em}
+The two conditions in the hypothesis (the ``if \ldots{}'' part) are very important. Let's see what can go wrong if one of these conditions is missing.
+\medskip
 
-Draw \(7\) approximating rectangles by choosing the sample points \(x_{i}^{*}\) to be the \emph{right endpoint} of the \(i\)-th subinterval.
+\begin{enumerate}
+  \item Is the following statement true? 
 
-\begin{tikzpicture}[xscale=3,yscale=0.8]
-  \begin{scope}
-  \fill[gray!5] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3}) -- (2.5,0) -- (-1,0);
-    \draw[dotted] (-1,3) -- (-1,0);
-    \draw[dotted] (2.5, 5.625) -- (2.5, 0);
-    \draw[thick, teal] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3});
-    \node[below] at (-1,0) {\footnotesize \(a\)};
-    \node[below] at (2.5,0) {\footnotesize \(b\)};
-  \end{scope}
+    \begin{minipage}{.4\textwidth}
+      \begin{tikzpicture}
+        \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+        \draw[->] (0,0) -- (0,4);
+        \draw[->] (0,0) -- (5,0);
+        \foreach \n in {1,2,3,4} {
+          \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+          \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+        }
+      \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{.55\textwidth}
+      \vspace{-2.5cm}
+      \textit{If \(f\) is defined on a \emph{closed} interval \([a,b]\), then \(f\) attains an absolute maximum value \(f(c)\) \emph{and} an absolute minimum value \(f(d)\) at some numbers \(c\) and \(d\) in \([a,b]\).}
+    \end{minipage}
 
-  \draw[very thin, ->] (-1.1,0) -- (2.6,0) node[right] {\footnotesize \(x\)};
-  \draw[very thin, ->] (0,0) -- (0,6) node[above] {\footnotesize \(y\)};
+    \vfill
 
-  \foreach \x in {-1,-0.5,...,2.5} {
-    \draw (\x, 0.05) -- (\x, -0.05); % node[below] {\footnotesize \(\x\)};
-  }
+  \item Is the following statement true? 
 
-  \foreach \y in {1,2,3,4,5} {
-    \draw (0.05, \y) -- (-0.05, \y); % node[left] {\footnotesize \(\y\)};
-  }
-\end{tikzpicture}
+    \begin{minipage}{.4\textwidth}
+      \begin{tikzpicture}
+        \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+        \draw[->] (0,0) -- (0,4);
+        \draw[->] (0,0) -- (5,0);
+        \foreach \n in {1,2,3,4} {
+          \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+          \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+        }
+      \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{.55\textwidth}
+      \vspace{-2cm}
+      \textit{If \(f\) is continuous on an open interval \((a,b)\), then \(f\) attains an absolute maximum value \(f(c)\) \emph{and} an absolute minimum value \(f(d)\) at some numbers \(c\) and \(d\) in \((a,b)\).}
+    \end{minipage}
 
-Draw \(7\) approximating rectangles by choosing the sample points \(x_{i}^{*}\) to be the \emph{left endpoint} of the \(i\)-th subinterval.
+    \vfill
 
-\begin{tikzpicture}[xscale=3,yscale=0.8]
-  \begin{scope}
-  \fill[gray!5] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3}) -- (2.5,0) -- (-1,0);
-    \draw[dotted] (-1,3) -- (-1,0);
-    \draw[dotted] (2.5, 5.625) -- (2.5, 0);
-    \draw[thick, teal] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3});
+  \item Is the following statement true? 
 
-    \node[below] at (-1,0) {\footnotesize \(a\)};
-    \node[below] at (2.5,0) {\footnotesize \(b\)};
-  \end{scope}
 
-  \draw[very thin, ->] (-1.1,0) -- (2.6,0) node[right] {\footnotesize \(x\)};
-  \draw[very thin, ->] (0,0) -- (0,6) node[above] {\footnotesize \(y\)};
-
-  \foreach \x in {-1,-0.5,...,2.5} {
-    \draw (\x, 0.05) -- (\x, -0.05); % node[below] {\footnotesize \(\x\)};
-  }
-
-  \foreach \y in {1,2,3,4,5} {
-    \draw (0.05, \y) -- (-0.05, \y); % node[left] {\footnotesize \(\y\)};
-  }
-\end{tikzpicture}
+    \begin{minipage}{.4\textwidth}
+      \begin{tikzpicture}
+        \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+        \draw[->] (0,0) -- (0,4);
+        \draw[->] (0,0) -- (5,0);
+        \foreach \n in {1,2,3,4} {
+          \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+          \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+        }
+      \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{.55\textwidth}
+      \vspace{-2cm}
+      \textit{If \(f\) is continuous on a half-open interval \(I\), then \(f\) attains an absolute maximum value \(f(c)\) \emph{and} an absolute minimum value \(f(d)\) at some numbers \(c\) and \(d\) in \(I\).}
+    \end{minipage}
+\end{enumerate}
 \clearpage
 
-Draw \(7\) approximating rectangles by choosing the sample points \(x_{i}^{*}\) to be the \emph{the midpoint} of the \(i\)-th subinterval.
+\begin{mdframed}[style=withref]
+  \textbf{Theorem} (Fermat). If a function \(f\) has a local maximum or minimum at \(c\), and if \(f'(c)\) exists, then \(f'(c) = 0\).
 
-\begin{tikzpicture}[xscale=3,yscale=0.8]
-  \begin{scope}
-  \fill[gray!5] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3}) -- (2.5,0) -- (-1,0);
-    \draw[dotted] (-1,3) -- (-1,0);
-    \draw[dotted] (2.5, 5.625) -- (2.5, 0);
-    \draw[thick, teal] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3});
-
-    \node[below] at (-1,0) {\footnotesize \(a\)};
-    \node[below] at (2.5,0) {\footnotesize \(b\)};
-  \end{scope}
-
-  \draw[very thin, ->] (-1.1,0) -- (2.6,0) node[right] {\footnotesize \(x\)};
-  \draw[very thin, ->] (0,0) -- (0,6) node[above] {\footnotesize \(y\)};
-
-  \foreach \x in {-1,-0.5,...,2.5} {
-    \draw (\x, 0.05) -- (\x, -0.05); % node[below] {\footnotesize \(\x\)};
-  }
-
-  \foreach \y in {1,2,3,4,5} {
-    \draw (0.05, \y) -- (-0.05, \y); % node[left] {\footnotesize \(\y\)};
-  }
-\end{tikzpicture}
-
-Draw \(7\) approximating rectangles by choosing the samples points \(x_{i}^{*}\) so that \(f(x_{i}^{*})\) is the maximum value of \(f\) on the \(i\)-th subinterval.
-
-\begin{tikzpicture}[xscale=3,yscale=0.8]
-  \begin{scope}
-  \fill[gray!5] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3}) -- (2.5,0) -- (-1,0);
-    \draw[dotted] (-1,3) -- (-1,0);
-    \draw[dotted] (2.5, 5.625) -- (2.5, 0);
-    \draw[thick, teal] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3});
-    
-    \node[below] at (-1,0) {\footnotesize \(a\)};
-    \node[below] at (2.5,0) {\footnotesize \(b\)};
-  \end{scope}
-
-  \draw[very thin, ->] (-1.1,0) -- (2.6,0) node[right] {\footnotesize \(x\)};
-  \draw[very thin, ->] (0,0) -- (0,6) node[above] {\footnotesize \(y\)};
-
-  \foreach \x in {-1,-0.5,...,2.5} {
-    \draw (\x, 0.05) -- (\x, -0.05); % node[below] {\footnotesize \(\x\)};
-  }
-
-  \foreach \y in {1,2,3,4,5} {
-    \draw (0.05, \y) -- (-0.05, \y); % node[left] {\footnotesize \(\y\)};
-  }
-\end{tikzpicture}
-
-Draw \(7\) approximating rectangles by choosing the samples points \(x_{i}^{*}\) so that \(f(x_{i}^{*})\) is the minimum value of \(f\) on the \(i\)-th subinterval.
-
-\begin{tikzpicture}[xscale=3,yscale=0.8]
-  \begin{scope}
-  \fill[gray!5] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3}) -- (2.5,0) -- (-1,0);
-    \draw[dotted] (-1,3) -- (-1,0);
-    \draw[dotted] (2.5, 5.625) -- (2.5, 0);
-    \draw[thick, teal] plot[domain=-1:2.5, samples=100, smooth] (\x, {(\x+1)*(\x-1)*(\x-2) + 3});
-
-    \node[below] at (-1,0) {\footnotesize \(a\)};
-    \node[below] at (2.5,0) {\footnotesize \(b\)};
-  \end{scope}
-
-  \draw[very thin, ->] (-1.1,0) -- (2.6,0) node[right] {\footnotesize \(x\)};
-  \draw[very thin, ->] (0,0) -- (0,6) node[above] {\footnotesize \(y\)};
-
-  \foreach \x in {-1,-0.5,...,2.5} {
-    \draw (\x, 0.05) -- (\x, -0.05); % node[below] {\footnotesize \(\x\)};
-  }
-
-  \foreach \y in {1,2,3,4,5} {
-    \draw (0.05, \y) -- (-0.05, \y); % node[left] {\footnotesize \(\y\)};
-  }
-\end{tikzpicture}
-
-\section{The Distance Problem}
-The distance of an object travelling in a straight line at a \emph{constant} velocity can be computed by
-\[
-  \text{distance travelled} = (\text{constant velocity}) \times \text{time}.
-\]
-\faComments{} What does area has to do with this equation?
-\vspace{1in}
-
-\begin{example} \label{example:rock}
-Assume we are on a planet where acceleration due to gravity is \(1\;m/s^{2}\). 
-
-A rock is launched straight up with an initial velocity \(2\) metres per second. The rock's vertical velocity function with respect to time is
-\[
-  v(t) = 2 - t.
-\]
-Let \(h(t)\) be the height function of the rock. 
+  \textbook{\stewart{282}{\fbox{4}}}
+\end{mdframed}
 \bigskip
 
-\faComments{} What is the physical interpretation of the area under the curve of \(v\) between \(t=0\) and \(t=2\)?
+\begin{mdframed}[style=withref]
+  A \textbf{critical number} of a function \(f\) is a number \(c\) in the \emph{domain} of \(f\) such that 
+  \[
+    f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
+  \]
 
-\includegraphics{../standalones/build/plot_rocket}
+  \textbook{\stewart{282}{\fbox{6} Definition}}
+\end{mdframed}
+\faExclamationTriangle{} Critical numbers only have the \emph{potential} to be local extreme values. The following examples demonstrate that \emph{not} all critical numbers correspond to local extreme values. 
 
-\faComments{} What does the area under the curve of \(v\) between \(t=0\) and \(t=2\) have to do with the height function \(h(t)\)? 
+
+% If \(c\) is a critical number, we still don't know whether \(f(c)\) is a local minimum or maximum.
+\begin{center}
+\begin{tikzpicture}
+  \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+  \draw[->] (0,0) -- (0,4);
+  \draw[->] (0,0) -- (5,0);
+  \foreach \n in {1,2,3,4} {
+    \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+    \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+  }
+\end{tikzpicture}
+\hspace{1in}
+\begin{tikzpicture}
+  \draw[dotted, thin] (0,0) grid[step=0.5] (5,4);
+  \draw[->] (0,0) -- (0,4);
+  \draw[->] (0,0) -- (5,0);
+  \foreach \n in {1,2,3,4} {
+    \draw (0.04,\n) -- (-0.04,\n) node[left] {\footnotesize \(\n\)};
+    \draw (\n,0.04) -- (\n,-0.04) node[below] {\footnotesize \(\n\)};
+  }
+\end{tikzpicture}
+\end{center}
+\medskip
+
+\faExclamationTriangle{} Even if a critical number is local extreme value, we still do not know whether it is a local maximum or a local minimum.
+\vspace{1in}
+
+\begin{example} \label{ref:ex-critical-numbers}
+  Find critical numbers of \(f(x) = x^{5}\) on \([-1,1]\). Which critical numbers(s) do not correspond to local extreme value(s)?
 \end{example}
+\vfill
+\clearpage
+
+\begin{mdframed}[style=withref]
+  To find the absolute maximum and minimum value of a \emph{continuous} functionon a \emph{closed} interval \([a,b]\).
+  \begin{enumerate}
+  \item Find the values of \(f\) at the critical numbers of \(f\) in \((a,b)\).
+  \item Find the \(f(a)\) and \(f(b)\).
+  \item The largest values from Steps~1~and~2 is the absolute maximum; the smallest value is the absolute minimum.
+  \end{enumerate}
+
+  \textbook{\stewart{284}{The Closed Interval Method}}
+\end{mdframed}
+
+\begin{example}
+  Find the absolute maximum and minimum values of \(f(x) = \frac{1}{3} x^{3} - \frac{3}{2} x^{2} + 2x\) on \([0,5/2]\).
+\end{example}
+\vfill
+\clearpage
+%
+% \begin{example}
+%   Find the absolute extreme values of the function \(f(x) = x - 5 \sqrt[5]{x}\) on \([-1,2]\).
+% \end{example}
+% \clearpage
+
+\section{\(f'\) and Intervals of Increasing and Decreasing}
+\begin{center}
+  \includegraphics[scale=0.8]{../standalones/build/plot_increasing_decreasing}
+  \hfill
+  \includegraphics[scale=0.8]{../standalones/build/plot_increasing_decreasing_only_derivative}
+  \hfill
+  \includegraphics[scale=0.8]{../standalones/build/plot_increasing_decreasing_with_derivative}
+\end{center}
+\vspace{1in}
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem} (Increasing/Decreasing Test). 
+  \begin{enumerate}[label=(\alph*)]
+    \item If \(f'(x) \hspace{2em} 0\) for every \(x\) in \(I\), then \(f(x)\) is increasing on \(I\).
+    \item If \(f'(x) \hspace{2em} 0\) for every \(x\) in \(I\), then \(f(x)\) is decreasing on \(I\).
+  \end{enumerate}
+
+  \textbook{\stewart{297}{Increasing/Decreasing Test}}
+\end{mdframed}
+
+\faComments{} If \(f'(c) = 0\) at some number \(c\), then is \(f(x)\) is increasing or decreasing (or neither) at \(c\)?
+\vspace{1cm}
+
+\begin{example}
+  Consider the graph of \(f'(x)\) below. Label the interval on which \(f(x)\) is increasing. 
+
+  \begin{minipage}{0.4\textwidth}
+    \begin{tikzpicture}[scale=0.8]
+      \begin{axis}[
+        % ymin=0, ymax=1,  
+        xmin=-3*pi/2, xmax=2*pi,
+        xtick={-3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2},
+        xticklabels={,,},
+        smooth,
+        samples=100,
+        no markers,
+        grid=both,
+        ]
+        \addplot[dashed, black, domain=-3*pi/2:0] {sin(deg(x)) + x/2/pi};
+        \addplot[dashed, black, domain=0:pi/2] {0};
+        \addplot[dashed, black, domain=pi/2:3*pi/2] {sin(deg(x-pi/2)) + (x-pi/2)/2/pi};
+        \node[above left] at (axis cs:1,1) {\footnotesize \(f'(x)\)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{minipage}
+  \begin{minipage}{0.59\textwidth}
+    \vspace{-1in}
+    \footnotesize
+    You might find this trick useful: Translate the quesion into an everyday life question.
+    \medskip
+
+    Pretent \(f'\) is the velocity function of a car. Then \(f\) becomes the displacement function of a car. 
+  \end{minipage}
+
+\end{example}
+
+% \faComments{} Can we use the I/D Test useful to find local extreme values?
+% \vspace{1cm}
 
 \clearpage
-\begin{example}
-  Approximate the area under the curve from \(t=0\) and \(t=1.5\) by subdividing the interval \([0,1.5]\) into \(3\) equal-width rectangles? Use the left endpoint approximation.
 
-  You should get a number at the very end. 
+\begin{example} \label{ex:first-derivative}
+  Determine intervals of increase or decrease of \(f(x) = 2x^{3} - 9x^{2} + 12x\).
 \end{example}
-\includegraphics{../standalones/build/plot_rocket}
 \clearpage
 
-\section{Preview of next week}
+\begin{mdframed}[style=withref]
+  \textbf{Theorem} (The First Derivative Test). Suppose that \(c\) is a critical number of a continuous function \(f\). 
+  \begin{enumerate}
+    \item  If \(f'\) \emph{changes} from positive to negative, then \(f\) has a local maximum at \(c\).
+    \item  If \(f'\) \emph{changes} from negative to positive, then \(f\) has a local minimum at \(c\).
+    \item  If \(f'\) is positive to the left and right of \(c\), or negative to the left and right of \(c\), then \(f\) has \emph{no} local maximum or minimum at \(c\).
+  \end{enumerate}
+
+  \textbook{\stewart{298}{The First Derivative Test}}
+\end{mdframed}
+The First Derivative Test simply says the following in the language of the first derivative. 
+\begin{enumerate}
+  \item If \(f\) changes from {increasing} to {decreasing} at \(c\), then \(f\) has a local maximum at \(c\).
+  \item If \(f\) changes from {decreasing} to {increasing} at \(c\), then \(f\) has a local minimum at \(c\).
+  \item If \(f\) is {increasing} to the left and right of \(c\), or {decreasing} to the left and right of \(c\), then \(f\) has no local maximum or minimum at \(c\).
+\end{enumerate}
+\bigskip
+
 \begin{example}
-  We continue from Example~\ref{example:rock}. Let's extend the domain of the velocity function \(v(t) = 2 - t\) to \([0,3]\). This function carries physical meaning. It says that the rock begins to fall after \(2\) seconds.
-
-  \includegraphics{../standalones/build/plot_rocket_extended}
-
-  \faComments{} What \emph{should} the shaded area mean in terms of distance and \(h(t)\)?
+  Determine local minimum(s) and local maximum(s) of \(f(x) = 2x^{3} - 9x^{2} + 12x\) from Example~\ref{ex:first-derivative}.
 \end{example}
+\clearpage
+
+\section{\(f''\) and Concavity}
+
+\begin{center}
+  \includegraphics[scale=0.8]{../standalones/build/plot_concave_upward}
+  \hfill
+  \includegraphics[scale=0.8]{../standalones/build/plot_concave_downward}
+  \hfill
+  \includegraphics[scale=0.8]{../standalones/build/plot_concave_updown}
+\end{center}
+\bigskip
+
+\begin{mdframed}[style=withref]
+  \begin{itemize}
+    \item If the graph of \(f\) lies {above} all of its tangent lines on an interval \(I\), then \(f\) is called \emph{concave upward} on \(I\). 
+    \item If the graph of \(f\) lies {below} all of its tangent lines on an interval \(I\), then \(f\) is called \emph{concave downward} on \(I\).
+  \end{itemize}
+
+  \textbook{\stewart{300}{Definition}}
+\end{mdframed}
+
+A point \(P\) \emph{on the curve} \(y = f(x)\) is called an \emph{inflection point} if \(f\) is continuous there and the curve changes from concave upward to concave downward \emph{or} from concave downward to concave upward at \(P\).
+
+\vspace{1in}
+
+\begin{center}
+  \includegraphics[scale=0.8]{../standalones/build/plot_concavity}
+  \hfill
+  \includegraphics[scale=0.8]{../standalones/build/plot_concavity_only_derivative}
+  \hfill
+  \includegraphics[scale=0.8]{../standalones/build/plot_concavity_with_derivative}
+\end{center}
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem} (Concavity Test). 
+  \begin{enumerate}[label=(\alph*)]
+    \item If \(f''(x) \hspace{2em} 0\) on an interval \(I\), then the graph of \(f\) is \emph{concave upward} on \(I\).
+    \item If \(f''(x) \hspace{2em} 0\) on an interval \(I\), then the graph of \(f\) is \emph{concave downward} on \(I\).
+  \end{enumerate}
+
+  \textbook{\stewart{300}{Concavity Test}}
+\end{mdframed}
+
+\clearpage
+
+\begin{example} \label{ex:concavity}
+  Find inflection points of \(f(x) = x^{4} - 4x^{3}\) and determine intervals on which \(f(x)\) are concave upward or concave downward. 
+\end{example}
+\vfill
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. Suppose \(f''\) is continuous near \(c\). 
+  \begin{enumerate}[label=(\alph*)]
+  \item If \(f'(c) = 0\) and \(f''(c) > 0\), then \(f\) has a local minimum at \(c\).
+  \item If \(f'(c) = 0\) and \(f''(c) < 0\), then \(f\) has a local maximum at \(c\).
+  \item[\faExclamationTriangle{}] If \(f'(c) = 0\) but \(f''(c) = 0\) or \(f''(c)\) does not exists, then the Second Derivative Test is inconclusive and we need to explore other methods to find local extreme values.
+  \end{enumerate}
+
+  \textbook{\stewart{302}{The Second Derivative Test}}
+\end{mdframed}
+
+\begin{example}
+  Find local extreme values of the function \(f(x) = x^{4} - 4x^{3}\) from Example~\ref{ex:concavity}.
+\end{example}
+\vfill
+\clearpage
+
+Make up the graph of a function \(f\) of time (in the graphing paper below) with 
+at least \(3\) local extreme values,
+at least \(1\) global extreme value, and
+at least \(1\) critical number that does not correspond to an extreme value.
+
+Make up a story about your graph by coming up with events whenever there is an extreme value.
+\bigskip
+\begin{center}
+  \begin{tikzpicture}
+    \draw[very thin, gray] (0,0) grid[step=0.5] (16,10);
+    \draw[->] (0,0) -- (0,10.5);
+  \end{tikzpicture}
+\end{center}
+
+Do intervals of increase/decrease on the graph correspond something in your story?
+\vfill
+
+Do intervals of concave upwards/downward on the graph correspond to something in your story?
+\vfill
+
+Do inflection points correspond to any events in your story?
+\vfill
+
+\clearpage
+
+\section{The Mean Value Theorem}
+
+\faComment{} If a car travels \(200\) km in \(2\) hours, does the car have to reach \(100\) km/h at least once during this time? 
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw[very thin, gray] (0,0) grid[step=0.5] (6,4);
+    \draw[->] (0,1.5) -- (6.25,1.5) node[right] {\footnotesize time};
+    \draw[->] (0,0) -- (0,4.25) node[above] {\footnotesize position (km)};
+    \foreach \n in {1,2,3} {
+      \draw ({\n*2-1}, {1.5+0.05}) -- ({\n*2-1}, {1.5-0.05}) node[below] {\footnotesize \(\n\) pm};
+    }
+    \foreach \n in {-1,0,1,2} {
+      \draw (0.05, {\n+1.5}) -- (-0.05, {\n+1.5}) node[left] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+  \quad{}
+  \begin{tikzpicture}
+    \draw[very thin, gray] (0,0) grid[step=0.5] (6,4);
+    \draw[->] (0,1.5) -- (6.25,1.5) node[right] {\footnotesize time};
+    \draw[->] (0,0) -- (0,4.25) node[above] {\footnotesize position (km)};
+    \foreach \n in {1,2,3} {
+      \draw ({\n*2-1}, {1.5+0.05}) -- ({\n*2-1}, {1.5-0.05}) node[below] {\footnotesize \(\n\) pm};
+    }
+    \foreach \n in {-1,0,1,2} {
+      \draw (0.05, {\n+1.5}) -- (-0.05, {\n+1.5}) node[left] {\footnotesize \(\n\)};
+    }
+  \end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \hlmain{a function \(f\) is \emph{continuous} on a closed interval \([a,b]\) and \emph{differentiable} on the open interval \((a,b)\)}, then \textcolor{blue}{there exists a number \(c\) in \((a,b)\) such that }
+  \begin{equation} \label{eq:mvt}
+    f'(c) = \frac{f(b) - f(a)}{b - a}.
+  \end{equation}
+
+  \textbook{\stewart{291}{The Mean Value Theorem}}
+\end{mdframed}
+
+\begin{mdframed}[style=withref]
+  \textbf{Theorem}. If \hlmain{a function \(g\) is continuous on a closed interval \([a,b]\) and \emph{differentiable} on the open interval \((a,b)\)} {\hlattn{\emph{and} \(g(a) = g(b)\)}}, then there exists a number \(c\) in \((a,b)\) such that
+  \begin{equation} \label{eq:rolle}
+    {g'(c) = 0.}
+  \end{equation}
+
+  \textbook{\stewart{290}{Rolle's Theorem}}
+\end{mdframed}
+\bigskip
+
+Rolle's Theorem appears to be a special case of MVT.  However, Rolle's Theorem and MVT are logically equivalent, meaning MVT implies Rolle's Theorem \emph{and} Rolle's Theorem implies MVT. 
+
+On the next page, we demonstrate how to prove that Rolle's Theorem \emph{implies} Rolle's Theorem. 
+\begin{enumerate}
+  \item We begin the proof by assuming a function \(f\) satisfies the \hlmain{hypothesis} of MVT.
+  \item We are \emph{not} allowed to apply the MVT anywhere in the proof.
+  \item We are allowed to apply Rolle's theorem in the proof.
+  \item We end the proof by showing the \textcolor{blue}{conclusion} of MVT is true.
+\end{enumerate}
+
+\clearpage
+Proof (Rolle's Theorem implies MVT). 
+
+Visualization of the proof idea: \url{https://www.geogebra.org/calculator/bcsszgna}.
+
+\clearpage
+The Mean Value Theorem has theoretical importance. The following (rather intuitive) theorem and its collorary allow us to compare function by calculating their derivatives. 
+\bigskip
+
+\begin{FlushRight}
+\footnotesize{\textbook{\stewart{294}{\fbox{5} Theorem}}}
+\end{FlushRight}
+\textbf{Theorem}. If \(f'(x) = 0\) for all \(x\) in an interval \((a,b)\), then \(f\) is constant on \((a,b)\).
+\vfill
+
+
+\begin{FlushRight}
+\footnotesize{\textbook{\stewart{294}{\fbox{6} Collorary}}}
+\end{FlushRight}
+\textbf{Collorary}. If \(f'(x) = g'(x)\) for all \(x\) in an interval \((a,b)\), then \(f-g\) is a constant on \((a,b)\). 
+\vspace{2in}
+\clearpage
+
+\begin{example}
+  Show the function \(f(x) = x^{3} - 3x + 2\) on the interval \([-2,2]\) satisfies the hypothesis of MVT. Find all number \(c\) that satisfy the conclusion of MVT.
+\end{example}
+
 \end{document}
