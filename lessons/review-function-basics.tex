@@ -16,11 +16,11 @@
   \end{example} 
 
 
-  A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses a certain dependence between two quantities: the {independent} variable \(x\) and the {dependent} variable \(y\).
+  A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses a certain dependence between two quantities: the \hlsupp{independent} variable \(x\) and the \hlsupp{dependent} variable \(y\).
   \vspace{1em}
 
   \begin{mdframed}[style=withref]
-    Review. A function \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{1in}} one output.
+    A function \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{2in}} output.
     \begin{enumerate}
       \item The set of inputs is called \underline{\hspace{1in}}.
       \item The set of outputs is called \underline{\hspace{1in}}.
@@ -31,7 +31,7 @@
   \blanklines{5}
 
   \begin{example}
-    What is the domain and range of \(\sqrt{x^{2} + 4}\)?
+    What are the domain and range of \(\sqrt{x^{2} + 4}\)?
     \blanklines{8}
   \end{example}
 
@@ -59,7 +59,6 @@
       \begin{tikzpicture}[scale=1]
         \begin{axis}[
           axis lines = middle, % boxed, middle
-          axis on top,
           axis equal image,
           width=2in,
           %
@@ -98,7 +97,6 @@
       \begin{tikzpicture}[scale=1]
         \begin{axis}[
           axis lines = middle, % boxed, middle
-          axis on top,
           axis equal image,
           width=2in,
           %
@@ -137,7 +135,6 @@
       \begin{tikzpicture}[scale=1]
         \begin{axis}[
           axis lines = middle, % boxed, middle
-          axis on top,
           axis equal image,
           width=2in,
           %
@@ -184,17 +181,71 @@
 
   Let's more or less follow the textbook order and review linear functions and slopes.
 
-  TODO: talk about rise over run.
+  \begin{example}
+    Describe the following line \(L\) \hlinfo{in words} in two different ways.
 
-  TODO: the standard form of a line is not unique.
+    \begin{minipage}[c]{2.6in}
+      \begin{tikzpicture}[scale=1]
+        \begin{axis}[
+          axis lines = middle, % boxed, middle
+          axis equal image,
+          width=3.5in,
+          %
+          % domain and range
+          %
+          xmin={-2}, xmax={2},
+          ymin={-1}, ymax={3},
+          enlargelimits=true,
+          %
+          % axis labels
+          %
+          xlabel={\(x\)}, xlabel style={anchor=west},
+          ylabel={\(y\)}, ylabel style={anchor=south},
+          label style={at={(ticklabel* cs:1)}},
+          %
+          % ticks
+          %
+          xtick={-2, -1, ..., 2}, % xticklabels={},
+          % ytick={}, yticklabels={},
+          ticklabel style={font=\footnotesize},
+          %
+          % grid
+          % none, major, minor, both
+          grid=major, grid style={gray!20},
+          % minor tick num=1, 
+          % minor grid style={gray!20},
+          % 
+          % plot parameters
+          %
+          smooth, samples=100, no markers,
+          ]
+          \addplot[thick, domain=-2:2] {2*x + 1};
+          \node[above left] at (axis cs:1,3) {\(L\)};
+        \end{axis}
+      \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}[c]{4in}
+      \blanklines[25]{17}
+    \end{minipage}
+  \end{example}
 
-  TODO: typo in the definition.
+  The \hlmain{point-slope form} of a line is an equation \underline{\hspace{2in}}.
+  \blanklines{8}
+
+  The \hlmain{slope-intercept form} of a line is an equation \underline{\hspace{2in}}.
+  \blanklines{8}
+
+  The \hlmain{standard form} of a line is an equation \underline{\hspace{2in}}. \newline
+  {\scriptsize \faExclamationTriangle{} Note that the textbook has a typo in the definition of the standard form.}
+  \blanklines{6}
+
+  \faComments{} Is the standard form of a line unique?
   \clearpage
 
   We review some common functions (nouns) and operations (verbs) because functions that describe natural phenomena are often created by ``putting together'' basic functions.
 
   \begin{example}
-    Write down one or two examples of the common classes of functions and their general forms.
+    For each class of basic functions below, write down one or two examples and its general form.
 
     \begin{center}
       \begin{tabular}{p{1.25in}p{3.5in}|p{1.5in}}
@@ -210,10 +261,10 @@
   \end{example}
 
   \faComments{} Is \(\frac{x^{2}-1}{\sqrt{x-1}}\) a rational function?
-    \blanklines{6}
+  \blanklines{6}
   \clearpage
 
-  Common operations (verbs) on functions \emph{build} sophisticated functions from simpler ones are
+  Common operations on functions are
   \[
     + \hspace{0.75in}
     - \hspace{0.75in}
@@ -254,25 +305,107 @@
       \blanklines[37]{5}
   \end{itemize}
 
-  TODO: Discuss why we want to sketch functions by hand.
-  % Now we review transformations of functions and a \hlinfo{very general} problem-solving skill:
-  % \begin{mdframed}[style=simple]
-  %   solve a problem by solving smaller and more manageable problems \hlmain{algebraically}.
-  % \end{mdframed}
-  % TODO: Explain why we need to know this. Copy and paste textbook table and exercises.
+  Let's take a short break and chat a bit about philosophy. \faComments{} Why learn mathematics when computers seem capable of all sorts of computations? \faComments{} What separates human understanding of mathematics from software computations?
+  \blanklines{15}
   \clearpage
 
   Shifting (aka translation) and scaling are two basic types of transformation on functions.
 
-  \hlmain{Shift}: \(f(x + a) + b\) means to move the axes so that the new origin is at the point \((a,b)\).
-  \blanklines{20}
+  \hlmain{Shift}: \(f(x + a) + b\) creates a new function from \(f(x)\) by moving the axes so that the new origin is at the point \((a,b)\).
+  \blanklines{19}
 
-  \hlmain{Scale}: \(\beta f(\alpha x)\) means to \hlsupp{scale the \(x\)-axis by \(\alpha\)} but \hlwarn{the graph of \(f(x)\) by \(\beta\)}.
-  \blanklines{30}
+  \hlmain{Scale}: \(\beta f(\alpha x)\) creates a new function from \(f(x)\) by scaling \hlsupp{\underline{\hspace{2in}} by \(\alpha\)} but \hlwarn{\underline{\hspace{2in}} by \(\beta\)}.
+  \blanklines{29}
 
   \clearpage
   \begin{example}
-    Sketch the function \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\).
+    Sketch \(f(x) = \arctan(-2x) + \pi/4\) without using any software or calculators.
+
+    \begin{tikzpicture}[scale=1]
+      \begin{axis}[
+        axis lines = middle, % boxed, middle
+        axis equal image,
+        width=6in,
+        %
+        % domain and range
+        %
+        xmin={-5}, xmax={5},
+        ymin={-3*pi/4}, ymax={3*pi/4},
+        enlargelimits=true,
+        %
+        % axis labels
+        %
+        xlabel={\(x\)}, xlabel style={anchor=west},
+        ylabel={\(y\)}, ylabel style={anchor=south},
+        label style={at={(ticklabel* cs:1)}},
+        %
+        % ticks
+        %
+        xtick={-5,-4,...,5}, % xticklabels={},
+        ytick={{-3*pi/4},{-pi/2},...,{3*pi/4}}, yticklabels={\(-3\pi/4\), \(-\pi/2\), \(-\pi/4\), , \(\pi/4\), \(\pi/2\), \(3\pi/4\)},
+        ticklabel style={font=\footnotesize},
+        %
+        % grid
+        % none, major, minor, both
+        grid=major, grid style={gray!20},
+        % minor tick num=1, 
+        % minor grid style={gray!20},
+        % 
+        % plot parameters
+        %
+        smooth, samples=100, no markers,
+        ]
+        \addplot[thick, domain={-5}:5] {atan(x)} node[below] {\(\arctan(x)\)};
+      \end{axis}
+    \end{tikzpicture}
+    \blanklines{10}
+
+    \begin{tikzpicture}[scale=1]
+      \begin{axis}[
+        axis lines = middle, % boxed, middle
+        axis equal image,
+        width=6in,
+        %
+        % domain and range
+        %
+        xmin={-5}, xmax={5},
+        ymin={-3*pi/4}, ymax={3*pi/4},
+        enlargelimits=true,
+        %
+        % axis labels
+        %
+        xlabel={\(x\)}, xlabel style={anchor=west},
+        ylabel={\(y\)}, ylabel style={anchor=south},
+        label style={at={(ticklabel* cs:1)}},
+        %
+        % ticks
+        %
+        xtick={-5,-4,...,5}, % xticklabels={},
+        ytick={{-3*pi/4},{-pi/2},...,{3*pi/4}}, yticklabels={\(-3\pi/4\), \(-\pi/2\), \(-\pi/4\), , \(\pi/4\), \(\pi/2\), \(3\pi/4\)},
+        ticklabel style={font=\footnotesize},
+        %
+        % grid
+        % none, major, minor, both
+        grid=major, grid style={gray!20},
+        % minor tick num=1, 
+        % minor grid style={gray!20},
+        % 
+        % plot parameters
+        %
+        smooth, samples=100, no markers,
+        ]
+        % \addplot[thick, domain={-5}:5] {atan(x)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{example}
+
+  Why is sketching ``manually'' useful? Consider evaluating \(\lim_{x \to \infty} \left( \arctan(-2x) + \pi/4 \right)\) (which is a common question). The sketch above tells you the answer immediately!
+  \clearpage
+
+  \begin{example}
+    Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without using any software or calculators.
+
+    {\scriptsize This question is a bit tricky.}
     \blanklines{50}
   \end{example}
 \end{lesson}
