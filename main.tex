@@ -105,6 +105,7 @@
   % chapter and section numbering
   \setcounter{chapter}{#1}
   \setcounter{section}{0}
+  \setcounter{thm}{0}
 
   % add to TOC
   \phantomsection{}\label{week#1}
@@ -157,12 +158,7 @@
 \usepackage{float}
 
 % plots
-\usepackage{tikz}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-\pgfplotsset{trig format=rad} 
-\pgfplotsset{label style={font=\footnotesize}}
-\pgfplotsset{ticklabel style={font=\footnotesize}}
+\input{./tikz.tex.preamble}
 
 % tables
 \usepackage{booktabs}
@@ -259,6 +255,7 @@
 %           Math
 %
 % ------------------------------------------------------------
+\numberwithin{equation}{chapter}
 \theoremstyle{definition}
 \newtheorem{thm}{Theorem}
 \newtheorem{example}[thm]{Example}
@@ -292,7 +289,7 @@
       }
     }
   \end{tikzpicture}
-  \smallskip
+  \smallskip{}
 }
 
 \begin{document}
@@ -351,9 +348,18 @@
   % --------------------
   \mainmatter{}
 
-  \subfile{./lectures/week1.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
-  \subfile{./lectures/week2.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
-  \subfile{./lectures/week3.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \makelectureweek{1}
+  \subfile{./lessons/review-function-basics.tex} 
+  \clearpage{\thispagestyle{empty}\cleardoublepage}
+  
+  \makelectureweek{2}
+  \subfile{./lessons/review-trigs.tex} \clearpage
+  \subfile{./lessons/review-piecewise.tex} \clearpage
+  \subfile{./lessons/review-decomposition.tex} \clearpage
+  \subfile{./lessons/review-inverses.tex} \clearpage
+  \subfile{./lessons/review-exp.tex} \clearpage
+  \clearpage{\thispagestyle{empty}\cleardoublepage}
+
   \subfile{./lectures/week4.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
   \subfile{./lectures/week5.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
   \subfile{./lectures/week6.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}

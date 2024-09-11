@@ -1,0 +1,58 @@
+%! vim: ft=tex
+\usepackage{tikz, pgfplots}
+
+% 
+% general options
+%
+\pgfplotsset{
+  compat=1.18,
+  trig format=rad,
+}
+
+%
+% proportions
+%
+\pgfplotsset{
+  axis equal image,
+  enlargelimits=true,
+}
+
+%
+% axis style
+%
+\pgfplotsset{
+  axis lines = middle, % boxed, middle
+}
+
+%
+% axis labels
+%
+\pgfplotsset{
+  label style={
+    font=\scriptsize,
+    at={(ticklabel* cs:1)}
+  },
+  xlabel={\(x\)}, xlabel style={anchor=west},
+  ylabel={\(y\)}, ylabel style={anchor=south},
+}
+
+%
+% axis ticks
+%
+\pgfplotsset{
+  ticklabel style={font=\scriptsize},
+}
+
+%
+% grids
+%
+\pgfplotsset{
+  grid style={gray!20},
+}
+
+% 
+% plot options
+%
+\pgfplotsset{
+  no markers, 
+}

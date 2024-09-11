@@ -1,0 +1,46 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\pagestyle{draft}
+
+\begin{document}
+\begin{lesson}{Decomposition of functions}
+  Algebraic operations \[+ \qquad - \qquad \times \qquad \div \qquad \circ\] are ``verbs'' of the mathematical language. By \emph{legally} combining verbs (operations) with nouns (functions) we can build sophisticated mathematical functions to describe natural phenomena. 
+
+  We review algebraic operations, so we can \hlmain{parse} expressions and \hlmain{apply formulas} correctly.
+
+  % \begin{mdframed}[style=simple-compact]
+  %   Algebraic operations must be applied in the following order
+  %   \[ \underbrace{( \cdots )}_{\text{first}} \quad\longrightarrow\quad \times, \div \quad\longrightarrow\quad \underbrace{+, -}_{\text{last}}. \]
+  % \end{mdframed}
+
+  % \faExclamationTriangle{} Applying operations out of order is a major but avoidable mistake. 
+
+  \begin{example}
+    Let's do the silly simple thing and evaluate \((2 + 3) \times 5 + 2^{3}\) using a parse tree.
+    \blanklines{15}
+  \end{example}
+
+  \begin{example} 
+    Draw the parse tree of the function \(\frac{1 - x}{\sin^{2}(x) (1+x)}\) to help us visualize the structure of the function.
+    \blanklines{16}
+  \end{example}
+  \clearpage
+
+  Parse trees help us apply formulas \hlmain{in the correct order} and break up a complicated problem into smaller and, hopefully simpler, problems.
+
+  We will learn the following differentiation formulas.  Treat them like ``symbol soup'' for now. 
+  \begin{align*}
+    (f+g)' &= f' + g' \\
+    (fg)' &= f'g + f \cdot g' \\
+    (f/g)' &= \frac{f'g - f \cdot g'}{g^{2}} \\
+    (f \circ g)' &= f'(g(x)) g'(x)
+  \end{align*}
+
+  \begin{example}
+    Apply the above differentiation formulas (without actually evaluating the derivatives) in the correct order to calculate the derivative of \(\frac{1-x}{\sin^{2}(x)}\).  \newline
+    {\scriptsize If you are feeling adventurous, try to differentiate the function in the previous example. Admittedly, it's a bit painful.}
+  \end{example}
+  \blanklines{40}
+
+\end{lesson}
+\end{document}

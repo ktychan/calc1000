@@ -1,6 +1,7 @@
 # two generic but ignored directories
 generated
 untracked
+build
 
 # student data
 confidential
