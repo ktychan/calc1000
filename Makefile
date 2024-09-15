@@ -34,3 +34,7 @@ week2: standalones main
 	latexmk -halt-on-error -interaction=nonstopmode week2.tex
 	cp -f build/week2.pdf ${COURSE}_week2_fillable.pdf
 
+week3: standalones main
+	latexmk -halt-on-error -interaction=nonstopmode week3.tex
+	cp -f build/week3.pdf ${COURSE}_week3_fillable.pdf
+

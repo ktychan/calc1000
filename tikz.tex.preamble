@@ -55,4 +55,33 @@
 %
 \pgfplotsset{
   no markers, 
+  title style = {font=\footnotesize}
 }
+
+%
+% custom styles
+%
+
+\pgfplotsset{lesson limit intro/.style={
+    width={3in},
+    enlargelimits,
+    xmin=-1, xmax=2,
+    ymin=-1, ymax=2,
+    xtick={-1, 0, ..., 2},
+    ytick={-1, 0, ..., 2},
+    samples=100,
+    grid=both, minor tick num=1,
+}}
+
+
+\pgfplotsset{lesson infinite limit/.style={
+    width={2.4 in},
+    enlargelimits,
+    grid=none,
+    xmin=-1, xmax=2,
+    ymin=-1, ymax=2,
+    xtick={-1, 0, ..., 2},
+    ytick={-1, 0, ..., 2},
+    yticklabel={},
+    samples=100,
+}}

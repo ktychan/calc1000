@@ -1,0 +1,149 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Continuity}
+
+  Functions that model nature typically don't ``break.'' Conversely, ``breaks'' in functions are really horrible to work with. We make such notion precise. 
+
+  \begin{mdframed}[style=withref]
+    \textbf{Definition}. A function \(f(x)\) is \emph{continuous at a number \(a\)} if 
+    \[
+      {\lim_{x \to a} f(x) = f(a).}
+    \]
+    \textbook{Page 180}
+  \end{mdframed}
+
+  To conclude that \(f(x)\) is continuous at a number \(a\), we must successfully complete all three tasks:
+  \begin{enumerate}[label=(C\arabic*), itemsep={2ex}]
+    \item Calculate \underline{\hspace{3in}}.
+    \item Calculate \underline{\hspace{3in}}.
+    \item Verify \underline{\hspace{3.23in}}.
+  \end{enumerate}
+
+  \begin{example}
+    Is \(f(x) = \sqrt{x}\) continuous at \(1\)? 
+
+    \blanklines{10}
+  \end{example}
+
+  \begin{example}
+    Is \(f(x) = \frac{x^{2}-1}{x+1}\) continuous at \(-1\)? 
+
+    \blanklines{10}
+  \end{example}
+
+  \begin{mdframed}[style=withref-compact]
+    Polynomials, rational functions and trigonometric functions are all continuous at every number \underline{\hspace{2in}}. 
+    
+    \textbook{Theorem~2.8 on page 183 and Theorem~2.10 on page 188}
+  \end{mdframed}
+  \clearpage
+
+
+  If \(f\) is \emph{not} continuous at \(a\), then we say
+  \begin{center}
+    ``\(f\) is \hlmain{discontinuous} at \(a\)'' \quad or \quad ``\(f\) has a \hlmain{discontinuity} at \(a\).''
+  \end{center}
+
+  What do discontinuities look like? There are three \emph{types} of discontinuities.
+
+  \begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
+    \centering
+    \includegraphics{../standalones/build/plot_discontinuity_examples}
+    \label{fig:discontinuities}
+  \end{figure}
+
+  \begin{enumerate}[itemsep={3ex}]
+    \item If \underline{\hspace{3in}}, then \(f\) has a \hlmain{removable} discontinuity at \(a\).
+    \item If \underline{\hspace{3in}}, then \(f\) has a \hlmain{jump} discontinuity at \(a\).
+    \item If \underline{\hspace{3in}}, then \(f\) has an \hlmain{infinite} discontinuity at \(a\).
+  \end{enumerate}
+
+  Discontinuities naturally ``break'' a function into pieces.
+  A function is called \hlmain{continuous over an interval} if it is continuous at every number in that interval. At the endpoints of each interval, we only require a function to be continuous from one-side.
+
+  We say a function \(f\) is 
+  \begin{itemize}
+    \item \hlmain{continuous from the \underline{\hspace{1in}}} at a number \(a\) if \(\lim_{{x \to a^{-}}} f(x) = f(a)\).
+    \item \hlmain{continuous from the \underline{\hspace{1in}}} at a number \(a\) if \(\lim_{{x \to a^{+}}} f(x) = f(a)\).
+  \end{itemize}
+
+  Intuitively, if a pen can trace the graph of a function without leaving the paper over an interval \(I\), then the function is continuous over \(I\).
+
+  For example, 
+  \begin{itemize}[itemsep={3ex}]
+    \item \(f_{1}(x)\) is continuous over \underline{\hspace{2in}}.
+    \item \(f_{2}(x)\) is continuous over \underline{\hspace{2in}}.
+    \item \(f_{3}(x)\) is continuous over \underline{\hspace{2in}}.
+  \end{itemize}
+  \vfill{}
+  \clearpage
+
+  To \hlmain{classify} a discontinuity is to determine if the discontinuity is removable, a jump or an infinite discontinuity.
+
+  \faComments{} How can we find discontinuities?
+  \blanklines{15}
+
+  \begin{example}
+    Classify all discontinuities of \(f(x) = \frac{x^{2}-x}{(x-1)(x+2)}\), if any.  Find the intervals over which \(f(x)\) is continuous.
+
+    \blanklines{15}
+  \end{example}
+
+  \begin{example}
+    Classify all discontinuities of \(f(x) = \begin{cases} \sqrt{x} - 2,& x \ge 4 \\ 3x - 1, &x < 4\end{cases}\), if any.  Find the intervals over which \(f(x)\) is continuous.
+
+    \blanklines{10}
+  \end{example}
+  \clearpage
+
+  \begin{example}
+    Is \(f(x) = \frac{x}{\sin(x)}\) continuous over \((-2\pi, 2\pi)\)? If not, find the intervals over which \(f(x)\) is continuous.
+    \blanklines{15}
+  \end{example}
+
+  
+  Continuities and limits are closely related as we can see from the definition of continuity: Whenever a function \(f(x)\) is {continuous} at \(a\), then we can evaluate \(\lim_{x \to a} f(x)\) by direct substitution. 
+
+  But there is more!
+
+  \begin{mdframed}[style=withref]
+    \textbf{Theorem}. If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then 
+    \[
+      {\color{main} \lim_{x \to a}} {\color{attn}f({\color{black}g(x)})} = {\color{attn}f \left( {\color{main} \lim_{x \to a}} {\color{black} g(x) }\right)}.
+    \]
+
+    \textbook{Theorem~2.9 on page 187}
+  \end{mdframed}
+
+  Notice the ``inside function'' \(g(x)\) is allowed to be discontinuous at \(a\).
+
+  \begin{example}
+    Evaluate \(\lim_{x \to 2} \sin( - x^{3} + 7  )\).
+  \end{example}
+  \clearpage
+
+  \begin{example}
+    Suppose \(f\) is continuous, \(f(1) = 3\) and \(f(2) = 5\).  Find \(\lim_{x \to \pi/4} f( \tan(x) + 1 )\).
+
+    \blanklines{10}
+  \end{example}
+
+  \begin{example}
+    Find the mistake(s) in the following \emph{incorrect} reasoning about the continuity of \[f(x) = \frac{(3x-1)(x-2)}{(x-2)}.\]
+    \bigskip
+
+    \begin{quote}
+      \itshape
+      We cancel the common factor to get
+      \[
+        f(x) = \frac{(3x - 1)\cancel{(x - 2)}}{\cancel{(x-2)}} = 3x - 1.
+      \]
+      Because \(3x - 1\) is a polynomial, we can conclude \(f(x)\) is continuous at every number, including \(x=2\).
+    \end{quote}
+
+    \blanklines{15}
+  \end{example}
+\end{lesson}
+\end{document}
+

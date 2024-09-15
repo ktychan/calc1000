@@ -1,5 +1,5 @@
 \documentclass{standalone}
-\usepackage{tikz}
+\input{../tikz.tex.preamble}
 
 \newcommand{\haxis}[3]{
   \draw[very thin, ->] (#1, 0) -- (#2, 0) node[right] {\footnotesize {#3}};
@@ -29,7 +29,7 @@
     \vaxis{0}{4}{\(y\)}
     \vticks{1}{3}
 
-    \draw[smooth, domain=0:3] plot ({\x}, {\x + 1}) node[below right] {\(g_{1}(x)\)};
+    \draw[smooth, domain=0:3] plot ({\x}, {\x + 1}) node[below right] {\(f_{1}(x)\)};
     \draw[fill=white] (1,2) circle (0.05);
   \end{scope}
 
@@ -42,7 +42,7 @@
     % \vaxis{-4}{4}{\(y\)};
     % \vticks{1}{3}; 
     \draw[smooth, domain=-2:0] plot ({\x}, {\x*\x});
-    \draw[smooth, domain=0:2] plot ({\x}, {\x + 1}) node[above] {\(g_{2}(x)\)};;
+    \draw[smooth, domain=0:2] plot ({\x}, {\x + 1}) node[above] {\(f_{2}(x)\)};;
     \draw[fill] (0,0) circle (0.05);
     \draw[fill=white] (0,1) circle (0.05);
   \end{scope}
@@ -56,7 +56,7 @@
     \draw[dotted] (5,-10) -- (5,10);
     \draw[smooth, domain=1:4.9] plot ({\x}, {1/3*(\x*\x - 2*\x - 3)/(\x - 5)});
     \draw[smooth, domain=5.1:10] plot ({\x}, {1/10*(\x*\x - 2*\x - 3)/(\x-5)))});
-    \node at (7, 3) {\(g_{3}(x)\)};
+    \node at (7, 3) {\(f_{3}(x)\)};
   \end{scope}
 \end{tikzpicture}
 \end{document}
