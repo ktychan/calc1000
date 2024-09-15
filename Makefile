@@ -5,10 +5,11 @@ COURSE="Calc_1000A_002_F24"
 
 clean:
 	latexmk -C
-	rm -rf standalones/build
-	rm -rf outlines/build
-	rm -rf lectures/build
-	rm -rf build
+	latexmk -C standalones/*.tex
+	latexmk -C outlines/*.tex
+	latexmk -C lessons/*.tex
+	latexmk -C lectures/*.tex
+	rm -rf **/build
 
 standalones/%.pdf: standalones/%.tex
 	latexmk -halt-on-error -interaction=nonstopmode $^
