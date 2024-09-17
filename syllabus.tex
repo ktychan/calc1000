@@ -1,12 +1,12 @@
-%! TeX program = xelatex
+%! TeX program = lualatex
 \documentclass[./main.tex]{subfiles}
 
 \begin{document}
 
 \begin{minipage}{\linewidth}
-  {\noindent{}\textbf{\thecoursecode{}: \thecoursename{}} (\thecourseterm{}) \hfill Section~\thecoursesection{}}
+  {\noindent{}\textbf{\thecoursetitle{}} (\thecourseterm{}~\thecourseyear{}) \hfill Section~\thecoursesect{}}
 
-  {\noindent{}Course Syllabus \hfill{\footnotesize Last updated on \today.}}
+  {\noindent{}Course Overview \hfill{\footnotesize Last updated on \today.}}
 \end{minipage}
 \bigskip
 
@@ -14,203 +14,42 @@
   \sffamily
   \begin{tabular}{r l}
     Course 
-  & \thecoursecode: \thecoursename (\thecourseterm)\\
+  & \thecoursesubj{}~\thecoursenumb{}: \thecoursename{} (\thecourseterm{}~\thecourseyear{}) \\
   Section 
-  & F \\
+  & \thecoursesect{} \\
   Instructor 
   & Kelvin Chan \\
+  \faIcon{envelope} Email
+  & \url{kchan773@uwo.ca} (Please include \texttt{\thecoursesubj{}~\thecoursenumb{}} in the title) \\
   \hlmain{\faIcon{chalkboard-teacher}} Lectures         
-  & \texttt{Tue at 9:00 am in CLH F} \\
-  & \texttt{Thu at 9:00 am in CLH A} \quad (not the same room as Tuesday)\\
+  & \texttt{DAYS at TIME at ROOM} \\
   \\
-  \faIcon{globe} Course Websites 
-  & \url{https://eclass.yorku.ca/course/view.php?id=98878} (for all sections) \\
-  & \url{https://eclass.yorku.ca/course/view.php?id=88875} (for Section F only) \\
-  \faIcon{book-reader} Textbook 
-  & \textit{Calculus: Early Transcendentals, 9th edition} by J. Stewart. \\
+  \faIcon{globe} Course Website
+  & \url{https://westernu.brightspace.com/d2l/home/xxxxx} \\
+  \faIcon{book-reader} Textbook (free!)
+  & \thecoursetextbook{} published by \thecoursetextbookpublisher \\
+  & \thecoursetextbookurl{} \\
   \\
-  \faIcon{envelope} Email 
-  & \url{FIXME} \\
   \hlmain{\faIcon{user-friends}} Office Hours
-  & see BrightSpace. \\
+  & Please see BrightSpace. \\
   \textcolor{magenta}{\faIcon[regular]{question-circle}} Tutoring (free!) 
-  & Math \& Stats Help Centre and Study Hub (Ross S525) \\
-  \textcolor{discord}{\faIcon{discord}} Discord 
-  & \url{https://discord.gg/jkrzVEF6V3} (live help from TAs and instructors)\\
-  Quizzes (20\%) 
-  & Online and timed. See eClass. \\
-  Midterm (30\%) 
-  & Sunday, October 22 at 11 am. Location: see eClass. \\
-  Final exam (50\%) 
-  & Time and location are determined by the Registrar's Office. \\
-  & See \url{https://registrar.yorku.ca/exams} \\
+  & Math Help Centre (PAB 48/49, the Math-Physics Accelerator)\\
+  \\
+  Participation (00\%) 
+  & \\
+  Quizzes (00\%) 
+  & \\
+  Written Assignments (00\%) 
+  & \\
+  Midterm test (00\%) 
+  & DATE at TIME at ROOM \\
+  Final exam (00\%) 
+  & \url{https://registrar.uwo.ca/academics/examinations/} \\
+  \\
   Important dates 
-  & See \url{https://registrar.yorku.ca/enrol/dates/2023-2024/fall-winter}
+  & \url{https://westerncalendar.uwo.ca/SessionalDates.cfm}
   \end{tabular}
 \end{mdframed}
 
-\section*{Course Description}
-
-Introduction to the theory and applications of both differential and integral calculus. Limits. Derivatives of algebraic and trigonometric functions. Riemann sums, definite integrals and the Fundamental Theorem of Calculus. Logarithms and exponentials, Extreme value problems, Related rates, Areas and Volumes. 
-
-\textbf{List of topics}. This course covers a majority of Chapter~2~to~5 of the course textbook, including
-
-\begin{itemize}
-\item Limits and Derivatives (limits, limit laws, the precise definition of a limit, continuity, limits at infinity, asymptotes, derivatives and rates of change, the derivative of a function)
-\item Differentiation Rules (derivatives of polynomials and exponential functions, the product and quotient rules, derivatives of trigonometric functions, the chain rule, implicit differentiation, derivatives of logarithmic and inverse trigonometric functions, exponential growth and decay, related rates)
-\item Applications of Differentiation (maximum and minimum values, the Mean Value Theorem, shapes of a graph, l'H\^{o}spital's rule, curve sketching, optimization problems, antiderivatives)
-\item Integrals (the area and distance problems, the definite integral, the Fundamental Theorem of Calculus, indefinite integrals and the Net Change Theorem, the substitution rule)
-\end{itemize}
-
-\textbf{Prerequisites}. SC/MATH 1520 3.00, or 12U Calculus and Vectors (MCV4U) or equivalent. To succeed in this course, you should have a firm grounding in algebra and precalculus mathematics.
-
-\textbf{Course credit exclusions}. SC/MATH 1300 3.00, SC/MATH 1506 3.0; SC/MATH 1530 3.00, SC/MATH 1550 6.00, GL/MATH/MODR 1930 3.00, AP/ECON 1530 3.00, SC/ISCI 1401 3.00 and SC/ISCI 1410 6.00.
-
-\textbf{Textbook}. We will use the textbook \textit{Calculus: Early Transcendentals, 9th edition} by J. Stewart.
-
-\textbf{Required Technology}. You are required to know how to use the following learning management tools (there is no cost to students to use these): 
-
-\begin{itemize}
-  \item Crowdmark, \url{https://crowdmark.com/help/categories/support-for-students/}
-  \item Zoom, \url{https://yorku.zoom.us}
-  \item eClass (formerly known as Moodle), \url{https://lthelp.yorku.ca/eclass}
-\end{itemize}
-
-\textbf{Course Learning Outcomes}. After successful completion of this course, students should be able to:
-\begin{itemize}
-\item Identify and solve problems requiring the use of differential calculus.
-\item Identify and employ appropriate tools and techniques of differential calculus to solve practical problems.
-\item Identify and solve problems requiring the use of integral calculus.
-\item State and employ the Fundamental Theorem of Calculus to solve problems in differential and integral calculus.
-\item Effectively present material in a coherent and organized form using an appropriate combination of media.
-\end{itemize}
-
-\section*{Course Content and Lectures}
-
-We meet \emph{in-person} every Tuesday and Thursday at 9 a.m. in two different locations. Tuesday lectures are hosted in \href{https://goo.gl/maps/51Jn73q3hCKdeUt87}{Curtis Lecture Hall} (CLH) Room F. Thursday lectures are hosted in CLH Room A. We do not meet during the Fall Reading Week.
-The first lecture is on Thursday, September 7.
-
-Lectures are designed to actively engage your thinking and provide a hands-on learning experience. Oftentimes, we will have mini-activities and group discussions that encourage you to explore the course material. You are encouraged to ask questions during lectures. 
-
-Before each lecture, you will have access to two sets of learning materials.
-\begin{itemize}
-  \item A lecture worksheet is provided for each lecture. It is a complete skeleton of each lecture. It includes all materials (including optional ones) to be taught and discussed during lectures. 
-  \item The learning objectives, a highlight of the content to be taught, and additional problems are provided to students as outlines on the shared eClass site (see link below). Lectures do not necessarily follow the order of outlines but will cover everything in them. Students are advised to attend lectures since these documents only provide a high-level overview and do not provide any explanation. 
-
-    eClass link: \url{https://eclass.yorku.ca/course/view.php?id=98878#coursecontentcollapse6}
-\end{itemize}
-
-
-\section*{Assessments}
-
-Your final grade is determined by quizzes, one in-person midterm exam and one in-person final exam. 
-
-\textbf{Quizzes} (\(5 \times 4\% = 20\%\)). There will be five online and untimed quizzes, each worth \(4\%\) of your final grade. You have exactly one attempt for each quiz. Each quiz ends exactly at its due date. Quizzes will not be available after the due date. Please remember to hit the submit button. Failure to do so will result in a grade of zero. Any student who does not complete a quiz will receive a zero for that quiz. 
-
-You must complete all quizzes \emph{without} without aid. That means you may \emph{NOT} use information from anyone else to help you (e.g., a tutor, a classmate, ChatGPT, Chegg, etc.). 
-Calculators or other types of mathematical software are not needed for quizzes (and can't be used for in-person assessments like the midterm and final exam), and hence are not to be used. 
-Violation of this will be considered an act against academic honesty. 
-
-There will be an \textit{optional} sixth quiz to improve your quiz grades. If you complete Quiz 6 before its deadline (see below), then your lowest mark among quizzes 1 to 5 will be replaced with your Quiz 6 mark provided the Quiz 6 mark is higher. \underline{Attempting Quiz 6 cannot lower your grades.} 
-
-Scenario 1: Suppose you receive \(100 \%\) on quizzes \(1\) to \(4\) but \(50 \%\) on Quiz 5. If you receive \(80\%\) on Quiz 6, then your Quiz \(5\) mark will become \(80\%\).
-
-Scenario 2: Suppose you receive \(100 \%\) on quizzes \(1\) to \(4\) but \(90 \%\) on Quiz 5. If you receive \(50\%\) on Quiz 6, then your Quiz \(5\) mark will remain as \(90\%\).
-
-Due dates (all times are in Toronto Local Time)
-\begin{enumerate}[label={Quiz \arabic* -}, align=left]
-\item Due Tuesday, 26 September 2023, 11:59 PM
-\item Due Tuesday, 17 October 2023, 11:59 PM
-\item Due Tuesday, 31 October 2023, 11:59 PM
-\item Due Tuesday, 14 November 2023, 11:59 PM
-\item Due Tuesday, 28 November 2023, 11:59 PM
-\item Due Tuesday, 5 December 2023, 11:59 PM (optional as described above)
-\end{enumerate}
-
-\textbf{Midterm Exam} (\(30 \%\)). The in-person 90-minute midterm exam is scheduled for Sunday, October 22 at 11:00 a.m. (Toronto Local Time). It is recommended that you arrive at 10:45 a.m. to be seated. Additional details will be posted to eClass closer to the date of the midterm. There will be no make-up midterm exam.
-
-If you cannot write the midterm exam for any reason, the weight of the midterm will be \emph{automatically} transferred to the final exam. Documentations of any kind are not required. In other words, if you missed the midterm, then your final exam would weigh \(80 \%\) of your total grade. 
-
-\textbf{Final Exam} (\(50 \%\)). The in-person 180-minute final exam will cover all material from the course. The examination will be scheduled by the York University's Registrar's Office. The exam schedule is typically released in November. See \url{https://registrar.yorku.ca/} for details.
-
-\section*{Resources}
-
-\textbf{Course websites}. \href{https://eclass.yorku.ca}{eClass (\texttt{eclass.yorku.ca})} is the main communication platform used outside lecture hours. Course announcement emails will be sent through eClass. There are two eClass sites for this course. 
-\begin{itemize}
-\item \url{https://eclass.yorku.ca/course/view.php?id=98878} is shared across all sections of \thecoursecode.
-\item \url{https://eclass.yorku.ca/course/view.php?id=88875} hosts information specific to Section F. You will find this course syllabus, lecture materials and announcements there.
-\item[{\faIcon{exclamation-circle}}] Both sites will be updated frequently. \textcolor{magenta}{ You are expected to check both websites several times a week and read emails sent through the eClass system.}
-\end{itemize}
-
-\textbf{Office Hours}. Office hours provide you with opportunities to ask me questions about the course material, assessments, or mathematics in general. You are also encouraged to book additional appointments with me at other times. Office hours schedules will be determined through a poll in eClass. 
-
-\textbf{Help Centre and Study Hub}. The Math \& Stats Help Centre and Study Hub (Ross Building South, Room 525) is a free, walk-in, Q\&A style learning service provided by the Department of Mathematics and Statistics. You will find graduate student tutors that can help you with the course material. It is also a study space with large tables and chalkboards. A few copies of the course textbook are also available for use within the Help Centre. 
-
-\textbf{Discord}.  Discord is a free online discussion forum. Teaching assistants, I and other instructors will be available on Discord to answer your questions. You will be able to read other students' messages. Conversely, your interactions with the teaching team and other students will be visible to other students as well as the teaching team.
-
-Discord invite link: \url{https://discord.gg/jkrzVEF6V3}
-
-\textbf{Other resources}. 
-\begin{itemize}
-  \item \url{https://www.yorku.ca/colleges/bethune/get-help/peer-tutoring/}.
-
-    Peer Tutoring at Bethune College provides free drop-in tutoring services for first-year math courses (including \thecoursecode). 
-
-  \item \url{https://www.yorku.ca/colleges/bethune/get-help/pass/}
-
-    Peer Assisted Study Sessions (PASS)  are drop-in study sessions facilitated by upper-year students at Bethune College. Specific details will be announced in early September. 
-
-  \item \url{https://learningcommons.yorku.ca/}
-
-    The Learning Commons offers support for helping students succeed academically.
-
-  \item Each student registered with \href{http://accessibility.students.yorku.ca/}{Student Accessibility Services (SAS)} is assigned their own Accessibility Counsellor. This counsellor remains the student's key contact while they complete their studies at York. Counsellors work with the students to help them navigate the academic and administrative landscape. Note there is a \(2\)-week deadline for submitting accommodation requests to write in-person tests and exams in the Alternate Exam Centre. See \url{https://altexams.students.yorku.ca/}. It is your responsibility to meet this deadline.
-
-  \item \url{http://counselling.students.yorku.ca} 
-
-    Personal Counselling Service (PCS) aims to help York students realize, develop, and fulfil their personal potential to maximally benefit from their university experience and manage the challenges of university life. Students come to PCS because of a wide range of concerns including, but not limited to, depression, anxiety, abuse, stress, self-esteem, relationship issues, eating and body image as well as issues related to sexuality.
-
-\end{itemize}
-
-\section*{Course Policies}
-
-\textbf{Email communications}.
-All emails should be sent to \url{FIXME}. 
-
-\textbf{Expectations}. 
-As your instructor, I expect you to keep up with the lectures and relevant course material, participate actively in all activities of the course, complete the majority of the assigned suggested practice problems, reflect on mistakes you make on quizzes, and set goals to improve your study skills, and promptly ask for help whenever needed.
-
-As a student in this class, you should expect me to have lecture material posted to eClass at least a day before the lecture. You should expect me to listen and respond to student feedback. Finally, you should expect me to want you to succeed in the course and to do my best to help you succeed.
-
-\textbf{Time Management}. 
-For a \(3\)-credit course, the expected workload is \(3\) hours of in-class time each week with an additional \(5\) to \(6\) hours per week allocated for preview, review, quiz preparation and practice problems.
-
-\textbf{Grading}.
-The grading scheme for the course conforms to the \href{https://calendars.students.yorku.ca/2023-2024/grades-and-grading-schemes}{Grades and Grading Schemes} for undergraduate programs at York University. You may also find the \href{https://students.yorku.ca/york-gpa-calculator}{York GPA Calculator} helpful. 
-\begin{itemize}
-\item See \url{https://calendars.students.yorku.ca/2023-2024/grades-and-grading-schemes}
-\item See \url{https://students.yorku.ca/york-gpa-calculator}
-\end{itemize}
-
-\section*{Important Information for Students}
-\textbf{Academic integrity}. Acts of academic dishonesty in this course will be treated seriously. All for-credit assessments, including online quizzes, must be completed as individual work from start to finish without aids. Sharing your answers before the submission deadline also constitutes an offence of academic integrity. To familiarize yourself with academic integrity, please see the following web pages provided by the University.
-\begin{itemize}
-  \item \url{https://www.yorku.ca/science/academic-advising/academic-honesty/}
-  \item \url{https://spark.library.yorku.ca/academic-integrity-what-is-academic-integrity/} 
-\end{itemize}
-
-\textbf{Important Dates and Deadlines}. University-wide dates and deadlines can be found at \url{https://registrar.yorku.ca/enrol/dates/2023-2024/fall-winter}.
-
-\section*{Some Tips for Success}
-
-\textbf{Mathematics is best learned by doing}. Actively engage during lectures and ask questions. You will be given time during lectures to ``get your hands dirty'' and try solving example problems. Explore your intellectual curiosities and ask questions. 
-
-\textbf{Learning takes time and practice}. The lecture notes include suggested practice problems. You should attempt all suggested practice problems and \emph{reflect} on your mistakes. Use practice problems to sharpen your understanding of key ideas and develop problem-solving skills. 
-
-\textbf{Manage your time well}. Spread out your study sessions evenly throughout the semester instead of cramming course material just before assessments. Learn about your study habits and seek ways to improve on them. 
-
-\textbf{Community matters}. In my experience, students who study together develop resilience and progress together. Work with your peers on practice problems. Discuss course material and learn from each other. The Math \& Stats Help Centre and Study Hub (Ross S525) offers study space with tutors readily available should you need help. You are encouraged to form study groups and work together. 
-
-\textbf{Take care of your mental health}. Mental health matters. You will need time to study and time to relax. Seek help when necessary. 
 
 \end{document}
