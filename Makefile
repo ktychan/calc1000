@@ -23,6 +23,20 @@ outlines:
 standalones: 
 	latexmk standalones/*.tex
 
+exercises:
+	latexmk -halt-on-error -interaction=nonstopmode exercises_progressions.tex
+	cp -f build/exercises_progressions.pdf Calc_1000A_002_F24_exercises_progressions.pdf
+
+polls:
+	latexmk -halt-on-error -interaction=nonstopmode polls.tex
+	if [[ -d "/Volumes/KEL" ]]; then \ 
+	cp -vf build/polls.pdf /Volumes/KEL/calc1000f24/Calc_1000A_002_F24_polls.pdf \ 
+	else \ 
+	echo "USB is not present. Not copying." \ 
+	fi
+
+	
+
 main: standalones main.tex
 	latexmk -halt-on-error -interaction=nonstopmode main.tex
 	cp -f build/main.pdf Calc_1000A_002_F24_main.pdf
@@ -38,4 +52,8 @@ week2: standalones main
 week3: standalones main
 	latexmk -halt-on-error -interaction=nonstopmode week3.tex
 	cp -f build/week3.pdf ${COURSE}_week3_fillable.pdf
+
+week4: standalones main
+	latexmk -halt-on-error -interaction=nonstopmode week4.tex
+	cp -f build/week4.pdf ${COURSE}_week4_fillable.pdf
 

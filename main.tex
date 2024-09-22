@@ -25,6 +25,7 @@
 \def\thecourseterm{Fall}
 \def\thecourseyear{2024}
 \def\thecoursesubj{Calc}
+\def\thecoursesubject{Calculus}
 \def\thecoursenumb{1000A}
 \def\thecoursesect{002}
 \def\thecoursename{Calculus I}
@@ -248,6 +249,9 @@
 % section titles
 \usepackage[sc,center,tiny]{titlesec}
 \titlelabel{\thetitle.\;}
+% \titleformat{⟨command⟩}[⟨shape⟩]{⟨format⟩}{⟨label⟩}{⟨sep⟩}{⟨before-code⟩}[⟨after-code⟩]
+\titleformat{\subsection}{\bfseries}{\thesubsection}{1ex}{}{}
+\titleformat{\subsubsection}{}{\thesubsection}{1ex}{}{}
 
 
 % ------------------------------------------------------------
@@ -369,9 +373,14 @@
 
   \makelectureweek{4}
   \subfile{./lessons/limit-at-infinity.tex} \clearpage
+  \subfile{./lessons/derivative-at-a-point.tex} \clearpage
+  \subfile{./lessons/derivative-as-a-function.tex} \clearpage
   \clearpage{\thispagestyle{empty}\cleardoublepage}
 
-  \subfile{./lectures/week5.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
+  \makelectureweek{5}
+  \subfile{./lessons/derivative-continuity.tex} 
+  \clearpage{\thispagestyle{empty}\cleardoublepage}
+
   \subfile{./lectures/week6.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
   \subfile{./lectures/week7.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}
   \subfile{./lectures/week8.tex} \clearpage{\thispagestyle{empty}\cleardoublepage}

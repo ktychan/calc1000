@@ -1,5 +1,5 @@
 %! Tex Program = lualatex
-\documentclass[14pt, draft]{beamer} 
+\documentclass[14pt]{beamer} 
 % \usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
@@ -56,8 +56,8 @@
     \item[(a)] Solve \(2^{y} = 8\).
     \item[(b)] Solve \(2^{8} = y\).
     \item[(c)] Calculate \(\frac{\ln(8)}{\ln(2)}\). 
-    \item[(e)] 
-    \item[(d)] I am not sure.
+    \item[(d)] 
+    \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame} 
 
@@ -82,10 +82,11 @@
     \item[(a)] True.
     \item[(b)] False
     \item[(c)] 
-    \item[(e)] 
-    \item[(d)] I am not sure.
+    \item[(d)] 
+    \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
+
 
 \begin{frame}
   If \(f(x)\) is discontinuous on \([1,3]\), then we know \(f(x)\) has a discontinuity at \underline{\hspace{1in}} number in \([1,3]\). 
@@ -101,6 +102,17 @@
   \toinstructors{Could be used as a lead-in to discuss continuity over intervals.}
 \end{frame} 
 
+\begin{frame}
+  Which of the following tell us a function \(f(x)\) is NOT continuous at \(a\)?
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(f\) is not defined at \(a\).
+    \item[(b)] \(f\) is defined at \(a\) but \(\lim_{x \to a} f(x) \ne f(a)\).
+    \item[(c)] \(\lim_{x \to a} f(x) = \infty\) or \(-\infty\).
+    \item[(d)] \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x)\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
 
 \begin{frame}
   True or false? Every piecewise function has \emph{at least one} discontinuity on its domain.
@@ -110,10 +122,136 @@
     \item[(a)] True.
     \item[(b)] False
     \item[(c)] 
-    \item[(e)] 
-    \item[(d)] I am not sure.
+    \item[(d)] 
+    \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame} 
+
+\section{Limits at infinity}
+\begin{frame}
+  How many horizontal asymptotes can a function have?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] One.
+    \item[(b)] Two.
+    \item[(c)] At most two.
+    \item[(d)] At most infinitely many.
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  Can a function cross its horizontal asymptotes?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Yes.
+    \item[(b)] No.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  What can we deduce from knowing \(\lim_{x \to \infty} f(x)\) exists? 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(f\) is not increasing on some interval \((a, \infty)\)
+    \item[(b)] \(f\) is not decreasing on some interval \((b, \infty)\)
+    \item[(c)] \(f\) is not oscillating on some interval \((c, \infty)\)
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  Analyze the dominant terms of \(\lim_{x \to \infty} \frac{x^{2}+3x}{\sqrt{x+3}}\). With only a quick calculations, the limit should be
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(\infty\) or \(-\infty\).
+    \item[(b)] a finite number.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\section{Derivatives}
+\begin{frame}
+  % Let's pop a balloon by dropping it on a needle. 
+  What is the balloon's velocity when it popped?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Does not exist because there is no balloon.
+    \item[(b)] Non-zero because the balloon has to be moving. 
+    \item[(c)] Zero because time freezes at that very instant. 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+  \toinstructors{Philosophical open question. Pop a balloon in class. Can be used as a lead-in to define the derivative as a model for instantaneous rate of change.}
+\end{frame}
+
+
+\begin{frame}
+  True or false? If a function is continuous at \(a\), then it must be differentiable at \(a\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] True.
+    \item[(b)] False.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  Compare the domains of \(f\) and \(f'\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(f'\) is defined wherever \(f\) is defined.
+    \item[(b)] The domain of \(f'\) can be larger than the domain of \(f\).
+    \item[(c)] The domain of \(f'\) can be smaller than the domain of \(f\).
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  If a function is \emph{not} differentiable on \((0,1)\), then 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(f\) is not continuous on \((0,1)\).
+    \item[(b)] \(f\) is a piecewise function.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  If a function is \emph{not} differentiable on \((0,1)\), then 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(f'(a)\) does not exists at any number in \((0,1)\).
+    \item[(b)] \(f'(a)\) does not exists for at least one number in \((0,1)\).
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
 
 % template
 % \section{}
