@@ -1,0 +1,54 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{The Chain Rule \((f \circ g)' = f'(g(x))g'(x)\)}
+  \begin{mdframed}[style=simple]
+    \textbf{Differentiation Rules} \hfill {\footnotesize (part \(4\) of \(4\))}
+
+    If \(g\) is differentiable at \(x\) and \(f\) is differentiable at \(g(x)\), then the composite function \(F = f \circ g\) defined by \(F(x) = f(g(x))\) is differentiable at \(x\) and \(F'\) is given by 
+    \begin{align*}
+      \frac{d}{dx} F(x) 
+    &= f'(g(x)) g'(x)
+    &&\text{(the chain rule)}\\[1em]
+    &= \frac{dy}{du} \frac{du}{dx}, \text{ if we write } y = f(u), u = g(x).
+    \end{align*}
+  \end{mdframed}
+
+  \begin{example}
+    Differentiate \(e^{2x}\).
+  \end{example}
+
+  \begin{example}
+    Suppose \(f(x) = e^{2x}\). Solve for \(n\) in the equation \(f^{n}(x) = 2^{10}e^{2x}\).
+  \end{example}
+
+  \begin{example}
+    Differentiate \((x^{2}+3)^{4}\).
+  \end{example}
+
+
+  \begin{example}
+    Find \emph{two} different methods to differentiate \(x^{3} + 3x^{2} + 3x + 3\).
+  \end{example}
+
+
+  \begin{example}
+    Differentiate \(\tan(x)^{3} + 3 \sec(x)^{2} + 3\tan(x)\). 
+  \end{example}
+
+
+  \begin{example}
+    Differentiate \(\sin(\cos(\sin(x)))\).
+  \end{example}
+
+
+  \begin{example}
+    Differentiate \(x^{1/2} e^{x} \sqrt{\cos(x)^{2} + 5}\).
+  \end{example}
+
+
+  \begin{example}
+    Differentiate \(\cos(\sin(x^{-2}) + \pi/2)\) with respect to \(x\).
+  \end{example}
+\end{lesson}
+\end{document}

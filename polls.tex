@@ -1,21 +1,34 @@
 %! Tex Program = lualatex
 \documentclass[14pt]{beamer} 
-% \usetheme{metropolis} 
+\usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
 \beamertemplatenavigationsymbolsempty{}
 
-\usepackage{xcolor, ifdraft}
+\usepackage{xcolor}
 
-\newcommand{\toinstructors}[1]{{
-    \scriptsize \color{magenta} {#1} \newline 
-  Remove this comment by removing the draft option from \textbackslash{}documentclass.}
+%
+% uncomment the whole \setbeamertemplate command to add an iClicker watermark.
+%
+\usepackage{tikz, graphicx}
+\setbeamertemplate{background}{
+  \begin{tikzpicture}[overlay, remember picture]
+    \node[teal!10, anchor=south] at (current page.south) {\resizebox{\textwidth}{!}{iClicker}};
+  \end{tikzpicture}    
 }
 
-\ifdraft{}{
-  \renewcommand{\toinstructors}[1]{}
-}
+%
+% instructor notes
+%
+\usepackage{ifdraft}
+\newcommand{\toinstructors}[1]{
+  \ifdraft{ \scriptsize \color{magenta} {#1} \newline 
+      Remove this comment by removing the draft option from \textbackslash{}documentclass.
+    }{
+      \renewcommand{\toinstructors}[1]{}
+    }
+  }
 
 \begin{document} 
 
@@ -61,6 +74,7 @@
   \end{itemize} 
 \end{frame} 
 
+
 \section{Limits}
 \begin{frame}
   Suppose \(\lim_{x \to 3} f(x)\) exists. Can we find \(f(3)\)?
@@ -73,6 +87,7 @@
     \item[(d)] I am not sure.
   \end{itemize} 
 \end{frame} 
+
 
 \begin{frame}
   True or false? We can \emph{always} apply the quotient law to evaluate \(\lim_{x \to a} \frac{f(x)}{g(x)}\).
@@ -102,20 +117,22 @@
   \toinstructors{Could be used as a lead-in to discuss continuity over intervals.}
 \end{frame} 
 
+
 \begin{frame}
   Which of the following tell us a function \(f(x)\) is NOT continuous at \(a\)?
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
     \item[(a)] \(f\) is not defined at \(a\).
     \item[(b)] \(f\) is defined at \(a\) but \(\lim_{x \to a} f(x) \ne f(a)\).
-    \item[(c)] \(\lim_{x \to a} f(x) = \infty\) or \(-\infty\).
+    \item[(c)] \(\lim_{x \to a^{-}} f(x) = \pm \infty\) or \(\lim_{x \to a^{+}} f(x) = \pm \infty\).
     \item[(d)] \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x)\).
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
 
+
 \begin{frame}
-  True or false? Every piecewise function has \emph{at least one} discontinuity on its domain.
+  True or false? Every piecewise function has \emph{at least one} discontinuity in its domain.
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
@@ -126,6 +143,8 @@
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame} 
+
+
 
 \section{Limits at infinity}
 \begin{frame}
@@ -141,6 +160,7 @@
   \end{itemize} 
 \end{frame}
 
+
 \begin{frame}
   Can a function cross its horizontal asymptotes?
 
@@ -153,6 +173,7 @@
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
+
 
 \begin{frame}
   What can we deduce from knowing \(\lim_{x \to \infty} f(x)\) exists? 
@@ -167,6 +188,7 @@
   \end{itemize} 
 \end{frame}
 
+
 \begin{frame}
   Analyze the dominant terms of \(\lim_{x \to \infty} \frac{x^{2}+3x}{\sqrt{x+3}}\). With only a quick calculations, the limit should be
 
@@ -179,6 +201,8 @@
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
+
+
 
 \section{Derivatives}
 \begin{frame}
@@ -253,6 +277,120 @@
 \end{frame}
 
 
+\begin{frame}
+  If a function is \emph{not} differentiable on \((0,1)\), then \(f'\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] every 
+    \item[(b)] exactly one
+    \item[(c)] at least one
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  (True or false?) If \(f(x)\) is not differentiable at \(a\), then \(f\) is not continuous at \(a\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] True.
+    \item[(b)] False.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\section{Differentiation Rules}
+\begin{frame}
+  (True or false?) By the power rule, \(\frac{d}{dx} \frac{1}{\sqrt{x}} = \frac{1}{\frac{1}{2}x^{-1/2}}\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] True.
+    \item[(b)] False.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  (True or false?) By the power rule, \(\frac{d}{dx} 2^{x} = x \cdot 2^{x-1}\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] True.
+    \item[(b)] False.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  (True or false?) By the power rule, \(\frac{d}{dx} 2^{10} = 10 \cdot 2^{9}\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] True.
+    \item[(b)] False.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] 
+    \item[(b)] 
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\section{The Chain Rule}
+\begin{frame}
+  (True or false?) 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] True.
+    \item[(b)] False.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  Can we use use implicit differentiation to find the derivative of \(y^{2} + x^{2} = 1\) at the point \((5,5)\)?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Yes, we plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
+    \item[(b)] Yes? I'm not sure.
+    \item[(c)] No.
+    \item[(d)] No? I'm not sure.
+    \item[(e)] I don't understand the question.
+  \end{itemize} 
+\end{frame}
+
+
+
 % template
 % \section{}
 % \begin{frame}
@@ -264,7 +402,7 @@
 %     \item[(b)] 
 %     \item[(c)] 
 %     \item[(d)] 
-%     \item[(3)] 
+%     \item[(e)] I am not sure.
 %   \end{itemize} 
 % \end{frame}
 

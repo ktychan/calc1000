@@ -1,0 +1,67 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Implicit Differentiation}
+
+  \begin{example}
+    Let \(g = g(x)\) be a function. Differentiate \(g(x)^{2}\) with respect to \(x\).
+  \end{example}
+
+
+  The \href{https://www.wolframalpha.com/input?i=implicit+plot+%28P+%2B+1%2FV%5E2%29%28V+-+1%29+%3D+1}{equation} relating the pressure \(P\) and the volume \(V\) of a made-up gas is
+    \[
+      \left( P + \frac{1}{V^{2}} \right)(V - 1) = 1.
+    \]
+    How can we mathematically \emph{formulate} and \emph{make sense} of the question 
+    \begin{center}
+      ``\emph{Find the rate of change of volume with respect to pressure?}''
+    \end{center}
+
+    \begin{mdframed}[style=simple]
+      The \emph{method of implicit differentiation} says to find \hlattn{the slope \(\frac{dy}{dx}\)} at \hlmain{a point \((x,y)\)} on the curve defined by an equation in which \hlattn{both  \(x,y\) are variables}, differentiate both sides of the equation \hlattn{with respect to \(x\)}, using the chain rule to differentiate \hlattn{expressions in \(y\)}, then finally solve for \hlattn{\(\frac{dy}{dx}\)}.
+    \end{mdframed}
+
+    \begin{example}
+      Use implicit differentiation to find \(dy/dx\) given \(x^{2} + y^{2} = 25\). 
+    \end{example}
+
+
+    \begin{example}
+      Find the slope of \(x^{2} + y^{2} = 25\) at the point \((3,4)\).
+    \end{example}
+
+
+    \begin{example}
+      Find \(x'\) given \(\cos(t) = \sin(x)\). Assume \(x\) is a function of \(t\).
+    \end{example}
+
+
+    \begin{example}
+      Consider the following attempt to find functions implicitly defined by an equation.
+      \begin{align*}
+    && \sin(y^{2}) + \frac{x^{2}}{3} &= 1 \\[3ex]
+    &\implies& \sin(y^{2}) &= 1 - \frac{x^{2}}{3} &&\text{(add \(-x^{3}/3\) to both sides)}\\[3ex]
+    &\implies& y^{2} &= \arcsin\left( 1 - \frac{x^{2}}{3} \right) &&\text{(apply \(\arcsin\) to both sides)} \\[3ex]
+    &\implies& y &= \pm \sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}.
+      \end{align*}
+
+      If the above calculations were correct, then the graphs of \(y = \pm \sqrt{\arcsin\left(1 - \frac{x^{2}}{3}\right)}\) should decompose the curve \(\sin(y^{2}) + \frac{x^{2}}{3} = 1\).
+    \end{example}
+
+
+    \clearpage
+
+    We are going to study the derivatives of \(\ln(x)\) and \(\arctan(x)\) together. 
+
+    \begin{example}
+      Find the derivative of \(\ln(x)\).  
+    \end{example}
+
+    \begin{example}
+      Find the derivative of \(\arctan(x)\).
+    \end{example}
+
+    \faComment{} Why should we think about \texorpdfstring{\(\frac{d}{dx}\ln(x)\)}{ln'(x)} and \texorpdfstring{\(\frac{d}{dx}\arctan(x)\)}{arctan'(x)} together?
+
+  \end{lesson}
+\end{document}

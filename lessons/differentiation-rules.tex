@@ -1,0 +1,135 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Differentiation Rules (with respect to \(+,-,\times,\div\))}
+  Our (academic or practical) lives will be extremely tedious if we had to calculate derivative using its \(f'(x) = \lim_{h \to 0} {\textstyle\frac{f(x+h) - f(x)}{h}}\) every single time.  The good news is that patterns emerge if we actually try to calculate every derivative this way. 
+
+  Differentiation rules are such patterns and express the interactions between differentiation (as an operation) and algebraic operations \(+, -, \times, \div, \circ\). We focus on \(+, -, \times, \div\) this week and study composition next week.
+
+  \begin{mdframed}[style=simple] \label{thm:diff-rules-1}
+    \textbf{Differentiation Rules} \hfill {\footnotesize (part \(1\) of \(4\))}
+    \begin{align*}
+      \frac{d}{dx} (c)
+    &= 0, \text{ for any constant \(c\)}
+    && \text{(constant)} \\
+    \frac{d}{dx} (x^{n})
+    &= n x^{n-1}, \text{ for any number \(n \ne 1\), not just integers} 
+    && \text{(power)} \\
+    \frac{d}{dx} \sin(x)
+    &= \cos(x) \\
+    \frac{d}{dx} \cos(x)
+    &= -\sin(x) \\
+      \frac{d}{dx} e^{x} &= e^{x} \text{ and } \frac{d}{dx}b^{x} = \ln(b)b^{x} \text{ for any \hlwarn{constant} } b > 0 \text{ and } b \ne 1
+    \end{align*}
+  \end{mdframed}
+
+  Part 1 of the differentiation rules tells us how to find the derivatives of very basic functions. Let's make sure we can apply them correctly.
+
+  \begin{example}
+    Evaluate \((x^{3})'\) and \(\frac{d}{dx}\frac{1}{\sqrt[3]{x}^{5}}\).
+
+    \blanklines{10}
+  \end{example}
+
+  % \faComment{} Is the calculation \(\textstyle{}\frac{d}{dx} (x + 1)^{3} = 3 (x + 1)^{2}\) correct? Why \hlinfo{and} why not?
+  %
+  % \blanklines{5}
+  %
+  % \faExclamationTriangle{} It is \emph{very important} that the power rule is applied to power functions, \emph{not} composite functions that look like power functions. Differentiating composite functions requires the chain rule! 
+
+  \begin{example}
+    Can we \emph{directly} apply the power rule to differentiate the following functions?
+    \[
+      \sqrt{-x^{2} + 1}, \qquad (4x^{2} + x - 1)^{3/2}, \qquad e^{-x}, \qquad x^{x}
+    \]
+
+    \blanklines{5}
+  \end{example}
+
+  \begin{mdframed}[style=simple]
+    \textbf{Differentiation Rules} \hfill {\footnotesize (part \(2\) of \(4\))}
+
+    If \(f\) and \(g\) are differentiable functions, then
+    \begin{align*}
+      \frac{d}{dx} [f(x) + g(x)] 
+    &= \frac{d}{dx}f(x) + \frac{d}{dx}g(x)
+    && \text{(sum)} \\[1em]
+    \frac{d}{dx} [f(x) - g(x)] 
+    &= \frac{d}{dx}f(x) - \frac{d}{dx}g(x)
+    && \text{(difference)} \\[1em]
+    \frac{d}{dx} [c f(x)] 
+    &= c \, \frac{d}{dx} f(x), \text{ for any constant \(c\)}
+    && \text{(constant multiple)}
+    \end{align*}
+  \end{mdframed}
+  Let's make sure that we can apply the sum, difference and constant multiple rules correctly. The examples on this page are just about reading and using the formulas correctly. 
+
+  \begin{example}
+    Differentiate \(\frac{x^{2}}{2} - \sqrt{x} + e\).
+
+    \blanklines{10}
+  \end{example}
+
+  \begin{example}
+    Let \(f(x) = -\cos(x) + \sqrt{3} e^{x}\).  Find \(f'(x)\).
+
+    \blanklines{10}
+  \end{example}
+  \clearpage
+
+  \begin{mdframed}[style=simple]
+    \textbf{Differentiation Rules} \hfill {\footnotesize (part \(3\) of \(4\))}
+
+    If \(f\) and \(g\) are differentiable functions, then
+    \begin{align*}
+      \frac{d}{dx} [f(x)g(x)] 
+    &= { \frac{d}{dx} [f(x)] \cdot g(x)+ f(x) \cdot \frac{d}{dx}[g(x)]}
+    && \text{(product)} \\
+    &= f' \cdot g + f \cdot g' \\[1em]
+    \frac{d}{dx} \frac{f(x)}{g(x)}
+    &= {\frac{\frac{d}{dx} [f(x)] \cdot g(x) - f(x) \cdot \frac{d}{dx}[g(x)] }{ [g(x)]^{2} }}
+    && \text{(quotient)} \\
+    &= \frac{f' \cdot g - f \cdot g'}{g^{2}}
+    \end{align*}
+  \end{mdframed}
+  Applying the product and the quotient rule tend to result in somewhat messy write-up which can (and statistically does) lead to preventable mistakes. \hlmain{Keeping your writing well organized} is the pro-tip to prevent mistakes.
+
+  \begin{example}
+    Evaluate \(\frac{d}{dx} x e^{x}\).
+
+    \blanklines{8}
+  \end{example}
+
+  \begin{example}
+    Evaluate \(\frac{d}{dx} \frac{\sqrt[3]{x}}{e^{x}}\).
+
+    \blanklines{20}
+  \end{example}
+  \clearpage
+
+  Let's differentiate more complicated functions. The functions are more complicated, but the problem-solving principle is the same. 
+  \begin{mdframed}[style=simple]
+    \color{main}
+    \centering
+    Keep it simple! 
+
+    Apply one, just one, rule at a time and keep your writing well-organized.
+  \end{mdframed}
+
+  \begin{example}
+    Suppose \(f(x) = \frac{3 \sqrt[5]{x}}{x^{-1} + 2}\). Simplify \(f'(1)\). 
+    \newline
+    {\scriptsize Sometimes, we say \emph{simplify} to mean evaluate.}
+
+    \blanklines{20}
+  \end{example}
+
+
+  \begin{example}
+    Differentiate \(\frac{3/(\sqrt[3]{x})^{2} - \sin(x)}{x^{2} - 1}\).
+
+    \blanklines{20}
+  \end{example}
+  \clearpage
+\end{lesson}
+\end{document}

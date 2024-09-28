@@ -1,0 +1,59 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Derivatives of Trigonometric Functions}
+  The derivatives \(\frac{d}{dx}\sin(x) = \cos(x)\) and \(\frac{d}{dx} \cos(x) = -\sin(x)\) comes from these two limits
+  \begin{equation} \label{eq:limits-trigs}
+    \lim_{h \to 0} \frac{\sin(h) - \sin(0)}{h} = 1
+    \qquad\text{and}\qquad
+    \lim_{h \to 0} \frac{\cos(h) - \cos(0)}{h} = 0
+  \end{equation}
+  \begin{center}
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[font=\footnotesize];
+
+      \begin{axis}[
+        no markers,
+        xtick={0}, ytick={0},
+        enlargelimits=true, 
+        smooth, samples=100
+        ]
+        \addplot[domain=-pi:pi] { sin(x) };
+        \addplot[magenta, thick] coordinates { (-1,-1) (1,1) };
+        \fill (axis cs:0,0) circle (2pt);
+        \node[below left] at (axis cs:pi,0) {\(\sin(x)\)};
+      \end{axis}
+    \end{tikzpicture}
+    \qquad
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[font=\footnotesize];
+
+      \begin{axis}[
+        no markers,
+        xtick={0}, ytick={0},
+        enlargelimits=true, 
+        smooth, samples=100
+        ]
+        \addplot[domain=-pi:pi] { cos(x) };
+        \addplot[magenta, thick] coordinates { (-1,1) (1,1) };
+        \fill (axis cs:0,1) circle (2pt);
+        \node[above left] at (axis cs:pi,0) {\(\cos(x)\)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+
+  Derivatives of all other trigonometric functions \(\tan(x), \cot(x), \sec(x), \csc(x)\) can be calculated from the derivatives of \(\sin(x)\) and \(\cos(x)\) using basic differentiation rules.
+  \begin{example}
+    Differentiate \(\tan(x)\).
+
+    \blanklines{15}
+  \end{example}
+
+  \begin{example}
+    Suppose \(y = \sec(x)\). Find \(dy/dx\). 
+
+    \blanklines{15}
+  \end{example}
+\end{lesson}
+\end{document}
