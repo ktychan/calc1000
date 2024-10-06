@@ -1,6 +1,6 @@
 %! Tex Program = lualatex
 \documentclass[14pt]{beamer} 
-\usetheme{metropolis} 
+% \usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
@@ -349,13 +349,14 @@
 
 
 \begin{frame}
+  Which of the following words suggest a question is about derivatives?
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] 
-    \item[(b)] 
-    \item[(c)] 
-    \item[(d)] 
+    \item[(a)] asymptote
+    \item[(b)] secant line
+    \item[(c)] tangent line
+    \item[(d)] slope
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
@@ -363,13 +364,13 @@
 
 \section{The Chain Rule}
 \begin{frame}
-  (True or false?) 
+  Which is the chain rule formula?
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False.
-    \item[(c)] 
+    \item[(a)] \(\tfrac{d}{dx} f(g(x)) = f'(g)g'\)
+    \item[(b)] \(\tfrac{d}{dx} f(g(x)) = f(g')g'\)
+    \item[(c)] \(\tfrac{d}{dx} f(g(x)) = f'(g')g\)
     \item[(d)] 
     \item[(e)] I am not sure.
   \end{itemize} 
@@ -377,19 +378,129 @@
 
 
 \begin{frame}
-  Can we use use implicit differentiation to find the derivative of \(y^{2} + x^{2} = 1\) at the point \((5,5)\)?
+  Differentiate \(\sin(x^{2})\).
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Yes, we plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
-    \item[(b)] Yes? I'm not sure.
-    \item[(c)] No.
-    \item[(d)] No? I'm not sure.
-    \item[(e)] I don't understand the question.
+    \item[(a)] \(\cos(2x)x^{2}\)
+    \item[(b)] \(2\sin(2x)x\)
+    \item[(c)] \(2\cos(x^{2})x\)
+    \item[(d)] 
+    \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
 
 
+\section{Implicit Differentiation}
+\begin{frame}
+  Given \(\sin(y) = x\), what is \(dy/dx\)? Choose all correct options.
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(0 = 1\), so \(y'\) does not exist.
+    \item[(b)] \(dy/dx = \tfrac{1}{\cos(y)}\).
+    \item[(c)] \(dy/dx = \cos(y)\).
+    \item[(d)] \(dy/dx = \tfrac{d}{dx} \arcsin(x)\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  Given \(e^{y} = x\), what is \(dy/dx\)? Choose all correct options.
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(0 = 1\), so \(y'\) does not exist.
+    \item[(b)] \(dy/dx = \tfrac{1}{e^{y}}\).
+    \item[(c)] \(dy/dx = e^{y}\).
+    \item[(d)] \(dy/dx = \tfrac{d}{dx} \ln(x)\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  Can we use use implicit differentiation to find the slope of \(y^{2} + x^{2} = 1\) at the point \((5,5)\)?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Yes, we plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
+    \item[(b)] No, it's not a function and has no \(dy/dx\).
+    \item[(c)] No, we cannot plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
+    \item[(d)] I don't understand the question.
+    \item[(f)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  How many horizontal tangent lines does the curve \(y^{2}/2 - xy = 1\) have? 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Zero.
+    \item[(b)] Finitely many.
+    \item[(c)] Infinitely many.
+    \item[(d)] I don't know \emph{WHAT} to solve for in \(\tfrac{y}{x - y} = 0\).
+    \item[(e)] I don't know how to start.
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  Assume \(y = f^{-1}(x)\). To which equations do we apply the chain rule to calculate \(y'\)? Choose all correct options.
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(f(f^{-1}(x)) = x\)
+    \item[(b)] \(f^{-1}(f(x)) = x\)
+    \item[(c)] \(y = f(x)\)
+    \item[(d)] \(x = f(y)\)
+    \item[(e)] I don't recognize equations (a) and (b).
+  \end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+  Can the inverse function theorem be deduced using implicit differentiation?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Yes.
+    \item[(b)] No.
+    \item[(c)] I think so, but not sure how.
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+
+\section{Problem-solving}
+\begin{frame}[t]
+  Suppose \(\sin(f(x)) = 0\), \(f(1) = \pi\). Find \(f'(1)\).
+
+  What question did you ask yourself to discover a problem-solving idea?
+\end{frame}
+
+
+\section{Study Skills}
+\begin{frame}
+  Describe what motivates you to study calculus using a single word.
+\end{frame}
+
+\begin{frame}
+  How you assess your learning progress?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Do suggested problems.
+    \item[(b)] Do do-at-home problems.
+    \item[(c)] Reflect on problem-solving ideas.
+    \item[(d)] Summarize to reduce my mental load.
+    \item[(e)] 
+  \end{itemize} 
+\end{frame}
 
 % template
 % \section{}
@@ -405,5 +516,5 @@
 %     \item[(e)] I am not sure.
 %   \end{itemize} 
 % \end{frame}
-
 \end{document}
+

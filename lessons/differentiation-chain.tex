@@ -1,54 +1,53 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document}
-\begin{lesson}{The Chain Rule \((f \circ g)' = f'(g(x))g'(x)\)}
+\begin{lesson}{The chain rule\texorpdfstring{ \((f \circ g)' = f'(g(x))g'(x)\)}{}}
   \begin{mdframed}[style=simple]
     \textbf{Differentiation Rules} \hfill {\footnotesize (part \(4\) of \(4\))}
 
-    If \(g\) is differentiable at \(x\) and \(f\) is differentiable at \(g(x)\), then the composite function \(F = f \circ g\) defined by \(F(x) = f(g(x))\) is differentiable at \(x\) and \(F'\) is given by 
+    If \(g\) is differentiable at \(x\) and \(f\) is differentiable at \(g(x)\), then the composite function \(F = f \circ g\) defined by \(F(x) = f(g(x))\) is differentiable at \(x\), and \(F'\) is given by 
     \begin{align*}
-      \frac{d}{dx} F(x) 
-    &= f'(g(x)) g'(x)
+      \frac{d}{dx} (f \circ g)(x)
+    &= f'(g(x)) \cdot g'(x)
     &&\text{(the chain rule)}\\[1em]
-    &= \frac{dy}{du} \frac{du}{dx}, \text{ if we write } y = f(u), u = g(x).
+    \frac{dy}{dx} &= \frac{dy}{du} \frac{du}{dx} \text{ if we write } y = f(u), u = g(x).
     \end{align*}
   \end{mdframed}
+  This section is about building procedural competency about the chain rule.
 
   \begin{example}
-    Differentiate \(e^{2x}\).
-  \end{example}
+    Write \(e^{2x + 1}\) in the form of \(f \circ g\) and use the chain rule to find its derivative.
 
-  \begin{example}
-    Suppose \(f(x) = e^{2x}\). Solve for \(n\) in the equation \(f^{n}(x) = 2^{10}e^{2x}\).
-  \end{example}
-
-  \begin{example}
-    Differentiate \((x^{2}+3)^{4}\).
+    \blanklines{18}
   \end{example}
 
 
   \begin{example}
-    Find \emph{two} different methods to differentiate \(x^{3} + 3x^{2} + 3x + 3\).
+    Differentiate \(y = \frac{1}{(x^{2}/2 + 3)^{2}}\).
+
+    \blanklines{15}
+  \end{example}
+  \clearpage{}
+
+
+  \begin{example}
+    Find the derivative of \(x^{2} + \sin(x)^{2}\).
+
+    \blanklines{12}
   \end{example}
 
 
   \begin{example}
-    Differentiate \(\tan(x)^{3} + 3 \sec(x)^{2} + 3\tan(x)\). 
+    Find the derivative of \(\sqrt{2^{x} + \sqrt{x}}\).
+
+    \blanklines{20}
   \end{example}
 
 
   \begin{example}
-    Differentiate \(\sin(\cos(\sin(x)))\).
-  \end{example}
-
-
-  \begin{example}
-    Differentiate \(x^{1/2} e^{x} \sqrt{\cos(x)^{2} + 5}\).
-  \end{example}
-
-
-  \begin{example}
-    Differentiate \(\cos(\sin(x^{-2}) + \pi/2)\) with respect to \(x\).
+    Find the derivative of \(\sec(2x^{2/3})\).
+    
+    \blanklines{15}
   \end{example}
 \end{lesson}
 \end{document}

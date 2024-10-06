@@ -44,6 +44,12 @@ weeks: standalones main
 	cp -vf build/week3.pdf ${COURSE}_week3_fillable.pdf
 	cp -vf build/week4.pdf ${COURSE}_week4_fillable.pdf
 	cp -vf build/week5.pdf ${COURSE}_week5_fillable.pdf
+	cp -vf build/week6.pdf ${COURSE}_week6_fillable.pdf
+	cp -vf build/week7.pdf ${COURSE}_week7_fillable.pdf
+
+formulas: 
+	latexmk -halt-on-error -interaction=nonstopmode formulas.tex
+	cp -vf build/formulas.pdf ${COURSE}_formulas.pdf
 
 usb: polls weeks
 	cp -vf ${COURSE}*.pdf /Volumes/KEL/calc1000f24/
