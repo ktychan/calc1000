@@ -46,6 +46,7 @@ weeks: standalones main
 	cp -vf build/week5.pdf ${COURSE}_week5_fillable.pdf
 	cp -vf build/week6.pdf ${COURSE}_week6_fillable.pdf
 	cp -vf build/week7.pdf ${COURSE}_week7_fillable.pdf
+	cp -vf build/week8.pdf ${COURSE}_week8_fillable.pdf
 
 formulas: 
 	latexmk -halt-on-error -interaction=nonstopmode formulas.tex

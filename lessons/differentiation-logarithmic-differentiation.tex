@@ -1,0 +1,82 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Logarithmic Differentiation}
+  We introduce a method called \emph{logarithmic differentiation}. It works by combining implicit differentiation, Equation~\eqref{eq:derivative-of-ln(g(x))} below and properties of logarithms.
+  \begin{mdframed}[style=withref]
+    If \(g(x)\) is a differentiable function, then by the Chain Rule
+    \begin{equation} \label{eq:derivative-of-ln(g(x))}
+      \frac{d}{dx} \ln( g(x) ) = \frac{\frac{d}{dx}g(x)}{g(x)}.
+    \end{equation}
+
+    \textbook{Equation~(3.33) specialized to \(b = e\). See page 326.}
+  \end{mdframed}
+
+  \blanklines{8}
+
+  Here is the \emph{reference} for the full idea. To differentiate \(y = f(x)\) using logarithmic differentiation, do the following four steps.
+  \begin{enumerate}
+    \item Take the natural logarithm \(\ln(\cdots{})\) on both sides of the original equation \(y = f(x)\). Simplify the resulting right-hand side using properties of logarithms such as 
+      \[
+        \ln(ab) = \ln(a) + \ln(b), \quad \ln\left(\frac{a}{b}\right) = \ln(a) - \ln(b), \quad \ln(a^{c}) = c \ln(a). 
+      \]
+      These properties turn products (of functions) into sums of \(\ln(\cdots)\), quotients into difference of \(\ln(\cdots)\), and powers into coefficients of \(\ln(\cdots)\).
+
+      We will get an equation whose form is 
+      \begin{equation} \label{eq:logarithmic-differentiation}
+        \color{main}
+        \ln(y) = (\text{stuff})\ln( \text{simpler function} ) \pm \cdots \pm (\text{stuff})\ln( \text{simpler function} ),
+      \end{equation}
+      where all products and quotients in \(f(x)\) are turned into sums and differences of \(\ln(\cdots)\), and all powers in \(f(x)\) are turned into constants in front of \(\ln(\text{simpler function})\).
+
+      \hlmain{Benefit: Equation~\eqref{eq:logarithmic-differentiation} has a simpler structure. Its summands can often (not always) be differentiated in a single step using Equation~\eqref{eq:derivative-of-ln(g(x))}. If the (stuff) in front of a \(ln(\text{simpler function})\) is a non-constant function, then we need the product rule.}
+
+    \item Implicitly differentiate Equation~\eqref{eq:logarithmic-differentiation} with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln(g(x))} when appropriate.
+
+    \item Isolate for \(\frac{dy}{dx}\) to rewrite your expression as \(\frac{dy}{dx} = \cdots\). 
+    \item Replace \(y\) by the original expression \(f(x)\), so that \(dy/dx\) restored as a function of \(x\).
+  \end{enumerate}
+  \clearpage
+
+  \begin{example} \label{ex:log-diff}
+    Differentiate \(y = \frac{\sin(2x)^{4/3} \sqrt{x^{2}+1}}{e^{x} \cos^{5}(x)}\) using logarithmic differentiation.
+
+    \begin{enumerate}[noitemsep]
+      \item Take \(\ln(\cdots{})\) of both sides of the equation. Simplify the right-hand side using properties of logarithms.
+        \blanklines[38]{30}
+      \item Implicitly differentiate Equation~\eqref{eq:logarithmic-differentiation} with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln(g(x))} when appropriate.
+        \blanklines[38]{18}
+      \item Isolate for \(\frac{dy}{dx}\) to rewrite your expression as \(\frac{dy}{dx} = \cdots\). 
+        \blanklines[38]{10}
+      \item Replace \(y\) by the original expression \(f(x)\), so that \(dy/dx\) is restored as function of \(x\).
+        \blanklines[38]{10}
+    \end{enumerate}
+  \end{example}
+
+  Logarithmic differentiation can be used to differentiate exponential-like functions.  However, it is not the only method. Unless a question specifies a method, we are free to use whichever method we like.
+  \begin{example}[Example 26 from week 2]
+    Differentiate \(x^{x}\) with and without logarithmic differentiation.
+
+    \blanklines{24}
+  \end{example}
+
+  \clearpage
+
+  \begin{example}[Example~28 from week 2]
+    Differentiate \(\left( \frac{1}{x+2} \right)^{\sin(x)}\) with and without logarithmic differentiation.
+    \blanklines{25}
+  \end{example}
+
+  Do the next two exercises if you are interested in more theory; otherwise, it is safe skip them.
+
+  \begin{example}
+    If you are interested in seeing the benefit of logarithmic differentiation, differentiate \(y = \frac{\sin(2x)^{4/3} \sqrt{x^{2}+1}}{e^{x} \cos^{5}(x)}\) (the function in Example~\ref{ex:log-diff}) without logarithmic differentiation and compare the \emph{length and complexity} of your two solutions. You will probably need a separate page (or two).
+  \end{example}
+
+  \begin{example}
+    Deduce the power rule \(\frac{d}{dx} x^{n} = nx^{n-1}\) for any \(n \ne 0\) using logarithmic differentiation. We only need basic properties of logarithms and that \(\tfrac{d}{dx} \ln(x) = 1/x\).
+  
+    \blanklines{15}
+  \end{example}
+\end{lesson}
+\end{document}

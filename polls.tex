@@ -1,6 +1,6 @@
 %! Tex Program = lualatex
 \documentclass[14pt]{beamer} 
-% \usetheme{metropolis} 
+\usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
@@ -376,16 +376,48 @@
   \end{itemize} 
 \end{frame}
 
-
 \begin{frame}
-  Differentiate \(\sin(x^{2})\).
+  Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
+  \begin{align*}
+    f(1) &= 1,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
+    g(1) &= 2,& g'(1) &= -2, &g(2) &= 4, & g'(4) &= -4?
+  \end{align*}
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(\cos(2x)x^{2}\)
-    \item[(b)] \(2\sin(2x)x\)
-    \item[(c)] \(2\cos(x^{2})x\)
+    \item[(a)] \(h'(1) = -2\)
+    \item[(b)] \(h'(1) = -1\)
+    \item[(c)] \(h'(1) = 6\)
+    \item[(d)] \(h'(1) = -6\)
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
+  \begin{align*}
+    f(1) &= 1,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
+    {\color{teal}g(1)} &{\color{teal}= 2},& {\color{magenta}g'(1)} &{\color{magenta}= -2}, &g(2) &= 4, & g'(4) &= -4?
+  \end{align*}
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] 
+    \item[(b)] 
+    \item[(c)] \(h'(1) = f'({\color{teal}g(1)}){\color{magenta}g'(1)} \onslide<2->{= f'(2)(-2)} \onslide<3->{= (-3)(-2) = 6}\)
     \item[(d)] 
+    \item[(e)] 
+  \end{itemize} 
+\end{frame}
+\begin{frame}
+  Differentiate \(\sin(x)^{2}\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(\cos(x)^{2}\)
+    \item[(b)] \(\sin(x)\cos(x)\)
+    \item[(c)] \(2\sin(x)\cos(x)\)
+    \item[(d)] \(2\sin(x)\)
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
@@ -421,7 +453,20 @@
 
 
 \begin{frame}
-  Can we use use implicit differentiation to find the slope of \(y^{2} + x^{2} = 1\) at the point \((5,5)\)?
+  Find \(dx/dt\) given \(x^{3} - xt = 1\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(\frac{dx}{dt} = \frac{t}{3x^{2}}\).
+    \item[(b)] \(\frac{dx}{dt} = \frac{x}{3x^{2} - t}\).
+    \item[(c)] \(\frac{dx}{dt} = \frac{3x^{2} - t}{x}\).
+    \item[(d)] None of the above.
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  Can we use implicit differentiation to find the slope of \(y^{2} + x^{2} = 25\) at the point \((5,5)\)?
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
@@ -429,7 +474,23 @@
     \item[(b)] No, it's not a function and has no \(dy/dx\).
     \item[(c)] No, we cannot plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
     \item[(d)] I don't understand the question.
-    \item[(f)] I am not sure.
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  What is the slope of the tangent line to \(\tan(xy) = -x\) at the point \((1, 3\pi/4)\)?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(-1 - \frac{3\pi}{2}\). 
+      \onslide<2>{{\color{magenta}Probably forgot about brackets.}}
+    \item[(b)] \(-\frac{1}{2} - \frac{3\pi}{4}\). 
+      \onslide<2>{{\color{teal}The correct answer.}}
+    \item[(c)] \(\frac{1}{\sqrt{2}} - \frac{3\pi}{4}\). 
+      \onslide<2>{{\color{magenta} Probably forgot the square or made the mistake \(\tfrac{d}{dx}\tan(x) = \sec(x)\)}}
+    \item[(d)] 
+    \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
 
@@ -463,7 +524,7 @@
 
 
 \begin{frame}
-  Can the inverse function theorem be deduced using implicit differentiation?
+  Can the inverse function theorem be deduced from implicit differentiation?
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
@@ -476,6 +537,34 @@
 \end{frame}
 
 
+\section{Logarithmic differentiation}
+\begin{frame}
+  Differentiate \(x^{x}\).
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] \(x x^{x-1}\).
+    \item[(b)] \(x^{x}(1 + \ln(x)\)
+    \item[(c)] \(x^{x}\)
+    \item[(d)] \(x^{x}\ln(x)\)
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\section{Related rates}
+\begin{frame}
+  
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] 
+    \item[(b)] 
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
 \section{Problem-solving}
 \begin{frame}[t]
   Suppose \(\sin(f(x)) = 0\), \(f(1) = \pi\). Find \(f'(1)\).
@@ -483,6 +572,18 @@
   What question did you ask yourself to discover a problem-solving idea?
 \end{frame}
 
+\begin{frame}[t]
+  How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] Apply limit laws.
+    \item[(b)] Calculate and compare left and right limits at \(c\).
+    \item[(c)] Check if \(\lim_{x \to c}f(x) = f(c)\). May have to calculate left and right limits separately.
+    \item[(d)] Check if \(f(x)\) is defined at \(c\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
 
 \section{Study Skills}
 \begin{frame}
@@ -490,7 +591,7 @@
 \end{frame}
 
 \begin{frame}
-  How you assess your learning progress?
+  How do you assess your learning progress?
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
@@ -498,9 +599,11 @@
     \item[(b)] Do do-at-home problems.
     \item[(c)] Reflect on problem-solving ideas.
     \item[(d)] Summarize to reduce my mental load.
-    \item[(e)] 
+    \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
+
+
 
 % template
 % \section{}

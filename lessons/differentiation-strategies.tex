@@ -1,0 +1,80 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{More general problem-solving}
+  Let's see how our knowledge of limits, continuity and derivatives are connected and how to use them in various situations.
+
+  \blanklines{50}
+  \clearpage
+
+  Piecewise functions and the absolute value function are probably not everyone's favourite functions. However, they show up often in nature and are essential. We CAN learn to work with them.
+
+  \begin{mdframed}[style=simple-compact]
+    Always analyze piecewise functions one branch at a time. At numbers where two branches are ``glued'' together, we often need to use definitions and left/right limits.
+
+    Again, we need to remember definitions.
+  \end{mdframed}
+
+  The absolute value function and its compositions are piecewise functions. We have
+  \[
+    |x| = 
+    \begin{cases}
+      -x, &\text{ if } x < 0, \\
+      x, &\text{ if } x \ge 0
+    \end{cases}
+    \quad \text{and} \quad 
+    |f(x)| = 
+    \begin{cases}
+      \underline{\hspace{1in}}, &\text{ if } \underline{\hspace{2cm}} \\
+      \underline{\hspace{1in}}, &\text{ if } \underline{\hspace{2cm}}
+    \end{cases}
+  \]
+
+  The quintessential examples of ``\emph{is \(f(x)\) continuous (or differentiable) at blah?}'' or ``\emph{find all constants blah for which \(f(x)\) is continuous (or differentiable) everywhere?}'' are Example 12 and 13 from week 4, Example 13 in week 5, and textbook Exercises 145, 147, 149 in Section~2.4 (all of which are recommended exercises). Let's pick out some specific strategies.
+
+  \faComment{} How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
+  \blanklines{8}
+
+  \faComment{} How can we show a piecewise function \(f(x)\) is differentiable at \(c\)?
+  \blanklines{8}
+
+  \faComment{} How can we show a piecewise function \(f(x)\) is NOT differentiable at \(c\)?
+  \blanklines{10}
+  \clearpage
+
+  Mathematics in science does not always appear as ``usual'' functions where explicit expressions are known. Sometimes, only partial information on a function is available. What do we do?
+
+  \begin{mdframed}[style=simple-compact]
+    Try ``high power'' tools first (limit laws, squeeze theorem, IVT, differentiation rules and techniques, etc.) and look for hidden or missing information. If stuck, then start thinking about definitions and relations among concepts!
+
+    That means we need to know definitions!
+  \end{mdframed}
+
+  \begin{example}
+    Suppose \(f(x) = \frac{g(x) + 3}{x+1}\).  If \(\lim_{x \to 2} f(x) = 1\) and \(g(x)\) is continuous at \(2\), what is \(g(2)\)?
+    \blanklines{20}
+  \end{example}
+
+  \begin{example}
+    Suppose \(xf(x)^{2} = 9\) and \(f(3) = -1\). Find \(f'(3)\).
+
+    \blanklines{15}
+  \end{example}
+  \clearpage
+
+  In week 5, we talked about the problem-solving strategies \hlmain{formulating problems about differentiation using the language of derivative}. A similar idea is used a few times in recommended exercises.
+  \begin{mdframed}[style=simple-compact]
+    Use calculus concepts to \hlmain{set up equations} to solve problems.
+  \end{mdframed}
+
+  Examples that use this idea are Example 13 in week 5, all examples in this section, many implicit differentiation problems, many ``find all \(c\) for which \(f(x)\) is \emph{blah blah} at every real number'' (from recommended exercises).
+
+  Let's look at one more problem that uses this idea. 
+
+  \begin{example}
+    Find all points on the curve \(x^{2} + 3y^{2} = 1\) at which the tangent line has slope \(1\)?
+    
+    \blanklines{35}
+  \end{example}
+\end{lesson}
+\end{document}

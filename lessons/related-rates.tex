@@ -2,5 +2,50 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \begin{lesson}{Related Rates}
+  Given a \hlmain{relation among \emph{two} quantities}, we can use implicit differentiation \hlwarn{with respect to time \(t\)} to find the \emph{relation} among rates of changes with respect to time \(t\).
+
+  Let's recall that the physical interpretation of the derivative is \hlmain{rate of change}.
+  \begin{example}[Similar to textbook Example~4.3] \label{ex:related-rates-intro}
+    A student walks along a straight path at \(1\) metre per second.  A spotlight is located on the ground (to be measured) \underline{\hspace{1in}} away from the path and is kept focused on the student. At what rate is the spotlight rotating when the student is (to be measured) \underline{\hspace{1in}} away from the point on the path closest to the spotlight?
+  \end{example}
+  % \begin{example}[Textbook Example 4.1 on page 342] \label{ex:related-rates-intro}
+  %   A spherical balloon is being filled with air at the constant rate of \(2\) \(\text{cm}^{3}/\text{sec}\). How fast is the radius increasing when the radius is 3 cm?
+  % \end{example}
+  \blanklines{45}
+
+  \clearpage
+
+  Let's analyze Example~\ref{ex:related-rates-intro} to find a \hlmain{general method} applicable to \hlsupp{all} \hlmain{related rates} problems. 
+  \begin{enumerate}
+    \item How do we know we are presented with a related rates problem?
+      \blanklines[37]{10}
+      % typically we are given information about the relation of two quantities both are functions of time.
+
+    \item How do we mathematically describe the given information?
+      \blanklines[37]{10}
+
+    \item How do we find the relation between rate\underline{s} (of change) of given quantities?
+      \blanklines[37]{10}
+
+    \item How do we find the unknown rate?
+      \blanklines[37]{10}
+  \end{enumerate}
+
+  \faStar{} Read textbook Section 4.1 and do suggested exercises to build confidence!
+
+  \clearpage
+  \begin{example}[Textbook Example~4.2]
+    An airplane is flying overhead at a constant elevation of \(4000\) ft. An observer is viewing the plane from a position of \(3000\) ft from the base of a radio tower. The plane is flying horizontally away from the observer. If the plane is flying at the rate of \(600\) ft/sec, at what rate is the distance between the observer and the plane increasing when the plane passes over the radio tower?
+
+    \blanklines{45}
+  \end{example}
+  \clearpage
+
+  \begin{example}
+    An empty water tank is shaped like an upside-down pyramid, with base of \(3\) metres by \(3\) metres and a height of \(12\) metres. Water is being pumped in at a rate of \(2\) cubic metres per second. How fast does the height of the water increase when the water is \(2\) metre deep? Assume that the surface of the water is perfectly flat. 
+
+    Recall that the volume of a pyramid is \(\frac{(\text{area of the base}) \times (\text{height})}{3}\).
+    \blanklines{48}
+  \end{example}
 \end{lesson}
 \end{document}
