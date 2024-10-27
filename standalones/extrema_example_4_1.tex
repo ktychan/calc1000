@@ -1,0 +1,95 @@
+\documentclass[tikz]{standalone}
+\input{../colours.tex.preamble}
+\input{../tikz.tex.preamble}
+\usepackage{cancel}
+\usetikzlibrary{decorations.pathreplacing}
+
+\begin{document}
+
+\begin{tikzpicture}[declare function = {
+  f(\x) = \x^3/12 - \x^2/6 - \x + 1;
+  a = -2/3*(sqrt(10) - 1);
+  b = +2/3*(sqrt(10) + 1);
+  c = 4;
+}]
+  \begin{axis}[
+    axis lines = middle, % boxed, middle
+    axis equal image,
+    %
+    % domain and range
+    %
+    % xmin={}, xmax={},
+    % ymin={}, ymax={},
+    enlargelimits=true,
+    %
+    % axis labels
+    %
+    xlabel={\(x\)}, xlabel style={anchor=west},
+    ylabel={\(y\)}, ylabel style={anchor=south},
+    label style={at={(ticklabel* cs:1)}, font={\tiny}},
+    %
+    % ticks
+    %
+    xtick=\empty, % xticklabels={},
+    ytick=\empty, % yticklabels={},
+    ticklabel style={font=\tiny},
+    %
+    % grid
+    % none, major, minor, both
+    grid=none, grid style={gray!20},
+    % minor tick num=1, 
+    % minor grid style={gray!20},
+    % 
+    % plot parameters
+    %
+    smooth, samples=100, no markers
+    ]
+
+    % attention
+    \draw[main, dotted, fill=attn!10] (-4, 4) rectangle (6, 3);
+    \node at (axis cs:1,3.5) {\sffamily\footnotesize \phantom{because} \(f'(c)\) does not exist};
+    \node[above] (C) at (axis cs:7,-1) {\sffamily\footnotesize \(c\)};
+    \draw[attn, ->] (axis cs:1,3) -- (C);
+
+    % \addplot[thick, domain=-5:4, dotted] {f(x)};
+    \addplot[thick, domain=-4:5] {f(x)};
+    \addplot[thick] coordinates {(5, {f(5)}) (7, {f(5)})};
+    \draw[fill=white] (7, {f(5)}) circle[radius=2pt];
+    \draw[fill=black] (7, 3) circle[radius=2pt];
+    \addplot[thick] coordinates {(7, 3) (9, 4)};
+    \addplot[thick] coordinates {(9, 4) (10, 2)};
+    \draw[fill=black] (10, 2) circle[radius=2pt];
+
+    % smooth local max
+    \addplot[main] coordinates {(a,0.2) (a,-0.2)};
+    \node[main, below] at (axis cs:a,-0.2) {\footnotesize\sffamily CN};
+    % \fill[supp] ({a}, {f(a)}) circle[radius=0.2];
+    % \addplot[supp, dashed] coordinates { (a-2, {f(a)}) ({a+2}, {f(a)}) };
+
+    % smooth local min
+    \addplot[main] coordinates {(b,-0.2) (b,0.2)};
+    \node[main, above] at (axis cs:b,0.2) {\footnotesize\sffamily CN};
+    % \fill[supp] (b, {f(b)}) circle[radius=0.2];
+    % \addplot[supp, dashed] coordinates { (b-2, {f(b)}) ({b+2}, {f(b)}) };
+
+    % flat
+    \addplot[main] coordinates {(5,0.2) (5,-0.2)};
+    \addplot[main] coordinates {(7,0.2) (7,-0.2)};
+
+    \node[main, above] at (axis cs:5,0) {\tiny\sffamily CN};
+    % \node[main, above] at (axis cs:7,0) {\tiny\sffamily CN};
+    % \draw[main, decorate, decoration={brace, raise=0.2cm, mirror}] (5,0) -- (7,0);
+    % \node[main, below] at (axis cs:6,-0.6) {\footnotesize\sffamily all CNs};
+    %
+    % % absolute max
+    % \addplot[main] coordinates {(9,0.2) (9,-0.2)};
+    % \node[main, below] at (axis cs:9,-0.2) {\footnotesize\sffamily CN};
+    % % \draw[supp] (axis cs:9,4) circle[radius=0.5];
+    % \fill[supp] (axis cs:9,4) circle[radius=0.2];
+    % \addplot[supp, dotted] coordinates { (9,4) (0,4) } node[above right]  {\tiny\sffamily its \(y\)-value is the abs max};
+    %
+    % \addplot[warn] coordinates {(10,0.2) (10,-0.2)};
+    % \node[warn, above] at (axis cs:10,0.2) {\footnotesize\sffamily \xcancel{CN}};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

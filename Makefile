@@ -30,8 +30,9 @@ exercises:
 	cp -vf build/exercises_progressions.pdf Calc_1000A_002_F24_exercises_progressions.pdf
 	
 main: standalones main.tex
-	latexmk -halt-on-error -interaction=nonstopmode main.tex
+	latexmk -halt-on-error -interaction=nonstopmode main.tex appendix/*.tex
 	cp -vf build/main.pdf Calc_1000A_002_F24_main.pdf
+	cp -vf appendix/build/slides_critical_numbers.pdf ${COURSE}_appendix_critical_numbers.pdf
 
 polls:
 	latexmk -halt-on-error -interaction=nonstopmode polls.tex
@@ -47,6 +48,7 @@ weeks: standalones main
 	cp -vf build/week6.pdf ${COURSE}_week6_fillable.pdf
 	cp -vf build/week7.pdf ${COURSE}_week7_fillable.pdf
 	cp -vf build/week8.pdf ${COURSE}_week8_fillable.pdf
+	cp -vf build/week9.pdf ${COURSE}_week9_fillable.pdf
 
 formulas: 
 	latexmk -halt-on-error -interaction=nonstopmode formulas.tex
