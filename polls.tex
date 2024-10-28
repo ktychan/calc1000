@@ -5,6 +5,7 @@
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
 \beamertemplatenavigationsymbolsempty{}
+\usepackage[normalem]{ulem}
 
 \usepackage{xcolor}
 
@@ -568,17 +569,32 @@
 \section{Extrema}
 
 \begin{frame}[t]
-  
+  If there are constants \(a,b\) such that \(a \le f(x) \le b\) for every \(x\) on the domain of \(f\), does it mean that \(f(x)\) must have an absolute extrema?
 
   \medskip
   \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] 
-    \item[(b)] 
+    \item[(a)] No.
+    \item[(b)] \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because of functions like \(x \sin(1/x)\).}
     \item[(c)] 
     \item[(d)] 
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
+
+
+\begin{frame}[t]
+  Is it true that every absolute extrema is also a local extrema?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{2ex}
+    \item[(a)] No.
+    \item[(b)] \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because absolute extrema can occur at endpoints of the domain of a function but local extrema cannot.}
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
 
 \section{Problem-solving}
 \begin{frame}[t]
