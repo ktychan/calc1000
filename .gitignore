@@ -18,3 +18,7 @@ confidential
 *.log
 *.out
 *.xdv
+
+# beamer files
+*.snm
+*.nav

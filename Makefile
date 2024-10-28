@@ -11,7 +11,6 @@ clean:
 	latexmk -C outlines/*.tex
 	latexmk -C lessons/*.tex
 	latexmk -C lectures/*.tex
-	rm -rf **/build
 
 standalones/%.pdf: standalones/%.tex
 	latexmk -halt-on-error -interaction=nonstopmode $^
