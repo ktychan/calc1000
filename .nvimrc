@@ -12,7 +12,6 @@ let g:vimtex_compiler_latexmk = {
       \   '-interaction=nonstopmode',
       \ ],
       \}
-set conceallevel=1
 let g:vimtex_syntax_conceal = {
       \ 'accents': 1,
       \ 'ligatures': 1,
@@ -22,9 +21,9 @@ let g:vimtex_syntax_conceal = {
       \ 'greek': 1,
       \ 'math_bounds': 1,
       \ 'math_delimiters': 1,
-      \ 'math_fracs': 1,
+      \ 'math_fracs': 0,
       \ 'math_super_sub': 1,
-      \ 'math_symbols': 1,
+      \ 'math_symbols': 0,
       \ 'sections': 1,
       \ 'styles': 1,
       \}
