@@ -1,0 +1,53 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Subtleties of Extrema}
+  Last week, we briefly talked about the Extreme Value Theorem.
+  \begin{mdframed}[style=withref-compact]
+    If \(f(x)\) is continuous over a closed and bounded interval \([a,b]\), then \(f\) must have an absolute maximum \hlsupp{and} an absolute minimum on \([a,b]\).
+
+    \textbook{Theorem 4.1 Extreme Value Theorem on page 367}
+  \end{mdframed}
+
+  Let's consider some misapplications of EVT. These are typical misuses of logic.
+
+  \begin{example}
+    The function \(f(x) = \frac{1}{x^{2} + 1}\) has no absolute minimum. Does this example prove that the Extreme Value Theorem is wrong? In other words, does this example contradict the Extreme Value Theorem? Explain your reasoning.
+
+    \blanklines{5}
+  \end{example}
+
+  \begin{example}
+    Find all logical flaws in this argument about the function \(\cos(x)\) on the interval \([0,\pi)\).
+
+    \begin{tabular}{rp{6in}}
+      Amir: & The function has no absolute minimum.  \\
+            & \blanklines[36]{5}\\
+      Bren: & BUT \(-1 \le \cos(x) \le 1\) for any real number \(x\). Therefore, \(\cos(x)\) should have an absolute minimum at \(x = \pi\). \\
+            & \blanklines[36]{5}\\
+      Cam: & It is continuous ONLY on a not closed interval. So the Extreme Value Theorem says it has no absolute minimum. \\
+            & \blanklines[36]{5}
+    \end{tabular}
+  \end{example}
+  \clearpage
+
+  We now discuss why the conditions \hlmain{continuous over a closed and bounded interval \([a,b]\)} are essential to the Extreme Value Theorem.
+
+  Let \(f\) be a function defined over an interval \(I\).  Let's consider the following possibilities. 
+  If one of the absolute extrema does not exist, then sketch a function satisfying the conditions in that row with no said absolute extrema.
+
+  \begin{center}
+    \begin{tabular}{c|l|l}
+      Continuous on \(I\)? & \(I\) is \ldots{} & Has absolute extrema? Why? \\ \midrule
+      yes & closed and bounded & Yes, it has both extrema by EVT. \\\midrule
+      \hlwarn{no} & closed and bounded & \\[3ex] \midrule
+      yes & closed but \hlwarn{not bounded} & \\[3ex] \midrule
+      yes & bounded but \hlwarn{not closed} & \\[3ex] \midrule
+    \end{tabular}
+  \end{center}
+
+  What if \(f\) is continuous and the \emph{range} of \(f\) is bounded? Is it enough to guarantee the existence of absolute extrema?
+  
+  \clearpage
+\end{lesson}
+\end{document}

@@ -150,6 +150,7 @@
 \usepackage{refcount, xr, subfiles}
 
 % links and references
+\PassOptionsToPackage{hyphens}{url}
 \usepackage[hidelinks, pdfusetitle]{hyperref}
 \renewcommand{\UrlFont}{\footnotesize\ttfamily}
 
@@ -410,6 +411,7 @@
 
   \makelectureweek{10} % 4.7 and 4.8
   \subfile{./lessons/optimization.tex} \clearpage
+  \subfile{./lessons/extrema-subtleties.tex} \clearpage
   \subfile{./lessons/lHopitals-rule.tex} \clearpage
   \clearpage{\thispagestyle{empty}\cleardoublepage}
 
@@ -417,17 +419,17 @@
   \subfile{./lessons/antiderivatives.tex} \clearpage
   \subfile{./lessons/sigma-notation.tex} \clearpage
   \subfile{./lessons/the-area-problem.tex} \clearpage
+  \subfile{./lessons/the-definite-integral.tex} \clearpage
   \clearpage{\thispagestyle{empty}\cleardoublepage}
 
   \makelectureweek{12} % 5.2 and 5.3
-  \subfile{./lessons/the-definite-integral.tex} \clearpage
   \subfile{./lessons/ftc-part-one.tex} \clearpage
   \subfile{./lessons/ftc-part-two.tex} \clearpage
   \subfile{./lessons/net-change.tex} \clearpage
+  \subfile{./lessons/integration-formulas.tex} \clearpage
   \clearpage{\thispagestyle{empty}\cleardoublepage}
 
   \makelectureweek{13} % 5.4, 5.5, 5.6 and 6.1
-  \subfile{./lessons/integration-formulas.tex} \clearpage
   \subfile{./lessons/integration-substitution.tex} \clearpage
   \subfile{./lessons/integration-exp-ln.tex} \clearpage
   \subfile{./lessons/integration-trigs.tex} \clearpage
