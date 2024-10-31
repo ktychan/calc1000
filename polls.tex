@@ -7,7 +7,7 @@
 \beamertemplatenavigationsymbolsempty{}
 \usepackage[normalem]{ulem}
 
-\usepackage{xcolor}
+\input{./colours.tex.preamble}
 
 %
 % uncomment the whole \setbeamertemplate command to add an iClicker watermark.
@@ -595,6 +595,46 @@
   \end{itemize} 
 \end{frame}
 
+\begin{frame}[t]
+  What is the relation between local extrema and critical points?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] Some, but not all, critical points are local extrema.
+    \item[(b)] A local extremum must correspond to a critical point.
+    \item[(c)] Every critical point correspond to a local extremum.
+    \item[(d)] \(\{ \text{critical points} \} = \{ \text{local extrema} \}\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\section{Derivative Tests}
+
+\begin{frame}[t]
+  Consider the graph in Example~10. Using only the first derivative test, where does \(f(x)\) have a local maximum? 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] \(x = a\). \onslide<2>{\hlmain{\(f'(a) = 0\) (\(x = a\) is a critical number of \(f\)), and \(f'\) changes from positive (\(f\) is decreasing) to negative (\(f\) is increasing) as \(x\) goes from left to right passing \(a\).}}
+    \item[(b)] \(x = b\). 
+    \item[(c)] \(x = c\).
+    \item[(d)] \(x = d\). 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  Can the First Derivative Test be applied to find the local min of \(f(x) = |x|\) (and, more generally, any continuous piecewise function)? 
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] Yes, because \(f\) does not need to be differentiable at the critical number \(0\).
+    \item[(b)] No, because \(f\) is not differentiable at the critical number \(0\).
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
 
 \section{Problem-solving}
 \begin{frame}[t]
