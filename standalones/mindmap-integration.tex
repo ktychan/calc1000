@@ -1,0 +1,72 @@
+\documentclass{standalone}
+\everymath{\displaystyle}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\setmainfont{Palatino}
+
+\usepackage{tikz}
+\input{../colours.tex.preamble}
+\usetikzlibrary{mindmap, backgrounds}
+
+\begin{document}
+\begin{tikzpicture}[
+  mindmap, 
+  grow cyclic, 
+  concept color=gray!20, 
+  every node/.style={concept}
+  ]
+  \node [concept, concept color=pink!50, minimum size=2cm] (derivatives) at (-2,-13) {differentiation};
+  \node (root) {integration}
+    child [concept color=main!20] {
+      node (antder) {antiderivative}
+      child { 
+        node (alg) {algebraic properties} 
+      }
+      child { 
+        node (indint) {indefinite integral\\\(\int f(x) \;dx\)} 
+      }
+    }
+    child [concept color=supp!20] { 
+      node (ftc) {Fundamental Theorem of Calculus} 
+      child { node (ftcone) {Part 1} }
+      child { 
+        node (ftctwo) {Part 2} { 
+          child [clockwise from=50] { node (net) {Net Change Theorem} }
+        }
+      }
+    }
+    child [concept color=main!20] { 
+      node  (defint) {definite integral\\\(\int_{a}^{b} f(x) \;dx\)} 
+      child { node (area) {net area ``under'' the curve} }
+      child { node (riemann) {Riemann sums} } 
+      child { node {algebraic properties} }
+    }
+    child [concept color=attn!20] { 
+      node {integration techniques} 
+      child { node {recognize derivatives and use integration table}  }
+      child { node (sub) {the substitution rule} }
+      child { node {algebraic properties}  }
+    }
+    child [concept color=blue!20] { 
+      node {applications} 
+      child { node {area between curves}  }
+      child { node {volume of solids of revolution} }
+    }
+    ;
+
+  \node [concept color=white, annotation, right] at (riemann.east) {\footnotesize \(\sum_{i=1}^{n} f(x_{i}^{*}) {\Delta x}\)};
+  \node [concept color=white, annotation, below right] at (ftcone.east) {\footnotesize \(\frac{d}{dx} \int_{a}^{x} f(u) \;du = f(x)\)};
+  \node [concept color=white, annotation, below right, text width=2.3in] at (ftctwo.east) {\footnotesize \(\int_{a}^{b} f(x) \;dx = F(b) - F(a)\) if \(F'(x) = f(x)\)};
+  \node [concept color=white, annotation, below right, text width=1cm] at (indint.south) {\footnotesize ``\(+C\)''};
+  \node [concept color=white, annotation, right, text width=2.7in] at (sub.east) {\footnotesize \(\int f(g(x)) g'(x) \;dx = \int f(u) \;du\), substitute \(u = g(x)\)};
+  \node [concept color=white, annotation, right] at (area.east) {\includegraphics[height=1in]{../standalones/build/plot_net_area}};
+
+  \begin{pgfonlayer}{background}
+    \draw [concept connection, main] (defint) edge (ftctwo);
+    \draw [concept connection, main] (indint) edge (ftctwo);
+    \draw [concept connection, main] (net) edge (area);
+    \draw [concept connection, pink] (derivatives) edge (ftcone);
+    \draw [concept connection, MidnightBlue!75] (derivatives) edge (alg);
+  \end{pgfonlayer}
+\end{tikzpicture} 
+\end{document}

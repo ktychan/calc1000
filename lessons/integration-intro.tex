@@ -1,0 +1,64 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{The Big Picture of Integration}
+  Integration appears everything in physical science, probability and statistics and, of course, mathematics due to its geometric interpretation:
+
+  \medskip
+  \begin{mdframed}[style=simple]
+    \centering
+    \color{main}
+    A definite integral is a number that describes the net area ``under'' the curve.
+  \end{mdframed}
+
+  Here is an overview of every important concept except the integration table and algebraic properties of integrals.
+  \begin{description}[itemsep=2ex]
+    \item[Terminologies.] Antiderivatives and indefinite integrals.
+      \[
+        F(x) = \int f(x) \;dx \quad\overset{\text{\color{main} definition}}{\longleftrightarrow}\quad F'(x) = f(x).
+      \]        
+      \begin{itemize}
+        \item Purpose: Set up basic terminologies for the whole topic.
+      \end{itemize}
+
+    \item[Concept.] Definite integral.
+      \[
+        \int_{a}^{b} f(x) \; dx \quad\overset{\text{\color{main} definition}}{=}\quad \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) {\Delta x}
+      \]
+
+      \begin{itemize}
+        \item Big ideas: Approximation and slicing.
+        \item Geometric meaning: Net area ``under'' the curve.
+        \item Required algebra skills: Evaluating limits at infinity and working with sigma notations.
+      \end{itemize}
+
+    \item[Theorem.] The Fundamental Theorem of Calculus, both parts. 
+      \[
+        \frac{d}{dx} \int_{a}^{x} f(u) \;du \overset{\text{computation}}{=} f(x) \quad\text{and}\quad \int_{a}^{b} f(x) \;dx \overset{\text{translation}}{=} F(b) - F(a) \text{ if } F'(x) = f(x).
+      \]
+      \begin{itemize}
+        \item Abstract meaning: Integration and differentiation are reverse processes up to ``\(+C\).''
+        \item Physical meaning: Integrating a rate of change gives us the net change.
+        \item Potential challenge: Notation and \emph{logic} heavy.
+      \end{itemize}
+
+    \item[Calculation.] The substitution rule.
+      \[
+        \int f(g(x))g'(x) \;dx \quad\overset{\text{transformation}}{=}\quad \int f(u) \;du, \quad\text{ with the substitution } u = g(x).
+      \]
+      \begin{itemize}
+        \item Intuition: The substitution rule ``undoes'' the chain rule.
+        \item Required algebra skills: Recognizing derivatives.
+      \end{itemize}
+
+    \item[Applications.] Area between curves and volume of solids of revolution.
+      \begin{itemize}
+        \item Relies heavily on geometric and spatial reasoning.
+      \end{itemize}
+  \end{description}
+
+  \begin{figure}
+    \makebox[\textwidth][c]{\includegraphics{../standalones/build/mindmap-integration.pdf}}
+  \end{figure}
+\end{lesson}
+\end{document}

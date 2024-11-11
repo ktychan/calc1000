@@ -1,7 +1,7 @@
 SRCS=$(wildcard standalones/*.tex)
 COURSE="Calc_1000A_002_F24"
 
-.PHONY: clean standalones lectures main weeks polls exercises
+.PHONY: clean standalones appendix polls main weeks 
 
 all: main weeks polls
 
@@ -10,7 +10,6 @@ clean:
 	latexmk -C standalones/*.tex
 	latexmk -C outlines/*.tex
 	latexmk -C lessons/*.tex
-	latexmk -C lectures/*.tex
 
 standalones/%.pdf: standalones/%.tex
 	latexmk -halt-on-error -interaction=nonstopmode $^
@@ -24,18 +23,18 @@ outlines:
 standalones: 
 	latexmk standalones/*.tex
 
-exercises:
-	latexmk -halt-on-error -interaction=nonstopmode exercises_progressions.tex
-	cp -vf build/exercises_progressions.pdf Calc_1000A_002_F24_exercises_progressions.pdf
-	
-main: standalones main.tex
+appendix:
 	latexmk -halt-on-error -interaction=nonstopmode main.tex appendix/*.tex
-	cp -vf build/main.pdf Calc_1000A_002_F24_main.pdf
 	cp -vf appendix/build/slides_critical_numbers.pdf ${COURSE}_appendix_critical_numbers.pdf
+	cp -vf appendix/build/slides_optimization.pdf ${COURSE}_appendix_optimization.pdf
+	cp -vf appendix/build/exercises_progressions.pdf ${COURSE}_exercises_progressions.pdf
+
+main: standalones appendix main.tex
+	cp -vf build/main.pdf ${COURSE}_main.pdf
 
 polls:
 	latexmk -halt-on-error -interaction=nonstopmode polls.tex
-	cp -vf build/polls.pdf Calc_1000A_002_F24_polls.pdf
+	cp -vf build/polls.pdf ${COURSE}_polls.pdf
 
 weeks: standalones main
 	latexmk -halt-on-error -interaction=nonstopmode week*.tex
@@ -49,6 +48,7 @@ weeks: standalones main
 	cp -vf build/week8.pdf ${COURSE}_week8_fillable.pdf
 	cp -vf build/week9.pdf ${COURSE}_week9_fillable.pdf
 	cp -vf build/week10.pdf ${COURSE}_week10_fillable.pdf
+	cp -vf build/week11.pdf ${COURSE}_week11_fillable.pdf
 
 formulas: 
 	latexmk -halt-on-error -interaction=nonstopmode formulas.tex

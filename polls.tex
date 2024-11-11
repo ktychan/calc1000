@@ -1,6 +1,6 @@
 %! Tex Program = lualatex
 \documentclass[14pt]{beamer} 
-% \usetheme{metropolis} 
+\usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
@@ -637,7 +637,9 @@
 \end{frame}
 
 \begin{frame}[t]
-  Is \(|x|\) concave up on its domain? Can the Second Derivative Test be used to test its concavity?
+  Is \(|x|\) concave up on its domain? 
+
+  Can the Second Derivative Test be used to test its concavity?
 
   \medskip
   \begin{itemize} \setlength\itemsep{1ex}
@@ -645,6 +647,41 @@
     \item[(b)] Yes and no.
     \item[(c)] No and yes.
     \item[(d)] No and no.
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\section{Optimization}
+\begin{frame}[c]
+  In Example~1, is the domain of \(A(x)\) really \(0 \le x \le 100\)?
+\end{frame}
+
+\begin{frame}[c]
+  In Example~2, why do we measure the walking distance \(w\) and the swimming distance \(s\)? Why not something other quantities?
+\end{frame}
+
+\begin{frame}[t]
+  What is wrong with the (proposed) solution of Example~2?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] There is an algebra mistake.
+    \item[(b)] The domain of \(T(s)\) is wrong.
+    \item[(c)] It's not possible to minimize travel time.
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  What is the domain of \(T(s)\) from Example~2?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] \(s \ge 1\). \onslide<2>{\hlsupp{We don't need to swim forever.}}
+    \item[(b)] \(1 \le s \le \sqrt{5}\). \onslide<2>{\hlmain{Note \(\sqrt{5}\) is the length of the full diagonal.}}
+    \item[(c)] 
+    \item[(d)] 
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
@@ -659,6 +696,121 @@
     \item[(b)] \(L_{2} = \lim_{x \to 1} (1 - x)^{x}\).
     \item[(c)] \(L_{3} = \lim_{x \to -\infty} 2^{2x}\).
     \item[(d)] \(L_{4} = \lim_{x \to 0} \frac{2x^{1}+1}{\cos(x)}\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}
+  What's wrong with the following calculation?
+  \[
+    \lim_{x \to 1} \frac{\ln(x)}{2} = \lim_{x \to 1} \frac{\frac{d}{dx} \ln(x)}{\frac{d}{dx} 2} = \lim_{x \to 1} \frac{1/x}{0} = \text{does not exists?!?!}
+  \]
+
+  \pause{} 
+
+  L'H\^opital's rule \emph{does not apply} because the limit is not an indeterminate form.
+
+  ONLY apply l'H\^opital's rule to indeterminate forms of \(0/0\) or \(\infty/\infty\) and nothing else.
+\end{frame}
+
+\section{Sigma Notations}
+
+\begin{frame}[t]
+Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] The two summations are equal.
+    \item[(b)] The two summations are not equal.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  Assume \(m < n\), both positive integers. Is it true that 
+  \[
+    \sum_{i=1}^{m} a_{i} + \sum_{i=1}^{n} b_{i} = \sum_{i=1}^{n} (a_{i}+ b_{i})?
+  \]
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] The equality is true.
+    \item[(b)] The equality is not always true.
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\section{Antiderivatives}
+
+\begin{frame}[t]
+  Consider \(f(x) = 2x e^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Which of the following statement is true.
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] \(f(x)\) is an antiderivative of \(g(x)\).
+    \item[(b)] \(f(x)\) is the antiderivative of \(g(x)\).
+    \item[(c)] \(g(x)\) is an antiderivative of \(f(x)\).
+    \item[(d)] \(g(s)\) is the antiderivative of \(f(x)\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  Why is \(\ln(x)\) not an antiderivative of \(1/x\)?
+\end{frame}
+
+\begin{frame}[t]
+  Which of the following are true statements?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] \(\int e^{x} \;dx = e^{x}\).
+    \item[(b)] \(\int e^{x} \;dx = e^{x} + C\).
+    \item[(c)] \(\int e^{x} \;dx = e^{x} + 1 + C\).
+    \item[(d)] \(\int e^{x} \;dx = e^{x} + 2C\).
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  Evaluate \(\int \sec^{2}(\pi/4) \;dx\).
+
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] \(\tan(\pi/4) + C\).
+    \item[(b)] \(\sec^{2}(\pi/4)x + C\).
+    \item[(c)] We don't know enough integration techniques to evaluate this yet. 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\section{Integration formulas}
+\begin{frame}[t]
+  Recall that differentiating a {\color{red} non-constant polynomial} lowers its degree by one. Does integrating any {\color{red} non-zero polynomial} (including constant ones) raise its degree by one?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] Yes, because \(\frac{d}{dx} x^{n} = n x^{n-1}\) for any integer \(n \ge 0\).
+    \item[(b)] No, because \(\frac{d}{dx} (\text{any constant}) = 0\).
+    \item[(c)] 
+    \item[(d)] 
+    \item[(e)] I am not sure.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}[t]
+  Does integrating a {\color{red} power function}, i.e., \(x^{n}\) with NO restriction on \(n\), always raise its degree by one? Are there any exceptions?
+
+  \medskip
+  \begin{itemize} \setlength\itemsep{1ex}
+    \item[(a)] Yes. There are no exceptions.
+    \item[(b)] No, an exception is \(x^{-1}\).
+    \item[(c)] 
+    \item[(d)] 
     \item[(e)] I am not sure.
   \end{itemize} 
 \end{frame}
