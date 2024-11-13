@@ -1,0 +1,55 @@
+%! Tex Program = lualatex
+\documentclass[12pt]{beamer} 
+\usetheme{metropolis} 
+\everymath{\displaystyle} 
+\setbeamersize{text margin left=.5cm} 
+\setbeamersize{text margin right=.5cm} 
+\beamertemplatenavigationsymbolsempty{}
+
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\input{../colours.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\begin{document} 
+\begin{frame}[t]
+  On page 127 of the lecture notes, we introduced three summation formulas. One of them is
+  \[
+    \sum_{i=1}^{n} i = \frac{n(n+1)}{2}.
+  \]
+
+  Here is a quick way to make sense of the formula. 
+  The next few slides provide some details.
+  \medskip
+
+  \[
+    \begin{array}{cccccccccc}
+          & 1 &+& 2 &+& 3 &+& 4 &+& 5 \\
+      + & 5 &+& 4 &+& 3 &+& 2 &+& 1 \\
+      = & 6 &+& 6 &+& 6 &+& 6 &+& 6
+    \end{array}
+  \]
+
+  Similar ideas are used for the other two formulas, however they are a lot more complicated. 
+\end{frame}
+
+\begin{frame}[t]
+  To perform \(1 + 2 + 3 + 4 + 5\), we do it twice with a small twist.
+  \[
+    \begin{array}{cccccccccc}
+        & 1 &+& 2 &+& 3 &+& 4 &+& 5 \\
+      \pause + & 5 \pause &+& 4 \pause &+& 3 \pause &+& 2 \pause &+& 1 \\
+      \pause = & 6 \pause &+& 6 \pause &+& 6 \pause &+& 6 \pause &+& 6
+    \end{array}
+  \]
+
+  \pause
+  We get \(\sum_{i=1}^{5} i = \frac{5(5+1)}{2}\) where \(5\) is the number of columns, and \(5+1\) is the bottom number of each column above.  Lastly, we have to divide by \(2\) because we added \(1 + 2 + 3 + 4 + 5\) twice.
+
+  \pause
+  Such a pattern of calculation works for any integer \(n \ge 1\), hence
+  \[
+    \sum_{i=1}^{n} i = \frac{n(n+1)}{2}.
+  \]
+\end{frame}
+\end{document}
