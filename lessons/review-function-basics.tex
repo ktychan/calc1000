@@ -170,7 +170,6 @@
         \end{axis}
       \end{tikzpicture}
     \end{center}
-
     \blanklines{28}
   \end{example}
 
@@ -225,7 +224,6 @@
       \end{tikzpicture}
     \end{minipage}
     \begin{minipage}[c]{4in}
-      \blanklines[25]{17}
     \end{minipage}
   \end{example}
 
@@ -283,39 +281,40 @@
     \blanklines{20}
 
     \faComments{} What does Example~\ref{ex:review-circ} teach us about function composition?
-    \blanklines{5}
+    \blanklines{3}
   \end{example}
   \clearpage
 
   Review of some terminologies. 
-  \begin{itemize}[noitemsep]
+  \begin{itemize}[wide, noitemsep]
     \item A \hlmain{root function} is a power function of the form \(x^{1/n}\) or \(\sqrt[n]{x}\) where \(n\) is a \hlsupp{positive} integer. 
-      \blanklines[37]{5}
+      \blanklines{5}
 
     \item A \hlmain{rational power} is a power function of the form \(x^{p/q}\) where \(p,q\) are integers but \(q \ne 0\).
-      \blanklines[37]{5}
+      \blanklines{5}
 
     \item Functions that involve \(+, -, \times, \div\), roots and \hlwarn{rational powers} are called \hlmain{algebraic functions}. 
-      \blanklines[37]{5}
+      \blanklines{5}
 
     \item If a function is \hlsupp{not} algebraic, then it is called a \hlmain{transcendental function}.
-      \blanklines[37]{5}
+      \blanklines{5}
 
     \item A \hlmain{zero} of a function \(f(x)\) is a \hlsupp{number \(r\)} (in its domain) so that \(f(r) = 0\).  Graphically, zeros of a function are also called its \hlmain{\underline{\hspace{1in}} intercept} or \hlmain{\underline{\hspace{1in}}}.
-      \blanklines[37]{5}
+      \blanklines{5}
   \end{itemize}
 
   Let's take a short break and chat a bit about philosophy. \faComments{} Why learn mathematics when computers seem capable of all sorts of computations? \faComments{} What separates human understanding of mathematics from software computations?
+
   \blanklines{15}
   \clearpage
 
   Shifting (aka translation) and scaling are two basic types of transformation on functions.
 
   \hlmain{Shift}: \(f(x + a) + b\) creates a new function from \(f(x)\) by moving the axes so that the new origin is at the point \((a, -b)\).
-  \blanklines{19}
+  \blanklines{18}
 
   \hlmain{Scale}: \(\beta f(\alpha x)\) creates a new function from \(f(x)\) by scaling \hlsupp{\underline{\hspace{2in}} by \(\alpha\)} but \hlwarn{\underline{\hspace{2in}} by \(\beta\)}.
-  \blanklines{29}
+  \blanklines{28}
 
   \clearpage
   \begin{example}
@@ -358,6 +357,7 @@
         \addplot[thick, domain={-5}:5] {atan(x)} node[below] {\(\arctan(x)\)};
       \end{axis}
     \end{tikzpicture}
+
     \blanklines{10}
 
     \begin{tikzpicture}[scale=1]
@@ -406,6 +406,7 @@
     Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without using any software or calculators.
 
     {\scriptsize This question is a bit tricky.}
+
     \blanklines{50}
   \end{example}
 \end{lesson}

@@ -2,6 +2,7 @@
 generated
 untracked
 build
+standalones/grid_*.tex
 
 # student data
 confidential

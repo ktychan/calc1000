@@ -49,24 +49,24 @@
   \begin{example} \label{ex:optimization-fence}
     We have \(100\) metres of fence material and want to enclose a rectangular area with one side against the wall. The interior is \emph{evenly} divided into two divisions by putting up a fence parallel to the sides perpendicular to the wall. What is the largest area we can enclose?
 
-    (1) Sketch the given scenario and \emph{introduce variables}. Make sure every variable measures something.
-    \blanklines{5}
+    \begin{enumerate}[wide, noitemsep]
+      \item Sketch the given scenario and \emph{introduce variables}. Make sure every variable measures something.
+        \blanklines{5}
 
-    (2) Identify the \hlwarn{objective variable}. Write ``\emph{\hlattn{Goal: We want to minimize/maximize \ldots{}}}.''
-    \blanklines{3}
+      \item Identify the \hlwarn{objective variable}. Write ``\emph{\hlattn{Goal: We want to minimize/maximize \ldots{}}}.''
+        \blanklines{3}
 
-    (3) Use the given scenario and our sketch to figure out the \hlmain{relation} among our variables. 
-    \blanklines{5}
+      \item Use the given scenario and our sketch to figure out the \hlmain{relation} among our variables. 
+        \blanklines{5}
 
-    (4) Eliminate all but one independent variable, so that the objective variable is a single-variable function in the remaining independent variable. \hlinfo{Also figure out the domain of the resulting function using the given scenario.}
+      \item Eliminate all but one independent variable, so that the objective variable is a single-variable function in the remaining independent variable. \hlinfo{Also figure out the domain of the resulting function using the given scenario.}
+        \blanklines{10}
 
-    \blanklines{10}
-
-    (5) \hlattn{Achieve the goal we wrote down in step (2)} using techniques from previous sections.
-    \blanklines{10}
-
-    \clearpage
+      \item \hlattn{Achieve the goal we wrote down in step (2)} using techniques from previous sections.
+        \blanklines{10}
+    \end{enumerate}
   \end{example}
+  \clearpage
 
   Example~\ref{ex:optimization-swim} is a slight variation of Example~\ref{ex:optimization-fence} where the \emph{obvious} (depends on the person) description of a given problem results in hidden information. Develop algebra and geometry skills to uncover potentially hidden information (mathematical relations). Hint: If you have \(n\) independent variables, then you should have at least \(n\) equations in Step~(3).
 
@@ -90,21 +90,24 @@
       \draw[Aquamarine, domain=0.2:1.8, smooth, samples=100] plot ({\x},{sin(4*pi*\x)*0.051+0.25});
     \end{tikzpicture}
 
-    (1) The sketch is given. Introduce variable(s) to describe the scenario.
-    \blanklines{4}
+    \begin{enumerate}[wide, noitemsep]
+      \item The sketch is given. Introduce variable(s) to describe the scenario.
+        \blanklines{4}
 
-    (2) Identify the \hlwarn{objective variable}. Write ``\hlattn{Goal: We want to maximize/minimize \ldots{}}''. 
-    \blanklines{3}
+      \item Identify the \hlwarn{objective variable}. Write ``\hlattn{Goal: We want to maximize/minimize \ldots{}}''. 
+        \blanklines{3}
 
-    (3) Figure out the relations among our variables. If we have \(n\) independent variables, then we should have at least \(n\) equations.
-    \blanklines{10}
+      \item Figure out the relations among our variables. If we have \(n\) independent variables, then we should have at least \(n\) equations.
+        \blanklines{8}
 
-    (4) Eliminate all but one independent variable, so that the objective variable is a single variable function in the remaining independent variable. Also figure out the domain of the resulting function using the given scenario.
-    \blanklines{7}
+      \item Eliminate all but one independent variable, so that the objective variable is a single variable function in the remaining independent variable. Also figure out the domain of the resulting function using the given scenario.
+        \blanklines{10}
 
-    \vfill{}{\footnotesize (continues onto the next page)} \clearpage
-    (5) \hlattn{Achieve the goal we wrote down in Step (2)}. Be very clear of the mathematical problem we are about to solve.
-    \blanklines{15}
+        \vfill{}{\footnotesize (continues onto the next page)} \clearpage
+
+      \item \hlattn{Achieve the goal we wrote down in Step (2)}. Be very clear of the mathematical problem we are about to solve.
+        \blanklines{15}
+    \end{enumerate}
   \end{example}
 
   \medskip
@@ -113,26 +116,28 @@
   \begin{example} \label{ex:optimization-closest-point-to-curve}
     Find the point on the ellipse \(4x^{2} + y^{2} = 4\) that is closest to the point \(A = (1,-2)\). Take for granted that such point exists.
 
-    (1) Sketch the given scenario and \emph{introduce variables}. Make sure every variable measures something. 
-    \blanklines{5}
+    \begin{enumerate}[wide, noitemsep]
+      \item Sketch the given scenario and \emph{introduce variables}. Make sure every variable measures something. 
+        \blanklines{5}
 
-    (2) This question does not directly ask us to maximize/minimize something. Rather, it asks us to find \underline{\hspace{1in}} at which \underline{\hspace{2in}}. \url{https://www.geogebra.org/calculator/rkxfbt3z}
+      \item This question does not directly ask us to maximize/minimize something. Rather, it asks us to find \underline{\hspace{1in}} at which \underline{\hspace{2in}}. \url{https://www.geogebra.org/calculator/rkxfbt3z}
 
-    Identify the \hlwarn{objective variable}. Write ``\emph{\hlattn{Goal: We want to find \ldots}}.''
-    \blanklines{3}
+        Identify the \hlwarn{objective variable}. Write ``\emph{\hlattn{Goal: We want to find \ldots}}.''
+        \blanklines{3}
 
-    (3) Figure out the relations among our variables. 
-    \blanklines{10}
+      \item Figure out the relations among our variables. 
+        \blanklines{10}
 
-    \vfill{}{\footnotesize (continues onto the next page)} \clearpage
+        \vfill{}{\footnotesize (continues onto the next page)} \clearpage
 
-    (4) Eliminate all but one independent variable, so that the objective variable is a single-variable function in the remaining independent variable. 
-    \blanklines{10}
+      \item Eliminate all but one independent variable, so that the objective variable is a single-variable function in the remaining independent variable. 
+        \blanklines{10}
 
-    (5) \hlattn{Achieve the goal we wrote down in Step (2)}. Remember we have to find the associated \((x,y)\) values as well. 
+      \item \hlattn{Achieve the goal we wrote down in Step (2)}. Remember we have to find the associated \((x,y)\) values as well. 
 
-    Computational shortcut: Minimizing \(d\) is the same as minimizing \(d^{2}\).
-    \blanklines{30}
+        Computational shortcut: Minimizing \(d\) is the same as minimizing \(d^{2}\).
+        \blanklines{30}
+    \end{enumerate}
   \end{example}
   \clearpage
 
@@ -147,7 +152,7 @@
     A haunted house is trying to maximize revenue for next year. This year, if the ticket price was \textdollar{20}, then the average attendance was \(500\) visitors per evening. If the ticket price was \textdollar{15}, then the average attendance was \(800\) visitors per evening.  Assume average visitor per evening is linearly related to ticket price.
 
     Find the ticket price that maximizes revenue per evening. 
-    \blanklines{50}
+    \blanklines{49}
   \end{example}
 
   \begin{example}

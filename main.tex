@@ -1,25 +1,5 @@
 \documentclass[12pt, letterpaper]{book}
 
-\usepackage{luacode}
-\begin{luacode}
-  weeks = {
-    "Week 1 (September 5 and 6)",
-    "Week 2 (September 9 to 13)",
-    "Week 3 (September 16 to 20)",
-    "Week 4 (September 23 to 27)",
-    "Week 5 (September 30 to October 4)",
-    "Week 6 (October 7 to 11)",
-    "Week 7 (October 14 to 18)",
-    "Week 8 (October 21 to 25)",
-    "Week 9 (October 28 to November 1)",
-    "Week 10 (November 4 to 8)",
-    "Week 11 (November 11 to 15)",
-    "Week 12 (November 18 to 22)",
-    "Week 13 (November 25 to 29)",
-    "Week 14 (December 2 to 6)",
-  }
-\end{luacode}
-
 \def\theauthor{Kelvin Chan}
 \def\theinstitute{University of Western Ontario}
 \def\thecourseterm{Fall}
@@ -38,8 +18,6 @@
 \def\thecoursetextbookurl{\url{https://openstax.org/details/books/calculus-volume-1}}
 \def\thecoursetextbookpublisher{OpenStax}
 \def\thecoursetextbook{\href{https://openstax.org/details/books/calculus-volume-1}{\thecoursetextbooktitle}}
-
-\newcommand{\theweek}[1]{\directlua{tex.print(weeks[#1])}}
 
 % ------------------------------------------------------------
 %
@@ -75,52 +53,16 @@
 }
 
 % base style for the first page of a chapter
+\newcommand{\firstpageheader}{}
 \fancypagestyle{firstpage}[base]{
-  \fancyhead[OL, ER]{\small \thecoursesubj{}~\thecoursenumb~\thecoursesect{}}
+  \fancyhead[OL, ER]{\small \thecoursesubj{}~\thecoursenumb~\thecoursesect}
+  \fancyhead[C]{\small\firstpageheader{}}
   \renewcommand{\headrulewidth}{.4pt}
 }
 
 % for syllabus
 \fancypagestyle{syllabus}[firstpage]{
   \fancyhead[C]{\small Syllabus}
-}
-
-% one style for each week of class
-\fancypagestyle{week1}[firstpage]{\fancyhead[C]{\small\theweek{1}} }
-\fancypagestyle{week2}[firstpage]{\fancyhead[C]{\small\theweek{2}} }
-\fancypagestyle{week3}[firstpage]{\fancyhead[C]{\small\theweek{3}} }
-\fancypagestyle{week4}[firstpage]{\fancyhead[C]{\small\theweek{4}} }
-\fancypagestyle{week5}[firstpage]{\fancyhead[C]{\small\theweek{5}} }
-\fancypagestyle{week6}[firstpage]{\fancyhead[C]{\small\theweek{6}} }
-\fancypagestyle{week7}[firstpage]{\fancyhead[C]{\small\theweek{7}} }
-\fancypagestyle{week8}[firstpage]{\fancyhead[C]{\small\theweek{8}} }
-\fancypagestyle{week9}[firstpage]{\fancyhead[C]{\small\theweek{9}} }
-\fancypagestyle{week10}[firstpage]{\fancyhead[C]{\small\theweek{10}} }
-\fancypagestyle{week11}[firstpage]{\fancyhead[C]{\small\theweek{11}} }
-\fancypagestyle{week12}[firstpage]{\fancyhead[C]{\small\theweek{12}} }
-\fancypagestyle{week13}[firstpage]{\fancyhead[C]{\small\theweek{13}} }
-\fancypagestyle{week14}[firstpage]{\fancyhead[C]{\small\theweek{14}} }
-
-\newcommand{\makelectureweek}[1]{
-
-  % chapter and section numbering
-  \setcounter{chapter}{#1}
-  \setcounter{section}{0}
-  \setcounter{thm}{0}
-
-  % add to TOC
-  \phantomsection{}\label{week#1}
-  \addcontentsline{toc}{chapter}{\theweek{#1}}
-
-  \thispagestyle{week#1}
-}
-
-\newenvironment{lesson}[1]{
-  % before code
-  \def\thistextbooksectionnumber{#1}
-  \section{#1}
-}{
-  % after code
 }
 
 % ------------------------------------------------------------
@@ -283,168 +225,207 @@
 %
 % ------------------------------------------------------------
 \newcommand{\blanklines}[2][40]{
+  \par{}
+  \includegraphics{./standalones/build/grid_#2_by_40}
+  \smallbreak
   % assume textarea is 7in wide.
   % need to scale ever so slightly to avoid overfull box warning
-  \par{}
-  \begin{tikzpicture}[x=.175in,y=.175in,scale=0.99]
-    \foreach \x in {0,1,...,#1}
-    {
-      \foreach \y in {0,1,...,#2}
-      {
-        \fill[gray!40] (\x,\y) circle[radius=0.5pt];
-      }
-    }
-  \end{tikzpicture}
-  \smallskip{}
+  % \par{}
+  % \begin{tikzpicture}[x=.175in,y=.175in,scale=0.99]
+  %   \foreach \x in {0,1,...,#1}
+  %   {
+  %     \foreach \y in {0,1,...,#2}
+  %     {
+  %       \fill[gray!40] (\x,\y) circle[radius=0.5pt];
+  %     }
+  %   }
+  % \end{tikzpicture}
+  % \smallskip{}
+}
+
+% ------------------------------------------------------------
+%
+%           Make a week environment
+%
+% ------------------------------------------------------------
+\newcounter{week}
+\setcounter{week}{0}
+\newenvironment{week}[1]{
+  \refstepcounter{week}
+
+  % befor code
+  % chapter and section numbering
+  \setcounter{chapter}{\theweek}
+  \setcounter{section}{0}
+  \setcounter{thm}{0}
+
+  % add to TOC
+  \phantomsection{}\label{week\theweek}
+  \addcontentsline{toc}{chapter}{Week~\theweek~(#1)}
+
+  \renewcommand{\firstpageheader}{Week~\theweek~(#1)}
+  \thispagestyle{firstpage}
+}{
+  \mbox{}\clearpage{\thispagestyle{empty}\cleardoublepage}
+  \renewcommand{\firstpageheader}{}
+}
+
+
+\newenvironment{lesson}[1]{
+  % before code
+  \def\thistextbooksectionnumber{#1}
+  \section{#1}
+}{
+  % after code
 }
 
 \begin{document}
-  % --------------------
-  % 
-  % TITLE PAGE
-  % 
-  % --------------------
-  \begin{titlepage}
-    \thispagestyle{empty}
-    \huge
-    
-    \begin{center}
-      % title
-      \phantom{top}
-      \vspace{1in}
+% --------------------
+% 
+% TITLE PAGE
+% 
+% --------------------
+\begin{titlepage}
+  \thispagestyle{empty}
+  \huge
 
-      {\Huge\bfseries \thecoursetitle}
+  \begin{center}
+    % title
+    \phantom{top}
+    \vspace{1in}
 
-      \vspace{1cm}
-      \theauthor
+    {\Huge\bfseries \thecoursetitle}
 
-      \theinstitute
-      \vfill{}
+    \vspace{1cm}
+    \theauthor
 
-      \thecourseterm~\thecourseyear
+    \theinstitute
+    \vfill{}
 
-      \vspace{2in}
-    \end{center}
+    \thecourseterm~\thecourseyear
 
-    % creaate a blank page
-    \clearpage{\thispagestyle{empty}\cleardoublepage}
-  \end{titlepage}
+    \vspace{2in}
+  \end{center}
 
-  % --------------------
-  % 
-  % FRONT MATTER
-  % 
-  % --------------------
-  \frontmatter{}
-  \pagenumbering{roman}
-  
-  \renewcommand{\contentsname}{Table of Contents}
-  \phantomsection{} \label{toc}
-  \addcontentsline{toc}{chapter}{\contentsname}
-  \tableofcontents{}
-  \clearpage
-
+  % creaate a blank page
   \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{titlepage}
 
-  
-  %--------------------
-  % 
-  % MAIN MATTER
-  % 
-  % --------------------
-  \mainmatter{}
+% --------------------
+% 
+% FRONT MATTER
+% 
+% --------------------
+\frontmatter{}
+\pagenumbering{roman}
 
-  \makelectureweek{1}
+\renewcommand{\contentsname}{Table of Contents}
+\phantomsection{} \label{toc}
+\addcontentsline{toc}{chapter}{\contentsname}
+\tableofcontents{}
+\clearpage
+
+\clearpage{\thispagestyle{empty}\cleardoublepage}
+
+
+%--------------------
+% 
+% MAIN MATTER
+% 
+% --------------------
+\mainmatter{}
+
+\begin{week}{September 5 and 6}
   \subfile{./lessons/review-function-basics.tex} 
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{2}
+\begin{week}{September 9 to 13}
   \subfile{./lessons/review-trigs.tex} \clearpage
   \subfile{./lessons/review-piecewise.tex} \clearpage
   \subfile{./lessons/review-decomposition.tex} \clearpage
   \subfile{./lessons/review-inverses.tex} \clearpage
   \subfile{./lessons/review-exp.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{3}
+\begin{week}{September 16 to 20}
   \subfile{./lessons/limit-introduction.tex} \clearpage
   \subfile{./lessons/limit-laws.tex} \clearpage
   \subfile{./lessons/continuity.tex} \clearpage
   \subfile{./lessons/continuity-ivt.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{4}
+\begin{week}{September 23 to 27}
   \subfile{./lessons/limit-at-infinity.tex} \clearpage
   \subfile{./lessons/derivative-at-a-point.tex} \clearpage
   \subfile{./lessons/derivative-as-a-function.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{5}
+\begin{week}{September 30 to October 4}
   \subfile{./lessons/derivative-continuity.tex} \clearpage
   \subfile{./lessons/differentiation-summary.tex} \clearpage
   \subfile{./lessons/differentiation-rules.tex} \clearpage
   \subfile{./lessons/differentiation-trigs.tex} \clearpage
   \subfile{./lessons/differentiation-problem-solving.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{6}
+\begin{week}{October 7 to 11}
   \subfile{./lessons/differentiation-chain.tex} \clearpage
   \subfile{./lessons/differentiation-implicit.tex} \clearpage
   \subfile{./lessons/differentiation-inverse.tex} \clearpage
   \subfile{./lessons/differentiation-exp-ln.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{7} 
+\begin{week}{October 14 to 18}
   \subfile{./lessons/reading-week.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{8} % 3.9 and 4.1
+\begin{week}{October 21 to 25}
   \subfile{./lessons/differentiation-logarithmic-differentiation.tex} \clearpage
   \subfile{./lessons/differentiation-strategies.tex} \clearpage
   \subfile{./lessons/related-rates.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{9} % 4.3 and 4.5
+\begin{week}{October 28 to November 1}
   \subfile{./lessons/extrema.tex} \clearpage
   \subfile{./lessons/derivative-tests.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{10} % 4.7 and 4.8
+\begin{week}{November 4 to 8}
   \subfile{./lessons/optimization.tex} \clearpage
   \subfile{./lessons/extrema-subtleties.tex} \clearpage
   \subfile{./lessons/lHopitals-rule.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{11} % 4.10 and 5.1
+\begin{week}{November 11 to 15} % 4.10 and 5.1
   \subfile{./lessons/integration-intro.tex} \clearpage
   \subfile{./lessons/integration-formulas.tex} \clearpage
   \subfile{./lessons/sigma-notation.tex} \clearpage
   \subfile{./lessons/antiderivatives.tex} \clearpage
   \subfile{./lessons/the-area-problem.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{12} % 5.2 and 5.3
+\begin{week}{November 18 to 22} % 5.2 and 5.3
   \subfile{./lessons/the-definite-integral.tex} \clearpage
   \subfile{./lessons/ftc-part-one.tex} \clearpage
   \subfile{./lessons/ftc-part-two.tex} \clearpage
   \subfile{./lessons/net-change.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{13} % 5.4, 5.5, 5.6 and 6.1
+\begin{week}{November 25 to 29} % 5.4, 5.5, 5.6 and 6.1
   \subfile{./lessons/integration-substitution.tex} \clearpage
   \subfile{./lessons/integration-trigs.tex} \clearpage
   \subfile{./lessons/integration-exp-ln.tex} \clearpage
   \subfile{./lessons/area-between-curves.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  \makelectureweek{14} % 6.2 and review
+\begin{week}{December 2 to 6} % 6.2 and review
   \subfile{./lessons/volume-by-slicing.tex} \clearpage
-  \clearpage{\thispagestyle{empty}\cleardoublepage}
+\end{week}
 
-  %--------------------
-  % 
-  % BACK MATTER
-  % 
-  % --------------------
-  \backmatter{}
+%--------------------
+% 
+% BACK MATTER
+% 
+% --------------------
+\backmatter{}
 \end{document}
