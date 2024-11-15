@@ -20,14 +20,14 @@
 
   \url{https://www.geogebra.org/calculator/gnfmamnj}
   
-  \begin{example} \label{ex:definite-integral-area}
-    The function \(f(x)\) is sketched below. Evaluate \(\int_{-1}^{5} f(x) \;dx\).
+  % \begin{example} \label{ex:definite-integral-area}
+  %   The function \(f(x)\) is sketched below. Evaluate \(\int_{-1}^{5} f(x) \;dx\).
+  %
+  %   \includegraphics{../standalones/build/plot_definite_integral_area}
+  % \end{example}
 
-    \includegraphics{../standalones/build/plot_definite_integral_area}
-  \end{example}
-  \clearpage
-
-  Because the definite integral is defined in terms of a summation, all but one of its properties mimic that of summation properties on page~\pageref{page:summation-properties}.
+  \bigskip
+  We now study properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic that of summation properties on page~\pageref{page:summation-properties}.
 
   We have the usual constant multiple, sum and difference properties.
   \begin{align*}
@@ -35,6 +35,7 @@
     \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\
     \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
   \end{align*}
+  \clearpage
     
   Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) \hlattn{restricted} to \(1 \le m \le n\).
   Definite integrals also have a split/merge property \hlattn{but with no restriction at all}.
@@ -46,13 +47,18 @@
   Here is a typical problem involving the split/merge property.
   \begin{example} \label{ex:definite-integral-split}
     Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\).  Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
+    \blanklines{10}
+  \end{example}
 
-    {\footnotesize Hint: Draw a generic function \(f(x)\). Use the net area interpretation to establish the relations among these integrals. \\Don't solve for \(f(x)\) because it defeats the purpose of the exercise.}
+  The split/merge property is helpful (in fact, necessary) for evaluating definite integrals of piecewise functions.
+  \begin{example}
+    Evaluate \(\int_{-3}^{1} |(x+2)(x-1)| \;dx \)
+
     \blanklines{20}
   \end{example}
   \vfill{}\clearpage
 
-  Definite integrals have a ``flip'' property (non-standard terminology) which \hlattn{does not} have an analog in summations.
+  Definite integrals have a ``flip'' property (non-standard terminology) which \hlattn{does not} have a counterpart in summations.
   \begin{equation} \label{eq:definite-integral-flip}
     \int_{a}^{b} f(x) \;dx = \hspace{3in}
   \end{equation}
@@ -61,12 +67,12 @@
   \blanklines{10}
 
   % \vfill{}\clearpage
-  The ``flip'' property is not useful on its own. We often use it in conjunction with other properties of the definite integral.
   \begin{example}
-    Evaluate \(\int_{0}^{1} 2f(x) \;dx - \int_{1}^{3} 3f(x) - g(x)\;dx\) given 
-    \begin{align*}
-      \int_{0}^{1} f(x) \;dx = 1, \quad \int_{1}^{3} f(x) \;dx = -2, \quad \int_{0}^{3} g(x) \;dx = 5, \quad \int_{0}^{1} g(x) \;dx = -1.
-    \end{align*}
+    Let \(A = \int_{a}^{b} f(x) \;dx\). Which of the following is a true statement?
+    \begin{enumerate}[label=(\alph*)]
+      \item \(A = \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
+      \item \(A = - \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
+    \end{enumerate}
     
     \blanklines{20}
   \end{example}
@@ -108,7 +114,7 @@
   \end{example}
   \clearpage
  
-  We finish the discussion of the geometric interpretation of definite integrals by considering the \emph{total} area ``under'' the curve which is the area (in its usual interpretation) enclosed between \(y = f(x)\) and \(y = 0\).
+  We now consider the \emph{total} area ``under'' the curve which is the area (in its usual interpretation) enclosed between \(y = f(x)\) and \(y = 0\).
 
   \blanklines{10}
 
@@ -119,6 +125,21 @@
 
     \blanklines{20}
   \end{example}
+  \clearpage
 
+
+  We wrap up the discussion of the geometric interpretation of definite integrals by defining the average value of a function. 
+  \blanklines{10}
+
+  The average value of a continuous \(f(x)\) on \([a,b]\) is
+  \[
+    f_{\text{avg}} = \frac{1}{b-a} \int_{a}^{b} f(x) \;dx.
+  \]
+
+  \begin{example}
+    Find the average value of \(f(x) = x^{3} + \sqrt{x}\) over \((-4,0)\).
+
+    \blanklines{10}
+  \end{example}
 \end{lesson}
 \end{document}

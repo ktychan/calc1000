@@ -15,4 +15,4 @@ appendix:
 main: standalones
 	${LATEXMK} main.tex
 	${LATEXMK} -jobname="${COURSE}_%A" polls.tex
-	${LATEXMK} -jobname="${COURSE}_%A_fillable" week*.tex
+	${LATEXMK} -g -jobname="${COURSE}_%A_fillable" week*.tex
