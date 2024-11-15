@@ -1,0 +1,25 @@
+\documentclass{standalone}
+
+\input{../colours.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    axis lines=center,
+    xlabel={\(x\)},
+    ylabel={\(y\)},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=west},
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south},
+    enlargelimits=true,
+    axis line style={thin},
+    xtick={1.25, 3.25},
+    xticklabels={\(\alpha\), \(\beta\)},
+    ytick=\empty,
+    black,
+    ]
+
+    \addplot[very thick, domain=1.2:3.2, smooth, samples=100] {2*(x-1)*(x-2)*(x-3)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

@@ -2,5 +2,34 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \begin{lesson}{The Net Change Theorem}
+  The Net Change theorem provides the physical meaning of FTC part 2.
+
+  \begin{mdframed}[style=withref-compact]
+    If \(F(x)\) measures some physical quantity, then 
+    \[
+      F(b) - F(a) = \int_{a}^{b} F'(x) \;dx.
+    \]
+
+    \textbook{Theorem: 5.6: Net Change Theorem on page 567}
+  \end{mdframed}
+  \blanklines{5}
+
+  For example, if \(s\) is the displacement of an object, and \(v\) measures its velocity, then the Net Change theorem says 
+  \[
+    s(b) - s(a) = \int_{a}^{b} v(t) \;dt.
+  \]
+  \blanklines{10}
+
+  \begin{example}
+    If \(v(t) = -t^{2} + 100\) is the velocity of some particle, find the \hlwarn{net displacement} from time \(t = 0\) to \(t = 30\).
+    \blanklines{15}
+  \end{example}
+  \clearpage
+
+  Let's change the question ever so slightly from \hlwarn{net} displacement to \hlwarn{total} displacement. The Net Change Theorem still applies, but it requires a slightly adjustment using our geometric interpretation of area.
+  \begin{example}
+    If \(v(t) = -t^{2} + 100\) is the velocity of some particle, find the \hlwarn{total displacement} from time \(t = 0\) to \(t = 30\).
+    \blanklines{20}
+  \end{example}
 \end{lesson}
 \end{document}

@@ -2,5 +2,35 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \begin{lesson}{The Fundamental Theorem of Calculus, Part 1}
+  The Fundamental Theorem of Calculus has two parts.
+
+  \begin{mdframed}[style=withref-compact]
+    If \(f(x)\) is continuous over \([a,b]\), then the function \(F(x)\) defined by
+    \[
+      F(x) = \int_{a}^{x} f(t) \;dt
+    \]
+    is differentiable on \((a,b)\) and \(F'(x) = f(x)\).
+
+    \textbook{Theorem: 5.4: Fundamental Theorem of Calculus Part 1 on page 552}
+  \end{mdframed}
+
+  In a more compact notation, FTC part 1 can be restated as 
+  \blanklines{10}
+
+  Using properties of definite integrals, we can differentiate functions defined as integrals where variables appears in both the upper and the lower bound of the integral.
+  \begin{example} \label{ex:ftc-one}
+    Let \(F(x) = \int_{x^{3}}^{x^{2} + 1} e^{t^{2}} \;dt\). Find \(F'(x)\).
+
+    Which of the following are good start points of our solutions?
+    \begin{enumerate}[label=(\alph*)]
+      \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+      \item Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+      \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
+      \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \end{enumerate}
+
+    {\footnotesize (There is more space on the next page)}
+    \blanklines{50}
+  \end{example}
 \end{lesson}
 \end{document}
