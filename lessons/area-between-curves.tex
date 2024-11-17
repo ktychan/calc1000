@@ -2,5 +2,90 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \begin{lesson}{Area between curves}
+  We return to the geometric interpretation of a definite integral to compute area between two curves.
+
+  \begin{example}
+    Two curves are given in the plots below. 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=2in]{../standalones/build/plot_area_between_curves_motivation.pdf}
+      \hspace{1em}
+      \includegraphics[width=2in]{../standalones/build/plot_area_between_curves_motivation_above.pdf}
+      \hspace{2em}
+      \includegraphics[width=2in]{../standalones/build/plot_area_between_curves_motivation_below.pdf}
+    \end{figure}
+
+    Set up a definite integral representing the area of the region between two curves \hlmain{\(y = f(x)\)} and \hlsupp{\(y = g(x)\)} and between lines \(x = -2\) and \(x = 1\).
+
+
+    \blanklines{35}
+  \end{example}
+
+  What if two curves cross each other?
+  \begin{example}
+    Find the area bounded between \(\sin(x)\) and \(\cos(x)\) over the interval \([0, \pi]\).
+
+    \includegraphics{../standalones/build/plot_area_between_curves_cross}
+
+    \blanklines{38}
+  \end{example}
+
+  What if the given curves are not functions? What if the horizontal bounds are not given?
+  \begin{example}
+    Set up, but do not evaluate, a definite integral representing the area of the finite region enclosed by the curves \(y = x - 1\) and \(y^{2} = 2x + 6\).
+
+    % how can we transform Example~2 to a simpler problem?
+    % talk about how to decide when to integrate with respect to y (vertical line test)
+    \begin{tikzpicture}
+      \begin{axis}[
+        axis lines = middle, % boxed, middle
+        axis on top,
+        axis equal image,
+        %
+        % domain and range
+        %
+        % xmin={}, 
+        % xmax={},
+        % ymin={},
+        % ymax={},
+        enlargelimits=true,
+        %
+        % axis labels
+        %
+        xlabel={\(x\)},
+        ylabel={\(y\)},
+        xlabel style={anchor=west},
+        ylabel style={anchor=south},
+        label style={at={(ticklabel* cs:1)}, font=\footnotesize},
+        %
+        % ticks
+        %
+        xtick={},
+        xticklabels={},
+        ytick={},
+        yticklabels={},
+        ticklabel style={font=\footnotesize},
+        %
+        % grid
+        %
+        grid=none, % none, major, minor, both
+        % 
+        % plot parameters
+        %
+        smooth,
+        samples=100,
+        no markers,
+        %
+        % titles and what not
+        %
+        title={},
+        ]
+        \addplot [domain=-3:6] {sqrt(2*x+6)};
+        \addplot [domain=-3:2] {-sqrt(2*x+6)};
+        \addplot [domain=-2:6] {x - 1};
+      \end{axis}
+    \end{tikzpicture}
+    \blanklines{35}
+  \end{example}
 \end{lesson}
 \end{document}

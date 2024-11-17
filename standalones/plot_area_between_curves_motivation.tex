@@ -1,0 +1,56 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18, trig format=rad} 
+\input{../colours.tex.preamble}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle, % boxed, middle
+      axis on top,
+      width=2in,
+      % axis equal image,
+      %
+      % domain and range
+      %
+      xmin={-2}, 
+      xmax={1},
+      ymin={0},
+      ymax={4},
+      enlargelimits=true,
+      %
+      % axis labels
+      %
+      xlabel={\(x\)},
+      ylabel={\(y\)},
+      xlabel style={anchor=west},
+      ylabel style={anchor=south},
+      label style={at={(ticklabel* cs:1)}, font=\footnotesize},
+      %
+      % ticks
+      %
+      xtick={-2, -1, 1},
+      % xticklabels={},
+      ytick={1, 2, 3},
+      % yticklabels={},
+      ticklabel style={font=\footnotesize},
+      %
+      % grid
+      %
+      grid=none, % none, major, minor, both
+      % 
+      % plot parameters
+      %
+      smooth,
+      samples=100,
+      no markers,
+      %
+      % titles and what not
+      %
+      title={},
+    ]
+    \addplot [thick, domain=-2:1, main]    {1+exp(x)} node[above] {\footnotesize \color{main} $f(x)$};
+    \addplot [thick, domain=-2:1, supp] {1.5+sin(x)} node[below] {\footnotesize \color{supp} $g(x)$};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

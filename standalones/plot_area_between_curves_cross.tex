@@ -1,0 +1,55 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18, trig format=rad} 
+\input{../colours.tex.preamble}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines = middle, % boxed, middle
+      axis on top,
+      % axis equal image,
+      %
+      % domain and range
+      %
+      xmin={0}, 
+      xmax={pi+1/4},
+      ymin={-1},
+      ymax={1},
+      enlargelimits=true,
+      %
+      % axis labels
+      %
+      xlabel={\(x\)},
+      ylabel={\(y\)},
+      xlabel style={anchor=west},
+      ylabel style={anchor=south},
+      label style={at={(ticklabel* cs:1)}, font=\footnotesize},
+      %
+      % ticks
+      %
+      xtick={0, pi/2, pi},
+      xticklabels={\(0\), \(\frac{\pi}{2}\), \(\pi\)},
+      ytick={-1,0,1},
+      % yticklabels={},
+      ticklabel style={font=\footnotesize},
+      %
+      % grid
+      %
+      grid=none, % none, major, minor, both
+      % 
+      % plot parameters
+      %
+      smooth,
+      samples=100,
+      no markers,
+      %
+      % titles and what not
+      %
+      title={},
+    ]
+    \addplot [thick, domain=0:pi, main] {sin(x)} node[above right] {\footnotesize \color{main} \(\sin(x)\)};
+    \addplot [thick, domain=0:pi, supp] {cos(x)} node[below right] {\footnotesize \color{supp} \(\cos(x)\)};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

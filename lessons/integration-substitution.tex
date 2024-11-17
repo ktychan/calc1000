@@ -2,5 +2,63 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \begin{lesson}{The Substitution Rule}
+  We have seen throughout the course that a change of variable can \emph{transform} a complex problem into a simpler one. The substitution rule performs such a change of variable in integration.
+  \begin{mdframed}[style=withref]
+    {If {\color{main} \(u = g(x)\)} is differentiable and \(f\) is continuous on the range of \(g\), then}
+    \begin{equation} \label{eq:sub-definite}
+      \int_{a}^{b} f( {\color{main} g(x)} ) \, g'(x) \;dx = \int_{u(a)}^{u(b)} f({\color{main} u}) \;d {\color{main} u}.
+    \end{equation}
+
+    For indefinite integrals, simply do nothing for the bounds. 
+    \begin{equation} \label{eq:sub-indefinite}
+      \phantom{\int f( {\color{main} g(x)} ) \, g'(x) \;dx = \int f(u) \;du}
+    \end{equation}
+
+    \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
+  \end{mdframed}
+  The substitution rule works by undoing the chain rule. To use the substitution rule, we need to 
+  \begin{enumerate}
+    \item \underline{\hspace{1in}} a substitution $u$ as a function of $x$, \hfill{} \makebox[2in][l]{\footnotesize \color{attn} (seek out useful information)}
+    \item apply Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite} to transform the given integral, \hfill{} \makebox[2in][l]{\footnotesize \color{attn} (use a mathematical tool)}
+    \item evaluating the new integral in $u$, \hfill{} \makebox[2in][l]{\footnotesize \color{attn} (solve a simpler problem)}
+    \item put back the original independent variable.
+  \end{enumerate}
+
+  \medskip
+  Let's make sure we can apply Equation~\eqref{eq:sub-definite} properly.
+  \begin{example} \label{ex:u-sub-2}
+    Evaluate \(\int_{1}^{2} x e^{x^{2}} \;dx\) by substituting \(u = x^{2}\).
+    \blanklines{20}
+  \end{example}
+  \clearpage
+
+  In general, we need to choose a substitution \(\color{main} u = (\text{something})\) before applying Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite}.
+
+  Strategy for choosing \(u\): Find a \hlmain{pair} of functions related by differentiations and choose \(u\) to be the derivative.  Sometimes, there are more than one choices for \(u\).
+  \begin{example}
+    Evaluate \(\int x^{2} \sqrt{1 + x^{3}} \;dx\).
+    \blanklines{48}
+  \end{example}
+
+  Sometimes, the choice \(u = ax + b\), where \(a,b\) are constants, works well. 
+  \begin{example}
+    Evaluate $\int \frac{x^{2} + 1}{\phantom{(} x - 1 \phantom{)^{1}}} \;dx$.
+    \blanklines{20}
+  \end{example}
+
+  When there is no obvious substitution, we can try reorganizing the integrand first.
+  \begin{example}
+    Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\).
+    \blanklines{25}
+  \end{example}
+
+  We can apply the substitution rule in more abstract situations. 
+  \begin{example}
+    Suppose \(\int_{0}^{1} f(x) \;dx = -5\). Evaluate \(\int_{0}^{\pi/4} f(\tan(x)) \sec^{2}(x) \;dx\).
+    \blanklines{40}
+  \end{example}
+  
+  \faComment{} Does the substitution \(u = \sec(x)\) work? Try it out yourself.
+  \blanklines{8}
 \end{lesson}
 \end{document}
