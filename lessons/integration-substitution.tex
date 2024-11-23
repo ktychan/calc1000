@@ -2,63 +2,74 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 \begin{lesson}{The Substitution Rule}
-  We have seen throughout the course that a change of variable can \emph{transform} a complex problem into a simpler one. The substitution rule performs such a change of variable in integration.
+  We have seen throughout the course that \hlmain{a change of variable} can \emph{transform} a complex problem into a simpler one. The substitution rule performs such a change of variable in integration.
   \begin{mdframed}[style=withref]
     {If {\color{main} \(u = g(x)\)} is differentiable and \(f\) is continuous on the range of \(g\), then}
     \begin{equation} \label{eq:sub-definite}
-      \int_{a}^{b} f( {\color{main} g(x)} ) \, g'(x) \;dx = \int_{u(a)}^{u(b)} f({\color{main} u}) \;d {\color{main} u}.
+      \phantom{\int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{u(a)}^{u(b)} f({\color{main} u}) \;{\color{supp}du}.}
     \end{equation}
 
-    For indefinite integrals, simply do nothing for the bounds. 
+    For indefinite integrals, simply do nothing for the bounds: 
     \begin{equation} \label{eq:sub-indefinite}
-      \phantom{\int f( {\color{main} g(x)} ) \, g'(x) \;dx = \int f(u) \;du}
+      \phantom{\int f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int f(u) \;{\color{supp}du}}
     \end{equation}
 
     \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
   \end{mdframed}
-  The substitution rule works by undoing the chain rule. To use the substitution rule, we need to 
+  The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule. To use the substitution rule, we need to 
   \begin{enumerate}
-    \item \underline{\hspace{1in}} a substitution $u$ as a function of $x$, \hfill{} \makebox[2in][l]{\footnotesize \color{attn} (seek out useful information)}
-    \item apply Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite} to transform the given integral, \hfill{} \makebox[2in][l]{\footnotesize \color{attn} (use a mathematical tool)}
-    \item evaluating the new integral in $u$, \hfill{} \makebox[2in][l]{\footnotesize \color{attn} (solve a simpler problem)}
-    \item put back the original independent variable.
+    \item \underline{\hspace{1in}} a substitution $u$ as a function of $x$, 
+    \item apply Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite} to transform the given integral, 
+    \item evaluating the new integral in $u$, and lastly
+    \item put back the original independent variable if we started with an \emph{indefinite} integral.
   \end{enumerate}
 
   \medskip
-  Let's make sure we can apply Equation~\eqref{eq:sub-definite} properly.
+  Let's make sure we can apply Equation~\eqref{eq:sub-definite} properly.  
+  The formula \(dx = \frac{dx}{u'}\) is useful.
   \begin{example} \label{ex:u-sub-2}
     Evaluate \(\int_{1}^{2} x e^{x^{2}} \;dx\) by substituting \(u = x^{2}\).
-    \blanklines{20}
+    \blanklines{19}
   \end{example}
   \clearpage
 
   In general, we need to choose a substitution \(\color{main} u = (\text{something})\) before applying Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite}.
 
-  Strategy for choosing \(u\): \hlattn{Recognize} a \hlmain{pair} of functions related by differentiations and choose \(u\) to be the derivative.  Sometimes, there are more than one choices for \(u\). Be brave and go with some trial and error!
-  \begin{example}
+  \textbf{Strategy \(1\)} for choosing \(u\): \hlattn{Recognize} a \hlmain{pair} of functions (almost) related by differentiation and choose \(u\) to be the antiderivative.  An extra clue is that \(u\) could be (but not always, see next page) an inside function of a composite function. Further more, there are multiple possible choices for \(u\) that work. Be brave and go with some trial and error to develop some intuition!
+  \begin{example} \label{ex:u-sub-1}
     Evaluate \(\int x^{2} \sqrt{1 + x^{3}} \;dx\).
-    \blanklines{48}
+    \blanklines{45}
   \end{example}
+  \clearpage
 
-  Sometimes, the choice \(u = ax + b\), where \(a,b\) are constants, works well. 
-  \begin{example}
-    Evaluate $\int \frac{x^{2} + 1}{\phantom{(} x - 1 \phantom{)^{1}}} \;dx$.
-    \blanklines{20}
-  \end{example}
+  In Example~\ref{ex:u-sub-1}, one of the many choices for \(u\) is guided by the obvious composite function \(\sqrt{1 + x^{2}}\). Let's look at a variation where the previous strategy does not work. At a glance, Examples~\ref{ex:u-sub-1}~and~\ref{ex:u-sub-2} look very similar. However, they require different problem-solving ideas.
 
-  When there is no obvious substitution, we can try reorganizing the integrand first.
-  \begin{example}
-    Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\).
+  \textbf{Strategy \(2\)} for choosing \(u\): Linear functions are special. In such situations, choose \(u\) to be the linear function and rewrite \(x\) in terms of \(u\) to perform the substitution.
+  \begin{example} \label{ex:u-sub-2}
+    Evaluate \(\int \frac{4x^{2} + 1}{2x - 1} \;dx\).
     \blanklines{25}
   \end{example}
 
-  We can apply the substitution rule in more abstract situations. 
+  \begin{example}
+    Evaluate \(\int_{1}^{0} \frac{2x}{1 + x^{2}} \;dx\). \hfill{}{(The answer is \(-\ln(2)\))}
+    \blanklines{15}
+  \end{example}
+
+  \clearpage
+  When there is no obvious choice for a substitution, try reorganizing the integrand first.
+  \begin{example}
+    Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\). \hfill{}{(The answer is \(\ln(2)/2\))}
+
+    Hint: Rewrite \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\) and find a substitution \(u\). See below if you get \(-\ln(\pi/4) + \ln(0)\).
+    \blanklines{20}
+    Common misadventure: If you get \(-\ln(\pi/4) + \ln(0)\) (our number sense should tell us this is obviously wrong), then you might have forgotten to apply \(u\) to the upper and lower bounds of the original integral.
+  \end{example}
+
+  \medskip
+  The substitution rule works in more abstract context.
   \begin{example}
     Suppose \(\int_{0}^{1} f(x) \;dx = -5\). Evaluate \(\int_{0}^{\pi/4} f(\tan(x)) \sec^{2}(x) \;dx\).
-    \blanklines{40}
+    \blanklines{15}
   \end{example}
-  
-  \faComment{} Does the substitution \(u = \sec(x)\) work? Try it out yourself.
-  \blanklines{8}
 \end{lesson}
 \end{document}

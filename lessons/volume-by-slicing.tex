@@ -5,31 +5,27 @@
   To calculate the area under the curve, we \emph{slice} the region under the curve into tiny rectangles and take the limit. The \emph{idea of slicing} can be adapted to calculate the volume of a solid.
 
   % bring a loaf of bread.
-  \begin{mdframed}[style=withref]
-    Let \(S\) be a solid that lies between \(x=a\) and \(x=b\). If \(A(x)\) is the \emph{cross-sectional area} of \(S\) in the plane \(P_{x}\), through \(x\) and perpendicular to the \(x\)-axis, 
+  \begin{mdframed}[style=withref-compact]
+    Let \(S\) be a solid (in three dimension) that lies over an interval \([a,b]\), then
     \begin{equation} \label{eq:volume}
-      (\text{volume of } S) = \lim_{n \to \infty} \sum_{i=1}^{n} A(x_{i}^{*}) \Delta x = \int_{a}^{b} A(x) \;dx.
+      (\text{volume of } S) = \int_{a}^{b} A(x) \;dx,
     \end{equation}
+    where \(A(x)\) is the cross-sectional area of a particular slice.
 
     The so-called disk method (textbook page 645) and washer method (textbook page 648) are special cases of Equation~\eqref{eq:volume}.
   \end{mdframed}
-  \vspace{2in}
-  % use the word "measure"
 
-  \begin{example}
-    Set up, but do not evaluate, a definite integral representing the volume of sphere centred at the origin with radius \(1\). \\
-    {\footnotesize Explore \url{https://www.geogebra.org/m/yse5hfrf} (GeoGebra)}
-  \end{example}
+  {\footnotesize Explore \url{https://www.geogebra.org/m/yse5hfrf} (GeoGebra)}
+  \blanklines{10}
+
+
+  The above idea applies particularly nicely (after some practice) to \emph{solids of revolution} which is obtained by rotating a region in a plane about a line in space. \\
+  {\footnotesize Explore \url{https://www.geogebra.org/m/th54w7h9} (GeoGebra).}
+  \blanklines{20}
   \clearpage
 
 
-  A \emph{solid of revolution} is obtained by rotating a region in a plane about a line in space. \\
-  {\footnotesize Explore \url{https://www.geogebra.org/m/th54w7h9} (GeoGebra).}
-
-
-  The cross-section (perpendicular to the line of rotation) of a solid of revolution is either a \emph{disk} or a \emph{washer}.
-  \vspace{2in}
-
+  The next three examples all use very simple functions to demonstrate the idea. We will return to this topic next week with more complicated functions. However, the idea does not change at all.
 
   \begin{example}
     Suppose a solid of revolution \(S\) is obtained by rotating the finite region enclosed between \(y = x^{2}\) and \(y = x\) about the \(x\)-axis. Find the volume of \(S\).
@@ -39,30 +35,40 @@
     % talk about the meaing of the limits of integration.
     % look for a verticle slice
 
+    Sketch the solid to figure out what the inner and outer radii are.
+
     \includegraphics[scale=0.8]{../standalones/build/plot_solid_of_revolution_cross_section.pdf}
+    \blanklines{35}
   \end{example}
   \clearpage
 
   \begin{example}
-    Suppose a solid of revolution \(S\) is obtained by rotating the finite region enclosed between \(y = x^{2}\) and \(y = x\) about the \(y\)-axis.  Set up, but do not evaluate, an integral representing the volume of \(S\).
+    Suppose a solid of revolution \(S\) is obtained by rotating the finite region enclosed between \(y = x^{2}\) and \(y = x\) about the \(y\)-axis.  Find the volume of \(S\).
     % poll which is the outer curve, and which is the inner curve?
 
     % we need to measure the cross-sectional area.
     % talk about the meaing of the limits of integration.
     % poll for expressions of outer and inner radii.
     % look for a horizontal slice
+
+    Sketch the solid to figure out what the inner and outer radii are.
+
     \begin{center}
       \includegraphics[scale=0.8]{../standalones/build/plot_solid_of_revolution_cross_section.pdf}
     \end{center}
+    \blanklines{35}
   \end{example}
   \clearpage
 
   \begin{example}
-    Suppose a solid of revolution \(S\) is obtained by rotating the finite region enclosed between \(y = x^{2}\) and \(y = x\) about the line \(x = -1\).  Set up, but do not evaluate, an integral representing the volume of \(S\).
+    Suppose a solid of revolution \(S\) is obtained by rotating the finite region enclosed between \(y = x^{2}\) and \(y = x\) about the line \(x = -1\).  Find the volume of \(S\).
+
+    Sketch the solid to figure out what the inner and outer radii are.
 
     \begin{center}
-      \includegraphics{../standalones/build/plot_solid_of_revolution_cross_section_offset.pdf}
+      \hspace{2in}\includegraphics{../standalones/build/plot_solid_of_revolution_cross_section_offset.pdf}
     \end{center}
+    \blanklines{35}
   \end{example}
 \end{lesson}
 \end{document}
