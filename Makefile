@@ -1,9 +1,12 @@
 COURSE="Calc_1000A_002_F24"
 LATEXMK=latexmk -halt-on-error -interaction=nonstopmode
 
-.PHONY: clean standalones main
+.PHONY: all clean standalones main
 
 all: main 
+
+clean:
+	rm -r **/build
 
 standalones: 
 	${LATEXMK} standalones/*.tex
