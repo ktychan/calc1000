@@ -1,0 +1,102 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\begin{lesson}{Problem-solving and integration}
+  The general problem-solving strategy for integration problems are very similar to those we talked about in the midterm review.
+
+  \begin{mdframed}[style=simple]
+    Express a problem in the language of calculus and calculate the desired answer. 
+  \end{mdframed}
+
+  Most integration problems boil down to two parts.
+  \begin{enumerate}[wide, label=\textbf{Part~\arabic*}.]
+    \item Figure out the \hlmain{exact} expression to evaluate. Sometimes you need an equation as demonstrated in Assignment 4 Question 3.
+
+      \begin{itemize}[wide]
+        \item Find \(F(x)\) given an expression for \(F'\) and \(F(a) = b\)?
+          \blanklines{3}
+
+        \item Approximation?  DRAW THE PICTURE and LABEL everything!
+          \blanklines{3}
+
+        \item Find area between curves?  DRAW THE PICTURE and LABEL everything!
+          \blanklines{3}
+
+        \item Find volume?  DRAW THE PICTURE and LABEL everything!
+          \blanklines{3}
+
+      \end{itemize}
+
+    \item Evaluate the expression you wrote down. 
+
+      \hlmain{\faStar{} EXAM TIP}: Practice performing technical calculations quickly and accurately, so you have time during the exam to think.
+
+      \begin{itemize}
+        \item We learned exactly three strategies to evaluate indefinite integrals.
+
+        \begin{enumerate}
+          \item Guess and check, a.k.a., use the table of integration. 
+          \item Use properties of indefinite integrals to break up a larger integral into smaller integrals. 
+          \item Use the substitution rule to transform a complicated integral into something we can simply guess and check.
+        \end{enumerate}
+
+      \item As demonstrated in Assignment 4 Question 1, we can evaluate integrals using three different approaches. 
+
+        \begin{enumerate}
+          \item The FTC approach. Works most of the time.
+            \[
+              \int_{a}^{b} f(x) \;dx = \hspace{3in}
+            \]
+
+          \item The geometric approach. Only works when the geometry is nice.
+            \[
+              \int_{a}^{b} f(x) \;dx = \hspace{3in}
+            \]
+
+          \item The approximation approach. Painful. Try this last. 
+            \[
+              \int_{a}^{b} f(x) \;dx = \hspace{3in}
+            \]
+
+          \item Piecewise integrand? 
+        \end{enumerate}
+
+        If a definite integral is some \emph{nice} geometric object (circle, triangle), we can use the area under the curve interpretation to 
+    \end{itemize}
+  \end{enumerate}
+
+  More substitutions.
+
+  \begin{example}
+    Find two different substitutions to evaluate \(\int e^{6x} \;dx\).
+  \end{example}
+
+  \begin{example}
+    Find a substitutions to evaluate \(\int \frac{\ln(x)^{2} + 1}{x} \;dx\).
+  \end{example}
+
+  \begin{example}
+    Evaluate \(\int \cos^{2}(x) \;dx\).
+  \end{example}
+
+  Some integration shortcuts.
+
+  Recall that linear functions are sometimes good candidates for substitution in an integration problem. If we do enough problems, the following pattern emerges.
+  \begin{mdframed}[style=simple]
+    \begin{equation} \label{eq:integration-affine-substitution}
+      \int f(ax+ b) \;dx = \frac{1}{a} \int_{u(a)}^{u(b)} f(u) \;du \text{ by substituting } u = ax + b.
+    \end{equation}
+  For indefinite integral, simply do nothing for the bounds. 
+  \end{mdframed}
+  
+  Equation~\eqref{eq:integration-affine-substitution} allows us to quickly finish problem.
+  \begin{example}
+    Evaluate the following integrals, quickly!
+
+    \begin{enumerate}[itemsep=5ex]
+      \item \(\int \sqrt{3x + 1} \;dx = \)
+      \item \(\int \frac{1}{\sqrt{1 - (x/2 + 1)^2}} \;dx = \)
+    \end{enumerate}
+  \end{example}
+\end{lesson}
+\end{document}
