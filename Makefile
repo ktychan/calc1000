@@ -1,12 +1,14 @@
-COURSE="Calc_1000A_002_F24"
 LATEXMK=latexmk -halt-on-error -interaction=nonstopmode
+COURSE="Calc_1000A_002_F24"
 
-.PHONY: all clean standalones main
+.PHONY: all clean standalones main publish
 
-all: main 
+all: publish
 
 clean:
-	rm -r **/build
+	rm -rf **/build
+	rm -rf standalones/build
+	rm -rf publish/*.tex publish/build
 
 standalones: 
 	${LATEXMK} standalones/*.tex
@@ -16,8 +18,10 @@ appendix:
 	cp -vf appendix/build/${COURSE}_*.pdf ./
 
 main: standalones
+	rm -rf publish/*.tex
 	${LATEXMK} main.tex
 	${LATEXMK} -jobname="${COURSE}_%A" polls.tex
-	${LATEXMK} -jobname="${COURSE}_%A_fillable" week*.tex
 	${LATEXMK} -c -jobname="${COURSE}_%A" polls.tex
-	${LATEXMK} -c -jobname="${COURSE}_%A_fillable" week*.tex
+
+publish: main
+	${LATEXMK} -jobname="${COURSE}_%A" publish/*.tex
