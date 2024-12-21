@@ -2,14 +2,14 @@
 
 \def\theauthor{Kelvin Chan}
 \def\theinstitute{University of Western Ontario}
-\def\thecourseterm{Fall}
+\def\thecourseterm{Fall/Winter}
 \def\thecourseyear{2024}
 \def\thecoursesubj{Calc}
 \def\thecoursesubject{Calculus}
-\def\thecoursenumb{1000A}
-\def\thecoursesect{002}
+\def\thecoursenumb{1000}
+\def\thecoursesect{}
 \def\thecoursename{Calculus I}
-\def\thecoursetitle{\thecoursesubj~\thecoursenumb~\thecoursesect: \thecoursename}
+\def\thecoursetitle{\thecoursesubj~\thecoursenumb: \thecoursename}
 \def\thecoursecoordinator{}
 \def\thecourseinstructor{\theauthor}
 \def\thecourselms{BrightSpace}
@@ -269,9 +269,11 @@
 
   % add to TOC
   \phantomsection{}\label{week\theweek}
-  \addcontentsline{toc}{chapter}{Week~\theweek~(#1)}
+  % \addcontentsline{toc}{chapter}{Week~\theweek~(#1)}
+  \addcontentsline{toc}{chapter}{Week~\theweek}
 
-  \renewcommand{\firstpageheader}{Week~\theweek~(#1)}
+  % \renewcommand{\firstpageheader}{Week~\theweek~(#1)}
+  \renewcommand{\firstpageheader}{Week~\theweek}
   \thispagestyle{firstpage}
 }{
   \clearpage{\thispagestyle{empty}\cleardoublepage}

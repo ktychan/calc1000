@@ -18,7 +18,7 @@
 
   There are six types of indeterminate forms grouped as such.
   \[
-    \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}.
+    \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
   \]
   \blanklines{3}
 
@@ -27,7 +27,7 @@
 
   Why aren't these indeterminate forms?
   \[
-    \frac{\text{constant}}{\infty},\; \frac{\infty}{\text{constant}}, \hspace{1in} \infty \cdot \infty,\; (\text{constant}) \cdot (\text{constant}),\; \infty + \infty, \hspace{1in} (\text{constant} \text{ or } \infty)^{\infty}, 
+    \frac{\text{constant}}{\infty},\; \frac{\infty}{\text{constant}}, \hspace{1in} \infty \cdot \infty,\; (\text{constant}) \cdot (\text{constant}),\; \infty + \infty, \hspace{1in} (\text{constant} \ne 1 \text{ or } \infty)^{\infty}, 
   \]
   \blanklines{15}
   
@@ -70,11 +70,11 @@
   \end{example}
 
   \begin{example}
-    Identify the type of the indeterminate form  \(\lim_{x \to 0^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\) and evaluate the limit.
+    Identify the type of the indeterminate form  \(\lim_{x \to 1^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\) and evaluate the limit.
     \blanklines{22}
   \end{example}
 
-  The method to evaluate indeterminate forms of type \(0^{0}\) and \(\infty^{0}\) \hlsupp{borrows the idea} from logarithmic differentiation.
+  The method to evaluate indeterminate forms of type \(0^{0}, \infty^{0}, 1^{\infty}\) \hlsupp{borrows the idea} from logarithmic differentiation. Recall that the \emph{universal} method to deal with functions \(f(x)^{g(x)}\) is to change base to \(e\).
   \blanklines{10}
   \begin{example}
     Identify the type of the indeterminate form \(\lim_{x \to \infty} x^{1/x}\) and evaluate the limit.
