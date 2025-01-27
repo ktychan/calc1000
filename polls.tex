@@ -7,6 +7,9 @@
 \beamertemplatenavigationsymbolsempty{}
 \usepackage[normalem]{ulem}
 
+\usepackage{enumitem}
+\setlist[enumerate]{label={(\alph*)}, itemsep={1ex}}
+
 \input{./colours.tex.preamble}
 
 %
@@ -19,32 +22,8 @@
   \end{tikzpicture}    
 }
 
-%
-% instructor notes
-%
-\usepackage{ifdraft}
-\newcommand{\toinstructors}[1]{
-  \ifdraft{ \scriptsize \color{magenta} {#1} \newline 
-      Remove this comment by removing the draft option from \textbackslash{}documentclass.
-    }{
-      \renewcommand{\toinstructors}[1]{}
-    }
-  }
 
 \begin{document} 
-
-% \begin{frame}
-%   Question
-%
-%   \medskip
-%   \begin{itemize} \setlength\itemsep{2ex}
-%     \item[(a)] 
-%     \item[(b)] 
-%     \item[(c)] 
-%     \item[(d)] There is not enough information.
-%     \item[(e)] I am not sure.
-%   \end{itemize} 
-% \end{frame}
 
 \section{Icebreaker}
 
@@ -52,13 +31,13 @@
   Is a hot dog a sandwich?
   
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Yes!
-    \item[(b)] Yes?
-    \item[(c)] No!
-    \item[(d)] No?
-    \item[(e)] I no longer know what a sandwich is.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Yes!
+    \item Yes?
+    \item No!
+    \item No?
+    \item I no longer know what a sandwich is.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -66,27 +45,28 @@
 \begin{frame}
   How can we calculate \(y = \log_{2}(8)\)?
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Solve \(2^{y} = 8\).
-    \item[(b)] Solve \(2^{8} = y\).
-    \item[(c)] Calculate \(\frac{\ln(8)}{\ln(2)}\). 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Solve \(2^{y} = 8\).
+    \item Solve \(2^{8} = y\).
+    \item Calculate \(\frac{\ln(8)}{\ln(2)}\). 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame} 
 
 
 \section{Limits}
 \begin{frame}
   Suppose \(\lim_{x \to 3} f(x)\) exists. Can we find \(f(3)\)?
+
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f(3) = \lim_{x \to 3} f(x)\).
-    \item[(b)] \(f(3)\) is undefined.
-    \item[(c)] There is not enough information.
-    \item[(d)] 
-    \item[(d)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f(3) = \lim_{x \to 3} f(x)\).
+    \item \(f(3)\) is undefined.
+    \item There is not enough information.
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame} 
 
 
@@ -94,41 +74,40 @@
   True or false? We can \emph{always} apply the quotient law to evaluate \(\lim_{x \to a} \frac{f(x)}{g(x)}\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
 \begin{frame}
   If \(f(x)\) is discontinuous on \([1,3]\), then we know \(f(x)\) has a discontinuity at \underline{\hspace{1in}} number in \([1,3]\). 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] every
-    \item[(b)] exactly one
-    \item[(c)] at least one
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item every
+    \item exactly one
+    \item at least one
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 
-  \toinstructors{Could be used as a lead-in to discuss continuity over intervals.}
 \end{frame} 
 
 
 \begin{frame}
   Which of the following tell us a function \(f(x)\) is NOT continuous at \(a\)?
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f\) is not defined at \(a\).
-    \item[(b)] \(f\) is defined at \(a\) but \(\lim_{x \to a} f(x) \ne f(a)\).
-    \item[(c)] \(\lim_{x \to a^{-}} f(x) = \pm \infty\) or \(\lim_{x \to a^{+}} f(x) = \pm \infty\).
-    \item[(d)] \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x)\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f\) is not defined at \(a\).
+    \item \(f\) is defined at \(a\) but \(\lim_{x \to a} f(x) \ne f(a)\).
+    \item \(\lim_{x \to a^{-}} f(x) = \pm \infty\) or \(\lim_{x \to a^{+}} f(x) = \pm \infty\).
+    \item \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x)\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -136,13 +115,13 @@
   True or false? Every piecewise function has \emph{at least one} discontinuity in its domain.
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame} 
 
 
@@ -152,13 +131,13 @@
   How many horizontal asymptotes can a function have?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] One.
-    \item[(b)] Two.
-    \item[(c)] At most two.
-    \item[(d)] At most infinitely many.
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item One.
+    \item Two.
+    \item At most two.
+    \item At most infinitely many.
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -166,13 +145,13 @@
   Can a function cross its horizontal asymptotes?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Yes.
-    \item[(b)] No.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Yes.
+    \item No.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -180,13 +159,13 @@
   What can we deduce from knowing \(\lim_{x \to \infty} f(x)\) exists? 
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f\) is not increasing on some interval \((a, \infty)\)
-    \item[(b)] \(f\) is not decreasing on some interval \((b, \infty)\)
-    \item[(c)] \(f\) is not oscillating on some interval \((c, \infty)\)
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f\) is not increasing on some interval \((a, \infty)\)
+    \item \(f\) is not decreasing on some interval \((b, \infty)\)
+    \item \(f\) is not oscillating on some interval \((c, \infty)\)
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -194,13 +173,13 @@
   Analyze the dominant terms of \(\lim_{x \to \infty} \frac{x^{2}+3x}{\sqrt{x+3}}\). With only a quick calculations, the limit should be
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(\infty\) or \(-\infty\).
-    \item[(b)] a finite number.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(\infty\) or \(-\infty\).
+    \item a finite number.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -211,14 +190,13 @@
   What is the balloon's velocity when it popped?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Does not exist because there is no balloon.
-    \item[(b)] Non-zero because the balloon has to be moving. 
-    \item[(c)] Zero because time freezes at that very instant. 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
-  \toinstructors{Philosophical open question. Pop a balloon in class. Can be used as a lead-in to define the derivative as a model for instantaneous rate of change.}
+  \begin{enumerate} 
+    \item Does not exist because there is no balloon.
+    \item Non-zero because the balloon has to be moving. 
+    \item Zero because time freezes at that very instant. 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -226,13 +204,13 @@
   True or false? If a function is continuous at \(a\), then it must be differentiable at \(a\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -240,13 +218,13 @@
   Compare the domains of \(f\) and \(f'\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f'\) is defined wherever \(f\) is defined.
-    \item[(b)] The domain of \(f'\) can be larger than the domain of \(f\).
-    \item[(c)] The domain of \(f'\) can be smaller than the domain of \(f\).
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f'\) is defined wherever \(f\) is defined.
+    \item The domain of \(f'\) can be larger than the domain of \(f\).
+    \item The domain of \(f'\) can be smaller than the domain of \(f\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -254,13 +232,13 @@
   If a function is \emph{not} differentiable on \((0,1)\), then 
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f\) is not continuous on \((0,1)\).
-    \item[(b)] \(f\) is a piecewise function.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f\) is not continuous on \((0,1)\).
+    \item \(f\) is a piecewise function.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -268,13 +246,13 @@
   If a function is \emph{not} differentiable on \((0,1)\), then 
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f'(a)\) does not exists at any number in \((0,1)\).
-    \item[(b)] \(f'(a)\) does not exists for at least one number in \((0,1)\).
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f'(a)\) does not exists at any number in \((0,1)\).
+    \item \(f'(a)\) does not exists for at least one number in \((0,1)\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -282,13 +260,13 @@
   If a function is \emph{not} differentiable on \((0,1)\), then \(f'\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] every 
-    \item[(b)] exactly one
-    \item[(c)] at least one
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item every 
+    \item exactly one
+    \item at least one
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -296,13 +274,13 @@
   (True or false?) If \(f(x)\) is not differentiable at \(a\), then \(f\) is not continuous at \(a\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -311,13 +289,13 @@
   (True or false?) By the power rule, \(\frac{d}{dx} \frac{1}{\sqrt{x}} = \frac{1}{\frac{1}{2}x^{-1/2}}\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -325,13 +303,13 @@
   (True or false?) By the power rule, \(\frac{d}{dx} 2^{x} = x \cdot 2^{x-1}\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -339,13 +317,13 @@
   (True or false?) By the power rule, \(\frac{d}{dx} 2^{10} = 10 \cdot 2^{9}\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] True.
-    \item[(b)] False.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -353,13 +331,13 @@
   Which of the following words suggest a question is about derivatives?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] asymptote
-    \item[(b)] secant line
-    \item[(c)] tangent line
-    \item[(d)] slope
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item asymptote
+    \item secant line
+    \item tangent line
+    \item slope
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -368,13 +346,13 @@
   Which is the chain rule formula?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(\tfrac{d}{dx} f(g(x)) = f'(g)g'\)
-    \item[(b)] \(\tfrac{d}{dx} f(g(x)) = f(g')g'\)
-    \item[(c)] \(\tfrac{d}{dx} f(g(x)) = f'(g')g\)
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(\tfrac{d}{dx} f(g(x)) = f'(g)g'\)
+    \item \(\tfrac{d}{dx} f(g(x)) = f(g')g'\)
+    \item \(\tfrac{d}{dx} f(g(x)) = f'(g')g\)
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
@@ -385,13 +363,13 @@
   \end{align*}
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(h'(1) = -2\)
-    \item[(b)] \(h'(1) = -1\)
-    \item[(c)] \(h'(1) = 6\)
-    \item[(d)] \(h'(1) = -6\)
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(h'(1) = -2\)
+    \item \(h'(1) = -1\)
+    \item \(h'(1) = 6\)
+    \item \(h'(1) = -6\)
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
@@ -402,26 +380,26 @@
   \end{align*}
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] 
-    \item[(b)] 
-    \item[(c)] \(h'(1) = f'({\color{teal}g(1)}){\color{magenta}g'(1)} \onslide<2->{= f'(2)(-2)} \onslide<3->{= (-3)(-2) = 6}\)
-    \item[(d)] 
-    \item[(e)] 
-  \end{itemize} 
+  \begin{enumerate} 
+    \item 
+    \item 
+    \item \(h'(1) = f'({\color{teal}g(1)}){\color{magenta}g'(1)} \onslide<2->{= f'(2)(-2)} \onslide<3->{= (-3)(-2) = 6}\)
+    \item 
+    \item 
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
   Differentiate \(\sin(x)^{2}\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(\cos(x)^{2}\)
-    \item[(b)] \(\sin(x)\cos(x)\)
-    \item[(c)] \(2\sin(x)\cos(x)\)
-    \item[(d)] \(2\sin(x)\)
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(\cos(x)^{2}\)
+    \item \(\sin(x)\cos(x)\)
+    \item \(2\sin(x)\cos(x)\)
+    \item \(2\sin(x)\)
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -430,13 +408,13 @@
   Given \(\sin(y) = x\), what is \(dy/dx\)? Choose all correct options.
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(0 = 1\), so \(y'\) does not exist.
-    \item[(b)] \(dy/dx = \tfrac{1}{\cos(y)}\).
-    \item[(c)] \(dy/dx = \cos(y)\).
-    \item[(d)] \(dy/dx = \tfrac{d}{dx} \arcsin(x)\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(0 = 1\), so \(y'\) does not exist.
+    \item \(dy/dx = \tfrac{1}{\cos(y)}\).
+    \item \(dy/dx = \cos(y)\).
+    \item \(dy/dx = \tfrac{d}{dx} \arcsin(x)\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -444,13 +422,13 @@
   Given \(e^{y} = x\), what is \(dy/dx\)? Choose all correct options.
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(0 = 1\), so \(y'\) does not exist.
-    \item[(b)] \(dy/dx = \tfrac{1}{e^{y}}\).
-    \item[(c)] \(dy/dx = e^{y}\).
-    \item[(d)] \(dy/dx = \tfrac{d}{dx} \ln(x)\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(0 = 1\), so \(y'\) does not exist.
+    \item \(dy/dx = \tfrac{1}{e^{y}}\).
+    \item \(dy/dx = e^{y}\).
+    \item \(dy/dx = \tfrac{d}{dx} \ln(x)\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -458,42 +436,42 @@
   Find \(dx/dt\) given \(x^{3} - xt = 1\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(\frac{dx}{dt} = \frac{t}{3x^{2}}\).
-    \item[(b)] \(\frac{dx}{dt} = \frac{x}{3x^{2} - t}\).
-    \item[(c)] \(\frac{dx}{dt} = \frac{3x^{2} - t}{x}\).
-    \item[(d)] None of the above.
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(\frac{dx}{dt} = \frac{t}{3x^{2}}\).
+    \item \(\frac{dx}{dt} = \frac{x}{3x^{2} - t}\).
+    \item \(\frac{dx}{dt} = \frac{3x^{2} - t}{x}\).
+    \item None of the above.
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
   Can we use implicit differentiation to find the slope of \(y^{2} + x^{2} = 25\) at the point \((5,5)\)?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Yes, we plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
-    \item[(b)] No, it's not a function and has no \(dy/dx\).
-    \item[(c)] No, we cannot plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
-    \item[(d)] I don't understand the question.
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Yes, we plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
+    \item No, it's not a function and has no \(dy/dx\).
+    \item No, we cannot plug \(x = 5\) and \(y = 5\) into \(dy/dx\).
+    \item I don't understand the question.
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
   What is the slope of the tangent line to \(\tan(xy) = -x\) at the point \((1, 3\pi/4)\)?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(-1 - \frac{3\pi}{2}\). 
+  \begin{enumerate} 
+    \item \(-1 - \frac{3\pi}{2}\). 
       \onslide<2>{{\color{magenta}Probably forgot about brackets.}}
-    \item[(b)] \(-\frac{1}{2} - \frac{3\pi}{4}\). 
+    \item \(-\frac{1}{2} - \frac{3\pi}{4}\). 
       \onslide<2>{{\color{teal}The correct answer.}}
-    \item[(c)] \(\frac{1}{\sqrt{2}} - \frac{3\pi}{4}\). 
+    \item \(\frac{1}{\sqrt{2}} - \frac{3\pi}{4}\). 
       \onslide<2>{{\color{magenta} Probably forgot the square or made the mistake \(\tfrac{d}{dx}\tan(x) = \sec(x)\)}}
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -501,13 +479,13 @@
   How many horizontal tangent lines does the curve \(y^{2}/2 - xy = 1\) have? 
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Zero.
-    \item[(b)] Finitely many.
-    \item[(c)] Infinitely many.
-    \item[(d)] I don't know \emph{WHAT} to solve for in \(\tfrac{y}{x - y} = 0\).
-    \item[(e)] I don't know how to start.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Zero.
+    \item Finitely many.
+    \item Infinitely many.
+    \item I don't know \emph{WHAT} to solve for in \(\tfrac{y}{x - y} = 0\).
+    \item I don't know how to start.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -515,13 +493,13 @@
   Assume \(y = f^{-1}(x)\). To which equations do we apply the chain rule to calculate \(y'\)? Choose all correct options.
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f(f^{-1}(x)) = x\)
-    \item[(b)] \(f^{-1}(f(x)) = x\)
-    \item[(c)] \(y = f(x)\)
-    \item[(d)] \(x = f(y)\)
-    \item[(e)] I don't recognize equations (a) and (b).
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f(f^{-1}(x)) = x\)
+    \item \(f^{-1}(f(x)) = x\)
+    \item \(y = f(x)\)
+    \item \(x = f(y)\)
+    \item I don't recognize equations (a) and (b).
+  \end{enumerate} 
 \end{frame}
 
 
@@ -529,13 +507,13 @@
   Can the inverse function theorem be deduced from implicit differentiation?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Yes.
-    \item[(b)] No.
-    \item[(c)] I think so, but not sure how.
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Yes.
+    \item No.
+    \item I think so, but not sure how.
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -544,13 +522,13 @@
   Differentiate \(x^{x}\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(x x^{x-1}\).
-    \item[(b)] \(x^{x}(1 + \ln(x)\)
-    \item[(c)] \(x^{x}\)
-    \item[(d)] \(x^{x}\ln(x)\)
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(x x^{x-1}\).
+    \item \(x^{x}(1 + \ln(x)\)
+    \item \(x^{x}\)
+    \item \(x^{x}\ln(x)\)
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Related rates}
@@ -558,13 +536,13 @@
   What are we asked to find in Example~9?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Find \(d\theta/dt\).
-    \item[(b)] Find \(dx/dt\).
-    \item[(c)] Find \(d\theta/dt\) when \(x = 4\).
-    \item[(d)] Find \(dx/dt\) when \(x = 4\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Find \(d\theta/dt\).
+    \item Find \(dx/dt\).
+    \item Find \(d\theta/dt\) when \(x = 4\).
+    \item Find \(dx/dt\) when \(x = 4\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Extrema}
@@ -573,13 +551,13 @@
   If there are constants \(a,b\) such that \(a \le f(x) \le b\) for every \(x\) on the domain of \(f\), does it mean that \(f(x)\) must have an absolute extrema?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] No.
-    \item[(b)] \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because of functions like \(x \sin(1/x)\).}
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item No.
+    \item \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because of functions like \(x \sin(1/x)\).}
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -587,26 +565,26 @@
   Is it true that every absolute extrema is also a local extrema?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] No.
-    \item[(b)] \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because absolute extrema can occur at endpoints of the domain of a function but local extrema cannot.}
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item No.
+    \item \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because absolute extrema can occur at endpoints of the domain of a function but local extrema cannot.}
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   What is the relation between local extrema and critical points?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] Some, but not all, critical points are local extrema.
-    \item[(b)] A local extremum must correspond to a critical point.
-    \item[(c)] Every critical point correspond to a local extremum.
-    \item[(d)] \(\{ \text{critical points} \} = \{ \text{local extrema} \}\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item Some, but not all, critical points are local extrema.
+    \item A local extremum must correspond to a critical point.
+    \item Every critical point correspond to a local extremum.
+    \item \(\{ \text{critical points} \} = \{ \text{local extrema} \}\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Derivative Tests}
@@ -615,26 +593,26 @@
   Consider the graph in Example~10. Using only the first derivative test, where does \(f(x)\) have a local maximum? 
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(x = a\). \onslide<2>{\hlmain{\(f'(a) = 0\) (\(x = a\) is a critical number of \(f\)), and \(f'\) changes from positive (\(f\) is decreasing) to negative (\(f\) is increasing) as \(x\) goes from left to right passing \(a\).}}
-    \item[(b)] \(x = b\). 
-    \item[(c)] \(x = c\).
-    \item[(d)] \(x = d\). 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(x = a\). \onslide<2>{\hlmain{\(f'(a) = 0\) (\(x = a\) is a critical number of \(f\)), and \(f'\) changes from positive (\(f\) is decreasing) to negative (\(f\) is increasing) as \(x\) goes from left to right passing \(a\).}}
+    \item \(x = b\). 
+    \item \(x = c\).
+    \item \(x = d\). 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Can the First Derivative Test be applied to find the local min of \(f(x) = |x|\) (and, more generally, any continuous piecewise function)? 
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] Yes, because \(f\) does not need to be differentiable at the critical number \(0\).
-    \item[(b)] No, because \(f\) is not differentiable at the critical number \(0\).
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item Yes, because \(f\) does not need to be differentiable at the critical number \(0\).
+    \item No, because \(f\) is not differentiable at the critical number \(0\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
@@ -643,13 +621,13 @@
   Can the Second Derivative Test be used to test its concavity?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] Yes and yes.
-    \item[(b)] Yes and no.
-    \item[(c)] No and yes.
-    \item[(d)] No and no.
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item Yes and yes.
+    \item Yes and no.
+    \item No and yes.
+    \item No and no.
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Optimization}
@@ -665,26 +643,26 @@
   What is wrong with the (proposed) solution of Example~2?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] There is an algebra mistake.
-    \item[(b)] The domain of \(T(s)\) is wrong.
-    \item[(c)] It's not possible to minimize travel time.
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item There is an algebra mistake.
+    \item The domain of \(T(s)\) is wrong.
+    \item It's not possible to minimize travel time.
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   What is the domain of \(T(s)\) from Example~2?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(s \ge 1\). \onslide<2>{\hlsupp{We don't need to swim forever.}}
-    \item[(b)] \(1 \le s \le \sqrt{5}\). \onslide<2>{\hlmain{Note \(\sqrt{5}\) is the length of the full diagonal.}}
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(s \ge 1\). \onslide<2>{\hlsupp{We don't need to swim forever.}}
+    \item \(1 \le s \le \sqrt{5}\). \onslide<2>{\hlmain{Note \(\sqrt{5}\) is the length of the full diagonal.}}
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{L'H\^opital's Rule}
@@ -692,13 +670,13 @@
   Which of the following is an indeterminate form? Choose all correct options.
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(L_{1} = \lim_{x \to 0} x \ln(x)\).
-    \item[(b)] \(L_{2} = \lim_{x \to 1} (1 - x)^{x}\).
-    \item[(c)] \(L_{3} = \lim_{x \to -\infty} 2^{2x}\).
-    \item[(d)] \(L_{4} = \lim_{x \to 0} \frac{2x^{1}+1}{\cos(x)}\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(L_{1} = \lim_{x \to 0} x \ln(x)\).
+    \item \(L_{2} = \lim_{x \to 1} (1 - x)^{x}\).
+    \item \(L_{3} = \lim_{x \to -\infty} 2^{2x}\).
+    \item \(L_{4} = \lim_{x \to 0} \frac{2x^{1}+1}{\cos(x)}\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
@@ -720,13 +698,13 @@
 Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] The two summations are equal.
-    \item[(b)] The two summations are not equal.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item The two summations are equal.
+    \item The two summations are not equal.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
@@ -736,13 +714,13 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   \]
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] The equality is true.
-    \item[(b)] The equality is not always true.
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item The equality is true.
+    \item The equality is not always true.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Antiderivatives}
@@ -751,13 +729,13 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   Consider \(f(x) = 2x e^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Which of the following statement is true.
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(f(x)\) is an antiderivative of \(g(x)\).
-    \item[(b)] \(f(x)\) is the antiderivative of \(g(x)\).
-    \item[(c)] \(g(x)\) is an antiderivative of \(f(x)\).
-    \item[(d)] \(g(x)\) is the antiderivative of \(f(x)\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(f(x)\) is an antiderivative of \(g(x)\).
+    \item \(f(x)\) is the antiderivative of \(g(x)\).
+    \item \(g(x)\) is an antiderivative of \(f(x)\).
+    \item \(g(x)\) is the antiderivative of \(f(x)\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}
@@ -768,25 +746,25 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   Which of the following are true statements?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(\int e^{x} \;dx = e^{x}\).
-    \item[(b)] \(\int e^{x} \;dx = e^{x} + C\).
-    \item[(c)] \(\int e^{x} \;dx = e^{x} + 1 + C\).
-    \item[(d)] \(\int e^{x} \;dx = e^{x} + 2C\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(\int e^{x} \;dx = e^{x}\).
+    \item \(\int e^{x} \;dx = e^{x} + C\).
+    \item \(\int e^{x} \;dx = e^{x} + 1 + C\).
+    \item \(\int e^{x} \;dx = e^{x} + 2C\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Evaluate \(\int \sec^{2}(\pi/4) \;dx\).
 
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(\tan(\pi/4) + C\).
-    \item[(b)] \(\sec^{2}(\pi/4)x + C\).
-    \item[(c)] We don't know enough integration techniques to evaluate this yet. 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(\tan(\pi/4) + C\).
+    \item \(\sec^{2}(\pi/4)x + C\).
+    \item We don't know enough integration techniques to evaluate this yet. 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Integration formulas}
@@ -794,26 +772,26 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   Recall that differentiating a {\color{red} non-constant polynomial} lowers its degree by one. Does integrating any {\color{red} non-zero polynomial} (including constant ones) raise its degree by one?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] Yes, because \(\frac{d}{dx} x^{n} = n x^{n-1}\) for any integer \(n \ge 0\).
-    \item[(b)] No, because \(\frac{d}{dx} (\text{any constant}) = 0\).
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item Yes, because \(\frac{d}{dx} x^{n} = n x^{n-1}\) for any integer \(n \ge 0\).
+    \item No, because \(\frac{d}{dx} (\text{any constant}) = 0\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Does integrating a {\color{red} power function}, i.e., \(x^{n}\) with NO restriction on \(n\), always raise its degree by one? Are there any exceptions?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] Yes. There are no exceptions.
-    \item[(b)] No, an exception is \(x^{-1}\).
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item Yes. There are no exceptions.
+    \item No, an exception is \(x^{-1}\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Definite integrals}
@@ -821,61 +799,61 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
 \begin{frame}
   Evaluate \(\int_{a}^{a} f(x) \;dx\). 
 
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] It is not possible since we don't know what \(f(x)\) is.
-    \item[(b)] It is not possible since we don't know what \(a\) is.
-    \item[(c)] \(0\).
-    \item[(d)] \(> 0\)
-    \item[(e)] I am not sure.
-  \end{itemize}
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item It is not possible since we don't know what \(f(x)\) is.
+    \item It is not possible since we don't know what \(a\) is.
+    \item \(0\).
+    \item \(> 0\)
+    \item I am not sure.
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}[t]
   The two endpoints of an interval are \(a,b\), and we don't know if \(a < b\) or \(a > b\). However, we know that \(\int_{b}^{a} f(x) \;dx < 0\) and \(f\) is nonnegative. It follows that 
 
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(a < b\).
-    \item[(b)] \(a > b\).
-    \item[(c)] \(a = b\).
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(a < b\).
+    \item \(a > b\).
+    \item \(a = b\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Let \(f(x) = (x+2)(x-1)\) and \(A = \int_{-3}^{1} \big|f(x)\big| \;dx\).  Which of the following is a true statement?
 
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(A = \phantom{-}\int_{-3}^{-2} f(x) \;dx + \int_{-2}^{1} f(x) \;dx\).
-    \item[(b)] \(A = \phantom{-}\int_{-3}^{-2} f(x) \;dx - \int_{-2}^{1} f(x) \;dx\).
-    \item[(c)] \(A = -\int_{-3}^{-2} f(x) \;dx + \int_{-2}^{1} f(x) \;dx\).
-    \item[(d)] \(A = -\int_{-3}^{-2} f(x) \;dx - \int_{-2}^{1} f(x) \;dx\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(A = \phantom{-}\int_{-3}^{-2} f(x) \;dx + \int_{-2}^{1} f(x) \;dx\).
+    \item \(A = \phantom{-}\int_{-3}^{-2} f(x) \;dx - \int_{-2}^{1} f(x) \;dx\).
+    \item \(A = -\int_{-3}^{-2} f(x) \;dx + \int_{-2}^{1} f(x) \;dx\).
+    \item \(A = -\int_{-3}^{-2} f(x) \;dx - \int_{-2}^{1} f(x) \;dx\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Let \(A = \int_{a}^{b} f(x) \;dx\). Which of the following is a true statement?
 
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(A = \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
-    \item[(b)] \(A = -\int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(A = \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
+    \item \(A = -\int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   If \(f(x) \le g(x)\) over \([a,b]\), then ...
 
-  \begin{itemize} \setlength\itemsep{1ex}
-    \item[(a)] \(\int_{a}^{b} f(x) \;dx \le \int_{a}^{b} g(x) \;dx\).
-    \item[(b)] \(\int_{a}^{b} f(x) \;dx = \int_{a}^{b} g(x) \;dx\).
-    \item[(c)] \(\int_{a}^{b} f(x) \;dx \ge \int_{a}^{b} g(x) \;dx\).
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} \setlength\itemsep{1ex}
+    \item \(\int_{a}^{b} f(x) \;dx \le \int_{a}^{b} g(x) \;dx\).
+    \item \(\int_{a}^{b} f(x) \;dx = \int_{a}^{b} g(x) \;dx\).
+    \item \(\int_{a}^{b} f(x) \;dx \ge \int_{a}^{b} g(x) \;dx\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \section{Fundamental Theorem of Calculus}
@@ -883,11 +861,11 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   Which of the following are good starting points for our solutions?
 
   \begin{enumerate} \setlength\itemsep{1ex}
-    \item[(a)] Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item[(b)] Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item[(c)] Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
-    \item[(d)] Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item[(e)] I am not sure.
+    \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \item Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
+    \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \item I am not sure.
   \end{enumerate}
 \end{frame}
 
@@ -902,11 +880,11 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   Transform \(\int x^{2} \sqrt{ 1 + x^{3} } \;dx\) by subbing \(u = \sqrt{ 1 + x^{3} }\).
 
   \begin{enumerate} \setlength\itemsep{1ex}
-    \item[(a)] This substitution does not work.
-    \item[(b)] We get \(\int \frac{2}{3} u^{2} \;du\). \only<2->{\hfill{}\hlmain{Correct.}}
-    \item[(c)] We get \(\int \frac{2}{3} \frac{u}{\sqrt{ 1 + x^{3} }} \;du\). \only<2->{\hfill\hlwarn{ Algebra mistake.}}
-  \item[(d)] We get \(\int \frac{2}{3} u \sqrt{1 + x^{3}} \;du\). \only<2->{\hfill\hlsupp{Incomplete.}}
-    \item[(e)] None of the above, or I am not sure.
+    \item This substitution does not work.
+    \item We get \(\int \frac{2}{3} u^{2} \;du\). \only<2->{\hfill{}\hlmain{Correct.}}
+    \item We get \(\int \frac{2}{3} \frac{u}{\sqrt{ 1 + x^{3} }} \;du\). \only<2->{\hfill\hlwarn{ Algebra mistake.}}
+  \item We get \(\int \frac{2}{3} u \sqrt{1 + x^{3}} \;du\). \only<2->{\hfill\hlsupp{Incomplete.}}
+    \item None of the above, or I am not sure.
   \end{enumerate}
 \end{frame}
 
@@ -916,11 +894,11 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   What are expressions (plural!) for the area bounded between \(\sin(x)\) and \(\cos(x)\) over \([0, \pi]\)?
 
   \begin{enumerate} \setlength\itemsep{1ex}
-    \item[(a)] \(\int_{0}^{\pi} \sin(x) - \cos(x) \;dx\).
-    \item[(b)] \(\int_{0}^{\pi} |\sin(x) - \cos(x)| \;dx\).
-    \item[(c)] \(\int_{0}^{\pi/4} \cos(x) - \sin(x) \;dx + \int_{\pi/4}^{\pi} \sin(x) - \cos(x) \;dx\).
-    \item[(d)] \(\int_{0}^{\pi/4} \cos(x) - \sin(x) \;dx - \int_{\pi/4}^{\pi} \cos(x) - \sin(x) \;dx\).
-    \item[(e)] I am not sure. 
+    \item \(\int_{0}^{\pi} \sin(x) - \cos(x) \;dx\).
+    \item \(\int_{0}^{\pi} |\sin(x) - \cos(x)| \;dx\).
+    \item \(\int_{0}^{\pi/4} \cos(x) - \sin(x) \;dx + \int_{\pi/4}^{\pi} \sin(x) - \cos(x) \;dx\).
+    \item \(\int_{0}^{\pi/4} \cos(x) - \sin(x) \;dx - \int_{\pi/4}^{\pi} \cos(x) - \sin(x) \;dx\).
+    \item I am not sure. 
   \end{enumerate}
 \end{frame}
 
@@ -943,78 +921,78 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Apply limit laws.
-    \item[(b)] Calculate and compare left and right limits at \(c\).
-    \item[(c)] Check if \(\lim_{x \to c}f(x) = f(c)\). May have to calculate left and right limits separately.
-    \item[(d)] Check if \(f(x)\) is defined at \(c\).
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Apply limit laws.
+    \item Calculate and compare left and right limits at \(c\).
+    \item Check if \(\lim_{x \to c}f(x) = f(c)\). May have to calculate left and right limits separately.
+    \item Check if \(f(x)\) is defined at \(c\).
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What information seems useful?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Limit laws.
-    \item[(b)] Squeeze Theorem.
-    \item[(c)] \(f(x)\) is continuous on \([0,1]\).
-    \item[(d)] Intermediate Value Theorem.
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Limit laws.
+    \item Squeeze Theorem.
+    \item \(f(x)\) is continuous on \([0,1]\).
+    \item Intermediate Value Theorem.
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). Continuity seems important. What else is useful?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(f\) must be continuous at \(0\).
-    \item[(b)] \(f\) must be continuous at \(1\).
-    \item[(c)] 
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item \(f\) must be continuous at \(0\).
+    \item \(f\) must be continuous at \(1\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
-    \item[(b)] Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
-    \item[(c)] Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
+    \item Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
+    \item Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
-    \item[(b)] Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
-    \item[(c)] Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
-    \item[(d)] 
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
+    \item Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
+    \item Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 \begin{frame}[t]
   Suppose \(x f(x)^{2} = 3\) and \(f(3) = -1\). Find \(f'(3)\).
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] \(1/6\)
-    \item[(b)] \(-1/6\)
-    \item[(c)]
-    \item[(d)]
-    \item[(e)] I am not sure.
-  \end{itemize}
+  \begin{enumerate} 
+    \item \(1/6\)
+    \item \(-1/6\)
+    \item
+    \item
+    \item I am not sure.
+  \end{enumerate}
 \end{frame}
 
 \section{Study Skills}
@@ -1026,13 +1004,13 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   How do you assess your learning progress?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Do suggested problems.
-    \item[(b)] Do do-at-home problems.
-    \item[(c)] Reflect on problem-solving ideas.
-    \item[(d)] Summarize to reduce my mental load.
-    \item[(e)] I am not sure.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Do suggested problems.
+    \item Do do-at-home problems.
+    \item Reflect on problem-solving ideas.
+    \item Summarize to reduce my mental load.
+    \item I am not sure.
+  \end{enumerate} 
 \end{frame}
 
 
@@ -1041,28 +1019,13 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
   What topic should we review?
 
   \medskip
-  \begin{itemize} \setlength\itemsep{2ex}
-    \item[(a)] Shapes of graphs (min/max and derivative tests).
-    \item[(b)] Related rates or optimization.
-    \item[(c)] Fundamental of integration.
-    \item[(d)] Integration techniques.
-    \item[(e)] Go through past exams.
-  \end{itemize} 
+  \begin{enumerate} 
+    \item Shapes of graphs (min/max and derivative tests).
+    \item Related rates or optimization.
+    \item Fundamental of integration.
+    \item Integration techniques.
+    \item Go through past exams.
+  \end{enumerate} 
 \end{frame}
 
-% template
-% \section{}
-% \begin{frame}
-%
-%
-%   \medskip
-%   \begin{itemize} \setlength\itemsep{2ex}
-%     \item[(a)] 
-%     \item[(b)] 
-%     \item[(c)] 
-%     \item[(d)] 
-%     \item[(e)] I am not sure.
-%   \end{itemize} 
-% \end{frame}
 \end{document}
-
