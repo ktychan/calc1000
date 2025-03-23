@@ -5,7 +5,7 @@ build
 standalones/grid_*.tex
 
 # student data
-confidential
+.confidential
 
 # OS level junk
 .DS_Store
