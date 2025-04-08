@@ -21,30 +21,11 @@
   \begin{example}
     Consider the following functions.
 
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[lesson limit intro, title={\(g_{1}(x)\)}, 
-        ]
-        \addplot[thick] {-(x-1)^3 + 1};
-        \draw[fill=white] (axis cs:1,1) circle (0.05);
-        \draw[fill=black] (axis cs:1,2) circle (0.05);
-      \end{axis}
-    \end{tikzpicture}
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[lesson limit intro, title={\(g_{2}(x)\)}, 
-        ]
-        \addplot[thick, domain=-2:1] {x};
-        \addplot[thick, domain=1:2] {2};
-
-        \draw[fill=white, thick] (axis cs:1,1) circle (0.05);
-      \end{axis}
-    \end{tikzpicture}
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[lesson limit intro, title={\(g_{3}(x)\)}, 
-        ]
-        \addplot[thick, domain=-1:2] {sin(x*2*pi-1)*(x-1) + 0.5};
-        % \draw[fill=white] (axis cs:1,3/2) circle (0.05);
-      \end{axis}
-    \end{tikzpicture}
+    \centerline{
+      \includegraphics[page=1]{../standalones/build/plot-limit-intro}
+      \includegraphics[page=2]{../standalones/build/plot-limit-intro}
+      \includegraphics[page=3]{../standalones/build/plot-limit-intro}
+    }
 
     Estimate the following limits graphically:
     \begin{align*}
@@ -79,7 +60,7 @@
 
     \begin{center}
       \begin{tikzpicture}[scale=1]
-        \begin{axis}[lesson limit intro, title={\(g_{1}(x)\)}, 
+        \begin{axis}[title={\(g_{1}(x)\)}, 
           ]
           \addplot[thick] {-(x-1)^3 + 1};
           \draw[fill=white] (axis cs:1,1) circle (0.05);
@@ -88,7 +69,7 @@
       \end{tikzpicture}
       \hspace{1in}
       \begin{tikzpicture}[scale=1]
-        \begin{axis}[lesson limit intro, title={\(g_{2}(x)\)}, 
+        \begin{axis}[title={\(g_{2}(x)\)}, 
           ]
           \addplot[thick, domain=-2:1] {x};
           \addplot[thick, domain=1:2] {2};
@@ -150,28 +131,28 @@
   There are four possibilities.
   \begin{center}
     \begin{tikzpicture}
-      \begin{axis}[lesson infinite limit, title={\(h_{1}(x)\)}]
+      \begin{axis}[title={\(h_{1}(x)\)}]
         \addplot[thick, smooth, domain=-2:0.99] {(1/4)/(x-1) + 1};
         \addplot[thick, smooth, domain=1.01:3] {(1/4)/(x-1) - 1};
         \addplot[dotted] coordinates { (1,3) (1,-3) };
       \end{axis}
     \end{tikzpicture}
     \begin{tikzpicture}
-      \begin{axis}[lesson infinite limit, title={\(h_{2}(x)\)}]
+      \begin{axis}[title={\(h_{2}(x)\)}]
         \addplot[thick, smooth, domain=-2:0.99] {-(1/4)/(x-1)};
         \addplot[thick, smooth, domain=1.01:3] {-(1/4)/(x-1)};
         \addplot[dotted] coordinates { (1,3) (1,-3) };
       \end{axis}
     \end{tikzpicture}
     \begin{tikzpicture}
-      \begin{axis}[lesson infinite limit, title={\(h_{3}(x)\)}]
+      \begin{axis}[title={\(h_{3}(x)\)}]
         \addplot[thick, smooth, domain=-2:0.99] {-(1/4)/(x-1)};
         \addplot[thick, smooth, domain=1.01:3] {(1/4)/(x-1)};
         \addplot[dotted] coordinates { (1,3) (1,-3) };
       \end{axis}
     \end{tikzpicture}
     \begin{tikzpicture}
-      \begin{axis}[lesson infinite limit, title={\(h_{4}(x)\)}]
+      \begin{axis}[title={\(h_{4}(x)\)}]
         \addplot[thick, smooth, domain=-2:0.99] {(1/4)/(x-1) + 2};
         \addplot[thick, smooth, domain=1.01:3] {-(1/4)/(x-1) + 1};
         \addplot[dotted] coordinates { (1,3) (1,-3) };
@@ -215,8 +196,7 @@
   Theorem~2.3 boils down to just two pictures.
   \begin{center}
     \begin{tikzpicture}
-      \begin{axis}[lesson infinite limit, 
-        title={\(\textstyle \frac{1}{(x-a)^{n}}\) if \(n\) is odd},
+      \begin{axis}[title={\(\textstyle \frac{1}{(x-a)^{n}}\) if \(n\) is odd},
         xtick={1}, xticklabel={\(a\)}
         ]
         \addplot[thick, smooth, domain=-2:0.99] {(1/4)/(x-1)};
@@ -226,8 +206,7 @@
     \end{tikzpicture}
     \hspace{1in}
     \begin{tikzpicture}
-      \begin{axis}[lesson infinite limit, 
-        title={\(\textstyle \frac{1}{(x-a)^{n}}\) if \(n\) is even},
+      \begin{axis}[title={\(\textstyle \frac{1}{(x-a)^{n}}\) if \(n\) is even},
         xtick={1}, xticklabel={\(a\)}
         ]
         \addplot[thick, smooth, domain=-2:0.95] {(1/20)/(x-1)^2};

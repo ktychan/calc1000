@@ -115,29 +115,11 @@
     \lim_{x \to -\infty} f(x) = \lim_{x \to \infty} f(-x)
   \end{equation}
   \begin{center}
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[ymin=-pi/2, ymax=pi/2, xmin=-3, xmax=3, enlargelimits]
-        \addplot[thick, domain=0:4] {atan(x)};
-        \addplot[thick, domain=-4:0] {atan(x)};
-        \addplot[dashed] coordinates {(-4,  pi/2) (4, pi/2)};
-        \addplot[dashed] coordinates {(-4, -pi/2) (4,-pi/2)};
-        \node[below right] at (axis cs:0,pi/2) {\scriptsize \(y = \pi/2\)};
-        \node[above right] at (axis cs:0,-pi/2) {\scriptsize \(y = -\pi/2\)};
-        \node at (axis cs:3,1) {\scriptsize \(\arctan(x)\)};
-      \end{axis}
-    \end{tikzpicture}
-    \hspace{1cm}
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[ymin=-pi/2, ymax=pi/2, xmin=-3, xmax=3, enlargelimits]
-        \addplot[thick, domain=0:4] {atan(-x)};
-        \addplot[thick, domain=-4:0,] {atan(-x)};
-        \addplot[dashed] coordinates {(-4,  pi/2) (4, pi/2)};
-        \addplot[dashed] coordinates {(-4, -pi/2) (4,-pi/2)};
-        \node[below right] at (axis cs:0,pi/2) {\scriptsize \(y = \pi/2\)};
-        \node[above right] at (axis cs:0,-pi/2) {\scriptsize \(y = -\pi/2\)};
-        \node[left] at (axis cs:3.5,1) {\scriptsize \(\arctan(-x)\)};
-      \end{axis}
-    \end{tikzpicture}
+    \hfill{}
+    \includegraphics[page=1]{../standalones/build/plot-limit-at-infinity-intro}
+    \hfill{}
+    \includegraphics[page=2]{../standalones/build/plot-limit-at-infinity-intro}
+    \hfill{}
   \end{center}
 
   \begin{example}

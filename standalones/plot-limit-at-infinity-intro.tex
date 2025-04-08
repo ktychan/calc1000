@@ -1,0 +1,29 @@
+\documentclass[multi=tikzpicture, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[lesson infinite limit, ymin=-pi/2, ymax=pi/2, xmin=-3, xmax=3, enlargelimits]
+    \addplot[thick, domain=0:4] {atan(x)};
+    \addplot[thick, domain=-4:0] {atan(x)};
+    \addplot[dashed] coordinates {(-4,  pi/2) (4, pi/2)};
+    \addplot[dashed] coordinates {(-4, -pi/2) (4,-pi/2)};
+    \node[below right] at (axis cs:0,pi/2) {\scriptsize \(y = \pi/2\)};
+    \node[above right] at (axis cs:0,-pi/2) {\scriptsize \(y = -\pi/2\)};
+    \node at (axis cs:3,1) {\scriptsize \(\arctan(x)\)};
+  \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[lesson infinite limit, ymin=-pi/2, ymax=pi/2, xmin=-3, xmax=3, enlargelimits]
+    \addplot[thick, domain=0:4] {atan(-x)};
+    \addplot[thick, domain=-4:0,] {atan(-x)};
+    \addplot[dashed] coordinates {(-4,  pi/2) (4, pi/2)};
+    \addplot[dashed] coordinates {(-4, -pi/2) (4,-pi/2)};
+    \node[below right] at (axis cs:0,pi/2) {\scriptsize \(y = \pi/2\)};
+    \node[above right] at (axis cs:0,-pi/2) {\scriptsize \(y = -\pi/2\)};
+    \node[left] at (axis cs:3.5,1) {\scriptsize \(\arctan(-x)\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

@@ -11,6 +11,7 @@ clean:
 	rm -rf publish/*.tex publish/build
 
 standalones: 
+	${LATEXMK} standalones/plot_net_area.tex
 	${LATEXMK} standalones/*.tex
 
 appendix: 
