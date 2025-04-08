@@ -2,8 +2,8 @@
 
 \def\theauthor{Kelvin Chan}
 \def\theinstitute{University of Western Ontario}
-\def\thecourseterm{Fall/Winter}
-\def\thecourseyear{2024}
+\def\thecourseterm{Fall}
+\def\thecourseyear{2025}
 \def\thecoursesubj{Calc}
 \def\thecoursesubject{Calculus}
 \def\thecoursenumb{1000}
@@ -79,11 +79,7 @@
 \everymath{\displaystyle}
 
 % typography
-\usepackage{fontspec}
-\usepackage{microtype} 
-\usepackage{parskip}
-\usepackage{ragged2e}
-\usepackage[normalem]{ulem}
+\input{./typography.tex.preamble}
 
 % embedded markups
 \usepackage{markdown}
@@ -205,7 +201,7 @@
 % ------------------------------------------------------------
 \numberwithin{equation}{chapter}
 \theoremstyle{definition}
-\newtheorem{thm}{Theorem}
+\newtheorem{thm}{Theorem}[chapter]
 \newtheorem{example}[thm]{Example}
 
 \newcommand{\textbook}[1]{\noindent{} {\footnotesize \faBookReader{} #1 \hfill}}
@@ -228,19 +224,6 @@
   \par{}
   \includegraphics{./standalones/build/grid_#2_by_40}
   \smallbreak
-  % assume textarea is 7in wide.
-  % need to scale ever so slightly to avoid overfull box warning
-  % \par{}
-  % \begin{tikzpicture}[x=.175in,y=.175in,scale=0.99]
-  %   \foreach \x in {0,1,...,#1}
-  %   {
-  %     \foreach \y in {0,1,...,#2}
-  %     {
-  %       \fill[gray!40] (\x,\y) circle[radius=0.5pt];
-  %     }
-  %   }
-  % \end{tikzpicture}
-  % \smallskip{}
 }
 
 % ------------------------------------------------------------
@@ -269,11 +252,11 @@
 
   % add to TOC
   \phantomsection{}\label{week\theweek}
-  % \addcontentsline{toc}{chapter}{Week~\theweek~(#1)}
-  \addcontentsline{toc}{chapter}{Week~\theweek}
+  \addcontentsline{toc}{chapter}{Week~\theweek~(#1)}
+  % \addcontentsline{toc}{chapter}{Week~\theweek}
 
-  % \renewcommand{\firstpageheader}{Week~\theweek~(#1)}
-  \renewcommand{\firstpageheader}{Week~\theweek}
+  \renewcommand{\firstpageheader}{Week~\theweek~(#1)}
+  % \renewcommand{\firstpageheader}{Week~\theweek}
   \thispagestyle{firstpage}
 }{
   \clearpage{\thispagestyle{empty}\cleardoublepage}
@@ -289,12 +272,13 @@
 % --------------------
 \begin{titlepage}
   \thispagestyle{empty}
-  \huge
+  \includegraphics[width=0.4\textwidth]{./WesternU.png}
 
+  \huge
   \begin{center}
     % title
     \phantom{top}
-    \vspace{1in}
+    \vspace{0.75in}
 
     {\Huge\bfseries \thecoursetitle}
 
@@ -309,6 +293,9 @@
     \vspace{2in}
   \end{center}
 
+  \normalsize
+  \faLightbulb{} Course fillable notes are updated annually and \emph{freely} available on OWL (\url{https://owl.uwo.ca}).
+
   % creaate a blank page
   \clearpage{\thispagestyle{empty}\cleardoublepage}
 \end{titlepage}
@@ -322,11 +309,13 @@
 \frontmatter{}
 \pagenumbering{roman}
 
+% \newgeometry{margin=0.75in, top=0.25in, bottom=0.75in, nohead, nomarginpar, footskip=10pt}
 \renewcommand{\contentsname}{Table of Contents}
 \phantomsection{} \label{toc}
 \addcontentsline{toc}{chapter}{\contentsname}
-\tableofcontents{}
+\tableofcontents{} 
 \clearpage
+% \restoregeometry
 
 \clearpage{\thispagestyle{empty}\cleardoublepage}
 \directlua{frontmatter = \the\value{page} - 1}  % has to be the last line of the front matter
@@ -338,32 +327,32 @@
 % --------------------
 \mainmatter{}
 
-\begin{week}{September 5 and 6}
+\begin{week}{September 4 and 5}
   \subfile{./lessons/review-function-basics.tex} 
 \end{week}
 
-\begin{week}{September 9 to 13}
+\begin{week}{September 8 to 12}
+  \subfile{./lessons/review-decomposition.tex} \clearpage
   \subfile{./lessons/review-trigs.tex} \clearpage
   \subfile{./lessons/review-piecewise.tex} \clearpage
-  \subfile{./lessons/review-decomposition.tex} \clearpage
   \subfile{./lessons/review-inverses.tex} \clearpage
   \subfile{./lessons/review-exp.tex} \clearpage
 \end{week}
 
-\begin{week}{September 16 to 20}
+\begin{week}{September 15 to 19}
   \subfile{./lessons/limit-introduction.tex} \clearpage
   \subfile{./lessons/limit-laws.tex} \clearpage
   \subfile{./lessons/continuity.tex} \clearpage
   \subfile{./lessons/continuity-ivt.tex} \clearpage
 \end{week}
 
-\begin{week}{September 23 to 27}
+\begin{week}{September 22 to 26}
   \subfile{./lessons/limit-at-infinity.tex} \clearpage
   \subfile{./lessons/derivative-at-a-point.tex} \clearpage
   \subfile{./lessons/derivative-as-a-function.tex} \clearpage
 \end{week}
 
-\begin{week}{September 30 to October 4}
+\begin{week}{September 29 to October 3}
   \subfile{./lessons/derivative-continuity.tex} \clearpage
   \subfile{./lessons/differentiation-summary.tex} \clearpage
   \subfile{./lessons/differentiation-rules.tex} \clearpage
@@ -371,35 +360,35 @@
   \subfile{./lessons/differentiation-problem-solving.tex} \clearpage
 \end{week}
 
-\begin{week}{October 7 to 11}
+\begin{week}{October 6 to 10}
   \subfile{./lessons/differentiation-chain.tex} \clearpage
   \subfile{./lessons/differentiation-implicit.tex} \clearpage
   \subfile{./lessons/differentiation-inverse.tex} \clearpage
   \subfile{./lessons/differentiation-exp-ln.tex} \clearpage
 \end{week}
 
-\begin{week}{October 14 to 18}
+\begin{week}{October 13 to 17}
   \subfile{./lessons/reading-week.tex} \clearpage
 \end{week}
 
-\begin{week}{October 21 to 25}
+\begin{week}{October 20 to 24}
   \subfile{./lessons/differentiation-logarithmic-differentiation.tex} \clearpage
   \subfile{./lessons/differentiation-strategies.tex} \clearpage
   \subfile{./lessons/related-rates.tex} \clearpage
 \end{week}
 
-\begin{week}{October 28 to November 1}
+\begin{week}{October 27 to 31}
   \subfile{./lessons/extrema.tex} \clearpage
   \subfile{./lessons/derivative-tests.tex} \clearpage
 \end{week}
 
-\begin{week}{November 4 to 8}
+\begin{week}{November 3 to 7}
   \subfile{./lessons/optimization.tex} \clearpage
   \subfile{./lessons/extrema-subtleties.tex} \clearpage
   \subfile{./lessons/lHopitals-rule.tex} \clearpage
 \end{week}
 
-\begin{week}{November 11 to 15} % 4.10 and 5.1
+\begin{week}{November 10 to 14} % 4.10 and 5.1
   \subfile{./lessons/integration-intro.tex} \clearpage
   \subfile{./lessons/integration-formulas.tex} \clearpage
   \subfile{./lessons/sigma-notation.tex} \clearpage
@@ -407,20 +396,20 @@
   \subfile{./lessons/the-area-problem.tex} \clearpage
 \end{week}
 
-\begin{week}{November 18 to 22} % 5.2 and 5.3
+\begin{week}{November 17 to 21} % 5.2 and 5.3
   \subfile{./lessons/the-definite-integral.tex} \clearpage
   \subfile{./lessons/ftc-part-one.tex} \clearpage
   \subfile{./lessons/ftc-part-two.tex} \clearpage
   \subfile{./lessons/net-change.tex} \clearpage
 \end{week}
 
-\begin{week}{November 25 to 29} % 5.4, 5.5, 5.6, 6.1 and 6.2
+\begin{week}{November 24 to 28} % 5.4, 5.5, 5.6, 6.1 and 6.2
   \subfile{./lessons/integration-substitution.tex} \clearpage
   \subfile{./lessons/area-between-curves.tex} \clearpage
   \subfile{./lessons/volume-by-slicing.tex} \clearpage
 \end{week}
 
-\begin{week}{December 2 to 6} % review
+\begin{week}{December 1 to 5} % review
   \subfile{./lessons/integration-strategy.tex} \clearpage
   \subfile{./lessons/exam-strategies.tex} \clearpage
 \end{week}

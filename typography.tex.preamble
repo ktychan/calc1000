@@ -1,0 +1,18 @@
+\usepackage{fontspec, unicode-math}
+\usepackage{microtype} 
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage[normalem]{ulem}
+
+\setmainfont{STIX Two Text}
+\setmathfont{STIX Two Math}
+\setmathfont[range=bb]{TeX Gyre Termes Math}
+
+% emojis
+\newfontface{\emojifont}{Noto Color Emoji}[Renderer=Harfbuzz]
+
+\newcommand{\emstar}{{\emojifont{⭐️}}}
+\newcommand{\emcaution}{{\emojifont{⚠️}}}
+\newcommand{\emthink}{{\emojifont{🤔}}}
+\newcommand{\emthumbsup}{{\emojifont{👍}}}
+\newcommand{\emthubmsdown}{{\emojifont{👎}}}
