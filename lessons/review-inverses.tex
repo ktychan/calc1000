@@ -25,11 +25,11 @@
     \item avoid subtle mistakes.
   \end{enumerate}
 
-  We skip the trial-and-error part of the story and go straight to the \hlinfo{insight}: Let's pretend \(f(x)\) has an inverse and denote \underline{\hspace{2in}}. The definition now gives us an useful equation:
-  \blanklines{19}
+  We skip the trial-and-error part of the story and go straight to the \hlinfo{insight}: Let's pretend \(f(x)\) has an inverse and denote \underline{\hspace{2in}}. The definition now gives us an useful equation.
+  \blanklines{25}
 
   To evaluate \(y = f^{-1}(x)\) is to \underline{\hspace{4in}}. For example, \(\log_{2}(x)\) is the inverse of \(2^{x}\) and to evaluate \(\log_{2}(8)\) means to 
-  \blanklines{4}
+  \blanklines{5}
 
   \begin{example}
     Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
@@ -55,16 +55,16 @@
     \includegraphics{../standalones/build/plot_empty_5x5}
   \end{example}
 
+  \clearpage
   \begin{example}
     Are \(x^{2}\) and \(\sqrt{x}\) inverses of each other? Assume \(x^{2}\) is defined for all real numbers.
-    \blanklines{10}
+    \blanklines{15}
   \end{example}
-  \clearpage
 
   \begin{example}
     Find the inverse of \(\frac{(x - 3)^{4}}{2}\), restrict the domain if necessary.  Determine the domain and range of its inverse. 
 
-    \blanklines{10}
+    \blanklines{15}
   \end{example}
 
   \begin{example}
@@ -72,24 +72,20 @@
 
     Define \(\arccos(x)\) by sketching its graph. What is the domain and range of \emph{your} \(\arccos(x)\)?
 
-    \begin{minipage}{3in}
-      \begin{tikzpicture}
-        \begin{axis}[
-          ymin={-3}, ymax={3},
-          xmin={-2*pi}, xmax={2*pi},
-          ytick={4},
-          xtick={-2*pi, 2*pi},
-          xticklabels={\(-2\pi\), \(2\pi\)}, yticklabels={},
-          ]
+    \begin{tikzpicture}
+      \begin{axis}[
+        ymin={-3}, ymax={3},
+        xmin={-2*pi}, xmax={2*pi},
+        ytick={4},
+        xtick={-2*pi, 2*pi},
+        xticklabels={\(-2\pi\), \(2\pi\)}, yticklabels={},
+        ]
 
           % \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {sin(x)};
-        \end{axis}
-      \end{tikzpicture}
-    \end{minipage}
-    \begin{minipage}{4in}
-      \blanklines{9}
-    \end{minipage}
+      \end{axis}
+    \end{tikzpicture}
   \end{example}
+  \clearpage
 
   The inverses of \(\sin(x), \cos(x), \tan(x)\) and so on are called \emph{inverse trigonometric function}. Because all basic trig functions fails the horizontal line test, we need to restrict the domain.
   \medskip
