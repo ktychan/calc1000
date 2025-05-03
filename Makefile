@@ -7,6 +7,7 @@ all: publish
 
 clean:
 	rm -rf **/.aux
+	rm -rf publish
 
 standalones: 
 	${LATEXMK} standalones/plot_net_area.tex
@@ -14,9 +15,9 @@ standalones:
 
 main: standalones
 	rm -rf publish/*.tex
+	mkdir -p publish
 	${LATEXMK} main.tex
-	${LATEXMK} -jobname="${COURSE}_%A" polls.tex
-	${LATEXMK} -c -jobname="${COURSE}_%A" polls.tex
+	${LATEXMK} -jobname="${COURSE}_%A" slides.tex main.tex
 
 publish: main
 	${LATEXMK} -jobname="${COURSE}_%A" publish/*.tex

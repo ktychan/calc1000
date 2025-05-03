@@ -3,6 +3,7 @@ generated
 untracked
 .aux
 standalones/grid_*.tex
+publish
 
 # student data
 .confidential
