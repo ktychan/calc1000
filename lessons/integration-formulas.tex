@@ -1,140 +1,140 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Integration formulas and properties} \label{lession:integration-formulas}
-  Every \hlmain{integration} formula comes from a \hlsupp{differentiation} formula.
+Every \hlmain{integration} formula comes from a \hlsupp{differentiation} formula.
 
-  \[
-    \begin{array}{rcclcrclllcl} 
-      \multicolumn{5}{c}{\text{\textbf{\hlsupp{Differentiation} Formulas}}} & \multicolumn{7}{c}{\text{\textbf{\hlmain{Integration} Formulas}}} \\
-      \frac{d}{dx} & {\color{supp} cx} &=& \phantom{\color{main} c}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} c} & dx &=& \phantom{\color{supp} cx} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} x^{n+1}  } &=& \phantom{\color{main} (n+1) x^{n}}
-                   & \overset{\color{warn} n \ne -1}{\longleftrightarrow}
-                   & \int & \phantom{\color{main} x^{n}} & dx &=& \phantom{\color{supp} \frac{x^{n+1}}{n+1} } 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \ln|x| } &=& \phantom{\color{main} x^{-1}}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} x^{-1}} & dx &=& \phantom{\color{supp} \ln|x|} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} e^{x}} &=& \phantom{\color{main} e^{x}}
-                   & \longleftrightarrow
-                   & \int & \phantom{\color{main} e^{x}      } & dx &=& \phantom{\color{supp} e^{x}} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \sin(x)} &=& \phantom{\color{main} \cos(x)}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} \cos(x)} & dx &=& \phantom{\color{supp} \sin(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \cos(x)} &=& \phantom{\color{main} -\sin(x)}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} \sin(x)} & dx &=& \phantom{\color{supp} -\cos(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \tan(x)} &=& \phantom{\color{main} \sec^{2}(x)}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} \sec^{2}(x)} & dx &=& \phantom{\color{supp} \tan(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \sec(x)} &=& \phantom{\color{main} \tan(x)\sec(x)}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} \tan(x)\sec(x)} & dx &=& \phantom{\color{supp} \sec(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \arctan(x)} &=& \phantom{\color{main} \frac{1}{x^{2}+1}}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} \frac{1}{x^{2} + 1}} & dx &=& \phantom{\color{supp} \arctan(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& \phantom{\color{main} \frac{1}{\sqrt{1 - x^{2}}}}
-                   & \longleftrightarrow 
-                   & \int & \phantom{\color{main} \frac{1}{\sqrt{1 - x^{2}}}} & dx &=& \phantom{\color{supp} \arcsin(x)} 
-                   &+& (\text{constant})
-    \end{array}
-  \]
-  {\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second formula \hlwarn{applies to the entire line} because \(x^{-1}\) cannot be the derivative of any power function. It is also \hlwarn{not true} that \(\textstyle \int x^{-1} \;dx = \frac{x^{-1 + 1}}{-1 + 1}\) (division by \(0\)). The integral \(\textstyle \int x^{-1} \;dx\) \emph{does} exist (see the third formula).}
+\[
+  \begin{array}{rcclcrclllcl} 
+    \multicolumn{5}{c}{\text{\textbf{\hlsupp{Differentiation} Formulas}}} & \multicolumn{7}{c}{\text{\textbf{\hlmain{Integration} Formulas}}} \\
+    \frac{d}{dx} & {\color{supp} cx} &=& \phantom{\color{main} c}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} c} & dx &=& \phantom{\color{supp} cx} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} x^{n+1}  } &=& \phantom{\color{main} (n+1) x^{n}}
+                 & \overset{\color{warn} n \ne -1}{\longleftrightarrow}
+                 & \int & \phantom{\color{main} x^{n}} & dx &=& \phantom{\color{supp} \frac{x^{n+1}}{n+1} } 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \ln|x| } &=& \phantom{\color{main} x^{-1}}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} x^{-1}} & dx &=& \phantom{\color{supp} \ln|x|} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} e^{x}} &=& \phantom{\color{main} e^{x}}
+                 & \longleftrightarrow
+                 & \int & \phantom{\color{main} e^{x}      } & dx &=& \phantom{\color{supp} e^{x}} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \sin(x)} &=& \phantom{\color{main} \cos(x)}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} \cos(x)} & dx &=& \phantom{\color{supp} \sin(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \cos(x)} &=& \phantom{\color{main} -\sin(x)}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} \sin(x)} & dx &=& \phantom{\color{supp} -\cos(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \tan(x)} &=& \phantom{\color{main} \sec^{2}(x)}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} \sec^{2}(x)} & dx &=& \phantom{\color{supp} \tan(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \sec(x)} &=& \phantom{\color{main} \tan(x)\sec(x)}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} \tan(x)\sec(x)} & dx &=& \phantom{\color{supp} \sec(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \arctan(x)} &=& \phantom{\color{main} \frac{1}{x^{2}+1}}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} \frac{1}{x^{2} + 1}} & dx &=& \phantom{\color{supp} \arctan(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& \phantom{\color{main} \frac{1}{\sqrt{1 - x^{2}}}}
+                 & \longleftrightarrow 
+                 & \int & \phantom{\color{main} \frac{1}{\sqrt{1 - x^{2}}}} & dx &=& \phantom{\color{supp} \arcsin(x)} 
+                 &+& (\text{constant})
+  \end{array}
+\]
+{\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second formula \hlwarn{applies to the entire line} because \(x^{-1}\) cannot be the derivative of any power function. It is also \hlwarn{not true} that \(\textstyle \int x^{-1} \;dx = \frac{x^{-1 + 1}}{-1 + 1}\) (division by \(0\)). The integral \(\textstyle \int x^{-1} \;dx\) \emph{does} exist (see the third formula).}
 
-  \textbf{Properties of integrals} (all three properties also work for definite integrals).
-  \begin{align*}
-    \int c f(x) \;dx 
+\textbf{Properties of integrals} (all three properties also work for definite integrals).
+\begin{align*}
+  \int c f(x) \;dx 
     &= \phantom{c \int f(x) \;dx} && \text{(constant multiple)}\\
     \int f(x) + g(x) \;dx 
     &= \phantom{\int f(x) \;dx + \int g(x) \;dx} && \text{(sum)}\\
     \int f(x) - g(x) \;dx 
     &= \phantom{\int f(x) \;dx - \int g(x) \;dx} && \text{(difference)}
-  \end{align*}
+\end{align*}
 
-  \textbf{Additional properties of definite integrals only}.
-  \[
-    \int_{a}^{b} f(x) \;dx = \phantom{- \int_{b}^{a} f(x) \;dx}
-    \quad\text{and}\quad
-    \int_{a}^{b} f(x) \;dx = \phantom{\int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx.}
-  \]
-  For the last property, the number \(c\) can be \underline{\hspace{4in}}
-  \clearpage
+\textbf{Additional properties of definite integrals only}.
+\[
+  \int_{a}^{b} f(x) \;dx = \phantom{- \int_{b}^{a} f(x) \;dx}
+  \quad\text{and}\quad
+  \int_{a}^{b} f(x) \;dx = \phantom{\int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx.}
+\]
+For the last property, the number \(c\) can be \underline{\hspace{4in}}
+\clearpage
 
-  Every \hlmain{integration} formula comes from a \hlsupp{differentiation} formula.
+Every \hlmain{integration} formula comes from a \hlsupp{differentiation} formula.
 
-  \[
-    \begin{array}{rcclcrclllcl} 
-      \multicolumn{5}{c}{\text{\textbf{\hlsupp{Differentiation} Formulas}}} & \multicolumn{7}{c}{\text{\textbf{\hlmain{Integration} Formulas}}} \\
-      \frac{d}{dx} & {\color{supp} cx} &=& {\color{main} c}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} c} & dx &=& {\color{supp} cx} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} x^{n+1}  } &=& {\color{main} (n+1) x^{n}}
-                   & \overset{\color{warn} n \ne -1}{\longleftrightarrow}
-                   & \int & {\color{main} x^{n}} & dx &=& {\color{supp} \frac{x^{n+1}}{n+1} } 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \ln|x| } &=& {\color{main} x^{-1}}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} x^{-1}} & dx &=& {\color{supp} \ln|x|} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} e^{x}} &=& {\color{main} e^{x}}
-                   & \longleftrightarrow
-                   & \int & {\color{main} e^{x}      } & dx &=& {\color{supp} e^{x}} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \sin(x)} &=& {\color{main} \cos(x)}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} \cos(x)} & dx &=& {\color{supp} \sin(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \cos(x)} &=& {\color{main} -\sin(x)}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} \sin(x)} & dx &=& {\color{supp} -\cos(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \tan(x)} &=& {\color{main} \sec^{2}(x)}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} \sec^{2}(x)} & dx &=& {\color{supp} \tan(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \sec(x)} &=& {\color{main} \tan(x)\sec(x)}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} \tan(x)\sec(x)} & dx &=& {\color{supp} \sec(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \arctan(x)} &=& {\color{main} \frac{1}{x^{2}+1}}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} \frac{1}{x^{2} + 1}} & dx &=& {\color{supp} \arctan(x)} 
-                   &+& (\text{constant}) \\[2ex]
-      \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& {\color{main} \frac{1}{\sqrt{1 - x^{2}}}}
-                   & \longleftrightarrow 
-                   & \int & {\color{main} \frac{1}{\sqrt{1 - x^{2}}}} & dx &=& {\color{supp} \arcsin(x)} 
-                   &+& (\text{constant})
-    \end{array}
-  \]
-  {\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second formula \hlwarn{applies to the entire line} because \(x^{-1}\) cannot be the derivative of any power function. It is also \hlwarn{not true} that \(\textstyle \int x^{-1} \;dx = \frac{x^{-1 + 1}}{-1 + 1}\) (division by \(0\)). The integral \(\textstyle \int x^{-1} \;dx\) \emph{does} exist (see the third formula).}
+\[
+  \begin{array}{rcclcrclllcl} 
+    \multicolumn{5}{c}{\text{\textbf{\hlsupp{Differentiation} Formulas}}} & \multicolumn{7}{c}{\text{\textbf{\hlmain{Integration} Formulas}}} \\
+    \frac{d}{dx} & {\color{supp} cx} &=& {\color{main} c}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} c} & dx &=& {\color{supp} cx} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} x^{n+1}  } &=& {\color{main} (n+1) x^{n}}
+                 & \overset{\color{warn} n \ne -1}{\longleftrightarrow}
+                 & \int & {\color{main} x^{n}} & dx &=& {\color{supp} \frac{x^{n+1}}{n+1} } 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \ln|x| } &=& {\color{main} x^{-1}}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} x^{-1}} & dx &=& {\color{supp} \ln|x|} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} e^{x}} &=& {\color{main} e^{x}}
+                 & \longleftrightarrow
+                 & \int & {\color{main} e^{x}      } & dx &=& {\color{supp} e^{x}} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \sin(x)} &=& {\color{main} \cos(x)}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} \cos(x)} & dx &=& {\color{supp} \sin(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \cos(x)} &=& {\color{main} -\sin(x)}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} \sin(x)} & dx &=& {\color{supp} -\cos(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \tan(x)} &=& {\color{main} \sec^{2}(x)}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} \sec^{2}(x)} & dx &=& {\color{supp} \tan(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \sec(x)} &=& {\color{main} \tan(x)\sec(x)}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} \tan(x)\sec(x)} & dx &=& {\color{supp} \sec(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \arctan(x)} &=& {\color{main} \frac{1}{x^{2}+1}}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} \frac{1}{x^{2} + 1}} & dx &=& {\color{supp} \arctan(x)} 
+                 &+& (\text{constant}) \\[2ex]
+    \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& {\color{main} \frac{1}{\sqrt{1 - x^{2}}}}
+                 & \longleftrightarrow 
+                 & \int & {\color{main} \frac{1}{\sqrt{1 - x^{2}}}} & dx &=& {\color{supp} \arcsin(x)} 
+                 &+& (\text{constant})
+  \end{array}
+\]
+{\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second formula \hlwarn{applies to the entire line} because \(x^{-1}\) cannot be the derivative of any power function. It is also \hlwarn{not true} that \(\textstyle \int x^{-1} \;dx = \frac{x^{-1 + 1}}{-1 + 1}\) (division by \(0\)). The integral \(\textstyle \int x^{-1} \;dx\) \emph{does} exist (see the third formula).}
 
-  \textbf{Properties of integrals} (all three properties also work for definite integrals).
-  \begin{align*}
-    \int c f(x) \;dx 
+\textbf{Properties of integrals} (all three properties also work for definite integrals).
+\begin{align*}
+  \int c f(x) \;dx 
     &= c \int f(x) \;dx && \text{(constant multiple)}\\
     \int f(x) + g(x) \;dx 
     &= \int f(x) \;dx + \int g(x) \;dx && \text{(sum)}\\
     \int f(x) - g(x) \;dx 
     &= \int f(x) \;dx - \int g(x) \;dx && \text{(difference)}
-  \end{align*}
+\end{align*}
 
-  \textbf{Additional properties of definite integrals only}.
-  \[
-    \int_{a}^{b} f(x) \;dx = - \int_{b}^{a} f(x) \;dx 
-    \quad\text{and}\quad
-    \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx.
-  \]
-  For the last property, the number \(c\) can be any number, even outside \([a,b]\).
+\textbf{Additional properties of definite integrals only}.
+\[
+  \int_{a}^{b} f(x) \;dx = - \int_{b}^{a} f(x) \;dx 
+  \quad\text{and}\quad
+  \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx.
+\]
+For the last property, the number \(c\) can be any number, even outside \([a,b]\).
 
 
 

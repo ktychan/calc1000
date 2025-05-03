@@ -1,39 +1,39 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Subtleties of extrema}
-  Last week, we briefly talked about the Extreme Value Theorem.
-  \begin{mdframed}[style=withref-compact]
-    If \(f(x)\) is continuous over a closed and bounded interval \([a,b]\), then \(f\) must have an absolute maximum \hlsupp{and} an absolute minimum on \([a,b]\).
+Last week, we briefly talked about the Extreme Value Theorem.
+\begin{mdframed}[style=withref-compact]
+  If \(f(x)\) is continuous over a closed and bounded interval \([a,b]\), then \(f\) must have an absolute maximum \hlsupp{and} an absolute minimum on \([a,b]\).
 
-    \textbook{Theorem 4.1 Extreme Value Theorem on page 367}
-  \end{mdframed}
+  \textbook{Theorem 4.1 Extreme Value Theorem on page 367}
+\end{mdframed}
 
-  Why are the conditions \hlmain{continuous over a closed and bounded interval \([a,b]\)} in EVT necessary? Remember the examples on this page!
+Why are the conditions \hlmain{continuous over a closed and bounded interval \([a,b]\)} in EVT necessary? Remember the examples on this page!
 
-  \begin{example}
-    Let \(f\) be a function defined over an interval \(I\) and consider the following scenarios. If one of the absolute extrema does not exist, then sketch a function satisfying the conditions in that row with no said absolute extrema.
+\begin{example}
+  Let \(f\) be a function defined over an interval \(I\) and consider the following scenarios. If one of the absolute extrema does not exist, then sketch a function satisfying the conditions in that row with no said absolute extrema.
 
-    \begin{center}
-      \begin{tabular}{p{1in}|l|p{4in}}
-        \parbox{1in}{Continuous\\on \(I\)?} & \(I\) is \ldots{} & Has both absolute extrema? Why? \\ \midrule
-        yes & closed and bounded & Yes, it has both extrema by EVT. \\\midrule
-        \hlwarn{no} & closed and bounded & \\[1in] \midrule
-        yes & closed but \hlwarn{not bounded} & \\[1in] \midrule
-        yes & bounded but \hlwarn{not closed} & \\[1in]
-      \end{tabular}
-    \end{center}
+  \begin{center}
+    \begin{tabular}{p{1in}|l|p{4in}}
+      \parbox{1in}{Continuous\\on \(I\)?} & \(I\) is \ldots{} & Has both absolute extrema? Why? \\ \midrule
+      yes & closed and bounded & Yes, it has both extrema by EVT. \\\midrule
+      \hlwarn{no} & closed and bounded & \\[1in] \midrule
+      yes & closed but \hlwarn{not bounded} & \\[1in] \midrule
+      yes & bounded but \hlwarn{not closed} & \\[1in]
+    \end{tabular}
+  \end{center}
 
-    \faComment{} What if \(f\) is continuous and the \emph{range} of \(f\) is bounded? Is it enough to guarantee the existence of both absolute extrema? 
+  \faComment{} What if \(f\) is continuous and the \emph{range} of \(f\) is bounded? Is it enough to guarantee the existence of both absolute extrema? 
 
-  \end{example}
+\end{example}
 
-  \medskip{}
-  Let's consider a common misapplication of logic.
-  \begin{example}
-    The function \(f(x) = \frac{1}{x^{2} + 1}\) has no absolute minimum (Week 9, Example~\ref{ex:extremum-open-interval} on page \pageref{ex:extremum-open-interval}). Does this example contradict the Extreme Value Theorem? Explain your reasoning.
-    \vfill{}
-    \clearpage
-  \end{example}
+\medskip{}
+Let's consider a common misapplication of logic.
+\begin{example}
+  The function \(f(x) = \frac{1}{x^{2} + 1}\) has no absolute minimum (Week 9, Example~\ref{ex:extremum-open-interval} on page \pageref{ex:extremum-open-interval}). Does this example contradict the Extreme Value Theorem? Explain your reasoning.
+  \vfill{}
+  \clearpage
+\end{example}
 
 % \section{Subtleties of the Derivative Tests}
 %   Now we discuss subtleties of the derivative tests. We discuss the local maximum case in class and leave the local minimum case as exercises.
@@ -107,30 +107,30 @@
 % 
 
 \section{Sketching using derivatives}
-  We know how to sketch the graph of a function by transforming the graph of certain basic functions.  This technique works for sufficiently simple function, but not complex functions. The good news is that we can use derivative tests and asymptotes to sketch the graph of many more function.
+We know how to sketch the graph of a function by transforming the graph of certain basic functions.  This technique works for sufficiently simple function, but not complex functions. The good news is that we can use derivative tests and asymptotes to sketch the graph of many more function.
 
-  Function \(x^{2}\) and \(-x^{2}\) tell us everything about mixing increasing/decreasing and concavity.
+Function \(x^{2}\) and \(-x^{2}\) tell us everything about mixing increasing/decreasing and concavity.
 
-  \begin{center}
-    \includestandalone[page=1]{../standalones/plot-curve-sketching}
-    \qquad
-    \includestandalone[page=2]{../standalones/plot-curve-sketching}
-  \end{center}
-  \blanklines{5}
+\begin{center}
+  \includestandalone[page=1]{../standalones/plot-curve-sketching}
+  \qquad
+  \includestandalone[page=2]{../standalones/plot-curve-sketching}
+\end{center}
+\blanklines{5}
 
-  \begin{example}
-    Sketch the graph of a function \(f(x)\) satisfying the following properties.
-    \begin{itemize}
-      \item \(f\) is defined and continuous on \((-1, \infty)\).
-      \item \(\lim_{x \to -1^{+}} f(x) = -\infty\).
-      \item \(\lim_{x \to \infty} f(x) = 3\).
-      \item \(f\) is increasing over the interval \((-1,\infty)\).
-      \item \(f\) is concave down on the interval \((-1,1)\).
-      \item \(f\) is concave up on the interval \((2, 3)\).
-      \item \(f\) has inflection points at points \((1,1)\) and \((2,2)\).
-    \end{itemize}
+\begin{example}
+  Sketch the graph of a function \(f(x)\) satisfying the following properties.
+  \begin{itemize}
+    \item \(f\) is defined and continuous on \((-1, \infty)\).
+    \item \(\lim_{x \to -1^{+}} f(x) = -\infty\).
+    \item \(\lim_{x \to \infty} f(x) = 3\).
+    \item \(f\) is increasing over the interval \((-1,\infty)\).
+    \item \(f\) is concave down on the interval \((-1,1)\).
+    \item \(f\) is concave up on the interval \((2, 3)\).
+    \item \(f\) has inflection points at points \((1,1)\) and \((2,2)\).
+  \end{itemize}
 
-    \blanklines{15}
-  \end{example}
+  \blanklines{15}
+\end{example}
 
 \end{document}

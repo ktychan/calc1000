@@ -1,49 +1,50 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Intermediate Value Theorem}
-  \faComments{} Suppose you go to Montreal for a day trip. If your thermometer at home reads \(5^{\circ}\)C at \(7 \text{ am}\) and \({10}^{\circ}\)C at \(5\text{ pm}\), does the thermometer \underline{have to} read \({8}^{\circ}\)C \emph{sometime} between 7 am and 5 pm?
+\faComments{} Suppose you go to Montreal for a day trip. If your thermometer at home reads \(5^{\circ}\)C at \(7 \text{ am}\) and \({10}^{\circ}\)C at \(5\text{ pm}\), does the thermometer \underline{have to} read \({8}^{\circ}\)C \emph{sometime} between 7 am and 5 pm?
 
-  \blanklines{4}
+\blanklines{4}
 
-  Imagine and draw the graph of a temperature function \(H(t)\) that fits the given scenario. Compare graphs with your neighbours. Use your graph to support your conclusion.
+Imagine and draw the graph of a temperature function \(H(t)\) that fits the given scenario. Compare graphs with your neighbours. Use your graph to support your conclusion.
 
-  \begin{figure}[!h]  % [h] for here, [ht] for here top, [hb] for here bottom
-    \centering
-    \includestandalone[width=\textwidth]{standalones/plot_ivt_motivation}
-    \label{fig:label}
-  \end{figure}
+\begin{figure}[!h]  % [h] for here, [ht] for here top, [hb] for here bottom
+  \centering
+  \includestandalone[width=\textwidth]{standalones/plot_ivt_motivation}
+  \label{fig:label}
+\end{figure}
 
-  What \underline{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
-  \blanklines{5}
+What \underline{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
 
-  Can you tell \underline{exactly} when (down to seconds) the temperature reached \(8^{\circ}\)C?
-  \blanklines{5}
+\blanklines{5}
 
-  \blanklines{2}
-  \begin{mdframed}[style=withref]
-    Let \(f\) be a \underline{\hspace{1in}} function over a closed, bounded interval \([a,b]\). If \(z\) is any real number between \(f(a)\) and \(f(b)\), then \underline{\hspace{1in}} a number \(c\) in \([a,b]\) satisfying \(f(c) = z\).
+Can you tell \underline{exactly} when (down to seconds) the temperature reached \(8^{\circ}\)C?
 
-    \textbook{Theorem 2.11: The Intermediate Value Theorem on page 188}
-  \end{mdframed}
-  \blanklines{4}
+\blanklines{5}
 
-  When is IVT useful? You wish to 
-  \blanklines{2} % solve an equation \(f(z) = c\)
-  \large\hlwarn{BUT}
-  \blanklines{3} % don't care exactly what \(z\) is
+\begin{mdframed}[style=withref]
+  Let \(f\) be a \underline{\hspace{1in}} function over a closed, bounded interval \([a,b]\). If \(z\) is any real number between \(f(a)\) and \(f(b)\), then \underline{\hspace{1in}} a number \(c\) in \([a,b]\) satisfying \(f(c) = z\).
 
-  How do we use IVT? We must successfully complete all three tasks: 
-  \begin{enumerate}[label=(IVT \arabic*)]
-    \item Find, guess, or be given {a \emph{closed and bounded} interval \([a,b]\)}
-    \item Verify {\(f\) is continuous on \([a,b]\)}
-    \item Verify {\(z\) is between \(f(a)\) and \(f(b)\)}
-  \end{enumerate}
-  If we cannot complete one or more of these tasks, then IVT \hlwarn{does not apply}.
+  \textbook{Theorem 2.11: The Intermediate Value Theorem on page 188}
+\end{mdframed}
+\blanklines{4}
 
-  \begin{example}
-    Show the function \(f(t) = t^{5} - t^{2} + 1\) has a root between \(-1\) and \(1\).
-  \end{example}
-  \blanklines{13}
+When is IVT useful? You wish to 
+\blanklines{2} % solve an equation \(f(z) = c\)
+\large\hlwarn{BUT}
+\blanklines{3} % don't care exactly what \(z\) is
+
+How do we use IVT? We must successfully complete all three tasks: 
+\begin{enumerate}[label=(IVT \arabic*)]
+  \item Find, guess, or be given {a \emph{closed and bounded} interval \([a,b]\)}
+  \item Verify {\(f\) is continuous on \([a,b]\)}
+  \item Verify {\(z\) is between \(f(a)\) and \(f(b)\)}
+\end{enumerate}
+If we cannot complete one or more of these tasks, then IVT \hlwarn{does not apply}.
+
+\begin{example}
+  Show the function \(f(t) = t^{5} - t^{2} + 1\) has a root between \(-1\) and \(1\).
+\end{example}
+\blanklines{13}
 
 \end{document}
 

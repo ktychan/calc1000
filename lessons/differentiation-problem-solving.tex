@@ -1,65 +1,65 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Problem-solving using differentiation and derivatives}
-  Let's use differentiation to solve some real problems. The learning objective is to \hlmain{seek useful information} to formulate problems into \hlmain{something for which we have tools to solve}.
+Let's use differentiation to solve some real problems. The learning objective is to \hlmain{seek useful information} to formulate problems into \hlmain{something for which we have tools to solve}.
 
-  \label{page:diff-problem-solving}
-  We can \hlmain{get into the habit} of
-  \begin{enumerate}
-    \item visualizing a given scenario if possible, 
-    \item identifying information suggesting that differentiation is relevant, 
-    \item drawing on our knowledge of derivatives of known functions, 
-    \item formulating problems about differentiation using the language of derivatives, and
-    \item being okay with exploring solutions \emph{one step at a time} even if we don't know how to solve the whole thing right away.
-  \end{enumerate}
+\label{page:diff-problem-solving}
+We can \hlmain{get into the habit} of
+\begin{enumerate}
+  \item visualizing a given scenario if possible, 
+  \item identifying information suggesting that differentiation is relevant, 
+  \item drawing on our knowledge of derivatives of known functions, 
+  \item formulating problems about differentiation using the language of derivatives, and
+  \item being okay with exploring solutions \emph{one step at a time} even if we don't know how to solve the whole thing right away.
+\end{enumerate}
 
-  \bigskip
-  \begin{example}
-    Let \(f(x) = x^{3} + 4x + 1\).  Determine the values of \(x\) for which \(f(x)\) has a horizontal tangent line, or explain why such \(x\) does not exist. What if \(f(x) = x 2^{x}\)?
+\bigskip
+\begin{example}
+  Let \(f(x) = x^{3} + 4x + 1\).  Determine the values of \(x\) for which \(f(x)\) has a horizontal tangent line, or explain why such \(x\) does not exist. What if \(f(x) = x 2^{x}\)?
 
-    \blanklines{35}
-  \end{example}
-  \vfill{}
-  \clearpage
-
-
-  \begin{example}
-    Let \(f(x) = \begin{cases} \sqrt[4]{x} &\text{ if } 0 \le x < 2 \\ g(x) &\text{ if } x \ge 2 \end{cases}\). Find a linear function \(g(x)\) defined on \(x \ge 2\) such that \(f(x)\) is differentiable everywhere.
-
-    \blanklines{30}
-  \end{example}
+  \blanklines{35}
+\end{example}
+\vfill{}
+\clearpage
 
 
-  \begin{example}
-    Evaluate \(\lim_{x \to 8} \frac{\sqrt[3]{x} - 2}{x - 8}\).
+\begin{example}
+  Let \(f(x) = \begin{cases} \sqrt[4]{x} &\text{ if } 0 \le x < 2 \\ g(x) &\text{ if } x \ge 2 \end{cases}\). Find a linear function \(g(x)\) defined on \(x \ge 2\) such that \(f(x)\) is differentiable everywhere.
 
-    \blanklines{15}
-  \end{example}
-  \clearpage
+  \blanklines{30}
+\end{example}
 
-  \begin{example}
-    Let \(f(x) = 2^{x}\). Find an integer \(n\) such that \(f^{(n)}(x) = \ln(2)^{30} 2^{x}\).
 
-    \blanklines{20}
-  \end{example}
+\begin{example}
+  Evaluate \(\lim_{x \to 8} \frac{\sqrt[3]{x} - 2}{x - 8}\).
 
-  \begin{example}
-    Suppose \(f(x)\) is a polynomial such that \(f^{(5)}(x) = 0\), \(f^{(4)}(0) = 0\) and \(f'''(1) \ne 0\). What are the possible degrees of \(f\)? Explain your answer.
+  \blanklines{15}
+\end{example}
+\clearpage
 
-    \blanklines{30}
-  \end{example}
-  \clearpage
+\begin{example}
+  Let \(f(x) = 2^{x}\). Find an integer \(n\) such that \(f^{(n)}(x) = \ln(2)^{30} 2^{x}\).
 
-  \begin{example}
-    Find the slope of line tangent to \(f(x) = \cos(x)\cot(x)\) at \(x = \pi/4\). 
+  \blanklines{20}
+\end{example}
 
-    \blanklines{25}
-  \end{example}
+\begin{example}
+  Suppose \(f(x)\) is a polynomial such that \(f^{(5)}(x) = 0\), \(f^{(4)}(0) = 0\) and \(f'''(1) \ne 0\). What are the possible degrees of \(f\)? Explain your answer.
 
-  \begin{example}
-    Find \(\frac{d^{2025}}{dx^{2025}} \sin(x)\). Review the Leibniz notation for higher derivatives on page~\pageref{page:higher-derivatives}.
+  \blanklines{30}
+\end{example}
+\clearpage
 
-    \blanklines{20}
-  \end{example}
+\begin{example}
+  Find the slope of line tangent to \(f(x) = \cos(x)\cot(x)\) at \(x = \pi/4\). 
+
+  \blanklines{25}
+\end{example}
+
+\begin{example}
+  Find \(\frac{d^{2025}}{dx^{2025}} \sin(x)\). Review the Leibniz notation for higher derivatives on page~\pageref{page:higher-derivatives}.
+
+  \blanklines{20}
+\end{example}
 
 \end{document}

@@ -1,51 +1,51 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Sigma notation}
-  The Sigma notation is a compact way to express the sum of a bunch of numbers. It appears frequently in science literature, Riemann sums and its approximations. The course could also use Sigma notation with other types of problems to promote basic science literacy skill development.
-  \blanklines{5}
-  {\huge \[ \sum_{i=m}^{n} a_{i} = \hspace{3in}\]}
-  \blanklines{5}
+The Sigma notation is a compact way to express the sum of a bunch of numbers. It appears frequently in science literature, Riemann sums and its approximations. The course could also use Sigma notation with other types of problems to promote basic science literacy skill development.
+\blanklines{5}
+{\huge \[ \sum_{i=m}^{n} a_{i} = \hspace{3in}\]}
+\blanklines{5}
 
-  There are two common tasks involving Sigma notation: Interpreting a summation and using it to express a summation.
-  \begin{example}[Reading Sigma notations] \label{ex:sigma-notation-read)}
-    Write the following summations in expanded form.
-    \begin{align*}
-      \sum_{i=3}^{5} (2i^{3} + 5^{i} + 1)
+There are two common tasks involving Sigma notation: Interpreting a summation and using it to express a summation.
+\begin{example}[Reading Sigma notations] \label{ex:sigma-notation-read)}
+  Write the following summations in expanded form.
+  \begin{align*}
+    \sum_{i=3}^{5} (2i^{3} + 5^{i} + 1)
       &= \underline{\hspace{5in}} \\[3ex]
       \sum_{k=10}^{15} x
       &= \underline{\hspace{5in}}.
-    \end{align*}
-  \end{example}
-  \faComment{} Assume \(a\) is a constant. Do \(\sum_{i=1}^{3}f\left(a + \frac{i}{2}\right)\) and \(\sum_{i=0}^{2}f\left(a + \frac{i+1}{2}\right)\) represent different objects? 
-    \blanklines{3}
-  \clearpage
-  When we try to express a sum using the Sigma notation, we need to remember that the index of summation, say \(i\), \hlwarn{must be an integer and increases by exactly \(1\)}. Look for a pattern of change consistent across the summands and express such pattern as a multiple of \(i\).  Lastly, choose the smallest (or the largest) term in a sum to be the first term in the Sigma notation and express such first term using \(i\).
+  \end{align*}
+\end{example}
+\faComment{} Assume \(a\) is a constant. Do \(\sum_{i=1}^{3}f\left(a + \frac{i}{2}\right)\) and \(\sum_{i=0}^{2}f\left(a + \frac{i+1}{2}\right)\) represent different objects? 
+\blanklines{3}
+\clearpage
+When we try to express a sum using the Sigma notation, we need to remember that the index of summation, say \(i\), \hlwarn{must be an integer and increases by exactly \(1\)}. Look for a pattern of change consistent across the summands and express such pattern as a multiple of \(i\).  Lastly, choose the smallest (or the largest) term in a sum to be the first term in the Sigma notation and express such first term using \(i\).
+\blanklines{10}
+
+\begin{example}
+  Express the following sum using the Sigma notation. There are infinitely many correct expressions. Check your answer by asking a neighbour to expand your sum.
+  \blanklines{2}
+  \[
+    A = \frac{9}{2} + 3 + \frac{3}{2} + 6 = \hspace{3in}
+  \]
   \blanklines{10}
+\end{example}
 
-  \begin{example}
-    Express the following sum using the Sigma notation. There are infinitely many correct expressions. Check your answer by asking a neighbour to expand your sum.
-    \blanklines{2}
-    \[
-      A = \frac{9}{2} + 3 + \frac{3}{2} + 6 = \hspace{3in}
-    \]
-    \blanklines{10}
-  \end{example}
+\begin{example}
+  Express the following sum using the Sigma notation. 
+  \[
+    A = \frac{1}{2} \bigg( -\frac{3}{2} \bigg)^{2} + \frac{1}{2} \bigg( -1 \bigg)^{2} + \frac{1}{2} \bigg( -\frac{1}{2} \bigg)^{2} + \frac{1}{2} \bigg( 0 \bigg)^{2} + \frac{1}{2} \bigg( \frac{1}{2} \bigg)^{2} + \frac{1}{2} \bigg( 1 \bigg)^{2}
+  \]
+  \blanklines{10}
+\end{example}
+\vfill
 
-  \begin{example}
-    Express the following sum using the Sigma notation. 
-    \[
-      A = \frac{1}{2} \bigg( -\frac{3}{2} \bigg)^{2} + \frac{1}{2} \bigg( -1 \bigg)^{2} + \frac{1}{2} \bigg( -\frac{1}{2} \bigg)^{2} + \frac{1}{2} \bigg( 0 \bigg)^{2} + \frac{1}{2} \bigg( \frac{1}{2} \bigg)^{2} + \frac{1}{2} \bigg( 1 \bigg)^{2}
-    \]
-    \blanklines{10}
-  \end{example}
-  \vfill
-
-  \clearpage
-  \begin{mdframed}[style=withref-compact]
-    \label{page:summation-properties}
-    Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be two lists of numbers. 
-    \begin{align*}
-      \sum_{i=1}^{n} {\color{attn} \mathbf{c}} \; a_{i} 
+\clearpage
+\begin{mdframed}[style=withref-compact]
+  \label{page:summation-properties}
+  Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be two lists of numbers. 
+  \begin{align*}
+    \sum_{i=1}^{n} {\color{attn} \mathbf{c}} \; a_{i} 
       &= {\color{attn} \mathbf{c}} \sum_{i=1}^{n} a_{i} 
       &&\text{(constant multiple)} \\[6ex]
       \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{+}\,} \sum_{i=1}^{n} b_{i} 
@@ -59,57 +59,57 @@
       \sum_{i=1}^{{\color{attn}\mathbf{m}}} a_{i} + 
       \sum_{i={\color{attn}\mathbf{m+1}}}^{{\color{attn}\mathbf{n}}} a_{i} 
       && \text{(split/merge a sum)} \\[6ex]
-    \end{align*}
+  \end{align*}
 
-    \textbook{Rule: Properties of Sigma Notation, page 509}
-  \end{mdframed}
+  \textbook{Rule: Properties of Sigma Notation, page 509}
+\end{mdframed}
 
-  To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition (``get rid of the Sigma notation'').  These formulas are useful and \hlwarn{examinable}.
-  \begin{equation} \label{formula:summations}
-    \sum_{i=1}^{n} i = {\color{main} \frac{n(n+1)}{2}}, \qquad \sum_{i=1}^{n} i^{2} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{2n+1}{3}, \qquad \sum_{i=1}^{n} i^{3} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{n(n+1)}{2}.
-  \end{equation}
+To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition (``get rid of the Sigma notation'').  These formulas are useful and \hlwarn{examinable}.
+\begin{equation} \label{formula:summations}
+  \sum_{i=1}^{n} i = {\color{main} \frac{n(n+1)}{2}}, \qquad \sum_{i=1}^{n} i^{2} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{2n+1}{3}, \qquad \sum_{i=1}^{n} i^{3} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{n(n+1)}{2}.
+\end{equation}
+\blanklines{5}
+
+\begin{example}
+  Simplify \(\sum_{i=1}^{n}(2i + 1)\).
   \blanklines{5}
+\end{example}
+\clearpage
 
-  \begin{example}
-    Simplify \(\sum_{i=1}^{n}(2i + 1)\).
-    \blanklines{5}
-  \end{example}
-  \clearpage
+\begin{example}[Expressing an area using the Sigma notation]
+  Express the \hlmain{total area \(A\)} of the rectangles shown below in Sigma notation. The height of each rectangle is labelled on their top edge. The width of each rectangle is \(1/2\).
 
-  \begin{example}[Expressing an area using the Sigma notation]
-    Express the \hlmain{total area \(A\)} of the rectangles shown below in Sigma notation. The height of each rectangle is labelled on their top edge. The width of each rectangle is \(1/2\).
+  \blanklines{4}
+  \begin{center}
+    \includestandalone{../standalones/plot_rectangles}
+  \end{center}
+  \blanklines{30}
+\end{example}
+\clearpage
 
-    \blanklines{4}
-    \begin{center}
-      \includestandalone{../standalones/plot_rectangles}
-    \end{center}
-    \blanklines{30}
-  \end{example}
-  \clearpage
+Sometimes, we have to manipulate the Sigma notation before applying summation formulas.
+\begin{equation} \label{eq:summation-reindex}
+  \sum_{i=m}^{n} a_{i} = \sum_{j = 1}^{n - m + 1} a_{m+j-1}.
+\end{equation}
+This ``reindexing'' formula is obtained by performing a change of variable \(j = i - m + 1\).
+\blanklines{5}
+\begin{example}
+  Rewrite \(\sum_{i=10}^{100} i^{3}\) so that the index of the summation starts at \(1\).
+  \blanklines{15}
+\end{example}
 
-  Sometimes, we have to manipulate the Sigma notation before applying summation formulas.
-  \begin{equation} \label{eq:summation-reindex}
-    \sum_{i=m}^{n} a_{i} = \sum_{j = 1}^{n - m + 1} a_{m+j-1}.
-  \end{equation}
-  This ``reindexing'' formula is obtained by performing a change of variable \(j = i - m + 1\).
-  \blanklines{5}
-  \begin{example}
-    Rewrite \(\sum_{i=10}^{100} i^{3}\) so that the index of the summation starts at \(1\).
-    \blanklines{15}
-  \end{example}
+\begin{example} 
+  Simplify \(\sum_{i=50}^{300} 6 i^{2}\).  {\footnotesize Hint: Apply one of the summations formulas but not directly.}
+  \blanklines{15}
+\end{example}
+\clearpage
 
-  \begin{example} 
-    Simplify \(\sum_{i=50}^{300} 6 i^{2}\).  {\footnotesize Hint: Apply one of the summations formulas but not directly.}
-    \blanklines{15}
-  \end{example}
-  \clearpage
+Example~\ref{ex:limit-riemann} is an example of routine calculations when we evaluate definite integrals (a major topic to be discussed starting no later than next week) from their definitions.
+\begin{example} \label{ex:limit-riemann}
+  Use one of the summation formulas on page~\pageref{formula:summations} on to evaluate \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\).  
 
-  Example~\ref{ex:limit-riemann} is an example of routine calculations when we evaluate definite integrals (a major topic to be discussed starting no later than next week) from their definitions.
-  \begin{example} \label{ex:limit-riemann}
-    Use one of the summation formulas on page~\pageref{formula:summations} on to evaluate \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\).  
-
-    {\footnotesize Hint: The symbol \(n\) has two roles: It is a constant with respect to \(i\) inside the summation, but a variable outside the summation. Simplify the summation first and evaluate the resulting function in \(n\). Pretend \(n\) is a real-valued variable. The answer is \(1/3\).}
-  \end{example}
+  {\footnotesize Hint: The symbol \(n\) has two roles: It is a constant with respect to \(i\) inside the summation, but a variable outside the summation. Simplify the summation first and evaluate the resulting function in \(n\). Pretend \(n\) is a real-valued variable. The answer is \(1/3\).}
+\end{example}
 
 
 \end{document}

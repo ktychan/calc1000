@@ -1,30 +1,30 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Derivatives of trigonometric functions}
-  The derivatives \(\frac{d}{dx}\sin(x) = \cos(x)\) and \(\frac{d}{dx} \cos(x) = -\sin(x)\) comes from these two limits
-  \begin{equation} \label{eq:limits-trigs}
-    \lim_{h \to 0} \frac{\sin(h) - \sin(0)}{h} = 1
-    \qquad\text{and}\qquad
-    \lim_{h \to 0} \frac{\cos(h) - \cos(0)}{h} = 0
-  \end{equation}
-  \begin{center}
-    \includestandalone[page=1]{../standalones/plot-special-limits}
-    \qquad
-    \includestandalone[page=2]{../standalones/plot-special-limits}
-  \end{center}
+The derivatives \(\frac{d}{dx}\sin(x) = \cos(x)\) and \(\frac{d}{dx} \cos(x) = -\sin(x)\) comes from these two limits
+\begin{equation} \label{eq:limits-trigs}
+  \lim_{h \to 0} \frac{\sin(h) - \sin(0)}{h} = 1
+  \qquad\text{and}\qquad
+  \lim_{h \to 0} \frac{\cos(h) - \cos(0)}{h} = 0
+\end{equation}
+\begin{center}
+  \includestandalone[page=1]{../standalones/plot-special-limits}
+  \qquad
+  \includestandalone[page=2]{../standalones/plot-special-limits}
+\end{center}
 
 
-  Derivatives of all other trigonometric functions \(\tan(x), \cot(x), \sec(x), \csc(x)\) can be calculated from the derivatives of \(\sin(x)\) and \(\cos(x)\) using basic differentiation rules.
-  \begin{example}
-    Differentiate \(\tan(x)\).
+Derivatives of all other trigonometric functions \(\tan(x), \cot(x), \sec(x), \csc(x)\) can be calculated from the derivatives of \(\sin(x)\) and \(\cos(x)\) using basic differentiation rules.
+\begin{example}
+  Differentiate \(\tan(x)\).
 
-    \blanklines{15}
-  \end{example}
+  \blanklines{15}
+\end{example}
 
-  \begin{example}
-    Suppose \(y = \sec(x)\). Find \(dy/dx\). 
+\begin{example}
+  Suppose \(y = \sec(x)\). Find \(dy/dx\). 
 
-    \blanklines{15}
-  \end{example}
+  \blanklines{15}
+\end{example}
 
 \end{document}

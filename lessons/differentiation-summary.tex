@@ -2,10 +2,10 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Differentiation rules reference}
 
-  \hrule
-  (Part 1 of 4) Derivatives of basic functions: 
-  \begin{align*}
-    \frac{d}{dx} (c)
+\hrule
+(Part 1 of 4) Derivatives of basic functions: 
+\begin{align*}
+  \frac{d}{dx} (c)
     &= 0, \text{ for any constant \(c\)}
     && \text{(constant)} \\
     \frac{d}{dx} (x^{n})
@@ -15,14 +15,14 @@
     &= \cos(x) \\
     \frac{d}{dx} \cos(x)
     &= -\sin(x) \\
-    \frac{d}{dx} e^{x} &= e^{x} \text{ and } \frac{d}{dx}b^{x} = \ln(b)b^{x} \text{ for any \hlwarn{constant} } b > 0 \text{ and } b \ne 1
-  \end{align*}
+  \frac{d}{dx} e^{x} &= e^{x} \text{ and } \frac{d}{dx}b^{x} = \ln(b)b^{x} \text{ for any \hlwarn{constant} } b > 0 \text{ and } b \ne 1
+\end{align*}
 
-  \hrule
+\hrule
 
-  (Part 2 of 4) If \(f\) and \(g\) are differentiable functions, then
-  \begin{align*}
-    \frac{d}{dx} [f(x) + g(x)] 
+(Part 2 of 4) If \(f\) and \(g\) are differentiable functions, then
+\begin{align*}
+  \frac{d}{dx} [f(x) + g(x)] 
     &= \frac{d}{dx}f(x) + \frac{d}{dx}g(x)
     && \text{(sum)} \\[1em]
     \frac{d}{dx} [f(x) - g(x)] 
@@ -31,13 +31,13 @@
     \frac{d}{dx} [c f(x)] 
     &= c \, \frac{d}{dx} f(x), \text{ for any constant \(c\)}
     && \text{(constant multiple)}
-  \end{align*}
+\end{align*}
 
-  \hrule
+\hrule
 
-  (Part 3 of 4) If \(f\) and \(g\) are differentiable functions, then
-  \begin{align*}
-    \frac{d}{dx} [f(x)g(x)] 
+(Part 3 of 4) If \(f\) and \(g\) are differentiable functions, then
+\begin{align*}
+  \frac{d}{dx} [f(x)g(x)] 
     &= { \frac{d}{dx} [f(x)] \cdot g(x)+ f(x) \cdot \frac{d}{dx}[g(x)]}
     && \text{(product)} \\
     &= f' \cdot g + f \cdot g' \\[1em]
@@ -45,19 +45,19 @@
     &= {\frac{\frac{d}{dx} [f(x)] \cdot g(x) - f(x) \cdot \frac{d}{dx}[g(x)] }{ [g(x)]^{2} }}
     && \text{(quotient)} \\
     &= \frac{f' \cdot g - f \cdot g'}{g^{2}}
-  \end{align*}
+\end{align*}
 
-  \hrule
+\hrule
 
-  (Part 4 of 4) If \(g\) is differentiable at \(x\) and \(f\) is differentiable at \(g(x)\), then 
-  \begin{align*}
-    \frac{d}{dx} (f \circ g)
+(Part 4 of 4) If \(g\) is differentiable at \(x\) and \(f\) is differentiable at \(g(x)\), then 
+\begin{align*}
+  \frac{d}{dx} (f \circ g)
     &= f'(g(x)) g'(x)
     &&\text{(the chain rule)}
-  \end{align*}
+\end{align*}
 
-  \hrule
+\hrule
 
-  \faExclamationTriangle{} We are expected to \hlmain{remember and apply} these formulas to solve problems involving derivatives during the midterm test and the final exam. There \hlwarn{will not} be a formula sheet containing these formulas.
+\faExclamationTriangle{} We are expected to \hlmain{remember and apply} these formulas to solve problems involving derivatives during the midterm test and the final exam. There \hlwarn{will not} be a formula sheet containing these formulas.
 
 \end{document}

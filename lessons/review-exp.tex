@@ -1,111 +1,120 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Review of exponential functions and logarithms}
-  A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\) is called an \hlmain{exponential function with base \(b\)} and exponent \(x\). Within the context of our textbook, every exponential function \(b^{x}\) has an \hlsupp{inverse} called the \hlmain{logarithmic function with base \(b\)}, denoted by \(\log_{b}(x)\). \newline
-  {\scriptsize Some authors allow \(1^{x}\) to be an exponential function. However, \(1^{x}\) is a constant function and does not have an inverse.}
+A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\) is called an \hlmain{exponential function with base \(b\)} and exponent \(x\). Within the context of our textbook, every exponential function \(b^{x}\) has an \hlsupp{inverse} called the \hlmain{logarithmic function with base \(b\)}, denoted by \(\log_{b}(x)\). \newline
+{\scriptsize Some authors allow \(1^{x}\) to be an exponential function. However, \(1^{x}\) is a constant function and does not have an inverse.}
 
-  \begin{center}
-    \begin{tabular}{l|p{1in}|p{1in}}
+\begin{center}
+  \begin{tabular}{l|p{1in}|p{1in}}
     & Domain & Range \\\midrule
-      \(b^{x}\) & & \\\midrule
-      \(\log_{b}(x)\) & &
-    \end{tabular}
-  \end{center}
+    \(b^{x}\) & & \\\midrule
+    \(\log_{b}(x)\) & &
+  \end{tabular}
+\end{center}
 
-  \faExclamationTriangle{} We will skip reviewing \hlmain{sketching} exponential and logarithmic functions during the lecture. Sketching is \hlwarn{examinable} but relatively straightforward to review independently.
-
-
-  The number \(e\) is a very special (transcendental) constant whose definition is \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). Whenever you see this limit, you can write down \(e\) as the answer with justification ``by definition.''
-  \bigskip
-
-  The function \(e^{x}\) is special for a variety of reasons. One of them is \((e^{x})' = e^{x}\).
-  \begin{mdframed}[style=simple]
-    The \hlmain{natural} exponential function is \(e^{x}\) and the \hlmain{natural} logarithm is \(\ln(x) = \log_{e}(x)\).
-    \begin{equation} \label{eq:exp-log}
-      e^{\ln(x)} = x \text{ on } \underline{\hspace{1in}} \quad\text{and}\quad \ln(e^{x}) = x \text{ on } \underline{\hspace{1in}}.
-    \end{equation}
-
-    The goal of this lesson is to consolidate all of our knowledge of all exponential functions to Equation~\eqref{eq:exp-log} and the \hlmain{change-of-base} trick
-    \begin{equation} \label{eq:exp-change-of-base}
-      b = \underline{\hspace{1in}}, \text{ but only works when } \underline{\hspace{2cm}}.
-    \end{equation}
-  \end{mdframed}
-  We should recall how exponents work: \(e^{a}e^{b} = \underline{\hspace{1in}}\) and \((e^{a})^{b} = \underline{\hspace{1in}}\) for any \(a,b\).
-
-  \begin{example} \label{ex:change-base-to-e}
-    Let \(b\) be a constant so that \(b > 0\) and \(b \ne 1\).  Change \(b^{x}\) and \(\log_{b}(x)\) to base \(e\). 
-
-    \blanklines{15}
-  \end{example}
-  \clearpage
+\faExclamationTriangle{} We will skip reviewing \hlmain{sketching} exponential and logarithmic functions during the lecture. Sketching is \hlwarn{examinable} but relatively straightforward to review independently.
 
 
-  \begin{example}[Change-of-Base Formulas \faBookReader{} page 105]
-    Let \(a,b\) be constants so that \(a > 0, a \ne 1\) and \(b > 0, b \ne 1\).  
-    Change \(b^{x}\) and \(\log_{b}(x)\) to base \(a\). \newline
-    \faExclamationTriangle{} This is a good exercise. However, for all practical applications, we almost always change base to \(e\) as we do in Example~\ref{ex:change-base-to-e}.
+The number \(e\) is a very special (transcendental) constant whose definition is \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). Whenever you see this limit, you can write down \(e\) as the answer with justification ``by definition.''
+\bigskip
 
-    \blanklines{20}
-  \end{example}
+The function \(e^{x}\) is special for a variety of reasons. One of them is \((e^{x})' = e^{x}\).
+\begin{mdframed}[style=simple]
+  The \hlmain{natural} exponential function is \(e^{x}\) and the \hlmain{natural} logarithm is \(\ln(x) = \log_{e}(x)\).
+  \begin{equation} \label{eq:exp-log}
+    e^{\ln(x)} = x \text{ on } \underline{\hspace{1in}} \quad\text{and}\quad \ln(e^{x}) = x \text{ on } \underline{\hspace{1in}}.
+  \end{equation}
 
+  The goal of this lesson is to consolidate all of our knowledge of all exponential functions to Equation~\eqref{eq:exp-log} and the \hlmain{change-of-base} trick
+  \begin{equation} \label{eq:exp-change-of-base}
+    b = \underline{\hspace{1in}}, \text{ but only works when } \underline{\hspace{2cm}}.
+  \end{equation}
+\end{mdframed}
+We should recall how exponents work: \(e^{a}e^{b} = \underline{\hspace{1in}}\) and \((e^{a})^{b} = \underline{\hspace{1in}}\) for any \(a,b\).
 
-  We have probably memorized the following logarithmic identities. Let's use the change-of-base trick to defend against potential faulty memory.
+\begin{example} \label{ex:change-base-to-e}
+  Let \(b\) be a constant so that \(b > 0\) and \(b \ne 1\).  Change \(b^{x}\) and \(\log_{b}(x)\) to base \(e\). 
 
-  \begin{example}[Properties of Logarithms \faBookReader{} page 103]
-    Let \(a,b\) be positive constants so that \(a \ne 1\) and \(b \ne 1\). Use Equation~\eqref{eq:exp-change-of-base} to deduce and remember these frequently used identities.
-    \[
-      \ln(a^{x}) = x \ln(a),
-      \qquad
-      \ln(ab) = \ln(a) + \ln(b),
-      \qquad
-      \ln(a/b) = \ln(a) - \ln(b).
-    \]
-  \end{example}
   \blanklines{15}
-  \clearpage
+\end{example}
+\clearpage
 
-  \begin{example}
-    Solve the equation \(\frac{e^{2x}}{2^{x}} = 3\).
 
-    \blanklines{20}
-  \end{example}
+\begin{example}[Change-of-Base Formulas \faBookReader{} page 105]
+  Let \(a,b\) be constants so that \(a > 0, a \ne 1\) and \(b > 0, b \ne 1\).  
+  Change \(b^{x}\) and \(\log_{b}(x)\) to base \(a\). \newline
+  \faExclamationTriangle{} This is a good exercise. However, for all practical applications, we almost always change base to \(e\) as we do in Example~\ref{ex:change-base-to-e}.
 
-  \begin{example}
-    Solve the equation \(\ln \sqrt{x - 1} = 0\). 
-    \blanklines{10}
-  \end{example}
+  \blanklines{20}
+\end{example}
 
-  \begin{example}
-    Solve the equation \(2^{3x - 1} = e\).
-    \blanklines{10}
-  \end{example}
-  \clearpage
 
-  \faStar{} Equation~\eqref{eq:exp-change-of-base} can be used to rewrite ``weird'' exponential-like functions, such as \(x^{x}\) or \((1+x)^{\sin(x)}\), into familiar forms. This technique is demonstrated below and is relevant later in evaluating limits and derivatives of such functions.
+We have probably memorized the following logarithmic identities. Let's use the change-of-base trick to defend against potential faulty memory.
 
-  \begin{example} \label{ex:x-to-x}
-    Find a function \(f(x)\) so that \(x^{x} = e^{f(x)}\). Assume \(x > 0\). \newline
-    \blanklines{5}
+\begin{example}[Properties of Logarithms \faBookReader{} page 103]
+  Let \(a,b\) be positive constants so that \(a \ne 1\) and \(b \ne 1\). Use Equation~\eqref{eq:exp-change-of-base} to deduce and remember these frequently used identities.
+  \[
+    \ln(a^{x}) = x \ln(a),
+    \qquad
+    \ln(ab) = \ln(a) + \ln(b),
+    \qquad
+    \ln(a/b) = \ln(a) - \ln(b).
+  \]
+\end{example}
 
-    (Preview). Find the derivative of \(x^{x}\). Requires the chain rule.
-    \blanklines{5}
-  \end{example}
+\blanklines{15}
+\clearpage
 
-  \begin{example}
-    Rewrite the function \(x^{-\arctan(x)}\) into a more familiar form. Assume \(x > 0\). 
-    \blanklines{5}
+\begin{example}
+  Solve the equation \(\frac{e^{2x}}{2^{x}} = 3\).
 
-    (Preview) Evaluate \(\lim_{x \to \infty} x^{-\arctan(x)}\). Requires some understanding of continuity.
-    \blanklines{5}
-  \end{example}
+  \blanklines{20}
+\end{example}
 
-  \begin{example}
-    Rewrite the function \(\left(\frac{1}{x+2}\right)^{\sin(x)}\) into a more familiar form. Assume \(x > -2\). 
-    \blanklines{5}
+\begin{example}
+  Solve the equation \(\ln \sqrt{x - 1} = 0\). 
 
-    (Preview) Find the derivative of \(\left(\frac{1}{x+2}\right)^{\sin(x)}\). 
-    \blanklines{5}
-  \end{example}
+  \blanklines{10}
+\end{example}
+
+\begin{example}
+  Solve the equation \(2^{3x - 1} = e\).
+
+  \blanklines{10}
+\end{example}
+\clearpage
+
+\faStar{} \hlmain{Change base to \(e\)} means apply Equation~\eqref{eq:exp-change-of-base} and is a \hlmain{powerful universal method} to deal with \enquote{weird} exponential-like functions, such as \(x^{x}\) or \((1+x)^{\sin(x)}\). This technique will be relevant in evaluating limits and derivatives of such functions.
+
+\begin{example} \label{ex:x-to-x}
+  Rewrite the function \(x^{x}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}. 
+
+  \blanklines{5}
+
+  (Preview). Find the derivative of \(x^{x}\). Requires the chain rule.
+
+  \blanklines{5}
+\end{example}
+
+\begin{example}
+  Rewrite the function \(\left(1 + \frac{1}{2x}\right)^{3x}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}. 
+
+  \blanklines{5}
+
+  (Preview). Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{2x}\right)^{3x}\). Requires l'H\^opital's rule.
+
+  \blanklines{5}
+\end{example}
+
+\begin{example}
+  Rewrite the function \(\left(\frac{1}{x+2}\right)^{\sin(x)}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}. 
+
+  \blanklines{5}
+
+  (Preview) Find the derivative of \(\left(\frac{1}{x+2}\right)^{\sin(x)}\). 
+
+  \blanklines{5}
+\end{example}
 
 \end{document}
 

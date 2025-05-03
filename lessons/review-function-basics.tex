@@ -1,209 +1,209 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Review of functions}
-  \begin{example}
-    Which of the following is \hlwarn{not} a function?
-    \begin{enumerate}[label=(\alph*)]
-      \item \(h = \frac{7t^{3} + 2t^{2} + 5}{t - 1}\).
-      \item \(y = x^{2} - 1\).
-      \item \(x^{2} + y^{2} = 1\).
-      \item \(x^{x}\) for \(x > 0\).
-      \item \(g(x) = \begin{cases} x^{2} + 1 & x > 3\\ \sqrt{x} & x \le 3 \end{cases}\).
-    \end{enumerate}
-  \end{example} 
+\begin{example}
+  Which of the following is \hlwarn{not} a function?
+  \begin{enumerate}[label=(\alph*)]
+    \item \(h = \frac{7t^{3} + 2t^{2} + 5}{t - 1}\).
+    \item \(y = x^{2} - 1\).
+    \item \(x^{2} + y^{2} = 1\).
+    \item \(x^{x}\) for \(x > 0\).
+    \item \(g(x) = \begin{cases} x^{2} + 1 & x > 3\\ \sqrt{x} & x \le 3 \end{cases}\).
+  \end{enumerate}
+\end{example} 
 
 
-  A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses a certain dependence between two quantities: the \hlsupp{independent} variable \(x\) and the \hlsupp{dependent} variable \(y\).
-  \vspace{1em}
+A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses a certain dependence between two quantities: the \hlsupp{independent} variable \(x\) and the \hlsupp{dependent} variable \(y\).
+\vspace{1em}
 
-  \begin{mdframed}[style=withref]
-    A function \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{2in}} output.
-    \begin{enumerate}
-      \item The set of inputs is called \underline{\hspace{1in}}.
-      \item The set of outputs is called \underline{\hspace{1in}}.
-    \end{enumerate}
+\begin{mdframed}[style=withref]
+  A function \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{2in}} output.
+  \begin{enumerate}
+    \item The set of inputs is called \underline{\hspace{1in}}.
+    \item The set of outputs is called \underline{\hspace{1in}}.
+  \end{enumerate}
 
-    \textbook{Page 8}
-  \end{mdframed}
+  \textbook{Page 8}
+\end{mdframed}
 
-  \blanklines{5}
+\blanklines{5}
 
-  \begin{example}
-    What are the domain and range of \(\sqrt{x^{2} + 4}\)?
-
-    \blanklines{8}
-  \end{example}
-
-  To \hlmain{evaluate} a function \(f(x)\) at \(x = a\) means to \underline{\hspace{3in}}
-
-  \blanklines{5}
-
-  \clearpage
-  Let's talk a little bit about study skills. 
-
-  \begin{mdframed}[style=simple]
-    \begin{enumerate}
-      \item Remember \underline{\hspace{4in}}
-      \item Ask \underline{\hspace{4.5in}}
-      \item Practise \underline{\hspace{4.2in}} 
-    \end{enumerate}
-  \end{mdframed}
-
-
-  \begin{example}
-    Let's practise these study skills by playing with the concept of \emph{increasing} functions.
-
-    \faComments{} Which function(s) is (are) increasing on the interval \([1,3]\)?
-
-    \begin{center}
-      \includestandalone[page=1]{../standalones/plot-increasing}
-      \quad
-      \includestandalone[page=2]{../standalones/plot-increasing}
-      \quad
-      \includestandalone[page=3]{../standalones/plot-increasing}
-    \end{center}
-    \blanklines{28}
-  \end{example}
-
-  \begin{example}
-    Review \hlmain{piecewise-defined functions} by reading page 50 and 51 of the textbook pdf.  What questions did you ask yourself? Bring these questions to class next Monday.
-  \end{example}
-  \clearpage
-
-  Let's more or less follow the textbook order and review linear functions and slopes.
-
-  \begin{example}
-    Describe the following line \(L\) \hlinfo{in words} in two different ways.
-
-    \includestandalone[page=1]{../standalones/plot-line}
-  \end{example}
-
-  The \hlmain{point-slope form} of a line is an equation \underline{\hspace{2in}}.
+\begin{example}
+  What are the domain and range of \(\sqrt{x^{2} + 4}\)?
 
   \blanklines{8}
+\end{example}
 
-  The \hlmain{slope-intercept form} of a line is an equation \underline{\hspace{2in}}.
+To \hlmain{evaluate} a function \(f(x)\) at \(x = a\) means to \underline{\hspace{3in}}
 
-  \blanklines{8}
+\blanklines{5}
 
-  The \hlmain{standard form} of a line is an equation \underline{\hspace{2in}}. \newline
-  {\scriptsize \faExclamationTriangle{} Note that the textbook has a typo in the definition of the standard form.}
+\clearpage
+Let's talk a little bit about study skills. 
 
-  \blanklines{6}
+\begin{mdframed}[style=simple]
+  \begin{enumerate}
+    \item Remember \underline{\hspace{4in}}
+    \item Ask \underline{\hspace{4.5in}}
+    \item Practise \underline{\hspace{4.2in}} 
+  \end{enumerate}
+\end{mdframed}
 
-  \faComments{} Is the standard form of a line unique?
-  \clearpage
 
-  We review some common functions (nouns) and operations (verbs) because functions that describe natural phenomena are often created by ``putting together'' basic functions.
+\begin{example}
+  Let's practise these study skills by playing with the concept of \emph{increasing} functions.
 
-  \begin{example}
-    For each class of basic functions below, write down one or two examples and its general form.
+  \faComments{} Which function(s) is (are) increasing on the interval \([1,3]\)?
 
-    \begin{center}
-      \begin{tabular}{p{1.25in}p{3.5in}|p{1.5in}}
-      & Examples & General Form \\\midrule
-        Power \newline functions & & \\[0.75in]\midrule
-        Polynomials & & \\[0.75in]\midrule
-        Trigonometric \newline functions & & \\[0.75in]\midrule
-        Inverse \newline trigonometric \newline functions & & \\[0.75in]\midrule
-        Exponential \newline functions & & \\[0.75in]\midrule
-        Inverse \newline exponential \newline functions & & \\[0.75in]
-      \end{tabular}
-    \end{center}
-  \end{example}
-
-  \faComments{} Is \(\frac{x^{2}-1}{\sqrt{x-1}}\) a rational function?
-
-  \blanklines{6}
-  \clearpage
-
-  Common operations on functions are
-  \[
-    + \hspace{0.75in}
-    - \hspace{0.75in}
-    \times \hspace{0.75in}
-    \div \hspace{0.75in}
-    \circ
-  \]
-
-  \blanklines{12}
-
-  \faExclamationTriangle{}
-  Note \(f \cdot g\) and \(f \circ g\) are \underline{\hlwarn{not}} (always) the same function!
-
-  \blanklines{5}
-
-  \begin{example} \label{ex:review-circ}
-    Suppose \(f(x) = \sqrt{x}\) and \(g(x) = \frac{x^{2}-1}{\sqrt{x-1}}\). Write down \(f \circ g\) and \(g \circ f\).
-
-    \blanklines{20}
-
-    \faComments{} What does Example~\ref{ex:review-circ} teach us about function composition?
-
-    \blanklines{3}
-  \end{example}
-  \clearpage
-
-  Review of some terminologies. 
-  \begin{itemize}[wide, noitemsep]
-    \item A \hlmain{root function} is a power function of the form \(x^{1/n}\) or \(\sqrt[n]{x}\) where \(n\) is a \hlsupp{positive} integer. 
-
-      \blanklines{5}
-
-    \item A \hlmain{rational power} is a power function of the form \(x^{p/q}\) where \(p,q\) are integers but \(q \ne 0\).
-
-      \blanklines{5}
-
-    \item Functions that involve \(+, -, \times, \div\), roots and \hlwarn{rational powers} are called \hlmain{algebraic functions}. 
-
-      \blanklines{5}
-
-    \item If a function is \hlsupp{not} algebraic, then it is called a \hlmain{transcendental function}.
-
-      \blanklines{5}
-
-    \item A \hlmain{zero} of a function \(f(x)\) is a \hlsupp{number \(r\)} (in its domain) so that \(f(r) = 0\).  Graphically, zeros of a function are also called its \hlmain{\underline{\hspace{1in}} intercept} or \hlmain{\underline{\hspace{1in}}}.
-
-      \blanklines{5}
-  \end{itemize}
-
-  Let's take a short break and chat a bit about philosophy. \faComments{} Why learn mathematics when computers seem capable of all sorts of computations? \faComments{} What separates human understanding of mathematics from software computations?
-
-  \blanklines{15}
-  \clearpage
-
-  Shifting (aka translation) and scaling are two basic types of transformation on functions.
-
-  \hlmain{Shift}: \(f(x + a) + b\) creates a new function from \(f(x)\) by moving the axes so that the new origin is at the point \((a, -b)\).
-
-  \blanklines{18}
-
-  \hlmain{Scale}: \(\beta f(\alpha x)\) creates a new function from \(f(x)\) by scaling \hlsupp{\underline{\hspace{2in}} by \(\alpha\)} but \hlwarn{\underline{\hspace{2in}} by \(\beta\)}.
-
+  \begin{center}
+    \includestandalone[page=1]{../standalones/plot-increasing}
+    \quad
+    \includestandalone[page=2]{../standalones/plot-increasing}
+    \quad
+    \includestandalone[page=3]{../standalones/plot-increasing}
+  \end{center}
   \blanklines{28}
+\end{example}
 
-  \clearpage
-  \begin{example}
-    Sketch \(f(x) = \arctan(-2x) + \pi/4\) without using any software or calculators.
+\begin{example}
+  Review \hlmain{piecewise-defined functions} by reading page 50 and 51 of the textbook pdf.  What questions did you ask yourself? Bring these questions to class next Monday.
+\end{example}
+\clearpage
 
-    
-    \includestandalone[page=1]{../standalones/plot-exercise-sketch}
+Let's more or less follow the textbook order and review linear functions and slopes.
 
-    \blanklines{10}
+\begin{example}
+  Describe the following line \(L\) \hlinfo{in words} in two different ways.
 
-    \includestandalone[page=2]{../standalones/plot-exercise-sketch}
+  \includestandalone[page=1]{../standalones/plot-line}
+\end{example}
 
-  \end{example}
+The \hlmain{point-slope form} of a line is an equation \underline{\hspace{2in}}.
 
-  Why is sketching ``manually'' useful? Consider evaluating \(\lim_{x \to \infty} \left( \arctan(-2x) + \pi/4 \right)\) (which is a common question). The sketch above tells you the answer immediately!
-  \clearpage
+\blanklines{8}
 
-  \begin{example}
-    Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without using any software or calculators.
+The \hlmain{slope-intercept form} of a line is an equation \underline{\hspace{2in}}.
 
-    {\scriptsize This question is a bit tricky.}
+\blanklines{8}
 
-    \blanklines{50}
-  \end{example}
+The \hlmain{standard form} of a line is an equation \underline{\hspace{2in}}. \newline
+{\scriptsize \faExclamationTriangle{} Note that the textbook has a typo in the definition of the standard form.}
+
+\blanklines{6}
+
+\faComments{} Is the standard form of a line unique?
+\clearpage
+
+We review some common functions (nouns) and operations (verbs) because functions that describe natural phenomena are often created by ``putting together'' basic functions.
+
+\begin{example}
+  For each class of basic functions below, write down one or two examples and its general form.
+
+  \begin{center}
+    \begin{tabular}{p{1.25in}p{3.5in}|p{1.5in}}
+      & Examples & General Form \\\midrule
+      Power \newline functions & & \\[0.75in]\midrule
+      Polynomials & & \\[0.75in]\midrule
+      Trigonometric \newline functions & & \\[0.75in]\midrule
+      Inverse \newline trigonometric \newline functions & & \\[0.75in]\midrule
+      Exponential \newline functions & & \\[0.75in]\midrule
+      Inverse \newline exponential \newline functions & & \\[0.75in]
+    \end{tabular}
+  \end{center}
+\end{example}
+
+\faComments{} Is \(\frac{x^{2}-1}{\sqrt{x-1}}\) a rational function?
+
+\blanklines{6}
+\clearpage
+
+Common operations on functions are
+\[
+  + \hspace{0.75in}
+  - \hspace{0.75in}
+  \times \hspace{0.75in}
+  \div \hspace{0.75in}
+  \circ
+\]
+
+\blanklines{12}
+
+\faExclamationTriangle{}
+Note \(f \cdot g\) and \(f \circ g\) are \underline{\hlwarn{not}} (always) the same function!
+
+\blanklines{5}
+
+\begin{example} \label{ex:review-circ}
+  Suppose \(f(x) = \sqrt{x}\) and \(g(x) = \frac{x^{2}-1}{\sqrt{x-1}}\). Write down \(f \circ g\) and \(g \circ f\).
+
+  \blanklines{20}
+
+  \faComments{} What does Example~\ref{ex:review-circ} teach us about function composition?
+
+  \blanklines{3}
+\end{example}
+\clearpage
+
+Review of some terminologies. 
+\begin{itemize}[wide, noitemsep]
+  \item A \hlmain{root function} is a power function of the form \(x^{1/n}\) or \(\sqrt[n]{x}\) where \(n\) is a \hlsupp{positive} integer. 
+
+    \blanklines{5}
+
+  \item A \hlmain{rational power} is a power function of the form \(x^{p/q}\) where \(p,q\) are integers but \(q \ne 0\).
+
+    \blanklines{5}
+
+  \item Functions that involve \(+, -, \times, \div\), roots and \hlwarn{rational powers} are called \hlmain{algebraic functions}. 
+
+    \blanklines{5}
+
+  \item If a function is \hlsupp{not} algebraic, then it is called a \hlmain{transcendental function}.
+
+    \blanklines{5}
+
+  \item A \hlmain{zero} of a function \(f(x)\) is a \hlsupp{number \(r\)} (in its domain) so that \(f(r) = 0\).  Graphically, zeros of a function are also called its \hlmain{\underline{\hspace{1in}} intercept} or \hlmain{\underline{\hspace{1in}}}.
+
+    \blanklines{5}
+\end{itemize}
+
+Let's take a short break and chat a bit about philosophy. \faComments{} Why learn mathematics when computers seem capable of all sorts of computations? \faComments{} What separates human understanding of mathematics from software computations?
+
+\blanklines{15}
+\clearpage
+
+Shifting (aka translation) and scaling are two basic types of transformation on functions.
+
+\hlmain{Shift}: \(f(x + a) + b\) creates a new function from \(f(x)\) by moving the axes so that the new origin is at the point \((a, -b)\).
+
+\blanklines{18}
+
+\hlmain{Scale}: \(\beta f(\alpha x)\) creates a new function from \(f(x)\) by scaling \hlsupp{\underline{\hspace{2in}} by \(\alpha\)} but \hlwarn{\underline{\hspace{2in}} by \(\beta\)}.
+
+\blanklines{28}
+
+\clearpage
+\begin{example}
+  Sketch \(f(x) = \arctan(-2x) + \pi/4\) without using any software or calculators.
+
+
+  \includestandalone[page=1]{../standalones/plot-exercise-sketch}
+
+  \blanklines{10}
+
+  \includestandalone[page=2]{../standalones/plot-exercise-sketch}
+
+\end{example}
+
+Why is sketching ``manually'' useful? Consider evaluating \(\lim_{x \to \infty} \left( \arctan(-2x) + \pi/4 \right)\) (which is a common question). The sketch above tells you the answer immediately!
+\clearpage
+
+\begin{example}
+  Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without using any software or calculators.
+
+  {\scriptsize This question is a bit tricky.}
+
+  \blanklines{50}
+\end{example}
 
 \end{document}

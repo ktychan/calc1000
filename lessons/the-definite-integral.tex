@@ -1,83 +1,83 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Definite integrals}
-  Everything we did in approximating areas using rectangles leads to a major concept in integration: The definite integral which is defined for all functions, not just the nonnegative ones.
-  \begin{mdframed}[style=withref-compact]
-    The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(\alpha\) to \(\beta\)}} is defined by 
-    \begin{equation} \label{eq:definite-integral} 
-      \phantom{\int_{\alpha}^{\beta} f(x) \;dx} = \hspace{3in}
-    \end{equation}
-    \hlsupp{provided} that the limit exists. If this limit exists, then we say \hlmain{\(f\) is integrable on \([\alpha,\beta]\)} or is an integrable function. 
+Everything we did in approximating areas using rectangles leads to a major concept in integration: The definite integral which is defined for all functions, not just the nonnegative ones.
+\begin{mdframed}[style=withref-compact]
+  The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(\alpha\) to \(\beta\)}} is defined by 
+  \begin{equation} \label{eq:definite-integral} 
+    \phantom{\int_{\alpha}^{\beta} f(x) \;dx} = \hspace{3in}
+  \end{equation}
+  \hlsupp{provided} that the limit exists. If this limit exists, then we say \hlmain{\(f\) is integrable on \([\alpha,\beta]\)} or is an integrable function. 
 
-    Moreover, the number \(\int_{\alpha}^{\beta} f(x) \;dx\), if exists, represents the \hlmain{net area between \(y = f(x)\) and \(y = 0\)} \hlsupp{if \(\alpha \le \beta\)}. Some literature calls this the net area ``under'' the curve.
-  \end{mdframed}
-  \[
-    \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
-  \]
-  
-  \includestandalone{../standalones/plot_definite_integral_intro}
+  Moreover, the number \(\int_{\alpha}^{\beta} f(x) \;dx\), if exists, represents the \hlmain{net area between \(y = f(x)\) and \(y = 0\)} \hlsupp{if \(\alpha \le \beta\)}. Some literature calls this the net area ``under'' the curve.
+\end{mdframed}
+\[
+  \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
+\]
 
-  \url{https://www.geogebra.org/calculator/gnfmamnj}
-  
+\includestandalone{../standalones/plot_definite_integral_intro}
+
+\url{https://www.geogebra.org/calculator/gnfmamnj}
+
   % \begin{example} \label{ex:definite-integral-area}
   %   The function \(f(x)\) is sketched below. Evaluate \(\int_{-1}^{5} f(x) \;dx\).
   %
   %   \includestandalone{../standalones/plot_definite_integral_area}
   % \end{example}
 
-  \bigskip
-  We now study properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic that of summation properties on page~\pageref{page:summation-properties}.
+\bigskip
+We now study properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic that of summation properties on page~\pageref{page:summation-properties}.
 
-  We have the usual constant multiple, sum and difference properties.
-  \begin{align*}
-    \int_{a}^{b} {\color{attn} \mathbf{C}} f(x) \;dx &= {\color{attn} \mathbf{C}} \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\
-    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\
-    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
-  \end{align*}
-  \clearpage
-    
-  Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) \hlattn{restricted} to \(1 \le m \le n\).
-  Definite integrals also have a split/merge property \hlattn{but with no restriction at all}.
-  \begin{equation} \label{eq:definite-integral-split}
-    \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx, \text{ for any } c \text{ (can be outside \([a,b]\)}).
-  \end{equation}
+We have the usual constant multiple, sum and difference properties.
+\begin{align*}
+  \int_{a}^{b} {\color{attn} \mathbf{C}} f(x) \;dx &= {\color{attn} \mathbf{C}} \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\
+  \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\
+  \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
+\end{align*}
+\clearpage
 
-  \blanklines{5}
+Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) \hlattn{restricted} to \(1 \le m \le n\).
+Definite integrals also have a split/merge property \hlattn{but with no restriction at all}.
+\begin{equation} \label{eq:definite-integral-split}
+  \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx, \text{ for any } c \text{ (can be outside \([a,b]\)}).
+\end{equation}
 
-  Here is a typical problem involving the split/merge property.
-  \begin{example} \label{ex:definite-integral-split}
-    Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\).  Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
+\blanklines{5}
 
-    \blanklines{10}
-  \end{example}
-
-  The split/merge property is \hlmain{necessary} for evaluating definite integrals of piecewise functions.
-  \begin{example}
-    Find an expression for \(\int_{-3}^{1} |(x+2)(x-1)| \;dx \) without the absolute value. 
-
-    \blanklines{20}
-  \end{example}
-  \vfill{}\clearpage
-
-  Definite integrals have a ``flip'' property (non-standard terminology) which \hlattn{does not} have a counterpart in summations.
-  \begin{equation} \label{eq:definite-integral-flip}
-    \int_{a}^{b} f(x) \;dx = \hspace{3in}
-  \end{equation}
-  Write down the limit definitions of \(\int_{a}^{b} f(x) \;dx\) and \(\int_{b}^{a} f(x) \;dx\). Notice the bounds are flipped.
-  Compare the two expressions (focus on the summands) and decide how these two integrals are related. Complete the right-hand side of Equation~\eqref{eq:definite-integral-flip}.
+Here is a typical problem involving the split/merge property.
+\begin{example} \label{ex:definite-integral-split}
+  Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\).  Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
 
   \blanklines{10}
+\end{example}
+
+The split/merge property is \hlmain{necessary} for evaluating definite integrals of piecewise functions.
+\begin{example}
+  Find an expression for \(\int_{-3}^{1} |(x+2)(x-1)| \;dx \) without the absolute value. 
+
+  \blanklines{20}
+\end{example}
+\vfill{}\clearpage
+
+Definite integrals have a ``flip'' property (non-standard terminology) which \hlattn{does not} have a counterpart in summations.
+\begin{equation} \label{eq:definite-integral-flip}
+  \int_{a}^{b} f(x) \;dx = \hspace{3in}
+\end{equation}
+Write down the limit definitions of \(\int_{a}^{b} f(x) \;dx\) and \(\int_{b}^{a} f(x) \;dx\). Notice the bounds are flipped.
+Compare the two expressions (focus on the summands) and decide how these two integrals are related. Complete the right-hand side of Equation~\eqref{eq:definite-integral-flip}.
+
+\blanklines{10}
 
   % \vfill{}\clearpage
-  \begin{example}
-    Let \(A = \int_{a}^{b} f(x) \;dx\). Which of the following is a true statement?
-    \begin{enumerate}[label=(\alph*)]
-      \item \(A = \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
-      \item \(A = - \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
-    \end{enumerate}
-    
-    \blanklines{20}
-  \end{example}
+\begin{example}
+  Let \(A = \int_{a}^{b} f(x) \;dx\). Which of the following is a true statement?
+  \begin{enumerate}[label=(\alph*)]
+    \item \(A = \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
+    \item \(A = - \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx\).
+  \end{enumerate}
+
+  \blanklines{20}
+\end{example}
 
   % \begin{example}
   %   The two endpoints of an interval are \(a,b\), and we don't know if \(a < b\) or \(a > b\). However we know that \(\int_{a}^{b} f(x) \;dx < 0\) and \(f\) is nonnegative.  
@@ -85,65 +85,65 @@
   %   Which is larger? \(a\) or \(b\)?
   %   \blanklines{10}
   % \end{example}
-  \clearpage
+\clearpage
 
-  The net area interpretation of a definite integral yields two comparison properties. For each part below, fill in the blanks with one of \(=, \le , \ge\) by interpreting definite integrals as net area.
-  \begin{enumerate}[wide, noitemsep]
-    \item If \(f(x) \le g(x)\) over \([a,b]\), then
-      \[
-        \int_{a}^{b} f(x) \;dx \underline{\hspace{2cm}} \int_{a}^{b} g(x) \;dx.
-      \]
-      \blanklines{8}
+The net area interpretation of a definite integral yields two comparison properties. For each part below, fill in the blanks with one of \(=, \le , \ge\) by interpreting definite integrals as net area.
+\begin{enumerate}[wide, noitemsep]
+  \item If \(f(x) \le g(x)\) over \([a,b]\), then
+    \[
+      \int_{a}^{b} f(x) \;dx \underline{\hspace{2cm}} \int_{a}^{b} g(x) \;dx.
+    \]
+    \blanklines{8}
 
-    \item If \(m\) and \(M\) are constants such that \(m \le f(x) \le M\) on \([a,b]\), then
-      \[
-        m(b-a) \underline{\hspace{2cm}} \int_{a}^{b} f(x) \underline{\hspace{2cm}} M(b-a).
-      \]
-      \blanklines{8}
+  \item If \(m\) and \(M\) are constants such that \(m \le f(x) \le M\) on \([a,b]\), then
+    \[
+      m(b-a) \underline{\hspace{2cm}} \int_{a}^{b} f(x) \underline{\hspace{2cm}} M(b-a).
+    \]
+    \blanklines{8}
+\end{enumerate}
+
+\begin{example}
+  A function \(f(x)\) defined on \([a,b]\) has the following properties. 
+  \begin{enumerate}
+    \item \(f\) is continuous on \([a,b]\)
+    \item \(f\) has local extrema \(-1, 3, -2\). 
+    \item \(f(a) = 1\) and \(f(b) = 0\).
+    \item \(b - a = 10\).
   \end{enumerate}
 
-  \begin{example}
-    A function \(f(x)\) defined on \([a,b]\) has the following properties. 
-    \begin{enumerate}
-      \item \(f\) is continuous on \([a,b]\)
-      \item \(f\) has local extrema \(-1, 3, -2\). 
-      \item \(f(a) = 1\) and \(f(b) = 0\).
-      \item \(b - a = 10\).
-    \end{enumerate}
-
-    Find numbers \(A,B\) so that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer. 
-
-    \blanklines{10}
-  \end{example}
-  \clearpage
- 
-  We now consider the \emph{total} area ``under'' the curve which is the area (in its usual interpretation) enclosed between \(y = f(x)\) and \(y = 0\).
+  Find numbers \(A,B\) so that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer. 
 
   \blanklines{10}
+\end{example}
+\clearpage
 
-  \begin{example}
-    Consider the following function \(f(x)\).  It is known that the only zeros of \(f\) in \([\alpha, \beta]\) are \(x = 3\) and \(x = 2\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
+We now consider the \emph{total} area ``under'' the curve which is the area (in its usual interpretation) enclosed between \(y = f(x)\) and \(y = 0\).
 
-    \includestandalone{../standalones/plot_definite_integral_intro}
+\blanklines{10}
 
-    \blanklines{20}
-  \end{example}
-  \clearpage
+\begin{example}
+  Consider the following function \(f(x)\).  It is known that the only zeros of \(f\) in \([\alpha, \beta]\) are \(x = 3\) and \(x = 2\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
+
+  \includestandalone{../standalones/plot_definite_integral_intro}
+
+  \blanklines{20}
+\end{example}
+\clearpage
 
 
-  We wrap up the discussion of the geometric interpretation of definite integrals by defining the average value of a function. 
+We wrap up the discussion of the geometric interpretation of definite integrals by defining the average value of a function. 
+
+\blanklines{10}
+
+The average value of a continuous \(f(x)\) on \([a,b]\) is
+\[
+  f_{\text{avg}} = \frac{1}{b-a} \int_{a}^{b} f(x) \;dx.
+\]
+
+\begin{example}
+  Find the average value of \(f(x) = x^{3} + \sqrt{x}\) over \((-4,0)\).
 
   \blanklines{10}
-
-  The average value of a continuous \(f(x)\) on \([a,b]\) is
-  \[
-    f_{\text{avg}} = \frac{1}{b-a} \int_{a}^{b} f(x) \;dx.
-  \]
-
-  \begin{example}
-    Find the average value of \(f(x) = x^{3} + \sqrt{x}\) over \((-4,0)\).
-
-    \blanklines{10}
-  \end{example}
+\end{example}
 
 \end{document}

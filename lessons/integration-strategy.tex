@@ -1,108 +1,126 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Problem-solving and integration}
-  The general problem-solving strategy for integration problems is very similar to those we talked about in the midterm review.
+The general problem-solving strategy for integration problems is very similar to those we talked about in the midterm review.
 
-  \begin{mdframed}[style=simple]
-    Express a problem in the language of integration and calculate the desired answer. 
-  \end{mdframed}
+\begin{mdframed}[style=simple]
+  Express a problem in the language of integration and calculate the desired answer. 
+\end{mdframed}
 
-  Most, not all, integration problems boil down to two parts.
-  \begin{enumerate}[wide, label=\textbf{Part~\arabic*}.]
-    \item Figure out the \hlmain{exact} expression to evaluate. Sometimes, you need an equation.
+Most, not all, integration problems boil down to two parts.
+\begin{enumerate}[wide, label=\textbf{Part~\arabic*}.]
+  \item Figure out the \hlmain{exact} expression to evaluate. Sometimes, you need an equation.
 
-      \begin{itemize}[wide]
-        \item Find \(F(x)\) given an expression for \(F'\) and \(F(a) = b\)?
-          \blanklines{8}
+    \begin{itemize}[wide]
+      \item Find \(F(x)\) given an expression for \(F'\) and \(F(a) = b\)?
 
-        \item Approximation?  \hlinfo{DRAW THE PICTURE and LABEL everything!}
-          \blanklines{8}
+        \blanklines{8}
 
-        \item Area between curves?  \hlinfo{DRAW THE PICTURE and LABEL everything!}
-          \blanklines{8}
+      \item Approximation?  \hlinfo{DRAW THE PICTURE and LABEL everything!}
 
-        \item Volume?  \hlinfo{DRAW THE PICTURE and LABEL everything!}
-          \blanklines{8}
+        \blanklines{8}
 
-      \end{itemize}
+      \item Area between curves?  \hlinfo{DRAW THE PICTURE and LABEL everything!}
 
-    \item \hlmain{Evaluate} the expression you wrote down. 
+        \blanklines{8}
 
-      \hlmain{\faStar{} Exam Tip}: Practise performing technical calculations quickly and accurately, so you have time during the exam to figure out a problem-solving strategy.
+      \item Volume?  \hlinfo{DRAW THE PICTURE and LABEL everything!}
 
-      \begin{itemize}
-        \item We learned three\footnote{If you take Calc~1301 or Calc~1501, then you will learn a bunch more integration techniques.} methods to evaluate indefinite integrals.
+        \blanklines{8}
 
-          \begin{enumerate}
-            \item Guess and check, a.k.a., use the table of integration. 
-              \blanklines{5}
-            \item Use properties of indefinite integrals to break up a larger integral into simpler integrals. 
-            \item Use the substitution rule to \emph{transform} a complicated integral into something we can readily evaluate.
-          \end{enumerate}
+    \end{itemize}
 
-        \item We can evaluate integrals using three different approaches as demonstrated in Assignment 4 Question 1.
+  \item \hlmain{Evaluate} the expression you wrote down. 
 
-          \begin{enumerate}
-            \item The approximation approach. 
-              \[
-                \int_{a}^{b} f(x) \;dx = \hspace{3in}
-              \]
-              \blanklines{5}
+    \hlmain{\faStar{} Exam Tip}: Practise performing technical calculations quickly and accurately, so you have time during the exam to figure out a problem-solving strategy.
 
-            \item The geometric approach. 
-              \[
-                \int_{a}^{b} f(x) \;dx = \hspace{3in}
-              \]
-              \blanklines{5}
+    \begin{itemize}
+      \item We learned three\footnote{If you take Calc~1301 or Calc~1501, then you will learn a bunch more integration techniques.} methods to evaluate indefinite integrals.
 
-            \item The FTC approach. 
-              \[
-                \int_{a}^{b} f(x) \;dx = \hspace{3in}
-              \]
-          \end{enumerate}
-      \end{itemize}
-  \end{enumerate}
+        \begin{enumerate}[wide]
+          \item Guess and check, a.k.a., use the table of integration. 
 
-  \clearpage
-  A bit more more on the substitutions rule. 
+            \blanklines{5}
 
-  \begin{example}
-    Find two different substitutions to evaluate \(\int e^{6x} \;dx\).
-    \blanklines{15}
-  \end{example}
+          \item Use properties of indefinite integrals to break up a larger integral into simpler integrals. 
+          \item Use the substitution rule to \emph{transform} a complicated integral into something we can readily evaluate.
+        \end{enumerate}
 
-  \begin{example}
-    Evaluate \(\int \frac{\ln(x)^{2} + 1}{x} \;dx\).
-    \blanklines{10}
-  \end{example}
+      \item We can evaluate integrals using three different approaches as demonstrated in Assignment 4 Question 1.
 
-  \begin{example}
-    Evaluate \(\int \cos^{2}(x) \;dx\).
-    \blanklines{15}
-  \end{example}
+        \begin{enumerate}[wide]
+          \item The approximation approach. 
+            \[
+              \int_{a}^{b} f(x) \;dx = \hspace{3in}
+            \]
 
-  \clearpage
-  An integration shortcut for simple integrals.
+            \blanklines{5}
 
-  Recall sometimes, but not always, that linear functions are good candidates for substitution in an integration problem. If we do enough problems, the following pattern emerges.
-  \begin{mdframed}[style=simple]
-    \begin{equation} \label{eq:integration-affine-substitution}
-      \int_{a}^{b} f(cx+ d) \;dx = \hspace{2in} \text{ by substituting } u = cx + d.
-    \end{equation}
+          \item The geometric approach. 
+            \[
+              \int_{a}^{b} f(x) \;dx = \hspace{3in}
+            \]
+
+            \blanklines{5}
+
+          \item The FTC approach. 
+            \[
+              \int_{a}^{b} f(x) \;dx = \hspace{3in}
+            \]
+
+            \blanklines{5}
+        \end{enumerate}
+    \end{itemize}
+\end{enumerate}
+
+\clearpage
+A bit more more on the substitutions rule. 
+
+\begin{example}
+  Find two different substitutions to evaluate \(\int e^{6x} \;dx\).
+
+  \blanklines{15}
+\end{example}
+
+\begin{example}
+  Evaluate \(\int \frac{\ln(x)^{2} + 1}{x} \;dx\).
+
+  \blanklines{10}
+\end{example}
+
+\begin{example}
+  Evaluate \(\int \cos^{2}(x) \;dx\).
+
+  \blanklines{15}
+\end{example}
+
+\clearpage
+An integration shortcut for simple integrals.
+
+Recall sometimes, but not always, that linear functions are good candidates for substitution in an integration problem. If we do enough problems, the following pattern emerges.
+\begin{mdframed}[style=simple]
+  \begin{equation} \label{eq:integration-affine-substitution}
+    \int_{a}^{b} f(cx+ d) \;dx = \hspace{2in} \text{ by substituting } u = cx + d.
+  \end{equation}
   For indefinite integrals, simply do nothing for the bounds. 
-  \end{mdframed}
-  
-  \begin{example}
-    Evaluate the following simple integrals, quickly!
+\end{mdframed}
 
-    \begin{enumerate}[wide]
-      \item \(\int_{1}^{-1} \sqrt[3]{3x + 1} \;dx = \)
-        \blanklines{10}
-      \item \(\int \frac{1}{\sqrt{1 - (x/2 + 1)^2}} \;dx = \)
-        \blanklines{10}
-      \item \(\int \frac{1}{3x-2} \;dx = \)
-        \blanklines{5}
-    \end{enumerate}
-  \end{example}
+\begin{example}
+  Evaluate the following simple integrals, quickly!
+
+  \begin{enumerate}[wide]
+    \item \(\int_{1}^{-1} \sqrt[3]{3x + 1} \;dx = \)
+
+      \blanklines{10}
+
+    \item \(\int \frac{1}{\sqrt{1 - (x/2 + 1)^2}} \;dx = \)
+
+      \blanklines{10}
+
+    \item \(\int \frac{1}{3x-2} \;dx = \)
+
+      \blanklines{5}
+  \end{enumerate}
+\end{example}
 
 \end{document}
