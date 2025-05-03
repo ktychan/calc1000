@@ -105,22 +105,16 @@
 %   \end{example}
 %
 % 
+
 \section{Sketching using derivatives}
   We know how to sketch the graph of a function by transforming the graph of certain basic functions.  This technique works for sufficiently simple function, but not complex functions. The good news is that we can use derivative tests and asymptotes to sketch the graph of many more function.
 
-  The following two pictures tell us everything about mixing increasing/decreasing and concavity.
+  Function \(x^{2}\) and \(-x^{2}\) tell us everything about mixing increasing/decreasing and concavity.
+
   \begin{center}
-    \begin{tikzpicture}
-      \begin{axis}[width=2in, xtick=\empty, ytick=\empty, xlabel={}, ylabel={}]
-        \addplot[ultra thick, domain=-1:1] {x^2};
-      \end{axis}
-    \end{tikzpicture}
-    \hspace{1in}
-    \begin{tikzpicture}
-      \begin{axis}[width=2in, xtick=\empty, ytick=\empty, xlabel={}, ylabel={}]
-        \addplot[ultra thick, domain=-1:1] {-x^2};
-      \end{axis}
-    \end{tikzpicture}
+    \includestandalone[page=1]{../standalones/plot-curve-sketching}
+    \qquad
+    \includestandalone[page=2]{../standalones/plot-curve-sketching}
   \end{center}
   \blanklines{5}
 

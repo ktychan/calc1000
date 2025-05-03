@@ -1,84 +1,110 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{L'H\^opital's rule}
-  How can we evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\)?
-  \blanklines{5}
+How can we evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\)?
 
-  A limit \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate form 
-  \begin{itemize}
-    \item of type \underline{\hspace{1in}} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are \underline{\hspace{1in}}.
-    \item of type \underline{\hspace{1in}} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are \underline{\hspace{1in}}.
-  \end{itemize}
-  \hlmain{L'H\^opital's rule} can be used to evaluate indeterminate forms. We demonstrate is application and defer to the textbook (see Theorems 4.12 on page 455 and 4.13 on page 457) for its precise statement.
-  
-  \begin{example}
-    Evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\).
-    \blanklines{10}
-  \end{example}
+\blanklines{5}
 
-  There are six types of indeterminate forms grouped as such.
+A limit \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate form 
+\begin{itemize}
+  \item of type \underline{\hspace{1in}} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are \underline{\hspace{1in}}.
+  \item of type \underline{\hspace{1in}} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are \underline{\hspace{1in}}.
+\end{itemize}
+\hlmain{L'H\^opital's rule} can be used to evaluate indeterminate forms. We demonstrate is application and defer to the textbook (see Theorems 4.12 on page 455 and 4.13 on page 457) for its precise statement.
+
+There are seven types of indeterminate forms grouped (strongly recommended) as such. 
+\[
+  \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
+\]
+
+\blanklines{3}
+
+Read \(0\) as \underline{\hspace{2in}} and \(\infty\) as \underline{\hspace{2in}}. 
+
+\blanklines{10}
+
+Why aren't these indeterminate forms?
+\[
+  \frac{\text{constant}}{\infty},\; \frac{\infty}{\text{constant}}, \hspace{0.5in} \infty \cdot \infty,\; (\text{constant}) \cdot (\text{constant}),\; \infty + \infty, \hspace{0.5in} (\text{constant} \ne 1 \text{ or } \infty)^{\infty}.
+\]
+
+\blanklines{10}
+
+\begin{example}
+  Which of the following is an indeterminate form? If it is, identify its type. 
+
   \[
-    \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
+    L_{1} = \lim_{x \to 0} x \ln(x),
+    \qquad
+    L_{2} = \lim_{x \to 1} (1-x)^{x},
+    \qquad
+    L_{3} = \lim_{x \to -\infty} 2^{2^{x}},
+    \qquad
+    L_{4} = \lim_{x \to 0} \frac{2x^{2}+1}{\cos(x)}.
   \]
-  \blanklines{3}
 
-  Read \(0\) as \underline{\hspace{3in}} and \(\infty\) as \underline{\hspace{3in}}. 
-  \blanklines{10}
+  \blanklines{30}
+\end{example}
+\clearpage
 
-  Why aren't these indeterminate forms?
+L'H\^opital's rule directly applies to indeterminate types of \(0/0\) or \(\infty/\infty\).
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} \frac{x^{2}}{e^{x}}\).
+
+  \blanklines{30}
+\end{example}
+
+\begin{example}
+  What is wrong with the following calculation?
+
   \[
-    \frac{\text{constant}}{\infty},\; \frac{\infty}{\text{constant}}, \hspace{0.5in} \infty \cdot \infty,\; (\text{constant}) \cdot (\text{constant}),\; \infty + \infty, \hspace{0.5in} (\text{constant} \ne 1 \text{ or } \infty)^{\infty}.
+    \lim_{x \to 1} \frac{\ln(x)}{2} = \lim_{x \to 1} \frac{\frac{d}{dx} \ln(x)}{\frac{d}{dx} 2} = \lim_{x \to 1} \frac{1/x}{0} = \text{does not exist ?!}
   \]
-  \blanklines{10}
-  
-  \begin{example}
-    Which of the following is an indeterminate form? If it is, identify its type. 
+\end{example}
 
-    \[
-      L_{1} = \lim_{x \to 0} x \ln(x),
-      \qquad
-      L_{2} = \lim_{x \to 1} (1-x)^{x},
-      \qquad
-      L_{3} = \lim_{x \to -\infty} 2^{2^{x}},
-      \qquad
-      L_{4} = \lim_{x \to 0} \frac{2x^{2}+1}{\cos(x)}.
-    \]
-    \blanklines{30}
-  \end{example}
-  \clearpage
+\clearpage
 
-  L'H\^opital's rule directly applies to indeterminate types of \(0/0\) or \(\infty/\infty\).
-  \begin{example}
-    Evaluate \(\lim_{x \to \infty} \frac{x^{2}}{e^{x}}\).
-    \blanklines{50}
-  \end{example}
+We can use our algebra skills to rewrite \(0 \cdot \infty\) and \(\infty - \infty\) indeterminate forms as \(0/0\) or \(\infty/\infty\).
 
-  
-  \clearpage
+\blanklines{10}
 
-  We can use our algebra skills to rewrite \(0 \cdot \infty\) and \(\infty - \infty\) indeterminate forms as \(0/0\) or \(\infty/\infty\).
-  \blanklines{5}
-  \begin{example}
-    Identify the type of the indeterminate form  \(\lim_{x \to 0^{+}} x \ln(x)\) and evaluate the limit.
-    \blanklines{20}
-  \end{example}
+\faStar{} Apply the tricks \(x = \frac{1}{1/x}\) and \(f(x) = \frac{1}{1/f(x)}\) to the \(\infty\) in the indeterminate form \(0 \cdot \infty\).
 
-  \begin{example}
-    Identify the type of the indeterminate form  \(\lim_{x \to 1^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\) and evaluate the limit.
-    \blanklines{22}
-  \end{example}
+\begin{example}
+  Evaluate \(\lim_{x \to 0^{+}} x \ln(x)\).
 
-  The method to evaluate indeterminate forms of type \(0^{0}, \infty^{0}, 1^{\infty}\) \hlsupp{borrows the idea} from logarithmic differentiation. Recall that the \emph{universal} method to deal with functions \(f(x)^{g(x)}\) is to change base to \(e\).
-  \blanklines{10}
-  \begin{example}
-    Identify the type of the indeterminate form \(\lim_{x \to \infty} x^{1/x}\) and evaluate the limit.
-    \blanklines{30}
-  \end{example}
-  \clearpage
+  \blanklines{15}
+\end{example}
 
-  \begin{example}
-      Identify the type of the indeterminate form \(\lim_{x \to \pi/2} (x - \pi/2)^{\cos(x)}\) and evaluate the limit.
-    \blanklines{50}
-  \end{example}
+\begin{example}
+  Evaluate \(\lim_{x \to 1^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\).
+
+  \blanklines{20}
+\end{example}
+\clearpage
+
+Evaluating indeterminate forms \(0^{0}, \infty^{0}, 1^{\infty}\) requires the \emph{universal method} for \(f(x)^{g(x)}\): \faStar{} Change base to \(e\).
+
+\blanklines{10}
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} x^{1/x}\).
+
+  \blanklines{30}
+\end{example}
+\clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{4x}\right)^{2x}\).
+
+  \blanklines{30}
+\end{example}
+\clearpage
+
+\begin{example}
+  Evaluate \(\lim_{x \to (\pi/2)^{+}} (x - \pi/2)^{\cos(x)}\).
+
+  \blanklines{50}
+\end{example}
 
 \end{document}

@@ -1,0 +1,66 @@
+%! TeX program = lualatex
+\documentclass[tikz, crop]{standalone}
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+
+\pgfplotsset{
+  area between curves motivation/.style = {
+    basic curve,
+    width={200pt},
+    xmin={-2}, xmax={1},
+    ymin={ 0}, ymax={4},
+    enlargelimits,
+    grid=none,
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[area between curves motivation]
+    \addplot [very thick, domain=-2:1, main]    {1+exp(x)} node[above] {\color{main} $f(x)$};
+    \addplot [very thick, domain=-2:1, supp] {1.5+sin(x)} node[below] {\color{supp} $g(x)$};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[area between curves motivation]
+    \addplot [very thick, domain=-2:1, main]    {1+exp(x)} node[above] {\color{main} $f(x)$};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[area between curves motivation]
+    \addplot [very thick, domain=-2:1, supp] {1.5+sin(x)} node[below] {\color{supp} $g(x)$};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    basic curve,
+    enlargelimits,
+    xmin={0}, xmax={pi+1/4},
+    ymin={-1}, ymax={1},
+    xtick={0, pi/2, pi},
+    xticklabels={\(0\), \(\frac{\pi}{2}\), \(\pi\)},
+    grid=none,
+    ]
+    \addplot [very thick, domain=0:pi, main] {sin(x)} node[above right] {\color{main} \(\sin(x)\)};
+    \addplot [very thick, domain=0:pi, supp] {cos(x)} node[right] {\color{supp} \(\cos(x)\)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    basic curve,
+    enlargelimits,
+    xtick={}, xticklabels={},
+    ytick={}, yticklabels={},
+    grid=none, % none, major, minor, both
+    ]
+    \addplot [very thick, domain=-3:6] {sqrt(2*x+6)};
+    \addplot [very thick, domain=-3:2] {-sqrt(2*x+6)};
+    \addplot [very thick, domain=-2:6] {x - 1};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

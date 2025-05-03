@@ -1,7 +1,7 @@
 # two generic but ignored directories
 generated
 untracked
-build
+.aux
 standalones/grid_*.tex
 
 # student data

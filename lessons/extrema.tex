@@ -13,54 +13,15 @@ Sections 4.3 (Extrema), 4.5 (Derivative Tests) and 4.7 (Optimization) are all co
     For each function below, identify \emph{all} of its absolute maximum and absolute minimum on the given interval or explain why no absolute extremum exists on the given interval.
 
     \begin{center}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[width=2.5in, axis equal, xmin=0, xmax=2, ymin=-1, ymax=1, enlargelimits=0.05, title={\(f_{1}(x)\) on \([0,2]\)}, grid=major, ylabel={}]
-          \addplot[thick, smooth] coordinates {(0,1/2) (1,1) (2,-1/2)};
-          \draw[fill=black] (axis cs:0,1/2) circle[radius=0.05];
-          \draw[fill=black] (axis cs:2,-1/2) circle[radius=0.05];
-        \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[width=2.5in, axis equal, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{2}(x)\) on \([0,2]\)}, grid=both, minor tick num=1, ylabel={}]
-          \addplot[thick, domain=0:2, smooth, samples=100] { cos(pi*x) + 1};
-          \draw[fill=black] (axis cs:0,2) circle[radius=0.05];
-          \draw[fill=black] (axis cs:2,2) circle[radius=0.05];
-        \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[width=2.5in, axis equal, xmin=-1, xmax=1, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{3}(x) = \tfrac{1}{x^{2}+1}\) on \((-\infty, \infty)\)}, xtick={-1,0,1}, xticklabels={-10,0,10}, grid=major, ylabel={}]
-          \addplot[thick, smooth, samples=100] {1/((sqrt(10)*x)^2+1)};
-        \end{axis}
-      \end{tikzpicture}
-    \end{center}
-    \vfill{}
+      \includestandalone[page=1]{../standalones/plot-extrema-intro}
+      \includestandalone[page=2]{../standalones/plot-extrema-intro}
+      \includestandalone[page=3]{../standalones/plot-extrema-intro}
 
-    \begin{center}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[width=2.5in, axis equal, xmin=0, xmax=2, ymin=-2, ymax=0, enlargelimits=0.05, title={\(f_{4}(x)\) on \((0,2)\)}, grid=major, ylabel={}]
-          \addplot[thick, domain=0:2, smooth, samples=100] {(1/5)*(x-1)/(x*(2-x))-1};
-        \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[width=2.5in, axis equal, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{5}(x)\) on \([0,2]\)}, grid=major, ylabel={}]
-          \addplot[thick] coordinates {(0,1) (1,2)};
-          \addplot[thick] coordinates {(1,1) (2,0)};
-          \draw[fill=black] (axis cs:0,1) circle[radius=0.05];
-          \draw[fill=white] (axis cs:1,2) circle[radius=0.05];
-          \draw[fill=black] (axis cs:1,1) circle[radius=0.05];
-          \draw[fill=black] (axis cs:2,0) circle[radius=0.05];
-        \end{axis}
-      \end{tikzpicture}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[width=2.5in, axis equal, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{6}(x)\) on \([0,2)\)}, grid=major, ylabel={}]
-          \addplot[thick] coordinates {(0,1) (1,2)};
-          \addplot[thick] coordinates {(1,1) (2,0)};
-          \draw[fill=black] (axis cs:0,1) circle[radius=0.05];
-          \draw[fill=white] (axis cs:1,2) circle[radius=0.05];
-          \draw[fill=black] (axis cs:1,1) circle[radius=0.05];
-          \draw[fill=white] (axis cs:2,0) circle[radius=0.05];
-        \end{axis}
-      \end{tikzpicture}
+      \vfill{}
+
+      \includestandalone[page=4]{../standalones/plot-extrema-intro}
+      \includestandalone[page=5]{../standalones/plot-extrema-intro}
+      \includestandalone[page=6]{../standalones/plot-extrema-intro}
     \end{center}
   \end{example}
 
@@ -121,7 +82,7 @@ Sections 4.3 (Extrema), 4.5 (Derivative Tests) and 4.7 (Optimization) are all co
     Consider \(f(x)\) whose graph is given below. Find all critical numbers of \(f(x)\) and identify its absolute extrema.
 
     \begin{center}
-      \includegraphics[height=3in]{../standalones/build/extrema_example_blank.pdf}
+      \includestandalone[height=3in]{../standalones/extrema_example_blank}
     \end{center}
   \end{example}
   \clearpage
@@ -148,25 +109,13 @@ Sections 4.3 (Extrema), 4.5 (Derivative Tests) and 4.7 (Optimization) are all co
     If \(c\) is a critical number, is it true that \(f(c)\) is a local extrema?
 
     \begin{center}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[xmin=-1/2, xmax=1, ymin=-1/2, ymax=1, width=2in, xtick={-1,0,1},ytick={-1,0,1},xticklabels={},yticklabels={},grid=both,minor tick num=3]
-        \end{axis}
-      \end{tikzpicture}
-      \quad
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[xmin=-1/2, xmax=1, ymin=-1/2, ymax=1, width=2in, xtick={-1,0,1},ytick={-1,0,1},xticklabels={},yticklabels={},grid=both,minor tick num=3]
-        \end{axis}
-      \end{tikzpicture}
-      \quad
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[xmin=-1/2, xmax=1, ymin=-1/2, ymax=1, width=2in, xtick={-1,0,1},ytick={-1,0,1},xticklabels={},yticklabels={},grid=both,minor tick num=3]
-        \end{axis}
-      \end{tikzpicture}
-      \quad
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[xmin=-1/2, xmax=1, ymin=-1/2, ymax=1, width=2in, xtick={-1,0,1},ytick={-1,0,1},xticklabels={},yticklabels={},grid=both,minor tick num=3]
-        \end{axis}
-      \end{tikzpicture}
+      \includestandalone[page=7]{../standalones/plot-extrema-intro}
+      \hfill
+      \includestandalone[page=7]{../standalones/plot-extrema-intro}
+      \hfill
+      \includestandalone[page=7]{../standalones/plot-extrema-intro}
+      \hfill
+      \includestandalone[page=7]{../standalones/plot-extrema-intro}
     \end{center}
   \end{example}
 

@@ -4,10 +4,7 @@
   Let's begin by making sense of the \emph{idea} behind the \hlmain{limit at infinity}. There is an apple a metre away from us. We start by taking a step \(1/2\) metre away towards the apple. Each subsequent step is half the length of the previous one. 
 
   \begin{center}
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[xmin=0, xmax=4, ymin=0, ymax=1, xlabel={steps}, ylabel={distance to apple}, xtick={1,2,3,4}, ytick={1/8, 2/8,..., 1}, yticklabels={\(1/8\),\(1/4\),,\(1/2\),,,,\(1\)}, axis equal image=false, width=4in, height=2in, grid=major, enlargelimits]
-    \end{axis}
-    \end{tikzpicture}
+    \includestandalone[page=1]{../standalones/plot-limit-at-infinity-intro}
   \end{center}
 
   \faComment{} Can we get as close to the apple as we want?
@@ -36,33 +33,33 @@
   \begin{example}
     Use the above definitions to help you sketch example functions with prescribed limits and horizontal asymptotes. Label your graphs with the name of the function. 
 
-    Each part has (a lot) more than one right answer. 
+    Each part has (a lot) more than one correct answer. 
 
     \begin{enumerate}[label=\(f_{\arabic*}\)]
       \item satisfies \(\lim_{x \to \infty} f_{1}(x) = -2\) and \(\lim_{x \to -\infty} f_{1}(x) = 3\).
       \item satisfies \(\lim_{x \to \infty} f_{2}(x) = \infty\) and \(\lim_{x \to -\infty} f_{2}(x) = 5/3\).
         \begin{center}
-          \includegraphics{../standalones/build/plot_limit_at_infinity_exercise}
+          \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
           \qquad
-          \includegraphics{../standalones/build/plot_limit_at_infinity_exercise}
+          \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
         \end{center}
 
       \item has no limits at both infinities, and \(\lim_{x \to -\infty} f_{3}(x)\) is not an infinity. 
       \item has exactly one horizontal asymptote.
 
         \begin{center}
-          \includegraphics{../standalones/build/plot_limit_at_infinity_exercise}
+          \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
           \qquad
-          \includegraphics{../standalones/build/plot_limit_at_infinity_exercise}
+          \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
         \end{center}
 
       \item has two different horizontal asymptotes.
       \item is bounded between \(y = -2\) and \(y = 2\) but has NO horizontal asymptote.
 
         \begin{center}
-          \includegraphics{../standalones/build/plot_limit_at_infinity_exercise}
+          \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
           \qquad
-          \includegraphics{../standalones/build/plot_limit_at_infinity_exercise}
+          \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
         \end{center}
     \end{enumerate}
 
@@ -88,11 +85,7 @@
   \end{example}
 
   \begin{center}
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[ymin=-5, ymax=5, xmin=-10, xmax=10, grid=both, minor tick num=3, width=7in]
-
-      \end{axis}
-    \end{tikzpicture}
+    \includestandalone[page=2]{../standalones/plot_limit_at_infinity_exercise}
   \end{center}
   
   \bigskip
@@ -116,9 +109,9 @@
   \end{equation}
   \begin{center}
     \hfill{}
-    \includegraphics[page=1]{../standalones/build/plot-limit-at-infinity-intro}
+    \includestandalone[page=2]{../standalones/plot-limit-at-infinity-intro}
     \hfill{}
-    \includegraphics[page=2]{../standalones/build/plot-limit-at-infinity-intro}
+    \includestandalone[page=3]{../standalones/plot-limit-at-infinity-intro}
     \hfill{}
   \end{center}
 

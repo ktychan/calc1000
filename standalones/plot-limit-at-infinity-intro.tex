@@ -3,7 +3,22 @@
 \input{../typography.tex.preamble}
 \input{../tikz.tex.preamble}
 
+\pgfplotsset{lesson infinite limit/.style={
+    basic curve,
+    enlargelimits,
+    grid=none,
+    xmin=-3, xmax=2,
+    ymin=-3, ymax=2,
+    yticklabel={},
+    samples=100,
+}}
+
 \begin{document}
+\begin{tikzpicture}[scale=1]
+  \begin{axis}[basic curve, xmin=0, xmax=4, ymin=0, ymax=1, xlabel={steps}, ylabel={distance to apple}, xtick={1,2,3,4}, ytick={1/8, 2/8,..., 1}, yticklabels={\(1/8\),\(1/4\),,\(1/2\),,,,\(1\)}, axis equal image=false, width=4in, height=2in, grid=major, enlargelimits]
+  \end{axis}
+\end{tikzpicture}
+
 \begin{tikzpicture}
   \begin{axis}[lesson infinite limit, ymin=-pi/2, ymax=pi/2, xmin=-3, xmax=3, enlargelimits]
     \addplot[thick, domain=0:4] {atan(x)};

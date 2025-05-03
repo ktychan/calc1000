@@ -8,37 +8,9 @@
     \lim_{h \to 0} \frac{\cos(h) - \cos(0)}{h} = 0
   \end{equation}
   \begin{center}
-    \begin{tikzpicture}
-      \tikzstyle{every node}=[font=\footnotesize];
-
-      \begin{axis}[
-        no markers,
-        xtick={0}, ytick={0},
-        enlargelimits=true, 
-        smooth, samples=100
-        ]
-        \addplot[domain=-pi:pi] { sin(x) };
-        \addplot[magenta, thick] coordinates { (-1,-1) (1,1) };
-        \fill (axis cs:0,0) circle (2pt);
-        \node[below left] at (axis cs:pi,0) {\(\sin(x)\)};
-      \end{axis}
-    \end{tikzpicture}
+    \includestandalone[page=1]{../standalones/plot-special-limits}
     \qquad
-    \begin{tikzpicture}
-      \tikzstyle{every node}=[font=\footnotesize];
-
-      \begin{axis}[
-        no markers,
-        xtick={0}, ytick={0},
-        enlargelimits=true, 
-        smooth, samples=100
-        ]
-        \addplot[domain=-pi:pi] { cos(x) };
-        \addplot[magenta, thick] coordinates { (-1,1) (1,1) };
-        \fill (axis cs:0,1) circle (2pt);
-        \node[above left] at (axis cs:pi,0) {\(\cos(x)\)};
-      \end{axis}
-    \end{tikzpicture}
+    \includestandalone[page=2]{../standalones/plot-special-limits}
   \end{center}
 
 

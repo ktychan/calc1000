@@ -15,14 +15,14 @@
     \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
   \]
   
-  \includegraphics{../standalones/build/plot_definite_integral_intro}
+  \includestandalone{../standalones/plot_definite_integral_intro}
 
   \url{https://www.geogebra.org/calculator/gnfmamnj}
   
   % \begin{example} \label{ex:definite-integral-area}
   %   The function \(f(x)\) is sketched below. Evaluate \(\int_{-1}^{5} f(x) \;dx\).
   %
-  %   \includegraphics{../standalones/build/plot_definite_integral_area}
+  %   \includestandalone{../standalones/plot_definite_integral_area}
   % \end{example}
 
   \bigskip
@@ -41,15 +41,17 @@
   \begin{equation} \label{eq:definite-integral-split}
     \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx, \text{ for any } c \text{ (can be outside \([a,b]\)}).
   \end{equation}
+
   \blanklines{5}
 
   Here is a typical problem involving the split/merge property.
   \begin{example} \label{ex:definite-integral-split}
     Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\).  Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
+
     \blanklines{10}
   \end{example}
 
-  The split/merge property is helpful (in fact, necessary) for evaluating definite integrals of piecewise functions.
+  The split/merge property is \hlmain{necessary} for evaluating definite integrals of piecewise functions.
   \begin{example}
     Find an expression for \(\int_{-3}^{1} |(x+2)(x-1)| \;dx \) without the absolute value. 
 
@@ -63,6 +65,7 @@
   \end{equation}
   Write down the limit definitions of \(\int_{a}^{b} f(x) \;dx\) and \(\int_{b}^{a} f(x) \;dx\). Notice the bounds are flipped.
   Compare the two expressions (focus on the summands) and decide how these two integrals are related. Complete the right-hand side of Equation~\eqref{eq:definite-integral-flip}.
+
   \blanklines{10}
 
   % \vfill{}\clearpage
@@ -108,7 +111,8 @@
       \item \(b - a = 10\).
     \end{enumerate}
 
-    Find numbers \(A,B\) such that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer. 
+    Find numbers \(A,B\) so that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer. 
+
     \blanklines{10}
   \end{example}
   \clearpage
@@ -120,7 +124,7 @@
   \begin{example}
     Consider the following function \(f(x)\).  It is known that the only zeros of \(f\) in \([\alpha, \beta]\) are \(x = 3\) and \(x = 2\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
 
-    \includegraphics{../standalones/build/plot_definite_integral_intro}
+    \includestandalone{../standalones/plot_definite_integral_intro}
 
     \blanklines{20}
   \end{example}
@@ -128,6 +132,7 @@
 
 
   We wrap up the discussion of the geometric interpretation of definite integrals by defining the average value of a function. 
+
   \blanklines{10}
 
   The average value of a continuous \(f(x)\) on \([a,b]\) is

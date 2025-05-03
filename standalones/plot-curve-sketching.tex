@@ -1,0 +1,32 @@
+%! TeX program = lualatex
+\documentclass[tikz, crop]{standalone}
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+
+\pgfplotsset{
+  curve sketching/.style = {
+    basic curve,
+    width={200pt},
+    axis lines=box,
+    width=2in, xtick=\empty, ytick=\empty, xlabel={}, ylabel={},
+    gray!50,
+    enlargelimits, 
+    grid=none,
+  }
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \begin{axis}[curve sketching]
+    \addplot[black, very thick, domain=-1:1] {x^2};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[curve sketching]
+    \addplot[black, very thick, domain=-1:1] {-x^2};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

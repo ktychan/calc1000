@@ -1,42 +1,43 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Derivative of inverse functions}
-  Implicit differentiation is a very powerful tool. In this section, we use implicit differentiation to find derivatives of inverse functions without doing a lot of work. 
+Implicit differentiation is a very powerful tool. In this section, we use implicit differentiation to find derivatives of inverse functions without doing a lot of work. 
 
-  \begin{example} \label{ex:intro-inverse-function-thm}
-    Suppose \(f(x) = x^{3} + 2x + 3\). Take for granted that \(f(x)\) passes the horizontal line test. Find \((f^{-1})'(6)\) using implicit differentiation.
-    \blanklines{30}
-  \end{example}
-  \faComment{} Is this really an efficient strategy? Why can't we just find a formula for \(f^{-1}\) and then calculate its derivative as usual?
-  \blanklines{10}
-  \clearpage
+\begin{example} \label{ex:intro-inverse-function-thm}
+  Suppose \(f(x) = x^{3} + 2x + 3\). Take for granted that \(f(x)\) passes the horizontal line test. Find \((f^{-1})'(6)\) using implicit differentiation.
 
-  \begin{example} \label{ex:derivative-of-arctan}
-    Find the derivative of \(\tan^{-1}(x)\) by implicitly differentiating its equivalent equation.  
-    Introduce notations as necessary.
+  \blanklines{30}
+\end{example}
+\faComment{} Is this really an efficient strategy? Why can't we just find a formula for \(f^{-1}\) and then calculate its derivative as usual?
+\blanklines{10}
+\clearpage
 
-    \blanklines{20}
-  \end{example}
-  
-  What about more complicated functions? 
-  \begin{example} \label{ex:derivative-of-arcsin}
-    Find the derivative of \(\sin^{-1}(x^{3})\).  Conventional wisdom says it's easier to start by finding a formula for \(\frac{d}{dx} \arcsin(x)\), then applying the chain rule.
+\begin{example} \label{ex:derivative-of-arctan}
+  Find the derivative of \(\tan^{-1}(x)\) by implicitly differentiating its equivalent equation.  
+  Introduce notations as necessary.
 
-    \blanklines{25}
-  \end{example}
-  \clearpage
+  \blanklines{20}
+\end{example}
 
-  The textbook describes the strategy of finding the derivative of an inverse function as a formula called the inverse function theorem. 
-  \begin{example}[The Inverse Function Theorem]
-    Deduce the inverse function theorem.  Suppose \(f(x)\) is differentiable and invertible, and let \(y = f^{-1}(x)\) be the inverse of \(f(x)\).
+What about more complicated functions? 
+\begin{example} \label{ex:derivative-of-arcsin}
+  Find the derivative of \(\sin^{-1}(x^{3})\).  Conventional wisdom says it's easier to start by finding a formula for \(\frac{d}{dx} \arcsin(x)\), then applying the chain rule.
 
-    Implicitly differentiate the equivalent equation of \(y = f^{-1}(x)\) to find a formula for \(dy/dx\).
+  \blanklines{25}
+\end{example}
+\clearpage
 
-    \blanklines{20}
-  \end{example}
+The textbook describes the strategy of finding the derivative of an inverse function as a formula called the inverse function theorem. 
+\begin{example}[The Inverse Function Theorem]
+  Deduce the inverse function theorem.  Suppose \(f(x)\) is differentiable and invertible, and let \(y = f^{-1}(x)\) be the inverse of \(f(x)\).
 
-  \faExclamationTriangle{} The Inverse Function Theorem has limited application compared to the method we introduced in Example~\ref{ex:intro-inverse-function-thm}. Why? Because to use the Inverse Function Theorem, we either need a formula for \(f^{-1}\) or need to be able to evaluate \(f'(f^{-1}(x))\). If you are interested in comparing the two methods, try finding the derivative of the inverse of \(f(x) = x^{3} + 2x^{3} + 3\) (the function in Example~\ref{ex:intro-inverse-function-thm}) using the Inverse Function Theorem. You will find that it's excruciatingly painful to get the formula of \((f^{-1})'\) we easily obtained in Example~\ref{ex:intro-inverse-function-thm}.
+  Implicitly differentiate the equivalent equation of \(y = f^{-1}(x)\) to find a formula for \(dy/dx\).
 
-  
+  \blanklines{20}
+\end{example}
+
+\faExclamationTriangle{} The Inverse Function Theorem has limited application compared to the method we introduced in Example~\ref{ex:intro-inverse-function-thm}. Why? Because to use the Inverse Function Theorem, we either need a formula for \(f^{-1}\) or need to be able to evaluate \(f'(f^{-1}(x))\). If you are interested in comparing the two methods, try finding the derivative of the inverse of \(f(x) = x^{3} + 2x^{3} + 3\) (the function in Example~\ref{ex:intro-inverse-function-thm}) using the Inverse Function Theorem. You will find that it's excruciatingly painful to get the formula of \((f^{-1})'\) we easily obtained in Example~\ref{ex:intro-inverse-function-thm}.
+
+
 
 \end{document}

@@ -1,110 +1,209 @@
-\documentclass[multi=tikzpicture,drop]{standalone}
+\documentclass[multi=tikzpicture,crop]{standalone}
 
 \input{../typography.tex.preamble}
 \input{../tikz.tex.preamble}
+\renewcommand{\arcsin}{\sin^{-1}}
+\renewcommand{\arccos}{\cos^{-1}}
+\renewcommand{\arctan}{\tan^{-1}}
+
+\pgfplotsset{
+  trigs/.style = {
+    basic curve,
+    xmin={-1.5*pi-pi/6}, xmax={1.5*pi+pi/6},
+    xlabel=\empty, ylabel=\empty,
+    xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
+    xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
+    grid=none,
+    samples=500,
+    domain={-2*pi-pi/6}:{2*pi+pi/6},
+  },
+  sincos/.style = {
+    trigs,
+    ymin={-1.2}, ymax={1.2},
+  },
+  tansec/.style = {
+    trigs,
+    ymin={-1.2}, ymax={1.2},
+    restrict y to domain=-5.25:5.25,
+    ymin={-3.25}, ymax={3.25},
+    ytick={-5, -4, -3, -2,-1,0,1, 2, 3, 4, 5},
+    yticklabels={,-4,,-2,,0,,2,,4,},
+  }
+}
+
+\pgfplotsset{
+  inverse trigs/.style = {
+    basic curve,
+    xlabel=\empty, ylabel=\empty,
+    xtick distance={2},
+    grid=none,
+    samples=500,
+  },
+  arcsin/.style = {
+    inverse trigs,
+    xmin={-1.2}, xmax={1.2},
+    xtick={-1,0,1},
+    ytick={-pi, -pi/2, 0, pi/2, pi},
+    yticklabels={\(-\pi\), \(-\pi/2\), 0, \(\pi/2\), \(\pi\)},
+    domain={-1}:{1},
+  },
+  arctan/.style = {
+    inverse trigs,
+    xmin={-3.5}, xmax={3.5},
+    ytick={-pi, -pi/2, 0, pi/2, pi},
+    yticklabels={\(-\pi\), \(-\pi/2\), 0, \(\pi/2\), \(\pi\)},
+    domain={-3.5}:{3.5},
+  },
+}
 
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[
-    ymin={-1.5},
-    ymax={1.5},
-    ytick={-1,0,1},
-    xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
-    xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
-    ]
-
-    \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {sin(x)};
+  \begin{axis}[sincos]
+    \addplot[very thick] {sin(x)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
   \begin{axis}[
-    ymin={-1.5},
-    ymax={1.5},
-    ytick={-1,0,1},
-    xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
-    xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
+    sincos, 
+    title={\(\sin(x)\)}, 
+    xtick={-pi/2, pi/2},
+    xticklabels={\(-\pi/2\), \(\pi/2\)},
     ]
-
-    \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {cos(x)};
+    \addplot[very thick, gray!50] {sin(x)};
+    \addplot[very thick, main, domain={-pi/2}:{pi/2}] {sin(x)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
   \begin{axis}[
-      ymin={-3.25},
-      ymax={3.25},
-      restrict y to domain=-5.25:5.25,
-      ytick={-5, -4, -3, -2,-1,0,1, 2, 3, 4, 5},
-      yticklabels={,-4,,-2,,0,,2,,4,},
-      xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
-      xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
+    arcsin, 
+    title={\(\arcsin(x)\) on domain \([-1,1]\)},
+    ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
     ]
+    \addplot[very thick, main] {asin(x)};
+  \end{axis}
+\end{tikzpicture}
 
-    \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {tan(x)};
+\begin{tikzpicture}
+  \begin{axis}[sincos]
+    ]
+    \addplot[very thick] {cos(x)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[sincos, title={\(\cos(x)\)},
+    ]
+    \addplot[very thick, gray!50] {cos(x)};
+    \addplot[very thick, main, domain={0}:{pi}] {cos(x)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
   \begin{axis}[
-      ymin={-3.25},
-      ymax={3.25},
-      restrict y to domain=-5.25:5.25,
-      ytick={-5, -4, -3, -2,-1,0,1, 2, 3, 4, 5},
-      yticklabels={,-4,,-2,,0,,2,,4,},
-      xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
-      xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
+    arcsin, 
+    title={\(\arccos(x)\) on domain \([-1,1]\)},
+    ymin={0-pi/6}, ymax={pi+pi/6},
     ]
+    \addplot[very thick] {acos(x)};
+  \end{axis}
+\end{tikzpicture}
 
-    \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {cot(x)};
+\begin{tikzpicture}
+  \begin{axis}[tansec]
+    \addplot[very thick] {tan(x)};
+    \addplot[dotted] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
+    \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
+    \addplot[dotted] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
+    \addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
   \begin{axis}[
-      ymin={-3.25},
-      ymax={3.25},
-      restrict y to domain=-5.25:5.25,
-      ytick={-5, -4, -3, -2,-1,0,1, 2, 3, 4, 5},
-      yticklabels={,-4,,-2,,0,,2,,4,},
-      xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
-      xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
+    tansec, 
+    title={\(\tan(x)\)}, 
+    xtick={-pi/2, pi/2},
+    xticklabels={\(-\pi/2\), \(\pi/2\)},
     ]
-
-    \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {sec(x)};
-
-    % \addplot[main, thick, smooth, domain={-}:{pi/2}] {tan(x)};
-    % \addplot[main, smooth, dashed, domain={-pi-pi/2}:{-pi/2}] {tan(x)};
-    % \addplot[main, smooth, dashed, domain={pi/2}:{pi+pi/2}] {tan(x)};
-    % \addplot[dotted, gray] coordinates {(  -pi/2, 4) (  -pi/2, -4)};
-    % \addplot[dotted, gray] coordinates {(   pi/2, 4) (   pi/2, -4)};
-    % \addplot[dotted, gray] coordinates {(-3*pi/2, 4) (-3*pi/2, -4)};
-    % \addplot[dotted, gray] coordinates {( 3*pi/2, 4) ( 3*pi/2, -4)};
-    % \node[right] at (pi/2,2) {\footnotesize \(y = \tan(x)\)};
+    \addplot[very thick, gray!50] {tan(x)};
+    \addplot[very thick, main, domain={-pi/2}:{pi/2}] {tan(x)};
+    \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
+    \addplot[dotted, supp] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
+    \addplot[dotted, supp] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
+    \addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
   \begin{axis}[
-      ymin={-3.25},
-      ymax={3.25},
-      restrict y to domain=-5.25:5.25,
-      ytick={-5, -4, -3, -2,-1,0,1, 2, 3, 4, 5},
-      yticklabels={,-4,,-2,,0,,2,,4,},
-      xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
-      xticklabels={\(-2\pi\),,\(-\pi\),,,,\(\pi\),,\(2\pi\)},
+    arctan, 
+    title={\(\arctan(x)\) on domain \((-\infty,\infty)\)},
+    ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
     ]
-
-    \addplot[main, thick, smooth, samples=1000, domain={-2*pi-pi/6}:{2*pi+pi/6}] {1/sin(x)};
-
-    % \addplot[main, thick, smooth, domain={-}:{pi/2}] {tan(x)};
-    % \addplot[main, smooth, dashed, domain={-pi-pi/2}:{-pi/2}] {tan(x)};
-    % \addplot[main, smooth, dashed, domain={pi/2}:{pi+pi/2}] {tan(x)};
-    % \addplot[dotted, gray] coordinates {(  -pi/2, 4) (  -pi/2, -4)};
-    % \addplot[dotted, gray] coordinates {(   pi/2, 4) (   pi/2, -4)};
-    % \addplot[dotted, gray] coordinates {(-3*pi/2, 4) (-3*pi/2, -4)};
-    % \addplot[dotted, gray] coordinates {( 3*pi/2, 4) ( 3*pi/2, -4)};
-    % \node[right] at (pi/2,2) {\footnotesize \(y = \tan(x)\)};
+    \addplot[very thick, main] {atan(x)};
+    \addplot[dotted, supp] coordinates {(-10, pi/2)  ( 10, pi/2)};
+    \addplot[dotted, supp] coordinates {(-10,-pi/2)  ( 10,-pi/2)};
   \end{axis}
 \end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[tansec]
+    \addplot[very thick] {cot(x)};
+    \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
+    \addplot[dotted] coordinates {(-1*pi, 5)  (-1*pi, -5)};
+    \addplot[dotted] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
+    \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    tansec, 
+    title={$\cot(x)$}, 
+    xtick={0,pi}, 
+    xticklabels={\(0\), \(\pi\)}
+    ]
+    \addplot[very thick, gray!50] {cot(x)};
+    \addplot[very thick, main, domain={0}:{pi}] {cot(x)};
+    \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
+    \addplot[dotted, supp] coordinates {(-1*pi, 5)  (-1*pi, -5)};
+    \addplot[dotted, supp] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
+    \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    arctan, 
+    title={\(\cot^{-1}(x)\) on domain \((-\infty,\infty)\)},
+    ymin={0-pi/6}, ymax={pi+pi/6},
+    ]
+    \addplot[very thick, main] {pi/2-atan(x)};
+    \addplot[dotted, supp] coordinates {(-10, 0)  ( 10, 0)};
+    \addplot[dotted, supp] coordinates {(-10,pi)  ( 10,pi)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[tansec]
+    \addplot[very thick] {1/cos(x)};
+    \addplot[dotted] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
+    \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
+    \addplot[dotted] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
+    \addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[tansec]
+    \addplot[very thick] {1/sin(x)};
+    \addplot[dotted] coordinates {(-1*pi, 5)  (-1*pi, -5)};
+    \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
+    \addplot[dotted] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
+    \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
+  \end{axis}
+\end{tikzpicture}
+
 \end{document}

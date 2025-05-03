@@ -1,10 +1,14 @@
-\documentclass{standalone}
+\documentclass[tikz]{standalone}
 \input{../typography.tex.preamble}
 \input{../tikz.tex.preamble}
 
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[xmin={-5}, xmax={5}, ymin={-3}, ymax={3}, grid=both, minor tick num=3]
+  \begin{axis}[basic curve, xmin={-4}, xmax={4}, ymin={-3}, ymax={3}, grid=both, minor tick num=1, enlargelimits]
+  \end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[basic curve, xmin={-10}, xmax={10}, ymin={-5}, ymax={5}, grid=both, minor tick num=1, xtick distance={2}, ytick distance={2}, width={6in}]
   \end{axis}
 \end{tikzpicture}
 \end{document}

@@ -1,22 +1,16 @@
 LATEXMK=latexmk -halt-on-error -interaction=nonstopmode
-COURSE="Calc_1000A_002_F24"
+COURSE="Calc_1000A_002_F25"
 
 .PHONY: all clean standalones main publish
 
 all: publish
 
 clean:
-	rm -rf **/build
-	rm -rf standalones/build
-	rm -rf publish/*.tex publish/build
+	rm -rf **/.aux
 
 standalones: 
 	${LATEXMK} standalones/plot_net_area.tex
 	${LATEXMK} standalones/*.tex
-
-appendix: 
-	${LATEXMK} -jobname="${COURSE}_appendix_%A" appendix/*.tex
-	cp -vf appendix/build/${COURSE}_*.pdf ./
 
 main: standalones
 	rm -rf publish/*.tex

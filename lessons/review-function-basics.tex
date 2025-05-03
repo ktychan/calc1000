@@ -25,14 +25,17 @@
 
     \textbook{Page 8}
   \end{mdframed}
+
   \blanklines{5}
 
   \begin{example}
     What are the domain and range of \(\sqrt{x^{2} + 4}\)?
+
     \blanklines{8}
   \end{example}
 
   To \hlmain{evaluate} a function \(f(x)\) at \(x = a\) means to \underline{\hspace{3in}}
+
   \blanklines{5}
 
   \clearpage
@@ -53,119 +56,11 @@
     \faComments{} Which function(s) is (are) increasing on the interval \([1,3]\)?
 
     \begin{center}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[
-          axis lines = middle, % boxed, middle
-          axis equal image,
-          width=2in,
-          %
-          % domain and range
-          %
-          xmin={1}, xmax={3},
-          ymin={1}, ymax={3},
-          enlargelimits=true,
-          %
-          % axis labels
-          %
-          xlabel={\(x\)}, xlabel style={anchor=west},
-          ylabel={\(y\)}, ylabel style={anchor=south},
-          label style={at={(ticklabel* cs:1)}},
-          %
-          % ticks
-          %
-          % xtick={}, xticklabels={},
-          % ytick={}, yticklabels={},
-          ticklabel style={font=\footnotesize},
-          %
-          % grid
-          % none, major, minor, both
-          grid=none, grid style={gray!20},
-          % minor tick num=1, 
-          % minor grid style={gray!20},
-          % 
-          % plot parameters
-          %
-          samples=100, no markers,
-          ]
-          \addplot[thick] coordinates {(1, 1) (3, 3)} node[left] {\footnotesize \(f(x)\)}; % f(x)
-        \end{axis}
-      \end{tikzpicture}
-      \hspace{0.5in}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[
-          axis lines = middle, % boxed, middle
-          axis equal image,
-          width=2in,
-          %
-          % domain and range
-          %
-          xmin={1}, xmax={3},
-          ymin={1}, ymax={3},
-          enlargelimits=true,
-          %
-          % axis labels
-          %
-          xlabel={\(x\)}, xlabel style={anchor=west},
-          ylabel={\(y\)}, ylabel style={anchor=south},
-          label style={at={(ticklabel* cs:1)}},
-          %
-          % ticks
-          %
-          % xtick={}, xticklabels={},
-          % ytick={}, yticklabels={},
-          ticklabel style={font=\footnotesize},
-          %
-          % grid
-          % none, major, minor, both
-          grid=none, grid style={gray!20},
-          % minor tick num=1, 
-          % minor grid style={gray!20},
-          % 
-          % plot parameters
-          %
-          samples=100, no markers,
-          ]
-          \addplot[thick] coordinates {(1, 1) (1.75, 2) (2.25, 2) (3, 3)} node[left] {\footnotesize \(g(x)\)}; % g(x)
-        \end{axis}
-      \end{tikzpicture}
-      \hspace{0.5in}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[
-          axis lines = middle, % boxed, middle
-          axis equal image,
-          width=2in,
-          %
-          % domain and range
-          %
-          xmin={1}, xmax={3},
-          ymin={1}, ymax={3},
-          enlargelimits=true,
-          %
-          % axis labels
-          %
-          xlabel={\(x\)}, xlabel style={anchor=west},
-          ylabel={\(y\)}, ylabel style={anchor=south},
-          label style={at={(ticklabel* cs:1)}},
-          %
-          % ticks
-          %
-          % xtick={}, xticklabels={},
-          % ytick={}, yticklabels={},
-          ticklabel style={font=\footnotesize},
-          %
-          % grid
-          % none, major, minor, both
-          grid=none, grid style={gray!20},
-          % minor tick num=1, 
-          % minor grid style={gray!20},
-          % 
-          % plot parameters
-          %
-          samples=100, no markers,
-          ]
-          \addplot[thick, domain=1:3] {(x-2)^3 + 2} node[left] {\footnotesize \(h(x)\)}; % h(x)
-        \end{axis}
-      \end{tikzpicture}
+      \includestandalone[page=1]{../standalones/plot-increasing}
+      \quad
+      \includestandalone[page=2]{../standalones/plot-increasing}
+      \quad
+      \includestandalone[page=3]{../standalones/plot-increasing}
     \end{center}
     \blanklines{28}
   \end{example}
@@ -180,58 +75,20 @@
   \begin{example}
     Describe the following line \(L\) \hlinfo{in words} in two different ways.
 
-    \begin{minipage}[c]{2.6in}
-      \begin{tikzpicture}[scale=1]
-        \begin{axis}[
-          axis lines = middle, % boxed, middle
-          axis equal image,
-          width=3.5in,
-          %
-          % domain and range
-          %
-          xmin={-2}, xmax={2},
-          ymin={-1}, ymax={3},
-          enlargelimits=true,
-          %
-          % axis labels
-          %
-          xlabel={\(x\)}, xlabel style={anchor=west},
-          ylabel={\(y\)}, ylabel style={anchor=south},
-          label style={at={(ticklabel* cs:1)}},
-          %
-          % ticks
-          %
-          xtick={-2, -1, ..., 2}, % xticklabels={},
-          % ytick={}, yticklabels={},
-          ticklabel style={font=\footnotesize},
-          %
-          % grid
-          % none, major, minor, both
-          grid=major, grid style={gray!20},
-          % minor tick num=1, 
-          % minor grid style={gray!20},
-          % 
-          % plot parameters
-          %
-          smooth, samples=100, no markers,
-          ]
-          \addplot[thick, domain=-2:2] {2*x + 1};
-          \node[above left] at (axis cs:1,3) {\(L\)};
-        \end{axis}
-      \end{tikzpicture}
-    \end{minipage}
-    \begin{minipage}[c]{4in}
-    \end{minipage}
+    \includestandalone[page=1]{../standalones/plot-line}
   \end{example}
 
   The \hlmain{point-slope form} of a line is an equation \underline{\hspace{2in}}.
+
   \blanklines{8}
 
   The \hlmain{slope-intercept form} of a line is an equation \underline{\hspace{2in}}.
+
   \blanklines{8}
 
   The \hlmain{standard form} of a line is an equation \underline{\hspace{2in}}. \newline
   {\scriptsize \faExclamationTriangle{} Note that the textbook has a typo in the definition of the standard form.}
+
   \blanklines{6}
 
   \faComments{} Is the standard form of a line unique?
@@ -256,6 +113,7 @@
   \end{example}
 
   \faComments{} Is \(\frac{x^{2}-1}{\sqrt{x-1}}\) a rational function?
+
   \blanklines{6}
   \clearpage
 
@@ -267,17 +125,21 @@
     \div \hspace{0.75in}
     \circ
   \]
+
   \blanklines{12}
 
   \faExclamationTriangle{}
   Note \(f \cdot g\) and \(f \circ g\) are \underline{\hlwarn{not}} (always) the same function!
+
   \blanklines{5}
 
   \begin{example} \label{ex:review-circ}
     Suppose \(f(x) = \sqrt{x}\) and \(g(x) = \frac{x^{2}-1}{\sqrt{x-1}}\). Write down \(f \circ g\) and \(g \circ f\).
+
     \blanklines{20}
 
     \faComments{} What does Example~\ref{ex:review-circ} teach us about function composition?
+
     \blanklines{3}
   \end{example}
   \clearpage
@@ -285,18 +147,23 @@
   Review of some terminologies. 
   \begin{itemize}[wide, noitemsep]
     \item A \hlmain{root function} is a power function of the form \(x^{1/n}\) or \(\sqrt[n]{x}\) where \(n\) is a \hlsupp{positive} integer. 
+
       \blanklines{5}
 
     \item A \hlmain{rational power} is a power function of the form \(x^{p/q}\) where \(p,q\) are integers but \(q \ne 0\).
+
       \blanklines{5}
 
     \item Functions that involve \(+, -, \times, \div\), roots and \hlwarn{rational powers} are called \hlmain{algebraic functions}. 
+
       \blanklines{5}
 
     \item If a function is \hlsupp{not} algebraic, then it is called a \hlmain{transcendental function}.
+
       \blanklines{5}
 
     \item A \hlmain{zero} of a function \(f(x)\) is a \hlsupp{number \(r\)} (in its domain) so that \(f(r) = 0\).  Graphically, zeros of a function are also called its \hlmain{\underline{\hspace{1in}} intercept} or \hlmain{\underline{\hspace{1in}}}.
+
       \blanklines{5}
   \end{itemize}
 
@@ -308,92 +175,24 @@
   Shifting (aka translation) and scaling are two basic types of transformation on functions.
 
   \hlmain{Shift}: \(f(x + a) + b\) creates a new function from \(f(x)\) by moving the axes so that the new origin is at the point \((a, -b)\).
+
   \blanklines{18}
 
   \hlmain{Scale}: \(\beta f(\alpha x)\) creates a new function from \(f(x)\) by scaling \hlsupp{\underline{\hspace{2in}} by \(\alpha\)} but \hlwarn{\underline{\hspace{2in}} by \(\beta\)}.
+
   \blanklines{28}
 
   \clearpage
   \begin{example}
     Sketch \(f(x) = \arctan(-2x) + \pi/4\) without using any software or calculators.
 
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[
-        axis lines = middle, % boxed, middle
-        axis equal image,
-        width=6in,
-        %
-        % domain and range
-        %
-        xmin={-5}, xmax={5},
-        ymin={-3*pi/4}, ymax={3*pi/4},
-        enlargelimits=true,
-        %
-        % axis labels
-        %
-        xlabel={\(x\)}, xlabel style={anchor=west},
-        ylabel={\(y\)}, ylabel style={anchor=south},
-        label style={at={(ticklabel* cs:1)}},
-        %
-        % ticks
-        %
-        xtick={-5,-4,...,5}, % xticklabels={},
-        ytick={{-3*pi/4},{-pi/2},...,{3*pi/4}}, yticklabels={\(-3\pi/4\), \(-\pi/2\), \(-\pi/4\), , \(\pi/4\), \(\pi/2\), \(3\pi/4\)},
-        ticklabel style={font=\footnotesize},
-        %
-        % grid
-        % none, major, minor, both
-        grid=major, grid style={gray!20},
-        % minor tick num=1, 
-        % minor grid style={gray!20},
-        % 
-        % plot parameters
-        %
-        smooth, samples=100, no markers,
-        ]
-        \addplot[thick, domain={-5}:5] {atan(x)} node[below] {\(\arctan(x)\)};
-      \end{axis}
-    \end{tikzpicture}
+    
+    \includestandalone[page=1]{../standalones/plot-exercise-sketch}
 
     \blanklines{10}
 
-    \begin{tikzpicture}[scale=1]
-      \begin{axis}[
-        axis lines = middle, % boxed, middle
-        axis equal image,
-        width=6in,
-        %
-        % domain and range
-        %
-        xmin={-5}, xmax={5},
-        ymin={-3*pi/4}, ymax={3*pi/4},
-        enlargelimits=true,
-        %
-        % axis labels
-        %
-        xlabel={\(x\)}, xlabel style={anchor=west},
-        ylabel={\(y\)}, ylabel style={anchor=south},
-        label style={at={(ticklabel* cs:1)}},
-        %
-        % ticks
-        %
-        xtick={-5,-4,...,5}, % xticklabels={},
-        ytick={{-3*pi/4},{-pi/2},...,{3*pi/4}}, yticklabels={\(-3\pi/4\), \(-\pi/2\), \(-\pi/4\), , \(\pi/4\), \(\pi/2\), \(3\pi/4\)},
-        ticklabel style={font=\footnotesize},
-        %
-        % grid
-        % none, major, minor, both
-        grid=major, grid style={gray!20},
-        % minor tick num=1, 
-        % minor grid style={gray!20},
-        % 
-        % plot parameters
-        %
-        smooth, samples=100, no markers,
-        ]
-        % \addplot[thick, domain={-5}:5] {atan(x)};
-      \end{axis}
-    \end{tikzpicture}
+    \includestandalone[page=2]{../standalones/plot-exercise-sketch}
+
   \end{example}
 
   Why is sketching ``manually'' useful? Consider evaluating \(\lim_{x \to \infty} \left( \arctan(-2x) + \pi/4 \right)\) (which is a common question). The sketch above tells you the answer immediately!

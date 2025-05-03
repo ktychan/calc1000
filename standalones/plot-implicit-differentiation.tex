@@ -1,0 +1,41 @@
+%! TeX program = lualatex
+\documentclass[tikz, crop]{standalone}
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{
+  implicit curve/.style={
+    basic curve,
+    enlargelimits={abs=0.5}, 
+    xmin=-5, xmax=5, ymin=-5, ymax=5,
+    width={200pt}, 
+    xtick distance={2},
+    ytick distance={2},
+    xlabel={\empty}, ylabel={\empty},
+    samples=500,
+  }
+}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[implicit curve]
+    \addplot[very thick, domain=-5:5] {sqrt(25 - x^2)};
+    \addplot[very thick, domain=-5:5] {-sqrt(25 - x^2)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[implicit curve]
+    \addplot[very thick, domain=-5:5] {sqrt(25 - x^2)};
+    \draw[teal, fill] (axis cs:3,4) circle[radius=0.1] node[above right, teal] {\((3,4)\)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[implicit curve]
+    \addplot[very thick, domain=4:5] {sqrt(25 - x^2)};
+    \addplot[very thick, domain=4:5] {-sqrt(25 - x^2)};
+    \draw[magenta, fill] (axis cs:5,0) circle[radius=0.1] node[above left, magenta] {\((5,0)\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

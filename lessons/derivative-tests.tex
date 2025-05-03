@@ -3,29 +3,15 @@
 \begin{document} \section{Derivatives and the shape of a graph}
 
   \begin{center}
-    \begin{tikzpicture}
-      \begin{axis}[enlargelimits, width=2in, smooth, samples=100, xtick=\empty, ytick=\empty, axis lines=box, gray!40, xlabel={}, ylabel={}]
-        \addplot[black, domain=-0.9:0] {sqrt(1-x^2)};
-      \end{axis}
-    \end{tikzpicture}
-    \quad
-    \begin{tikzpicture}
-      \begin{axis}[enlargelimits, width=2in, smooth, samples=100, xtick=\empty, ytick=\empty, axis lines=box, gray!40, xlabel={}, ylabel={}]
-        \addplot[black, domain=0:0.9] {-sqrt(1-x^2)+1};
-      \end{axis}
-    \end{tikzpicture}
-    \quad
-    \begin{tikzpicture}
-      \begin{axis}[enlargelimits, width=2in, smooth, samples=100, xtick=\empty, ytick=\empty, axis lines=box, gray!40, xlabel={}, ylabel={}]
-        \addplot[black, domain=0:0.9] {sqrt(1-x^2)};
-      \end{axis}
-    \end{tikzpicture}
-    \quad
-    \begin{tikzpicture}
-      \begin{axis}[enlargelimits, width=2in, smooth, samples=100, xtick=\empty, ytick=\empty, axis lines=box, gray!40, xlabel={}, ylabel={}]
-        \addplot[black, domain=-0.9:0] {-sqrt(1-x^2)+1};
-      \end{axis}
-    \end{tikzpicture}
+    \hfill{}
+    \includestandalone[page=1]{../standalones/plot-derivative-test}
+    \hfill{}
+    \includestandalone[page=2]{../standalones/plot-derivative-test}
+    \hfill{}
+    \includestandalone[page=3]{../standalones/plot-derivative-test}
+    \hfill{}
+    \includestandalone[page=4]{../standalones/plot-derivative-test}
+    \hfill{}
   \end{center}
 
   \begin{mdframed}[style=simple-compact]
@@ -41,22 +27,7 @@
     Consider the graph of \(f'(x)\) below. On the horizontal axis, label the interval on which \(f(x)\) is increasing. 
 
     \begin{center}
-      \begin{tikzpicture}
-        \begin{axis}[
-          axis lines = box,
-          axis equal image=false,
-          enlargelimits=true,
-          xmin=-3*pi/2, xmax=2*pi,
-          xtick={-3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2},
-          xticklabels={},
-          grid=major,
-          ]
-          \addplot[thick, black, domain=-3*pi/2:0] {sin(x) + x/2/pi};
-          \addplot[thick, black, domain=0:pi/2] {0};
-          \addplot[thick, black, domain=pi/2:3*pi/2] {sin(x-pi/2) + (x-pi/2)/2/pi};
-          \node[above left] at (axis cs:1,1) {\footnotesize \(f'(x)\)};
-        \end{axis}
-      \end{tikzpicture}
+    \includestandalone[page=5]{../standalones/plot-derivative-test}
     \end{center}
   \end{example}
 
@@ -64,11 +35,11 @@
 
   The idea: If \(f(x)\) has a local extrema at \(c\), then \((c,f(c))\) must be the ``peak or valley of a mountain.''  We simply look left and right.
   \begin{center}
-    \includegraphics[scale=0.8]{../standalones/build/plot_increasing_decreasing}
+    \includestandalone[page=6]{../standalones/plot-derivative-test}
     \hfill
-    \includegraphics[scale=0.8]{../standalones/build/plot_increasing_decreasing_only_derivative}
+    \includestandalone[page=7]{../standalones/plot-derivative-test}
     \hfill
-    \includegraphics[scale=0.8]{../standalones/build/plot_increasing_decreasing_with_derivative}
+    \includestandalone[page=8]{../standalones/plot-derivative-test}
 
     \url{https://www.geogebra.org/calculator/atcbwgvm}
   \end{center}
@@ -107,11 +78,11 @@
   \end{mdframed}
 
   \begin{center}
-    \includegraphics[scale=0.8]{../standalones/build/plot_concavity}
+    \includestandalone[page=9]{../standalones/plot-derivative-test}
     \hfill
-    \includegraphics[scale=0.8]{../standalones/build/plot_concavity_only_derivative}
+    \includestandalone[page=10]{../standalones/plot-derivative-test}
     \hfill
-    \includegraphics[scale=0.8]{../standalones/build/plot_concavity_with_derivative}
+    \includestandalone[page=11]{../standalones/plot-derivative-test}
 
     \url{https://www.geogebra.org/calculator/atcbwgvm}
   \end{center}
