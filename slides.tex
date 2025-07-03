@@ -1,35 +1,68 @@
 %! Tex Program = lualatex
-\documentclass[14pt]{beamer} 
+\documentclass[aspectratio=169, 14pt]{beamer}  % 12, 14, 17, 20
+
 \usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
 \beamertemplatenavigationsymbolsempty{}
+
+\renewcommand{\arcsin}{\sin^{-1}}
+\renewcommand{\arccos}{\cos^{-1}}
+\renewcommand{\arctan}{\tan^{-1}}
+
 \usepackage[normalem]{ulem}
+\usepackage{qrcode}
+\usepackage{fontawesome5}
 
 \usepackage{enumitem}
 \setlist[enumerate]{label={(\alph*)}, itemsep={1ex}}
 
+\input{./tikz.tex.preamble}
 \input{./typography.tex.preamble}
 
 %
 % uncomment the whole \setbeamertemplate command to add an iClicker watermark.
 %
 \usepackage{tikz, graphicx}
-\setbeamertemplate{background}{
-  \begin{tikzpicture}[overlay, remember picture]
-    \node[teal!10, anchor=south] at (current page.south) {\resizebox{\textwidth}{!}{iClicker}};
-  \end{tikzpicture}    
+
+
+\newenvironment{poll}{
+  \begingroup
+  \setbeamertemplate{background}{
+    \begin{tikzpicture}[overlay, remember picture]
+      \node[teal!10, anchor=south] at (current page.south) {\resizebox{\textwidth}{!}{iClicker}};
+    \end{tikzpicture}    
+  }
+  \begin{frame}
+}{
+  \end{frame}
+  \endgroup
 }
 
 
 \begin{document} 
-
-\section{Icebreaker}
+\section{First day of class}
 
 \begin{frame}
+  \frametitle{Welcome to Calc~1000A!}
+  \bigskip
+
+  \normalsize
+  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) frequently!
+
+  \begin{center}
+    \url{https://join.iclicker.com/ABCD} 
+
+    \qrcode[height=1.5in]{https://join.iclicker.com/ABCD}
+
+    (make sure you join iClicker)
+  \end{center}
+\end{frame}
+
+\begin{poll}
   Is a hot dog a sandwich?
-  
+
   \medskip
   \begin{enumerate} 
     \item Yes!
@@ -38,11 +71,102 @@
     \item No?
     \item I no longer know what a sandwich is.
   \end{enumerate} 
+\end{poll}
+
+
+\section{Fundamentals and Reviews}
+\begin{poll}
+  Which sentences do not make sense to you?
+
+  \begin{enumerate}
+    \item Evaluate \(x^{2} + x + 1\) at \(3\).
+    \item Find \(x^{2} + x + 1\) at \(3\).
+    \item Solve for the derivative of \(x^{2} + x + 1\).
+  \end{enumerate}
+\end{poll}
+
+\section{Trigonometry}
+
+\begin{poll}
+  What does \(\arctan(x)\) represent?  
+
+  The output of \(\arctan(x)\) is ...
+  \begin{enumerate}
+    \item an angle.
+    \item a side length in a right triangle.
+    \item a ratio of side lengths in a right triangle.
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  What does \(x\) represent in \(\arctan(x)\)?  
+
+  The symbol \(x\) represents ...
+
+  \begin{enumerate}
+    \item an angle.
+    \item a side length in a right triangle.
+    \item a ratio of side lengths in a right triangle.
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  Let \(y = \sec(\arctan(x))\). What does \(y\) represent? 
+
+  The symbol \(y\) represents ...
+  \begin{enumerate}
+    \item an angle.
+    \item a side length in a right triangle.
+    \item a ratio of side lengths in a right triangle.
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  Which of the following is a correct statement?
+
+  \begin{minipage}{0.4\textwidth}
+    \begin{enumerate}
+      \item \(\theta = \arcsin(x)\)
+      \item \(\theta = \arccos(x)\)
+      \item \(\theta = \arctan(x)\)
+      \item \(\theta = \sec^{-1}(x)\)
+      \item I am not sure.
+    \end{enumerate}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \includegraphics[page=1]{./standalones/plot-triangles-inverse-trigs}
+  \end{minipage}
+\end{poll}
+
+\section{Exponential and logarithmic functions}
+
+\begin{frame}[t]
+  \frametitle{Exponential and logarithmic rules}
+
+  \large
+
+  \[
+    \begin{array}{rclcrcl}
+      e^{a}e^{b} &=& e^{a + b} 
+                 &&
+      (e^{a})^{b} &=& e^{ab} \\[1ex]
+      \ln(ab) &=& \ln(a) + \ln(b) 
+              &&
+      \ln(a {\color{red}/} b) &=& \ln(a) {\,\color{red}-\,} \ln(b) \\[3ex]\pause
+      b &=& e^{\ln(b)}
+        &&
+      b^{x} &=& e^{\ln(b)x}
+    \end{array}
+  \]
 \end{frame}
 
-
-\section{Review}
-\begin{frame}
+\begin{poll}
   How can we calculate \(y = \log_{2}(8)\)?
   \medskip
   \begin{enumerate} 
@@ -52,11 +176,11 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame} 
+\end{poll} 
 
 
 \section{Limits}
-\begin{frame}
+\begin{poll}
   Suppose \(\lim_{x \to 3} f(x)\) exists. Can we find \(f(3)\)?
 
   \medskip
@@ -67,10 +191,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame} 
+\end{poll} 
 
 
-\begin{frame}
+\begin{poll}
   True or false? We can \emph{always} apply the quotient law to evaluate \(\lim_{x \to a} \frac{f(x)}{g(x)}\).
 
   \medskip
@@ -81,10 +205,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   If \(f(x)\) is discontinuous on \([1,3]\), then we know \(f(x)\) has a discontinuity at \underline{\hspace{1in}} number in \([1,3]\). 
   \medskip
   \begin{enumerate} 
@@ -95,10 +219,10 @@
     \item I am not sure.
   \end{enumerate} 
 
-\end{frame} 
+\end{poll} 
 
 
-\begin{frame}
+\begin{poll}
   Which of the following tell us a function \(f(x)\) is NOT continuous at \(a\)?
   \medskip
   \begin{enumerate} 
@@ -108,10 +232,10 @@
     \item \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x)\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   True or false? Every piecewise function has \emph{at least one} discontinuity in its domain.
 
   \medskip
@@ -122,12 +246,12 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame} 
+\end{poll} 
 
 
 
 \section{Limits at infinity}
-\begin{frame}
+\begin{poll}
   How many horizontal asymptotes can a function have?
 
   \medskip
@@ -138,10 +262,10 @@
     \item At most infinitely many.
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Can a function cross its horizontal asymptotes?
 
   \medskip
@@ -152,10 +276,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   What can we deduce from knowing \(\lim_{x \to \infty} f(x)\) exists? 
 
   \medskip
@@ -166,10 +290,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Analyze the dominant terms of \(\lim_{x \to \infty} \frac{x^{2}+3x}{\sqrt{x+3}}\). With only a quick calculations, the limit should be
 
   \medskip
@@ -180,12 +304,12 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
 
 \section{Derivatives}
-\begin{frame}
+\begin{poll}
   % Let's pop a balloon by dropping it on a needle. 
   What is the balloon's velocity when it popped?
 
@@ -197,10 +321,22 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
+\end{poll}
+
+\begin{frame}
+  We know that \(|x|\) is not differentiable at \(0\).  Now consider \(f(x) = x|x|\) at \(x = 00\).
+
+  \begin{enumerate}
+    \item \(f'(0) = 0\).
+    \item \(f'(0)\) does not exist, because \(|x|\) is not differentiable at \(0\).
+    \item \(f'(0)\) does not exist, because \(|x|\) is a piecewise function.
+    \item \(f'(0)\) does not exist, because its associated left and right limits are not equal.
+    \item I am not sure.
+  \end{enumerate}
 \end{frame}
 
 
-\begin{frame}
+\begin{poll}
   True or false? If a function is continuous at \(a\), then it must be differentiable at \(a\).
 
   \medskip
@@ -211,10 +347,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Compare the domains of \(f\) and \(f'\).
 
   \medskip
@@ -225,10 +361,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   If a function is \emph{not} differentiable on \((0,1)\), then 
 
   \medskip
@@ -239,10 +375,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   If a function is \emph{not} differentiable on \((0,1)\), then 
 
   \medskip
@@ -253,10 +389,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   If a function is \emph{not} differentiable on \((0,1)\), then \(f'\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\).
 
   \medskip
@@ -267,10 +403,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   (True or false?) If \(f(x)\) is not differentiable at \(a\), then \(f\) is not continuous at \(a\).
 
   \medskip
@@ -281,11 +417,11 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
 \section{Differentiation Rules}
-\begin{frame}
+\begin{poll}
   (True or false?) By the power rule, \(\frac{d}{dx} \frac{1}{\sqrt{x}} = \frac{1}{\frac{1}{2}x^{-1/2}}\).
 
   \medskip
@@ -296,10 +432,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   (True or false?) By the power rule, \(\frac{d}{dx} 2^{x} = x \cdot 2^{x-1}\).
 
   \medskip
@@ -310,10 +446,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   (True or false?) By the power rule, \(\frac{d}{dx} 2^{10} = 10 \cdot 2^{9}\).
 
   \medskip
@@ -324,10 +460,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Which of the following words suggest a question is about derivatives?
 
   \medskip
@@ -338,11 +474,11 @@
     \item slope
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
 \section{The Chain Rule}
-\begin{frame}
+\begin{poll}
   Which is the chain rule formula?
 
   \medskip
@@ -353,9 +489,9 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
   \begin{align*}
     f(1) &= 1,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
@@ -370,9 +506,9 @@
     \item \(h'(1) = -6\)
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
   \begin{align*}
     f(1) &= 1,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
@@ -387,9 +523,9 @@
     \item 
     \item 
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   Differentiate \(\sin(x)^{2}\).
 
   \medskip
@@ -400,11 +536,11 @@
     \item \(2\sin(x)\)
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
 \section{Implicit Differentiation}
-\begin{frame}
+\begin{poll}
   Given \(\sin(y) = x\), what is \(dy/dx\)? Choose all correct options.
 
   \medskip
@@ -415,10 +551,10 @@
     \item \(dy/dx = \tfrac{d}{dx} \arcsin(x)\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Given \(e^{y} = x\), what is \(dy/dx\)? Choose all correct options.
 
   \medskip
@@ -429,10 +565,10 @@
     \item \(dy/dx = \tfrac{d}{dx} \ln(x)\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Find \(dx/dt\) given \(x^{3} - xt = 1\).
 
   \medskip
@@ -443,9 +579,9 @@
     \item None of the above.
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   Can we use implicit differentiation to find the slope of \(y^{2} + x^{2} = 25\) at the point \((5,5)\)?
 
   \medskip
@@ -456,9 +592,9 @@
     \item I don't understand the question.
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   What is the slope of the tangent line to \(\tan(xy) = -x\) at the point \((1, 3\pi/4)\)?
 
   \medskip
@@ -472,10 +608,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   How many horizontal tangent lines does the curve \(y^{2}/2 - xy = 1\) have? 
 
   \medskip
@@ -486,10 +622,10 @@
     \item I don't know \emph{WHAT} to solve for in \(\tfrac{y}{x - y} = 0\).
     \item I don't know how to start.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Assume \(y = f^{-1}(x)\). To which equations do we apply the chain rule to calculate \(y'\)? Choose all correct options.
 
   \medskip
@@ -500,10 +636,10 @@
     \item \(x = f(y)\)
     \item I don't recognize equations (a) and (b).
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}
+\begin{poll}
   Can the inverse function theorem be deduced from implicit differentiation?
 
   \medskip
@@ -514,11 +650,11 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
 \section{Logarithmic differentiation}
-\begin{frame}
+\begin{poll}
   Differentiate \(x^{x}\).
 
   \medskip
@@ -529,10 +665,10 @@
     \item \(x^{x}\ln(x)\)
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Related rates}
-\begin{frame}[t]
+\begin{poll}[t]
   What are we asked to find in Example~9?
 
   \medskip
@@ -543,11 +679,11 @@
     \item Find \(dx/dt\) when \(x = 4\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Extrema}
 
-\begin{frame}[t]
+\begin{poll}[t]
   If there are constants \(a,b\) such that \(a \le f(x) \le b\) for every \(x\) on the domain of \(f\), does it mean that \(f(x)\) must have an absolute extrema?
 
   \medskip
@@ -558,10 +694,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
-\begin{frame}[t]
+\begin{poll}[t]
   Is it true that every absolute extrema is also a local extrema?
 
   \medskip
@@ -572,9 +708,9 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   What is the relation between local extrema and critical points?
 
   \medskip
@@ -585,11 +721,11 @@
     \item \(\{ \text{critical points} \} = \{ \text{local extrema} \}\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Derivative Tests}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Consider the graph in Example~10. Using only the first derivative test, where does \(f(x)\) have a local maximum? 
 
   \medskip
@@ -600,9 +736,9 @@
     \item \(x = d\). 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Can the First Derivative Test be applied to find the local min of \(f(x) = |x|\) (and, more generally, any continuous piecewise function)? 
 
   \medskip
@@ -613,9 +749,9 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Is \(|x|\) concave up on its domain? 
 
   Can the Second Derivative Test be used to test its concavity?
@@ -628,18 +764,18 @@
     \item No and no.
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Optimization}
-\begin{frame}[c]
+\begin{poll}[c]
   In Example~1, is the domain of \(A(x)\) really \(0 \le x \le 100\)?
-\end{frame}
+\end{poll}
 
-\begin{frame}[c]
+\begin{poll}[c]
   In Example~2, why do we measure the walking distance \(w\) and the swimming distance \(s\)? Why not something other quantities?
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   What is wrong with the (proposed) solution of Example~2?
 
   \medskip
@@ -650,9 +786,9 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   What is the domain of \(T(s)\) from Example~2?
 
   \medskip
@@ -663,10 +799,10 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{L'H\^opital's Rule}
-\begin{frame}[t]
+\begin{poll}[t]
   Which of the following is an indeterminate form? Choose all correct options.
 
   \medskip
@@ -677,9 +813,9 @@
     \item \(L_{4} = \lim_{x \to 0} \frac{2x^{1}+1}{\cos(x)}\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   What's wrong with the following calculation?
   \[
     \lim_{x \to 1} \frac{\ln(x)}{2} = \lim_{x \to 1} \frac{\frac{d}{dx} \ln(x)}{\frac{d}{dx} 2} = \lim_{x \to 1} \frac{1/x}{0} = \text{does not exists?!?!}
@@ -690,12 +826,12 @@
   L'H\^opital's rule \emph{does not apply} because the limit is not an indeterminate form.
 
   ONLY apply l'H\^opital's rule to indeterminate forms of \(0/0\) or \(\infty/\infty\) and nothing else.
-\end{frame}
+\end{poll}
 
 \section{Sigma Notations}
 
-\begin{frame}[t]
-Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
+\begin{poll}[t]
+  Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
 
   \medskip
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -705,9 +841,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Assume \(m < n\), both positive integers. Is it true that 
   \[
     \sum_{i=1}^{m} a_{i} + \sum_{i=1}^{n} b_{i} = \sum_{i=1}^{n} (a_{i}+ b_{i})?
@@ -721,11 +857,11 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Antiderivatives}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Consider \(f(x) = 2x e^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Which of the following statement is true.
 
   \medskip
@@ -736,13 +872,13 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item \(g(x)\) is the antiderivative of \(f(x)\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   Why is \(\ln(x)\) not an antiderivative of \(1/x\)?
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Which of the following are true statements?
 
   \medskip
@@ -753,9 +889,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item \(\int e^{x} \;dx = e^{x} + 2C\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Evaluate \(\int \sec^{2}(\pi/4) \;dx\).
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -765,10 +901,10 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Integration formulas}
-\begin{frame}[t]
+\begin{poll}[t]
   Recall that differentiating a {\color{red} non-constant polynomial} lowers its degree by one. Does integrating any {\color{red} non-zero polynomial} (including constant ones) raise its degree by one?
 
   \medskip
@@ -779,9 +915,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Does integrating a {\color{red} power function}, i.e., \(x^{n}\) with NO restriction on \(n\), always raise its degree by one? Are there any exceptions?
 
   \medskip
@@ -792,11 +928,11 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Definite integrals}
 
-\begin{frame}
+\begin{poll}
   Evaluate \(\int_{a}^{a} f(x) \;dx\). 
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -806,9 +942,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item \(> 0\)
     \item I am not sure.
   \end{enumerate}
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   The two endpoints of an interval are \(a,b\), and we don't know if \(a < b\) or \(a > b\). However, we know that \(\int_{b}^{a} f(x) \;dx < 0\) and \(f\) is nonnegative. It follows that 
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -818,9 +954,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Let \(f(x) = (x+2)(x-1)\) and \(A = \int_{-3}^{1} \big|f(x)\big| \;dx\).  Which of the following is a true statement?
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -830,9 +966,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item \(A = -\int_{-3}^{-2} f(x) \;dx - \int_{-2}^{1} f(x) \;dx\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Let \(A = \int_{a}^{b} f(x) \;dx\). Which of the following is a true statement?
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -842,9 +978,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   If \(f(x) \le g(x)\) over \([a,b]\), then ...
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -854,10 +990,10 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \section{Fundamental Theorem of Calculus}
-\begin{frame}[t]
+\begin{poll}[t]
   Which of the following are good starting points for our solutions?
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -867,14 +1003,14 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
     \item I am not sure.
   \end{enumerate}
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   Evaluate \(\int_{-\pi}^{\pi/2} 2 \cos(x) \;dx\).
-\end{frame}
+\end{poll}
 
 \section{The Substitution Rule}
-\begin{frame}[t]
+\begin{poll}[t]
   What if we didn't see the ``convenient'' choice for \(u\)? 
 
   Transform \(\int x^{2} \sqrt{ 1 + x^{3} } \;dx\) by subbing \(u = \sqrt{ 1 + x^{3} }\).
@@ -883,14 +1019,14 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item This substitution does not work.
     \item We get \(\int \frac{2}{3} u^{2} \;du\). \only<2->{\hfill{}\hlmain{Correct.}}
     \item We get \(\int \frac{2}{3} \frac{u}{\sqrt{ 1 + x^{3} }} \;du\). \only<2->{\hfill\hlwarn{ Algebra mistake.}}
-  \item We get \(\int \frac{2}{3} u \sqrt{1 + x^{3}} \;du\). \only<2->{\hfill\hlsupp{Incomplete.}}
+    \item We get \(\int \frac{2}{3} u \sqrt{1 + x^{3}} \;du\). \only<2->{\hfill\hlsupp{Incomplete.}}
     \item None of the above, or I am not sure.
   \end{enumerate}
-\end{frame}
+\end{poll}
 
 \section{Applications of integration}
 
-\begin{frame}[t]
+\begin{poll}[t]
   What are expressions (plural!) for the area bounded between \(\sin(x)\) and \(\cos(x)\) over \([0, \pi]\)?
 
   \begin{enumerate} \setlength\itemsep{1ex}
@@ -900,24 +1036,24 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item \(\int_{0}^{\pi/4} \cos(x) - \sin(x) \;dx - \int_{\pi/4}^{\pi} \cos(x) - \sin(x) \;dx\).
     \item I am not sure. 
   \end{enumerate}
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(R\) is the region enclosed between \(y = \sin(x)\) on \([pi/6, pi/3]\) and the \(x\)-axis.  Suppose a solid of revolution \(S\) is obtained by rotating \(R\) about the \(x\)-axis. 
 
   Sketch the region \(R\) and the solid \(S\).
 
   What is the inner radius of the cross-section at \(x\)? 
-\end{frame}
+\end{poll}
 
 \section{Problem-solving}
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(\sin(f(x)) = 0\), \(f(1) = \pi\). Find \(f'(1)\).
 
   What question did you ask yourself to discover a problem-solving idea?
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
 
   \medskip
@@ -928,9 +1064,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item Check if \(f(x)\) is defined at \(c\).
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What information seems useful?
 
   \medskip
@@ -941,9 +1077,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item Intermediate Value Theorem.
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). Continuity seems important. What else is useful?
 
   \medskip
@@ -954,9 +1090,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)?
 
   \medskip
@@ -967,9 +1103,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)?
 
   \medskip
@@ -980,9 +1116,9 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
-\begin{frame}[t]
+\begin{poll}[t]
   Suppose \(x f(x)^{2} = 3\) and \(f(3) = -1\). Find \(f'(3)\).
 
   \medskip
@@ -993,14 +1129,14 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item
     \item I am not sure.
   \end{enumerate}
-\end{frame}
+\end{poll}
 
 \section{Study Skills}
-\begin{frame}
+\begin{poll}
   Describe what motivates you to study calculus using a single word.
-\end{frame}
+\end{poll}
 
-\begin{frame}
+\begin{poll}
   How do you assess your learning progress?
 
   \medskip
@@ -1011,11 +1147,11 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item Summarize to reduce my mental load.
     \item I am not sure.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 
 \section{Review}
-\begin{frame}
+\begin{poll}
   What topic should we review?
 
   \medskip
@@ -1026,6 +1162,6 @@ Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent
     \item Integration techniques.
     \item Go through past exams.
   \end{enumerate} 
-\end{frame}
+\end{poll}
 
 \end{document}
