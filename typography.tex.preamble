@@ -1,8 +1,14 @@
 % typography
 \usepackage{fontspec}
 \usepackage{unicode-math}
-\setmainfont{STIX Two Text}
-\setmathfont{STIX Two Math}
+% \setmainfont[
+%   Ligatures=TeX,
+%   ItalicFont = {* Italic},
+%   BoldFont = {* Bold},
+%   BoldItalicFont = {* BoldItalic},
+% ]{STIX Two Text}
+\setmainfont{TeX Gyre Pagella}
+\setmathfont{STIX Two Math} %  TeX Gyre Termes Math, Asana Math,  Latin Modern Math
 \setmathfont[range=bb]{TeX Gyre Termes Math}
 \setmathfont[range=\int]{Latin Modern Math}
 
@@ -27,3 +33,4 @@
 \newcommand{\hlattn}[1]{{\color{attn}#1}}
 \newcommand{\hlwarn}[1]{{\color{warn}#1}}
 
+\everymath{\displaystyle}
