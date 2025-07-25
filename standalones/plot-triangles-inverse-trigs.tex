@@ -1,0 +1,81 @@
+\documentclass[multi=tikzpicture,crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+\renewcommand{\arcsin}{\sin^{-1}}
+\renewcommand{\arccos}{\cos^{-1}}
+\renewcommand{\arctan}{\tan^{-1}}
+
+\begin{document}
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\theta\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\phantom{\(x\)}}
+    -- (4, 3) node[midway, right] {\(x\)}
+    -- (0, 0) node[midway, above] {\(1\)}; 
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\theta\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\(x\)}
+    -- (4, 3) node[midway, right] {\phantom{\(x\)}}
+    -- (0, 0) node[midway, above] {\(1\)}; 
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\theta\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\(1\)} 
+    -- (4, 3) node[midway, right] {\(x\)}
+    -- (0, 0);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\theta\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\(x\)} 
+    -- (4, 3) node[midway, right] {\(1\)}
+    -- (0, 0);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\arcsin(x)\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\phantom{\(x\)}}
+    -- (4, 3) node[midway, right] {\(x\)}
+    -- (0, 0) node[midway, above] {\(1\)}; 
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\arccos(x)\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\(x\)}
+    -- (4, 3) node[midway, right] {\phantom{\(x\)}}
+    -- (0, 0) node[midway, above] {\(1\)}; 
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\arctan(x)\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\(1\)} 
+    -- (4, 3) node[midway, right] {\(x\)}
+    -- (0, 0);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \fill[main!30, thick] plot[domain=0:0.6435] ({0.5 * cos(\x)}, {0.5 * sin(\x)}) -- (0,0);
+  \node[main, above right] at ({0.5 * cos(0.6453)}, {0})  {\(\sec^{-1}(x)\)};
+  \draw (0,0) 
+    -- (4, 0) node[midway, below] {\(x\)} 
+    -- (4, 3) node[midway, right] {\(1\)}
+    -- (0, 0);
+\end{tikzpicture}
+\end{document}
