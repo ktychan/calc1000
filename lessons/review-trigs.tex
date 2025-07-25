@@ -1,65 +1,131 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Review of trigonometric functions}
-\faComments{} What mathematical knowledge do you associate to trigonometry?
+\faComments{} What mathematical knowledge do you associate with trigonometry?
 
 \blanklines{5}
 
-\begin{example}
-  Convert radian to degree and vice versa. 
+\begin{mdframed}[style=simple-compact]
+  \textbf{Fundamentals of trigonometry}.
 
-  \begin{minipage}{.4\textwidth}
-    \begin{tabular}{p{1in} | p{1in}}
-      Radian & Degree \\\midrule
-      \(2\pi\) & \\[2ex] \midrule
-               & \(45^{\circ}\) \\[2ex] \midrule
-               & \(-135^{\circ}\) \\[2ex] \midrule
-      \(11\pi/3\) & \\[2ex] \midrule
-    \end{tabular}
+  \begin{minipage}{0.45\textwidth}
+    \includestandalone[page=1]{../standalones/triangle}
   \end{minipage}
-  \begin{minipage}{.59\textwidth}
-    \includestandalone{../standalones/plot_unit_circle}
+  \begin{minipage}{0.55\textwidth}
+    \begin{align} 
+      \label{eq:sin}
+      \sin(\theta) = \hspace{2in} \\[5ex]
+      \label{eq:cos}
+      \cos(\theta) = \hspace{2in} \\[5ex]
+      \label{eq:trig-pythegorean}
+      \hspace{1.5in} = \hspace{1cm}
+    \end{align}
   \end{minipage}
-\end{example}
 
-Two fundamental trigonometric functions \(\sin(\theta)\) and \(\cos(\theta)\) are \hlinfo{defined} using the unit circle.
+  \bigskip
+  We measure angles in radians unless specified otherwise.
+  \begin{center}
+    \includestandalone[page=3]{../standalones/triangle}
+    \includestandalone[page=4]{../standalones/triangle}
+  \end{center}
 
-\includestandalone{../standalones/plot_unit_circle}
+  \bigskip
+  All trigonometric functions are periodic with period \(2\pi\).
+  \begin{center}
+    \includestandalone[page=5]{../standalones/triangle}
+
+    \includestandalone[page=6]{../standalones/triangle}
+  \end{center}
+\end{mdframed}
+\clearpage
+
+\faExclamationTriangle{}
+Midterm and final exams are closed-book with no formula sheets, no calculators and no aids of any kind.  Trying to memorize too much might result in false memory.  Trying to deduce everything might take up a lot of time.  \hlmain{Find the right balance for yourself through practice.}
 
 \begin{example}
   Evaluate \(\cos(11\pi/3)\).
 
-  \includestandalone{../standalones/plot_unit_circle}
-\end{example}
-\clearpage
-
-Relations among trigonometric functions are useful when we want to simplify trigonometric functions. 
-
-\begin{example}
-  Rewrite the following trigonometric functions in term of \(\sin(\theta)\) and \(\cos(\theta)\).
-
-  \begin{align*}
-    \tan(\theta) &= \hspace{3in} && \cot(\theta) &= \hspace{3in} \\[8ex]
-    \sec(\theta) &= \hspace{3in} && \csc(\theta) &= \hspace{3in} \\[5ex]
-  \end{align*}
-
+  \blanklines{12}
 \end{example}
 
-The Pythagorean Theorem gives us fundamental trig identities.
+We need to remember trigonometric equations often, but not always, have more than one solutions.
+If a question does not state a restriction for \(\theta\), then we need to find as many solutions as possible.
 
-\blanklines{12}
+Moreover, Example~\ref{ex:trig-problem-solving-1} and \ref{ex:trig-problem-solving-2} together demonstrate the idea of \hlmain{\faStar{} change of variable \faStar{}} which is a key problem-solving technique to be used throughout the course.
+\begin{example} \label{ex:trig-problem-solving-1}
+  Find all solutions of \(\sin(u) = \frac{\sqrt{3}}{2}\), i.e., solve for \(u\).
 
-Sometimes, we need to solve trig equations. This typically involves some trig identities, some algebra and some trial-and-error. 
+  \blanklines{10}
+\end{example}
 
-First, we should remember that trig equations typically (but not always) have more than one solutions. 
-\begin{example}
-  Find all solutions of \(\sin(\theta + \pi/3) = \frac{\sqrt{2}}{2}\).
+\begin{example} \label{ex:trig-problem-solving-2}
+  Find all solutions of \(\sin(\theta + \pi/3) = \frac{\sqrt{3}}{2}\), i.e., solve for \(\theta\).
+
+  {\footnotesize Make a change of variable \(u = (\cdots)\) so that you can \hlmain{reuse} the solution of Example~\ref{ex:trig-problem-solving-1}.}
 
   \blanklines{15}
+
+  % Common misconception: Why not just apply \(\arcsin\) to both sides?
 \end{example}
 \clearpage
 
-Let's focus on algebra skills.
+
+
+All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the relations among trigonometric functions helps us remember their properties.
+
+\begin{mdframed}[style=simple-compact]
+  \textbf{Relations among trigonometric functions}.
+  \begin{align}
+    \tan(\theta) &= \hspace{1.5in} & \cot(\theta) &= \hspace{1.5in}& \\[3ex]
+    \sec(\theta) &= \hspace{1.5in} & \csc(\theta) &= \hspace{1.5in}& 
+  \end{align}
+
+  Pythagorean Theorem gives us two \emph{more} fundamental trig identities.
+  \vspace{1.5in}
+\end{mdframed}
+
+\begin{exercise}
+  Complete Table~\ref{table:trig-values}.  Write \hlsupp{VA} for vertical asymptotes.
+
+
+
+  \begin{table}[H]
+    \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
+      \(\theta\) & \(\sin(\theta)\) & \(\cos(\theta)\) & \(\tan(\theta)\) & \(\cot(\theta)\) \\\toprule 
+      \(    0 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \(\pi/6 + 2k\pi\) &&& \\[2ex]\midrule
+      \(\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
+      \(\pi/3 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \(  \pi/2 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \(2\pi/3 + 2k\pi\) &&& \\[2ex]\midrule
+      \(3\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
+      \(5\pi/6 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \(   \pi + 2k\pi\) &&& \\[2ex]
+    \end{tabular}
+    \quad
+    \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
+      \(\theta\) & \(\sin(\theta)\) & \(\cos(\theta)\) & \(\tan(\theta)\) & \(\cot(\theta)\) \\\toprule 
+      \(     0 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \(-\pi/6 + 2k\pi\) &&& \\[2ex]\midrule
+      \(-\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
+      \(-\pi/3 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \( -\pi/2 + 2k\pi\) &&& \\[2ex]\midrule\midrule
+      \(-2\pi/3 + 2k\pi\) &&& \\[2ex]\midrule
+      \(-3\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
+      \(-5\pi/6 + 2k\pi\) &&& \\[2ex]\midrule
+      \midrule
+      \(   -\pi + 2k\pi\) &&& \\[2ex]
+    \end{tabular}
+
+    \caption{Special values for trigonometric function}
+    \label{table:trig-values}
+  \end{table}
+\end{exercise}
+
+
+\clearpage
+
+Let's turn to algebra skills.
 \begin{example}[Textbook Example~1.25a on page 68]
   Find all solutions of \(1 + \cos(2 \theta) = \cos(\theta)\).
 
@@ -71,53 +137,30 @@ Let's focus on algebra skills.
 \faExclamationTriangle{} Most of the suggested exercises in this section challenge your algebra skill --- a key requirement for success in calculus. Please do all of them and discuss your results with others. Talk about how you break up a problem into smaller ones, the purpose of your calculations and problem-solving strategies. 
 \clearpage
 
-  % \begin{example}[Textbook Exercise~148]
-  %   Verify that \(\frac{\sec^{2}(\theta)}{\tan(\theta)} = \sec{\theta}\csc{\theta}\) is an identity. 
-  % \end{example}
-  % \clearpage
-
-\begin{example}
+\begin{exercise}
   Label each graph with their corresponding trig function. Which ones are even functions? Which ones are odd functions?  \newline
   {\footnotesize Recall even functions satisfy \(f(-x) = f(x)\) and has symmetry about the \(y\)-axis. Odd functions satisfy \(f(-x) = -f(x)\) and has symmetric about the origin.}
+  \bigskip
 
   \begin{center}
     \includestandalone[page=1]{../standalones/plot-trigs}
-    \qquad
+    \hfill\vline\hfill
     \includestandalone[page=4]{../standalones/plot-trigs}
   \end{center}
+  \vfill{}
 
   \begin{center}
     \includestandalone[page=7]{../standalones/plot-trigs}
-    \qquad
+    \hfill\vline\hfill
     \includestandalone[page=10]{../standalones/plot-trigs}
   \end{center}
+  \vfill{}
 
   \begin{center}
     \includestandalone[page=13]{../standalones/plot-trigs}
-    \qquad
+    \hfill\vline\hfill
     \includestandalone[page=14]{../standalones/plot-trigs}
   \end{center}
-\end{example}
-
-\begin{example}
-  Recall special values of sine and cosine functions. Use symmetry properties of trig functions to calculate the rest.
-
-  \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
-    \(\theta\) & \(0\) & \(\frac{\pi}{6}\) & \(\frac{\pi}{4}\) & \(\frac{\pi}{3}\) & \(\frac{\pi}{2}\) & \(\frac{2\pi}{3}\) & \(\frac{3\pi}{4}\) & \(\frac{5\pi}{6}\) & \(\pi\) \\\midrule
-    \(\sin(\theta)\) &&&&&&&&&\\[3ex]\midrule
-    \(\cos(\theta)\) &&&&&&&&&\\[3ex]\midrule
-    \(\tan(\theta)\) &&&&&&&&&\\[3ex]
-  \end{tabular}
-
-  \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
-    \(\theta\) & \(0\) & \(-\frac{\pi}{6}\) & \(-\frac{\pi}{4}\) & \(-\frac{\pi}{3}\) & \(-\frac{\pi}{2}\) & \(-\frac{2\pi}{3}\) & \(-\frac{3\pi}{4}\) & \(-\frac{5\pi}{6}\) & \(-\pi\) \\\midrule
-    \(\sin(\theta)\) &&&&&&&&&\\[3ex]\midrule
-    \(\cos(\theta)\) &&&&&&&&&\\[3ex]\midrule
-    \(\tan(\theta)\) &&&&&&&&&\\[3ex]
-  \end{tabular}
-\end{example}
-\vfill{}
-
-\clearpage
-
+  \vfill{}
+\end{exercise}
 \end{document}
