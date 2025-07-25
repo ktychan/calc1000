@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document} \section{Evaluation of limits}
+
+\hlmain{Evaluating} one-sided or two-sided \hlmain{limits} involves the following techniques.
+\begin{enumerate}
+  \item \textbf{Use the graph of a function} in combination with the \hlmain{intuitive definition} of a limit.
+
+  \item \textbf{Use limit laws}.
+    \begin{itemize}
+      \item \(\lim_{x \to a} f(x) = f(a)\) if \(f\) is a \hlmain{continuous} at \(a\).  \hlwarn{Exercise caution} if \(f\) is a piecewise function.
+
+        Evaluating limits of \hlmain{piecewise functions} sometimes, but not always, requires evaluating two one-sided limits.
+
+      \item \(\lim_{x \to a} \big[ f(x) + g(x) \big] = \left[ \lim_{x \to a} f(x) \right] + \left[ \lim_{x \to a} g(h) \right]\).
+
+      \item \(\lim_{x \to a} \big[ f(x) - g(x) \big] = \left[ \lim_{x \to a} f(x) \right] - \left[ \lim_{x \to a} g(h) \right]\).
+
+      \item \(\lim_{x \to a} \big[ f(x) \times g(x) \big] = \left[ \lim_{x \to a} f(x) \right] \times \left[ \lim_{x \to a} g(h) \right]\).
+
+      \item \(\lim_{x \to a} \big[ f(x) \div g(x) \big] = \left[ \lim_{x \to a} f(x) \right] \div \left[ \lim_{x \to a} g(h) \right]\). \hlwarn{Does not work} if \(\lim_{x \to a} g(x) = 0\).
+
+      \item \(\lim_{x \to a} \big[ f(x) \circ g(x) \big] = f(x)  \circ \left[ \lim_{x \to a} g(h) \right]\). \hlwarn{Does not work} if \(f\) is discontinuous at \(\lim_{x \to a} g(x)\).
+    \end{itemize}
+
+  \item \textbf{Use one of the three ``magic'' limit formulas}.
+    \[
+      \lim_{x \to 0} \frac{e^{x} - 1}{x} = e^{0},
+      \qquad
+      \lim_{x \to 0} \frac{\sin(x)}{x} = 1,
+      \qquad
+      \lim_{x \to 0} \frac{\cos(x) - 1}{x} = 0.
+    \]
+
+  \item \textbf{Use the Squeeze Theorem}. 
+
+    If \(f(x) \le g(x) \le h(x)\) near a constant \(a\) and \(\lim_{x \to a} f(x) = \lim_{x \to a} h(x)\), then \(\lim_{x \to a} g(x) = \lim_{x \to a} f(a)\).
+
+  \item \textbf{Analyze vertical asymptotes}.
+
+  \item \textbf{Analyze dominant terms} for limits at an infinity.
+
+  \item \textbf{Use l'H\^opital's rule} (requires differentiation).
+
+    If \(\lim_{x \to a} f(x) = 0\) and \(\lim_{x \to a} g(x) = 0\), then \(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\displaystyle \lim_{x \to a} f'(x)}{\displaystyle \lim_{x \to a} g'(x)}\).
+
+  \item \textbf{Use algebra skills in combinations of the above techniques}.
+
+    In particular, the following combinations arise quite often in indirection situations.
+    \begin{itemize}
+      \item Use \hlmain{change of variables} with the three limit formulas.
+      \item Use \hlmain{change of form} when a \hlsupp{direct} application of the above techniques does not work. In such a case, we look for an indirect method using a change of form.
+        \begin{itemize}
+          \item Use factorization and rationalization with limits of quotients.
+          \item Use \(f = \frac{1}{1/f}\) and \(f^{g} = e^{g \ln(f)}\) with l'H\^opital's rule.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+\end{document}

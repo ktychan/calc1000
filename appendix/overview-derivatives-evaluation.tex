@@ -1,0 +1,53 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document} \section{Evaluation of derivatives}
+
+\hlmain{Evaluating derivatives \hlsupp{at a constant} \emph{or} \hlsupp{as a function}} involve the following techniques.
+\begin{enumerate}
+  \item \textbf{Use definitions} (aka first principles). 
+    \begin{itemize}
+      \item The \hlmain{derivative of a function \(f(x)\) at a constant \(a\)} is a constant, denoted as \(f'(a)\), which can be calculated using its definition
+        \[
+          f'(a) = \lim_{h \to 0} \frac{f(a) - f(a + h)}{h} 
+          \quad\text{or}\quad
+          f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}.
+        \]
+
+        Both formulas produce exactly the same result. Use whichever is convenient.
+
+      \item The \hlmain{derivative of a function \(f(x)\)} is a function, denoted as \(f'(x)\), which can be calculated using its definition
+        \[
+          f'(x) = \lim_{h \to 0} \frac{f(x) - f(x + h)}{h}.
+          \phantom{\quad\text{or}\quad
+          f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}}
+        \]
+    \end{itemize}
+
+  \item \textbf{Use differentiation rules}.
+    \begin{itemize}
+      \item \(\frac{d}{dx} \left( f(x) + g(x) \right) = f'(x) + g'(x)\) and \(\frac{d}{dx} \left( f(x) - g(x) \right) = f'(x) - g'(x)\).
+      \item \(\frac{d}{dx} \left( f(x) \cdot g(x) \right) = f'(x)g(x) + f(x) g'(x)\).
+      \item \(\frac{d}{dx} \frac{f(x)}{g(x)} = \frac{f'(x)g(x) - f(x) g'(x)}{\left[g(x)\right]^{2}}\).
+      \item \(\frac{d}{dx} f(g(x)) = f'( g(x) ) g'(x)\).
+    \end{itemize}
+
+  \item \textbf{Use formulas for derivative of elementary functions}.
+    \begin{itemize}
+      \item \(\frac{d}{dx} (\text{constant}) = 0\) and \(\frac{d}{dx} x^{n} = n x^{n-1}\) if \(n \ne 0\).  
+
+        The derivative of any algebraic functions can be evaluated using these two formulas and differentiation rules.
+
+      \item \(\frac{d}{dx} e^{x} = e^{x}\) and \(\frac{d}{dx} \ln(x) = \frac{1}{x}\).
+        
+      \item \(\frac{d}{dx} \sin(x) = \cos(x)\) and \(\frac{d}{dx} \cos(x) = - \sin(x)\).
+    \end{itemize}
+
+  \item \textbf{Use advanced techniques of the chain rule}.
+    \begin{itemize}
+      \item Implicit differentiation --- apply the chain rule to an equation. 
+      \item Logarithmic differentiation --- apply the chain rule in combination with properties of logarithmic and exponential functions.
+    \end{itemize}
+
+  \item \textbf{Use algebra skills in combinations of the above techniques}.
+\end{enumerate}
+\end{document}
