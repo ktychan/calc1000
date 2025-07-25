@@ -206,4 +206,33 @@
   \end{axis}
 \end{tikzpicture}
 
+
+\begin{tikzpicture}
+  \begin{axis}[
+    arcsin, 
+    ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
+    ]
+    \addplot[very thick, main] {asin(x)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    arcsin, 
+    ymin={0-pi/6}, ymax={pi+pi/6},
+    ]
+    \addplot[very thick, main] {acos(x)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[
+    arctan, 
+    ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
+    ]
+    \addplot[very thick, main] {atan(x)};
+    \addplot[dotted, supp] coordinates {(-10, pi/2)  ( 10, pi/2)};
+    \addplot[dotted, supp] coordinates {(-10,-pi/2)  ( 10,-pi/2)};
+  \end{axis}
+\end{tikzpicture}
 \end{document}

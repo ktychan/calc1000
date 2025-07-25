@@ -28,65 +28,74 @@ This definition is \hlinfo{actually very useful}. This definition \emph{alone} t
 We skip the trial-and-error part of the story and go straight to the \hlinfo{insight}: Let's pretend \(f(x)\) has an inverse and denote \underline{\hspace{2in}}. The definition now gives us an useful equation.
 
 \blanklines{25}
-
-To evaluate \(y = f^{-1}(x)\) is to \underline{\hspace{4in}}. For example, \(\log_{2}(x)\) is the inverse of \(2^{x}\) and to evaluate \(\log_{2}(8)\) means to 
-
-\blanklines{5}
+\clearpage
 
 \begin{example}
-  Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
+  Are \(x^{2}\) and \(\sqrt{x}\) inverses of each other? Assume \(x^{2}\) is defined for all real numbers.
 
-  \blanklines{5}
+  \blanklines{10}
 \end{example}
 
 \begin{example}
-  Sketch the inverse of given function if it exists.
+  Find the inverse of \(\frac{2x}{1 + x}\).
+
+  \blanklines{15}
+\end{example}
+
+\begin{exercise}
+  Find the inverse of \(\frac{(x - 3)^{4}}{2}\), restrict the domain if necessary.  Determine the domain and range of its inverse. 
+
+  \blanklines{10}
+\end{exercise}
+
+\begin{exercise}
+  Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
+
+  \blanklines{10}
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Sketch the inverse of the given function if it exists.
 
   \includestandalone[page=2]{../standalones/plot-exercise-sketch-inverse}
   \quad
   \includestandalone[page=1]{../standalones/plot-exercise-sketch-inverse}
-\end{example}
+\end{exercise}
 
-\begin{example}
-  Sketch the inverse of given function if it exists.
+\begin{exercise}
+  Sketch the inverse of the given function if it exists.
 
   \includestandalone[page=3]{../standalones/plot-exercise-sketch-inverse}
   \quad
   \includestandalone[page=1]{../standalones/plot-exercise-sketch-inverse}
-\end{example}
-\clearpage
-\begin{example}
-  Are \(x^{2}\) and \(\sqrt{x}\) inverses of each other? Assume \(x^{2}\) is defined for all real numbers.
+\end{exercise}
 
-  \blanklines{15}
-\end{example}
+\begin{exercise}
+  The inverse of \(x^{2}\) restricted to the domain \((-\infty, 0]\) is \(-\sqrt{x}\). One can explain this phenomenon using a graph, the definition and an appropriate equivalent equation. 
 
-\begin{example}
-  Find the inverse of \(\frac{(x - 3)^{4}}{2}\), restrict the domain if necessary.  Determine the domain and range of its inverse. 
+  Find at least two out of the three explanations for yourself.
 
-  \blanklines{15}
-\end{example}
-
-\begin{example}
-  The graph for \(\cos(x)\) on \([-2\pi, 2\pi]\) is provided below. Define \(\arccos(x)\) by sketching its graph. What is the domain and range of \emph{your} \(\arccos(x)\)?
-
-  \includestandalone[page=5]{../standalones/plot-trigs}
-\end{example}
+  \blanklines{19}
+\end{exercise}
 \clearpage
 
-The inverses of \(\sin(x), \cos(x), \tan(x)\) and so on are called \emph{inverse trigonometric function}. Because all basic trig functions fails the horizontal line test, we need to restrict the domain.
-\medskip
-\begin{align*}
-  y &= \sin^{-1}(x) \text{ is defined for } \underline{\hspace{2in}} \\[3ex]
-  y &= \cos^{-1}(x) \text{ is defined for } \underline{\hspace{2in}} \\[3ex]
-  y &= \tan^{-1}(x) \text{ is defined for } \underline{\hspace{2in}}
-\end{align*}
-Make sure to review all other inverse trigonometric functions on your own.
-\bigskip
+We now turn to inverses of trig functions which have \hlwarn{restrictions on their range} because all trig functions fail the horizontal line test.
 
-To evaluate an inverse trig function is to solve the original trig function \hlmain{with restriction}!
+\begin{tabular}{l|p{1in}|p{1in}||l|p{1in}|p{1in}}
+  \toprule
+                       & domain & range &
+                       & domain & range \\\midrule
+  \(y = \sin^{-1}(x)\) & \(-1 \le x \le 1\) & &
+  \(y = \csc^{-1}(x)\) &  & \\[3ex]\midrule
+  \(y = \cos^{-1}(x)\) & \(-1 \le x \le 1\) & &
+  \(y = \sec^{-1}(x)\) &  & \\[3ex]\midrule
+  \(y = \tan^{-1}(x)\) & all \(x\)          & &
+  \(y = \cot^{-1}(x)\) &  & \\[3ex]\bottomrule
+\end{tabular}
 
-\begin{example}
+Remember, equivalent equations apply to inverse trig functions.
+\begin{example} \label{eg:arccos-cos-caution}
   Evaluate \(\cos^{-1}(\cos(2\pi))\). 
 
   \blanklines{10}
@@ -95,23 +104,26 @@ To evaluate an inverse trig function is to solve the original trig function \hlm
 \begin{exercise}
   Evaluate \(\tan^{-1}\left(\frac{\sqrt{3}}{3}\right)\).
 
-  \blanklines{10}
-\end{exercise}
-
-\begin{example} \label{eg:trig-sec-arctan}
-  Simplify \(\sec(\tan^{-1}(x))\).   \hlmain{Learn the thinking process, and remember the \emph{starting} step.}
-  \blanklines{25}
-\end{example}
-
-\begin{exercise} \label{eg:trig-sec-arctan}
-  Simplify \(\frac{1}{\cos(\sin^{-1}(x))}\).   \hlmain{Learn the thinking process, and remember the \emph{starting} step.}
   \blanklines{25}
 \end{exercise}
 \clearpage
 
+Learn the thinking process in Example~\ref{eg:trig-sec-arctan}, and remember its \emph{starting} step.  The idea applies to all problems in Exercise~\ref{ex:trig-f-finverse}.
+\begin{example} \label{eg:trig-sec-arctan}
+  Simplify \(\sec(\tan^{-1}(x))\).   
 
-\begin{exercise}
-  Practise using triangles to simplify the following expressions.   \newline
+  \blanklines{25}
+\end{example}
+
+\begin{exercise} \label{eg:trig-cos-arcsin}
+  Simplify \(\frac{1}{\cos(\sin^{-1}(x))}\).
+
+  \blanklines{25}
+\end{exercise}
+\clearpage
+
+\begin{exercise} \label{ex:trig-f-finverse}
+  Practise using triangles to simplify the following expressions. 
 
   \begin{multicols}{4}
     \begin{enumerate}
@@ -135,7 +147,19 @@ To evaluate an inverse trig function is to solve the original trig function \hlm
   \end{multicols}
 
   \blanklines{45}
-  {\footnotesize Hint: Working one column at a time reveals a pattern to these problems.}
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Label the graphs with corresponding inverse trig functions.
+
+  \begin{center}
+    \includestandalone[page=15]{../standalones/plot-trigs}
+
+    \includestandalone[page=16]{../standalones/plot-trigs}
+
+    \includestandalone[page=17]{../standalones/plot-trigs}
+  \end{center}
 \end{exercise}
 \clearpage
 \end{document}
