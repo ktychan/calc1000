@@ -3,49 +3,53 @@
 \begin{document} \section{Related rates}
 Given a \hlmain{relation among \emph{two} quantities}, we can use implicit differentiation \hlwarn{with respect to time \(t\)} to find the \emph{relation} among rates of changes with respect to time \(t\).
 
-Let's recall that the physical interpretation of the derivative is \hlmain{rate of change}.
+\begin{mdframed}[style=simple-compact]
+  \textbf{Key principle}. \hlmain{Related given quantities} (form an equation) and do calculus.
+\end{mdframed}
+
 \begin{example}[Similar to textbook Example~4.3] \label{ex:related-rates-intro}
   A student walks along a straight path at \(1\) metre per second.  A spotlight is located on the ground (to be measured) \underline{\hspace{1in}} away from the path and is kept focused on the student. At what rate is the spotlight rotating when the student is (to be measured) \underline{\hspace{1in}} away from the point on the path closest to the spotlight?
 \end{example}
 
-\blanklines{44}
-
-Let's study Example~\ref{ex:related-rates-intro} to find a \hlmain{general method} applicable to \hlsupp{all} \hlmain{related rates} problems. 
-\begin{enumerate}[wide, noitemsep]
-  \item How do we know we are presented with a related rates problem?
-
-    \blanklines{10}
-      % typically we are given information about the relation of two quantities both are functions of time.
-
-  \item How do we mathematically describe the given information?
-
-    \blanklines{10}
-
-  \item How do we find the relation between rate\underline{s} (of change) of given quantities?
-
-    \blanklines{10}
-
-  \item How do we find the unknown rate?
-
-    \blanklines{10}
-\end{enumerate}
-
-\faStar{} Read textbook Section 4.1 and do suggested exercises to build confidence!
-
+\blanklines{42}
 \clearpage
-\begin{example}[Textbook Example~4.2]
+
+\begin{example}[Textbook Example~4.2] \label{ex:related-rates-plane}
   An airplane is flying overhead at a constant elevation of \(4000\) ft. An observer is viewing the plane from a position of \(3000\) ft from the base of a radio tower. The plane is flying horizontally away from the observer. If the plane is flying at the rate of \(600\) ft/sec, at what rate is the distance between the observer and the plane increasing when the plane passes over the radio tower?
 
   \blanklines{45}
 \end{example}
 \clearpage
 
-\begin{example}
-  An empty water tank is shaped like an upside-down pyramid, with base of \(3\) metres by \(3\) metres and a height of \(12\) metres. Water is being pumped in at a rate of \(2\) cubic metres per second. How fast does the height of the water increase when the water is \(2\) metre deep? Assume that the surface of the water is perfectly flat. 
+Example~\ref{ex:related-rates-plane} is fundamentally about \underline{\hspace{4.4in}}.  Studying its variations helps you see patterns and develop skills to tackle \hlmain{conceptually challenging parts (to you)} of related rates problems.
+
+\begin{exercise} \label{ex:related-rates-plane-variations}
+  Solve the following two problems whose solutions are very similar to that of Example~\ref{ex:related-rates-plane}. You are encouraged to \hlmain{reuse parts of the solution} of Example~\ref{ex:related-rates-plane} as much as possible.
+
+  \begin{minipage}[t]{0.49\textwidth}
+    \textit{Variation 1}.
+    The \((x, L)\)-coordinates of a moving particle satisfy \(x^{2} + 4000^{2} = L^{2}\) as time \(t\) increases. Find \(\frac{dL}{dt}\) at \(x = 3000\) given that \(\frac{dx}{dt} = x/5\).
+  \end{minipage}
+  \hfill\vline\hfill
+  \begin{minipage}[t]{0.49\textwidth}
+    \textit{Variation 2}. 
+    A particle travels along the curve \(y = 4x/3\).  Suppose its \(x\)-coordinate is changing at a constant rate of \(600\) units per second. At what rate is the distance between the origin and the particle changing when \(x = 3000\)?
+  \end{minipage}
+
+  \faStar{} Compare and contrast their thinking processes to get the most out of this exercise.
+
+  \blanklines{40}
+\end{exercise}
+\clearpage
+
+\faExclamationTriangle{} The examples and exercises in this section (up to now) \hlwarn{could mislead} us to believe that related rates problems are all about right-angle triangles. NOT always. Exercise~\ref{ex:related-rates-pyramids} does not involve any right-angle triangles. However, the \hlmain{key principle} to solve related rates still applies: \hlmain{Related given quantities and do calculus}.
+
+\begin{example} \label{ex:related-rates-pyramids}
+  An empty water tank is shaped like an upside-down pyramid, with base of \(3\) metres by \(3\) metres and a height of \(12\) metres. Water enters the tank at a rate of \(2\,\text{m}^{3}/\text{s}\) (cubic metres per second). How fast does the height of the water increase when the water is \(2\) metre deep?
 
   Recall that the volume of a pyramid is \(\frac{(\text{area of the base}) \times (\text{height})}{3}\).
 
-  \blanklines{48}
+  \blanklines{45}
 \end{example}
 
 \end{document}
