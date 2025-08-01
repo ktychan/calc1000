@@ -10,54 +10,61 @@
     xlabel={\empty}, 
     ylabel={\empty},
     enlargelimits,
+    xmin=-1, xmax=3, ymin=-1, ymax=3, 
   }
 }
 
 \begin{document}
+
+
 \begin{tikzpicture}
-  \begin{axis}[extrema, xmin=0, xmax=2, ymin=-1, ymax=1, title={\(f_{1}(x)\) on \([0,2]\)}]
-    \addplot[very thick, smooth] coordinates {(0,1/2) (1,1) (2,-1/2)};
-    \draw[fill=black] (axis cs:0,1/2) circle[radius=0.05];
-    \draw[fill=black] (axis cs:2,-1/2) circle[radius=0.05];
+  \begin{axis}[extrema, title={\(f_{1}(x)\) on \([-1,3]\)}]
+    \addplot[very thick, domain=-1:3, smooth, samples=1000] {abs(sin(pi*(x-1))*(x-1))};
+    \draw[fill=black] (axis cs:-1,0) circle[radius=0.1];
+    \draw[fill=black] (axis cs: 3,0) circle[radius=0.1];
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[extrema, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{2}(x)\) on \([0,2]\)}]
-    \addplot[very thick, domain=0:2, smooth, samples=100] { cos(pi*x) + 1};
-    \draw[fill=black] (axis cs:0,2) circle[radius=0.05];
-    \draw[fill=black] (axis cs:2,2) circle[radius=0.05];
-  \end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-  \begin{axis}[extrema, xmin=-1, xmax=1, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{3}(x) = \tfrac{1}{x^{2}+1}\) on \((-\infty, \infty)\)}, xtick={-1,0,1}, xticklabels={-10,0,10}, grid=major, ylabel={}]
-    \addplot[very thick, smooth, samples=100] {1/((sqrt(10)*x)^2+1)};
+  \begin{axis}[extrema, title={\(f_{2}(x)\) on \([0,2]\)}]
+    \addplot[supp, very thick] coordinates {(0,1) (1,3)};
+    \addplot[supp, very thick] coordinates {(1,1) (2,0)};
+    \draw[supp, fill=supp] (axis cs:0,1) circle[radius=0.1];
+    \draw[supp, fill=white] (axis cs:1,3) circle[radius=0.1];
+    \draw[supp, fill=supp] (axis cs:1,1) circle[radius=0.1];
+    \draw[supp, fill=supp] (axis cs:2,0) circle[radius=0.1];
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[extrema, xmin=0, xmax=2, ymin=-2, ymax=0, enlargelimits=0.05, title={\(f_{4}(x)\) on \((0,2)\)}]
+  \begin{axis}[extrema, title={\(f_{3}(x)\) on \((0,3]\)}]
+    \addplot[supp, very thick, smooth, domain=0:3] {1/(20*x) + sin(2*pi/3*x)};
+    \draw[supp, fill=supp] (axis cs:3,0) circle[radius=0.1];
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[extrema, xmin=-1, xmax=1, ymin=0, ymax=2, enlargelimits=0.1, title={\(f_{4}(x)\) on \((-\infty, \infty)\)}, xtick={-1,0,1}, xticklabels={-10,0,10}, grid=major, ylabel={}]
+    \addplot[very thick, smooth, samples=100, domain=-10:0] {-1/(5*x)};
+    \addplot[very thick, smooth, samples=100, domain=0:10] {e^(-10*x)};
+    \draw[fill=black] (axis cs:0,1) circle[radius=0.1];
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[extrema, xmin=0, xmax=2, ymin=-2, ymax=0, enlargelimits=0.1, title={\(f_{5}(x)\) on \((0,2)\)}]
     \addplot[very thick, domain=0:2, smooth, samples=100] {(1/5)*(x-1)/(x*(2-x))-1};
   \end{axis}
 \end{tikzpicture}
+
 \begin{tikzpicture}
-  \begin{axis}[extrema, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{5}(x)\) on \([0,2]\)}]
+  \begin{axis}[extrema, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.1, title={\(f_{6}(x)\) on \([0,2)\)}]
     \addplot[very thick] coordinates {(0,1) (1,2)};
     \addplot[very thick] coordinates {(1,1) (2,0)};
-    \draw[fill=black] (axis cs:0,1) circle[radius=0.05];
-    \draw[fill=white] (axis cs:1,2) circle[radius=0.05];
-    \draw[fill=black] (axis cs:1,1) circle[radius=0.05];
-    \draw[fill=black] (axis cs:2,0) circle[radius=0.05];
-  \end{axis}
-\end{tikzpicture}
-\begin{tikzpicture}
-  \begin{axis}[extrema, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.05, title={\(f_{6}(x)\) on \([0,2)\)}]
-    \addplot[very thick] coordinates {(0,1) (1,2)};
-    \addplot[very thick] coordinates {(1,1) (2,0)};
-    \draw[fill=black] (axis cs:0,1) circle[radius=0.05];
-    \draw[fill=white] (axis cs:1,2) circle[radius=0.05];
-    \draw[fill=black] (axis cs:1,1) circle[radius=0.05];
-    \draw[fill=white] (axis cs:2,0) circle[radius=0.05];
+    \draw[fill=black] (axis cs:0,1) circle[radius=0.1];
+    \draw[fill=white] (axis cs:1,2) circle[radius=0.1];
+    \draw[fill=black] (axis cs:1,1) circle[radius=0.1];
+    \draw[fill=white] (axis cs:2,0) circle[radius=0.1];
   \end{axis}
 \end{tikzpicture}
 
