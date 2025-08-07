@@ -16,6 +16,7 @@
 \usepackage{fontawesome5}
 
 \usepackage{enumitem}
+\setlist{resume}
 \setlist[enumerate]{label={(\alph*)}, itemsep={1ex}}
 
 \input{./tikz.tex.preamble}
@@ -215,6 +216,7 @@
 
 
 \section{Limits}
+
 \begin{poll}
   Suppose \(\lim_{x \to 3} f(x)\) exists. Can we find \(f(3)\)?
 
@@ -226,7 +228,62 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{poll} 
+\end{poll}
+
+\begin{frame}
+  \frametitle{Limit Laws (\(+, -, \times, \div\))}
+
+  Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{both exist}. Then
+  \begin{enumerate}[label=(\arabic*)]
+    \item \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\) \hfill (sum)
+    \item \(\lim_{x \to a} [f(x) - g(x)] = \lim_{x \to a} f(x) - \lim_{x \to a} g(x)\) \hfill (difference)
+  \end{enumerate}
+
+  \vspace{3ex}
+  \begin{enumerate}[label=(\arabic*), start=4]
+    \item \(\lim_{x \to a} [f(x) \; g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)\) \hfill (product)
+    \item \(\lim_{x \to a} \frac{f(x)}{{\color{warn} g(x)}} = \frac{\lim\limits_{x \to a} f(x)}{{\color{warn} \lim\limits_{x \to a} g(x)}}\), \quad \hlwarn{if {\(\lim_{x \to a}g(x) \ne 0\)}} \hfill (quotient)
+  \end{enumerate}
+\end{frame}
+
+\begin{poll}
+  Are you convinced?
+  \[
+    L = \lim_{x \to 0} \frac{1}{x} + \frac{5}{x(x-5)} = \lim_{x \to 0} \frac{1}{x} + \lim_{x \to 0} \frac{5}{x(x-5)} = \text{DNE} + \infty = \infty.
+  \]
+
+  \begin{enumerate}
+    \item Seems fine.
+    \item Looks sketchy.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  Same limit. Different calculation. More convincing?
+  \[
+    L = \lim_{x \to 0} \frac{1}{x} + \frac{5}{x(x-5)} \quad=\quad \frac{1}{0} + \frac{5}{0(-5)} \quad=\quad \frac{1}{0} - \frac{1}{0} \quad=\quad 0.
+  \]
+
+  \begin{minipage}{.5\textwidth}
+    \begin{enumerate}
+      \item Seems fine.
+      \item Looks sketchy. \onslide<2->{\hlmain{\faCheck{}}}
+      \item 
+      \item 
+      \item I am not sure.
+    \end{enumerate}
+  \end{minipage}
+  \begin{minipage}{.4\textwidth}
+    \pause
+    \huge
+    Real answer: \[L = -\frac{1}{5}\]
+  \end{minipage}
+\end{poll}
+
+ 
 
 
 \begin{poll}

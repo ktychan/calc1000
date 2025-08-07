@@ -6,40 +6,52 @@ We learned how to estimate limits of functions. We now learn how to \hlsupp{eval
   % \faExclamationTriangle{} This section covers a bit more than the corresponding textbook section and is organized differently to minimize redundancy. See the last page for a short comparison.
 
 \begin{mdframed}[style=simple-compact]
-  If a function \(f(x)\) is a polynomial or a rational function, then
+  If \(f(x)\) is a polynomial or a rational function, then
   \[
     \lim_{x \to a} f(x) = f(a).
   \]
 \end{mdframed}
 \faExclamationTriangle{} Note \(a\) must be a constant \underline{\hspace{6cm}} and \underline{\hspace{2in}}.
+% Note that a must be in the domain of f and is not an infinity.
+% DO NOT DO arithmetic with infinity.  
 
 \blanklines{5}
 
 \begin{example}
-  Evaluate \(\lim_{x \to -2} (x^{2} + 5 x^{3})\).
+  Evaluate \(\lim_{x \to -2} x^{2} + 5 x^{3}\).
 
   \blanklines{5}
 \end{example}
 
+% \faExclamationTriangle{} If your intuition from high school leads to doing arithmetic with infinities, then that's a good sign that you need to use limit laws explicitly.
+
+We need to use limit laws whenever direct substitution does not apply.
 \begin{mdframed}[style=withref-compact]
-  \textbf{Theorem} (Limit Laws). Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) {both exist}. Then
+  \textbf{Theorem} (Limit Laws). Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{both exist}. Then
   \begin{enumerate}[label=(\arabic*)]
     \item \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\) \hfill (sum)
     \item \(\lim_{x \to a} [f(x) - g(x)] = \lim_{x \to a} f(x) - \lim_{x \to a} g(x)\) \hfill (difference)
     \item \(\lim_{x \to a} [c \; f(x)] = c \lim_{x \to a} f(x)\), where \(c\) is a constant \hfill (constant multiple)
     \item \(\lim_{x \to a} [f(x) \; g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)\) \hfill (product)
-    \item \(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}\), \quad if {\(\lim_{x \to a}g(x) \ne 0\)} \hfill (quotient)
-    \item \(\lim_{x \to a} [f(x)]^{n} = \left[ \lim_{x \to a} f(x) \right]^{n}\) \hfill (power)
-    \item \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a} f(x)}\), \quad if \(n\) is even, we assume {\(\lim_{x \to a} f(x) > 0\)} \hfill (root)
+    \item \(\lim_{x \to a} \frac{f(x)}{{\color{warn} g(x)}} = \frac{\lim\limits_{x \to a} f(x)}{{\color{warn} \lim\limits_{x \to a} g(x)}}\), \quad \hlwarn{if {\(\lim_{x \to a}g(x) \ne 0\)}} \hfill (quotient)
+    \item \(\lim_{x \to a} \bigg[f(x)\bigg]^{n} = \bigg[ \lim_{x \to a} f(x) \bigg]^{n}\) \hfill (power)
+    \item \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a} f(x)}\), \quad if \(n\) is even, we assume {\(\lim_{x \to a} f(x) \ge 0\)} \hfill (root)
   \end{enumerate}
+
   \textbook{Theorem 2.5 Limit Laws on page 161}
 \end{mdframed}
-\faLightbulb{} Limit laws allow us to evaluate the limit of many algebraic functions. 
-  % Before applying the limit laws, make sure the limit exists!
 
-  % \begin{example}
-  %   Evaluate \(\lim_{x \to 2} \left(\sin(x)\cos(x) - 2 e^{x} + \sqrt[3]{x}\right)\), if it exists.
-  % \end{example}
+\faStar{} All limit laws apply to \hlmain{one-sided} (of the same type) as well as \hlmain{two-sided} limits.
+
+\blanklines{5}
+
+% Tips: 
+% \begin{enumerate*}[label=(\alph*)]
+%   \item Group the constant multiple and the product laws together because a constant multiple is also a product.
+%   \item A power is just a repeated product. Therefore, the power law is a special case of the product law.
+%   \item Group the root and the power law together because \(\sqrt[n]{\cdots} = (\cdots)^{1/n}\).  They come from the same theorem anyway.
+% \end{enumerate*}
+
 \clearpage
 
 Applying limit laws correctly is all about decomposing a function along algebraic operations to break up a larger task into smaller tasks. At the very end, we only evaluate limits of very simple functions such as polynomial and rational functions. The rest will be arithmetic.
@@ -52,7 +64,29 @@ Applying limit laws correctly is all about decomposing a function along algebrai
 \faExclamationTriangle{} As far as grading is concerned, we are expected to \hlwarn{show details of calculations} in assignments, tests and the final exam.  Unless stated otherwise, solutions (to short and long answer questions) without details or sufficient justification will typically be given \(0\), regardless of correctness. 
 \clearpage
 
-Limit laws are still useful when only abstract information is given.
+\begin{exercise}
+  How would you group †he following limits?
+
+  \begin{multicols}{3}
+    \begin{enumerate}[label={\(L_{\arabic*} = \)}]
+      \item \(\lim_{x \to 1} \frac{x^{2}-1}{x-1}\)
+      \item \(\lim_{x \to 1} \frac{\sqrt{x}-1}{x-1}\)
+      \item \(\lim_{x \to 1} \frac{x^{1/3}-1}{x-1}\)
+      \item \(\lim_{x \to 0} \frac{x^{2}-1}{x}\)
+      \item \(\lim_{x \to 0} \frac{x^{2}}{x-1}\)
+      \item \(\lim_{x \to 1} \frac{x^{2}-4}{x-1}\)
+      \item \(\lim_{x \to 8} \frac{x^{1/3}-2}{x-8}\)
+      \item \(\lim_{x \to 0} \frac{\sin(x)}{x}\)
+      \item \(\lim_{x \to 0} \frac{\sin(3x)}{5x}\)
+    \end{enumerate}
+  \end{multicols}
+
+  \blanklines{45}
+\end{exercise}
+
+\clearpage
+
+Limit laws are still useful when only abstract information is available.
 \begin{example}
   Suppose \(\lim_{x \to -3} f(x) = 4\). Evaluate \(\lim_{x \to -3} \left( f(x) \right)^{3/2}\) if possible.
 
@@ -60,19 +94,20 @@ Limit laws are still useful when only abstract information is given.
 \end{example}
 
 A variation-on-the-theme problem.  
-\begin{example}
+\begin{exercise}
   Let \(c\) be an unknown constant. Suppose \(\lim_{x \to 1} \sqrt{2x^{3} + cx - 1} = 3\). Find \(c\).
 
   \blanklines{10}
-\end{example}
+\end{exercise}
 
-\faLightbulb{} Limit laws also apply to one-sided limits and piecewise functions.
+Remember that limit laws also apply to one-sided limits (of the same type) and piecewise functions.
 \begin{example}
   Let \(f(x) = \begin{cases}\sqrt{x - 1} + 1, &x > 1\\[1ex]\frac{2x}{x + 1}, &x < 1\end{cases}\). Evaluate \(\lim_{x \to 1} f(x)\).
 
   \blanklines{18}
 \end{example}
 
+\clearpage
 We now get into the more demanding territory of \hlmain{combining limit laws and algebra skills} to evaluate limits where the limit laws seemingly don't apply \hlsupp{at first glance}.
 
 \begin{example} \label{ex:limit-cancellation}
@@ -84,18 +119,16 @@ We now get into the more demanding territory of \hlmain{combining limit laws and
 \begin{example} \label{ex:limit-rationalization}
   Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2}+1}-1}{x^{2}}\) or explain why it does not exist.
 
-  \blanklines{20}
+  \blanklines{25}
 \end{example}
-
-\faComment{} What exactly is going on in Example~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization}. Plot their graphs to find out!
 \clearpage
 
-Example~\ref{ex:limit-textbook-2.28} is a variation on the theme of Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but challenges our algebra skills even more. It is a really good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
-\begin{example}[Textbook Example~2.20] \label{ex:limit-textbook-2.28}
+Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but challenges our algebra skills even more. It is a really good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
+\begin{exercise}[Textbook Example~2.20] \label{ex:limit-textbook-2.28}
   Evaluate \(\lim_{x \to 0} \frac{1}{x} + \frac{5}{x(x-5)}\) or explain why it does not exist.
 
   \blanklines{20}
-\end{example}
+\end{exercise}
 
 Example~\ref{ex:limit-infinity-plus-constant} looks similar to Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but is much simpler.
 \begin{example} \label{ex:limit-infinity-plus-constant}
@@ -105,9 +138,9 @@ Example~\ref{ex:limit-infinity-plus-constant} looks similar to Examples~\ref{ex:
 \end{example}
 
 \vfill{}
-{\scriptsize Hint to Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
+{\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
 \begin{tikzpicture}[scale=1]
-  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of a bunch of stuff. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
 \end{tikzpicture}
 \clearpage
 
@@ -129,11 +162,14 @@ Example~\ref{ex:limit-infinity-plus-constant} looks similar to Examples~\ref{ex:
 \end{example}
 \clearpage
 
-\begin{example}
+\begin{exercise}
+\end{exercise}
+
+\begin{exercise}
   Suppose \(x+1 \le h(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} h(x)\).
 
   \blanklines{45}
-\end{example}
+\end{exercise}
 
 \end{document}
 
