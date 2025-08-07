@@ -64,28 +64,6 @@ Applying limit laws correctly is all about decomposing a function along algebrai
 \faExclamationTriangle{} As far as grading is concerned, we are expected to \hlwarn{show details of calculations} in assignments, tests and the final exam.  Unless stated otherwise, solutions (to short and long answer questions) without details or sufficient justification will typically be given \(0\), regardless of correctness. 
 \clearpage
 
-\begin{exercise}
-  How would you group †he following limits?
-
-  \begin{multicols}{3}
-    \begin{enumerate}[label={\(L_{\arabic*} = \)}]
-      \item \(\lim_{x \to 1} \frac{x^{2}-1}{x-1}\)
-      \item \(\lim_{x \to 1} \frac{\sqrt{x}-1}{x-1}\)
-      \item \(\lim_{x \to 1} \frac{x^{1/3}-1}{x-1}\)
-      \item \(\lim_{x \to 0} \frac{x^{2}-1}{x}\)
-      \item \(\lim_{x \to 0} \frac{x^{2}}{x-1}\)
-      \item \(\lim_{x \to 1} \frac{x^{2}-4}{x-1}\)
-      \item \(\lim_{x \to 8} \frac{x^{1/3}-2}{x-8}\)
-      \item \(\lim_{x \to 0} \frac{\sin(x)}{x}\)
-      \item \(\lim_{x \to 0} \frac{\sin(3x)}{5x}\)
-    \end{enumerate}
-  \end{multicols}
-
-  \blanklines{45}
-\end{exercise}
-
-\clearpage
-
 Limit laws are still useful when only abstract information is available.
 \begin{example}
   Suppose \(\lim_{x \to -3} f(x) = 4\). Evaluate \(\lim_{x \to -3} \left( f(x) \right)^{3/2}\) if possible.
@@ -131,17 +109,32 @@ Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examp
 \end{exercise}
 
 Example~\ref{ex:limit-infinity-plus-constant} looks similar to Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but is much simpler.
-\begin{example} \label{ex:limit-infinity-plus-constant}
+\begin{exercise} \label{ex:limit-infinity-plus-constant}
   Evaluate \(\lim_{x \to 0^{-}} \frac{x+1}{x(x-1)}\) if it exists.
 
   \blanklines{18}
-\end{example}
+\end{exercise}
 
 \vfill{}
 {\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
 \begin{tikzpicture}[scale=1]
   \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
 \end{tikzpicture}
+\clearpage
+
+Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, contrast, summarize, synthesize ideas) among techniques we have learned so far.
+\begin{exercise} \label{ex:limits-strategy}
+  Find \hlmain{a strategy} that works for all these limits.  By strategies, we mean the way techniques can be combined and patterns in the form of functions (\emph{not} patterns in numbers). Work in groups. Experiment with different methods. Trial-and-error is a good learning activity.
+  \[
+    L_{1} = \lim_{x \to 1} \frac{x^{2}-1}{x-1}, \qquad
+    L_{2} = \lim_{x \to 4} \frac{\sqrt{x}-2}{x-4}, \qquad
+    L_{3} = \lim_{x \to 1} \frac{x^{1/3}-1}{x-1}.
+  \]
+  Getting the final numerical answers is not the point. Note \(L_{1} = 2, L_{2} = 1/4\) and \(L_{3} = 1/3\).
+
+  \blanklines{45}
+\end{exercise}
+
 \clearpage
 
 \begin{mdframed}[style=withref]
@@ -153,20 +146,50 @@ Example~\ref{ex:limit-infinity-plus-constant} looks similar to Examples~\ref{ex:
   \textbook{Theorem 2.7 on page 171}
 \end{mdframed}
 
-\begin{example}
-  Evaluate \(\lim_{x \to 0} x \sin\left(\frac{1}{x}\right)\).
-
-  \hfill\includestandalone[width=2in]{../standalones/plot_squeeze}
+\begin{example} \label{ex:limit-law-x-square-sin(x)}
+  Evaluate \(\lim_{x \to 0} x^{2} \sin\left(\frac{1}{x}\right)\).
 
   \blanklines{30}
 \end{example}
 \clearpage
 
-\begin{exercise}
+Exercise~\ref{ex:limit-law-x-sin(x)} is only a tad different from Example~\ref{ex:limit-law-x-square-sin(x)} but requires a few more steps.
+\begin{exercise} \label{ex:limit-law-x-sin(x)}
+  Evaluate \(\lim_{x \to 0} x \sin\left(\frac{1}{x}\right)\).
+
+  \hfill\includestandalone[width=2in]{../standalones/plot_squeeze}
+
+  \begin{enumerate}[wide]
+    \item We will apply the Squeeze Theorem.  The form of \(x \sin(1/x)\) suggests that we choose
+      \begin{itemize}
+        \item the lower bound to be \(f(x) = \underline{\hspace{1in}}\),
+        \item the upper bound to be \(h(x) = \underline{\hspace{1in}}\).
+      \end{itemize}
+
+    \item Sketch your choices of \(f(x)\) and \(h(x)\) on the graph above. Do they \enquote{squeeze} \(x \sin(1/x)\)? If so, move on to the next step; otherwise, go back to the previous step and try again.
+
+      Hint: \(f(x) = -x\) and \(h(x) = x\) are the wrong choices.
+
+  \item The choices for \(f(x)\) and \(g(x)\) forces us to show \(f(x) \le x \sin(1/x) \le g(x)\) in two steps. 
+    \begin{enumerate}
+      \item Show that \(f(x) \le x \sin\left(\frac{1}{x}\right) \le h(x)\) \hlwarn{for \(x \ge 0\)}.
+
+        \blanklines{10}
+
+      \item Show that \(f(x) \le x \sin\left(\frac{1}{x}\right) \le h(x)\) \hlwarn{for \(x < 0\)}.
+
+        \blanklines{10}
+    \end{enumerate}
+
+  \item Apply the Squeeze Theorem to finish evaluating the limit.
+
+    \blanklines{4}
+  \end{enumerate}
 \end{exercise}
+\clearpage
 
 \begin{exercise}
-  Suppose \(x+1 \le h(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} h(x)\).
+  Suppose \(x+1 \le g(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} g(x)\).
 
   \blanklines{45}
 \end{exercise}
