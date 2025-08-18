@@ -3,40 +3,66 @@
 \begin{document} \section{Review of functions}
 \begin{example}
   Which of the following is \hlwarn{not} a function?
-  \begin{enumerate}[label=(\alph*)]
-    \item \(h = \frac{7t^{3} + 2t^{2} + 5}{t - 1}\).
-    \item \(y = x^{2} - 1\).
-    \item \(x^{2} + y^{2} = 1\).
-    \item \(x^{x}\) for \(x > 0\).
-    \item \(g(x) = \begin{cases} x^{2} + 1 & x > 3\\ \sqrt{x} & x \le 3 \end{cases}\).
-  \end{enumerate}
+
+  \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+      \item \(y = x^{2} - 1\).
+      \item \(x^{2} + y^{2} = 1\).
+      \item \(x^{x}\) for \(x > 0\).
+      \item \(g(x) = \begin{cases} x^{2} + 1 & x > 3\\ \sqrt{x} & x \le 3 \end{cases}\).
+    \end{enumerate}
+  \end{multicols}
 \end{example} 
 
 
-A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses a certain dependence between two quantities: the \hlsupp{independent} variable \(x\) and the \hlsupp{dependent} variable \(y\).
-\vspace{1em}
+A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), expresses a certain dependence between two quantities: the \underline{\hspace{1in}} variable \(x\) and the \underline{\hspace{1in}} variable \(y\).
 
-\begin{mdframed}[style=withref-compact]
-  A function \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{2in}} output.
+\bigskip
+\begin{definition}[function]
+  A \hlmain{function} \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{2in}} output.
   \begin{enumerate}
-    \item The set of inputs is called \underline{\hspace{1in}}.
-    \item The set of outputs is called \underline{\hspace{1in}}.
+    \item The \underline{\hspace{1in}} of \(f\) is \underline{\hspace{3in}}.
+    \item The \underline{\hspace{1in}} of \(f\) is \underline{\hspace{3in}}.
   \end{enumerate}
 
   \textbook{Page 8}
-\end{mdframed}
+\end{definition}
 To \hlmain{evaluate} a function \(f(x)\) at \(x = a\) means to \underline{\hspace{3in}}
 
 \begin{example}
-  Do these functions have the same domain?
+  Do these two functions have the same domain?
   \[
-    \frac{\sqrt{x - 4}}{\sqrt{x + 3}}, \hspace{1in} \sqrt{x - 4}\sqrt{x+3}, \hspace{1in} \sqrt{(x-4)(x+3)}.
+    \sqrt{x - 4}\sqrt{x+3}, \hspace{1in} \sqrt{(x-4)(x+3)}.
   \]
 
-  \blanklines{20}
+  \blanklines{25}
 \end{example}
 
 \clearpage
+
+Lines show up a lot in later chapters (e.g., tangent lines) of \thiscourse{} and every science.
+
+\begin{example}
+  Describe the given line \(L\) \hlinfo{in words} in two different ways.
+
+  \includestandalone[page=1]{../standalones/plot-line}
+\end{example}
+
+The \hlmain{point-slope form} is a recipe for lines and calls for \underline{\hspace{3in}}.
+
+\blanklines{10}
+
+The \hlmain{slope-intercept form} is the other recipe for lines and calls for \underline{\hspace{2in}}.
+
+\blanklines{10}
+
+The \hlmain{standard form} of a line is \(ax + by = c\) where \(a, b, c\) are constants and \(a,b\) cannot both be zero.
+%(Reflection) If a line is expressed in its standard form, is \(a\) always its slope?
+
+\blanklines{10}
+
+\clearpage
+
 Let's talk a little bit about study skills. 
 
 \begin{mdframed}[style=simple]
@@ -46,7 +72,6 @@ Let's talk a little bit about study skills.
     \item Practise \underline{\hspace{4.2in}} 
   \end{enumerate}
 \end{mdframed}
-
 
 \begin{example}
   Let's practise these study skills by playing with the concept of \emph{increasing} functions.
@@ -62,28 +87,7 @@ Let's talk a little bit about study skills.
   \end{center}
   \blanklines{28}
 \end{example}
-\clearpage
 
-Lines shows up a lot in later chapters (e.g., tangent lines) and other sciences.
-
-\begin{example}
-  Describe the following line \(L\) \hlinfo{in words} in two different ways.
-
-  \includestandalone[page=1]{../standalones/plot-line}
-\end{example}
-
-The \hlmain{point-slope form} of a line is an equation \underline{\hspace{2in}}.
-
-\blanklines{8}
-
-The \hlmain{slope-intercept form} of a line is an equation \underline{\hspace{2in}}.
-
-\blanklines{8}
-
-The \hlmain{standard form} of a line is an equation \underline{\hspace{2in}}. \newline
-{\scriptsize \faExclamationTriangle{} Note that the textbook has a typo in the definition of the standard form.}
-
-\blanklines{6}
 \clearpage
 
 We review some common functions (nouns) and operations (verbs) because functions that describe natural phenomena are often created by ``putting together'' basic functions.
@@ -164,15 +168,19 @@ Let's take a short break and chat a bit about philosophy. \faComments{} Why lear
 \blanklines{15}
 \clearpage
 
-Shifting (aka translation) and scaling are two basic types of transformation on functions.
+Translation (aka shift) and scaling are two basic transformation on functions.
 
-\hlmain{Shift}: \(f(x + a) + b\) creates a new function from \(f(x)\) by moving the axes so that the new origin is at the point \((a, -b)\).
+\hlmain{Translation}: The operation \(f(x - a) + b\) shifts \(f(x)\) horizontally by \(a\) and vertically by \(b\). 
 
-\blanklines{18}
+\blanklines{15}
 
-\hlmain{Scale}: \(\beta f(\alpha x)\) creates a new function from \(f(x)\) by scaling \hlsupp{\underline{\hspace{2in}} by \(\alpha\)} but \hlwarn{\underline{\hspace{2in}} by \(\beta\)}.
+\hlmain{Scaling}: The operation \(B f(A x)\) scales \(f(x)\) horizontally by \(A\) and vertically by \(B\).
 
-\blanklines{28}
+\blanklines{15}
+
+We can also perform translation and scaling by relabelling the axes. 
+
+\blanklines{15}
 
 \clearpage
 \begin{example}
@@ -190,12 +198,12 @@ Shifting (aka translation) and scaling are two basic types of transformation on 
 Why is sketching ``manually'' useful? Consider evaluating \(\lim_{x \to \infty} \left( \arctan(-2x) + \pi/4 \right)\) (which is a common question). The sketch above tells you the answer immediately!
 \clearpage
 
-\begin{example}
+\begin{exercise}
   Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without using any software or calculators.
 
-  {\scriptsize This question is a bit tricky.}
+  The grading standard for sketching functions, aside from multiple choice questions, is that students are \hlwarn{required to show step-by-step sketches}. The solution needs to clearly sketch one starting function, call it \(f(x)\). Each subsequent step shows exactly one of the four transformations (horizontal translation \(g(x - a)\), vertical translation \(g(x) + c\), horizontal scaling \(g(ax)\) and vertical scaling \(Ag(x)\)) of the function in the previous step.
 
-  \blanklines{50}
-\end{example}
+  \blanklines{45}
+\end{exercise}
 
 \end{document}
