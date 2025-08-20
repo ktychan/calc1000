@@ -4,7 +4,6 @@
 \usepackage[table]{xcolor}
 
 % Define colors for each month
-\definecolor{Aug}{RGB}{255, 255, 255} % transparent, no color, use default background
 \definecolor{Sep}{RGB}{226, 240, 217} % light green
 \definecolor{Oct}{RGB}{222, 235, 247} % light blue
 \definecolor{Nov}{RGB}{255, 242, 204} % light yellow
@@ -16,6 +15,13 @@
 \newcolumntype{T}{>{\centering\arraybackslash}p{1em}}
 \newcolumntype{R}{>{\raggedleft\arraybackslash}p{2cm}}
 \setlist[enumerate, 2]{label={\arabic*.}}
+
+\newcommand{\classno}[1]{\parbox{2cm}{
+\begin{tikzpicture}
+  \draw[thick, dotted, gray] (0,0) circle[radius=2ex];
+  \node at (0,0) {\color{main} #1};
+\end{tikzpicture}
+}}
 
 \begin{document}
 
@@ -145,34 +151,35 @@ W    & Sun    & \textbf{Mon}             & \textbf{Tue}            & Wed        
 \endlastfoot
 
 \textbf{1 } &        &                         &                        &                     & \cellcolor{Sep}Sep 5    & \cellcolor{Sep}6        & 7      \\
-            &        &                         &                        &                     & \cellcolor{Sep}\parbox{2cm}{ 1} & \cellcolor{Sep}\parbox{2cm}{ 2} &        \\[2ex]\midrule
+            &        &                         &                        &                     & \cellcolor{Sep}\classno{ 1} & \cellcolor{Sep}\classno{ 2} &        \\\midrule
 \textbf{2 } & 8      & \cellcolor{Sep}9        & \cellcolor{Sep}10      & 11                  & \cellcolor{Sep}12       & \cellcolor{Sep}13       & 14     \\
-            &        & \cellcolor{Sep}\parbox{2cm}{ 3} & \cellcolor{Sep}\parbox{2cm}{ 4} &   & \cellcolor{Sep}\parbox{2cm}{ 5} & \cellcolor{Sep}\parbox{2cm}{ 6} &        \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{ 3} & \cellcolor{Sep}\classno{ 4} &   & \cellcolor{Sep}\classno{ 5} & \cellcolor{Sep}\classno{ 6} &        \\\midrule
 \textbf{3 } & 15     & \cellcolor{Sep}16       & \cellcolor{Sep}17      & 18                  & \cellcolor{Sep}19       & \cellcolor{Sep}20       & 21     \\
-            &        & \cellcolor{Sep}\parbox{2cm}{ 7} & \cellcolor{Sep}\parbox{2cm}{ 8} &   & \cellcolor{Sep}\parbox{2cm}{ 9} & \cellcolor{Sep}\parbox{2cm}{ 10} &       \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{ 7} & \cellcolor{Sep}\classno{ 8} &   & \cellcolor{Sep}\classno{ 9} & \cellcolor{Sep}\classno{ 10} &       \\\midrule
 \textbf{4 } & 22     & \cellcolor{Sep}23       & \cellcolor{Sep}24      & 25                  & \cellcolor{Sep}26       & \cellcolor{Sep}27       & 28     \\
-            &        & \cellcolor{Sep}\parbox{2cm}{ 11} & \cellcolor{Sep}\parbox{2cm}{ 12} & & \cellcolor{Sep}\parbox{2cm}{ 13} & \cellcolor{Sep}\parbox{2cm}{ 14} &       \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{ 11} & \cellcolor{Sep}\classno{ 12} & & \cellcolor{Sep}\classno{ 13} & \cellcolor{Sep}\classno{ 14} &       \\\midrule
 \textbf{5 } & 29     & 30                      & \cellcolor{Oct}1       & 2                   & \cellcolor{Oct}3        & \cellcolor{Oct}4        & 5      \\
-            &        &                         & \cellcolor{Oct}\parbox{2cm}{ 15} &           & \cellcolor{Oct}\parbox{2cm}{ 16} & \cellcolor{Oct}\parbox{2cm}{ 17} &       \\[2ex]\midrule
+            &        &                         & \cellcolor{Oct}\classno{ 15} &           & \cellcolor{Oct}\classno{ 16} & \cellcolor{Oct}\classno{ 17} &       \\\midrule
 \textbf{6 } & 6      & \cellcolor{Oct}7        & \cellcolor{Oct}8       & 9                   & \cellcolor{Oct}10       & \cellcolor{Oct}11       & 12     \\
-            &        & \cellcolor{Oct}\parbox{2cm}{ 18} & \cellcolor{Oct}\parbox{2cm}{ 19} & & \cellcolor{Oct}\parbox{2cm}{ 20} & \cellcolor{Oct}\parbox{2cm}{ 21} &       \\[2ex]\midrule
+            &        & \cellcolor{Oct}\classno{ 18} & \cellcolor{Oct}\classno{ 19} & & \cellcolor{Oct}\classno{ 20} & \cellcolor{Oct}\classno{ 21} &       \\\midrule
        7    & 13     & 14                      & 15                     & 16                  & 17                      & 18                      & 19     \\
             & \multicolumn{7}{c|}{\parbox{14cm}{\centering\phantom{a}\\Reading Week}} \\\midrule
 \textbf{8 } & 20     & \cellcolor{Oct}21       & \cellcolor{Oct}22      & 23                  & \cellcolor{Oct}24       & \cellcolor{Oct}25       & 26     \\
-            &        & \cellcolor{Oct}\parbox{2cm}{ 22} & \cellcolor{Oct}\parbox{2cm}{ 23} & & \cellcolor{Oct}\parbox{2cm}{ 24} & \cellcolor{Oct}\parbox{2cm}{ 25} &       \\[2ex]\midrule
+            &        & \cellcolor{Oct}\classno{ 22} & \cellcolor{Oct}\classno{ 23} & & \cellcolor{Oct}\classno{ 24} & \cellcolor{Oct}\classno{ 25} &       \\\midrule
 \textbf{9 } & 27     & \cellcolor{Oct}28       & \cellcolor{Oct}29      & 30                  & \cellcolor{Oct}31       & \cellcolor{Nov}1        & 2      \\
-            &        & \cellcolor{Oct}\parbox{2cm}{ 26} & \cellcolor{Oct}\parbox{2cm}{ 27} & & \cellcolor{Oct}\parbox{2cm}{ 28} & \cellcolor{Nov}\parbox{2cm}{Midterm\faStar} &  \\[2ex]\midrule
+            &        & \cellcolor{Oct}\classno{ 26} & \cellcolor{Oct}\classno{ 27} & & \cellcolor{Oct}\classno{ 28} & \cellcolor{Nov}\parbox{2cm}{Midterm\faStar} &  \\\midrule
 \textbf{10} & 3      & \cellcolor{Nov}4        & \cellcolor{Nov}5       & 6                   & \cellcolor{Nov}7        & \cellcolor{Nov}8        & 9      \\
-            &        & \cellcolor{Nov}\parbox{2cm}{ 29} & \cellcolor{Nov}\parbox{2cm}{ 30} & & \cellcolor{Nov}\parbox{2cm}{ 31} & \cellcolor{Nov}\parbox{2cm}{ 32} &       \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{ 29} & \cellcolor{Nov}\classno{ 30} & & \cellcolor{Nov}\classno{ 31} & \cellcolor{Nov}\classno{ 32} &       \\\midrule
 \textbf{11} & 10     & \cellcolor{Nov}11       & \cellcolor{Nov}12      & 13                  & \cellcolor{Nov}14       & \cellcolor{Nov}15       & 16     \\
-            &        & \cellcolor{Nov}\parbox{2cm}{ 33} & \cellcolor{Nov}\parbox{2cm}{ 34} & & \cellcolor{Nov}\parbox{2cm}{ 35} & \cellcolor{Nov}\parbox{2cm}{ 36} &       \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{ 33} & \cellcolor{Nov}\classno{ 34} & & \cellcolor{Nov}\classno{ 35} & \cellcolor{Nov}\classno{ 36} &       \\\midrule
 \textbf{12} & 17     & \cellcolor{Nov}18       & \cellcolor{Nov}19      & 20                  & \cellcolor{Nov}21       & \cellcolor{Nov}22       & 23     \\
-            &        & \cellcolor{Nov}\parbox{2cm}{ 37} & \cellcolor{Nov}\parbox{2cm}{ 38} & & \cellcolor{Nov}\parbox{2cm}{ 39} & \cellcolor{Nov}\parbox{2cm}{ 40} &       \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{ 37} & \cellcolor{Nov}\classno{ 38} & & \cellcolor{Nov}\classno{ 39} & \cellcolor{Nov}\classno{ 40} &       \\\midrule
 \textbf{13} & 24     & \cellcolor{Nov}25       & \cellcolor{Nov}26      & 27                  & \cellcolor{Nov}28       & \cellcolor{Nov}29       & 30     \\
-            &        & \cellcolor{Nov}\parbox{2cm}{ 41} & \cellcolor{Nov}\parbox{2cm}{ 42} & & \cellcolor{Nov}\parbox{2cm}{ 43} & \cellcolor{Nov}\parbox{2cm}{ 44} &       \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{ 41} & \cellcolor{Nov}\classno{ 42} & & \cellcolor{Nov}\classno{ 43} & \cellcolor{Nov}\classno{ 44} &       \\\midrule
 \textbf{14} & Dec 1  & \cellcolor{Dec}2        & \cellcolor{Dec}3       & 4                   & \cellcolor{Dec}5        & \cellcolor{Dec}6        & 7      \\
-            &        & \cellcolor{Dec}\parbox{2cm}{ 45} & \cellcolor{Dec}\parbox{2cm}{ 46} & & \cellcolor{Dec}\parbox{2cm}{ 47} & \cellcolor{Dec}\parbox{2cm}{ 48} &       \\[2ex]
+            &        & \cellcolor{Dec}\classno{ 45} & \cellcolor{Dec}\classno{ 46} & & \cellcolor{Dec}\classno{ 47} & \cellcolor{Dec}\classno{ 48} &       \\
 \end{longtable}
+\clearpage
 
 
 \begin{longtable}[t]{|T|R|R|R|R|R|R|R|}
@@ -191,33 +198,35 @@ W    & Sun    & Mon                  & \textbf{Tue}            & Wed            
 \endlastfoot
 
 \textbf{1 } &        &                      &                        &                     & \cellcolor{Sep}Sep 4    & 5                    & 6      \\
-            &        &                      &                        &                     & \cellcolor{Sep}\parbox{2cm}{2} &                    &        \\[2ex]\midrule
+            &        &                      &                        &                     & \cellcolor{Sep}\classno{2} &                    &        \\\midrule
 \textbf{2 } & 7      & 8                    & \cellcolor{Sep}9       & 10                  & \cellcolor{Sep}11       & 12                   & 13     \\
-            &        &                      & \cellcolor{Sep}\parbox{2cm}{4} &             & \cellcolor{Sep}\parbox{2cm}{6} &                    &        \\[2ex]\midrule
+            &        &                      & \cellcolor{Sep}\classno{4} &             & \cellcolor{Sep}\classno{6} &                    &        \\\midrule
 \textbf{3 } & 14     & 15                   & \cellcolor{Sep}16      & 17                  & \cellcolor{Sep}18       & 19                   & 20     \\
-            &        &                      & \cellcolor{Sep}\parbox{2cm}{8} &             & \cellcolor{Sep}\parbox{2cm}{10} &                   &        \\[2ex]\midrule
+            &        &                      & \cellcolor{Sep}\classno{8} &             & \cellcolor{Sep}\classno{10} &                   &        \\\midrule
 \textbf{4 } & 21     & 22                   & \cellcolor{Sep}23      & 24                  & \cellcolor{Sep}25       & 26                   & 27     \\
-            &        &                      & \cellcolor{Sep}\parbox{2cm}{12} &            & \cellcolor{Sep}\parbox{2cm}{14} &                   &        \\[2ex]\midrule
+            &        &                      & \cellcolor{Sep}\classno{12} &            & \cellcolor{Sep}\classno{14} &                   &        \\\midrule
 \textbf{5 } & 28     & 29                   & 30                     & Oct 1               & \cellcolor{Oct}2        & 3                    & 4      \\
-            &        &                      &                        &                     & \cellcolor{Oct}\parbox{2cm}{16} &                   &        \\[2ex]\midrule
+            &        &                      &                        &                     & \cellcolor{Oct}\classno{16} &                   &        \\\midrule
 \textbf{6 } & 5      & 6                    & \cellcolor{Oct}7       & 8                   & \cellcolor{Oct}9        & 10                   & 11     \\
-            &        &                      & \cellcolor{Oct}\parbox{2cm}{18} &            & \cellcolor{Oct}\parbox{2cm}{20} &                   &        \\[2ex]\midrule
+            &        &                      & \cellcolor{Oct}\classno{18} &            & \cellcolor{Oct}\classno{20} &                   &        \\\midrule
 \textbf{7 } & 12     & 13                   & \cellcolor{Oct}14      & 15                  & \cellcolor{Oct}16       & 17                   & 18     \\
-            &        &                      & \cellcolor{Oct}\parbox{2cm}{22} &            & \cellcolor{Oct}\parbox{2cm}{24} &                   &        \\[2ex]\midrule
+            &        &                      & \cellcolor{Oct}\classno{22} &            & \cellcolor{Oct}\classno{24} &                   &        \\\midrule
 \textbf{8 } & 19     & 20                   & \cellcolor{Oct}21      & 22                  & \cellcolor{Oct}23       & 24                   & 25     \\
-            &        &                      & \cellcolor{Oct}\parbox{2cm}{26} &            & \cellcolor{Oct}         & \parbox{2cm}{Midterm\faStar} &  \\[2ex]\midrule
+            &        &                      & \cellcolor{Oct}\classno{26} &            & \cellcolor{Oct}         & \parbox{2cm}{Midterm\faStar} &  \\\midrule
 \textbf{9 } & 26     & 27                   & \cellcolor{Oct}28      & 29                  & \cellcolor{Oct}30       & 31                   & Nov 01 \\
-            &        &                      & \cellcolor{Oct}\parbox{2cm}{28} &            & \cellcolor{Oct}\parbox{2cm}{30} &                   &        \\[2ex]\midrule
-       10   & 2      & 3                    & 4                      & 5                   & 6                       & 7                    & 8      \\
-            & \multicolumn{7}{c|}{Reading Week} \\[2ex]\midrule
-\textbf{11} & 9      & 10                   & \cellcolor{Nov}11      & 12                  & \cellcolor{Nov}13       & 14                   & 15     \\
-            &        &                      & \cellcolor{Nov}\parbox{2cm}{32} &            & \cellcolor{Nov}\parbox{2cm}{34} &                   &        \\[2ex]\midrule
-\textbf{12} & 16     & 17                   & \cellcolor{Nov}18      & 19                  & \cellcolor{Nov}20       & 21                   & 22     \\
-            &        &                      & \cellcolor{Nov}\parbox{2cm}{36} &            & \cellcolor{Nov}\parbox{2cm}{38} &                   &        \\[2ex]\midrule
-\textbf{13} & 23     & 24                   & \cellcolor{Nov}25      & 26                  & \cellcolor{Nov}27       & 28                   & 29     \\
-            &        &                      & \cellcolor{Nov}\parbox{2cm}{40} &            & \cellcolor{Nov}\parbox{2cm}{42} &                   &        \\[2ex]\midrule
-\textbf{14} & 30     & Dec 01               & \cellcolor{Dec}2       & 3                   & \cellcolor{Dec}4        & 5                    & 6      \\
-            &        &                      & \cellcolor{Dec}\parbox{2cm}{44} &            & \cellcolor{Dec}\parbox{2cm}{46} &                   &        \\[2ex]
+            &        &                      & \cellcolor{Oct}\classno{28} &            & \cellcolor{Oct}\classno{30} &                   &        \\\midrule
+       10   & 2      & 3                    & 4                      & 5                   & 6                               & 7                 & 8      \\
+            & \multicolumn{7}{c|}{Reading Week} \\\midrule
+\textbf{11} & 9      & 10                   & \cellcolor{Nov}11      & 12                  & \cellcolor{Nov}13               & 14                & 15     \\
+            &        &                      & \cellcolor{Nov}\classno{32} &            & \cellcolor{Nov}\classno{34} &                   &        \\\midrule
+\textbf{12} & 16     & 17                   & \cellcolor{Nov}18      & 19                  & \cellcolor{Nov}20               & 21                & 22     \\
+            &        &                      & \cellcolor{Nov}\classno{36} &            & \cellcolor{Nov}\classno{38} &                   &        \\\midrule
+\textbf{13} & 23     & 24                   & \cellcolor{Nov}25      & 26                  & \cellcolor{Nov}27               & 28                & 29     \\
+            &        &                      & \cellcolor{Nov}\classno{40} &            & \cellcolor{Nov}\classno{42} &                   &        \\\midrule
+\textbf{14} & 30     & Dec 01               & \cellcolor{Dec}2       & 3                   & \cellcolor{Dec}4                & 5                 & 6      \\
+            &        &                      & \cellcolor{Dec}\classno{44} &            & \cellcolor{Dec}\classno{46} &                   &        \\\midrule
+\textbf{15} & 7      &  8                   & \cellcolor{Dec}9       &                     &                                 &                   &        \\
+            &        &                      & \cellcolor{Dec}\classno{48} &            &                                 &                   &        \\
 \end{longtable}
 \clearpage
 
@@ -237,32 +246,34 @@ W    & Sun    & \textbf{Mon}             & \textbf{Tue}            & \textbf{Wed
 \endlastfoot
 
 \textbf{1 } &        &                         &                        &                       & Sep 4               & \cellcolor{Sep}5        & 6      \\
-            &        &                         &                        &                       &                     & \cellcolor{Sep}\parbox{2cm}{1} &        \\[2ex]\midrule
+            &        &                         &                        &                       &                     & \cellcolor{Sep}\classno{1} &        \\\midrule
 \textbf{2 } & 7      & \cellcolor{Sep}8        & \cellcolor{Sep}9       & \cellcolor{Sep}10     & 11                  & \cellcolor{Sep}12       & 13     \\
-            &        & \cellcolor{Sep}\parbox{2cm}{2} & \cellcolor{Sep}\parbox{2cm}{3} & \cellcolor{Sep}\parbox{2cm}{4} &                     & \cellcolor{Sep}\parbox{2cm}{5} &        \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{2} & \cellcolor{Sep}\classno{3} & \cellcolor{Sep}\classno{4} &                     & \cellcolor{Sep}\classno{5} &        \\\midrule
 \textbf{3 } & 14     & \cellcolor{Sep}15       & \cellcolor{Sep}16      & \cellcolor{Sep}17     & 18                  & \cellcolor{Sep}19       & 20     \\
-            &        & \cellcolor{Sep}\parbox{2cm}{6} & \cellcolor{Sep}\parbox{2cm}{7} & \cellcolor{Sep}\parbox{2cm}{8} &                     & \cellcolor{Sep}\parbox{2cm}{9} &        \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{6} & \cellcolor{Sep}\classno{7} & \cellcolor{Sep}\classno{8} &                     & \cellcolor{Sep}\classno{9} &        \\\midrule
 \textbf{4 } & 21     & \cellcolor{Sep}22       & \cellcolor{Sep}23      & \cellcolor{Sep}24     & 25                  & \cellcolor{Sep}26       & 27     \\
-            &        & \cellcolor{Sep}\parbox{2cm}{10} & \cellcolor{Sep}\parbox{2cm}{11} & \cellcolor{Sep}\parbox{2cm}{12} &                   & \cellcolor{Sep}\parbox{2cm}{13} &        \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{10} & \cellcolor{Sep}\classno{11} & \cellcolor{Sep}\classno{12} &                   & \cellcolor{Sep}\classno{13} &        \\\midrule
 \textbf{5 } & 28     & \cellcolor{Sep}29       & 30                     & \cellcolor{Oct}Oct 1  & 2                   & \cellcolor{Oct}3        & 4      \\
-            &        & \cellcolor{Sep}\parbox{2cm}{14} &                & \cellcolor{Oct}\parbox{2cm}{15} &            & \cellcolor{Oct}\parbox{2cm}{16} &        \\[2ex]\midrule
+            &        & \cellcolor{Sep}\classno{14} &                & \cellcolor{Oct}\classno{15} &            & \cellcolor{Oct}\classno{16} &        \\\midrule
 \textbf{6 } & 5      & \cellcolor{Oct}6        & \cellcolor{Oct}7       & \cellcolor{Oct}8      & 9                   & \cellcolor{Oct}10       & 11     \\
-            &        & \cellcolor{Oct}\parbox{2cm}{17} & \cellcolor{Oct}\parbox{2cm}{18} & \cellcolor{Oct}\parbox{2cm}{19} &                   & \cellcolor{Oct}\parbox{2cm}{20} &        \\[2ex]\midrule
+            &        & \cellcolor{Oct}\classno{17} & \cellcolor{Oct}\classno{18} & \cellcolor{Oct}\classno{19} &                   & \cellcolor{Oct}\classno{20} &        \\\midrule
 \textbf{7 } & 12     & 13                      & \cellcolor{Oct}14      & \cellcolor{Oct}15     & 16                  & \cellcolor{Oct}17       & 18     \\
-            &        &                         & \cellcolor{Oct}\parbox{2cm}{21} & \cellcolor{Oct}\parbox{2cm}{22} &   & \cellcolor{Oct}\parbox{2cm}{23} &        \\[2ex]\midrule
+            &        &                         & \cellcolor{Oct}\classno{21} & \cellcolor{Oct}\classno{22} &   & \cellcolor{Oct}\classno{23} &        \\\midrule
 \textbf{8 } & 19     & \cellcolor{Oct}20       & \cellcolor{Oct}21      & \cellcolor{Oct}22     & 23                  & \cellcolor{Oct}24       & 25     \\
-            &        & \cellcolor{Oct}\parbox{2cm}{24} & \cellcolor{Oct}\parbox{2cm}{25} & \cellcolor{Oct}\parbox{2cm}{26} &                   & \cellcolor{Oct}\parbox{2cm}{Midterm\faStar} &  \\[2ex]\midrule
+            &        & \cellcolor{Oct}\classno{24} & \cellcolor{Oct}\classno{25} & \cellcolor{Oct}\classno{26} &                   & \cellcolor{Oct}\parbox{2cm}{Midterm\faStar} &  \\\midrule
 \textbf{9 } & 26     & \cellcolor{Oct}27       & \cellcolor{Oct}28      & \cellcolor{Oct}29     & 30                  & \cellcolor{Oct}31       & Nov 01 \\
-            &        & \cellcolor{Oct}\parbox{2cm}{27} & \cellcolor{Oct}\parbox{2cm}{28} & \cellcolor{Oct}\parbox{2cm}{29} &                   & \cellcolor{Oct}\parbox{2cm}{30} &        \\[2ex]\midrule
+            &        & \cellcolor{Oct}\classno{27} & \cellcolor{Oct}\classno{28} & \cellcolor{Oct}\classno{29} &                   & \cellcolor{Oct}\classno{30} &        \\\midrule
         10  & 2      & 3                       & 4                      & 5                     & 6                   & 7                       & 8      \\
-            & \multicolumn{7}{c|}{Reading Week} \\[2ex]\midrule
+            & \multicolumn{7}{c|}{Reading Week} \\\midrule
 \textbf{11} & 9      & \cellcolor{Nov}10       & \cellcolor{Nov}11      & \cellcolor{Nov}12     & 13                  & \cellcolor{Nov}14       & 15     \\
-            &        & \cellcolor{Nov}\parbox{2cm}{31} & \cellcolor{Nov}\parbox{2cm}{32} & \cellcolor{Nov}\parbox{2cm}{33} &                   & \cellcolor{Nov}\parbox{2cm}{34} &        \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{31} & \cellcolor{Nov}\classno{32} & \cellcolor{Nov}\classno{33} &                   & \cellcolor{Nov}\classno{34} &        \\\midrule
 \textbf{12} & 16     & \cellcolor{Nov}17       & \cellcolor{Nov}18      & \cellcolor{Nov}19     & 20                  & \cellcolor{Nov}21       & 22     \\
-            &        & \cellcolor{Nov}\parbox{2cm}{35} & \cellcolor{Nov}\parbox{2cm}{36} & \cellcolor{Nov}\parbox{2cm}{37} &                   & \cellcolor{Nov}\parbox{2cm}{38} &        \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{35} & \cellcolor{Nov}\classno{36} & \cellcolor{Nov}\classno{37} &                   & \cellcolor{Nov}\classno{38} &        \\\midrule
 \textbf{13} & 23     & \cellcolor{Nov}24       & \cellcolor{Nov}25      & \cellcolor{Nov}26     & 27                  & \cellcolor{Nov}28       & 29     \\
-            &        & \cellcolor{Nov}\parbox{2cm}{39} & \cellcolor{Nov}\parbox{2cm}{40} & \cellcolor{Nov}\parbox{2cm}{41} &                   & \cellcolor{Nov}\parbox{2cm}{42} &        \\[2ex]\midrule
+            &        & \cellcolor{Nov}\classno{39} & \cellcolor{Nov}\classno{40} & \cellcolor{Nov}\classno{41} &                   & \cellcolor{Nov}\classno{42} &        \\\midrule
 \textbf{14} & 30     & \cellcolor{Dec}Dec 01   & \cellcolor{Dec}2       & \cellcolor{Dec}3      & 4                   & \cellcolor{Dec}5        & 6      \\
-            &        & \cellcolor{Dec}\parbox{2cm}{43} & \cellcolor{Dec}\parbox{2cm}{44} & \cellcolor{Dec}\parbox{2cm}{45} &                   & \cellcolor{Dec}\parbox{2cm}{46} &        \\[2ex]
+            &        & \cellcolor{Dec}\classno{43} & \cellcolor{Dec}\classno{44} & \cellcolor{Dec}\classno{45} &                   & \cellcolor{Dec}\classno{46} &        \\\midrule
+\textbf{15} & 7      & \cellcolor{Dec}8        & \cellcolor{Dec}9       &                     &                                 &                   &        \\
+            &        & \cellcolor{Dec}\classno{47}        & \cellcolor{Dec}\classno{48} &            &                                 &                   &        \\
 \end{longtable}
 \end{document}
