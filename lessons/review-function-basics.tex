@@ -19,11 +19,7 @@ A \hlmain{function}, often denoted abstractly as \(y = f(x)\) or just \(f(x)\), 
 
 \bigskip
 \begin{definition}[function]
-  A \hlmain{function} \(f\) consists of a set of inputs, a set of output, and a rule for assigning each input to \underline{\hspace{2in}} output.
-  \begin{enumerate}
-    \item The \underline{\hspace{1in}} of \(f\) is \underline{\hspace{3in}}.
-    \item The \underline{\hspace{1in}} of \(f\) is \underline{\hspace{3in}}.
-  \end{enumerate}
+  A \hlmain{function} \(f\) consists of a \underline{\hspace{1in}}, a \underline{\hspace{1in}} for assigning each input to \underline{\hspace{3cm}} output, and, lastly, a \underline{\hspace{1in}}.
 
   \textbook{Page 8}
 \end{definition}
@@ -63,15 +59,14 @@ The \hlmain{standard form} of a line is \(ax + by = c\) where \(a, b, c\) are co
 
 \clearpage
 
-Let's talk a little bit about study skills. 
+Let's talk a little bit about study skills for first-year Western Science courses.  We can model learning as three interconnected aspects: \hlmain{Engage}, \hlmain{Ask} and \hlmain{Reflect}! 
 
-\begin{mdframed}[style=simple]
-  \begin{enumerate}
-    \item Remember \underline{\hspace{4in}}
-    \item Ask \underline{\hspace{4.5in}}
-    \item Practise \underline{\hspace{4.2in}} 
-  \end{enumerate}
-\end{mdframed}
+\begin{figure}[H]
+  \hspace{1in}
+  \includestandalone{../standalones/misc-questioning-skill-triangle}
+
+  {\tiny Nappi, J. S. (2017). The importance of questioning in developing critical thinking skills. Delta Kappa Gamma Bulletin, 84(1), 30.}
+\end{figure}
 
 \begin{example}
   Let's practise these study skills by playing with the concept of \emph{increasing} functions.
@@ -85,9 +80,63 @@ Let's talk a little bit about study skills.
     \quad
     \includestandalone[page=3]{../standalones/plot-increasing}
   \end{center}
-  \blanklines{28}
+  \blanklines{15}
 \end{example}
 
+\clearpage
+
+The next exercise guides you to review symmetries in functions.
+\begin{exercise}
+The symmetry of functions is discussed starting on pages 25 of the textbook PDF.  
+
+\begin{enumerate}[wide]
+  \item Recall and reproduction.
+    \begin{enumerate}
+      \item What is the definition of 
+        \begin{itemize}
+          \item even functions? \underline{\hspace{3in}}
+          \item odd functions? \underline{\hspace{3in}}
+        \end{itemize}
+
+      \item Write down an example of 
+        \begin{itemize}
+          \item even function. \underline{\hspace{3in}}
+          \item odd function. \underline{\hspace{3in}}
+        \end{itemize}
+    \end{enumerate}
+
+  \item Skills and concepts.
+    \begin{enumerate}
+      \item Generate your own examples of even and odd function. 
+
+        \blanklines{5}
+
+      \item Are there functions that are both even and odd?
+
+      \item Sketch a function that is neither even nor odd.
+
+        \blanklines{5}
+
+      \item A function is symmetric about the \(y\)-axis. Is it even or odd (or neither)?
+
+      \item A function is symmetric about the \(x\)-axis. Is it even or odd (or neither)?
+
+      \item A function is symmetric about the origin. Is it even or odd (or neither)?
+
+      \item A function is symmetric about the line \(y = -1\), is it even or odd (or neither)?
+
+      \item Which of the previous four questions does not make sense?
+    \end{enumerate}
+
+  \item Strategic thinking.
+    \begin{enumerate}
+      \item Sketch a function defined on \([-1,1]\) that passes through the origin, has an odd symmetric, and is increasing on \([0,1]\).
+
+        The slight use of strategy lies in the question: When do we use the given symmetry?
+    \end{enumerate}
+\end{enumerate}
+
+\end{exercise}
 \clearpage
 
 We review some common functions (nouns) and operations (verbs) because functions that describe natural phenomena are often created by ``putting together'' basic functions.
@@ -113,24 +162,25 @@ We review some common functions (nouns) and operations (verbs) because functions
 \blanklines{20}
 \clearpage
 
-Common operations on functions are
+Sophisticated functions are built by iteratively combining basic functions using operations:
 \[
-  + \hspace{0.75in}
-  - \hspace{0.75in}
-  \times \hspace{0.75in}
-  \div \hspace{0.75in}
-  \circ
+  f+g \hspace{0.75in}
+  f-g \hspace{0.75in}
+  f \cdot g \hspace{0.75in}
+  f/g \hspace{0.75in}
+  f \circ g \hspace{0.75in}
+  f(x) = \begin{cases} \cdots \\ \cdots \\ \cdots \end{cases}
 \]
-
-\blanklines{12}
+\blanklines{5}
 
 \faExclamationTriangle{}
-Note \(f \cdot g\) and \(f \circ g\) are \underline{\hlwarn{not}} (always) the same function!
+Note \(f \cdot g\) and \(f \circ g\) are not always the same function! Most of the time they are not the same.
+
 
 \blanklines{5}
 
 \begin{example} \label{ex:review-circ}
-  Suppose \(f(x) = \sqrt{x}\) and \(g(x) = \frac{x^{2}-1}{\sqrt{x-1}}\). Write down \(f \circ g\) and \(g \circ f\).
+  Suppose \(f(x) = \sqrt{x}\) and \(g(x) = x^{2}-1\). Write down \(f \circ g\) and \(g \circ f\).
 
   \blanklines{20}
 
@@ -140,70 +190,95 @@ Note \(f \cdot g\) and \(f \circ g\) are \underline{\hlwarn{not}} (always) the s
 \end{example}
 \clearpage
 
-Review of some terminologies. 
-\begin{itemize}[wide, noitemsep]
-  \item A \hlmain{root function} is a power function of the form \(x^{1/n}\) or \(\sqrt[n]{x}\) where \(n\) is a \hlsupp{positive} integer. 
+\begin{exercise} 
+  For each category of functions, write down two or three examples and at least one non-example (something that looks like it should fit but really doesn't).
 
-    \blanklines{5}
+  \faStar{} Recalling example only targets the lowest level of learning and cognition.  However, \hlmain{generating} examples and non-examples without any aids develops \hlmain{sharpen your understanding} of relevant concepts.
 
-  \item A \hlmain{rational power} is a power function of the form \(x^{p/q}\) where \(p,q\) are integers but \(q \ne 0\).
+  \begin{itemize}[wide]
+    \item A \hlmain{zero} of a function \(f(x)\) is a \hlsupp{number \(r\)} (in its domain) so that \(f(r) = 0\).  Graphically, zeros of a function are also called its \hlmain{\underline{\hspace{1in}} intercept} or \hlmain{\underline{\hspace{1in}}}.
 
-    \blanklines{5}
+      \blanklines{5}
 
-  \item Functions that involve \(+, -, \times, \div\), roots and \hlwarn{rational powers} are called \hlmain{algebraic functions}. 
+    \item A \hlmain{root function} is a power function of the form \(x^{1/n}\) or \(\sqrt[n]{x}\) where \(n\) is a \hlsupp{positive} integer. 
 
-    \blanklines{5}
+      \blanklines{5}
 
-  \item If a function is \hlsupp{not} algebraic, then it is called a \hlmain{transcendental function}.
+    \item A \hlmain{rational power} is a power function of the form \(x^{p/q}\) where \(p,q\) are integers but \(q \ne 0\).
 
-    \blanklines{5}
+      \blanklines{5}
 
-  \item A \hlmain{zero} of a function \(f(x)\) is a \hlsupp{number \(r\)} (in its domain) so that \(f(r) = 0\).  Graphically, zeros of a function are also called its \hlmain{\underline{\hspace{1in}} intercept} or \hlmain{\underline{\hspace{1in}}}.
+    \item Functions that involve \emph{only} \(+, -, \times, \div\), roots and rational powers are called \hlmain{algebraic functions}. 
 
-    \blanklines{5}
-\end{itemize}
+      \blanklines{5}
 
-Let's take a short break and chat a bit about philosophy. \faComments{} Why learn mathematics when computers seem capable of all sorts of computations? \faComments{} What separates human understanding of mathematics from software computations?
+    \item A \hlmain{transcendental function} is a function that is not an algebraic function.
 
-\blanklines{15}
+      \blanklines{5}
+
+  \end{itemize}
+\end{exercise}
+
+Let's take a short break and chat a bit about philosophy. \faComments{} Why learn mathematics when computer and AI seem capable of all sorts of computations? \faComments{} What separates human understanding of mathematics from software computations?
 \clearpage
 
 Translation (aka shift) and scaling are two basic transformation on functions.
 
 \hlmain{Translation}: The operation \(f(x - a) + b\) shifts \(f(x)\) horizontally by \(a\) and vertically by \(b\). 
 
-\blanklines{15}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
 
 \hlmain{Scaling}: The operation \(B f(A x)\) scales \(f(x)\) horizontally by \(A\) and vertically by \(B\).
 
-\blanklines{15}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
 
-We can also perform translation and scaling by relabelling the axes. 
+We can also perform scaling by relabelling the axes. 
 
-\blanklines{15}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
 
-\clearpage
-\begin{example}
-  Sketch \(f(x) = \arctan(-2x) + \pi/4\) without using any software or calculators.
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
+\includestandalone[page=1]{../standalones/plot-exercise-sketch}
 
-
-  \includestandalone[page=1]{../standalones/plot-exercise-sketch}
-
-  \blanklines{10}
-
-  \includestandalone[page=2]{../standalones/plot-exercise-sketch}
-
-\end{example}
-
-Why is sketching ``manually'' useful? Consider evaluating \(\lim_{x \to \infty} \left( \arctan(-2x) + \pi/4 \right)\) (which is a common question). The sketch above tells you the answer immediately!
 \clearpage
 
 \begin{exercise}
-  Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without using any software or calculators.
+  Sketch \(f(x) = -2\left(\frac{x}{2} + 3\right)^{2}\) without any aid.
 
   The grading standard for sketching functions, aside from multiple choice questions, is that students are \hlwarn{required to show step-by-step sketches}. The solution needs to clearly sketch one starting function, call it \(f(x)\). Each subsequent step shows exactly one of the four transformations (horizontal translation \(g(x - a)\), vertical translation \(g(x) + c\), horizontal scaling \(g(ax)\) and vertical scaling \(Ag(x)\)) of the function in the previous step.
 
-  \blanklines{45}
-\end{exercise}
+  \includestandalone[page=10]{../standalones/plot-exercise-sketch}
+  \includestandalone[page=10]{../standalones/plot-exercise-sketch}
 
+  \includestandalone[page=10]{../standalones/plot-exercise-sketch}
+  \includestandalone[page=10]{../standalones/plot-exercise-sketch}
+
+  \includestandalone[page=10]{../standalones/plot-exercise-sketch}
+  \includestandalone[page=10]{../standalones/plot-exercise-sketch}
+
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Complete the step-by-step sketches of \(\frac{\arctan(-2x + 3)}{2} + \pi/4\) without using any software or calculators. It's okay if your sketch goes outside of the graphing grids.
+
+  \includestandalone[page=2]{../standalones/plot-exercise-sketch}
+
+  \includestandalone[page=9]{../standalones/plot-exercise-sketch}
+
+  \includestandalone[page=9]{../standalones/plot-exercise-sketch}
+
+  \includestandalone[page=9]{../standalones/plot-exercise-sketch}
+
+  \includestandalone[page=9]{../standalones/plot-exercise-sketch}
+
+  The final sketch should look more or less like this:
+  \includestandalone[page=7, scale=0.5]{../standalones/plot-exercise-sketch}
+\end{exercise}
 \end{document}
