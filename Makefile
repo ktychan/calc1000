@@ -30,5 +30,5 @@ main: standalones appendix
 	${LATEXMK} main.tex
 	${LATEXMK} -jobname="${COURSE}_%A" main.tex
 
-publish: main
+publish: main slides
 	${LATEXMK} -jobname="${COURSE}_%A" publish/*.tex
