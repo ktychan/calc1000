@@ -20,12 +20,11 @@ A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\
 Let's quickly recall exponents rules. \(e^{a}e^{b} = \underline{\hspace{1in}}\) and \((e^{a})^{b} = \underline{\hspace{1in}}\) for any \(a,b\).
 \blanklines{5}
 
-The number \(e\) is an important constant whose definition is \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). Whenever you see the limit on the right-hand side, you can write down \(e\) as the answer with justification ``by definition.'' 
+The number \(e\) is an important constant defined by \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). Whenever you see the limit on the right-hand side, you can write down \(e\) as the answer with justification ``by definition.'' 
 \bigskip
 
-The function \(e^{x}\) is important for a variety of reasons. One of them is \((e^{x})' = e^{x}\). 
-\begin{mdframed}[style=simple-compact]
-  The \emph{natural} exponential function is \(e^{x}\) and the \emph{natural} logarithm is \(\ln(x) = \log_{e}(x)\).
+\begin{definition} \label{def:exp-ln}
+  The \emph{natural} exponential function is \(e^{x}\) and the \emph{natural} logarithm is \(\ln(x) = \log_{e}(x)\).  They are inverses of each other:
   \begin{equation} \label{eq:exp-log}
     e^{\ln(x)} = x \text{ on } \underline{\hspace{1in}} \quad\text{and}\quad \ln(e^{x}) = x \text{ on } \underline{\hspace{1in}}.
   \end{equation}
@@ -34,8 +33,8 @@ The function \(e^{x}\) is important for a variety of reasons. One of them is \((
   \begin{equation} \label{eq:exp-change-of-base}
     b = \underline{\hspace{1in}} \quad\text{and}\quad b^{x} = \underline{\hspace{1in}}, \quad\text{ but need } b > 0.
   \end{equation}
-\end{mdframed}
-\faStar{} Equation~\eqref{eq:exp-change-of-base} offers a \hlattn{universal method}, called \hlmain{change base to \(e\)}, to deal with all exponential or exponential-like functions (such as \(x^{x}\)). 
+\end{definition}
+\faStar{} Equation~\eqref{eq:exp-change-of-base} offers a \hlattn{universal method}, called \hlmain{change base to \(e\)}, to deal with all exponential or exponential-like functions. The typical example is \(x^{x}\).
 
 \blanklines{5}
 
@@ -50,28 +49,14 @@ The function \(e^{x}\) is important for a variety of reasons. One of them is \((
 \begin{example}
   Solve the equation \(\frac{e^{2x}}{2^{x-1}} = 3\). 
 
+  \blanklines{25}
+\end{example}
+
+\begin{exercise}
+  Solve the equation \(5^{x/3 - 1} = e\). 
+
   \blanklines{20}
-\end{example}
-
-\begin{example}
-  Simplify \(\frac{\log_{6}(3)}{\log_{7}(2)}\).
-
-  \blanklines{10}
-\end{example}
-
-\begin{exercise}
-  Solve the equation \(2^{3x - 1} = e\).
-
-  \blanklines{10}
 \end{exercise}
-
-\begin{exercise}
-  Solve the equation \(\ln \sqrt{x - 1} = 0\). 
-
-  \blanklines{5}
-\end{exercise}
-
-
 \clearpage
 
 Formulas in Equation~\eqref{eq:log-formulas} can be deduced from Equation~\eqref{eq:exp-change-of-base} and can help solve problems \emph{quickly}. 
@@ -84,52 +69,48 @@ Formulas in Equation~\eqref{eq:log-formulas} can be deduced from Equation~\eqref
   \quad
   \ln(a/b) = \ln(a) - \ln(b).
 \end{equation}
-\blanklines{5}
 
-We demonstrate solving problems \hlmain{with and without} Equation~\eqref{eq:log-formulas}.
+We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqref{eq:log-formulas}.  
 \begin{example}
   Solve for \(y\) given that \(\log_{2}\left(\frac{y}{\sqrt{x}}\right) = 3\).
 
-  \blanklines{20}
+  \blanklines{30}
 \end{example}
 
-\begin{example}
-  Simplify \(e^{\log_{7}(x)}\).
+\begin{exercise}
+  Solve the equation \(7^{x - 1} = \log_{2}(8)\).
 
-  \blanklines{15}
-\end{example}
+  \blanklines{10}
+\end{exercise}
 \clearpage
 
 These exercises help you get a feel for the usefulness of change-base-to-\(e\), i.e., Equation~\eqref{eq:exp-change-of-base}. 
 
-\begin{exercise} \label{ex:x-to-x}
-  Rewrite the function \(x^{x}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}. 
-
-  \blanklines{5}
-
-  (Preview). Find the derivative of \(x^{x}\). Requires the chain rule.
-
-  \blanklines{5}
-\end{exercise}
-
-\begin{exercise}
+\begin{exercise} \label{ex:exp-change-exercise-2}
   Rewrite the function \(\left(1 + \frac{1}{2x}\right)^{3x}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}. 
 
   \blanklines{5}
 
-  (Preview). Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{2x}\right)^{3x}\). Requires l'H\^opital's rule.
+  (Preview). Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{2x}\right)^{3x}\). There are (at least) two methods to solve this problem. 
+  \begin{enumerate}[wide, label={Method (\arabic*).}]
+    \item Combine the above change-base-to-\(e\) and l'H\^opital's rule.  This methods is widely applicable but requires some algebra steps.
 
-  \blanklines{5}
+      \blanklines{10}
+
+    \item Perform a change of variable \(u = 2x\) and use the property of continuous functions.  This methods is fast but requires us to  \hlmain{recognize} \(e\) from a certain limit stated on page~\ref{def:exp-ln}.
+
+      \blanklines{5}
+  \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
-  Rewrite the function \(\left(\frac{1}{x+2}\right)^{\sin(x)}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}. 
+\begin{exercise} \label{ex:exp-change-exercise-2}
+  Rewrite the function \(\left(\frac{1}{x + 2}\right)^{\sin(x)}\) so that it is in base \(e\), i.e., \hlmain{change base to \(e\)}.  
 
   \blanklines{5}
 
-  (Preview) Find the derivative of \(\left(\frac{1}{x+2}\right)^{\sin(x)}\). 
+  (Preview) Find the derivative of \(\left(\frac{1}{x+2}\right)^{\sin(x)}\). Assume \(x > 0\) so that the function is well-defined.
 
-  \blanklines{5}
+  \blanklines{10}
 \end{exercise}
 \clearpage
 
@@ -146,6 +127,8 @@ These exercises help you get a feel for the usefulness of change-base-to-\(e\), 
   Once everything is in base \(e\), then use the following rules.
   \[
     \begin{array}{rclcrclcrcl}
+       && & & 
+      \ln(e) &=& \underline{\hspace{1in}} &\hspace{1em} & \\[2ex]
       e^{\ln(x)} &=& \underline{\hspace{1in}} 
                  &\hspace{1em} & 
       \ln(e^{x}) &=& \underline{\hspace{1in}} 
@@ -160,6 +143,19 @@ These exercises help you get a feel for the usefulness of change-base-to-\(e\), 
       \ln(a/b) &=& \underline{\hspace{1in}} \\[2ex]
     \end{array}
   \]
+\end{exercise}
+
+Some exercises targetting the use of identities for exponential and logarithmic functions. 
+\begin{exercise}
+  Solve the equation \(\ln \sqrt{x - 1} = 0\). 
+
+  \blanklines{10}
+\end{exercise}
+
+\begin{exercise}
+  Simplify \(\frac{\log_{6}(3)}{\log_{7}(49)}\).
+
+  \blanklines{10}
 \end{exercise}
 \end{document}
 
