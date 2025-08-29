@@ -21,11 +21,14 @@ standalones:
 appendix:
 	${LATEXMK} appendix/*.tex
 
+slides:
+	${LATEXMK} -jobname="${COURSE}_%A" slides.tex polls.tex
+
 main: standalones appendix
 	rm -rf publish/*.tex
 	mkdir -p publish
 	${LATEXMK} main.tex
-	${LATEXMK} -jobname="${COURSE}_%A" slides.tex polls.tex main.tex
+	${LATEXMK} -jobname="${COURSE}_%A" main.tex
 
 publish: main
 	${LATEXMK} -jobname="${COURSE}_%A" publish/*.tex
