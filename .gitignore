@@ -4,6 +4,7 @@ untracked
 .aux
 standalones/grid_*.tex
 publish
+misc
 
 # student data
 .confidential
