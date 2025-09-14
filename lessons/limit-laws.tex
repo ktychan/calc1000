@@ -1,32 +1,24 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{The limit laws}
-We learned how to estimate limits of functions. We now learn how to \hlsupp{evaluate} limits \emph{exactly}.
+\begin{document} \section{Algebraic techniques for evaluating limits}
+Direct substitution and limit laws are the main algebraic tools for evaluating limits. 
 
   % \faExclamationTriangle{} This section covers a bit more than the corresponding textbook section and is organized differently to minimize redundancy. See the last page for a short comparison.
 
-\begin{mdframed}[style=simple-compact]
+\begin{thm}[direct sub]
   If \(f(x)\) is a polynomial or a rational function, then
   \[
-    \lim_{x \to a} f(x) = f(a).
+    \lim_{x \to a} f(x) = f(a),
   \]
-\end{mdframed}
-\faExclamationTriangle{} Note \(a\) must be a constant \underline{\hspace{6cm}} and \underline{\hspace{2in}}.
+  but \(a\) \hlwarn{must be} in the domain of \(f(x)\) and not an infinity.
+
+  \textbook{Theorem 2.6 on page 162}
+\end{thm}
 % Note that a must be in the domain of f and is not an infinity.
 % DO NOT DO arithmetic with infinity.  
 
-\blanklines{5}
-
-\begin{example}
-  Evaluate \(\lim_{x \to -2} x^{2} + 5 x^{3}\).
-
-  \blanklines{5}
-\end{example}
-
 % \faExclamationTriangle{} If your intuition from high school leads to doing arithmetic with infinities, then that's a good sign that you need to use limit laws explicitly.
-
-We need to use limit laws whenever direct substitution does not apply.
-\begin{thm}
+\begin{thm}[limit laws]
   Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{both exist}. Then
   \begin{enumerate}[label=(\arabic*)]
     \item \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\) \hfill (sum)
@@ -38,12 +30,10 @@ We need to use limit laws whenever direct substitution does not apply.
     \item \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{\lim_{x \to a} f(x)}\), \quad if \(n\) is even, we assume {\(\lim_{x \to a} f(x) \ge 0\)} \hfill (root)
   \end{enumerate}
 
-  \textbook{Theorem 2.5 Limit Laws on page 161}
+  \textbook{Theorem 2.5 on page 161}
 \end{thm}
 
 \faStar{} All limit laws apply to \hlmain{one-sided} (of the same type) as well as \hlmain{two-sided} limits.
-
-\blanklines{5}
 
 % Tips: 
 % \begin{enumerate*}[label=(\alph*)]
@@ -52,41 +42,47 @@ We need to use limit laws whenever direct substitution does not apply.
 %   \item Group the root and the power law together because \(\sqrt[n]{\cdots} = (\cdots)^{1/n}\).  They come from the same theorem anyway.
 % \end{enumerate*}
 
-\clearpage
-
-Applying limit laws correctly is all about decomposing a function along algebraic operations to break up a larger task into smaller tasks. At the very end, we only evaluate limits of very simple functions such as polynomial and rational functions. The rest will be arithmetic.
 \begin{example}
-  Let \(f(x) = \sqrt[5]{x^{2} + 1} - 2 (4x - 3)^{100}\). Evaluate \(\lim_{x \to 1} f(x)\).
+  Evaluate \(\lim_{x \to 1} \sqrt[3]{\frac{x^{2} + 1}{x+1}} - 2 (4x - 3)^{100}\).
 
-  \blanklines{40}
+  \blanklines{15}
 \end{example}
-
-\faExclamationTriangle{} As far as grading is concerned, we are expected to \hlwarn{show details of calculations} in assignments, tests and the final exam.  Unless stated otherwise, solutions (to short and long answer questions) without details or sufficient justification will typically be given \(0\), regardless of correctness. 
 \clearpage
 
-Limit laws are still useful when only abstract information is available.
+% \faExclamationTriangle{} As far as grading is concerned, we are expected to \hlwarn{show details of calculations} in assignments, tests and the final exam.  Unless stated otherwise, solutions (to short and long answer questions) without details or sufficient justification will typically be given \(0\), regardless of correctness. 
+\clearpage
+
+Limit laws are useful when only abstract information is available.
 \begin{example}
   Suppose \(\lim_{x \to -3} f(x) = 4\). Evaluate \(\lim_{x \to -3} \left( f(x) \right)^{3/2}\) if possible.
 
   \blanklines{10}
 \end{example}
 
-A variation-on-the-theme problem.  
-\begin{exercise}
-  Let \(c\) be an unknown constant. Suppose \(\lim_{x \to 1} \sqrt{2x^{3} + cx - 1} = 3\). Find \(c\).
+% A variation-on-the-theme problem.  
+% \begin{exercise}
+%   Find the value for the unknown constant \(c\) given that \(\lim_{x \to 1} \sqrt{2x^{3} + cx - 1} = 3\). 
+%
+%   \blanklines{10}
+% \end{exercise}
 
-  \blanklines{10}
-\end{exercise}
-
-Remember that limit laws also apply to one-sided limits (of the same type) and piecewise functions.
+Limit laws also apply to one-sided limits and piecewise functions.
 \begin{example}
   Let \(f(x) = \begin{cases}\sqrt{x - 1} + 1, &x > 1\\[1ex]\frac{2x}{x + 1}, &x < 1\end{cases}\). Evaluate \(\lim_{x \to 1} f(x)\).
 
-  \blanklines{18}
+  \blanklines{15}
+\end{example}
+
+We turn to situations for which the quotient rule does not apply directly, i.e., when the limit of the denominator is \(0\).  If the limit of the numerator is a constant and the limit of the denominator is \(0\), then the entire limit is either \(+\infty\) or \(-\infty\) or does not exist (because its two one-sided limits are different infinities).
+
+\begin{example} \label{eg:limit-constant-over-0}
+  Evaluate \(\lim_{x \to 1} \frac{x}{x - 1}\), 
+
+  \blanklines{10}
 \end{example}
 
 \clearpage
-We now get into the more demanding territory of \hlmain{combining limit laws and algebra skills} to evaluate limits where the limit laws seemingly don't apply \hlsupp{at first glance}.
+If the limits of the numerator and the denominator are both \(0\), then we will need some algebra skills. In such a case, the application of the quotient rule must wait until after we manipulate the function so that the limit of the denominator is not zero.
 
 \begin{example} \label{ex:limit-cancellation}
   Evaluate \(\lim_{t \to 2} \frac{t^{2} - 3t + 2}{t - 2}\).
@@ -97,11 +93,11 @@ We now get into the more demanding territory of \hlmain{combining limit laws and
 \begin{example} \label{ex:limit-rationalization}
   Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2}+1}-1}{x^{2}}\).
 
-  \blanklines{25}
+  \blanklines{20}
 \end{example}
 \clearpage
 
-There are three limits where a graphical approach is the best we can do (with Calc 1000 tools). 
+Change-of-variable is another way to evaluate limits. To demonstrate this technique, we introduce three limits graphically.
 
 \begin{center}
   \includegraphics[page=1]{../standalones/plots-limits-well-known}
@@ -111,74 +107,31 @@ There are three limits where a graphical approach is the best we can do (with Ca
   \includegraphics[page=3]{../standalones/plots-limits-well-known}
 \end{center}
 
-\emph{Try} a change of variable when we encounter a problem that looks like a familiar problem.
 \begin{example} \label{eg:limit-change-of-variable}
   Evaluate \(\lim_{x \to 0} \frac{\sin(3x)}{x} \).
 
   \blanklines{15}
 \end{example}
 
-\begin{exercise}
-  Evaluate \(\lim_{x \to 0} \frac{\sin(-x/2)}{x} \). Does the same trick work for \(\lim_{x \to 0} \frac{\sin(x)}{-x/2}\)? Is it necessary?
+\begin{exercise} \label{ex:limit-change-of-variable-squared}
+  Use a combination of limit laws and a change of variable evaluate \(\lim_{h \to 0} \left( \frac{\cos(h/2) - 1}{3h} \right)^{2}\). 
 
   \blanklines{15}
 \end{exercise}
 \clearpage
 
-Let's revisit Example~\ref{ex:limit-rationalization}.  Rationalization is one way to \enquote{get rid of} the root.  A change of variable also works.
-\begin{exercise}
-  Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2} + 1} - 1}{x^{2}}\) using a change of variable \(u = \sqrt{x^{2} + 1}\).
-
-  \blanklines{15}
-\end{exercise}
-
-\begin{exercise}
-  Evaluate \(\lim_{x \to 1} \frac{x^{1/2} - 1}{x - 1}\).
-
-  \blanklines{15}
-\end{exercise}
-
-\begin{exercise}
-  Evaluate \(\lim_{x \to 8} \frac{\sqrt[3]{x} - 2}{x - 8}\).  
-  \hfill{\footnotesize Factorization hint: \(a^{3} - b^{3} = (a-b)(a^{2} + ab + b^{2})\).}
-
-  \blanklines{15}
-\end{exercise}
-\clearpage
-
-Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but challenges our algebra skills even more. It is a really good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
-\begin{exercise}[Textbook Example~2.20] \label{ex:limit-textbook-2.28}
-  Evaluate \(\lim_{x \to 0} \frac{1}{x} + \frac{5}{x(x-5)}\) or explain why it does not exist.
-
-  \blanklines{20}
-\end{exercise}
-
-Exercise~\ref{ex:limit-infinity-plus-constant} looks similar to Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but is much simpler.
-\begin{exercise} \label{ex:limit-infinity-plus-constant}
-  Evaluate \(\lim_{x \to 0^{-}} \frac{x+1}{x(x-1)}\) if it exists.
-
-  \blanklines{18}
-\end{exercise}
-
-\vfill{}
-{\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
-\begin{tikzpicture}[scale=1]
-  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
-\end{tikzpicture}
-\clearpage
-
-Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, contrast, summarize, synthesize ideas) among techniques we have learned so far.
-\begin{exercise} \label{ex:limits-strategy}
-  Find \hlmain{a strategy} that works for all these limits.  By strategies, we mean the way techniques can be combined and patterns in the form of functions (\emph{not} patterns in numbers). Work in groups. Experiment with different methods. Trial-and-error is a good learning activity.
-  \[
-    L_{1} = \lim_{x \to 1} \frac{x^{2}-1}{x-1}, \qquad
-    L_{2} = \lim_{x \to 4} \frac{\sqrt{x}-2}{x-4}, \qquad
-    L_{3} = \lim_{x \to 1} \frac{x^{1/3}-1}{x-1}.
-  \]
-  Getting the final numerical answers is not the point. Note \(L_{1} = 2, L_{2} = 1/4\) and \(L_{3} = 1/3\).
-
-  \blanklines{45}
-\end{exercise}
+% Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, contrast, summarize, synthesize ideas) among techniques we have learned so far.
+% \begin{exercise} \label{ex:limits-strategy}
+%   Find \hlmain{a strategy} that works for all these limits.  By strategies, we mean the way techniques can be combined and patterns in the form of functions (\emph{not} patterns in numbers). Work in groups. Experiment with different methods. Trial-and-error is a good learning activity.
+%   \[
+%     L_{1} = \lim_{x \to 1} \frac{x^{2}-1}{x-1}, \qquad
+%     L_{2} = \lim_{x \to 4} \frac{\sqrt{x}-2}{x-4}, \qquad
+%     L_{3} = \lim_{x \to 1} \frac{x^{1/3}-1}{x-1}.
+%   \]
+%   Getting the final numerical answers is not the point. Note \(L_{1} = 2, L_{2} = 1/4\) and \(L_{3} = 1/3\).
+%
+%   \blanklines{45}
+% \end{exercise}
 
 \clearpage
 
@@ -193,6 +146,16 @@ Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, c
   \textbook{Theorem 2.7 on page 171}
 \end{thm}
 
+
+\begin{example} \label{ex:limit-law-x-square-sin(x)}
+  Evaluate \(\lim_{x \to 0} x^{2} \sin\left(\frac{1}{x}\right)\).
+
+  \blanklines{40}
+\end{example}
+\clearpage
+
+
+The next exercise is a direct application of the squeeze theorem. No need to choose an upper and an lower bound for \(g(x)\) because they are already given. It is more of a ``do I remember the statement of the squeeze theorem?'' type of exercise.
 \begin{exercise}
   Suppose \(x+1 \le g(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} g(x)\).
 
@@ -200,12 +163,28 @@ Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, c
 \end{exercise}
 \clearpage
 
-\begin{example} \label{ex:limit-law-x-square-sin(x)}
-  Evaluate \(\lim_{x \to 0} x^{2} \sin\left(\frac{1}{x}\right)\).
+Reflection helps us find connections and expand our skill set. Take a look at Exercise~\ref{ex:limit-cube-root}. At a glance, the three techniques introduced on pages \pageref{ex:limit-cancellation} and \pageref{eg:limit-change-of-variable} do not seem useful for this exercise. However, a combination of them works.  Let's start by revisiting Example~\ref{ex:limit-rationalization}. 
 
-  \blanklines{45}
-\end{example}
+\begin{exercise}
+  Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2} + 1} - 1}{x^{2}}\) using a change of variable \(u = \sqrt{x^{2} + 1}\).
+
+  \blanklines{12}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to 1} \frac{x^{1/2} - 1}{x - 1}\) without rationalization.
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise} \label{ex:limit-cube-root}
+  Evaluate \(\lim_{x \to 8} \frac{\sqrt[3]{x} - 2}{x - 8}\).  
+  \hfill{\footnotesize Factorization hint: \(a^{3} - b^{3} = (a-b)(a^{2} + ab + b^{2})\).}
+
+  \blanklines{15}
+\end{exercise}
 \clearpage
+
 
 \begin{exercise} \label{ex:limit-law-x-sin(x)}
   Evaluate \(\lim_{x \to 0} x \sin\left(\frac{1}{x}\right)\).
@@ -222,7 +201,7 @@ Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, c
       \item Evaluate two one-sided limits if you rather not to deal with piecewise functions.
     \end{enumerate}
 
-    We need the Squeeze Theorem in both approaches.  
+    We need the squeeze theorem in both approaches.  
   \end{minipage}
 \end{exercise}
 
@@ -269,6 +248,22 @@ Exercise~\ref{ex:limits-strategy} encourages you to make connections (compare, c
 
   \item The two one-sided limits should evaluate to the same value. Conclude that \(\lim_{x \to 0} x \sin(x) = \underline{\hspace{1cm}}\).
 \end{enumerate}
+
+Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but challenges our algebra skills. It is a good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
+\begin{exercise}[Textbook Example~2.20] \label{ex:limit-textbook-2.28}
+  Evaluate \(\lim_{x \to 0} \left( \frac{1}{x} + \frac{5}{x(x-5)}\right)\) or explain why it does not exist.
+
+  \blanklines{20}
+\end{exercise}
+
+
+\vfill{}
+{\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
+\begin{tikzpicture}[scale=1]
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
+\end{tikzpicture}
+\clearpage
+
 
 
 \end{document}

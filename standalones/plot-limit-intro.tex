@@ -28,6 +28,7 @@
     \addplot[very thick, domain=-2:1] {x};
     \addplot[very thick, domain=1:2] {1.5};
     \draw[fill=white] (axis cs:1,1) circle (0.05);
+    \draw[fill=black] (axis cs:1,1.5) circle (0.05);
 
     \node[left] at (axis cs:2,2) {\(g_{2}(x)\)};
   \end{axis}
@@ -35,7 +36,8 @@
 
 \begin{tikzpicture}
   \begin{axis}[lesson limit intro]
-    \addplot[very thick, domain=-1:2] {sin(x*2*pi-1)*(x-1) + 0.5};
+    \addplot[very thick, domain=-1:0.9] {(1/30)/(x-1)^2 - 0.7};
+    \addplot[very thick, domain=1.1:2] {(1/30)/(x-1)^2 - 0.7};
 
     \node[left] at (axis cs:2,2) {\(g_{3}(x)\)};
   \end{axis}
