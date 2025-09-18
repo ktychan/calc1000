@@ -84,13 +84,13 @@ We turn to situations for which the quotient rule does not apply directly, i.e.,
 \clearpage
 If the limits of the numerator and the denominator are both \(0\), then we will need some algebra skills. In such a case, the application of the quotient rule must wait until after we manipulate the function so that the limit of the denominator is not zero.
 
-\begin{example} \label{ex:limit-cancellation}
+\begin{example} \label{eg:limit-cancellation}
   Evaluate \(\lim_{t \to 2} \frac{t^{2} - 3t + 2}{t - 2}\).
 
   \blanklines{20}
 \end{example}
 
-\begin{example} \label{ex:limit-rationalization}
+\begin{example} \label{eg:limit-rationalization}
   Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2}+1}-1}{x^{2}}\).
 
   \blanklines{20}
@@ -163,7 +163,7 @@ The next exercise is a direct application of the squeeze theorem. No need to cho
 \end{exercise}
 \clearpage
 
-Reflection helps us find connections and expand our skill set. Take a look at Exercise~\ref{ex:limit-cube-root}. At a glance, the three techniques introduced on pages \pageref{ex:limit-cancellation} and \pageref{eg:limit-change-of-variable} do not seem useful for this exercise. However, a combination of them works.  Let's start by revisiting Example~\ref{ex:limit-rationalization}. 
+Reflection helps us find connections and expand our skill set. Take a look at Exercise~\ref{ex:limit-cube-root}. At a glance, the three techniques introduced on pages \pageref{eg:limit-cancellation} and \pageref{eg:limit-change-of-variable} do not seem useful for this exercise. However, a combination of them works.  Let's start by revisiting Example~\ref{eg:limit-rationalization}. 
 
 \begin{exercise}
   Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2} + 1} - 1}{x^{2}}\) using a change of variable \(u = \sqrt{x^{2} + 1}\).
@@ -238,18 +238,18 @@ Reflection helps us find connections and expand our skill set. Take a look at Ex
 \textbf{Approach (B).} To avoid dealing with piecewise functions, we can calculate two one-sided limits.
 
 \begin{enumerate}[wide]
-  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{-}} x \sin(x)\).
+  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{-}} x \sin(1/x)\).
 
     \blanklines{20}
 
-  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{-}} x \sin(x)\).
+  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{-}} x \sin(1/x)\).
 
     \blanklines{20}
 
-  \item The two one-sided limits should evaluate to the same value. Conclude that \(\lim_{x \to 0} x \sin(x) = \underline{\hspace{1cm}}\).
+  \item The two one-sided limits should have the same value. Conclude that \(\lim_{x \to 0} x \sin(1/x) = \underline{\hspace{1cm}}\).
 \end{enumerate}
 
-Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} but challenges our algebra skills. It is a good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
+Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization} but challenges our algebra skills. It is a good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
 \begin{exercise}[Textbook Example~2.20] \label{ex:limit-textbook-2.28}
   Evaluate \(\lim_{x \to 0} \left( \frac{1}{x} + \frac{5}{x(x-5)}\right)\) or explain why it does not exist.
 
@@ -260,7 +260,7 @@ Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examp
 \vfill{}
 {\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
 \begin{tikzpicture}[scale=1]
-  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{ex:limit-cancellation} and \ref{ex:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization} are both just one quotient. However, the function in Example~\ref{eg:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
 \end{tikzpicture}
 \clearpage
 
