@@ -1,40 +1,94 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{Limits at infinity}
-Let's begin by making sense of the \emph{idea} behind the \hlmain{limit at infinity}. There is an apple a metre away from us. We start by taking a step \(1/2\) metre away towards the apple. Each subsequent step is half the length of the previous one. 
+\begin{document} \section{Limits at infinity (textbook pages 407 to 425)}
 
-\begin{center}
-  \includestandalone[page=1]{../standalones/plot-limit-at-infinity-intro}
-\end{center}
+% Let's begin by making sense of the \emph{idea} behind the \hlmain{limit at infinity}. There is an apple a metre away from us. We start by taking a step \(1/2\) metre away towards the apple. Each subsequent step is half the length of the previous one. 
+%
+% \begin{center}
+%   \includestandalone[page=1]{../standalones/plot-limit-at-infinity-intro}
+% \end{center}
+%
+% \faComment{} Can we get as close to the apple as we want?
+%
+% \faComment{} If we can take infinitely many steps, can we reach the apple?
+%
+% \blanklines{5}
 
-\faComment{} Can we get as close to the apple as we want?
-
-\faComment{} If we can take infinitely many steps, can we reach the apple?
-
-\blanklines{5}
-
-
-\begin{mdframed}[style=withref-compact]
-  If the values of \(f(x)\) become arbitrarily close to \(L\) as \(x\) becomes sufficiently large, we say \(f\) has \hlmain{a limit at (positive) infinity} and write 
-  \[
-    \lim_{x \to \infty} f(x) = L.
-  \]
-
-  If the values of \(f(x)\) become arbitrarily close to \(L\) as \(x\) becomes sufficiently small, we say \(f\) has \hlmain{a limit at negative infinity} and write
-  \[
-    \lim_{x \to -\infty} f(x) = L.
-  \]
-
-  If \(\lim_{x \to \infty} f(x) = L\) or \(\lim_{x \to -\infty} f(x) = L\), and \(L\) is a real number, then we say the line \(y = L\) is a \hlmain{horizontal asymptote} of \(f\).
-
-  \textbook{Page 408}
-\end{mdframed}
-\clearpage
+\faLightbulb{} Limits at infinity \(\lim_{x \to \infty} f(x)\) is defined using the idea for limits at a number \(\lim_{x \to a} f(x)\).  
 
 \begin{example}
-  Use the above definitions to help you sketch example functions with prescribed limits and horizontal asymptotes. Label your graphs with the name of the function. 
+  Consider the following functions.
 
-  Each part has (a lot) more than one correct answer. 
+  \centerline{
+    \includestandalone[page=4]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=5]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=6]{../standalones/plot-limit-intro}
+  }
+
+  Estimate the following values graphically:
+  \begin{align*}
+    \lim_{x \to \infty} h_{1}(x)   \;
+      & \underline{\hspace{3cm}}  
+      & \lim_{x \to \infty} h_{2}(x)  \;
+      & \underline{\hspace{3cm}}
+      & \lim_{x \to \infty} h_{3}(x)  \;
+      & \underline{\hspace{3cm}} \\[2ex]
+    \lim_{x \to -\infty} h_{1}(x)   \;
+      & \underline{\hspace{3cm}}  
+      & \lim_{x \to -\infty} h_{2}(x)  \;
+      & \underline{\hspace{3cm}}
+      & \lim_{x \to -\infty} h_{3}(x)  \;
+      & \underline{\hspace{3cm}} 
+  \end{align*}
+% \end{example}
+%
+% \begin{example}
+%   Consider the following functions.
+  \bigskip
+
+  \centerline{
+    \includestandalone[page=7]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=8]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=9]{../standalones/plot-limit-intro}
+  }
+
+  Estimate the following values graphically:
+  \begin{align*}
+    \lim_{x \to \infty} h_{4}(x)   \;
+      & \underline{\hspace{3cm}}  
+      & \lim_{x \to \infty} h_{5}(x)  \;
+      & \underline{\hspace{3cm}}
+      & \lim_{x \to \infty} h_{6}(x)  \;
+      & \underline{\hspace{3cm}} \\[2ex]
+      \lim_{x \to -\infty} h_{4}(x)   \;
+      & \underline{\hspace{3cm}}  
+      & \lim_{x \to -\infty} h_{5}(x)  \;
+      & \underline{\hspace{3cm}}
+      & \lim_{x \to -\infty} h_{6}(x)  \;
+      & \underline{\hspace{3cm}} 
+  \end{align*}
+\end{example}
+
+\begin{definition}[horizontal asymptote]
+  If a constant \(L\) satisfies 
+  \[
+    L = \lim_{x \to \infty} f(x) \quad\text{or}\quad L = \lim_{x \to -\infty} f(x),
+  \]
+  then the horizontal line \(y = L\) is called a \hlmain{horizontal asymptote} for \(f(x)\).
+
+  \textbook{page 408}
+\end{definition}
+The quickest way to determine horizontal asymptotes of transcendental functions (trigs, inverse trigs, \(e^{x}\) and \(\ln(x)\)) is by graphing them.
+
+\clearpage
+\begin{exercise}
+  Sketch example functions with prescribed limits and horizontal asymptotes. Label your graphs with the name of the function.
+
+  Each part has infinitely many correct answers. 
 
   \begin{enumerate}[label=\(f_{\arabic*}\)]
     \item satisfies \(\lim_{x \to \infty} f_{1}(x) = -2\) and \(\lim_{x \to -\infty} f_{1}(x) = 3\).
@@ -64,109 +118,130 @@ Let's begin by making sense of the \emph{idea} behind the \hlmain{limit at infin
       \end{center}
   \end{enumerate}
 
-\end{example}
+\end{exercise}
 \clearpage
 
-\begin{example}[Make your own exam!]
-  Challenge yourself and other to sketch a function \(f(x)\) satisfying a random subset of properties from below, \emph{or} \hlsupp{explain} why such function does not exist!
+We now evaluate limits at infinity.  We need the following facts coming from relevant graphs.
 
-  Rinse and repeat. For more practice, sketch a random function and fill in the blanks! 
+\begin{mdframed}[style=simple-compact]
 
-  \begin{enumerate}
-    \item Its \(y\)-intercept is \underline{\hspace{1in}} (pick a constant)
-    \item Its \(x\)-intercepts are \underline{\hspace{1in}} (\emph{non-existent} or pick one or more constants)
-    \item Its graph passes through \underline{\hspace{2in}} (pick one or more points on the plane)
-    \item It has \underline{\hspace{1in}} horizontal asymptote (pick from \emph{no}, \emph{one}, \emph{exactly one}, \emph{two}, \emph{exactly two})
-    \item Its horizontal asymptotes are \underline{\hspace{1in}} (\emph{non-existent} or pick one or more constants)
-    \item Its vertical asymptotes are \underline{\hspace{1in}} (\emph{non-existent} or pick one or more constants)
-    \item \(\lim_{x \to \infty} f(x) = \underline{\hspace{1in}}\) (pick a constant or from \emph{does not exists}, \(\infty\), \(-\infty\).)
-    \item \(\lim_{x \to -\infty} f(x) = \underline{\hspace{1in}}\) (pick a constant or from \emph{does not exists}, \(\infty\), \(-\infty\).)
-    \item Its range is \underline{\hspace{1in}} (pick a finite or an infinite interval)
-  \end{enumerate}
+  \begin{align*}
+    \lim_{x \to \infty} e^{x} &= \infty, & \lim_{x \to \infty} x^{(\text{positive constant})} &= \infty, & \quad \lim_{x \to \infty} \frac{1}{x^{(\text{negative constant})}} &= \infty \\
+    \lim_{x \to \infty} \frac{1}{e^{x}} &= 0, & \lim_{x \to \infty} \frac{1}{x^{(\text{positive constant})}} &= 0, & \quad \lim_{x \to \infty} x^{(\text{negative constant})} &= 0 \\
+                                        && \lim_{x \to \infty} \frac{e^{x}}{x^{\text{(positive constant)}}} &= \infty & \lim_{x \to \infty} \frac{x^{\text{(positive constant)}}}{e^{x}} &= 0.
+  \end{align*}
+
+  Moreover, 
+  \(
+  \lim_{x \to \infty} (\text{polynomial}) = (\text{the sign of the coefficient for \(x^{\text{largest power}}\)}) \, \infty
+  \)
+\end{mdframed}
+
+All limit laws apply to limits at infinity, but we often need to reorganize functions by \hlmain{factoring out its dominant (fastest growing) terms}. This technique is called \hlmain{analyzing dominant terms}. There are three possible scenarios as demonstrated by Examples~\ref{eg:dom-term-intro-constant}, \ref{eg:dom-term-intro-zero} and \ref{eg:dom-term-intro-infinity}.
+
+% \begin{example}
+%   \(\lim_{x \to \infty} \frac{e^{x} + x^{2} - 1}{x^{2} + 1} = \underline{\hspace{1cm}}\) and \(\lim_{x \to \infty} \frac{x^{2} + 1}{e^{x} + x^{2} - 1} = \underline{\hspace{1cm}}\).
+% \end{example}
+
+\begin{example}\label{eg:dom-term-intro-constant}
+  Evaluate \(\lim_{x \to \infty} \frac{(2x-1)^{2} + 1}{x^{2}}\).
+
+  \blanklines{8}
 \end{example}
 
-\begin{center}
-  \includestandalone[page=2]{../standalones/plot_limit_at_infinity_exercise}
-\end{center}
+\begin{example}\label{eg:dom-term-intro-zero}
+  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{2x-1} + x}{x^{3}}\).
 
-\bigskip
-
-\begin{example}
-  What can we deduce from knowing \(\lim_{x \to -\infty} f(x)\) exists? 
-
-  \begin{itemize}
-    \item[(a)] \(f\) is not increasing on some interval \((-\infty, a)\)
-    \item[(b)] \(f\) is not decreasing on some interval \((-\infty, b)\)
-    \item[(c)] \(f\) is not oscillating on some interval \((-\infty, c)\)
-    \item[(d)] \(f\) is increasing on some interval \((-\infty, \alpha)\)
-    \item[(e)] \(f\) is decreasing on some interval \((-\infty, \beta)\)
-  \end{itemize} 
+  \blanklines{8}
 \end{example}
+
+\begin{example}\label{eg:dom-term-intro-infinity}
+  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{2x-1} + \sqrt[3]{x}}{x}\).
+
+  \blanklines{8}
+\end{example}
+
+
 \clearpage
 
-We turn to finding horizontal asymptotic from algebraic expressions of functions. Equation~\eqref{eq:horizontal-asymptote-flip} ``flips'' a negative infinity to a positive infinity and is quite useful.
-\begin{equation} \label{eq:horizontal-asymptote-flip}
-  \lim_{x \to -\infty} f(x) = \lim_{x \to \infty} f(-x)
-\end{equation}
-\begin{center}
-  \hfill{}
-  \includestandalone[page=2]{../standalones/plot-limit-at-infinity-intro}
-  \hfill{}
-  \includestandalone[page=3]{../standalones/plot-limit-at-infinity-intro}
-  \hfill{}
-\end{center}
+% \begin{example}[Make your own practice]
+%   Sketch a function \(f(x)\) satisfying a random subset of properties from below, \emph{or} \hlsupp{explain} why such function does not exist!
+%
+%   Rinse and repeat. For more practice, sketch a random function and fill in the blanks! 
+%
+%   \begin{enumerate}
+%     \item Its \(y\)-intercept is \underline{\hspace{1in}} (pick a constant)
+%     \item Its \(x\)-intercepts are \underline{\hspace{1in}} (\emph{non-existent} or pick one or more constants)
+%     \item Its graph passes through \underline{\hspace{2in}} (pick one or more points on the plane)
+%     \item It has \underline{\hspace{1in}} horizontal asymptote (pick from \emph{no}, \emph{one}, \emph{exactly one}, \emph{two}, \emph{exactly two})
+%     \item Its horizontal asymptotes are \underline{\hspace{1in}} (\emph{non-existent} or pick one or more constants)
+%     \item Its vertical asymptotes are \underline{\hspace{1in}} (\emph{non-existent} or pick one or more constants)
+%     \item \(\lim_{x \to \infty} f(x) = \underline{\hspace{1in}}\) (pick a constant or from \emph{does not exists}, \(\infty\), \(-\infty\).)
+%     \item \(\lim_{x \to -\infty} f(x) = \underline{\hspace{1in}}\) (pick a constant or from \emph{does not exists}, \(\infty\), \(-\infty\).)
+%     \item Its range is \underline{\hspace{1in}} (pick a finite or an infinite interval)
+%   \end{enumerate}
+% \begin{center}
+%   \includestandalone[page=2]{../standalones/plot_limit_at_infinity_exercise}
+% \end{center}
+% \end{example}
+
+\faStar{} A \hlmain{change of variable} \(u = -x\) turns limits at negative infinity to limits at positive infinity:
+\[
+  \lim_{x \to -\infty} f(x) = \lim_{u \to \infty} f(-u).
+\]
+This little trick is not in the textbook but helps avoid subtle sign mistakes while analyzing dominant terms at \(-\infty\), especially for algebraic functions with even roots. 
+
 
 \begin{example}
-  Find horizontal asymptotes of \(e^{x}\).
-
-  \blanklines{15}
-\end{example}
-
-All limit laws applies to limits at infinity, but we often need to reorganize functions by \hlmain{factoring out its dominant (fastest growing) term}. We demonstrate the idea in Example~\ref{ex:dom-term-intro} before introducing the general problem-solving principle.
-
-\begin{example}\label{ex:dom-term-intro}
-  Evaluate \(\lim_{x \to \infty} \frac{(2x-1)^{2} + 1}{x^{2}}\) or explain why it does not exist.
-
-  \blanklines{15}
-\end{example}
-\clearpage
-
-Because of Equation~\eqref{eq:horizontal-asymptote-flip} on page~\pageref{eq:horizontal-asymptote-flip}, a limit at the negative infinity can be ``flipped'' to a limit at the positive infinity limit. 
-
-Therefore, we only need to discuss \hlmain{the problem-solving principle} for evaluating \(\lim_{x \to \infty} f(x)\). In general, \(e^{x}\) dominates (grows faster than) any power function as \(x \to \infty\). Among power functions with positive exponents, the one with the largest the exponent dominates as \(x \to \infty\).
-
-After factoring out the dominant terms and cancellations, we use the limit laws and one of these.
-\begin{align*}
-  \lim_{x \to \infty} e^{x} &= \infty, & \lim_{x \to \infty} x^{(\text{positive constant})} &= \infty, & \quad \lim_{x \to \infty} \frac{1}{x^{(\text{negative constant})}} &= \infty \\
-  \lim_{x \to \infty} \frac{1}{e^{x}} &= 0, & \lim_{x \to \infty} \frac{1}{x^{(\text{positive constant})}} &= 0, & \quad \lim_{x \to \infty} x^{(\text{negative constant})} &= 0
-\end{align*}
-
-\begin{example}
-  Let \(f(x) = \frac{\sqrt[3]{-5x^{5} + 3x} - 2}{x^{2} + 1}\). 
-  Evaluate \(\lim_{x \to \infty} f(x)\) and \(\lim_{x \to -\infty} f(x)\). 
+  Evaluate \(\lim_{x \to -\infty} \frac{\sqrt{x^{2} + 1}}{x + 1}\). 
 
   \blanklines{25}
 \end{example}
 
-\begin{example}
-  Evaluate \(\lim_{x \to \infty} \frac{2x^{3} + 2}{\sqrt{x + 1}}\).
+\begin{exercise}
+  Find horizontal asymptotes for \(f(x) = \frac{\sqrt[3]{-5x^{5} + 3x} - 2}{x^{2} + 1}\). 
 
-  \blanklines{10}
-\end{example}
+  \blanklines{20}
+\end{exercise}
+
 \clearpage
 
-\begin{example}
+Factor out powers of \(e^{x}\) for limits at infinity involving exponential functions.  Alternatively, you can substitute \(u = e^{x}\) to convert the function into an algebraic function.  The three exercises below progress from using this idea in its simplest form to requiring some algebra skills. % \thiscourse{} does not deal with functions with a mix of polynomials and \(e^{x}\).
+
+\begin{exercise}
+  Find horizontal asymptotes for \(f(x) = \frac{e^{x}+1}{e^{x}-2}\).
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Find horizontal asymptotes for \(f(x) = \frac{e^{2x}+1}{e^{x}-2}\). Hint: \(e^{2x} = (e^{x})^{2}\) or sub \(u = e^{x}\).
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Find horizontal asymptotes for \(f(x) = \frac{e^{x}+1}{2^{x}-2}\). Hint: Page \pageref{eq:exp-change-of-base}.
+
+  \blanklines{14}
+\end{exercise}
+\clearpage
+
+
+
+\begin{exercise}
   Evaluate \(\lim_{x \to \infty} \frac{1}{x} \sin(x)\).
 
   {\scriptsize Hint: Use the squeeze theorem. Notice we only need to consider the case when \(x\) is positive because \(x \to \infty\). The solution is relatively straightforward and not very long.}
 
   \blanklines{25}
-\end{example}
+\end{exercise}
 
-If we want to be a bit tricky, then we could put negative exponents in functions.  In such case, turn all negative exponents into fractions and reorganize the expression before factoring.
-\begin{example}[Algebra skill practice]
+\begin{exercise}
   Evaluate \(\lim_{x \to \infty} \frac{x^{-5/2} + 3x^{2}}{x^{2} - 1/2}\). 
-\end{example}
+
+  \blanklines{20}
+\end{exercise}
 
 \end{document}
 

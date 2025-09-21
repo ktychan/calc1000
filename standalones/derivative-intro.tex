@@ -1,0 +1,30 @@
+%! 
+\documentclass[tikz]{standalone}
+
+\input{../tikz.tex.preamble}
+\input{../typography.tex.preamble}
+
+\begin{document}
+\begin{tikzpicture}[scale=1]
+  \begin{axis}[basic curve, enlargelimits]
+    \addplot[very thick, domain=-1/4:1] {x^2};
+    \fill[main] (axis cs:1/2,1/4) circle[radius=3pt];
+    \node[main, below] at (axis cs:1/2,0) {\(a\)};
+    \node[main, left] at (axis cs:0,1/4) {\(f(a)\)};
+    \addplot[main, dashed] coordinates {(1/2,0) (1/2,1/4) (0,1/4)};
+    \node[below] at (axis cs:3/4,1) {\(f(x)\)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1]
+  \begin{axis}[basic curve, enlargelimits]
+    \addplot[very thick, domain=-1/4:1/2] {-(x-1/2) + 1/4};
+    \addplot[very thick, domain=1/2:1] {x^2};
+    \fill[main] (axis cs:1/2,1/4) circle[radius=3pt];
+    \node[main, below] at (axis cs:1/2,0) {\(a\)};
+    \node[main, left] at (axis cs:0,1/4) {\(g(a)\)};
+    \addplot[main, dashed] coordinates {(1/2,0) (1/2,1/4) (0,1/4)};
+    \node[below] at (axis cs:3/4,1) {\(g(x)\)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}

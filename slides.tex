@@ -307,15 +307,32 @@
 
 
 \begin{frame}
-  \frametitle{Limits at infinity}
+  \frametitle{Infinite limits (special cases of non-existent limit)}
   \[
-    \begin{array}{rclrcl}
-      \lim_{x \to a^{+}} \frac{1}{(x-a)^{\text{odd power}}} &=& + \infty
-      \lim_{x \to a^{-}} \frac{1}{(x-a)^{\text{odd power}}} &=& - \infty
+    \begin{array}{rcl}
+      \lim_{x \to a^{+}} \frac{1}{(x-a)^{\text{odd positive power}}} &=& + \infty  \\
+      \lim_{x \to a^{{\color{warn}-}}} \frac{1}{(x-a)^{\text{odd positive power}}} &=& {\color{warn} - \infty}  \\[4ex]
+      \lim_{x \to a^{-}} \frac{1}{(x-a)^{\text{even positive power}}} &=& + \infty \\
+      \lim_{x \to a^{+}} \frac{1}{(x-a)^{\text{even positive power}}} &=& + \infty
     \end{array}
   \]
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{Intermediate Value Theorem}
+
+  Let \(f\) be a \hlwarn{continuous} function over a closed, bounded interval \([a,b]\).  If \(z\) is any real number between \(f(a)\) and \(f(b)\), then \hlmain{there exists} a number \(c\) in \([a,b]\) satisfying \(f(c) = z\).
+
+  \pause
+  \bigskip
+
+  \faLightbulb{} IVT answers the yes-no question: Is it possible to find at least one solution
+  \[
+    f(\text{unknown}) = (\text{given constant})
+  \] 
+  on the interval \([a,b]\)?
+\end{frame}
 
 
 \section{Derivatives}
