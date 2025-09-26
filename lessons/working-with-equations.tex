@@ -1,0 +1,131 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Problem-solving: Setting up equations to find unknowns} \label{sec:working-with-equations}
+
+The wording pattern of a type of questions we frequently encounter is 
+
+\begin{mdframed}[style=simple-compact]
+  ``for what value(s) of an unknown constant \emph{blah} does a function satisfy a certain property \emph{some other blah blah}?'' or equivalently, ``find all constants \emph{blah} so that a function satisfies \emph{some other blah blah}?'' 
+\end{mdframed}
+
+We briefly talked about it on page~\pageref{ex:piecewise-abs-of-function}. Here are some examples from sciences and business.
+\begin{itemize}
+  \item Find values for the spring constant for which a spring satisfying Hooke's Law stretches by \(3\) centimetres under a force of \(5\) Newtons?
+  \item For what value of the growth constant \(r\) does a population experiencing exponential growth have a population \(1000\) at \(t = 0\) and \(3000\) at \(t = 5\)?
+  \item For what price \(p\) does a market reach equilibrium given the supply function \(40 + 5p\) and the demand function \(120 - 3p\)?
+  \item By what factor does the concentration of HCl need to change in order to decrease the pH of an HCl by 0.50 unit? \hfill{} (contributed by Prof. Felix Lee, Department of Chemistry)
+  \item For what range of interest rates \(r\) can I afford a \textdollar\(5000\) credit card debt, typically compounded daily, if I pay \textdollar{}\(200\) per month? 
+\end{itemize}
+\bigskip
+
+\faStar{} A key \hlmain{idea} to deal with all such problems is to \hlmain{set up one or more equations involving the unknowns that satisfy the given properties}. 
+\begin{enumerate}
+  \item The relevant concept and properties give us one or more equations involving the unknowns.
+  \item Simplify the equation by evaluating limits, derivatives, and/or integrals if any. 
+  \item Draw conclusions \hlwarn{based on the equation(s)}, i.e., either solve for the unknown or conclude that such unknown constants do not exist. 
+\end{enumerate}
+
+\bigskip
+Here are some sample questions for \thiscourse{}. However, the list is not exhaustive. Practically any concept can be used to create such a problem.
+
+\begin{itemize}
+  \item For what values of \ldots{} is a function \ldots{} continuous/differentiable on \ldots{}?
+  \item For what values of \ldots{} does a function \ldots{} have a horizontal/vertical asymptote at \ldots{}?
+  \item For what values of \ldots{} does a function \ldots{} have a maximum/minimum at \ldots{}?
+  \item For what values of \ldots{} is a function \ldots{} increasing/decreasing over \ldots{}?
+  \item For what values of \ldots{} is a function \ldots{} concave up/down over \ldots{}?
+  \item For what values of \ldots{} does a function pass through \ldots{} and have the derivative \ldots{}?
+\end{itemize}
+
+\bigskip
+The takeaway is that such problems are very common and practical, yet doable with some practice.
+
+\clearpage
+The fundamental relation between one- and two-sided limits expands the defining equation of continuity \(\lim_{x \to a} f(x) = f(a)\) into three equations
+\[
+  {\color{main} \lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)}, \qquad {\color{main} \lim_{x \to a^{-}} f(x) = f(a)}, \qquad {\color{main} \lim_{x \to a^{+}} f(x) = f(a)}.
+\]
+All three equations must be true for \(f(x)\) to be continuous at \(a\).
+
+\begin{example}
+  Find all numbers \(b\) for which \(f(x) = \begin{cases} 3x + b &\text{if } x \le 1 \\ \frac{\sqrt{x} - 1}{x - 1} & \text{if } x > 1 \end{cases}\) is continuous everywhere.
+
+  We can determine continuity one branch at a time and then at the boundaries. At each boundary, which of the three equations above seems like a good starting point?
+
+  \blanklines{35}
+
+  A variation: Remember to draw a conclusion based on relevant equations.
+  Find all unknown constants \(b\) for which \(f(x) = \begin{cases} 2x + b &\text{if } x < 1 \\ 1 &\text{if } x = 1 \\ \frac{\sqrt{x} - 1}{x - 1} & \text{if } x > 1 \end{cases}\) is continuous everywhere. 
+
+  \begin{tikzpicture}[scale=1]
+    \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Solution: Such a number \(b\) does not exist because \(\lim_{x \to 1^{+}}f(x) \ne f(1)\).}};
+  \end{tikzpicture}
+\end{example}
+
+% Exercise~\ref{ex:the-slingshot-2} modifies Exercise~\ref{eg:the-slingshot} and help you develop sophistication in problem-solving. We deliberately use a simple function to clearly demonstrate the idea. Pay attention to the setup of relevant equations. Regardless of the apparent complexity of functions, the starting step is to look for relevant equations.
+%
+% \begin{example} \label{ex:the-slingshot-2}
+%   Find the unknown constant \(m\) so that \(f(x) = \begin{cases} x^{2} &\text{if } x \le 2\\ mx + 4& \text{if } x > 2 \end{cases}\) is differentiable at \(2\). 
+%
+%   Use the limit definition of derivative. See Exercise~\ref{ex:the-slingshot-no-shortcut} for why the shortcut of using differentiation rules (to be taught later) does not always work.
+%
+%   \blanklines{40}
+% \end{example}
+% \clearpage
+%
+% The function \(|mx|\) has no derivative at \(0\).  We have no choice but to use the limit definition of derivatives to set up an relevant equation.
+% \begin{exercise} \label{ex:the-slingshot-no-shortcut}
+%   Find the unknown constant \(m\) so that \(f(x) = \begin{cases} x^{2} &\text{if } x < 0 \\ |mx| & \text{if } x \ge 0 \end{cases}\) is differentiable at \(0\).
+%
+%   \blanklines{40}
+% \end{exercise}
+\clearpage
+
+The solutions are at the bottom of the page.
+
+\begin{exercise}[Midterm, Fall 2022]
+  Let \(f(x) = \begin{cases} - x + c &\text{if } x < 1 \\ 6 - 2x^{2} &\text{if } x \ge 1 \end{cases}\). Find \(c\) so that \(f(x)\) is continuous at \(x = 1\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(c = 4\).
+    \item \(c = 5\).
+    \item \(c = 6\).
+    \item \(c = 1\).
+    \item \(c = 0\).
+  \end{enumerate}
+\end{exercise}
+\vfill{}
+
+\begin{exercise}[Midterm, Fall 2022]
+  Find all values \(a\) such that the function \(f(x) = \begin{cases} x^{2} - 2x &\text{if } x < a \\ -1 &\text{if } x \ge a \end{cases}\) is continuous everywhere.
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(a = 1\).
+    \item \(a = 2\).
+    \item \(a = 1\) or \(a = 2\).
+    \item \(a\) can be any real number.
+    \item Such a real number \(a\) does not exist.
+  \end{enumerate}
+\end{exercise}
+\vfill{}
+
+\begin{exercise}[Midterm, Fall 2024, slightly modified]
+  Let \(g(x) = \frac{(x-2)(x^{2}-9)}{x^{2}-c}\). For what positive values of \(c\) is \(g(x)\) continuous at all real numbers?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(c = 4\) only.
+    \item \(c = 9\) only.
+    \item \(c = 9\) or \(c = 4\) only.
+    \item \(g\) is continuous for every positive number \(c\).
+    \item \(g\) is not continuous on \((-\infty, +\infty)\) for any positive value \(c\).
+  \end{enumerate}
+
+  Hint: See Example~\ref{eg:continuity-and-cancellation}.  The ``for every positive number \(c\)'' in the last two options means ``regardless of the choice of a positive number \(c\).''
+\end{exercise}
+
+\vfill{}
+\begin{tikzpicture}
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Solutions: B, A, E.}};
+\end{tikzpicture}
+\end{document}

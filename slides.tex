@@ -306,6 +306,7 @@
 \end{frame}
 
 
+
 \begin{frame}
   \frametitle{Infinite limits (special cases of non-existent limit)}
   \[
@@ -318,24 +319,36 @@
   \]
 \end{frame}
 
+\begin{frame}
+  \frametitle{Three types of discontinuities}
+
+  \includegraphics{./standalones/plot_discontinuity_examples}
+  %
+  % \[
+  %   \lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x) 
+  %   \quad\text{and}\quad
+  %   \lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x) 
+  %   \quad\text{and}\quad
+  %   \lim_{x \to a^{\pm}} f(x) = \pm \infty
+  % \]
+\end{frame}
 
 \begin{frame}
   \frametitle{Intermediate Value Theorem}
 
-  Let \(f\) be a \hlwarn{continuous} function over a closed, bounded interval \([a,b]\).  If \(z\) is any real number between \(f(a)\) and \(f(b)\), then \hlmain{there exists} a number \(c\) in \([a,b]\) satisfying \(f(c) = z\).
-
-  \pause
-  \bigskip
-
   \faLightbulb{} IVT answers the yes-no question: Is it possible to find at least one solution
   \[
-    f(\text{unknown}) = (\text{given constant})
+    f(\text{unknown}) = (\text{given constant, call it } z)
   \] 
-  on the interval \([a,b]\)?
+  so that the unknown lies in the interval \([a,b]\)?
+
+  To apply IVT, check that the given constant \(z\) falls between \(f(a)\) and \(f(b)\), i.e., \(f(a) \le z \le f(b)\) or \(f(a) \ge z \ge f(b)\).
 \end{frame}
 
 
 \section{Derivatives}
+
+
 \begin{frame}
   \frametitle{Concepts associated to \(f'\)}
 
@@ -343,7 +356,7 @@
   \[
     f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
     \quad\text{or}\quad
-    f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}.
+    f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
   \]
 
   \textbf{Geometry}: 
@@ -356,25 +369,15 @@
 
 
 \begin{frame}
-  \frametitle{Differentiation Rules (1)}
+  \frametitle{Differentiation Rules}
 
   \[
     \begin{array}{rcll}
       \frac{d}{dx} \bigg( f(x) + g(x) \bigg) &=& f'(x) + g'(x) & \text{(sum)} \\[1ex] 
       \frac{d}{dx} \bigg( f(x) - g(x) \bigg) &=& f'(x) - g'(x) & \text{(difference)} \\[1ex]
       \frac{d}{dx} c f(x) &=& c f'(x) & \text{(constant multiple)} \\[1ex]
-    \end{array}
-  \]
-\end{frame}
-
-\begin{frame}
-  \frametitle{Differentiation Rules (2)}
-
-  \[
-    \begin{array}{rcll}
       \frac{d}{dx} f(x) g(x) &=& f'(x)g(x) + f(x)g'(x) & \text{(product)} \\[1ex] 
-      \frac{d}{dx}  &=& f'(x) - g'(x) & \text{(quotient)} \\[1ex]
-      \frac{d}{dx} c f(x) &=& c f'(x) & \text{(constant multiple)} \\[1ex]
+      \frac{d}{dx} \frac{f(x)}{g(x)} &=& \frac{f'(x)g(x) - f(x)g'(x)}{\big[g(x)\big]^{2}} & \text{(quotient)}
     \end{array}
   \]
 \end{frame}
@@ -485,6 +488,18 @@
   \end{enumerate}
 \end{frame}
 
+
+\section{Problem-solving skills}
+
+\begin{frame}
+  \frametitle{How to deal with ``find all \ldots{} for which \ldots{}?''}
+
+  \begin{enumerate}
+    \item The relevant concept and property give us one or more equations involving the unknowns.
+    \item Simplify the equation by evaluating limits, derivatives, and/or integrals if any. 
+    \item Draw conclusions \hlwarn{based on the equation(s)}, i.e., either solve for the unknown or conclude that such unknown constants do not exist. 
+  \end{enumerate}
+\end{frame}
 
 \section{Study Skills}
 

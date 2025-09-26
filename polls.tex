@@ -272,7 +272,7 @@
 
 
 \begin{poll}
-  True or false? Every piecewise function has \emph{at least one} discontinuity in its domain.
+  True or false? Every piecewise function has at least one discontinuity in its domain.
 
   \begin{enumerate} 
     \item True.
@@ -283,37 +283,11 @@
   \end{enumerate} 
 \end{poll} 
 
-
 \begin{poll}
-  How many horizontal asymptotes can a function have?
+  Analyze the dominant terms of \(\lim_{x \to -\infty} \frac{x^{2}+3x}{\sqrt{3+x}}\). The limit should be
 
   \begin{enumerate} 
-    \item None.
-    \item One.
-    \item Two
-    \item At most two.
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
-\begin{poll}
-  Can a function cross its horizontal asymptotes?
-
-  \begin{enumerate} 
-    \item Yes.
-    \item No.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Analyze the dominant terms of \(\lim_{x \to -\infty} \frac{x^{2}+3x}{\sqrt{3-x}}\). With only a quick calculations, the limit should be
-
-  \begin{enumerate} 
-    \item \(\infty\) or \(-\infty\).
+    \item \(-\infty\). \onslide<2->{\hlmain{We factor out \(x^{2}\) in the numerator and \(x^{1/2}\) in the denominator.}}
     \item a finite number.
     \item 
     \item 
@@ -336,6 +310,54 @@
 \section{Continuity}
 
 \begin{poll}
+  Which of the following indicate \(f(x)\) has a discontinuity at \(a\)?  Choose all that apply.
+
+  \begin{enumerate}
+    \item \(a\) is not in the domain of \(f\).
+    \item \(\lim_{x \to a^{-}} f(x) \ne f(a)\) or \(\lim_{x \to a^{+}} f(x) \ne f(a)\).
+    \item \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x)\).
+    \item \(\lim_{x \to a^{\pm}} f(x) = \pm \infty\).
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  What type of discontinuity does the following function have at \(x = -1\)?  Assume pictorial patterns continue in all relevant directions.
+
+  \begin{minipage}{2in}
+    \begin{enumerate}
+      \item Removable.
+      \item Jump.
+      \item Infinite.
+      \item 
+      \item I am not sure.
+    \end{enumerate}
+  \end{minipage}
+  \quad
+  \begin{minipage}{3in}
+    \begin{tikzpicture}
+      \begin{axis}[basic curve, width=3in, xmin=-3, xmax=1, ymin=-2, ymax=2, yticklabels={\empty}, restrict y to domain=-2:3]
+        \addplot[very thick, domain=-1:2] {1/(x+1)^(1/2) - 2};
+        \addplot[very thick, domain=-3:-1] {sin(x)};
+        \fill (axis cs:{-1},{sin(-1)}) circle[radius=0.05];
+      \end{axis}
+    \end{tikzpicture}
+  \end{minipage}
+\end{poll}
+
+\begin{poll}
+  If a function \(f(x)\) is discontinuous over an interval \((a,b)\), then \(f(x)\) is discontinuous 
+
+  \begin{enumerate}
+    \item at at least one number in \((a,b)\).
+    \item at every number in \((a,b)\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
   True or false? Every piecewise function has a discontinuity.
 
   \begin{enumerate}
@@ -347,9 +369,6 @@
   \end{enumerate}
 \end{poll}
 
-\begin{poll}
-  True
-\end{poll}
 
 \section{Derivatives}
 \begin{poll}
@@ -1245,6 +1264,20 @@
   \end{enumerate}
 \end{poll}
 
+\section{Problem-solving skill}
+
+\begin{poll}
+  Which of the following equation is a good starting point?
+
+
+  \begin{enumerate}
+    \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
+    \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
+    \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
 
 \section{Miscellaneous}
 

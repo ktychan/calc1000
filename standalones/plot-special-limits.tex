@@ -12,10 +12,7 @@
 
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[
-    special limit,
-    title={the ``magic'' limit for \(\sin(x)\) at \(0\)},
-    ]
+  \begin{axis}[special limit]
     \addplot[very thick, domain=-pi:pi] { sin(x) };
     \addplot[magenta, thick] coordinates { (-1,-1) (1,1) };
     \fill (axis cs:0,0) circle (2pt);
@@ -23,10 +20,7 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[
-    special limit,
-    title={the ``magic'' limit for \(\cos(x)\) at \(0\)},
-    ]
+  \begin{axis}[special limit]
     \addplot[very thick, domain=-pi:pi] { cos(x) };
     \addplot[magenta, thick] coordinates { (-1,1) (1,1) };
     \fill (axis cs:0,1) circle (2pt);

@@ -1,5 +1,6 @@
-\documentclass{standalone}
+\documentclass[tikz]{standalone}
 \input{../tikz.tex.preamble}
+\input{../typography.tex.preamble}
 
 \newcommand{\haxis}[3]{
   \draw[very thin, ->] (#1, 0) -- (#2, 0) node[right] {\footnotesize {#3}};
@@ -29,7 +30,7 @@
     \vaxis{0}{4}{\(y\)}
     \vticks{1}{3}
 
-    \draw[smooth, domain=0:3] plot ({\x}, {\x + 1}) node[below right] {\(f_{1}(x)\)};
+    \draw[very thick, smooth, domain=0:3] plot ({\x}, {\x + 1}) node[below right] {\(f_{1}(x)\)};
     \draw[fill=white] (1,2) circle (0.05);
   \end{scope}
 
@@ -41,8 +42,8 @@
     \vticks{1}{3}
     % \vaxis{-4}{4}{\(y\)};
     % \vticks{1}{3}; 
-    \draw[smooth, domain=-2:0] plot ({\x}, {\x*\x});
-    \draw[smooth, domain=0:2] plot ({\x}, {\x + 1}) node[above] {\(f_{2}(x)\)};;
+    \draw[very thick, smooth, domain=-2:0] plot ({\x}, {\x*\x});
+    \draw[very thick, smooth, domain=0:2] plot ({\x}, {\x + 1}) node[above] {\(f_{2}(x)\)};;
     \draw[fill] (0,0) circle (0.05);
     \draw[fill=white] (0,1) circle (0.05);
   \end{scope}
@@ -54,10 +55,38 @@
     % \vaxis{-4}{4}{\(y\)};
     % \vticks{1}{3}; 
     \draw[dotted] (5,-10) -- (5,10);
-    \draw[smooth, domain=1:4.9] plot ({\x}, {1/3*(\x*\x - 2*\x - 3)/(\x - 5)});
-    \draw[smooth, domain=5.1:10] plot ({\x}, {1/10*(\x*\x - 2*\x - 3)/(\x-5)))});
+    \draw[very thick, smooth, domain=1:4.9] plot ({\x}, {1/3*(\x*\x - 2*\x - 3)/(\x - 5)});
+    \draw[very thick, smooth, domain=5.1:10] plot ({\x}, {1/10*(\x*\x - 2*\x - 3)/(\x-5)))});
     \node at (7, 3) {\(f_{3}(x)\)};
   \end{scope}
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1]
+  \begin{axis}[basic curve, height=2in, enlargelimits, ymin=0]
+    \addplot[very thick, domain=0:3] {x + 1};
+    \draw[fill=white] (axis cs:1,2) circle[radius=0.1];
+    \node[below left] at (axis cs:2,4) {\(f_{1}(x)\)};
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[scale=1]
+  \begin{axis}[basic curve, height=2in, enlargelimits]
+    \addplot[very thick, domain=-2:0] {x^2};
+    \addplot[very thick, domain=0:2] {x+1};
+    \draw[fill=white] (axis cs:0,1) circle[radius=0.1];
+    \fill (axis cs:0,0) circle[radius=0.1];
+    \node[above left] at (axis cs:2,3) {\(f_{2}(x)\)};
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=1]
+  \begin{axis}[basic curve, height=2in, enlargelimits, xmin=-1, xmax=5, ymin=-3, ymax=3, yticklabels={\empty}]
+    \addplot[very thick, domain=-2:2.4] {1/(x-5/2)};
+    \addplot[very thick, domain=2.6:6] {1/(x-5/2)};
+    \addplot[dashed] coordinates {(5/2, 4) (5/2,-4)};
+    \node[left] at (axis cs:5,3) {\(f_{3}(x)\)};
+  \end{axis}
 \end{tikzpicture}
 \end{document}
 
