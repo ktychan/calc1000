@@ -27,4 +27,17 @@
     \node[below] at (axis cs:3/4,1) {\(g(x)\)};
   \end{axis}
 \end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[basic curve, xticklabels={\empty}, yticklabels={\empty}, xlabel={time \(t\)}, ylabel={\(s(t)\)}, ymin=0, ymax=4, enlargelimits]
+    \addplot[very thick, domain=0:2] {-x^2 + 4};
+  \end{axis}
+\end{tikzpicture}
+
+
+\begin{tikzpicture}
+  \begin{axis}[basic curve, xticklabels={\empty}, yticklabels={\empty}, xlabel={time \(t\)}, ylabel={\(s'(t)\)}, ymin=-4, ymax=0, enlargelimits]
+    \addplot[very thick, domain=0:2] {-2*x};
+  \end{axis}
+\end{tikzpicture}
 \end{document}

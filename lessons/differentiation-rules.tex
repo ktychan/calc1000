@@ -1,6 +1,36 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Differentiation rules (with respect to \texorpdfstring{\(+,-,\times,\div\)}{+, -, •, ÷})}
+
+\textbf{Notations}. If we write \(y = f(x)\) to denote a function, then \emph{all} of the following denote the function that is the derivative of \(f(x)\).
+\[
+  f'(x) 
+  \;=\; f' 
+  \;=\; y' 
+  \qquad =\qquad  
+  {\color{main} \frac{d}{dx}} \, f(x) \;=\; \frac{df}{dx} \;=\; \frac{dy}{dx}
+  \qquad=\quad 
+  Df(x) 
+  \;=\; D_{x} f(x)
+\]
+
+\emph{All} of the following denote the derivative of \(f(x)\) at a number \(a\).
+\begin{align*}
+  & f'(a) \quad=\quad \frac{dy}{dx} \bigg|_{x = a} \quad=\quad \frac{dy}{dx} \bigg]_{x = a}
+\end{align*}
+\label{page:higher-derivatives}
+
+In general, we define \(f^{(0)} = f\) and the \(n\)-th derivative to be
+\[
+  \overbrace{f^{' \cdots '}}^{\text{\(n\) primes}} \quad=\quad f^{(n)} \quad=\quad \frac{d^{n}}{dx^{n}} f \quad=\quad \frac{d}{dx} f^{(n-1)} \quad\text{for integers } n \ge 1.
+\]
+
+\begin{example}
+  The second derivative of a function is denoted as \(f''(x)\) or \(f^{(2)}(x)\) or \(\frac{d^{2}}{dx^{2}} f(x)\).
+
+  The third derivative of a function is denoted as \(f'''(x)\) or \(f^{(3)}(x)\) or \(\frac{d^{3}}{dx^{3}} f(x)\).
+\end{example}
+
 Our (academic or practical) lives will be extremely tedious if we had to calculate derivative using its \(f'(x) = \lim_{h \to 0} {\textstyle\frac{f(x+h) - f(x)}{h}}\) every single time.  The good news is that patterns emerge if we actually try to calculate every derivative this way. 
 
 Differentiation rules are such patterns and express the interactions between differentiation (as an operation) and algebraic operations \(+, -, \times, \div, \circ\). We focus on \(+, -, \times, \div\) this week and study composition next week.

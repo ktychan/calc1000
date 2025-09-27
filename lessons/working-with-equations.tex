@@ -9,7 +9,7 @@ The wording pattern of a type of questions we frequently encounter is
   ``for what value(s) of an unknown constant \emph{blah} does a function satisfy a certain property \emph{some other blah blah}?'' or equivalently, ``find all constants \emph{blah} so that a function satisfies \emph{some other blah blah}?'' 
 \end{mdframed}
 
-We briefly talked about it on page~\pageref{ex:piecewise-abs-of-function}. Here are some examples from sciences and business.
+We briefly talked about it on page~\pageref{ex:piecewise-abs-of-function}. Here are some examples from science and business.
 \begin{itemize}
   \item Find values for the spring constant for which a spring satisfying Hooke's Law stretches by \(3\) centimetres under a force of \(5\) Newtons?
   \item For what value of the growth constant \(r\) does a population experiencing exponential growth have a population \(1000\) at \(t = 0\) and \(3000\) at \(t = 5\)?
@@ -19,7 +19,7 @@ We briefly talked about it on page~\pageref{ex:piecewise-abs-of-function}. Here 
 \end{itemize}
 \bigskip
 
-\faStar{} A key \hlmain{idea} to deal with all such problems is to \hlmain{set up one or more equations involving the unknowns that satisfy the given properties}. 
+\faStar{} An idea to deal with all such problems is to \hlmain{set up one or more equations involving the unknowns that satisfy the given properties}. 
 \begin{enumerate}
   \item The relevant concept and properties give us one or more equations involving the unknowns.
   \item Simplify the equation by evaluating limits, derivatives, and/or integrals if any. 
@@ -48,7 +48,7 @@ The fundamental relation between one- and two-sided limits expands the defining 
 \]
 All three equations must be true for \(f(x)\) to be continuous at \(a\).
 
-\begin{example}
+\begin{example} \label{eg:find-all-blah-continuity}
   Find all numbers \(b\) for which \(f(x) = \begin{cases} 3x + b &\text{if } x \le 1 \\ \frac{\sqrt{x} - 1}{x - 1} & \text{if } x > 1 \end{cases}\) is continuous everywhere.
 
   We can determine continuity one branch at a time and then at the boundaries. At each boundary, which of the three equations above seems like a good starting point?
@@ -80,6 +80,26 @@ All three equations must be true for \(f(x)\) to be continuous at \(a\).
 %
 %   \blanklines{40}
 % \end{exercise}
+\clearpage
+
+For differentiability, Equations~\eqref{eq:def-derivative-1} and \eqref{eq:def-derivative-2} give us equations for differentiability.  
+\[
+  \lim_{h \to 0^{-}} \frac{f(a + h) - f(a)}{h} = \lim_{h \to 0^{+}} \frac{f(a + h) - f(a)}{h} 
+  \quad\text{or}\quad
+  \lim_{x \to a^{-}} \frac{f(x) - f(a)}{x - a} = \lim_{x \to a^{+}} \frac{f(x) - f(a)}{x - a}.
+\]
+We only need one, so pick your favourite.
+
+Sometimes, but not always, we need to solve a sub-problem to guarantee continuity. Example~\ref{eg:find-all-blah-differentiability} demonstrates the more involved case of needing to guarantee continuity.  The general rule of thumb is to start with one of the two equations above (your choice) and try to solve for all unknowns.  If there are leftover unknowns, then try to guarantee continuity.
+
+Also pay attention to why we \hlwarn{do not} conclude that \(b\) does not exist.
+
+\begin{example} \label{eg:find-all-blah-differentiability}
+  Find all numbers \(m\) and \(b\) for which \(f(x) = \begin{cases} x^{2} &\text{if } x \le 4 \\ mx + b &\text{if } x > 4 \end{cases}\) is differentiable everywhere.
+
+  \blanklines{40}
+\end{example}
+
 \clearpage
 
 The solutions are at the bottom of the page.
