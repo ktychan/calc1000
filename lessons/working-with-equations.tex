@@ -53,14 +53,7 @@ All three equations must be true for \(f(x)\) to be continuous at \(a\).
 
   We can determine continuity one branch at a time and then at the boundaries. At each boundary, which of the three equations above seems like a good starting point?
 
-  \blanklines{35}
-
-  A variation: Remember to draw a conclusion based on relevant equations.
-  Find all unknown constants \(b\) for which \(f(x) = \begin{cases} 2x + b &\text{if } x < 1 \\ 1 &\text{if } x = 1 \\ \frac{\sqrt{x} - 1}{x - 1} & \text{if } x > 1 \end{cases}\) is continuous everywhere. 
-
-  \begin{tikzpicture}[scale=1]
-    \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Solution: Such a number \(b\) does not exist because \(\lim_{x \to 1^{+}}f(x) \ne f(1)\).}};
-  \end{tikzpicture}
+  \blanklines{40}
 \end{example}
 
 % Exercise~\ref{ex:the-slingshot-2} modifies Exercise~\ref{eg:the-slingshot} and help you develop sophistication in problem-solving. We deliberately use a simple function to clearly demonstrate the idea. Pay attention to the setup of relevant equations. Regardless of the apparent complexity of functions, the starting step is to look for relevant equations.
@@ -82,7 +75,7 @@ All three equations must be true for \(f(x)\) to be continuous at \(a\).
 % \end{exercise}
 \clearpage
 
-For differentiability, Equations~\eqref{eq:def-derivative-1} and \eqref{eq:def-derivative-2} give us equations for differentiability.  
+For differentiability, Equations~\eqref{eq:def-derivative-1} and \eqref{eq:def-derivative-2} give us 
 \[
   \lim_{h \to 0^{-}} \frac{f(a + h) - f(a)}{h} = \lim_{h \to 0^{+}} \frac{f(a + h) - f(a)}{h} 
   \quad\text{or}\quad
@@ -90,7 +83,7 @@ For differentiability, Equations~\eqref{eq:def-derivative-1} and \eqref{eq:def-d
 \]
 We only need one, so pick your favourite.
 
-Sometimes, but not always, we need to solve a sub-problem to guarantee continuity. Example~\ref{eg:find-all-blah-differentiability} demonstrates the more involved case of needing to guarantee continuity.  The general rule of thumb is to start with one of the two equations above (your choice) and try to solve for all unknowns.  If there are leftover unknowns, then try to guarantee continuity.
+Sometimes, but not always, we need to solve a sub-problem to guarantee continuity. Example~\ref{eg:find-all-blah-differentiability} demonstrates the more involved case.  The general rule of thumb is to start with one of the two equations above (your choice) and try to solve for all unknowns.  If there are leftover unknowns, then try to guarantee continuity.
 
 Also pay attention to why we \hlwarn{do not} conclude that \(b\) does not exist.
 
@@ -123,7 +116,7 @@ The solutions are at the bottom of the page.
   \begin{enumerate}[label=\Alph*.]
     \item \(a = 1\).
     \item \(a = 2\).
-    \item \(a = 1\) or \(a = 2\).
+    \item \(a = 1\) and \(a = 2\).
     \item \(a\) can be any real number.
     \item Such a real number \(a\) does not exist.
   \end{enumerate}

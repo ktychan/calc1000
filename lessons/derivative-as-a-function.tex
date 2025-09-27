@@ -3,7 +3,7 @@
 \begin{document} \section{Derivatives (as functions)}
 
 \begin{definition}
-  The \emph{derivative} of a \(f(x)\), denoted as \(f'(x)\), is a function defined by
+  The \emph{derivative} of a function \(f(x)\) is a function denoted as \(f'(x)\) or \(\frac{d}{dx} f(x)\) and defined by
   \begin{equation} \label{eq:derivative}
     f'(x) = {\lim_{h \to 0} \frac{f(x+h) - f(x)}{h}}
   \end{equation}
@@ -19,13 +19,11 @@
   \item ``\(f(x)\) is differentiable on \((a,b)\)'' means \(f(x)\) is differentiable at every number in the interval.
 \end{itemize}
 
-Consider the graphs of the position function of a falling balloon \(s(t)\) and its derivative.
-
 
 \begin{example}
   Express \(f'(x)\) as a limit given \(f(x) = \sqrt{x + 1}\).  
 
-  {\footnotesize If we were to calculate \(f'(x)\) using the limit definition, we would just finish evaluating the limit, which is just a routine exercise in limit calculation.}
+  {\footnotesize If we were to calculate \(f'(x)\) using the limit definition, we would completely evaluate the limit, which is a routine exercise in limit calculation.}
 
   \blanklines{5}
 
@@ -44,10 +42,10 @@ Consider the graphs of the position function of a falling balloon \(s(t)\) and i
 \end{example}
 \clearpage
 
-In general, calculating derivatives from the definition is a tedious process.  In practice, we use differentiation rules.  For example, to calculate the derivative of a polynomial, we apply the rule \((x^{n})' = n x^{n-1}\) to each term, leaving the coefficients alone.  We will study differentiation rules in the next section. 
+In general, calculating derivatives from the definition is a tedious process.  In practice, we use differentiation rules.  For example, to calculate the derivative of a polynomial, we apply the rule \((x^{n})' = n x^{n-1}\) to each term, leaving the coefficients alone.  We will study differentiation rules next week.
 
 \begin{exercise}
-  Differentiate \(x^{392} - 3x^{3} - x^{2} + 5\).
+  Differentiate \(3x^{3} - x^{2} + 5\).
 
   \blanklines{5}
 \end{exercise}
@@ -115,6 +113,7 @@ Correct ways to use the theorem:
 
 \begin{itemize}
   \item Use it directly.
+  \item See Example~\ref{eg:find-all-blah-differentiability}.
   \item If \(f(x)\) is undefined at \(a\) or discontinuous at \(a\), then \(f\) is not differentiable at \(a\).
 \end{itemize}
 
