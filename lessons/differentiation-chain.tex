@@ -4,51 +4,55 @@
 
 This section is about building procedural competency for the chain rule.
 
-\begin{mdframed}[style=simple]
-  \textbf{Differentiation Rules} \hfill {\footnotesize (part \(4\) of \(4\))}
+\begin{mdframed}[style=simple-compact]
+  \textbf{Differentiation Rules} \hfill {\footnotesize (part \(3\) of \(3\))}
 
-  If \(g\) is differentiable at \(x\) and \(f\) is differentiable at \(g(x)\), then the composite function \(F = f \circ g\) defined by \(F(x) = f(g(x))\) is differentiable at \(x\), and \(F'\) is given by 
+  The derivative of a composite function \(f(g(x))\), if is well-defined, can be calculated by the formula
   \begin{align*}
-    \frac{d}{dx} (f \circ g)(x)
-    &= f'(g(x)) \cdot g'(x)
+    \frac{d}{dx} f\big( g(x) \big)
+    &= f'(g(x)) g'(x)
     &&\text{(the chain rule)}\\[1em]
     \frac{dy}{dx} &= \frac{dy}{du} \frac{du}{dx} \text{ if we write } y = f(u), u = g(x).
   \end{align*}
 \end{mdframed}
 
 \begin{example}
-  Write \(e^{2x + 1}\) in the form of \(f \circ g\) and use the chain rule to find its derivative.
+  Differentiate \(\tan^{3}(x)\).
 
   \blanklines{15}
 \end{example}
 
+\begin{exercise}
+  Find all \(x\) at which \(\tan^{3}(x)\) has a horizontal tangent line.
 
-\begin{example}
-  Differentiate \(y = \frac{1}{(x^{2}/2 + 3)^{2}}\).
+  \blanklines{10}
+\end{exercise}
+\clearpage
 
-  \blanklines{15}
-\end{example}
-\clearpage{}
-
-
-\begin{example}
-  Find the derivative of \(x^{2} + \sin(x)^{2}\).
-
-  \blanklines{12}
-\end{example}
-
-
-\begin{example}
-  Find the derivative of \(\sqrt{2^{x} + \sqrt{x}}\).
-
-  \blanklines{20}
-\end{example}
-
-
-\begin{example}
-  Find the derivative of \(\sec(2x^{2/3})\).
+\begin{exercise}
+  Find all \(x\) at which the curve \(y = \left( x - \frac{4}{x} \right)^{8}\) has a horizontal tangent line.
 
   \blanklines{15}
+\end{exercise}
+
+
+The chain rule can help us differentiate composition functions where parts or all of the inside function is unknown.
+\begin{example}
+  Differentiate \(\cos(g(x))\) where \(g\) is an unknown but differentiable function. 
+
+  \blanklines{5}
 \end{example}
 
+\begin{exercise}
+  Find the derivative of \(\sqrt[4]{2^{x} + g(x)}\) at \(x = 1\) given that \(g(1) = 1\) and \(g'(1) = 0\).
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Differentiate \((4 g(x) + 3)^{3}\) where \(g(x)\) is an unknown but differentiable function.
+
+  \blanklines{10}
+\end{exercise}
+\clearpage
 \end{document}

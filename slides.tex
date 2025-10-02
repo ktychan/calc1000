@@ -345,6 +345,13 @@
   To apply IVT, check that the given constant \(z\) falls between \(f(a)\) and \(f(b)\), i.e., \(f(a) \le z \le f(b)\) or \(f(a) \ge z \ge f(b)\).
 \end{frame}
 
+\begin{frame}
+  \frametitle{Limits at infinity}
+
+  Let's say the variable in the limit is \(x\).
+
+  Factor out \hlmain{the largest powers of \(x\)} \hlwarn{with their coefficients} in the numerator and denominator, leaving everything else with an \(x\) as \(\frac{1}{x^{\text{positive exponent}}}\).
+\end{frame}
 
 \section{Derivatives}
 
@@ -352,19 +359,30 @@
 \begin{frame}
   \frametitle{Concepts associated to \(f'\)}
 
-  \textbf{Definition} (aka first principle):
+  Focus on these two concepts when solving conceptual problems.
+
+  \textbf{Definition} 
   \[
     f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
     \quad\text{or}\quad
     f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
   \]
 
-  \textbf{Geometry}: 
+  \textbf{Geometry}:  
+  The number \(f'(a)\) is the \hlmain{slope} of the tangent line \(f(x)\) at \(x = a\).  The equation of the tangent line is
+  \[
+    y = f'(a) (x - a) + f(a).
+  \]
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pro-tip for calculating differentiation}
+
   \begin{center}
-    The number \(f'(a)\) is the slope of the graph of \(f(x)\) at \(x = a\).
+    \large
+    Allow the Leibniz notation \(\frac{d}{dx} \cdots\) to guide you to the next step. 
   \end{center}
-
-
 \end{frame}
 
 

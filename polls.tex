@@ -372,18 +372,28 @@
 
 \section{Derivatives}
 \begin{poll}
-  % Let's pop a balloon by dropping it on a needle. 
-  What is the balloon's velocity when it popped?
+  Which is the definition of \(f'(x)\) given that \(f(x) = \sqrt{x + 1}\).
 
-  \begin{enumerate} 
-    \item Does not exist because there is no balloon.
-    \item Non-zero because the balloon has to be moving. 
-    \item Zero because time freezes at that very instant. 
-    \item 
+  \begin{enumerate}
+    \item \(f'(x) = \frac{1}{2\sqrt{x + 1}}\).
+    \item \(f'(x) = \lim_{x \to a} \frac{\sqrt{x - a + 1} - \sqrt{a+1}}{x - a}\).
+    \item \(f'(x) = \lim_{h \to 0} \frac{\sqrt{x + h + 1} - \sqrt{x + 1}}{h}\).
+    \item \(f'(x) = \lim_{h \to 0} \frac{\sqrt{x + 1} - \sqrt{x + h + 1}}{h}\).
     \item I am not sure.
-  \end{enumerate} 
+  \end{enumerate}
 \end{poll}
 
+\begin{poll}
+  Which limit definition for \(f'(a)\) matches the given limit?
+
+  \begin{enumerate}
+    \item \(\lim_{x \to a} \frac{f(x) - f(a)}{x - a}\).
+    \item \(\lim_{h \to 0} \frac{f(a + h) - f(a)}{h}\).
+    \item \(\lim_{h \to 0} \frac{f(x + h) - f(x)}{h}\).
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
 
 \begin{poll}
   True or false? If a function is continuous at \(a\), then it must be differentiable at \(a\).
@@ -392,19 +402,6 @@
     \item True.
     \item False.
     \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
-\begin{poll}
-  Compare the domains of \(f\) and \(f'\).
-
-  \begin{enumerate} 
-    \item \(f'\) is defined wherever \(f\) is defined.
-    \item The domain of \(f'\) can be larger than the domain of \(f\).
-    \item The domain of \(f'\) can be smaller than the domain of \(f\).
     \item 
     \item I am not sure.
   \end{enumerate} 
@@ -423,6 +420,17 @@
   \end{enumerate} 
 \end{poll}
 
+\begin{poll}
+  What's a good starting point for Example~5.8?
+
+  \begin{enumerate}
+    \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
+    \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
+    \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
+    \item It doesn't matter. We just need all three numbers to be equal to each other.
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
 
 \begin{poll}
   If a function is \emph{not} differentiable on \((0,1)\), then 
@@ -1264,17 +1272,14 @@
   \end{enumerate}
 \end{poll}
 
-\section{Problem-solving skill}
-
 \begin{poll}
-  Which of the following equation is a good starting point?
-
+  Which of the followings seems like a good starting point for you?
 
   \begin{enumerate}
     \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
     \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
     \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
-    \item 
+    \item Calculate \(\lim_{x \to a^{-}} f(x)\), \(\lim_{x \to a^{+}} f(x)\) and \(f(a)\) and make them equal to each other.
     \item I am not sure.
   \end{enumerate}
 \end{poll}
