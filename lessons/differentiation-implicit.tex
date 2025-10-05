@@ -27,11 +27,11 @@ We learn the full picture of implicit differentiation in two steps. Step one is 
   \end{enumerate}
 \end{example}
 
-\begin{exercise} \label{ex:implicit-differentiation-inverse}
-  Find \(\frac{dy}{dx}\) given \(x = y^{3} + 2y + 3\).  
+\begin{example} \label{ex:implicit-differentiation-inverse}
+  Find \(\frac{dy}{dx}\) at the point \((6,1)\) given \(x = y^{3} + 2y + 3\).   \hfill{\footnotesize Plug in \(x = 6\) and \(y = 1\) \hlwarn{at the end}!}
 
   \blanklines{15}
-\end{exercise}
+\end{example}
 
 \textbf{Implicit function}. If we ``zoomed in enough'' at a point on the curve defined by the equation, e.g. Example~\ref{ex:implicit-circle}, we would see a function. In such a case, \hlmain{\(y\) implicitly defines a function of \(x\)} because there are one or more possibilities for such an expression \(y = f(x)\).
 
@@ -44,7 +44,7 @@ We learn the full picture of implicit differentiation in two steps. Step one is 
 \end{center}
 
 \begin{mdframed}[style=simple-compact]
-  \textbf{The geometry}.  If \((x,y)\) is a point on the curve defined by an equation and \(\tfrac{dy}{dx}\) is the result of implicit differentiation of the equation, then the number we get by \hlsupp{plugging the values of \(x\) and \(y\) into \(\tfrac{dy}{dx}\)} represents the \hlmain{slope of the tangent line passing through \((x,y)\) (on the curve!)}. 
+  \textbf{The geometry}.  If \((x,y)\) is a point on the curve defined by an equation and \(\tfrac{dy}{dx}\) is the result of implicit differentiation of the equation, then the number we get by \hlsupp{plugging the values of \(x\) and \(y\) into \(\tfrac{dy}{dx}\)} represents the \hlmain{slope of the tangent line passing through \((x,y)\)}. 
 
   Caution: The point \((x,y)\) must be on the curve.
 \end{mdframed}
@@ -70,10 +70,10 @@ We learn the full picture of implicit differentiation in two steps. Step one is 
 \clearpage
 
 \faStar{}
-Implicit differentiation help us to find the derivative of the inverse of a function \(f(x)\) without actually having to calculate \(f^{-1}(x)\).  We simplify \hlmain{use implicit differentiation to find \(\tfrac{dy}{dx}\) from the equivalent equation \(x = f(y)\)}.
+Implicit differentiation helps us find \hlinfo{an expression as \(y\)} for the derivative of the inverse of any invertible function \(f\) without having to calculate \(y = f^{-1}(x)\) as an expression of \(x\). To do so, we implicitly differentiate the equivalent equation \(x = f(y)\) and isolate for \(\tfrac{dy}{dx}\) (see page \pageref{ex:implicit-differentiation-inverse}).
 
-\begin{example}
-  Find the derivative of the inverse of \(f(x) = x^{3} + 2x + 3\).  Take for granted that \(f(x)\) is invertible, i.e., it passes the horizontal line test.
+\begin{example} \label{ex:implicit-differentiation-inverse-as-a-function}
+  Find \hlinfo{an expression} for the derivative of the inverse of \(f(x) = x^{3} + 2x + 3\).  Take for granted that \(f(x)\) is invertible, i.e., it passes the horizontal line test.
 
   \blanklines{5}
 \end{example}
@@ -81,31 +81,57 @@ Implicit differentiation help us to find the derivative of the inverse of a func
 \begin{example} \label{ex:implicit-differentiation-inverse-at-a-point}
   Find the derivative of the inverse of \(f(x) = x^{3} + 2x + 3\) at \(6\), i.e., find \((f^{-1})'(6)\).
 
-  \blanklines{25}
+  {\footnotesize Hint: An expression for \((f^{-1})'\) is calculated in Example~\ref{ex:implicit-differentiation-inverse-as-a-function}. How do we use the number \(6\)?}
+
+  \phantom{here}\hfill{}
+  \includestandalone[page=6]{../standalones/plot-implicit-differentiation}
+  \includestandalone[page=5]{../standalones/plot-implicit-differentiation}
+
+  \blanklines{13}
 \end{example}
 
-
-If you prefer to memorize a formula for evaluating the derivative of the inverse of a function at a number, then the inverse function theorem is your friend.  The theorem simply packages the thinking process demonstrated in Example~\ref{ex:implicit-differentiation-inverse-at-a-point} into a single formula.  It is fine for finding \(\left(f^{-1}\right)'(\text{constant})\) (probably faster if it's all you need), but \faExclamationTriangle{} sometimes impossible if you need to find the \emph{function} \((f^{-1}(x))'\).
-\begin{thm}[The Inverse Function Theorem]
-  Suppose a function \(f\) is differentiable and has an inverse \(f^{-1}(x)\).  For all constants satisfying \(f'(f^{-1}(\text{constant})) \ne 0\),
+\vfill{}
+{\footnotesize Theorem~\ref{thm:lift} below packages the thinking process demonstrated in Examples~\ref{ex:implicit-differentiation-inverse-at-a-point}, \ref{ex:implicit-differentiation-inverse-as-a-function} and \ref{ex:implicit-differentiation-inverse},  into a single formula.  However, please be warned that Theorem~\ref{thm:lift} is only useful for finding \(\left(f^{-1}\right)'(\text{constant})\), but not suitable if you need to find \((f^{-1}(x))'\) as an expression of \(x\). Notice that at no point during Examples~\ref{ex:implicit-differentiation-inverse-at-a-point}, \ref{ex:implicit-differentiation-inverse-as-a-function} and \ref{ex:implicit-differentiation-inverse} did we calculate \(f^{-1}\) as an expression of \(x\) because it was very complicated. Everything we calculated was an expression of \(y\).
+\begin{thm}[The Inverse Function Theorem] \label{thm:lift}
+  Suppose a function \(f\) is differentiable and has an inverse \(f^{-1}(x)\). 
   \[
     \left(f^{-1}\right)'(\text{constant}) = \frac{1}{f'(f^{-1}(\text{constant}))}.
   \]
+  The derivative (as a number) does not exist if the denominator is \(0\).
 
   \textbook{Theorem 3.11 on page 300}
 \end{thm}
+}
 
 \clearpage
 
-When performing implicit differentiation on complicated algebraic expressions, remember the little thinking trick: Pretend\footnote{Assuming \(y\) is implicitly a function means to pretend that \(y\) is some \(f(x)\).} \(y\) is a function \(f(x)\) to guide you apply differentiation rules \hlmain{in the correct order}.  Your final answer should still be expressed in \(x\) and \(y\).
+\begin{exercise}
+  Suppose \(f\) is an invertible function and let \(y = f^{-1}(x)\). Moreover, someone calculated (correctly) that \(\frac{dy}{dx} = \frac{1}{5y^{4} + 9y^{2} + 2}\), \(f'(x) = 5x^{4} + 9x^{2} + 2\) and
+  \[
+    \quad f(-7) = -17851, 
+    \quad f(-1) = -7,
+    \quad f(0)  = -1.
+    \quad f(1) = 5, 
+    \quad f(5) = 3509,
+  \]
+  Find \((f^{-1}(x))'(-1)\).
+
+  \blanklines{5}
+\end{exercise}
+
+When performing implicit differentiation on complicated algebraic expressions, remember the little thinking trick: Pretend \(y\) is a function \(g(x)\) to apply differentiation rules \hlmain{in the correct order}.  Your final answer should still be expressed in \(x\)'s and \(y\)'s.
+
 \begin{exercise}
   Find \(\frac{dy}{dx}\) given \(x^{3}y^{2} = 2x + 3y\). 
+  \hfill
+  {\footnotesize The fully simplified expression is at the bottom of the page.}
 
-  \blanklines{15}
+  \blanklines{25}
 \end{exercise}
+
+\vfill{}
+\begin{tikzpicture}
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize \(\frac{dy}{dx} = \frac{2 - 3 x^{2}y^{2}}{2x^{3}y - 3}\)}};
+\end{tikzpicture}
 \clearpage
-
-
-% turn into an iClicker question.
-% \faComment{} Can we use find the slope of the tangent line to the curve \(x^{2} + y^{2} = 25\) at \((5,5)\).
 \end{document}

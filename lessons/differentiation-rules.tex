@@ -32,7 +32,7 @@ In general, we define \(f^{(0)} = f\) and the \(n\)-th derivative to be
 \end{example}
 
 \bigskip
-Differentiation rules are patterns of calculations and express the interactions between differentiation (as an operation) and algebraic operations \(+, -, \times, \div, \circ\). 
+Differentiation rules are patterns of calculations and express the interactions between differentiation (as an operation) and algebraic operations \(+, -, \times, \div, \circ\).
 
 \begin{mdframed}[style=simple-compact] \label{thm:diff-rules-1}
   \textbf{Differentiation Rules} \hfill {\footnotesize (part \(1\) of \(3\))}
@@ -50,18 +50,19 @@ Differentiation rules are patterns of calculations and express the interactions 
 
 \begin{example}
   Find the derivative of \(\tfrac{1}{\sqrt[3]{x}^{5}}\) at \(x = 8\).  
-  {\footnotesize Calculate \(\left( \tfrac{1}{\sqrt[3]{x}^{5}} \right)'\) then plug in \(x = 5\).  DO NOT plug in \(x = 5\) from the start.}
+  {\footnotesize Calculate \(\left( \tfrac{1}{\sqrt[3]{x}^{5}} \right)'\) then plug in \(x = 5\).}
 
   \blanklines{10}
 \end{example}
+\clearpage
 
 \begin{mdframed}[style=simple]
   \textbf{Differentiation Rules} \hfill {\footnotesize (part \(2\) of \(3\))}
 
   If \(f\) and \(g\) are \hlwarn{differentiable} functions, then
   \begin{align*}
-    \frac{d}{dx} f(x) + g(x) &= \frac{d}{dx}f(x) + \frac{d}{dx}g(x) && \text{(sum)} \\[1ex]
-    \frac{d}{dx} f(x) - g(x) &= \frac{d}{dx}f(x) - \frac{d}{dx}g(x) && \text{(difference)} \\[1ex]
+    \frac{d}{dx} f(x) + g(x) &= f'(x) + g'(x) && \text{(sum)} \\[1ex]
+    \frac{d}{dx} f(x) - g(x) &= f'(x) - g'(x) && \text{(difference)} \\[1ex]
     \frac{d}{dx} (\text{constant}) f(x) &= (\text{constant}) \, \frac{d}{dx} f(x),  && \text{(constant multiple)} \\
     \frac{d}{dx} f(x)g(x) &= { f'(x) g(x) + f(x) g'(x) } && \text{(product)} \\[1ex]
     \frac{d}{dx} \frac{f(x)}{g(x)} &= {\frac{f'(x)g(x) - f(x)g'(x)}{ \big[g(x)\big]^{2} }} && \text{(quotient)}
@@ -76,22 +77,17 @@ Pro-tip: \hlmain{Keep your writing well organized} to prevent mistakes.
 \end{example}
 
 \begin{example}
-  Differentiate \(\sec(x) + \sin(\cos(\pi/7))\).
+  Find the derivative of \(\sec(x)\).
 
   \blanklines{15}
 \end{example}
 \clearpage
 
 \begin{example}
-  Evaluate \(\frac{d^{5}}{dx^{5}} \sin(x)\).
+  Evaluate \(\frac{d^{3}}{dx^{3}} \cos(x)\).
 
   \blanklines{5} 
 \end{example}
-\begin{exercise}
-  Let \(f(x) = \frac{\frac{x^{5}}{5} + e^{x} + \frac{1}{x}}{\sin(x) + x}\).  Find \(f'(1)\).
-
-  \blanklines{20}
-\end{exercise}
 
 \begin{exercise}
   Find the derivative of \(\tan(x)\).
@@ -100,23 +96,27 @@ Pro-tip: \hlmain{Keep your writing well organized} to prevent mistakes.
 \end{exercise}
 
 \begin{exercise}
-  Find values of \(x\) in \([-\pi, \pi]\) at which \(\sec(x)\) has a horizontal tangent line.
+  Find values of \(x\) in \([-\pi, \pi]\) at which \(y = \frac{\sec(x)}{2}\) has a horizontal tangent line.
 
   \blanklines{10}
 \end{exercise}
 
+\begin{exercise}
+  Let \(f(x) = \frac{g(x) + \frac{1}{x}}{\sin(x) + x}\).  Find \(f'(1)\) given that \(g(1) = 0\) and \(g'(1) = -1\).
 
+  \blanklines{20}
+\end{exercise}
 \clearpage
 
 Derivatives give us equations, which means that we can solve questions in the form ``find all values of \ldots{} for which the derivative of \ldots{} satisfies \ldots{}''
 
-\begin{example}
+\begin{exercise}
   Let \(f(x) = ax^{3} + bx^{2}\). Find \(a\) and \(b\) so that \(f'(1) = 3\) and \(f'(-1) = 2\).
 
   In other words, find all values of \(a\) and \(b\) for which the derivative of \(f(x) = ax^{3} + bx^{2}\) satisfies \(f'(1) = 3\) and \(f'(-1) = 2\).
 
   \blanklines{25}
-\end{example}
+\end{exercise}
 
 The next exercise is a variation-on-the-theme of Example~\ref{ex:derivative-tangent-line-1}.
 
