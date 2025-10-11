@@ -5,7 +5,7 @@ We introduce a method called \emph{logarithmic differentiation}. It works by com
 \begin{mdframed}[style=withref]
   If \(g(x)\) is a differentiable function, then by the Chain Rule
   \begin{equation} \label{eq:derivative-of-ln(g(x))}
-    \frac{d}{dx} \ln( g(x) ) = \frac{\frac{d}{dx}g(x)}{g(x)}.
+    \frac{d}{dx} \ln( g(x) ) = \frac{g'(x)}{g(x)}.
   \end{equation}
 
   \textbook{Equation~(3.33) specialized to \(b = e\). See page 326.}
@@ -57,29 +57,11 @@ Here is the \emph{reference} for the full idea. To differentiate \(y = f(x)\) us
 \end{example}
 
 Logarithmic differentiation can be used to differentiate exponential-like functions.  However, it is not the only method. Unless a question specifies a method, we are free to use whichever method we like.
-\begin{example}[Example 26 from week 2]
-  Differentiate \(x^{x}\) with and without logarithmic differentiation.
 
-  \blanklines{24}
-\end{example}
+\begin{exercise}
+  Differentiate \(x^{x}\) using logarithmic differentiation.
 
+  \blanklines{20}
+\end{exercise}
 \clearpage
-
-\begin{example}[Example~28 from week 2]
-  Differentiate \(\left( \frac{1}{x+2} \right)^{\sin(x)}\) with and without logarithmic differentiation.
-  \blanklines{25}
-\end{example}
-
-Do the next two exercises if you are interested in more theory; otherwise, it is safe skip them.
-
-\begin{example}
-  If you are interested in seeing the benefit of logarithmic differentiation, differentiate \(y = \frac{\sin(2x)^{4/3} \sqrt{x^{2}+1}}{e^{x} \cos^{5}(x)}\) (the function in Example~\ref{ex:log-diff}) without logarithmic differentiation and compare the \emph{length and complexity} of your two solutions. You will probably need a separate page (or two).
-\end{example}
-
-\begin{example}
-  Deduce the power rule \(\frac{d}{dx} x^{n} = nx^{n-1}\) for any \(n \ne 0\) using logarithmic differentiation. We only need basic properties of logarithms and that \(\tfrac{d}{dx} \ln(x) = 1/x\).
-
-  \blanklines{15}
-\end{example}
-
 \end{document}

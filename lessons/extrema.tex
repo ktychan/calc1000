@@ -26,37 +26,42 @@ Visually speaking, an \hlmain{absolute extremum} of a function \(y = f(x)\) is t
 \end{example}
 
 We use inequalities to precisely capture the idea of absolute extrema.
-\begin{mdframed}[style=withref-compact]
-  Let \(f\) be a function defined over an interval \(I\) and let \(c \in I\).  We say
-  \begin{itemize}
-    \item \(f\) has an \hlmain{absolute maximum on \(I\) at \(c\)} if \underline{\hspace{2.5in}}.
-    \item \(f\) has an \hlmain{absolute minimum on \(I\) at \(c\)} if \underline{\hspace{2.5in}}.
-  \end{itemize}
-  \textbook{Definition on page 366}
-\end{mdframed}
+\begin{definition}
+  Let \(f\) be a function defined over an interval \(I\), and let \(c\) in \(I\).  We say
+  \begin{itemize}[itemsep={1ex}]
+    \item \(f\) has an \hlmain{absolute maximum on \(I\) at \(c\)} if \(f(c) \ge f(\text{any number in } I)\).
 
-An absolute extremum is an absolute maximum or an absolute minimum. An The plural of maxim\hlmain{um} is maxim\hlsupp{a}, minim\hlmain{um} is minim\hlsupp{a}, and extrem\hlmain{um} is extrem\hlsupp{a}.  Some textbooks use \emph{global} instead of \emph{absolute}. For example, global maximum and absolute maximum have exactly the same meaning.
+      The absolute maximum, if exist, is the largest number \hlwarn{in} the range.
+
+    \item \(f\) has an \hlmain{absolute minimum on \(I\) at \(c\)} if \(f(c) \le f(\text{any number in } I)\).
+
+      The absolute minimum, if exists, is the smallest number \hlwarn{in} the range.
+  \end{itemize}
+  \textbook{Definition on page 366, slightly reworded}
+\end{definition}
+
+An absolute extremum is an absolute maximum or an absolute minimum. The plural of maxim\hlmain{um} is maxim\hlsupp{a}, minim\hlmain{um} is minim\hlsupp{a}, and extrem\hlmain{um} is extrem\hlsupp{a}.  Some textbooks use \emph{global} instead of \emph{absolute}. For example, global maximum and absolute maximum are interchangeable.
 
 \clearpage
 
 % local = the peak for a local village
 % bring meeples
 
-A problem-solving strategy (not math-specific) is to break up a large problem into smaller ones.  If we want to find absolute extrema, we can look for extrema over smaller intervals.
+A problem-solving strategy (not math-specific) is to break up a large problem into smaller ones.  If we want to find absolute extrema, we start by looking for extrema over smaller intervals.
 
-\begin{mdframed}[style=withref-compact]
+\begin{definition}
   Let \(f\) be a function defined over an interval \(I\).
 
   \begin{itemize}[noitemsep]
-    \item \(f\) has a \hlmain{local maximum at \(c\)} if \(f(c) \ge f(x)\) for every \(x\) \hlmain{near} \(c\) but \(x\) \hlwarn{cannot be an endpoint} of \(I\).
-    \item \(f\) has a \hlmain{local minimum at \(c\)} if \(f(c) \le f(x)\) for every \(x\) \hlmain{near} \(c\) but \(x\) \hlwarn{cannot be an endpoint} of \(I\).
+    \item \(f\) has a \hlmain{local maximum at \(c\)} if \(f(c) \ge f(\text{any value near \(c\)})\) but \(c\) \hlwarn{cannot be an endpoint} of \(I\).
+    \item \(f\) has a \hlmain{local minimum at \(c\)} if \(f(c) \le f(\text{any value near \(c\)})\) but \(c\) \hlwarn{cannot be an endpoint} of \(I\).
   \end{itemize}
 
   \textbook{Definition on page 368, slightly simplified}
-\end{mdframed}
+\end{definition}
 
-Critical numbers are \(x\)-values at which local extrema \emph{could} occur.   Example~\ref{ex:critical-numbers} and Exercise~\ref{ex:critical-number-is-candidate} warn us about the subtle relation between critical numbers and local extrema.
-\begin{mdframed}[style=withref-compact]
+Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.   Example~\ref{ex:critical-numbers} and Exercise~\ref{ex:critical-number-is-candidate} warn us about the subtle relation between critical numbers and local extrema.
+\begin{definition}
   A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\) (but NOT an endpoint) if 
   \[
     f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
@@ -64,10 +69,10 @@ Critical numbers are \(x\)-values at which local extrema \emph{could} occur.   E
   If \hlmain{\(c\) is a critical number} of \(f(x)\), then \hlsupp{\((c, f(c))\)} is called a \hlsupp{critical point}.
 
   \textbook{Definition on page 369}
-\end{mdframed}
+\end{definition}
 
 \begin{example} \label{ex:critical-numbers}
-  Find its critical numbers, local extrema and absolute extrema of the given \(f(x)\).
+  Find critical numbers, local extrema and absolute extrema of the given \(f(x)\).
 
   \begin{center}
     \includestandalone[height=3in]{../standalones/extrema_example_blank}
@@ -75,7 +80,7 @@ Critical numbers are \(x\)-values at which local extrema \emph{could} occur.   E
 \end{example}
 
 \begin{exercise} \label{ex:critical-number-is-candidate}
-  Is it true that \(f(\text{critical number})\) must be a local extrema?
+  Is it true that \(f(\text{critical number})\) must be a local extrema?  Find your own examples.
 
   \begin{center}
     \includestandalone[page=7]{../standalones/plot-extrema-intro}
@@ -99,23 +104,17 @@ We need to be careful with endpoints when looking for critical numbers.
   \end{tabular}
 \end{center}
 
-\begin{example} \label{ex:critical-number-polynomial}
-  Find critical numbers of \(f(x) = \frac{x^{3}}{3} - \frac{3}{2}x^{2} + 2x\) over \([0, 5/2]\).
-
-  \blanklines{20}
-\end{example}
-
-% \begin{exercise} \label{ex:critical-number-trig}
-%   Find critical numbers of \(f(x) = \cos(x)\) on \([0, 2\pi]\).
-%
-%   \blanklines{10}
-% \end{exercise}
-
 \begin{example} \label{ex:critical-number-rational}
   Find critical numbers of \(f(x) = \frac{3}{2} x^{2/3} - \frac{x^{2}}{2}\) over \([-2,2]\). 
 
   \blanklines{20}
 \end{example}
+
+\begin{exercise} \label{ex:critical-number-polynomial}
+  Find critical numbers of \(f(x) = \frac{x^{3}}{3} - \frac{3}{2}x^{2} + 2x\) over \([0, 5/2]\).
+
+  \blanklines{20}
+\end{exercise}
 
 \clearpage
 
@@ -128,36 +127,12 @@ We need to be careful with endpoints when looking for critical numbers.
     either \underline{\hspace{2in}} or \underline{\hspace{2in}}.
   \end{center}
   
-  Note that the strategy applies to all functions.
+  The strategy applies to all functions.
 \end{mdframed}
-
-\blanklines{10}
-
-{\footnotesize \faExclamationTriangle{} Some textbooks (e.g. UBC's CLP Calculus) do not include endpoints as a special case because they allow endpoints to be local extrema. \hlwarn{For grading purposes, we will stick to the course textbook's definition} that local extrema and critical numbers cannot occur at endpoints of the domain of \(f\).}
 
 Because an arbitrary function can have vertical asymptotes, one or both absolute extrema do not always exist. In general, we have to make sure vertical asymptotes does not eliminate the existence of absolute extrema (one or both).
 
-\blanklines{5}
-
-% vertical asymptote and both absolute extrema cannot coexist.
-
-Thanks to a theoretical result called the Extreme Value Theorem (Theorem 4.1 on textbook page 367), \emph{both} absolute extrema for \hlmain{continuous} functions defined over \hlmain{closed and bounded} intervals \([a,b]\) can always be calculated. We do not have to worry about vertical asymptotes for such a function.
-
-\blanklines{15}
-
-
-\clearpage
-
-\begin{example} \label{ex:closed-interval-method-intro}
-  Find absolute extrema and the \(x\)-values at which they occur for 
-  \[
-    f(x) = \frac{x^{3}}{3} - \frac{3}{2}x^{2} + 2x \qquad\text{defined over }[0,5/2].
-  \]
-
-  This is the function from Example~\ref{ex:critical-number-polynomial}. Note \(f(5/2) = 5/6\). 
-
-  \blanklines{20}
-\end{example}
+The good news is that, thanks to a theoretical result called the Extreme Value Theorem (Theorem 4.1 on textbook page 367), \emph{both} absolute extrema for \hlmain{continuous} functions defined over \hlmain{closed and bounded} intervals \([a,b]\) always exist. Such a function does not have vertical asymptotes.
 
 \begin{example} 
   Find absolute extrema and the \(x\)-values at which they occur for 
@@ -167,8 +142,23 @@ Thanks to a theoretical result called the Extreme Value Theorem (Theorem 4.1 on 
 
   This is the function from Example~\ref{ex:critical-number-rational}. Note that \(\frac{3}{\sqrt[3]{2}}-2 \approx 0.381\).
 
-  \blanklines{20}
+  \blanklines{25}
 \end{example}
+
+{\footnotesize \faExclamationTriangle{} Some textbooks (e.g. UBC's CLP Calculus) do not include endpoints as a special case because they allow endpoints to be local extrema. \hlwarn{For grading purposes, we will stick to the course textbook's definition} that local extrema and critical numbers cannot occur at endpoints of the domain of \(f\).}
+\clearpage
+
+
+\begin{exercise} \label{ex:closed-interval-method-intro}
+  Find absolute extrema and the \(x\)-values at which they occur for 
+  \[
+    f(x) = \frac{x^{3}}{3} - \frac{3}{2}x^{2} + 2x \qquad\text{defined over }[0,5/2].
+  \]
+
+  This is the function from Example~\ref{ex:critical-number-polynomial}. Note \(f(5/2) = 5/6\). 
+
+  \blanklines{20}
+\end{exercise}
 \clearpage
 
 We eluded at the beginning of this section that minimizing or maximizing functions over a domain is a subtask in (applied) optimization problems.
@@ -176,7 +166,7 @@ Exercise~\ref{ex:extremum-swim} is a subtask in Exercise~\ref{ex:optimization-sw
 \begin{exercise} \label{ex:extremum-swim}
   Minimize \(T\) given that \(T(s) = \frac{2 - 6 \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\).
 
-  To minimize means to find the absolute minimum.  The function look a bit spicy. It just means that we have to be careful with our algebra. 
+  To minimize means to find the absolute minimum.  The expression looks a bit spicy.  Keep your algebraic manipulations neatly organized and precise. 
 
   \blanklines{40}
 \end{exercise}

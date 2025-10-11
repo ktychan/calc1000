@@ -1,97 +1,202 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{More general problem-solving}
-Let's see how our knowledge of limits, continuity and derivatives are connected and how to use them in various situations.
+\begin{document} \section{Differentiation strategies}
 
+\emph{Logarithmic differentiation} can \hlmain{quickly} differentiate complicated expressions involving exponentials, products and quotients. The process is exactly the same for both types of expressions. It works by combining implicit differentiation, Equation~\eqref{eq:derivative-of-ln(g(x))} below and properties of logarithms.
+\begin{thm}
+  If \(g'(x)\) exists, then the chain rule and \(\tfrac{d}{dx} \ln(x) = \tfrac{1}{x}\) imply
+  \begin{equation} \label{eq:derivative-of-ln(g(x))}
+    \frac{d}{dx} \ln( g(x) ) = \frac{g'(x)}{g(x)}.
+  \end{equation}
 
-\faStar{} Pro-tip: Allow the Leibniz notation \(\frac{d}{dx} \cdots\) to guide you to the next step!
-\begin{example}
-  Differentiate \(\sin(e^{\cos(x) + 5x})\).
+  \textbook{Equation~(3.33) specialized to \(b = e\). See page 326.}
+\end{thm}
 
-  \blanklines{25}
+\begin{example} \label{ex:log-diff-exponentials}
+  Find \(\frac{dy}{dx}\) given \(2^{y^{2} + \ln(x)} = \frac{xy}{x + 1}\).
+
+  \begin{enumerate}[wide, noitemsep, label=(Step~\arabic*).]
+    \item Take \(\ln(\cdots{})\) on both sides and \emph{fully} \footnote{Removes the necessity to use the product or quotient rule so you can differentiate quickly!} simplify.
+
+      \blanklines{5}
+
+    \item Implicitly differentiate with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln(g(x))} when appropriate.
+
+      \blanklines{20}
+
+    \item Isolate for \(\frac{dy}{dx}\).
+
+      \blanklines{5}
+  \end{enumerate}
 \end{example}
-
-
-\blanklines{50}
 \clearpage
 
+Logarithmic differentiation for (explicit) functions requires an extra step. Restore \(\tfrac{dy}{dx}\) as an expression of \(x\) in the final expression for \(\tfrac{dy}{dx}\). However, leave the symbol \(\tfrac{dy}{dx}\) as is.
+
+\begin{exercise} \label{ex:log-diff}
+  Differentiate \(y = \frac{\sin(2x)^{4/3}}{e^{x} \cos^{5}(x)}\).
+
+  \begin{enumerate}[wide, noitemsep, label=(Step~\arabic*).]
+    \item Take \(\ln(\cdots{})\) on both sides and \emph{fully}\footnote{Removes the necessity to use the product or quotient rule so you can differentiate quickly!} simplify.
+
+      \blanklines{10}
+
+    \item Implicitly differentiate with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln(g(x))} when appropriate.
+
+      \blanklines{20}
+
+    \item Isolate for \(\frac{dy}{dx}\).
+
+      \blanklines{5}
+
+    \item Replace \(y\) by the original expression \(f(x)\), so that \(\frac{dy}{dx}\) is restored as a function of \(x\).
+
+      \blanklines{5}
+  \end{enumerate}
+\end{exercise}
+\clearpage
+
+After applying the chain rule \(\frac{dy}{dx} = \frac{dy}{d{\color{main}u}} \frac{d{\color{supp}u}}{dx}\), if calculating \(\frac{d{\color{supp}u}}{dx}\) requires differentiating another composite function, then treating it as a side computation is often a safe choice.  While this is not the fastest, it is conceptually clean.
+
 \begin{exercise}
-  Find \(x\) at which \(\frac{d^{3}}{dx^{3}} \sin(x)\) has a horizontal tangent line. 
+  Differentiate \(\sin(e^{\cos(x) + 5x})\).
+
+  \blanklines{20}
+
+  {\footnotesize The fast starting step: \(\frac{d}{dx} \sin(e^{\cos(x) + 5x}) = \left(\frac{d}{du} \sin(u) \right) \left(\frac{d}{dv} e^{v} \right) \left( \frac{d}{dx} \cos(x) + 5x \right)\) where \(u = e^{v}\) and \(v = \cos(x) + 5x\).}
+\end{exercise}
+
+\begin{exercise}
+  Let \(f(x) = e^{x^{2} + 1}\). Differentiate \(f(f(x))\).
+
+  \blanklines{25}
+\end{exercise}
+\clearpage
+
+Derivatives of inverse functions \(y = f^{-1}(x)\) can be \hlmain{systematically dealt with} using implicit differentiation. The starting step is to implicitly differentiate the equivalent equation \(x = f(y)\).  The wording ``find \hlwarn{the derivative} for \ldots{}'' suggests that we \hlwarn{must} end up with an expression in \(x\) (the input for \(f^{-1}\)).
+\begin{exercise}
+  Find the derivative for \(\arctan(x)\).
 
   \blanklines{20}
 \end{exercise}
+
+\begin{exercise}
+  Evaluate the derivative for \(\sin^{-1}(x^{3})\) at \(\pi\).  Conventional wisdom says it's easier to start by finding a formula for \(\frac{d}{dx} \arcsin(x)\), then applying the chain rule.
+
+  \blanklines{25}
+\end{exercise}
 \clearpage
-Piecewise functions and the absolute value function are probably not everyone's favourite functions. However, they show up often in nature and are essential. We CAN learn to work with them.
 
-\begin{mdframed}[style=simple-compact]
-  Always analyze piecewise functions one branch at a time. At numbers where two branches are ``glued'' together, we often need to use definitions and left/right limits.
-
-  Again, we need to remember definitions.
-\end{mdframed}
-
-The absolute value function and its compositions are piecewise functions. We have
-\[
-  |x| = 
-  \begin{cases}
-    -x, &\text{ if } x < 0, \\
-    x, &\text{ if } x \ge 0
-  \end{cases}
-  \quad \text{and} \quad 
-  |f(x)| = 
-  \begin{cases}
-    \underline{\hspace{1in}}, &\text{ if } \underline{\hspace{2cm}} \\
-    \underline{\hspace{1in}}, &\text{ if } \underline{\hspace{2cm}}
-  \end{cases}
-\]
-
-The quintessential examples of ``\emph{is \(f(x)\) continuous (or differentiable) at blah?}'' or ``\emph{find all constants blah for which \(f(x)\) is continuous (or differentiable) everywhere?}'' are Example 12 and 13 from week 4, Example 13 in week 5, and textbook Exercises 145, 147, 149 in Section~2.4 (all of which are recommended exercises). Let's pick out some specific strategies.
-
-\faComment{} How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
-
-\blanklines{8}
-
-\faComment{} How can we show a piecewise function \(f(x)\) is differentiable at \(c\)?
-
-\blanklines{8}
-
-\faComment{} How can we show a piecewise function \(f(x)\) is NOT differentiable at \(c\)?
-
-\blanklines{10}
-
-Mathematics in science does not always appear as ``usual'' functions where explicit expressions are known. Sometimes, only partial information on a function is available. What do we do?
-
-\begin{mdframed}[style=simple-compact]
-  Try ``high power'' tools first (limit laws, squeeze theorem, IVT, differentiation rules and techniques, etc.) and look for hidden or missing information. If stuck, then start thinking about definitions and relations among concepts!
-
-  That means we need to know definitions!
-\end{mdframed}
-
-\begin{example}
-  Suppose \(f(x) = \frac{g(x) + 3}{x+1}\).  If \(\lim_{x \to 2} f(x) = 1\) and \(g(x)\) is continuous at \(2\), what is \(g(2)\)?
-
-  \blanklines{20}
-\end{example}
-
-\begin{example}
-  Suppose \(xf(x)^{2} = 9\) and \(f(3) = -1\). Find \(f'(3)\).
+Because \(e^{x}\) and \(\ln(x)\) are inverse pairs, the derivative for \(\ln(x)\) is calculated using implicit differentiation as discussed on the previous page. 
+\begin{exercise} \label{ex:derivative-of-ln}
+  Use implicit differentiation to find the derivative for \(y = \ln(x)\). Start by differentiating the equivalent equation \(x = \underline{\hspace{1in}}\).  Remember to get an expression in \(x\) only.
 
   \blanklines{15}
-\end{example}
+\end{exercise}
+
+\begin{exercise}
+  Differentiate \(b^{x}\) for \(b > 0\) and \(b \ne 1\). Start by changing base to \(e\) or by using logarithmic differentiation. Your choice.
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Find the derivative for \(\log_{b}(x)\) for \(b > 0\) and \(b \ne 1\). Start by changing base to \(e\) or by implicitly differentiate its equivalent equation \(x = b^{y}\). Your choice.
+
+  \blanklines{15}
+\end{exercise}
+
 \clearpage
 
-In week 5, we talked about the problem-solving strategies \hlmain{formulating problems about differentiation using the language of derivative}. A similar idea is used a few times in recommended exercises.
-\begin{mdframed}[style=simple-compact] \label{strategy:formulate-equation}
-  Use calculus concepts to \hlmain{set up equations} to solve problems.
-\end{mdframed}
+Exponential-like functions can be differentiated by changing base to \(e\) or using logarithmic differentiation.
+\begin{exercise}
+  Differentiate \(x^{x}\) on domain \(x > 0\).
+  
+  \blanklines{5}
+\end{exercise}
 
-Examples that use this idea are Example 13 in week 5, all examples in this section, many implicit differentiation problems, many ``find all \(c\) for which \(f(x)\) is \emph{blah blah} at every real number'' (from recommended exercises).
+\begin{exercise}
+  Differentiate \((x^{5} - 4x^{3} - 3)^{x^{2} + 1}\).
 
-Let's look at one more problem that uses this idea. 
+  \blanklines{15}
+\end{exercise}
 
-\begin{example}
-  Find all points on the curve \(x^{2} + 3y^{2} = 1\) at which the tangent line has slope \(1\)?
+\begin{exercise}
+  Differentiate \(\left( \frac{1}{x+2} \right)^{\sin(x)}\) on domain \((0, \pi)\).
 
-  \blanklines{35}
-\end{example}
+  \blanklines{25}
+\end{exercise}
+\clearpage
 
+\begin{exercise}[Midterm, Fall 2023]
+  The derivative of \(h(x) = \tan^{-1}(\cos(\sec(\sqrt{e^{2} + e + 1})))\) is \underline{\hspace{1cm}}.
+\end{exercise}
+
+\begin{exercise}
+  Find all \(x\) in \([0, 2\pi]\) at which \(\frac{d}{dx} \sin(x)\) has a tangent line of slope \(1\). 
+
+  \bigskip
+  Legit or fishy?  We solve for \(x\) in the interval \([0,2\pi]\):
+  \[
+    \frac{d}{dx} \sin(x) = 1 \quad\longrightarrow\quad \cos(x) = 1 \quad\longrightarrow\quad x = 0.
+  \]
+  Therefore, \(\frac{d}{dx} \sin(x)\) has a tangent line of slope \(1\) at \(x = 0\).
+
+  \blanklines{20}
+\end{exercise}
+
+\begin{exercise}
+  Find \(x\) at which \(\arctan(x)\) has a vertical tangent line.
+
+  Legit or fishy? Let \(y = \arctan(x)\). The question translates to solving for \(x\) given \(\frac{dx}{dy} = 0\).
+  \[
+    \frac{d}{dy} y = \frac{d}{dy} \arctan(x) 
+    \quad\longrightarrow\quad
+    1 = \frac{1}{1 + x^{2}}
+  \]
+  The equation is true at \(x = 0\). So \(\arctan(x)\) has a vertical tangent line at \(x = 1\).
+
+  \blanklines{15}
+\end{exercise}
+\clearpage
+
+\begin{exercise}[Midterm, Fall 2022] 
+  Use implicit differentiation to find an equation to the tangent line of the curve \(\sin(x+y) = 2x - 2y\) at the point \((\pi, \pi)\).
+
+  Legit or fishy? The tangent line is \(y = \frac{1}{3}(x - \pi) + \pi\) because
+  \begin{align*}
+    &&\frac{d}{dx} \sin(x + y) &= \frac{d}{dx}(2x - 2y) \\
+    &\longrightarrow &\cos(x + y)\left(1 + \frac{dy}{dx}\right) &= 2 - 2 \frac{dy}{dx} \\
+    &\longrightarrow &\cos(\pi + \pi)\left(1 + \frac{dy}{dx}\right) &= 2 - 2 \frac{dy}{dx} \\
+    &\longrightarrow &\frac{dy}{dx} &= \frac{1}{3}.
+  \end{align*}
+
+  \blanklines{10}
+\end{exercise}
+
+\begin{exercise}[Midterm, Fall 2022]
+  For \(f(x) = x^{2} + x - 2\) with \(x \ge 1/2\), determine \((f^{-1})'(0)\).
+
+  \blanklines{25}
+\end{exercise}
+
+\clearpage
+\begin{exercise}[Midterm, Fall 2022]
+  The equation \(\left(\frac{x}{2}\right)^{2} + \left( \frac{y}{3} \right)^{2} = 1\) defines an ellipse.  In the first quadrant where \(x \ge 0\) and \(y \ge 0\), there is exactly one point \((x_{0}, y_{0})\) on the ellipse where the tangent line to the ellipse has slope \(m = -9/2\).  Use implicit differentiation to find this point.
+
+  \blanklines{50}
+\end{exercise}
+\clearpage
+
+\begin{exercise}[Midterm, Fall 2023, slightly modified]
+  Find all points \((x,y)\) at which the tangent line to the curve defined by the equation 
+  \[
+    x^{2} + xy + y^{2} = 1
+  \]
+  is parallel to the line \(-2x + 3\).
+
+  \blanklines{45}
+\end{exercise}
+
+\clearpage
 \end{document}

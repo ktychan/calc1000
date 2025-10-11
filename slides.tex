@@ -19,6 +19,7 @@
 \usepackage{qrcode}
 \usepackage{fontawesome5}
 \usepackage{standalone}
+\usepackage{multicol}
 
 \usepackage{enumitem}
 \setlist{resume}
@@ -377,31 +378,44 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Pro-tip for calculating differentiation}
+  \frametitle{Pro-tips for calculating derivatives}
 
-  \begin{center}
-    \large
-    Allow the Leibniz notation \(\frac{d}{dx} \cdots\) to guide you to the next step. 
-  \end{center}
+  Allow the Leibniz notation \(\frac{d}{dx} \cdots\) to guide you to the next step. 
+
+  Keep your writing well organized!
 \end{frame}
 
+\begin{frame}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(1\) of \(3\))}}
+  \begin{multicols}{2}
+    \begin{enumerate}[label=(\arabic*)]
+      \item \(\frac{d}{dx} (\text{constant}) = 0\)
+      \item \(\frac{d}{dx} x^{n} = n x^{n-1}\)
+      \item \(\frac{d}{dx} e^{x} = e^{x}\)
+      \item \(\frac{d}{dx} \sin(x) = \cos(x)\)
+      \item \(\frac{d}{dx} \cos(x) = -\sin(x)\)
+      \item \(\frac{d}{dx} b^{x} = \ln(b)b^{x}\)
+    \end{enumerate}
+  \end{multicols}
+\end{frame}
 
 \begin{frame}
-  \frametitle{Differentiation Rules}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(2\) of \(3\))}}
 
+  If \(f\) and \(g\) are \hlwarn{differentiable} functions, then
   \[
     \begin{array}{rcll}
-      \frac{d}{dx} \bigg( f(x) + g(x) \bigg) &=& f'(x) + g'(x) & \text{(sum)} \\[1ex] 
-      \frac{d}{dx} \bigg( f(x) - g(x) \bigg) &=& f'(x) - g'(x) & \text{(difference)} \\[1ex]
-      \frac{d}{dx} c f(x) &=& c f'(x) & \text{(constant multiple)} \\[1ex]
-      \frac{d}{dx} f(x) g(x) &=& f'(x)g(x) + f(x)g'(x) & \text{(product)} \\[1ex] 
-      \frac{d}{dx} \frac{f(x)}{g(x)} &=& \frac{f'(x)g(x) - f(x)g'(x)}{\big[g(x)\big]^{2}} & \text{(quotient)}
+      \frac{d}{dx} \bigg( f(x) + g(x) \bigg) &=& f'(x) + g'(x) \\[1ex] 
+      \frac{d}{dx} \bigg( f(x) - g(x) \bigg) &=& f'(x) - g'(x) \\[1ex]
+      \frac{d}{dx} (\text{constant}) f(x) &=& (\text{constant}) f'(x) \\[1ex]
+      \frac{d}{dx} f(x) g(x) &=& f'(x)g(x) + f(x)g'(x) \\[1ex] 
+      \frac{d}{dx} \frac{f(x)}{g(x)} &=& \frac{f'(x)g(x) - f(x)g'(x)}{\big[g(x)\big]^{2}}
     \end{array}
   \]
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{The Chain Rule} 
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(3\) of \(3\))}}
 
   \begin{enumerate}[itemsep=2ex]
     \item Learn WHEN we must use the chain rule.
@@ -412,11 +426,84 @@
 
     \item Learn HOW to apply it.
       \[
+        \frac{d}{dx} f\bigg({\color{supp}g(x)}\bigg) = f'\Big({\color{supp}g(x)}\Big) g'(x)
+        \quad\text{or}\quad
         \frac{d}{dx} \underbrace{f\bigg(\overbrace{\color{supp} g(x)}^{{\color{main}u}}\bigg)}_{y = f(u)} = \frac{dy}{d{\color{main} u}} \cdot \frac{d{\color{supp} u}}{dx} 
       \]
   \end{enumerate}
 
   Getting used to the Leibniz notation will help you with implicit differentiation.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Solving for \(x\) in \(\tfrac{f(x)}{g(x)} = 0\)}
+
+  \begin{enumerate}[itemsep={2ex}]
+    \item Multiplying through by the denominator (never zero) is always okay! In symbols, 
+      \[
+        \frac{f(x)}{g(x)} = 0 \quad\longrightarrow\quad f(x) = 0.
+      \]
+
+    \item Dividing through by something non-zero is always okay!
+
+    \item Dividing through by something (may or may not be zero) POTENTIALLY throws away solutions. 
+
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Slopes and exchanging \(x\) and \(y\)}
+
+  \vspace{0.5cm}
+  \centerline{\(\frac{dx}{dy} = \frac{1}{dy/dx}\) \hlwarn{as numbers} since \(\frac{dx}{dy}\) represents slopes in the \(yx\)-plane.}
+
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{main} \(x\)}}, ylabel={{\color{supp} \(y\)}}]
+      \addplot[very thick] {x^2};
+      \addplot[very thick, main] {2*x-1};
+      \node[below] at (axis cs:2,2) {\footnotesize \(\frac{{\color{supp}dy}}{{\color{main}dx}} = {\color{warn}2}\)};
+      \fill (axis cs:1,1) circle[radius=0.075];
+    \end{axis}
+  \end{tikzpicture}
+  \quad
+  \begin{tikzpicture}
+    \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{supp} \(y\)}}, ylabel={{\color{main} \(x\)}}]
+      \addplot[very thick, main] {1/2*(x-1) + 1};
+      \addplot[domain={0:3}, very thick] {sqrt(x)};
+      \addplot[domain={0:1}, very thick] {-sqrt(x)};
+      \node[above] at (axis cs:2,2) {\footnotesize \(\frac{{\color{main}dx}}{{\color{supp}dy}} = \frac{1}{{\color{warn}2}}\)};
+      \fill (axis cs:1,1) circle[radius=0.075];
+    \end{axis} 
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Why plug stuff back into the curve}
+
+  The solution {\color{supp}\(y = 0\)} to \(\frac{dx}{dy} = 0\) tells us that vertical tangent lines occur at the \hlwarn{points of intersection} of {\color{supp}\(y = 0\)} and {\color{main}\(x^{2} + y^{2} = 25\)}.  
+
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      basic curve,
+      enlargelimits={abs=0.5}, 
+      xmin=-5, xmax=5, ymin=-5, ymax=5,
+      width={200pt}, 
+      xtick distance={2},
+      ytick distance={2},
+      xlabel={\empty}, ylabel={\empty},
+      samples=500,
+      ]
+
+      \addplot[main, very thick, domain=-5:5] {sqrt(25 - x^2)};
+      \addplot[main, very thick, domain=-5:5] {-sqrt(25 - x^2)};
+      \addplot[supp, very thick] coordinates {(-6, 0) (6,0)};
+
+      \fill[warn] (axis cs:-5,0) circle[radius=0.25];
+      \fill[warn] (axis cs: 5,0) circle[radius=0.25];
+    \end{axis}
+  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}
@@ -528,4 +615,24 @@
 \end{frame}
 
 
+\section{Misc}
+
+\begin{frame}[c]
+
+  \large
+  Pick up the problem-solving sheets (4 pages, 87 to 90).  
+
+  \bigskip
+
+  \normalsize
+  Feel free to work in groups.
+
+  Treat it like a real midterm.  No notes, calculators or any aid.
+
+  The goal is understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
+
+  Feel free to ask for a one-sentence hint.
+
+  We will stop at 8:45 and do a short iClicker reflection.
+\end{frame}
 \end{document}
