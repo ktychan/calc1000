@@ -29,16 +29,18 @@ We use inequalities to precisely capture the idea of absolute extrema.
 \begin{definition}
   Let \(f\) be a function defined over an interval \(I\), and let \(c\) in \(I\).  We say
   \begin{itemize}[itemsep={1ex}]
-    \item \(f\) has an \hlmain{absolute maximum on \(I\) at \(c\)} if \(f(c) \ge f(\text{any number in } I)\).
+    \item \(f\) has an \hlmain{absolute maximum on \(I\) at \(c\)} if \(f(c) \ge f(\text{every number in } I)\).
 
-      The absolute maximum, if exist, is the largest number \hlwarn{in} the range.
+      % The absolute maximum, if exist, is the largest number \hlwarn{in} the range.
 
-    \item \(f\) has an \hlmain{absolute minimum on \(I\) at \(c\)} if \(f(c) \le f(\text{any number in } I)\).
+    \item \(f\) has an \hlmain{absolute minimum on \(I\) at \(c\)} if \(f(c) \le f(\text{every number in } I)\).
 
-      The absolute minimum, if exists, is the smallest number \hlwarn{in} the range.
+      % The absolute minimum, if exists, is the smallest number \hlwarn{in} the range.
   \end{itemize}
   \textbook{Definition on page 366, slightly reworded}
 \end{definition}
+
+It is not wrong to say that the absolute max/mn of \(f(x)\) is the largest/smallest number \hlwarn{in} the range of \(f\). It is just \emph{not helpful} for calculations because finding the range of a function is usually not an easy process except for reasonably simple functions. 
 
 An absolute extremum is an absolute maximum or an absolute minimum. The plural of maxim\hlmain{um} is maxim\hlsupp{a}, minim\hlmain{um} is minim\hlsupp{a}, and extrem\hlmain{um} is extrem\hlsupp{a}.  Some textbooks use \emph{global} instead of \emph{absolute}. For example, global maximum and absolute maximum are interchangeable.
 
@@ -53,26 +55,29 @@ A problem-solving strategy (not math-specific) is to break up a large problem in
   Let \(f\) be a function defined over an interval \(I\).
 
   \begin{itemize}[noitemsep]
-    \item \(f\) has a \hlmain{local maximum at \(c\)} if \(f(c) \ge f(\text{any value near \(c\)})\) but \(c\) \hlwarn{cannot be an endpoint} of \(I\).
-    \item \(f\) has a \hlmain{local minimum at \(c\)} if \(f(c) \le f(\text{any value near \(c\)})\) but \(c\) \hlwarn{cannot be an endpoint} of \(I\).
+    \item \(f\) has a \hlmain{local maximum at \(c\)} if \(f(c) \ge f(\text{every number near \(c\)})\).
+    \item \(f\) has a \hlmain{local minimum at \(c\)} if \(f(c) \le f(\text{every number near \(c\)})\).
   \end{itemize}
+
+  Moreover, we impose that \hlwarn{local extrema CANNOT occur at endpoints of \(I\)}.
 
   \textbook{Definition on page 368, slightly simplified}
 \end{definition}
 
 Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.   Example~\ref{ex:critical-numbers} and Exercise~\ref{ex:critical-number-is-candidate} warn us about the subtle relation between critical numbers and local extrema.
+
 \begin{definition}
-  A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\) (but NOT an endpoint) if 
+  A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\), but \hlwarn{NOT an endpoint}, if 
   \[
-    f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
+    \text{either } \quad f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
   \]
   If \hlmain{\(c\) is a critical number} of \(f(x)\), then \hlsupp{\((c, f(c))\)} is called a \hlsupp{critical point}.
 
-  \textbook{Definition on page 369}
+  \textbook{Definition on page 369} {\footnotesize \faExclamationTriangle{} See a grading warning at the bottom of page~\pageref{warning:critical-number}.}
 \end{definition}
 
 \begin{example} \label{ex:critical-numbers}
-  Find critical numbers, local extrema and absolute extrema of the given \(f(x)\).
+  Label critical numbers, local extrema and absolute extrema of the function below.
 
   \begin{center}
     \includestandalone[height=3in]{../standalones/extrema_example_blank}
@@ -80,7 +85,7 @@ Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.  
 \end{example}
 
 \begin{exercise} \label{ex:critical-number-is-candidate}
-  Is it true that \(f(\text{critical number})\) must be a local extrema?  Find your own examples.
+  Sketch four functions such that \(f(\text{critical number})\) is \emph{not} a local extrema.
 
   \begin{center}
     \includestandalone[page=7]{../standalones/plot-extrema-intro}
@@ -120,19 +125,19 @@ We need to be careful with endpoints when looking for critical numbers.
 
 
 \begin{mdframed}[style=simple-compact]
-  \textbf{The general strategy for finding absolute extrema}. Let \(f(x)\) be a function defined over an interval \(I\).
+  A strategy for finding absolute extrema comes from Fermat's Theorem (read Theorem 4.2 on textbook page 369). 
 
-  Absolute extrema can only occur at \(x\)-values \(c\) in exactly one of two ways:
+  Absolute extrema for a function defined over an interval \hlwarn{can} only occur at \(x\)-values, call them \(c\), in exactly one of two ways:
   \begin{center}
-    either \underline{\hspace{2in}} or \underline{\hspace{2in}}.
+    either \underline{\hspace{2.5in}} or \underline{\hspace{2.5in}}.
   \end{center}
-  
-  The strategy applies to all functions.
 \end{mdframed}
 
-Because an arbitrary function can have vertical asymptotes, one or both absolute extrema do not always exist. In general, we have to make sure vertical asymptotes does not eliminate the existence of absolute extrema (one or both).
+{\footnotesize An arbitrary function can approach an infinity or oscillate towards infinities, one or both absolute extrema do not always exist. In general, we have to rule out the non-existence of absolute extremum or by restricting the domain somehow before applying the above general strategy.}
 
-The good news is that, thanks to a theoretical result called the Extreme Value Theorem (Theorem 4.1 on textbook page 367), \emph{both} absolute extrema for \hlmain{continuous} functions defined over \hlmain{closed and bounded} intervals \([a,b]\) always exist. Such a function does not have vertical asymptotes.
+A theoretical result called the Extreme Value Theorem (read Theorem 4.1 on textbook page 367) says that \emph{both} absolute extrema for \hlmain{continuous} functions defined over a \hlmain{closed and bounded} interval \([a,b]\) always exist. 
+
+
 
 \begin{example} 
   Find absolute extrema and the \(x\)-values at which they occur for 
@@ -145,6 +150,7 @@ The good news is that, thanks to a theoretical result called the Extreme Value T
   \blanklines{25}
 \end{example}
 
+\label{warning:critical-number}
 {\footnotesize \faExclamationTriangle{} Some textbooks (e.g. UBC's CLP Calculus) do not include endpoints as a special case because they allow endpoints to be local extrema. \hlwarn{For grading purposes, we will stick to the course textbook's definition} that local extrema and critical numbers cannot occur at endpoints of the domain of \(f\).}
 \clearpage
 
@@ -162,11 +168,11 @@ The good news is that, thanks to a theoretical result called the Extreme Value T
 \clearpage
 
 We eluded at the beginning of this section that minimizing or maximizing functions over a domain is a subtask in (applied) optimization problems.
-Exercise~\ref{ex:extremum-swim} is a subtask in Exercise~\ref{ex:optimization-swim}.
+Exercise~\ref{ex:extremum-swim} is a subtask of Exercise~\ref{ex:optimization-swim}.
 \begin{exercise} \label{ex:extremum-swim}
-  Minimize \(T\) given that \(T(s) = \frac{2 - 6 \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\).
+  Minimize \(T\) given \(T(s) = \frac{2 - 6 \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\).
 
-  To minimize means to find the absolute minimum.  The expression looks a bit spicy.  Keep your algebraic manipulations neatly organized and precise. 
+  To minimize means to find the absolute minimum.
 
   \blanklines{40}
 \end{exercise}
