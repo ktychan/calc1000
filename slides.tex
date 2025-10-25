@@ -571,6 +571,18 @@
 \end{frame}
 
 
+\section{Applications}
+
+\begin{frame}
+  \frametitle{Critical Numbers}
+
+  A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\), but \hlwarn{NOT an endpint}, if 
+  \[
+    \text{either} \quad f'(c) = 0 \quad\text{or} f'(c) \text{ does not exist}.
+  \]
+
+  If \(c\) is a critical number, then \((c, f(c))\) is called a \hlsupp{critical point}.
+\end{frame}
 
 \section{Integration}
 
@@ -627,6 +639,157 @@
   \includegraphics{./standalones/misc-questioning-skill-triangle}
 \end{frame}
 
+\section{Reviews}
+
+\begin{frame}
+  \frametitle{Midterm Overview}
+
+  \begin{enumerate}[itemsep=1ex]
+    \item Do you \hlmain{remember} and \hlmain{understand} when and how to apply EVERY \hlwarn{definition} and \hlwarn{technique} in the fillable notes?
+
+    \item Do \hlmain{understand} EVERY \hlwarn{example} and do-at-home \hlwarn{exercise} up to page 104? Everything before related rates.
+
+    \item Do \hlmain{understand} EVERY \hlwarn{quiz} and \hlwarn{assignment 1 problem}?
+
+    \item Have you done past midterm problems to get a sense how concepts and techniques are connected to each other?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some exam-writing tips}
+
+  \begin{enumerate}
+    \item Drink enough water. SLEEP WELL!
+
+    \item Bring water, some snacks and candies.
+
+    \item Take a short break when necessary.
+
+    \item Not every question takes the same amount of time.
+
+    \item Check your work.
+  \end{enumerate}
+
+
+  \faStar{} Read each question and relevant instructions carefully. 
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Two major concepts and their relation}
+
+  \pause
+  \begin{enumerate}[itemsep={2ex}]
+    \item A function \(f(x)\) is \hlmain{continuous at \(a\)} if \( \lim_{x \to a} f(x) = f(a) \).
+    \item The \hlmain{derivative of \(f(x)\) at \(a\)} is 
+      \(
+        f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
+      \).
+  \end{enumerate}
+
+  \pause
+  If \(f(x)\) is differentiable at \(a\), then \(f(x)\) must be continuous at \(a\).
+
+  \bigskip
+  \faStar{} Before applying any technique to solve a problem, figure out what concepts are relevant!
+\end{frame}
+
+\begin{frame}
+  \frametitle{Discontinuities}
+
+  \begin{enumerate}
+    \item Discontinuities occur at \(a\) when \(\lim_{x \to a} f(x) \ne f(a)\).
+
+    \item The three different types of discontinuities are \hlmain{defined} in terms of \hlmain{one-sided limits} (page . Remember them!
+
+    \item Major technique: Finding and classifying discontinuities are all about the \hlmain{definition} of continuity.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Main techniques for evaluating limits}
+
+  \begin{enumerate}
+    \item Is it a continuous function? If so, plug it in!
+    \item Is it type \(\frac{\text{non-zero constant}}{0}\)? Doesn't exist and could be \(\pm\infty\).
+    \item Is it type \(\frac{0}{0}\)? Need more work!
+    \item Use the squeeze theorem?
+    \item At \(+\infty\)? Analyze dominant terms.
+    \item At \(-\infty\)? Sub \(u = -x\).
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Techniques for limits of \(0/0\) type}
+
+  DO NOT immediately conclude the limit does not exist. 
+
+  \begin{enumerate}
+    \item Factor and cancel?
+    \item Rationalize?
+    \item Special limit? \(\lim_{x \to 0} \frac{\sin(x)}{x} = 1\) and \(\lim_{x \to 0} \frac{\cos(x) - 1}{x} = 0\).
+    \item Change of variable? Don't forget to calculate ``happy face''.
+    \item Is it a derivative? Do you see \(\text{something} + h\)?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Techniques for limits at \(\infty\)}
+
+  Do you remember the table on page 56?
+
+  \begin{enumerate}
+    \item Factor out the largest power of \(x\) in the numerator and denominator separately.
+      There are three possibilities.
+
+    \item There are \(e^{x}\)?! Sub \(u = e^{x}\). See page 58.
+
+    \item Don't forget the squeeze theorem can be useful. Do you see trigs? See page 59.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Derivatives}
+
+  Geometrically, \(\frac{dy}{dx}\) at \(x = a\) is the slope the tangent line of the curve \(y = f(x)\) at \(x = a\).
+
+  \begin{enumerate}
+    \item Use differentiation rules or the definition to calculate derivatives.
+
+    \item Absolute value of functions? Turn them into piecewise functions! 
+
+    \item Implicit differentiation solves almost every problem not involving the definition.
+
+    \item Use side calculations to manage complexity.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Subtle facts reminder 1}
+
+  If you know \(f(x)\) is continuous (maybe you know they have a derivative), then use direct substitution to evaluate their limits.
+
+  This is the theorem and the comment above it on page 49.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Subtle facts reminder 2}
+
+  You can use the squeeze theorem for limits at infinity.
+
+  You can sub \(u = e^{x}\) for limits at infinity.
+
+  See Exercises~4.13, 4.14 and 4.15 and 4.16 on pages 58 to 59.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Subtle facts reminder 3}
+
+  Differentiability at \(a\) depends on continuity at \(a\).
+
+  This is the theorem and the comment below it on page 68.
+\end{frame}
 
 \section{Misc}
 

@@ -15,27 +15,21 @@
 \end{center}
 
 \begin{thm}
-  Suppose \(f(x)\) is a differentiable function and I is an interval.
+  Suppose \(f(x)\) is a differentiable function and \(I\) is an interval in the domain of \(f\).
 
   \begin{enumerate}[label=(\alph*)]
-    \item If \(f'(x) > 0\) for every \(x\) in \(I\), then \(f(x)\) is strictly increasing on \(I\).
-    \item If \(f'(x) < 0\) for every \(x\) in \(I\), then \(f(x)\) is strictly decreasing on \(I\).
+    \item If \(f' > 0\) on \(I\), then \(f(x)\) is (strictly) increasing over \(I\).
+    \item If \(f' < 0\) on \(I\), then \(f(x)\) is (strictly) decreasing over \(I\).
   \end{enumerate}
 \end{thm}
 
-\faStar{} If \(f'(c) = 0\) for some constant \(c\), then \(f(x)\) is \underline{\hspace{3.5in}}.
+\begin{example}[Final exam, Fall 2024, part (a) of a short-answer question] \label{eg:shape-1}
+  Find the intervals over which \(f(x) = x e^{x/3}\) is increasing or decreasing.
 
-\begin{example}
-  Consider the graph of \(f'(x)\) below. On the horizontal axis, label the interval on which \(f(x)\) is increasing. 
-
-  \begin{center}
-    \includestandalone[page=5]{../standalones/plot-derivative-test}
-  \end{center}
+  \blanklines{19}
 \end{example}
 
-We learned that critical points are candidates for local extrema. Let's learn two tests to determine if a critical point is a local extrema or not.
-
-The idea: If \(f(x)\) has a local extrema at \(c\), then \((c,f(c))\) must be the ``peak or valley of a mountain.''  We simply look left and right.
+There are two more tests for local extrema. The idea is that if \(f(x)\) has a local extrema at \(c\), then \((c,f(c))\) must be the ``peak or valley of a mountain.''  We simply ``look left and right'' at the corresponding critical point.
 \begin{center}
   \includestandalone[page=6]{../standalones/plot-derivative-test}
   \hfill
@@ -47,37 +41,41 @@ The idea: If \(f(x)\) has a local extrema at \(c\), then \((c,f(c))\) must be th
 \end{center}
 \clearpage
 
-\begin{mdframed}[style=withref-compact]
-  Suppose that \(f\) is a continuous function over an interval \(I\) containing a critical number \(c\). 
-
-  If \(f\) is differentiable over \(I\), except possibly at \(c\), then \(f(c)\) satisfies one of the following descriptions:
+\begin{thm}
+  Suppose that \(f\) is a continuous function on an interval \(I\) containing a critical number \(c\). If \(f\) is differentiable on \(I\), except possibly at \(c\), then \(f(c)\) satisfies one of the following descriptions:
   \begin{enumerate}
-    \item If \(f'\) \emph{changes} sign from positive when \(x < c\) to negative when \(x > c\), then \(f\) has a \underline{\hspace{2in}} at \(c\).
-    \item If \(f'\) \emph{changes} sign from negative when \(x < c\) to positive when \(x > c\), then \(f\) has a \underline{\hspace{2in}} at \(c\).
-    \item If \(f'\) has the same sign for \(x < c\) and \(x > c\), then \(f(c)\) has neither a local maximum nor a local minimum of \(f\).
+    \item If \(f'\) \emph{changes} sign from positive when \(x < c\) to negative when \(x > c\), then \(f\) has a local maximum at \(c\).
+    \item If \(f'\) \emph{changes} sign from negative when \(x < c\) to positive when \(x > c\), then \(f\) has a local minimum at \(c\).
+    \item If \(f'\) has the same sign for \(x < c\) and \(x > c\), then \(f(c)\) is neither a local maximum nor a local minimum of \(f\).
   \end{enumerate}
 
   \textbook{Theorem~4.9 First Derivative Test on page 392}
-\end{mdframed}
+\end{thm}
 
-\begin{example}[Textbook Example~4.18] \label{ex:first-derivative}
-  Use the first derivative test to find the location of all local extrema for \(f(x) = 5x^{1/3} - x^{5/3}\). Graph: \url{https://www.geogebra.org/calculator/nzwzefct}
+\begin{example}[Final exam, Fall 2024, part (b) of a short-answer question] \label{eg:shape-2}
+  Find all local extrema of \(f(x) = x e^{x/3}\).
 
-  \blanklines{25}
+  \blanklines{10}
 \end{example}
+
+\begin{exercise}[Textbook Example~4.18] \label{ex:first-derivative}
+  Use the first derivative test to find all local extrema for \(f(x) = 5x^{1/3} - x^{5/3}\) and the \(x\)-value at which they occur. % Graph: \url{https://www.geogebra.org/calculator/nzwzefct}
+
+  \blanklines{20}
+\end{exercise}
 \clearpage
 
 We can dig up more information about a function by considering concavity.
-\begin{mdframed}[style=withref-compact]
-  Let \(f\) be a differentiable function over an \emph{open} interval \(I\).
+\begin{definition}
+  Let \(f\) be a differentiable function on an \emph{open} interval \(I\).
   \begin{itemize}
-    \item If \(f'\) is \underline{\hspace{1in}} over \(I\), then we say \(f\) is \hlmain{concave up}.
-    \item If \(f'\) is \underline{\hspace{1in}} over \(I\), then we say \(f\) is \hlmain{concave down}.
-    \item If \(f\) is continuous at \(c\) and changes concavity at \(c\), then \((a,f(a))\) is an \hlmain{inflection point}. 
+    \item If \(f'\) is increasing on an interval \(I\), then we say \(f\) is \hlmain{concave up}.
+    \item If \(f'\) is decreasing on an interval \(I\), then we say \(f\) is \hlmain{concave down}.
+    \item If \(f\) is continuous at \(c\) and changes concavity at \(c\), then \((c,f(c))\) is an \hlmain{inflection point}. 
   \end{itemize}
 
   \textbook{Definition on page 395 and 397}
-\end{mdframed}
+\end{definition}
 
 \begin{center}
   \includestandalone[page=9]{../standalones/plot-derivative-test}
@@ -89,41 +87,48 @@ We can dig up more information about a function by considering concavity.
   \url{https://www.geogebra.org/calculator/atcbwgvm}
 \end{center}
 
-\begin{mdframed}[style=withref-compact]
-  Let \(f\) be a function whose second derivative exists over an interval \(I\).
+\begin{thm}
+  Let \(f\) be a function whose second derivative exists on an interval \(I\).
   \begin{itemize}
-    \item If \underline{\hspace{1in}} on an interval \(I\), then the graph of \(f\) is \hlmain{concave up} on \(I\).
-    \item If \underline{\hspace{1in}} on an interval \(I\), then the graph of \(f\) is \hlmain{concave down} on \(I\).
+    \item If \(f'' > 0\) on an interval \(I\), then the graph of \(f\) is \hlmain{concave up} on \(I\).
+    \item If \(f'' < 0\) on an interval \(I\), then the graph of \(f\) is \hlmain{concave down} on \(I\).
   \end{itemize}
 
-  \textbook{Theorem 4.0 Test for Concavity on page 396}
-\end{mdframed}
+  \textbook{Theorem 4.10 Test for Concavity on page 396}
+\end{thm}
 
-\begin{example} \label{ex:concavity}
-  Let \(f = x^{4} - 4x^{3}\). Find all intervals on which \(f\) is concave up and all intervals on which \(f\) is concave down. List all inflection points of \(f\).
+\begin{example} [Final exam, Fall 2024. part (c) of a short-answer question] \label{eg:shape-3}
+  Find the intervals over which \(f(x) = x e^{x/3}\) is concave up or down, and all inflection points.
 
   \blanklines{15}
 \end{example}
 
 \clearpage
 
-When a function is twice differentiable, the Second Derivative Test \hlmain{could be a faster method} for finding local extrema.
+The second derivative test offers a very fast way to find local extrema. However, it is only applicable to functions with a second derivative and can be inconclusive.
 
-\begin{mdframed}[style=withref-compact]
+\begin{thm}
   Suppose \(f'(c) = 0\) and \(f''\) is continuous near \(c\).
   \begin{itemize}
-    \item If \(f''(c) > 0\) (meaning \(f\) is \underline{\phantom{concave down}} near \(c\)), then \(f\) has a \underline{\hspace{1in}}.
-    \item If \(f''(c) < 0\) (meaning \(f\) is \underline{\phantom{concave down}} near \(c\)), then \(f\) has a \underline{\hspace{1in}}.
-    \item[\faExclamationTriangle{}] If \(f''(c) = 0\) or \(f''(c)\) does not exists, then the Second Derivative Test is \hlwarn{inconclusive} meaning that we need to \hlsupp{explore other methods} to determine if \(f\) has a local extrema at \(c\).
+    \item If \(f''(c) > 0\) (meaning \(f\) is concave \underline{\phantom{down}} near \(c\)), then \(f\) has a \underline{\hspace{1in}}.
+    \item If \(f''(c) < 0\) (meaning \(f\) is concave \underline{\phantom{down}} near \(c\)), then \(f\) has a \underline{\hspace{1in}}.
+    \item[\faExclamationTriangle{}] If \(f''(c) = 0\) or \(f''(c)\) does not exist, then the second derivative test is \hlwarn{inconclusive} meaning that we need to explore other methods to determine if \(f\) has a local extrema at \(c\).
   \end{itemize}
 
   \textbook{Theorem~4.11 Second Derivative Test on page 400}
-\end{mdframed}
+\end{thm}
 
 \begin{example}
-  Use the Second Derivative Test to find all local extrema for \(f(x) = x^{4} - 4x^{3}\) from Example~\ref{ex:concavity}.
+  Use the second derivative test to find local extrema for \(f(x) = x e^{x/3}\).
 
-  \blanklines{35}
+  \blanklines{10}
 \end{example}
 
+\begin{exercise}
+  Use the second derivative test to find all local extrema for \(f(x) = x^{4} - 4x^{3}\).
+
+  {\footnotesize Hint: Use the first derivative test at \(c\) when the second derivative test is inconclusive at \(c\).}
+
+  \blanklines{25}
+\end{exercise}
 \end{document}

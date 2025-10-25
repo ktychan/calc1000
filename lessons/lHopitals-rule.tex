@@ -1,18 +1,20 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{L'H\^opital's rule}
-How can we evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\)?
+\begin{example}
+  Evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\).
 
-\blanklines{5}
+  \blanklines{10}
+\end{example}
 
 A limit \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate form 
 \begin{itemize}
   \item of type \underline{\hspace{1in}} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are \underline{\hspace{1in}}.
   \item of type \underline{\hspace{1in}} if both \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) are \underline{\hspace{1in}}.
 \end{itemize}
-\hlmain{L'H\^opital's rule} can be used to evaluate indeterminate forms. We demonstrate is application and defer to the textbook (see Theorems 4.12 on page 455 and 4.13 on page 457) for its precise statement.
+\hlmain{L'H\^opital's rule} can be used to evaluate indeterminate forms. We demonstrate its application and defer to the textbook (see Theorems 4.12 on page 455 and 4.13 on page 457) for its precise statement.
 
-There are seven types of indeterminate forms grouped (strongly recommended) as such. 
+There are seven types of indeterminate forms grouped by relevant techniques as follows. 
 \[
   \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
 \]
@@ -21,90 +23,92 @@ There are seven types of indeterminate forms grouped (strongly recommended) as s
 
 Read \(0\) as \underline{\hspace{2in}} and \(\infty\) as \underline{\hspace{2in}}. 
 
-\blanklines{10}
-
-Why aren't these indeterminate forms?
-\[
-  \frac{\text{constant}}{\infty},\; \frac{\infty}{\text{constant}}, \hspace{0.5in} \infty \cdot \infty,\; (\text{constant}) \cdot (\text{constant}),\; \infty + \infty, \hspace{0.5in} (\text{constant} \ne 1 \text{ or } \infty)^{\infty}.
-\]
-
-\blanklines{10}
-
-\begin{example}
-  Which of the following is an indeterminate form? If it is, identify its type. 
-
-  \[
-    L_{1} = \lim_{x \to 0} x \ln(x),
-    \qquad
-    L_{2} = \lim_{x \to 1} (1-x)^{x},
-    \qquad
-    L_{3} = \lim_{x \to -\infty} 2^{2^{x}},
-    \qquad
-    L_{4} = \lim_{x \to 0} \frac{2x^{2}+1}{\cos(x)}.
-  \]
-
-  \blanklines{30}
-\end{example}
-\clearpage
-
-L'H\^opital's rule directly applies to indeterminate types of \(0/0\) or \(\infty/\infty\).
-\begin{example}
-  Evaluate \(\lim_{x \to \infty} \frac{x^{2}}{e^{x}}\).
-
-  \blanklines{30}
-\end{example}
-
-\begin{example}
-  What is wrong with the following calculation?
-
-  \[
-    \lim_{x \to 1} \frac{\ln(x)}{2} = \lim_{x \to 1} \frac{\frac{d}{dx} \ln(x)}{\frac{d}{dx} 2} = \lim_{x \to 1} \frac{1/x}{0} = \text{does not exist ?!}
-  \]
-\end{example}
-
-\clearpage
-
-We can use our algebra skills to rewrite \(0 \cdot \infty\) and \(\infty - \infty\) indeterminate forms as \(0/0\) or \(\infty/\infty\).
-
-\blanklines{10}
-
-\faStar{} Apply the tricks \(x = \frac{1}{1/x}\) and \(f(x) = \frac{1}{1/f(x)}\) to the \(\infty\) in the indeterminate form \(0 \cdot \infty\).
-
-\begin{example}
-  Evaluate \(\lim_{x \to 0^{+}} x \ln(x)\).
+\begin{exercise}
+  Evaluate \(\lim_{x \to \infty} \frac{x^{2}}{e^{x}}\).  \hfill {\footnotesize Repeatedly apply l'H\^opital's rule as necessary.}
 
   \blanklines{15}
-\end{example}
+\end{exercise}
+
+\clearpage
+
+\faStar{} Indeterminate forms \(0 \cdot \infty\) and \(\infty - \infty\) can be manipulated to \(0/0\) or \(\infty/\infty\). 
+The trick \(f(x) = \frac{1}{1/f(x)}\) is useful, especially for \(0 \cdot \infty\).
 
 \begin{example}
-  Evaluate \(\lim_{x \to 1^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\).
+  Evaluate \(\lim_{x \to 0^{+}} x \ln(x)\).  
+
+  \blanklines{25}
+\end{example}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to 1^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\).  \hfill{\footnotesize Turn the function into a single quotient.}
 
   \blanklines{20}
-\end{example}
+\end{exercise}
 \clearpage
 
-Evaluating indeterminate forms \(0^{0}, \infty^{0}, 1^{\infty}\) requires the \emph{universal method} for \(f(x)^{g(x)}\): \faStar{} Change base to \(e\).
+\faStar{} Indeterminate forms \(0^{0}, \infty^{0}, 1^{\infty}\) can be manipulated to \(0/0\) or \(\infty/\infty\) by taking logarithms.  However, the off-the-book method is to change base to \(e\).
 
-\blanklines{10}
-
-\begin{example}
+\begin{example}[textbook Example~4.43 on page 463]
   Evaluate \(\lim_{x \to \infty} x^{1/x}\).
-
-  \blanklines{30}
-\end{example}
-\clearpage
-
-\begin{example}
-  Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{4x}\right)^{2x}\).
-
-  \blanklines{30}
-\end{example}
-\clearpage
-
-\begin{example}
-  Evaluate \(\lim_{x \to (\pi/2)^{+}} (x - \pi/2)^{\cos(x)}\).
-
+  
   \blanklines{50}
 \end{example}
+\clearpage
+
+\faStar{} Recall special limit \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\) on page~\pageref{def:exp-ln}.
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{4x}\right)^{3x}\).
+  As usual, pick your favourite method.
+
+  (Method 1). Substituting \(u = 4x\) gives us the solution fairly quickly.
+
+  \blanklines{7}
+
+  What if we sub \(u = 3x\)? Try it and notice that we do not immediately get the special limit for \(e\). We end up needing another substitution.
+
+  \blanklines{5}
+
+  (Method 2). Using l'H\^opital's rule requires more work but not memorization. 
+
+  \blanklines{20}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to \infty} \left(1 + \frac{4}{x}\right)^{3x}\) by substituting \(u = \underline{\hspace{1cm}}\).  Find \(u\) by solving for \(u\) in \(\frac{4}{x} = \frac{1}{u}\).
+
+  \blanklines{5}
+\end{exercise}
+\clearpage
+
+% \textbf{Summary}. L'H\^opital's rule applies to one-sided and two-sided limits. 
+%
+% \begin{enumerate}[wide, label=(Step~\arabic*)., itemsep={2ex}]
+%   \item Figure out whether we have one of the indeterminate forms.
+%     \[
+%       \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
+%     \]
+%
+%     If the limit is not one of the above indeterminate forms, DO NOT apply l'H\^opital's rule. Look for a different method.
+%
+%   \item[{\faStar{}}] For indeterminate forms of type \(0/0\) or \(\frac{\infty}{\infty}\), \hlmain{directly apply} l'Hopital's rule.
+%
+%
+%     DO NOT apply the quotient rule. Differentiate the numerator and the denominator \hlwarn{independently}.
+%
+%   \item For all other types, manipulate your limit to type \(0/0\) or \(\frac{\infty}{\infty}\).
+%     \begin{enumerate}
+%       \item Type \(0 \cdot \infty\) or Type \(\infty - \infty\). 
+%
+%         Apply the trick \(f(x) = \frac{1}{1/f(x)}\) to \hlsupp{one} of the factors to manipulate the limit to \(0/0\) or \(\infty/\infty\). 
+%
+%       \item Type \(0^{0}\) or \(\infty^{0}\) or \(1^{\infty}\). 
+%
+%         Change base to \(e\). Alternatively, follow the method shown in textbook Example~4.43 and 4.44.
+%     \end{enumerate}
+%
+%   \item You may need to repeatedly apply l'H\^opital's rule until you fully evaluate the limit.
+% \end{enumerate}
 
 \end{document}
