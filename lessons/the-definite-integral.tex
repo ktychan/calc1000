@@ -2,7 +2,7 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Definite integrals}
 Everything we did in approximating areas using rectangles leads to a major concept in integration: The definite integral which is defined for all functions, not just the nonnegative ones.
-\begin{mdframed}[style=withref-compact]
+\begin{definition}
   The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(\alpha\) to \(\beta\)}} is defined by 
   \begin{equation} \label{eq:definite-integral} 
     \phantom{\int_{\alpha}^{\beta} f(x) \;dx} = \hspace{3in}
@@ -10,7 +10,7 @@ Everything we did in approximating areas using rectangles leads to a major conce
   \hlsupp{provided} that the limit exists. If this limit exists, then we say \hlmain{\(f\) is integrable on \([\alpha,\beta]\)} or is an integrable function. 
 
   Moreover, the number \(\int_{\alpha}^{\beta} f(x) \;dx\), if exists, represents the \hlmain{net area between \(y = f(x)\) and \(y = 0\)} \hlsupp{if \(\alpha \le \beta\)}. Some literature calls this the net area ``under'' the curve.
-\end{mdframed}
+\end{definition}
 \[
   \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
 \]
@@ -93,12 +93,14 @@ The net area interpretation of a definite integral yields two comparison propert
     \[
       \int_{a}^{b} f(x) \;dx \underline{\hspace{2cm}} \int_{a}^{b} g(x) \;dx.
     \]
+
     \blanklines{8}
 
   \item If \(m\) and \(M\) are constants such that \(m \le f(x) \le M\) on \([a,b]\), then
     \[
       m(b-a) \underline{\hspace{2cm}} \int_{a}^{b} f(x) \underline{\hspace{2cm}} M(b-a).
     \]
+
     \blanklines{8}
 \end{enumerate}
 

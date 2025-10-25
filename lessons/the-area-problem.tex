@@ -5,27 +5,31 @@ The geometric idea of \hlmain{area} is very flexible and widely applicable in sc
 
 \begin{enumerate}[wide]
   \item If the velocity of an object (travelling in a straight line) is a constant function \(v(t) = 5\) km per minute, then the displacement of time \(t = 1\) minute to \(t = 3\) minute is \underline{\hspace{2in}}.
+
     \blanklines{5}
 
   \item If a medicine is administered intravenously at the rate of \(r(t) = 2\) ml per minute, then, after \(20\) minutes, a patient would have received \underline{\hspace{3in}} ml of medicine.
+
     \blanklines{5}
 \end{enumerate}
 
 It seems desirable to ask: What if \(v(t)\) or \(r(t)\) not a constant function? Can we still figure out the displacement and the amount of medicine administered?
 
 Both scenarios, and countlessly more, are asking the same fundamental \hlmain{geometric} question:
+
 \blanklines{5}
 
 
 Before we look for an exact answer, consider a practical idea: Approximation. \\
 \url{https://www.geogebra.org/calculator/bsdvzx3f}
+
 \blanklines{20}
 
 It turns out that approximation is the theoretically advantageous starting point for finding an exact answer: If we approximate an area using \underline{\hspace{2in}} many rectangles, then we get the exact area.
 
 The following definition describes a major concept in integration. \hlmain{Make sure you can evaluate such expressions (for functions to which formulas in Equation~\eqref{formula:summations} on page~\pageref{formula:summations} apply) and use its geometric interpretation to approximate area under the curve.}
 
-\begin{mdframed}[style=withref-compact]
+\begin{definition}
   Let \(f(x)\) be a \emph{continuous} and nonnegative function on interval \([a,b]\). \hlmain{The area under the curve \(y = f(x)\) on \([a,b]\)} is defined to be
 
   \begin{equation} \label{eq:area-under-the-curve} \huge
@@ -33,7 +37,8 @@ The following definition describes a major concept in integration. \hlmain{Make 
   \end{equation}
 
   \textbook{The definitions on page 519}
-\end{mdframed}
+\end{definition}
+
 \blanklines{30}
 
 Side note (not examinable). Why is continuity important? Because there are strange discontinuous and nonnegative functions for which the limit in Equation~\eqref{eq:area-under-the-curve} does not exist.  Such a function \(f\) is defined by \(f(x) = 1\) if \(x\) is rational but \(f(x) = 0\) if \(x\) is irrational. 
@@ -80,6 +85,7 @@ For the upper and lower sums, the Extreme Value Theorem guarantees such choices 
 
 \begin{example}
   In Sigma notation, write down the right-endpoint approximation for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-2, 5]\) using \(n = 20\) subintervals.
+
   \blanklines{30}
 \end{example}
 \clearpage

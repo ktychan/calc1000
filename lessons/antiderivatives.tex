@@ -3,27 +3,28 @@
 \begin{document} \section{Antiderivatives}
 We set up terminologies and notations for integration.
 
-\begin{mdframed}[style=withref-compact]
+\begin{definition}
   If \(f(x)\) and \(F(x)\) are related by
   \[
     f(x) = F'(x) \text{ for every } x \text{ in the domain of } f(x),
   \]
   then we \emph{say} \(F(x)\) is \emph{an} antiderivative of \(f(x)\).
-\end{mdframed}
+\end{definition}
 
 Let's make sense of the above definition.
 \begin{example}
   Consider \(f(x) = 2xe^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Is \(f\) an antiderivative of \(g\)? Is \(g\) an antiderivative of \(f\)?
+
   \blanklines{10}
 \end{example}
 
-\begin{example}
+\begin{exercise}
   Is \(\ln(x)\) an antiderivative of \(1/x\)? Justify your answer using the definition above.
 
   \blanklines{10}
-\end{example}
+\end{exercise}
 
-\begin{example}
+\begin{exercise}
   Consider \(f(x) = 3x^{2}\).
 
   \begin{enumerate}
@@ -31,10 +32,10 @@ Let's make sense of the above definition.
     \item List infinitely many antiderivatives of \(3x^{2}\).
   \end{enumerate}
   \blanklines{10}
-\end{example}
+\end{exercise}
 \clearpage
 
-\begin{mdframed}[style=withref-compact]
+\begin{definition}
   The \hlmain{indefinite integral} of \(f\) is the most general antiderivative of \(f(x)\), denoted by 
   \[
     \int f(x) \;dx.
@@ -42,8 +43,10 @@ Let's make sense of the above definition.
   If \(F\) is \emph{an} antiderivative of \(f\), then we get an explicit expression \(\int f(x) \;dx = F(x) + C\) where \(C\) represents a general but unknown constant.
 
   \textbook{Definition, page 487}
-\end{mdframed}
+\end{definition}
+
 The definition says if we have expressions for \(F(x)\) and \(f(x)\) and want to know if \(F(x) = \int f(x) \;dx\), then we must check two things:
+
 \blanklines{10}
 
 Let's make sure we can parse relevant notations. 
@@ -55,6 +58,7 @@ Let's make sure we can parse relevant notations.
     \item \(\int e^{x} dx = e^{x} + 1 + C\).
     \item \(\int e^{x} dx = e^{x} + 2C\).
   \end{enumerate}
+
   \blanklines{10}
 \end{example}
 
@@ -114,7 +118,7 @@ Many property of indefinite integrals comes \emph{directly} from properties of d
 
 \hlmain{Insights}. The notions of antiderivatives and indefinite integrals is literally just a fancy names and not much else. ``Evaluate \(\textstyle \int f(x) \;dx\)'' means ``find the most general antiderivative of \(f(x)\).'' How do we do that? We find \emph{an} antiderivative of \(f(x)\) by \hlmain{recognizing derivatives} and then add ``\(+ C\)'' at the end.
 
-Recognizing derivatives typically requires a change of thinking pattern. Instead of applying differentiation rules, we need to read differentiation formulas \emph{backwards} and ask ``is a given \(f(x)\) the derivative of something I know?'' Adapt your thinking as quickly as you can because this skill is essential when we learn to use the substitution rule in two weeks.
+Recognizing derivatives typically requires a change of thinking pattern. Instead of applying differentiation rules, we need to read differentiation formulas \emph{backwards} and ask ``is a given \(f(x)\) the derivative of something I know?'' Adapt your thinking as quickly as you can because this skill is essential when we learn to use the substitution rule in about two weeks.
 
 \clearpage
 \end{document}

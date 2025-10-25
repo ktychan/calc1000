@@ -1,8 +1,10 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The substitution rule}
+
 We have seen throughout the course that \hlmain{a change of variable} can \emph{transform} a complex problem into a simpler one. The substitution rule performs such a change of variable in integration.
-\begin{mdframed}[style=withref]
+
+\begin{thm}
   {If {\color{main} \(u = g(x)\)} is differentiable and \(f\) is continuous on the range of \(g\), then}
   \begin{equation} \label{eq:sub-definite}
     \phantom{\int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{u(a)}^{u(b)} f({\color{main} u}) \;{\color{supp}du}.}
@@ -14,7 +16,8 @@ We have seen throughout the course that \hlmain{a change of variable} can \emph{
   \end{equation}
 
   \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
-\end{mdframed}
+\end{thm}
+
 The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule. To use the substitution rule, we need to 
 \begin{enumerate}
   \item \underline{\hspace{1in}} a substitution $u$ as a function of $x$, 
