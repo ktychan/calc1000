@@ -28,7 +28,7 @@ main: standalones appendix
 	rm -rf publish/*.tex
 	mkdir -p publish
 	${LATEXMK} main.tex
-	${LATEXMK} -jobname="${COURSE}_%A" main.tex
+	${LATEXMK} -g -jobname="${COURSE}_%A" main.tex
 
 publish: main slides
 	${LATEXMK} -jobname="${COURSE}_%A" publish/*.tex

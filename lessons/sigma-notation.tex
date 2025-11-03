@@ -1,17 +1,17 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Sigma notation}
-The Sigma notation is a compact way to express the sum of a bunch of numbers. It appears frequently in science literature, Riemann sums and its approximations. The course could also use Sigma notation with other types of problems to promote basic science literacy skill development.
+The Sigma notation is a compact way to express the sum of a bunch of numbers and appears frequently in science. 
 
-\blanklines{5}
+\blanklines{3}
 
 {\huge \[ \sum_{i=m}^{n} a_{i} = \hspace{3in}\]}
 
-\blanklines{5}
+\blanklines{3}
 
 There are two common tasks involving Sigma notation: Interpreting a summation and using it to express a summation.
 
-\begin{example}[Reading Sigma notations] \label{ex:sigma-notation-read)}
+\begin{example} \label{ex:sigma-notation-read)}
   Write the following summations in expanded form.
   \begin{align*}
     \sum_{i=3}^{5} (2i^{3} + 1)
@@ -20,34 +20,39 @@ There are two common tasks involving Sigma notation: Interpreting a summation an
       &= \underline{\hspace{5in}}.
   \end{align*}
 \end{example}
-\faComment{} Assume \(a\) is a constant. Do \(\sum_{i=1}^{3}f\left(a + \frac{i}{2}\right)\) and \(\sum_{i=0}^{2}f\left(a + \frac{i+1}{2}\right)\) represent different objects? 
 
-\blanklines{3}
-
-\clearpage
-When we try to express a sum using the Sigma notation, we need to remember that the index of summation, say \(i\), \hlwarn{must be an integer and increases by exactly \(1\)}. Look for a pattern of change consistent across the summands and express such pattern as a multiple of \(i\).  Lastly, choose the smallest (or the largest) term in a sum to be the first term in the Sigma notation and express such first term using \(i\).
-\blanklines{10}
+When we need to express a sum using the Sigma notation, remember that the index of summation, say \(i\), \hlwarn{must be an integer and increases by exactly \(1\)}. Look for a pattern of change across the summands and express such pattern as a multiple of \(i\).
 
 \begin{example}
   Express the following sum using the Sigma notation. There are infinitely many correct expressions. Check your answer by asking a neighbour to expand your sum.
 
-  \blanklines{2}
   \[
     A = \frac{9}{2} + 3 + \frac{3}{2} + 6 = \hspace{3in}
   \]
   \blanklines{10}
 \end{example}
+\clearpage
 
-\begin{example}
-  Express the following sum using the Sigma notation. 
+\begin{exercise}
+  Express the total area \(A\) of the rectangles shown below using Sigma notation. The height of each rectangle is labelled on their top edge. The width of each rectangle is \(1/2\).
 
+  \blanklines{4}
+  \begin{center}
+    \includestandalone{../standalones/plot_rectangles}
+  \end{center}
+
+  \blanklines{20}
+\end{exercise}
+
+\begin{exercise}
+  Express the following sum \(A\) using the Sigma notation. 
   \[
-    A = \frac{1}{2} \bigg( -\frac{3}{2} \bigg)^{2} + \frac{1}{2} \bigg( -1 \bigg)^{2} + \frac{1}{2} \bigg( -\frac{1}{2} \bigg)^{2} + \frac{1}{2} \bigg( 0 \bigg)^{2} + \frac{1}{2} \bigg( \frac{1}{2} \bigg)^{2} + \frac{1}{2} \bigg( 1 \bigg)^{2}
+    A =  \bigg( -\frac{1}{3} \bigg)^{2} +  \bigg( 0 \bigg)^{2} +  \bigg( \frac{1}{3} \bigg)^{2} +  \bigg( \frac{2}{3} \bigg)^{2} +  \bigg( 1 \bigg)^{2} + \left( \frac{4}{3} \right)^{2} + \left( \frac{5}{3} \right)^{2}.
   \]
 
   \blanklines{10}
-\end{example}
-\vfill
+\end{exercise}
+\clearpage
 
 \clearpage
 \begin{thm}
@@ -73,29 +78,15 @@ When we try to express a sum using the Sigma notation, we need to remember that 
   \textbook{Rule: Properties of Sigma Notation, page 509}
 \end{thm}
 
-To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition (``get rid of the Sigma notation'').  These formulas are useful and \hlwarn{examinable}.
+To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition.  The formulas in Equation~\eqref{formula:summations} are useful and examinable.
 \begin{equation} \label{formula:summations}
   \sum_{i=1}^{n} i = {\color{main} \frac{n(n+1)}{2}}, \qquad \sum_{i=1}^{n} i^{2} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{2n+1}{3}, \qquad \sum_{i=1}^{n} i^{3} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{n(n+1)}{2}.
 \end{equation}
 
-\blanklines{5}
-
 \begin{example}
-  Simplify \(\sum_{i=1}^{n}(2i + 1)\).
+  Simplify \(\sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\).
 
-  \blanklines{5}
-\end{example}
-\clearpage
-
-\begin{example}[Expressing an area using the Sigma notation]
-  Express the \hlmain{total area \(A\)} of the rectangles shown below in Sigma notation. The height of each rectangle is labelled on their top edge. The width of each rectangle is \(1/2\).
-
-  \blanklines{4}
-  \begin{center}
-    \includestandalone{../standalones/plot_rectangles}
-  \end{center}
-
-  \blanklines{30}
+  \blanklines{15}
 \end{example}
 \clearpage
 
@@ -118,14 +109,6 @@ This ``reindexing'' formula is obtained by performing a change of variable \(j =
   \blanklines{15}
 \end{exercise}
 \clearpage
-
-Example~\ref{ex:limit-riemann} is an example of calculations when we evaluate definite integrals from their definitions. 
-
-\begin{exercise} \label{ex:limit-riemann}
-  Use one of the summation formulas on page~\pageref{formula:summations} on to evaluate \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\)
-
-  {\footnotesize Hint: The symbol \(n\) has two roles: It is a constant with respect to \(i\) inside the summation, but a variable outside the summation. Simplify the summation first and evaluate the resulting function in \(n\). Pretend \(n\) is a real-valued variable. The answer is \(1/3\).}
-\end{exercise}
 
 
 \end{document}

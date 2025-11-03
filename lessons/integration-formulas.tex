@@ -48,24 +48,26 @@ Every \hlmain{integration} formula comes from a \hlsupp{differentiation} formula
                  &+& (\text{constant})
   \end{array}
 \]
-{\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second formula \hlwarn{applies to the entire line} because \(x^{-1}\) cannot be the derivative of any power function. It is also \hlwarn{not true} that \(\textstyle \int x^{-1} \;dx = \frac{x^{-1 + 1}}{-1 + 1}\) (division by \(0\)). The integral \(\textstyle \int x^{-1} \;dx\) \emph{does} exist (see the third formula).}
 
-\textbf{Properties of integrals} (all three properties also work for definite integrals).
+{\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second formula \hlwarn{applies to the entire line} because \(x^{-1}\) is not the derivative of any power function.}
+
+\bigskip
+\textbf{Properties of integrals}. The first three properties also work for definite integrals.
 \begin{align*}
-  \int c f(x) \;dx 
-    &= c \int f(x) \;dx && \text{(constant multiple)}\\
+  \int (\text{constant}) f(x) \;dx 
+    &= (\text{constant}) \int f(x) \;dx && \text{(constant multiple)}\\
     \int f(x) + g(x) \;dx 
     &= \int f(x) \;dx + \int g(x) \;dx && \text{(sum)}\\
     \int f(x) - g(x) \;dx 
     &= \int f(x) \;dx - \int g(x) \;dx && \text{(difference)}
+    \intertext{\textbf{Additional properties of definite integrals only}.}
+  \int_{a}^{b} f(x) \;dx 
+  &= - \int_{b}^{a} f(x) \;dx 
+  &&\text{(flip)} \\
+  \int_{a}^{b} f(x) \;dx 
+  &= \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx 
+  &&\text{(split/join)}.
 \end{align*}
-
-\textbf{Additional properties of definite integrals only}.
-\[
-  \int_{a}^{b} f(x) \;dx = - \int_{b}^{a} f(x) \;dx 
-  \quad\text{and}\quad
-  \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx.
-\]
-For the last property, the number \(c\) can be any number, even outside \([a,b]\).
+For the ``split/join'' property, the number \(c\) can be any number, not limited to \([a,b]\).
 
 \end{document}

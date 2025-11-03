@@ -45,57 +45,32 @@ Let's make sense of the above definition.
   \textbook{Definition, page 487}
 \end{definition}
 
-The definition says if we have expressions for \(F(x)\) and \(f(x)\) and want to know if \(F(x) = \int f(x) \;dx\), then we must check two things:
-
-\blanklines{10}
-
-Let's make sure we can parse relevant notations. 
 \begin{example}
-  Which of the following is (or are) true statement(s).
-  \begin{enumerate}[label=(\alph*)]
-    \item \(\int e^{x} dx = e^{x}\).
-    \item \(\int e^{x} dx = e^{x} + C\).
-    \item \(\int e^{x} dx = e^{x} + 1 + C\).
-    \item \(\int e^{x} dx = e^{x} + 2C\).
-  \end{enumerate}
+  The definition allows us to evaluate simple integrals.
 
-  \blanklines{10}
+  \begin{multicols}{2}
+    \begin{enumerate}[itemsep={2cm}]
+      \item \(\int 0 \;dx = \phantom{\text{(any constant)} + C}  \)
+      \item \(\int e^{x}\;dx = \phantom{e^{x} + C}\)
+      \item \(\int 10 \;dx = \phantom{10x + C}\)
+      \item \(\int x^{5} \;dx = \)
+      \item \(\int x^{3} \;dx = \)
+      \item \(\int \frac{1}{\sqrt{x}} \;dx = \)
+      \item \(\int \sqrt{x} \;dx = \)
+      \item \(\int \sin(x) \;dx = \)
+      \item \(\int \cos(x) \;dx = \)
+      \item \(\int \frac{1}{1 + x^{2}} \;dx = \)
+      \item \(\int \sec^{2}(x) \;dx = \)
+      \item \(\int \tan(x)\sec(x) \;dx = \)
+    \end{enumerate}
+  \end{multicols}
+  
 \end{example}
-
-  % \begin{example}[Graphical relations among antiderivatives]
-  %   Suppose \(F(x)\) is \emph{an} antiderivative of a differentiable function \(f(x)\). The graph of \(F(x)\) is sketched below. 
-  %
-  %   Identify another antiderivative of \(f\). Is it \(G(x)\)? Is it \(H(x)\)?
-  %   \begin{center}
-  %     \begin{tikzpicture}
-  %       \begin{axis}[enlargelimits, grid=both, minor tick num=1, ymin=-3, ymax=2, xmin=-2, xmax=3]
-  %         \addplot[very thick, domain=-1:2, smooth, samples=100, main] {x*(x-2)*(x+1)};
-  %         \node[below, main] at (axis cs:-1,0) {\(F(x)\)};
-  %         \addplot[very thick, domain=-1:2, smooth, samples=100, supp, dotted] {x*(x-2)*(x+1) + 1};
-  %         \node[above, supp] at (axis cs:2,1) {\(G(x)\)};
-  %         \addplot[very thick, domain=-0:3, smooth, samples=100, blue, dashed] {(x-1)*(x-3)*(x)};
-  %         \node[above, blue] at (axis cs:3,0) {\(H(x)\)};
-  %       \end{axis}
-  %     \end{tikzpicture}
-  %   \end{center}
-  % \end{example}
-
-  % \begin{example}
-  %   Suppose \(F(x)\) and \(G(x)\) are antiderivatives of a function \(f(x)\) on an interval \(I\). Which of the following is/are true statement(s)?
-  %
-  %   \begin{enumerate}[label=(\alph*)]
-  %     \item \(F(x) = G(x)\) on \(I\).
-  %     \item \(F'(x) = G'(x)\) on \(I\).
-  %     \item \(\int F'(x) \;dx = \int G'(x) \;dx\) on \(I\).
-  %     \item \(F'(x) = f(x)\) on \(I\).
-  %     \item \(G'(x) = f(x)\) on \(I\).
-  %   \end{enumerate}
-  % \end{example}
-
 \clearpage
-Many property of indefinite integrals comes \emph{directly} from properties of derivatives.
 
-\begin{mdframed}[style=withref-compact]
+Algebraic properties of integrals break up complex integrals into simple ones.
+
+\begin{thm}
   \begin{align*}
     \int c f(x) \;dx 
     &= c \int f(x) \;dx && \text{(constant multiple)}\\
@@ -106,19 +81,38 @@ Many property of indefinite integrals comes \emph{directly} from properties of d
   \end{align*}
 
   \textbook{Theorem~4.16, page 491}
-\end{mdframed}
+\end{thm}
 
 \begin{example}
-  Suppose \(f(x) = \sin(x) - \frac{1}{x} + \sec^{2}(\pi/4)\). Evaluate \(\int f(x) \;dx\). 
+  Evaluate \(\int \sin(x) - \sec^{2}(\pi/4) \;dx\). 
 
-  Suppose \(F'(x) = f(x)\) and \(F(1) = 3\). Find an explicit expression for \(F(x)\).
-
-  \blanklines{27}
+  \blanklines{5}
 \end{example}
 
-\hlmain{Insights}. The notions of antiderivatives and indefinite integrals is literally just a fancy names and not much else. ``Evaluate \(\textstyle \int f(x) \;dx\)'' means ``find the most general antiderivative of \(f(x)\).'' How do we do that? We find \emph{an} antiderivative of \(f(x)\) by \hlmain{recognizing derivatives} and then add ``\(+ C\)'' at the end.
+\begin{exercise}
+  Evaluate \(\int (x-1)(x+2) \;dx\).
 
-Recognizing derivatives typically requires a change of thinking pattern. Instead of applying differentiation rules, we need to read differentiation formulas \emph{backwards} and ask ``is a given \(f(x)\) the derivative of something I know?'' Adapt your thinking as quickly as you can because this skill is essential when we learn to use the substitution rule in about two weeks.
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Suppose \(F'(x) = (x-1)(x+2)\) and \(F(-1) = 0\).  Find \(F(x)\).
+
+  \blanklines{10}
+\end{exercise}
+
+
 
 \clearpage
+\begin{exercise}
+  Find the function \(F(x)\) satisfying \(F'(x) = \frac{2}{\sqrt{1 - x^{2}}}\) and \(F(0) = 2\).
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Find the function \(F(x)\) satisfying \(F'(x) = \sin(x) + \frac{x^{2}}{3}\) and \(F(0) = 0\).
+
+  \blanklines{15}
+\end{exercise}
 \end{document}
