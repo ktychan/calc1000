@@ -13,44 +13,58 @@ The geometric idea of \hlmain{area} is very flexible and widely applicable in sc
     \blanklines{5}
 \end{enumerate}
 
-It seems desirable to ask: What if \(v(t)\) or \(r(t)\) not a constant function? Can we still figure out the displacement and the amount of medicine administered?
+It is scientifically important to ask: What if \(v(t)\) or \(r(t)\) are not constant functions? Can we still figure out the displacement and the amount of medicine administered?
+
+\blanklines{10}
 
 Both scenarios, and countlessly more, are asking the same fundamental \hlmain{geometric} question:
 
 \blanklines{5}
 
-
-Before we look for an exact answer, consider a practical idea: Approximation. \\
+We will do so using approximation:
 \url{https://www.geogebra.org/calculator/bsdvzx3f}
-
-\blanklines{20}
 \clearpage
 
 It turns out that approximation is the theoretically advantageous starting point for finding an exact answer: If we approximate an area using \underline{\hspace{2in}} many rectangles, then we get the exact area.
 
-The following definition describes a major concept in integration called the Riemann sum. Make sure you can \hlmain{recognize} a Riemann sum and use its geometric interpretation to approximate area under the curve.
+Definition~\ref{def:riemann-sum} describes a major concept in integration called the Riemann sum.
 
-\begin{definition}[Riemann sum]
-  Let \(f(x)\) be a \emph{continuous} and nonnegative function on interval \([a,b]\). \hlmain{The area under the curve \(y = f(x)\) on \([a,b]\)} is defined to be
-
-  \begin{equation} \label{eq:area-under-the-curve} \huge
-    \lim_{{\color{main}n} \to \infty} \sum_{{\color{main}i}=1}^{{\color{main}n}} f(x_{{\color{main}i}}) \; {\color{supp} \Delta x}.
+\begin{definition} \label{def:riemann-sum}
+  The \hlmain{Riemann sum} for a function \(f(x)\) defined over an interval \([a,b]\) is 
+  \begin{equation} \label{eq:area-under-the-curve} \Huge
+    \lim_{{\color{main}n} \to \infty} \sum_{{\color{main}i}=1}^{{\color{main}n}} f(x_{{\color{main}i}}^{*}) \; {\color{supp} \Delta x}.
   \end{equation}
+
+  If \(f(x)\) is \emph{continuous} and non-negative on \([a,b]\), then \hlmain{the area under the curve \(y = f(x)\) on \([a,b]\)} is defined to be the value of the corresponding Riemann sum.
 
   \textbook{The definitions on page 519}
 \end{definition}
 
-\blanklines{30}
+\blanklines{10}
 
-Side note (not examinable). Continuity is important because there are strange discontinuous and nonnegative functions for which the limit in Equation~\eqref{eq:area-under-the-curve} does not exist.  Such a function \(f\) is defined by \(f(x) = 1\) if \(x\) is rational but \(f(x) = 0\) if \(x\) is irrational. 
+\begin{enumerate}
+  \item \(n\) is a constant inside the summation.
+  \item The interval \([a,b]\) is divided into sub-interval by points \(x_{0}, x_{1}, x_{2}, \dots, x_{n}\).
+  \item \(n\) represents the number of sub-interval of the interval \([a,b]\).
+  \item \(\Delta x\) is a single symbol and means \(\Delta x = \frac{b-a}{n}\). 
+  \item \(\Delta x\) represents the width of each sub-interval.
+  \item The \(i\)-th interval is \([x_{i-1}, x_{i}]\).
+  \item \(x_{i}^{*}\) is a \hlmain{choice} inside the \(i\)th sub-interval.
+\end{enumerate}
+
+\begin{example}
+  Express the area under the curve \(y = x^{2}\) over \([0,1]\) as a Riemann sum.
+
+  \blanklines{10}
+\end{example}
 
 \clearpage
 Continuity guarantees the choice of \(x_{i}^{*}\) does not matter at all. We are free to choose anything we want from \([x_{i-1}, x_{i}]\) to be our \(x_{i}^{*}\). From a practical point of view, it means that as long as we approximate with enough rectangles we will eventually get more and more accurate answers, regardless of how we choose \(x_{i}^{*}\) (could just be a random choice).
 
 The freedom to choose \(x_{i}^{*}\) give us useful approximation techniques. Here are five simple methods.
 \begin{enumerate}
-  \item \textbf{Left-endpoint approximation}: Choose \(x_{i}^{*}\) to be the left endpoint of the \(i\)-th interval.
-  \item \textbf{Right-endpoint approximation}: Choose \(x_{i}^{*}\) to be the right endpoint of the \(i\)-th interval.
+  \item \textbf{Left-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i-1}\) the left endpoint of the \(i\)-th interval.
+  \item \textbf{Right-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i}\) the right endpoint of the \(i\)-th interval.
   \item \textbf{Mid-endpoint approximation}: Choose \(x_{i}^{*}\) to be the midpoint of the \(i\)-th interval.
   \item \textbf{Upper sum}: Choose \(x_{i}^{*}\) to be the number in the \(i\)-th interval at which \(f(x)\) is maximized.
   \item \textbf{Lower sum}: Choose \(x_{i}^{*}\) to be the number in the \(i\)-th interval at which \(f(x)\) is minimized.
@@ -58,7 +72,7 @@ The freedom to choose \(x_{i}^{*}\) give us useful approximation techniques. Her
 For the upper and lower sums, the Extreme Value Theorem guarantees such choices exist.
 
 \begin{example}
-  For the function \(f(x)\) below, find and sketch the left-endpoint, right-endpoint and midpoint approximations using \(3\) subintervals. Find \(\Delta x\) and subintervals and write the corresponding Riemann sums in Sigma notation.
+  For the function \(f(x)\) below, sketch the left-endpoint, right-endpoint and midpoint approximations using \(3\) subintervals. 
 
   \hfill{}
   \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
@@ -85,16 +99,21 @@ For the upper and lower sums, the Extreme Value Theorem guarantees such choices 
 \end{exercise}
 
 \begin{exercise}
-  In Sigma notation, write down the right-endpoint approximation for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-2, 5]\) using \(n = 20\) subintervals.
+  In Sigma notation, write down the right-endpoint approximation for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-2, 0]\) using \(n = 5\) subintervals.
 
   \blanklines{30}
 \end{exercise}
 \clearpage
 
-\begin{example}
-  Use the definition, i.e., Equation~\eqref{eq:area-under-the-curve}, to find the area under the curve \(y = x^{2}\) over the interval \([0,1]\).
 
-  \blanklines{50}
-\end{example}
+The freedom to choose \(x_{i}^{*}\) is important for approximation. In practice, \hlmain{choosing \(x_{i}^{*}\) to be \(x_{i}\) (the right endpoints) always give us notationally simpler expressions} for finding area under the curve using definition.
+
+\begin{exercise}
+  Use the definition to find the area under the curve \(y = x^{2}\) over the interval \([0,1]\).
+
+  As a reminder, the Riemann sum as defined in Equation~\eqref{eq:area-under-the-curve} is \(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\).
+
+  \blanklines{40}
+\end{exercise}
 
 \end{document}

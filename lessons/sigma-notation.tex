@@ -1,15 +1,13 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Sigma notation}
-The Sigma notation is a compact way to express the sum of a bunch of numbers and appears frequently in science. 
+The Sigma notation is a compact way to express the sum of a bunch of numbers and is mainly used in \thiscourse{} to express and manipulate Riemann sums (See Definition~\ref{def:riemann-sum}).
 
 \blanklines{3}
 
 {\huge \[ \sum_{i=m}^{n} a_{i} = \hspace{3in}\]}
 
 \blanklines{3}
-
-There are two common tasks involving Sigma notation: Interpreting a summation and using it to express a summation.
 
 \begin{example} \label{ex:sigma-notation-read)}
   Write the following summations in expanded form.
@@ -21,10 +19,10 @@ There are two common tasks involving Sigma notation: Interpreting a summation an
   \end{align*}
 \end{example}
 
-When we need to express a sum using the Sigma notation, remember that the index of summation, say \(i\), \hlwarn{must be an integer and increases by exactly \(1\)}. Look for a pattern of change across the summands and express such pattern as a multiple of \(i\).
+When we need to express a sum using Sigma notation, remember that the index of summation, say \(i\), \hlwarn{must be an integer and increases by exactly \(1\)}. 
 
 \begin{example}
-  Express the following sum using the Sigma notation. There are infinitely many correct expressions. Check your answer by asking a neighbour to expand your sum.
+  Express the following sum using Sigma notation. Look for a pattern of change across the summands and express such pattern as a multiple of \(i\).
 
   \[
     A = \frac{9}{2} + 3 + \frac{3}{2} + 6 = \hspace{3in}
@@ -45,7 +43,7 @@ When we need to express a sum using the Sigma notation, remember that the index 
 \end{exercise}
 
 \begin{exercise}
-  Express the following sum \(A\) using the Sigma notation. 
+  Express the following sum \(A\) using Sigma notation. 
   \[
     A =  \bigg( -\frac{1}{3} \bigg)^{2} +  \bigg( 0 \bigg)^{2} +  \bigg( \frac{1}{3} \bigg)^{2} +  \bigg( \frac{2}{3} \bigg)^{2} +  \bigg( 1 \bigg)^{2} + \left( \frac{4}{3} \right)^{2} + \left( \frac{5}{3} \right)^{2}.
   \]
@@ -90,21 +88,22 @@ To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notati
 \end{example}
 \clearpage
 
-Sometimes, we have to manipulate the Sigma notation before applying summation formulas.
-\begin{equation} \label{eq:summation-reindex}
-  \sum_{i=m}^{n} a_{i} = \sum_{j = 1}^{n - m + 1} a_{m+j-1}.
-\end{equation}
-This ``reindexing'' formula is obtained by performing a change of variable \(j = i - m + 1\).
+% Sometimes, we have to manipulate Sigma notation before applying summation formulas.
+% \begin{equation} \label{eq:summation-reindex}
+%   \sum_{i=m}^{n} a_{i} = \sum_{j = 1}^{n - m + 1} a_{m+j-1}.
+% \end{equation}
+% This ``reindexing'' formula is obtained by performing a change of variable \(j = i - m + 1\).
 
-\blanklines{5}
+% \blanklines{5}
 \begin{exercise}
-  Rewrite \(\sum_{i=10}^{100} i^{3}\) so that the index of the summation starts at \(1\).
+  Evaluate \(\sum_{i=10}^{100} i^{3}\).  
+  \hfill {\footnotesize Hint: Use the split/merge property.}
 
   \blanklines{15}
 \end{exercise}
 
 \begin{exercise} 
-  Simplify \(\sum_{i=50}^{300} 6 i^{2}\).  {\footnotesize Hint: Apply one of the summations formulas but not directly.}
+  Evaluate \(\sum_{i=50}^{300} 6 i^{2}\).
 
   \blanklines{15}
 \end{exercise}
