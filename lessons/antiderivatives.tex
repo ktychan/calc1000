@@ -26,35 +26,40 @@ Let's make sense of the above definition.
   \end{enumerate}
 \end{example}
 
-\begin{exercise}
-  Is \(\ln(x)\) an antiderivative of \(1/x\)? Justify your answer using the definition above.
+\begin{example}
+  Suppose \(f'(x) = x^{3}\) and \(f(0) = 1\). Find \(f(x)\).
 
-  \blanklines{10}
-\end{exercise}
+  \blanklines{15}
+\end{example}
+% \begin{exercise}
+%   Is \(\ln(x)\) an antiderivative of \(1/x\)? Justify your answer using the definition above.
+%
+%   \blanklines{10}
+% \end{exercise}
 
-\begin{exercise}
-  Consider \(f(x) = 3x^{2}\).
-
-  \begin{enumerate}
-    \item Find an antiderivative of \(3x^{2}\) using the definition.
-    \item List infinitely many antiderivatives of \(3x^{2}\).
-  \end{enumerate}
-  \blanklines{10}
-\end{exercise}
+% \begin{exercise}
+%   Consider \(f(x) = 3x^{2}\).
+%
+%   \begin{enumerate}
+%     \item Find an antiderivative of \(3x^{2}\) using the definition.
+%     \item List infinitely many antiderivatives of \(3x^{2}\).
+%   \end{enumerate}
+%   \blanklines{10}
+% \end{exercise}
 \clearpage
 
-\begin{definition}
-  The \hlmain{indefinite integral} of \(f\) is the most general antiderivative of \(f(x)\), denoted by 
+\begin{definition} \label{def:indefinite-integral}
+The \hlmain{indefinite integral} of \(f\) is a single expression representing all antiderivatives of \(f(x)\) and is denoted by \({\color{main} \int f(x) \;dx}\). If \(F(x)\) is \emph{an} antiderivative of \(f(x)\), then 
   \[
-    \int f(x) \;dx.
-  \]
-  If \(F\) is \emph{an} antiderivative of \(f\), then we get an explicit expression \(\int f(x) \;dx = F(x) + C\) where \(C\) represents a general but unknown constant.
+    \int f(x) \;dx = F(x) + (\text{constant}),
+  \] 
+  or more conventionally, \( \int f(x) \;dx = F(x) + C\) where \(C\) represents a general constant.
 
   \textbook{Definition, page 487}
 \end{definition}
 
 \begin{example}
-  The definition allows us to evaluate simple integrals.
+  Definition~\ref{def:indefinite-integral} help us evaluate \emph{simple} integrals by recognizing that the integrand is the derivative of \emph{something}. 
 
   \begin{multicols}{2}
     \begin{enumerate}[itemsep={2cm}]
@@ -62,7 +67,7 @@ Let's make sense of the above definition.
       \item \(\int e^{x}\;dx = \phantom{e^{x} + C}\)
       \item \(\int 10 \;dx = \phantom{10x + C}\)
       \item \(\int \sin(x) \;dx = \)
-      \item \(\int x^{3} \;dx = \)
+      \item \(\int 4x^{3} \;dx = \)
       \item \(\int x^{5} \;dx = \)
       \item \(\int \sqrt{x} \;dx = \)
       \item \(\int \frac{1}{\sqrt{x}} \;dx = \)
@@ -113,14 +118,14 @@ Algebraic properties of integrals break up complex integrals into simple ones.
 
 \clearpage
 \begin{exercise}
-  Find the function \(F(x)\) satisfying \(F'(x) = \frac{2}{\sqrt{1 - x^{2}}}\) and \(F(0) = 2\).
+  Suppose \(F'(x) = \frac{2}{\sqrt{1 - x^{2}}}\) and \(F(0) = 2\).  Find \(F(x)\).
 
-  \blanklines{15}
+  \blanklines{20}
 \end{exercise}
 
 \begin{exercise}
-  Find the function \(F(x)\) satisfying \(F'(x) = \sin(x) + \frac{x^{2}}{3}\) and \(F(0) = 0\).
+  Find the (specific) antiderivative for \(\sin(x) + \frac{x^{2}}{3}\) so that the graph of the antiderivative passes through the origin.
 
-  \blanklines{15}
+  \blanklines{20}
 \end{exercise}
 \end{document}

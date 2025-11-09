@@ -63,16 +63,16 @@ Continuity guarantees the choice of \(x_{i}^{*}\) does not matter at all. We are
 
 The freedom to choose \(x_{i}^{*}\) give us useful approximation techniques. Here are five simple methods.
 \begin{enumerate}
-  \item \textbf{Left-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i-1}\) the left endpoint of the \(i\)-th interval.
-  \item \textbf{Right-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i}\) the right endpoint of the \(i\)-th interval.
-  \item \textbf{Mid-endpoint approximation}: Choose \(x_{i}^{*}\) to be the midpoint of the \(i\)-th interval.
+  \item \textbf{\(L_{n}\) Left-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i-1}\) the left endpoint of the \(i\)-th interval.
+  \item \textbf{\(R_{n}\) Right-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i}\) the right endpoint of the \(i\)-th interval.
+  \item \textbf{\(M_{n}\) Mid-endpoint approximation}: Choose \(x_{i}^{*}\) to be the midpoint of the \(i\)-th interval.
   \item \textbf{Upper sum}: Choose \(x_{i}^{*}\) to be the number in the \(i\)-th interval at which \(f(x)\) is maximized.
   \item \textbf{Lower sum}: Choose \(x_{i}^{*}\) to be the number in the \(i\)-th interval at which \(f(x)\) is minimized.
 \end{enumerate}
 For the upper and lower sums, the Extreme Value Theorem guarantees such choices exist.
 
 \begin{example}
-  For the function \(f(x)\) below, sketch the left-endpoint, right-endpoint and midpoint approximations using \(3\) subintervals. 
+  For the function \(f(x)\) below, sketch the left-endpoint, right-endpoint and midpoint approximations using \(3\) equal-width rectangles.
 
   \hfill{}
   \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
@@ -82,12 +82,18 @@ For the upper and lower sums, the Extreme Value Theorem guarantees such choices 
   \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
   \hfill{}
 
-  \blanklines{20}
+  \blanklines{7}
+\end{example}
+
+\begin{example}
+  Calculate the left- and right-endpoint approximations of \(f(x) = x^{2}\) over \([0, 3]\) using \(3\) equal-width rectangles, i.e., calculate \(L_{3}\) and \(R_{3}\).
+
+  \blanklines{10}
 \end{example}
 \clearpage
 
 \begin{exercise}
-  For the function \(f(x)\) below, sketch the upper and lower sums using \(3\) subintervals.
+  For the function \(f(x)\) below, sketch the upper and lower sums using \(3\) equal-width rectangles.
 
   \hfill{}
   \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
@@ -99,21 +105,21 @@ For the upper and lower sums, the Extreme Value Theorem guarantees such choices 
 \end{exercise}
 
 \begin{exercise}
-  In Sigma notation, write down the right-endpoint approximation for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-2, 0]\) using \(n = 5\) subintervals.
+  Write down the expression for the left- and right-endpoint approximations for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-4, -2]\) using \(n = 4\) equal-width rectangles. In other words, write down the expressions for \(L_{4}\) and \(R_{4}\) without performing the final additions.
 
   \blanklines{30}
 \end{exercise}
 \clearpage
 
 
-The freedom to choose \(x_{i}^{*}\) is important for approximation. In practice, \hlmain{choosing \(x_{i}^{*}\) to be \(x_{i}\) (the right endpoints) always give us notationally simpler expressions} for finding area under the curve using definition.
-
-\begin{exercise}
-  Use the definition to find the area under the curve \(y = x^{2}\) over the interval \([0,1]\).
-
-  As a reminder, the Riemann sum as defined in Equation~\eqref{eq:area-under-the-curve} is \(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\).
-
-  \blanklines{40}
-\end{exercise}
+% The freedom to choose \(x_{i}^{*}\) is important for approximation. In practice, \hlmain{choosing \(x_{i}^{*}\) to be \(x_{i}\) (the right endpoints) always give us notationally simpler expressions} for finding area under the curve using definition.
+%
+% \begin{exercise}
+%   Use the definition to find the area under the curve \(y = x^{2}\) over the interval \([0,1]\).
+%
+%   As a reminder, the Riemann sum as defined in Equation~\eqref{eq:area-under-the-curve} is \(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\).
+%
+%   \blanklines{40}
+% \end{exercise}
 
 \end{document}
