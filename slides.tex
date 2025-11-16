@@ -592,7 +592,6 @@
 
 \begin{frame}
   \frametitle{Optimization problem tip}
-
   If you have \(2\) variables, then you need \(2\) equations to eliminate one of them.
 
   One of the equation involves the objective variable. 
@@ -600,17 +599,38 @@
   So look for a relation among the two variables without involving the objective variable.
 \end{frame}
 
+\begin{frame}
+  \frametitle{L'H\^opital's Rule}
+
+  If \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate of type \(0/0\) or \(\infty/\infty\), \pause then 
+  \[
+    \lim_{x \to a} \frac{f(x)}{g(x)} = \pause \lim_{x \to a} \frac{f'(x)}{g'(x)}. \hspace{1in} \text{\onslide<3->{(l'H\^opital's rule)}}
+  \]
+
+  Manipulate the other indeterminate forms to \(0/0\) or \(\infty/\infty\) \emph{before} applying l'H\^opital's rule.
+\end{frame}
+
 \section{Integration}
 
 \begin{frame}
   \frametitle{Antiderivatives}
 
-  An (not the) antiderivative of \(f(x)\) is function \(F(x)\) satisfying 
-  \[
-    F'(x) = f(x).
-  \]
+  If \({\color{supp} f(x)}\) and \({\color{main} F(x)}\) are related by 
+  \(\frac{d}{dx} \hlmain{F(x)} = \hlsupp{f(x)}\) for every \(x\) in the domain of \(f(x)\),
+  then we say \({\color{main} F(x)}\) is \emph{an} (not the) antiderivative of \({\color{supp} f(x)}\).
 
-  All (not an) antiderivatives of \(f(x)\) has the form \[\underbrace{F(x)}_{\text{any one antiderivative}} + C.\]
+  \pause 
+  Examples. 
+  \begin{itemize}
+    \item Because \(\frac{d}{dx} \hlmain{(x^{2})} = \hlsupp{2x}\), we say \pause \({\color{main} x^{2}}\) is \emph{an} antiderivative of \({\color{supp} 2x}\).
+    \item \pause Because \(\frac{d}{dx} \hlmain{(x^{2} + 3)} = \hlsupp{2x}\), we say \pause \({\color{main} x^{2}} + 3\) is also \emph{an} antiderivative of \({\color{supp} 2x}\).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Indefinite Integrals}
+
+  All antiderivatives of \(f(x)\) has the form \[\underbrace{F(x)}_{\text{any one antiderivative}} + C.\]
 \end{frame}
 
 \begin{frame}

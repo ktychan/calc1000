@@ -947,34 +947,6 @@
   ONLY apply l'H\^opital's rule to indeterminate forms of \(0/0\) or \(\infty/\infty\) and nothing else.
 \end{poll}
 
-\section{Sigma Notations}
-
-\begin{poll}
-  Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
-
-  \begin{enumerate} 
-    \item The two summations are equal.
-    \item The two summations are not equal.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Assume \(m < n\), both positive integers. Is it true that 
-  \[
-    \sum_{i=1}^{m} a_{i} + \sum_{i=1}^{n} b_{i} = \sum_{i=1}^{n} (a_{i}+ b_{i})?
-  \]
-
-  \begin{enumerate} 
-    \item The equality is true.
-    \item The equality is not always true.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
 
 \section{Antiderivatives}
 
@@ -1016,6 +988,87 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
+\end{poll}
+
+\begin{poll}[c]
+  Evaluate \(\int (x-1)(x+2) \;dx\). What seems like a good starting step?
+\end{poll}
+
+\begin{poll}
+  Evaluate \(\int (x-1)(x+2) \;dx\). What seems like a good starting step?
+
+  \begin{enumerate}
+    \item Try guess and check.
+    \item Expand \((x-1)(x+2)\).
+    \item Differentiate \((x-1)(x+2)\).
+    \item
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\section{Sigma Notations}
+
+\begin{poll}
+  Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
+
+  \begin{enumerate} 
+    \item The two summations are equal.
+    \item The two summations are not equal.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Assume \(m < n\), both positive integers. Is it true that 
+  \[
+    \sum_{i=1}^{m} a_{i} + \sum_{i=1}^{n} b_{i} = \sum_{i=1}^{n} (a_{i}+ b_{i})?
+  \]
+
+  \begin{enumerate} 
+    \item The equality is true.
+    \item The equality is not always true.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  A positive function \(f(x)\) is defined over \([-3, 3]\). At what \(x\)-values do we sample \(f(x)\) to approximate its area under the curve using the left-endpoint approximation with \(3\) equal-width rectangles? 
+
+  \begin{multicols}{5}
+    \begin{enumerate}
+      \item \(-3\)
+      \item \(-1\)
+      \item \(0\)
+      \item \(1\)
+      \item \(3\)
+    \end{enumerate}
+  \end{multicols}
+
+  \pause
+  \bigskip
+  \begin{center}
+    \begin{tikzpicture}[x={1.75cm}]
+      \draw (-4, 0) -- (4,0);
+      \draw[ultra thick] (-3, 0) -- (3,0);
+      \draw (-4, 0.1) -- (-4, -0.1) node[below] {\(-4\)};
+      \draw (-3, 0.1) -- (-3, -0.1) node[below] {\(-3\)};
+      \draw (-2, 0.1) -- (-2, -0.1) node[below] {\(-2\)};
+      \draw (-1, 0.1) -- (-1, -0.1) node[below] {\(-1\)};
+      \draw ( 0, 0.1) -- ( 0, -0.1) node[below] {\(0\)};
+      \draw ( 1, 0.1) -- ( 1, -0.1) node[below] {\(1\)};
+      \draw ( 2, 0.1) -- ( 2, -0.1) node[below] {\(2\)};
+      \draw ( 3, 0.1) -- ( 3, -0.1) node[below] {\(3\)};
+      \draw ( 4, 0.1) -- ( 4, -0.1) node[below] {\(4\)};
+      \node[above] at (-3, 0.1) {\(x_{0}\)};
+      \node[above] at (-1, 0.1) {\(x_{1}\)};
+      \node[above] at ( 1, 0.1) {\(x_{2}\)};
+      \node[above] at ( 3, 0.1) {\(x_{3}\)};
+    \end{tikzpicture}
+  \end{center}
 \end{poll}
 
 \section{Integration formulas}
@@ -1373,5 +1426,9 @@
     \item At most \(5\) minutes.
     \item I prefer not to answer.
   \end{enumerate}
+\end{poll}
+
+\begin{poll}[c]
+  How could I adjust my teaching to better support your learning?
 \end{poll}
 \end{document}

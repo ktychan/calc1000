@@ -38,24 +38,44 @@ In a more compact notation, FTC part 1 can be restated as
 \clearpage
 
 \begin{example}
-  Differentiate \(\int_{\sqrt{x}}^{-5} \arctan(t) \;dt\).
+  Differentiate \(\int_{\sqrt{x}}^{-5} \tan(t) \;dt\).
 
-  \blanklines{5}
+  \blanklines{15}
 \end{example}
 
 \begin{example} \label{ex:ftc-one}
   Let \(F(x) = \int_{x^{3}}^{x^{2} + 1} e^{t^{2}} \;dt\). Find \(F'(x)\).
+  %
+  % Which of the following expression is a good start step?
+  % \begin{enumerate}[label=(\alph*)]
+  %   \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+  %   \item Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+  %   \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
+  %   \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
+  %   \item None of the above.
+  % \end{enumerate}
 
-  Which of the following expression(s) is/are good start points of our solutions?
-  \begin{enumerate}[label=(\alph*)]
-    \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
-    \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item None of the above.
-  \end{enumerate}
-
-  \blanklines{20}
+  \blanklines{35}
 \end{example}
+\clearpage
 
+\begin{exercise}[Final exam, Fall 2024]
+  Define \(G(x) = \int_{-1}^{\sqrt{x}} 2t e^{t^{2}} \;dt\) for all \(x > 0\).  In the box below, write down an expression for \(G'(x)\). Perform all necessary differentiation and integraiton.
+
+  You do not need to simplify the final answer.
+
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (4in,2); 
+    \node[right] at (0.5, 0.5) {\(G'(x) = \) \underline{\hspace{3in}}};
+  \end{tikzpicture}
+
+  \blanklines{10}
+\end{exercise}
+
+\blanklines{10}
+\begin{exercise}
+  Find the second derivative of \(\int_{2x}^{\ln(x)} t \sin(2t) \;dt\).
+
+  \blanklines{15}
+\end{exercise}
 \end{document}
