@@ -18,23 +18,14 @@ We have seen throughout the course that \hlmain{a change of variable} can \emph{
   \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
 \end{thm}
 
-The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule. To use the substitution rule, we need to 
-\begin{enumerate}
-  \item \underline{\hspace{1in}} a substitution \(u\) as a function of \(x\),
-  \item apply Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite} to transform the given integral, 
-  \item evaluating the new integral in \(u\), and lastly
-  \item put back the original independent variable if we started with an \emph{indefinite} integral.
-\end{enumerate}
-
-\faStar{} It requires a ton of practice to get a feel for choosing a substitution.
+The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule. 
+Once a substitution \(u\) is chosen, substitute \(dx = \frac{du}{u'}\), simplify and change the leftover into a function of \(u\). Update the bounds for definite integrals. 
 
 \medskip
-Let's make sure we can apply Equation~\eqref{eq:sub-definite} properly.  
-The formula \(dx = \frac{du}{u'}\) is useful.
 \begin{example} 
-  Evaluate \(\int_{1}^{2} x e^{x^{2}} \;dx\) by substituting \(u = x^{2}\).
+  Evaluate \(\int_{1}^{2} x e^{x^{2}} \;dx\).
 
-  \blanklines{15}
+  \blanklines{25}
 \end{example}
 \clearpage
 
@@ -49,7 +40,7 @@ The formula \(dx = \frac{du}{u'}\) is useful.
 \end{example}
 \clearpage
 
-Pay attention to how we choose the substitution. 
+Notice how the strategy on page~\pageref{ex:u-sub-1} is used here.
 \begin{exercise}
   Evaluate \(\int \sin(x) e^{\cos(x)} \;dx\).  
 
@@ -69,14 +60,14 @@ Pay attention to how we choose the substitution.
   \blanklines{20}
 \end{exercise}
 
-When there is no obvious choice for a substitution, try reorganizing the integrand first.
-\begin{exercise}
-  Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\). \hfill{}{The final answer is \(\ln(2)/2\).}
-
-  Hint: Rewrite \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\) and find a substitution \(u\). 
-
-  \blanklines{30}
-\end{exercise}
+% When there is no obvious choice for a substitution, try reorganizing the integrand first.
+% \begin{exercise}
+%   Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\). \hfill{}{The final answer is \(\ln(2)/2\).}
+%
+%   Hint: Rewrite \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\) and find a substitution \(u\). 
+%
+%   \blanklines{30}
+% \end{exercise}
 
 % In Example~\ref{ex:u-sub-1}, one of the many choices for \(u\) is guided by the composite function \(\sqrt{1 + x^{3}}\). Let's look at a variation where the previous strategy does not work. At a glance, Examples~\ref{ex:u-sub-1}~and~\ref{ex:u-sub-2} look very similar. However, they require different problem-solving ideas.
 %
