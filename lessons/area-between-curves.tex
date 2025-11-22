@@ -1,43 +1,39 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Area between curves}
-We return to the geometric interpretation of a definite integral to compute area between two curves.
+To calculate the area between two curves, \hlmain{use definite integrals as a language to describe the desired area and evaluate the resulting definite integral.} In such problems, \hlsupp{area means total area.}
+\begin{figure}[H]
+  \includestandalone[page=1]{../standalones/plot-area-between-curves}
+  % \includestandalone[page=2]{../standalones/plot-area-between-curves}
+  % \includestandalone[page=3]{../standalones/plot-area-between-curves}
+\end{figure}
 
-\begin{example}
-  Two curves are given in the plots below. 
-  \begin{figure}[H]
-    \centering
-    \includestandalone[page=1]{../standalones/plot-area-between-curves}
-    \hfill{}
-    \includestandalone[page=2]{../standalones/plot-area-between-curves}
-    \hfill{}
-    \includestandalone[page=3]{../standalones/plot-area-between-curves}
-  \end{figure}
+% \begin{example}
+%   Set up a definite integral representing the area of the region between two curves \hlmain{\(y = f(x)\)} and \hlsupp{\(y = g(x)\)} and between lines \(x = -2\) and \(x = 1\).
+%
+%   \blanklines{35}
+% \end{example}
 
-  Set up a definite integral representing the area of the region between two curves \hlmain{\(y = f(x)\)} and \hlsupp{\(y = g(x)\)} and between lines \(x = -2\) and \(x = 1\).
-
-  \blanklines{35}
-\end{example}
-
-What if two curves cross each other?
 \begin{example}
   Find the area bounded between \(\sin(x)\) and \(\cos(x)\) over the interval \([0, \pi]\).
 
   \includestandalone[page=4]{../standalones/plot-area-between-curves}
 
-  \blanklines{35}
+  \blanklines{25}
 \end{example}
 \clearpage
 
-What if the given curves are not functions? What if the horizontal bounds are not given?
+What if there is no sketch?
 \begin{example}
-  Find the area of the finite region enclosed by the curves \(y = x - 1\) and \(y^{2} = 2x + 6\).
+  Find the area of the region enclosed by the curves \(y = x^{2}\) and \(y = x^{3} - 2x\).
 
-    % how can we transform Example~2 to a simpler problem?
-    % talk about how to decide when to integrate with respect to y (vertical line test)
-  
-  \includestandalone[page=5]{../standalones/plot-area-between-curves}
-
-  \blanklines{35}
+  \blanklines{45}
 \end{example}
+\clearpage
+
+\begin{exercise}
+  Find the area of bounded by the graphs of \(-2x + 1\) and \(x^{2}\).
+
+  \blanklines{45}
+\end{exercise}
 \end{document}

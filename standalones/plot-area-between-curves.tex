@@ -42,11 +42,11 @@
     xmin={0}, xmax={pi+1/4},
     ymin={-1}, ymax={1},
     xtick={0, pi/2, pi},
-    xticklabels={\(0\), \(\frac{\pi}{2}\), \(\pi\)},
+    xticklabels={\(0\), , \(\pi\)},
     grid=none,
     ]
-    \addplot [very thick, domain=0:pi, main] {sin(x)} node[above right] {\color{main} \(\sin(x)\)};
-    \addplot [very thick, domain=0:pi, supp] {cos(x)} node[right] {\color{supp} \(\cos(x)\)};
+    \addplot [very thick, domain=0:pi] {sin(x)} node[above right] {\color{main} \(\sin(x)\)};
+    \addplot [very thick, domain=0:pi] {cos(x)} node[right] {\color{supp} \(\cos(x)\)};
   \end{axis}
 \end{tikzpicture}
 

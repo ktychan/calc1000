@@ -7,12 +7,12 @@ We have seen throughout the course that \hlmain{a change of variable} can \emph{
 \begin{thm}
   {If {\color{main} \(u = g(x)\)} is differentiable and \(f\) is continuous on the range of \(g\), then}
   \begin{equation} \label{eq:sub-definite}
-    \phantom{\int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{u(a)}^{u(b)} f({\color{main} u}) \;{\color{supp}du}.}
+    \int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{u(a)}^{u(b)} f({\color{main} u}) \;{\color{supp}du}.
   \end{equation}
 
   For indefinite integrals, simply do nothing for the bounds: 
   \begin{equation} \label{eq:sub-indefinite}
-    \phantom{\int f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int f(u) \;{\color{supp}du}}
+    \int f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int f(u) \;{\color{supp}du}.
   \end{equation}
 
   \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
@@ -20,11 +20,13 @@ We have seen throughout the course that \hlmain{a change of variable} can \emph{
 
 The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule. To use the substitution rule, we need to 
 \begin{enumerate}
-  \item \underline{\hspace{1in}} a substitution $u$ as a function of $x$, 
+  \item \underline{\hspace{1in}} a substitution \(u\) as a function of \(x\),
   \item apply Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite} to transform the given integral, 
-  \item evaluating the new integral in $u$, and lastly
+  \item evaluating the new integral in \(u\), and lastly
   \item put back the original independent variable if we started with an \emph{indefinite} integral.
 \end{enumerate}
+
+\faStar{} It requires a ton of practice to get a feel for choosing a substitution.
 
 \medskip
 Let's make sure we can apply Equation~\eqref{eq:sub-definite} properly.  
@@ -36,9 +38,10 @@ The formula \(dx = \frac{du}{u'}\) is useful.
 \end{example}
 \clearpage
 
-In general, we need to choose a substitution \(\color{main} u = (\text{something})\) before applying Equation~\eqref{eq:sub-definite}~or~\eqref{eq:sub-indefinite}.
+\textbf{Strategy} for choosing \(u\). \hlattn{Recognize} a \hlmain{pair} of functions (almost) related by differentiation and choose \(u\) to be the antiderivative.  An extra clue is that \(u\) could be an inside function of a composite function. Sometimes, there are more than one choice for \(u\) that work.  Be brave and go with some trial and error to develop some intuition!
 
-\textbf{Strategy \(1\)} for choosing \(u\): \hlattn{Recognize} a \hlmain{pair} of functions (almost) related by differentiation and choose \(u\) to be the antiderivative.  An extra clue is that \(u\) could be (but not always, see next page) an inside function of a composite function. Further more, there are multiple possible choices for \(u\) that work. Be brave and go with some trial and error to develop some intuition!
+\faExclamationTriangle{} The integration table on page~\pageref{lesson:integration-formulas} \hlmain{guarantees correctness}. If something is not in the integration table, then you should manipulate it using properties of integrals and/or substitution to one or more known integrals.
+
 \begin{example} \label{ex:u-sub-1}
   Evaluate \(\int x^{2} \sqrt{1 + x^{3}} \;dx\).
 
@@ -46,37 +49,66 @@ In general, we need to choose a substitution \(\color{main} u = (\text{something
 \end{example}
 \clearpage
 
-In Example~\ref{ex:u-sub-1}, one of the many choices for \(u\) is guided by the obvious composite function \(\sqrt{1 + x^{3}}\). Let's look at a variation where the previous strategy does not work. At a glance, Examples~\ref{ex:u-sub-1}~and~\ref{ex:u-sub-2} look very similar. However, they require different problem-solving ideas.
-
-\textbf{Strategy \(2\)} for choosing \(u\): Linear functions are special. In such situations, choose \(u\) to be the linear function and rewrite \(x\) in terms of \(u\) to perform the substitution.
-\begin{example} \label{ex:u-sub-2}
-  Evaluate \(\int \frac{4x^{2} + 1}{2x - 1} \;dx\).
-
-  \blanklines{25}
-\end{example}
-
-\begin{example}
-  Evaluate \(\int_{1}^{0} \frac{2x}{1 + x^{2}} \;dx\). \hfill{}{(The answer is \(-\ln(2)\))}
-
-  \blanklines{15}
-\end{example}
-
-\clearpage
-When there is no obvious choice for a substitution, try reorganizing the integrand first.
-\begin{example}
-  Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\). \hfill{}{(The answer is \(\ln(2)/2\))}
-
-  Hint: Rewrite \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\) and find a substitution \(u\). See below if you get \(-\ln(\pi/4) + \ln(0)\).
+Pay attention to how we choose the substitution. 
+\begin{exercise}
+  Evaluate \(\int \sin(x) e^{\cos(x)} \;dx\).  
 
   \blanklines{20}
-  Common misadventure: If you get \(-\ln(\pi/4) + \ln(0)\) (our number sense should tell us this is obviously wrong), then you might have forgotten to apply \(u\) to the upper and lower bounds of the original integral.
-\end{example}
+\end{exercise}
 
-\medskip
-The substitution rule works in more abstract context.
-\begin{example}
-  Suppose \(\int_{0}^{1} f(x) \;dx = -5\). Evaluate \(\int_{0}^{\pi/4} f(\tan(x)) \sec^{2}(x) \;dx\).
+\begin{exercise}[Final Exam, Fall 2024]
+  Let \(D = \int_{0}^{\pi/2} \tan(x) \sec^{2}(x) \;dx\). In the box below, write down an expression for \(D\). Perform all necessary differentiation and integration.
 
-  \blanklines{15}
-\end{example}
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (5in,2); 
+    \node[right] at (0.5, 0.5) {\(D = \) \underline{\hspace{4in}}};
+  \end{tikzpicture}
+
+  (Here is some space for rough work. Please note that answer outside of the box \emph{will not be graded}.)
+
+  \blanklines{20}
+\end{exercise}
+
+When there is no obvious choice for a substitution, try reorganizing the integrand first.
+\begin{exercise}
+  Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\). \hfill{}{The final answer is \(\ln(2)/2\).}
+
+  Hint: Rewrite \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\) and find a substitution \(u\). 
+
+  \blanklines{30}
+\end{exercise}
+
+% In Example~\ref{ex:u-sub-1}, one of the many choices for \(u\) is guided by the composite function \(\sqrt{1 + x^{3}}\). Let's look at a variation where the previous strategy does not work. At a glance, Examples~\ref{ex:u-sub-1}~and~\ref{ex:u-sub-2} look very similar. However, they require different problem-solving ideas.
+%
+% \textbf{Strategy \(2\)} for choosing \(u\): Linear functions are special. In such situations, choose \(u\) to be the linear function and rewrite \(x\) in terms of \(u\) to perform the substitution.
+% \begin{exercise} \label{ex:u-sub-2}
+%   Evaluate \(\int \frac{4x^{2} + 1}{2x - 1} \;dx\).
+%
+%   \blanklines{25}
+% \end{exercise}
+%
+% \begin{exercise}
+%   Evaluate \(\int_{1}^{0} \frac{2x}{1 + x^{2}} \;dx\). \hfill{}{(The answer is \(-\ln(2)\))}
+%
+%   \blanklines{15}
+% \end{exercise}
+%
+% \clearpage
+% When there is no obvious choice for a substitution, try reorganizing the integrand first.
+% \begin{example}
+%   Evaluate \(\int_{0}^{\pi/4} \tan(\theta) \;d\theta\). \hfill{}{(The answer is \(\ln(2)/2\))}
+%
+%   Hint: Rewrite \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\) and find a substitution \(u\). See below if you get \(-\ln(\pi/4) + \ln(0)\).
+%
+%   \blanklines{20}
+%   Common misadventure: If you get \(-\ln(\pi/4) + \ln(0)\) (our number sense should tell us this is obviously wrong), then you might have forgotten to apply \(u\) to the upper and lower bounds of the original integral.
+% \end{example}
+%
+% \medskip
+% The substitution rule works in more abstract context.
+% \begin{example}
+%   Suppose \(\int_{0}^{1} f(x) \;dx = -5\). Evaluate \(\int_{0}^{\pi/4} f(\tan(x)) \sec^{2}(x) \;dx\).
+%
+%   \blanklines{15}
+% \end{example}
 \end{document}

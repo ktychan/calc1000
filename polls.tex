@@ -1071,6 +1071,79 @@
   \end{center}
 \end{poll}
 
+\begin{poll}
+  Which of the following is the expression for the left-endpoint approximation for \(x^{2}\) over \([0,1]\) using \(3\) equal-width rectangles?
+
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item \(\frac{1}{3} + \left(\frac{2}{3}\right)^{2}\frac{1}{3}\).
+      \item \(\left(\frac{1}{3}\right)^{2}\frac{1}{3} + \left(\frac{2}{3}\right)^{2}\frac{1}{3} + \left( \frac{3}{3} \right)^{2} \frac{1}{3}\).
+      \item \(\left(\frac{3}{1}\right)^{2}\frac{1}{3} + \left(\frac{3}{2}\right)^{2}\frac{1}{3}\).
+      \item \(\left(\frac{3}{1}\right)^{2}\frac{1}{3} + \left(\frac{3}{2}\right)^{2}\frac{1}{3} + \left( \frac{3}{3} \right)^{2} \frac{1}{3}\).
+      \item I am not sure.
+    \end{enumerate}
+  \end{multicols}
+
+  \pause
+  \bigskip
+  \begin{center}
+    \begin{tikzpicture}[x={3in}]
+      % \draw ( 0, 0) -- (1,0);
+      \draw[ultra thick] (0, 0) -- (1,0);
+      % \draw (-4, 0.1) -- (-4, -0.1) node[below] {\(-4\)};
+      % \draw (-3, 0.1) -- (-3, -0.1) node[below] {\(-3\)};
+      % \draw (-2, 0.1) -- (-2, -0.1) node[below] {\(-2\)};
+      % \draw (-1, 0.1) -- (-1, -0.1) node[below] {\(-1\)};
+      \draw ( 0, 0.1) -- ( 0, -0.1) node[below] {\(0\)};
+      \draw ( 1, 0.1) -- ( 1, -0.1) node[below] {\(1\)};
+      \draw ( 2, 0.1) -- ( 2, -0.1) node[below] {\(2\)};
+      \draw ( 3, 0.1) -- ( 3, -0.1) node[below] {\(3\)};
+      % \draw ( 3, 0.1) -- ( 3, -0.1) node[below] {\(3\)};
+      % \draw ( 4, 0.1) -- ( 4, -0.1) node[below] {\(4\)};
+      \node[above] at (0, 0.1) {\(x_{0}\)};
+      \node[above] at (1, 0.1) {\(x_{1}\)};
+      \node[above] at (2, 0.1) {\(x_{2}\)};
+      \node[above] at (3, 0.1) {\(x_{3}\)};
+    \end{tikzpicture}
+  \end{center}
+\end{poll}
+\begin{poll}
+  Which of the following is the left-endpoint approximation for \(x^{2}\) over \([0,3]\) using \(3\) equal-width rectangles?
+
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item \(1^{2} + 2^{2}\).
+      \item \(1^{2} + 2^{2} + 3^{2}\).
+      \item 
+      \item 
+      \item I am not sure.
+    \end{enumerate}
+  \end{multicols}
+
+  \pause
+  \bigskip
+  \begin{center}
+    \begin{tikzpicture}[x={3in}]
+      % \draw ( 0, 0) -- (1,0);
+      \draw[ultra thick] (0, 0) -- (1,0);
+      % \draw (-4, 0.1) -- (-4, -0.1) node[below] {\(-4\)};
+      % \draw (-3, 0.1) -- (-3, -0.1) node[below] {\(-3\)};
+      % \draw (-2, 0.1) -- (-2, -0.1) node[below] {\(-2\)};
+      % \draw (-1, 0.1) -- (-1, -0.1) node[below] {\(-1\)};
+      \draw ( 0/3, 0.1) -- ( 0/3, -0.1) node[below] {\(0\)};
+      \draw ( 1/3, 0.1) -- ( 1/3, -0.1) node[below] {\(1\)};
+      \draw ( 2/3, 0.1) -- ( 2/3, -0.1) node[below] {\(2\)};
+      \draw ( 3/3, 0.1) -- ( 3/3, -0.1) node[below] {\(3\)};
+      % \draw ( 3, 0.1) -- ( 3, -0.1) node[below] {\(3\)};
+      % \draw ( 4, 0.1) -- ( 4, -0.1) node[below] {\(4\)};
+      \node[above] at (0/3, 0.1) {\(x_{0}\)};
+      \node[above] at (1/3, 0.1) {\(x_{1}\)};
+      \node[above] at (2/3, 0.1) {\(x_{2}\)};
+      \node[above] at (3/3, 0.1) {\(x_{3}\)};
+    \end{tikzpicture}
+  \end{center}
+\end{poll}
+
 \section{Integration formulas}
 \begin{poll}
   Recall that differentiating a {\color{red} non-constant polynomial} lowers its degree by one. Does integrating any {\color{red} non-zero polynomial} (including constant ones) raise its degree by one?
@@ -1098,6 +1171,20 @@
 
 \section{Definite integrals}
 
+
+
+\begin{poll}
+  What is defined by \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{i^{2}}{n^{3}}\)?
+
+  \begin{enumerate}
+    \item \(\int_{0}^{1} \frac{1}{x^{3}} \;dx\)
+    \item \(\int_{0}^{1} x^{2} \;dx\)
+    \item \(\int_{0}^{1} x^{3} \;dx\)
+    \item There is not enough information.
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
 \begin{poll}
   Evaluate \(\int_{a}^{a} f(x) \;dx\). 
 
@@ -1111,7 +1198,7 @@
 \end{poll}
 
 \begin{poll}
-  The two endpoints of an interval are \(a,b\), and we don't know if \(a < b\) or \(a > b\). However, we know that \(\int_{b}^{a} f(x) \;dx < 0\) and \(f\) is nonnegative. It follows that 
+  We know that \(f(x)\) is nonnegative and \(\int_{b}^{a} f(x) \;dx < 0\). It follows that 
 
   \begin{enumerate} \setlength\itemsep{1ex}
     \item \(a < b\).
@@ -1178,61 +1265,65 @@
   Are you convinced?  
 
   \[
-    \frac{d}{dx} \int_{x}^{a} f(t) \;dt = - f(x).
+    \frac{d}{dx} \int_{x}^{\sqrt{2}} e^{t^{2}} \;dt \only<1>{= - e^{t^{2}}.} \only<2->{= {\color{warn} -}\frac{d}{dx}\int_{{\color{warn}\sqrt{2}}}^{{\color{warn}x}} e^{x^{2}} \;dt} \onslide<3->{= {\color{warn}-} e^{x^{2}}.}
   \]
-  \begin{enumerate}
-    \item Seems legit.
-    \item Smells fishy.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate}
+
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item Seems legit.
+      \item Smells fishy.
+      \item 
+      \item 
+      \item I am not sure.
+    \end{enumerate}
+  \end{multicols}
+
+  \onslide<2->{Need to flip the bounds because the constant is not in the lower bound.}
 \end{poll}
 
 \begin{poll}
-  Slightly different integral. Convinced?
-
+  Are you convinced?
   \[
-    \frac{d}{dx} \int_{x}^{{\color{warn}a^{2}}} f(t) \;dt = - f(x).
-  \]
-  \begin{enumerate}
-    \item Seems legit.  \onslide<2->{\hlmain{A constant squared is still a constant.}}
-    \item \only<1>{Smells fishy.}
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate}
-\end{poll}
-
-\begin{poll}
-  What if we mess with the \(x\) in the integral?
-  \[
-    \frac{d}{dx} \int_{{\color{warn} x^{2}}}^{a} f(t) \;dt = - f(x).
+    \frac{d}{dx} \int_{\sqrt{2}}^{{\color{warn} x^{2}}} e^{t^{2}} \;dt = e^{({\color{warn}x^{2}})^{2}}.
   \]
 
-  \begin{enumerate}
-    \item Seems legit.
-    \item Smells fishy.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate}
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item Seems legit.
+      \item Smells fishy.
+      \item 
+      \item 
+      \item I am not sure.
+    \end{enumerate}
+  \end{multicols}
+  
+  \pause 
+  We need \hlmain{the chain rule} because \(\int_{\sqrt{2}}^{{\color{warn} x^{2}}} e^{t^{2}} \;dt\) is a composition.
+
 \end{poll}
 
 \begin{poll}
   Which of the following are good starting points for our solutions?
 
   \begin{enumerate} 
-    \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-    \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
-    \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \item Write \(F(x)\) as \(\int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \). \hlwarn{Sign mistake.}
+    \item Write \(F(x)\) as \(\int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \item Write \(F(x)\) as \(\int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
+    \item 
     \item I am not sure.
   \end{enumerate}
 \end{poll}
 
 \begin{poll}
   Evaluate \(\int_{-\pi}^{\pi/2} 2 \cos(x) \;dx\).
+
+  \pause
+  \begin{align*}
+    &\int_{-\pi}^{\pi/2} 2 \cos(x) \;dx \\
+    =& \left[ \int 2 \cos(x) \;dx \right]_{-\pi}^{\pi/2} &&\text{(FTC part 2)} \\
+    =& \bigg[ 2\sin(x) + C \bigg]_{-\pi}^{\pi/2} &&\text{(evaluate the indefinite integral)} \\
+    =& 2\sin(\pi/2) - 2\sin(-\pi) = 2. &&\text{(plug numbers in)}.
+  \end{align*}
 \end{poll}
 
 \section{The Substitution Rule}
