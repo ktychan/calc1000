@@ -1,5 +1,5 @@
 %! Tex Program = lualatex
-\documentclass[aspectratio=169, 14pt]{beamer}  % 12, 14, 17, 20
+\documentclass[aspectratio=169, 14pt]{beamer}  
 
 % \documentclass[aspectratio=169, 14pt, handout]{beamer}  % 12, 14, 17, 20
 % \usepackage{handoutWithNotes}
@@ -48,89 +48,98 @@
 }
 
 
+\title{Calculus 1000A}
+\date{Fall 2025}
+\author{Kelvin Chan}
+\institute{Department of Mathematics\\University of Western Ontario}
+
 \begin{document} 
-\section{First day of class}
-
 
 \begin{frame}
-  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 004\\TuTh @ 7pm}}
-
-  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
-
-  \bigskip
-  \begin{minipage}{2in}
-    \centering
-    \qrcode[height=1in]{https://join.iclicker.com/ACQO}
-    \bigskip
-
-    \footnotesize\url{join.iclicker.com/ACQO} 
-
-    \bigskip
-    Use your @uwo.ca email
-  \end{minipage}
-  \begin{minipage}{3.5in}
-    Join iClicker for in-class activities. \\Start next week.
-
-    \bigskip
-    Count for \(4\%\) of your final grade. \\Completion marks only. 
-
-    \medskip
-    The \hlmain{iClicker Student} app is recommended.
-  \end{minipage}
+  \maketitle{}
 \end{frame}
+% \section{First day of class}
 
 
-\begin{frame}
-  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MTuWF @ 11:30}}
+% \begin{frame}
+%   \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 004\\TuTh @ 7pm}}
+%
+%   Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
+%
+%   \bigskip
+%   \begin{minipage}{2in}
+%     \centering
+%     \qrcode[height=1in]{https://join.iclicker.com/ACQO}
+%     \bigskip
+%
+%     \footnotesize\url{join.iclicker.com/ACQO} 
+%
+%     \bigskip
+%     Use your @uwo.ca email
+%   \end{minipage}
+%   \begin{minipage}{3.5in}
+%     Join iClicker for in-class activities. \\Start next week.
+%
+%     \bigskip
+%     Count for \(4\%\) of your final grade. \\Completion marks only. 
+%
+%     \medskip
+%     The \hlmain{iClicker Student} app is recommended.
+%   \end{minipage}
+% \end{frame}
 
-  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
 
-  \bigskip
-  \begin{minipage}{2in}
-    \centering
-    \qrcode[height=1in]{https://join.iclicker.com/WAGZ}
-    \bigskip
-
-    \footnotesize\url{join.iclicker.com/WAGZ} 
-
-    \bigskip
-    Use your @uwo.ca email
-  \end{minipage}
-  \begin{minipage}{3.5in}
-    Join iClicker for in-class activities. \\Start next week.
-
-    \bigskip
-    Count for \(4\%\) of your final grade. \\Completion marks only. 
-
-    \medskip
-    The \hlmain{iClicker Student} app is recommended.
-  \end{minipage}
-\end{frame}
+% \begin{frame}
+%   \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MTuWF @ 11:30}}
+%
+%   Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
+%
+%   \bigskip
+%   \begin{minipage}{2in}
+%     \centering
+%     \qrcode[height=1in]{https://join.iclicker.com/WAGZ}
+%     \bigskip
+%
+%     \footnotesize\url{join.iclicker.com/WAGZ} 
+%
+%     \bigskip
+%     Use your @uwo.ca email
+%   \end{minipage}
+%   \begin{minipage}{3.5in}
+%     Join iClicker for in-class activities. \\Start next week.
+%
+%     \bigskip
+%     Count for \(4\%\) of your final grade. \\Completion marks only. 
+%
+%     \medskip
+%     The \hlmain{iClicker Student} app is recommended.
+%   \end{minipage}
+% \end{frame}
 % it's okay to focus on grades.
 % also develop your problem-solvng skills and intellectual independence
 
-\begin{frame}
-  \centering
+% \begin{frame}
+%   \centering
+%
+%   \frametitle{Tips (?) for success}
+%
+%   \begin{enumerate}
+%     \item It's okay to say ``I don't know.''
+%     \item It's okay to be tired.
+%     \item Learning takes time. Be kind to yourself and others.
+%   \end{enumerate}
+%
+%   \bigskip
+%   \pause \Huge
+%   Remember to party!
+% \end{frame}
 
-  \frametitle{Tips (?) for success}
 
-  \begin{enumerate}
-    \item It's okay to say ``I don't know.''
-    \item It's okay to be tired.
-    \item Learning takes time. Be kind to yourself and others.
-  \end{enumerate}
-
-  \bigskip
-  \pause \Huge
-  Remember to party!
-\end{frame}
-
-
-\begin{frame}
-  \centering
-  \huge
-  What key idea do we learn from Example~1.3?
-\end{frame}
+% \begin{frame}
+%   \centering
+%   \huge
+%   What key idea do we learn from Example~1.3?
+% \end{frame}
 
 
 % \begin{frame}
@@ -324,14 +333,8 @@
   \frametitle{Three types of discontinuities}
 
   \includegraphics{./standalones/plot_discontinuity_examples}
-  %
-  % \[
-  %   \lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x) 
-  %   \quad\text{and}\quad
-  %   \lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}} f(x) 
-  %   \quad\text{and}\quad
-  %   \lim_{x \to a^{\pm}} f(x) = \pm \infty
-  % \]
+
+  \faStar{} Make sure you understand the definition of these discontinuities.
 \end{frame}
 
 \begin{frame}
@@ -352,6 +355,8 @@
   Let's say the variable in the limit is \(x\).
 
   Factor out \hlmain{the largest powers of \(x\)} \hlwarn{with their coefficients} in the numerator and denominator, leaving everything else with an \(x\) as \(\frac{1}{x^{\text{positive exponent}}}\).
+
+  For limits at \(-\infty\), start by substituting \(u = -x\).
 \end{frame}
 
 \section{Derivatives}
@@ -547,6 +552,41 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{Specific strategies for finding absolute extrema}
+
+  Always start by looking for critical numbers.
+  \begin{enumerate}
+    \item Compare values at endpoints and at critical numbers.  Too much work? Try the next two.
+    \item Use the first derivative test.  Hard to figure out signs? Try the next one.
+    \item Use the second derivative test. 
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Derivative Tests}
+
+  \begin{itemize}
+    \item \(f'>0\) on \((a,b)\) means \(f\) is increasing on \((a,b)\).
+    \item \(f'<0\) on \((a,b)\) means \(f\) is decreasing on \((a,b)\).
+    \item \(f''>0\) on \((a,b)\) means \(f\) is concave up on \((a,b)\).
+    \item \(f''<0\) on \((a,b)\) means \(f\) is concave down on \((a,b)\).
+  \end{itemize}
+
+  At a critical number \(c\), sketch a picture according to increasing/decreasing or concavity to determine if it is a local min, local max or neither. 
+\end{frame}
+
+\begin{frame}
+  \frametitle{L'H\^opital's Rule}
+
+  For indeterminate of types \(0/0\) or \(\infty/\infty\), l'H\^opital's rule says
+  \[
+    \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}.
+  \]
+
+  Apply l'H\^opital's rule repeatedly until the limit can be fully evaluated.
+\end{frame}
+
+\begin{frame}
   \frametitle{Tips for algebraic tricks for l'H\^opital's rule}
 
   Indeterminate \(0 \cdot \infty\):
@@ -567,48 +607,72 @@
   \begin{center}
     Change base to \(e\) is notationally simpler.
   \end{center}
-
-\end{frame}
-
-
-\section{Applications}
-
-\begin{frame}
-  \frametitle{Critical Numbers}
-
-  A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\), but \hlwarn{NOT an endpint}, if 
-  \[
-    \text{either} \quad f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
-  \]
-
-  If \(c\) is a critical number, then \((c, f(c))\) is called a \hlsupp{critical point}.
 \end{frame}
 
 \begin{frame}
-  \frametitle{Finding absolute extrema}
+  \frametitle{Related Rates}
 
-  Absolute extrema can only occur at either a \hlmain{critical number} or an \hlmain{endpoint}.
+  \begin{enumerate}
+    \item Introduce notations. Find an equation that relates all given quantities.
+    \item Make your goal clear to yourself: Find \(\frac{d}{dt} (\text{desired quantity})\) given ....
+    \item Find an expression for \(\frac{d}{dt} (\text{desired quantity})\) using implicit differentiation.
+    \item The expression for \(\frac{d}{dt} (\text{desired quantity})\) tells you exactly what you need to achieve your goal.
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Optimization problem tip}
-  If you have \(2\) variables, then you need \(2\) equations to eliminate one of them.
+  \frametitle{Optimization}
 
-  One of the equation involves the objective variable. 
-
-  So look for a relation among the two variables without involving the objective variable.
+  \begin{enumerate}
+    \item Describe the objective variable as a single-variable function.
+      \begin{enumerate}
+        \item Sketch the given scenario and introduce variables to measure relevant quantities.
+        \item Identify the objective variable. Write ``Goal: We need to maximize/minimize ....''
+        \item Find relations among our variable.
+        \item Eliminate all but one independent variable.
+      \end{enumerate}
+    \item Maximize or minimize the objective variable.
+  \end{enumerate}
 \end{frame}
 
-\begin{frame}
-  \frametitle{L'H\^opital's Rule}
-
-  If \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate of type \(0/0\) or \(\infty/\infty\), \pause then 
-  \[
-    \lim_{x \to a} \frac{f(x)}{g(x)} = \pause \lim_{x \to a} \frac{f'(x)}{g'(x)}. \hspace{1in} \text{\onslide<3->{(l'H\^opital's rule)}}
-  \]
-
-  Manipulate the other indeterminate forms to \(0/0\) or \(\infty/\infty\) \emph{before} applying l'H\^opital's rule.
-\end{frame}
+% \section{Applications}
+%
+% \begin{frame}
+%   \frametitle{Critical Numbers}
+%
+%   A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\), but \hlwarn{NOT an endpint}, if 
+%   \[
+%     \text{either} \quad f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
+%   \]
+%
+%   If \(c\) is a critical number, then \((c, f(c))\) is called a \hlsupp{critical point}.
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Finding absolute extrema}
+%
+%   Absolute extrema can only occur at either a \hlmain{critical number} or an \hlmain{endpoint}.
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Optimization problem tip}
+%   If you have \(2\) variables, then you need \(2\) equations to eliminate one of them.
+%
+%   One of the equation involves the objective variable. 
+%
+%   So look for a relation among the two variables without involving the objective variable.
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{L'H\^opital's Rule}
+%
+%   If \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate of type \(0/0\) or \(\infty/\infty\), \pause then 
+%   \[
+%     \lim_{x \to a} \frac{f(x)}{g(x)} = \pause \lim_{x \to a} \frac{f'(x)}{g'(x)}. \hspace{1in} \text{\onslide<3->{(l'H\^opital's rule)}}
+%   \]
+%
+%   Manipulate the other indeterminate forms to \(0/0\) or \(\infty/\infty\) \emph{before} applying l'H\^opital's rule.
+% \end{frame}
 
 \section{Integration}
 
@@ -645,11 +709,24 @@
 \begin{frame}
   \frametitle{\onslide<2->{Definite integrals represent net area}}
   \onslide<2->{
-  \(\int_{a}^{b} f(x) \;dx\) is the \hlsupp{net area} ``under'' \(f(x)\) over the interval \([a,b]\) \hlmain{approximated by infinitely} many \hlsupp{rectangles}.}
+  \(\int_{a}^{b} f(x) \;dx\) is the \hlsupp{net area} ``under'' \(f(x)\) from \(a\) to \(b\).}
 
   \[
-    \overbrace{\int_{a}^{b} f(x) \;dx}^{\text{\parbox{1.5in}{\centering net area ``under'' \(f(x)\)\\over \([a,b]\)}}} = \overbrace{\color{main} \lim_{n \to \infty}}^{\text{infinite}} \overbrace{\sum_{i=1}^{n} \underbrace{f(x_{i})}_{\text{\hlsupp{height}}} \underbrace{\Delta x}_{\text{\hlsupp{width}}}}^{\text{\parbox{1.5in}{\centering right-approx.\\using \(n\) rectangles}}}
+    \overbrace{\int_{a}^{b} f(x) \;dx}^{\text{\parbox{1.5in}{\centering net area ``under'' \(f(x)\)\\over \([a,b]\)}}} = \overbrace{\color{main} \lim_{n \to \infty}}^{\text{infinite}} \overbrace{\sum_{i=1}^{n} \underbrace{f(x_{i}^{*})}_{\text{\hlsupp{height}}} \underbrace{\Delta x}_{\text{\hlsupp{width}}}}^{\text{\parbox{1.5in}{\centering right-approx.\\using \(n\) rectangles}}}
   \]
+
+  Choosing \(x_{i}^{*}\) to be the right endpoints yields notationally simpler expressions.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Not so obvious properties of integrals}
+
+  \begin{align*}
+    \int_{a}^{b} f(x) \;dx &= - \int_{b}^{a} f(x) \;dx &&\text{(flip)}\\
+    \int_{a}^{b} f(x) \;dx &= \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx &&\text{(split/merge)}.
+  \end{align*}
+
+  All properties can be understood conceptually by drawing pictures.
 \end{frame}
 
 % \begin{frame}
@@ -669,6 +746,8 @@
 \begin{frame}
   \frametitle{Fundamental Theorem of Calculus (short versions)}
 
+  Suppose \(f(x)\) is continuous.
+
   \begin{align*}
     \frac{d}{d{\color{main}x}} \int_{\text{constant}}^{{\color{main}x}} {\color{main}f}(t) \;dt &= {\color{main}f(x)} && \text{(part 1)} \\[2ex] 
     \onslide<2->{{\color{main} \int_{{\color{supp}a}}^{{\color{supp}b}} f(x) \;dx} &= \left[{\color{main}\int f(x) \;dx}\right]_{{\color{supp}a}}^{{\color{supp}b}} && \text{(part 2)}}
@@ -676,196 +755,240 @@
 \end{frame}
 
 
-\section{Problem-solving skills}
-
 \begin{frame}
-  \frametitle{How to deal with ``find all \ldots{} for which \ldots{}?''}
+  \frametitle{Substitution for integrals}
 
-  \begin{enumerate}
-    \item The relevant concept and property give us one or more equations involving the unknowns.
-    \item Simplify the equation by evaluating limits, derivatives, and/or integrals if any. 
-    \item Draw conclusions \hlwarn{based on the equation(s)}, i.e., either solve for the unknown or conclude that such unknown constants do not exist. 
-  \end{enumerate}
-\end{frame}
+  Substitute \({\color{main}u = g(x)}\) and \(\color{supp} g'(x)\;dx = du\). 
+  Remember that \(g'\) is \emph{calculated} from the \emph{choice} for \(g\).
 
-\section{Study Skills}
-
-\begin{frame}
-  \frametitle{Ask!}
-
-  \includegraphics{./standalones/misc-questioning-skill-triangle}
-\end{frame}
-
-\section{Reviews}
-
-\begin{frame}
-  \frametitle{Midterm Overview}
-
-  \begin{enumerate}[itemsep=1ex]
-    \item Do you \hlmain{remember} and \hlmain{understand} when and how to apply EVERY \hlwarn{definition} and \hlwarn{technique} in the fillable notes?
-
-    \item Do \hlmain{understand} EVERY \hlwarn{example} and do-at-home \hlwarn{exercise} up to page 104? Everything before related rates.
-
-    \item Do \hlmain{understand} EVERY \hlwarn{quiz} and \hlwarn{assignment 1 problem}?
-
-    \item Have you done past midterm problems to get a sense how concepts and techniques are connected to each other?
-  \end{enumerate}
+  \begin{align*}
+    \int f({\color{main}g(x)}) {\color{supp} g'(x) dx} & \onslide<2->{\underbrace{= \int f({\color{main} u}) \; {\color{supp}du}}_{\text{substitution}}} \\[2ex]
+    \int_{a}^{b} f({\color{main}g(x)}) {\color{supp} g'(x) dx} &\onslide<3->{\underbrace{= \int_{u(a)}^{u(b)} f({\color{main} u}) \; {\color{supp}du}}_{\text{substitution}}} \onslide<4->{\underbrace{= \left[ \int f({\color{main} u}) \; {\color{supp}du} \right]_{u(a)}^{u(b)}}_{\text{FTC part 2}}}
+  \end{align*}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Some exam-writing tips}
+  \frametitle{Area between curves}
 
-  \begin{enumerate}
-    \item Drink enough water. SLEEP WELL!
+  If integrating with respect to \(x\), then
+  \[
+    \text{area} = \int_{\text{left}}^{\text{right}}  (\text{upper}) - (\text{lower})  \; dx
+  \]
 
-    \item Bring water, some snacks and candies.
-
-    \item Take a short break when necessary.
-
-    \item Not every question takes the same amount of time.
-
-    \item Check your work.
-  \end{enumerate}
-
-
-  \faStar{} Read each question and relevant instructions carefully. 
+  If integrating with respect to \(y\), then
+  \[
+    \text{area} = \int_{\text{bottom}}^{\text{top}}  (\text{right}) - (\text{left})  \; dy
+  \]
 \end{frame}
 
-
-
 \begin{frame}
-  \frametitle{Two major concepts and their relation}
+  \frametitle{Volume of solids of revolution}
 
+  If the solid is obtained by rotating a region about the \(x\)-axis, then
+  \[
+    \text{volume} = \int_{\text{left}}^{\text{right}} \pi \left( \text{\parbox{1.5cm}{\centering outer\\radius}} \right)^{2} - \pi \left( \parbox{1.5cm}{\centering inner\\radius} \right)^2 \;dx
+  \]
+
+ 
   \pause
-  \begin{enumerate}[itemsep={2ex}]
-    \item A function \(f(x)\) is \hlmain{continuous at \(a\)} if \( \lim_{x \to a} f(x) = f(a) \).
-    \item The \hlmain{derivative of \(f(x)\) at \(a\)} is 
-      \(
-        f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
-      \).
-  \end{enumerate}
+  If the solid is obtained by rotating a region about the \(y\)-axis, then
+  \[
+    \text{volume} = \int_{\text{bottom}}^{\text{top}} \pi \left( \text{\parbox{1.5cm}{\centering outer\\radius}} \right)^{2} - \pi \left( \parbox{1.5cm}{\centering inner\\radius} \right)^2 \;dy
+  \]
 
-  \pause
-  If \(f(x)\) is differentiable at \(a\), then \(f(x)\) must be continuous at \(a\).
-
-  \bigskip
-  \faStar{} Before applying any technique to solve a problem, figure out what concepts are relevant!
+  Solve for the points of intersections to determine the upper/lower or left/right bounds.
 \end{frame}
 
-\begin{frame}
-  \frametitle{Discontinuities}
+% \section{Problem-solving skills}
+%
+% \begin{frame}
+%   \frametitle{How to deal with ``find all \ldots{} for which \ldots{}?''}
+%
+%   \begin{enumerate}
+%     \item The relevant concept and property give us one or more equations involving the unknowns.
+%     \item Simplify the equation by evaluating limits, derivatives, and/or integrals if any. 
+%     \item Draw conclusions \hlwarn{based on the equation(s)}, i.e., either solve for the unknown or conclude that such unknown constants do not exist. 
+%   \end{enumerate}
+% \end{frame}
 
-  \begin{enumerate}
-    \item Discontinuities occur at \(a\) when \(\lim_{x \to a} f(x) \ne f(a)\).
-
-    \item The three different types of discontinuities are \hlmain{defined} in terms of \hlmain{one-sided limits} (page . Remember them!
-
-    \item Major technique: Finding and classifying discontinuities are all about the \hlmain{definition} of continuity.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Main techniques for evaluating limits}
-
-  \begin{enumerate}
-    \item Is it a continuous function? If so, plug it in!
-    \item Is it type \(\frac{\text{non-zero constant}}{0}\)? Doesn't exist and could be \(\pm\infty\).
-    \item Is it type \(\frac{0}{0}\)? Need more work!
-    \item Use the squeeze theorem?
-    \item At \(+\infty\)? Analyze dominant terms.
-    \item At \(-\infty\)? Sub \(u = -x\).
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Techniques for limits of \(0/0\) type}
-
-  DO NOT immediately conclude the limit does not exist. 
-
-  \begin{enumerate}
-    \item Factor and cancel?
-    \item Rationalize?
-    \item Special limit? \(\lim_{x \to 0} \frac{\sin(x)}{x} = 1\) and \(\lim_{x \to 0} \frac{\cos(x) - 1}{x} = 0\).
-    \item Change of variable? Don't forget to calculate ``happy face''.
-    \item Is it a derivative? Do you see \(\text{something} + h\)?
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Techniques for limits at \(\infty\)}
-
-  Do you remember the table on page 56?
-
-  \begin{enumerate}
-    \item Factor out the largest power of \(x\) in the numerator and denominator separately.
-      There are three possibilities.
-
-    \item There are \(e^{x}\)?! Sub \(u = e^{x}\). See page 58.
-
-    \item Don't forget the squeeze theorem can be useful. Do you see trigs? See page 59.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Derivatives}
-
-  Geometrically, \(\frac{dy}{dx}\) at \(x = a\) is the slope the tangent line of the curve \(y = f(x)\) at \(x = a\).
-
-  \begin{enumerate}
-    \item Use differentiation rules or the definition to calculate derivatives.
-
-    \item Absolute value of functions? Turn them into piecewise functions! 
-
-    \item Implicit differentiation solves almost every problem not involving the definition.
-
-    \item Use side calculations to manage complexity.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Subtle facts reminder 1}
-
-  If you know \(f(x)\) is continuous (maybe you know they have a derivative), then use direct substitution to evaluate their limits.
-
-  This is the theorem and the comment above it on page 49.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Subtle facts reminder 2}
-
-  You can use the squeeze theorem for limits at infinity.
-
-  You can sub \(u = e^{x}\) for limits at infinity.
-
-  See Exercises~4.13, 4.14 and 4.15 and 4.16 on pages 58 to 59.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Subtle facts reminder 3}
-
-  Differentiability at \(a\) depends on continuity at \(a\).
-
-  This is the theorem and the comment below it on page 68.
-\end{frame}
-
-\section{Misc}
-
-\begin{frame}[c]
-
-  \large
-  Pick up the problem-solving sheets (4 pages, 87 to 90).  
-
-  \bigskip
-
-  \normalsize
-  Feel free to work in groups.
-
-  Treat it like a real midterm.  No notes, calculators or any aid.
-
-  The goal is understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
-
-  Feel free to ask for a one-sentence hint.
-
-  We will stop at 8:45 and do a short iClicker reflection.
-\end{frame}
+% \section{Study Skills}
+%
+% \begin{frame}
+%   \frametitle{Ask!}
+%
+%   \includegraphics{./standalones/misc-questioning-skill-triangle}
+% \end{frame}
+%
+% \section{Reviews}
+%
+% \begin{frame}
+%   \frametitle{Midterm Overview}
+%
+%   \begin{enumerate}[itemsep=1ex]
+%     \item Do you \hlmain{remember} and \hlmain{understand} when and how to apply EVERY \hlwarn{definition} and \hlwarn{technique} in the fillable notes?
+%
+%     \item Do \hlmain{understand} EVERY \hlwarn{example} and do-at-home \hlwarn{exercise} up to page 104? Everything before related rates.
+%
+%     \item Do \hlmain{understand} EVERY \hlwarn{quiz} and \hlwarn{assignment 1 problem}?
+%
+%     \item Have you done past midterm problems to get a sense how concepts and techniques are connected to each other?
+%   \end{enumerate}
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Some exam-writing tips}
+%
+%   \begin{enumerate}
+%     \item Drink enough water. SLEEP WELL!
+%
+%     \item Bring water, some snacks and candies.
+%
+%     \item Take a short break when necessary.
+%
+%     \item Not every question takes the same amount of time.
+%
+%     \item Check your work.
+%   \end{enumerate}
+%
+%
+%   \faStar{} Read each question and relevant instructions carefully. 
+% \end{frame}
+%
+%
+%
+% \begin{frame}
+%   \frametitle{Two major concepts and their relation}
+%
+%   \pause
+%   \begin{enumerate}[itemsep={2ex}]
+%     \item A function \(f(x)\) is \hlmain{continuous at \(a\)} if \( \lim_{x \to a} f(x) = f(a) \).
+%     \item The \hlmain{derivative of \(f(x)\) at \(a\)} is 
+%       \(
+%         f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
+%       \).
+%   \end{enumerate}
+%
+%   \pause
+%   If \(f(x)\) is differentiable at \(a\), then \(f(x)\) must be continuous at \(a\).
+%
+%   \bigskip
+%   \faStar{} Before applying any technique to solve a problem, figure out what concepts are relevant!
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Discontinuities}
+%
+%   \begin{enumerate}
+%     \item Discontinuities occur at \(a\) when \(\lim_{x \to a} f(x) \ne f(a)\).
+%
+%     \item The three different types of discontinuities are \hlmain{defined} in terms of \hlmain{one-sided limits} (page . Remember them!
+%
+%     \item Major technique: Finding and classifying discontinuities are all about the \hlmain{definition} of continuity.
+%   \end{enumerate}
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Main techniques for evaluating limits}
+%
+%   \begin{enumerate}
+%     \item Is it a continuous function? If so, plug it in!
+%     \item Is it type \(\frac{\text{non-zero constant}}{0}\)? Doesn't exist and could be \(\pm\infty\).
+%     \item Is it type \(\frac{0}{0}\)? Need more work!
+%     \item Use the squeeze theorem?
+%     \item At \(+\infty\)? Analyze dominant terms.
+%     \item At \(-\infty\)? Sub \(u = -x\).
+%   \end{enumerate}
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Techniques for limits of \(0/0\) type}
+%
+%   DO NOT immediately conclude the limit does not exist. 
+%
+%   \begin{enumerate}
+%     \item Factor and cancel?
+%     \item Rationalize?
+%     \item Special limit? \(\lim_{x \to 0} \frac{\sin(x)}{x} = 1\) and \(\lim_{x \to 0} \frac{\cos(x) - 1}{x} = 0\).
+%     \item Change of variable? Don't forget to calculate ``happy face''.
+%     \item Is it a derivative? Do you see \(\text{something} + h\)?
+%   \end{enumerate}
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Techniques for limits at \(\infty\)}
+%
+%   Do you remember the table on page 56?
+%
+%   \begin{enumerate}
+%     \item Factor out the largest power of \(x\) in the numerator and denominator separately.
+%       There are three possibilities.
+%
+%     \item There are \(e^{x}\)?! Sub \(u = e^{x}\). See page 58.
+%
+%     \item Don't forget the squeeze theorem can be useful. Do you see trigs? See page 59.
+%   \end{enumerate}
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Derivatives}
+%
+%   Geometrically, \(\frac{dy}{dx}\) at \(x = a\) is the slope the tangent line of the curve \(y = f(x)\) at \(x = a\).
+%
+%   \begin{enumerate}
+%     \item Use differentiation rules or the definition to calculate derivatives.
+%
+%     \item Absolute value of functions? Turn them into piecewise functions! 
+%
+%     \item Implicit differentiation solves almost every problem not involving the definition.
+%
+%     \item Use side calculations to manage complexity.
+%   \end{enumerate}
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Subtle facts reminder 1}
+%
+%   If you know \(f(x)\) is continuous (maybe you know they have a derivative), then use direct substitution to evaluate their limits.
+%
+%   This is the theorem and the comment above it on page 49.
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Subtle facts reminder 2}
+%
+%   You can use the squeeze theorem for limits at infinity.
+%
+%   You can sub \(u = e^{x}\) for limits at infinity.
+%
+%   See Exercises~4.13, 4.14 and 4.15 and 4.16 on pages 58 to 59.
+% \end{frame}
+%
+% \begin{frame}
+%   \frametitle{Subtle facts reminder 3}
+%
+%   Differentiability at \(a\) depends on continuity at \(a\).
+%
+%   This is the theorem and the comment below it on page 68.
+% \end{frame}
+%
+% \section{Misc}
+%
+% \begin{frame}[c]
+%
+%   \large
+%   Pick up the problem-solving sheets (4 pages, 87 to 90).  
+%
+%   \bigskip
+%
+%   \normalsize
+%   Feel free to work in groups.
+%
+%   Treat it like a real midterm.  No notes, calculators or any aid.
+%
+%   The goal is understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
+%
+%   Feel free to ask for a one-sentence hint.
+%
+%   We will stop at 8:45 and do a short iClicker reflection.
+% \end{frame}
 \end{document}

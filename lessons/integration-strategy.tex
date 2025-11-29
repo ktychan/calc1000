@@ -1,13 +1,6 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{Integration Strategies}
-
-\textbf{Study skills}.  How you study matters.
-Rote practice without understanding how to apply definitions and theorems is ineffective for university courses.
-Practise active recall and mindfully associate each question with relevant concepts and techniques.
-Remember that \hlmain{definitions and theorems guarantee correctness}.
-
-We further develop integration skills by tackling the complexity of deciding if a substitution is required.  Before starting, \hlwarn{recall} the strategy for choosing a substitution from last week.
+\begin{document} \section{Integration strategies}
 
 \begin{exercise} \label{ex:choose-substitution}
   Evaluate the following integrals.
@@ -16,27 +9,23 @@ We further develop integration skills by tackling the complexity of deciding if 
     \begin{enumerate}[wide, label=(\alph*)]
       % \item \(\int_{-1}^{2} x(x^{2} + 1) \;dx\)
       \item \(\int_{-1}^{0} \frac{1}{x^{2} + 1} \;dx\)
-      \item \(\int_{0}^{1} \frac{x}{x^{2} + 1} \;dx\)
-      \item \(\int_{1}^{2} \frac{x^{2} + 1}{x} \;dx\)
-      % \item \(\int_{0}^{1} \frac{1}{\sqrt{1 - x^{2}}} \;dx\)
-      % \item \(\int_{-1}^{1} \frac{2x}{\sqrt{1 - x^{2}}} \;dx\)
+      \item \(\int \frac{x^{2} + 1}{x} \;dx\)
+      \item \(\int_{2}^{0} \frac{x}{x^{2} + 1} \;dx\)
     \end{enumerate}
   \end{multicols}
 
-
-  \blanklines{40}
+  \blanklines{50}
 \end{exercise}
 \clearpage
 
-The \hlsupp{lack of precision} in algebra manipulations, confusion from \hlsupp{misuse of notations}, and \hlsupp{not associating calculations with theorems or definitions} are the top reasons for mistakes.
 
 \begin{exercise}
-  Write down their numerical values of the following integrals. 
+  Write down the numerical values of the following integrals.  Note that numerical values should be exact, not decimal approximations.
 
   \begin{multicols}{3}
     \begin{enumerate}[wide, label=(\alph*)]
-      \item \(\int_{-pi/4}^{0} \sin(x)\cos(x) \;dx\)
       \item \(\int_{2\pi}^{\pi} \tan(x)\sec(x) \;dx\)
+      \item \(\int_{0}^{-\pi/4} \cos(x)\sin(x) \;dx\)
       \item \(\int_{0}^{\pi/4} \cos(\sin(2x))\cos(2x) \;dx\)
     \end{enumerate}
   \end{multicols}
@@ -50,9 +39,9 @@ The \hlsupp{lack of precision} in algebra manipulations, confusion from \hlsupp{
 
   \begin{multicols}{3}
     \begin{enumerate}[wide, label=(\alph*)]
-      \item \(\int \sec^{2}(\cos(x))\sin(x) \;dx\)
-      \item \(\int \frac{xe^{\sqrt{x^{2}+1}}}{ \sqrt{x^{2} + 1}} \;dx\)
-      \item \(\int \frac{\cos(x)}{\sin(x) + 1} \;dx\)
+      \item \(\int x^{3} \sqrt{1 + x^{2}} \;dx\)
+      \item \(\int_{e}^{e^{2}} \frac{1}{x \ln(x)} \;dx\)
+      \item \(\int \frac{x^{2} + 1}{x - 1} \;dx\)
     \end{enumerate}
   \end{multicols}
 
@@ -61,40 +50,56 @@ The \hlsupp{lack of precision} in algebra manipulations, confusion from \hlsupp{
 \clearpage
 
 \begin{exercise}
-  Find the volume of the solid obtained by rotating the region bounded by \(y = \sqrt{1 - x^{2}}\), \(y = -x\) about the \(y\)-axis.
+  Evaluate the following integrals.
+
+  \begin{multicols}{3}
+    \begin{enumerate}[wide, label=(\alph*)]
+      \item \(\int \frac{1}{\sqrt{1 - x}} \;dx\)
+      \item \(\int \frac{1}{\sqrt{1 - x^{2}}} \;dx\)
+      \item \(\int \frac{\sec(x)\tan(x)}{\sqrt{1 - \sec^{2}(x)}} \;dx\)
+    \end{enumerate}
+  \end{multicols}
+
+  \blanklines{45}
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Evaluate the following integrals.
+
+  \begin{multicols}{3}
+    \begin{enumerate}[wide, label=(\alph*)]
+      \item \(\int \frac{e^{x} + e^{-x}}{e^{-x}} \;dx\)
+      \item \(\int 2^{x^{2}} x \;dx\)
+      \item \(\int 3^{x} \;dx\)
+    \end{enumerate}
+  \end{multicols}
+
+  \blanklines{45}
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Express the volume of a unit sphere obtained by rotating the semicircle \(y = \sqrt{1 - x^{2}}\) about the \(x\)-axis as an integral.
+
+  Repeat the exercise by expressing the volume of a unit sphere obtained by rotating the ``sideways'' semicircle \(x = \sqrt{1 - y^{2}}\) as an integral.
 
   \blanklines{50}
 \end{exercise}
 \clearpage
 
+\begin{exercise}
+  Find the volume of the solid obtained by rotating the region bounded by \(y = \sqrt{x}\), \(x = 4\), \(x=1\) and the \(y = 0\) about the \(y\)-axis.
 
-\begin{exercise}[Final exam, Fall 2023]
-  Suppose that \(f(x)\) is continuous and that \(\int_{-1}^{1} f(x) \;dx = \pi\). Evaluate \(\int_{0}^{\pi} f(\cos(x)) \sin(x) \;dx\). 
-
-  \blanklines{20}
-\end{exercise}
-
-\begin{exercise}[Final exam, Fall 2023]
-  Evaluate \(\int \frac{\sqrt{x} + 1}{\sqrt{x}} \;dx\).
-
-  \blanklines{25}
+  \blanklines{50}
 \end{exercise}
 \clearpage
 
-\begin{exercise}[Final exam, Fall 2023]
-  Suppose that \(f\) is a function and that \(f''\) is continuous on \([3,9]\). What is the value of \(\int_{3}^{9} f''(x) \;dx\)?
+\begin{exercise}
+  Find the volume of the solid obtained by rotating the region bounded by \(y = (x-1)^{2}\), \(y = \sqrt{x-1}\) about the \(y\)-axis.
 
-  \blanklines{20}
-\end{exercise}
-
-\begin{exercise}[Final exam, Fall 2023, slightly modified]
-  If \(f(x) = \int_{-x}^{x} \frac{2t}{1+t^{2}} \;d t\), find \(f'(x)\).
-
-  {\footnotesize The question is modified so that if you didn't identify an efficient starting step, you would end up doing way more work. The original integrand is \(\frac{t}{1+t^{4}}\).}
-
-  \blanklines{25}
+  \blanklines{50}
 \end{exercise}
 \clearpage
-
 
 \end{document}

@@ -1306,7 +1306,7 @@
   Which of the following are good starting points for our solutions?
 
   \begin{enumerate} 
-    \item Write \(F(x)\) as \(\int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \). \hlwarn{Sign mistake.}
+    \item Write \(F(x)\) as \(\int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \). \onslide<2->{\hlwarn{Sign mistake.}}
     \item Write \(F(x)\) as \(\int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
     \item Write \(F(x)\) as \(\int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
     \item 
@@ -1330,7 +1330,7 @@
 \begin{poll}
   What if we didn't see the ``convenient'' choice for \(u\)? 
 
-  Transform \(\int x^{2} \sqrt{ 1 + x^{3} } \;dx\) by subbing \(u = \sqrt{ 1 + x^{3} }\).
+  Transform \(\int x^{2} \sqrt{ 1 + x^{3} } \;dx\) by substituting \(u = \sqrt{ 1 + x^{3} }\).
 
   \begin{enumerate} \setlength\itemsep{1ex}
     \item This substitution does not work.
@@ -1342,6 +1342,18 @@
 \end{poll}
 
 \section{Applications of integration}
+
+\begin{poll}
+  Which integral describes the area of the region enclosed between \(y = x^{2}\) and \(y = x^{3} - 2x\)? Remember area means total area in such problems.
+
+  \begin{enumerate}
+    \item \(\int_{-1}^{2} (x^{3} - 2x) - x^{2} \;dx\)
+    \item \(\int_{-1}^{0} (x^{3} - 2x) - x^{2} \;dx + \int_{0}^{2} x^{2} - (x^{3} - 2x) \;dx\)
+    \item 
+    \item
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
 
 \begin{poll}
   What are expressions (plural!) for the area bounded between \(\sin(x)\) and \(\cos(x)\) over \([0, \pi]\)?

@@ -1,0 +1,111 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document} \section{Problem-solving practice}
+
+\begin{exercise}
+  Evaluate \(\int 4u^{3} (1 + \sqrt{u}) \;du\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \( u^{4} \left(u + \frac{2}{3} u^{3/2}\right) + C\)
+    \item \( u^{4} \left(u + u^{3/2}\right) + C\)
+    \item \(u^{4} + \frac{2}{9}u^{9/2} + C\)
+    \item \(u^{4} + \frac{8}{9}u^{9/2} + C\)
+    \item \(4u^{4} + u^{9/2} + C\)
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Which expression defines \(\int_{0}^{3} x^{3} - 2x \;dx\)?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(\lim_{n \to \infty} \sum_{i=1}^{n} \left( \frac{3i^{3}}{n} - \frac{6i}{n} \right)\).
+    \item \(\lim_{n \to \infty} \sum_{i=1}^{n} \left( \frac{9i}{n^{2}} - \frac{6i}{n^{3}} \right)\).
+    \item \(\lim_{n \to \infty} \sum_{i=1}^{n} \left( \frac{9i}{n^{2}} - \frac{27i}{n^{3}} \right)\).
+    \item \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{3}{n}(i^{3} - 2i)\).
+    \item \(\lim_{n \to \infty} \sum_{i=1}^{n} \left( \frac{i}{n^{2}} - \frac{2i}{n} \right)\).
+    \item None of the above.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Suppose \(F'(x) = \frac{x}{\sqrt{1+x^{2}}}\) and \(F(1) = 0\). Find \(F(x)\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(F(x) = \sqrt{\arctan(x)}\).
+    \item \(F(x) = \sqrt{\arctan(x)} - \sqrt{\pi/4}\).
+    \item \(F(x) = \sqrt{x^{2} + 1} - \sqrt{2}\).
+    \item \(F(x) = \sqrt{x^{2} + 1} + \sqrt{2}\).
+    \item \(F(x) = \sqrt{x^{2} + 1}\).
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to \infty} \frac{e^{x} + \ln(x)}{5^{x}}\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(y = x - 3\)
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Find the area between the curves \(y = \sqrt{x}\) and \(y = x^{5}\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item 
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Suppose \(f'(x) = \int_{0}^{x} \sin(t^{2}) \;dt\).  Which of the following statements is true?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(f(x)\) is decreasing over the interval \([-\sqrt{\pi/2}, 0]\).
+    \item \(f(x)\) is not defined for \(x < 0\).
+    \item \(f(x)\) is concave down over the interval \([0, \sqrt{\pi/2}]\).
+    \item \(f(x)\) is concave up over the interval \([0, \sqrt{\pi/2}]\).
+    \item \(f(x)\) has an inflection point when \(x = \sqrt{\pi/2}\).
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to \infty} \frac{\ln(2x + 1)}{3\ln(x)-1}\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(0\).
+    \item \(1/3\).
+    \item \(2/3\).
+    \item \(1\).
+    \item \(\infty\).
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\int_{2}^{1} \sec^{2}\left(\frac{1}{\sqrt[3]{x}}\right) \;dx\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(0\)
+    \item \(-\tan(\ln(2))\)
+    \item The integral cannot be evaluated.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Find the left-endpoint approximation of \(\int_{2}^{6} \ln(x) \;dx\) using \(4\) rectangles of equal width.
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(\ln(2)\ln(3)\ln(4)\ln(5)\)
+    \item \(\ln(3)\ln(4)\ln(5)\ln(6)\)
+    \item \(\ln(720)\)
+    \item \(\ln(120)\)
+    \item \(\ln(360)\)
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Find absolute extrema of \(h(x) = 2x^{3} + 3x^{2} - 36x - 2\) over the interval \([-3,2]\).
+\end{exercise}
+
+\begin{exercise}
+  A window has the shape of a rectangle topped by a semicircle. Its perimetre is \(100\) metres.  Maximize the area of the window.
+\end{exercise}
+\end{document}
