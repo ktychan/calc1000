@@ -5,6 +5,8 @@
 \setbeamersize{text margin left=.5cm} 
 \setbeamersize{text margin right=.5cm} 
 
+\usepackage[normalem]{ulem}
+\usepackage{fontawesome6}
 \usepackage{enumitem}
 \usepackage{qrcode}
 \usepackage{multicol}
@@ -48,7 +50,7 @@
       xshift=-0.5em,
       yshift=0.5em
     ] at (current page.south east) {
-      \includegraphics[height=3ex]{./logos/WesternU_Stacked_CMYK.eps}
+      \includegraphics[height=3ex]{./standalones/WesternU_Stacked_CMYK.eps}
     };
   \end{tikzpicture}
 }
