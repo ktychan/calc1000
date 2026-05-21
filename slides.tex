@@ -1,10 +1,6 @@
 %! Tex Program = lualatex
 \documentclass[aspectratio=169, 14pt]{beamer}  
 
-% \documentclass[aspectratio=169, 14pt, handout]{beamer}  % 12, 14, 17, 20
-% \usepackage{handoutWithNotes}
-% \pgfpagesuselayout{3 on 1 with notes}[letterpaper, border shrink=5mm]
-
 \usetheme{metropolis} 
 \everymath{\displaystyle} 
 \setbeamersize{text margin left=.5cm} 
@@ -28,28 +24,8 @@
 \input{./tikz.tex.preamble}
 \input{./typography.tex.preamble}
 
-%
-% uncomment the whole \setbeamertemplate command to add an iClicker watermark.
-%
-\usepackage{tikz, graphicx}
-
-
-\newenvironment{poll}{
-  \begingroup
-  \setbeamertemplate{background}{
-    \begin{tikzpicture}[overlay, remember picture]
-      \node[teal!10, anchor=south] at (current page.south) {\resizebox{\textwidth}{!}{iClicker}};
-    \end{tikzpicture}    
-  }
-  \begin{frame}
-}{
-  \end{frame}
-  \endgroup
-}
-
-
 \title{Calculus 1000A}
-\date{Fall 2025}
+\date{Fall 2026}
 \author{Kelvin Chan}
 \institute{Department of Mathematics\\University of Western Ontario}
 
@@ -58,95 +34,109 @@
 \begin{frame}
   \maketitle{}
 \end{frame}
-% \section{First day of class}
+
+\section{First day of class}
+
+\begin{frame}
+  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 004\\TuTh @ 7pm}}
+
+  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
+
+  \bigskip
+  \begin{minipage}{2in}
+    \centering
+    \qrcode[height=1in]{https://join.iclicker.com/ACQO}
+    \bigskip
+
+    \footnotesize\url{join.iclicker.com/ACQO} 
+
+    \bigskip
+    Use your @uwo.ca email
+  \end{minipage}
+  \begin{minipage}{3.5in}
+    Join iClicker for in-class activities. \\Start next week.
+
+    \bigskip
+    Count for \(4\%\) of your final grade. \\Completion marks only. 
+
+    \medskip
+    The \hlmain{iClicker Student} app is recommended.
+  \end{minipage}
+\end{frame}
 
 
-% \begin{frame}
-%   \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 004\\TuTh @ 7pm}}
-%
-%   Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
-%
-%   \bigskip
-%   \begin{minipage}{2in}
-%     \centering
-%     \qrcode[height=1in]{https://join.iclicker.com/ACQO}
-%     \bigskip
-%
-%     \footnotesize\url{join.iclicker.com/ACQO} 
-%
-%     \bigskip
-%     Use your @uwo.ca email
-%   \end{minipage}
-%   \begin{minipage}{3.5in}
-%     Join iClicker for in-class activities. \\Start next week.
-%
-%     \bigskip
-%     Count for \(4\%\) of your final grade. \\Completion marks only. 
-%
-%     \medskip
-%     The \hlmain{iClicker Student} app is recommended.
-%   \end{minipage}
-% \end{frame}
+\begin{frame}
+  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MTuWF @ 11:30}}
 
+  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
 
-% \begin{frame}
-%   \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MTuWF @ 11:30}}
-%
-%   Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
-%
-%   \bigskip
-%   \begin{minipage}{2in}
-%     \centering
-%     \qrcode[height=1in]{https://join.iclicker.com/WAGZ}
-%     \bigskip
-%
-%     \footnotesize\url{join.iclicker.com/WAGZ} 
-%
-%     \bigskip
-%     Use your @uwo.ca email
-%   \end{minipage}
-%   \begin{minipage}{3.5in}
-%     Join iClicker for in-class activities. \\Start next week.
-%
-%     \bigskip
-%     Count for \(4\%\) of your final grade. \\Completion marks only. 
-%
-%     \medskip
-%     The \hlmain{iClicker Student} app is recommended.
-%   \end{minipage}
-% \end{frame}
-% it's okay to focus on grades.
-% also develop your problem-solvng skills and intellectual independence
+  \bigskip
+  \begin{minipage}{2in}
+    \centering
+    \qrcode[height=1in]{https://join.iclicker.com/WAGZ}
+    \bigskip
 
-% \begin{frame}
-%   \centering
-%
-%   \frametitle{Tips (?) for success}
-%
-%   \begin{enumerate}
-%     \item It's okay to say ``I don't know.''
-%     \item It's okay to be tired.
-%     \item Learning takes time. Be kind to yourself and others.
-%   \end{enumerate}
-%
-%   \bigskip
-%   \pause \Huge
-%   Remember to party!
-% \end{frame}
+    \footnotesize\url{join.iclicker.com/WAGZ} 
 
+    \bigskip
+    Use your @uwo.ca email
+  \end{minipage}
+  \begin{minipage}{3.5in}
+    Join iClicker for in-class activities. \\Start next week.
 
-% \begin{frame}
-%   \centering
-%   \huge
-%   What key idea do we learn from Example~1.3?
-% \end{frame}
+    \bigskip
+    Count for \(4\%\) of your final grade. \\Completion marks only. 
 
+    \medskip
+    The \hlmain{iClicker Student} app is recommended.
+  \end{minipage}
+\end{frame}
 
-% \begin{frame}
-%   \centering
-%   \huge
-%   \hlmain{What is a memorable moment of your first week of class?}
-% \end{frame}
+\begin{frame} \frametitle{About the course}
+
+  \begin{enumerate}
+    \item Roughly 2400 students, split across X sections.
+    \item Shared assessments.
+    \item Slightly different teaching styles/pace between instructors.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame} \frametitle{Where are the course materials?}
+
+  OWL BrightSpace (\url{owl.uwo.ca}) is our Learning Management System. 
+
+  \qrcode{https://owl.uwo.ca/}
+
+  \begin{enumerate}
+    \item The course outline.
+    \item Lecture materials.
+    \item Assessment schedules.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame} \frametitle{The fillable notes}
+  Find them on OWL BrightSpace (\url{owl.uwo.ca}) \uline{under our section}.
+
+  INSERT screenshots here.
+
+\end{frame}
+
+\begin{frame}
+  \centering
+
+  \frametitle{Tips (?) for success}
+
+  \begin{enumerate}
+    \item Take care of your body and mind, i.e., be healthy!
+    \item It's okay to say ``I don't know.'' 
+    \item Learning takes time. Be kind to yourself and others.
+    \item Hit the Math Help Centre when you want a helping mind.
+  \end{enumerate}
+
+  \bigskip
+  \pause \Huge
+  Remember to party!
+\end{frame}
 
 
 \section{Fundamentals and Reviews}
