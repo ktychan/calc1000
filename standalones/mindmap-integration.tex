@@ -1,9 +1,16 @@
-\documentclass{standalone}
-\everymath{\displaystyle}
-\usepackage{graphicx}
-
+%! TeX program = lualatex
+\documentclass[tikz]{standalone}
 \input{../typography.tex.preamble}
-\usepackage{tikz}
+
+% DO NOT use the tikz preamble. 
+% See the BUG below
+% \input{../tikz.tex.preamble}
+\usepackage{pgfplots}
+\pgfplotsset{
+  compat=1.18,
+  % trig format=rad, % BUG enabling this causes dimension too large error.
+}
+
 \usetikzlibrary{mindmap, backgrounds}
 
 \begin{document}
@@ -11,12 +18,12 @@
   mindmap, 
   grow cyclic, 
   concept color=gray!20, 
-  every node/.style={concept},
+  every child node/.style={concept},
   x=0.75cm,
   y=0.75cm,
   ]
   \node [concept, concept color=pink!50, minimum size=2cm] (derivatives) at (-2,-15) {differentiation};
-  \node (root) {integration}
+  \node [concept] (root) {integration}
     child [concept color=main!20] {
       node (antder) {antiderivative}
       child { 
@@ -38,12 +45,12 @@
     child [concept color=main!20] { 
       node  (defint) {definite integral\\\(\int_{a}^{b} f(x) \;dx\)} 
       child { node (area) {net area} }
-      child { node (riemann) {Riemann sums} } 
+      child { node (riemann) {Riemann sum} } 
       child { node {algebraic properties} }
     }
     child [concept color=attn!20] { 
       node {integration techniques} 
-      child { node {recognize derivatives and use the integration table}  }
+      child { node {recognize derivatives or use the integration table}  }
       child { node (sub) {the substitution rule} }
       child { node {algebraic properties}  }
     }
@@ -54,12 +61,47 @@
     }
     ;
 
-  \node [concept color=white, annotation, right] at (riemann.east) {\footnotesize \(\sum_{i=1}^{n} f(x_{i}^{*}) {\Delta x}\)};
-  \node [concept color=white, annotation, below right] at (ftcone.east) {\footnotesize \(\frac{d}{dx} \int_{a}^{x} f(t) \;dt = f(x)\)};
+  \node [concept color=white, annotation, right] at (riemann.east) {\footnotesize \(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) {\Delta x}\)};
+  \node [concept color=white, annotation, below right] at (ftcone.east) {\footnotesize \(\frac{d}{d\hlwarn{x}} \int_{a}^{\hlwarn{x}} f(t) \;dt = f(\hlwarn{x})\)};
   \node [concept color=white, annotation, below right, text width=2.3in] at (ftctwo.east) {\footnotesize \(\int_{a}^{b} f(x) \;dx = F(b) - F(a)\) if \(F'(x) = f(x)\)};
   \node [concept color=white, annotation, below right, text width=1cm] at (indint.south) {\footnotesize ``\(+C\)''};
-  \node [concept color=white, annotation, right, text width=2.7in] at (sub.east) {\footnotesize \(\int f(g(x)) g'(x) \;dx = \int f(u) \;du\), substitute \(u = g(x)\)};
-  \node [concept color=white, annotation, right] at (area.east) {\includegraphics[height=1in]{plot_net_area}};
+  \node [concept color=white, annotation, right, text width=2.7in] at (sub.east) {\footnotesize \(\int f(g(x)) g'(x) \;dx = \int f(u) \;du\), sub \(u = g(x)\)};
+  % \node [concept color=white, annotation, right] at (area.east) {\includegraphics[height=1in]{plot_net_area}};
+  \node [concept color=white, annotation, right] at (area.east) {
+    \begin{tikzpicture}[scale=0.5]
+        \begin{axis}[
+          axis lines=center,
+          axis y line = none,
+          xlabel={\empty}, xlabel style={at={(ticklabel* cs:1)}, anchor=north},
+          enlargelimits=true,
+          axis line style={thin},
+          xtick=\empty,
+          black,
+          extra x ticks = {0.5, 4.5},
+          extra x tick labels = {\empty},
+          ]
+
+          \addplot[draw=none, fill=supp!20, domain=0.5:1.0] {(x-1)*(x-2)*(x-4)} \closedcycle;
+          \addplot[draw=none, fill=main!20, domain=1.0:2.0] {(x-1)*(x-2)*(x-4)};
+          \addplot[draw=none, fill=supp!20, domain=2.0:4.0] {(x-1)*(x-2)*(x-4)};
+          \addplot[draw=none, fill=main!20, domain=4.0:4.5] {(x-1)*(x-2)*(x-4)} \closedcycle;
+          % \addplot[dashed, no markers] coordinates { (0.5,0) (0.5,-2.625) };
+          % \addplot[dashed, no markers] coordinates { (4.5,0) (4.5,4.375) };
+          \addplot[ultra thick, domain=0.5:4.5, smooth, samples=200] {(x-1)*(x-2)*(x-4)};
+
+          \node[below] at (axis cs:0.65,0) {\footnotesize \(-\)};
+          \node[anchor=south] at (axis cs:1.45,-0.2) {\footnotesize \(+\)};
+          \node[below] at (axis cs:3.00,0) {\footnotesize \(-\)};
+          \node[above] at (axis cs:4.3,0) {\footnotesize \(+\)};
+
+          \node[above] at (axis cs:0.5,0) {\footnotesize \(a\)};
+          \node[below] at (axis cs:4.5,0) {\footnotesize \(b\)};
+
+          \node[below,align=center] at (2,3) {\footnotesize \(\int_{a}^{b} f(x)\;dx\) represents net area};
+
+        \end{axis}
+      \end{tikzpicture}
+    };
 
   \begin{pgfonlayer}{background}
     \draw [concept connection, main] (defint) edge (ftctwo);
