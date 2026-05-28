@@ -17,6 +17,7 @@
 % ------------------------------------------------------------
 \usepackage{fontspec}
 \usepackage{unicode-math}
+\usepackage{fontawesome5}
 
 \setmainfont{TeX Gyre Pagella}
 \setmathfont{STIX Two Math} %  TeX Gyre Termes Math, Asana Math,  Latin Modern Math

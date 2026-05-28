@@ -1,5 +1,5 @@
 %! Tex Program = lualatex
-\documentclass[aspectratio=169, 14pt]{beamer}  
+\documentclass[aspectratio=169, 14pt]{beamer}
 
 \input{./beamer.tex.preamble}
 
@@ -505,7 +505,147 @@
   \faStar{} The precise definition tells us how to find critical numbers.
 \end{frame}
 
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=1,height=2in]{./standalones/extrema_example}
+  \end{center}
 
+  We scan the graph from left to right to find critical numbers.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=2,height=2in]{./standalones/extrema_example}
+  \end{center}
+
+  Recall \(f'(c) = 0\) means the graph of \(y = f(x)\) has a horizontal tangent line at \(c\).
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=3,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  \pause
+  The constant \hlmain{\(c\) is a critical number}, but the point \hlsupp{\((c, f(c))\)} is a critical point.
+
+  Also notice that \(f(c)\) is a \hlsupp{local maximum}.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=4,height=2in]{../standalones/extrema_example}
+  \end{center}
+
+  Similar to the previous critical number, we have a horizontal tangent line here.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=5,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  Similar to the previous critical number, we have a horizontal tangent line here.
+  \pause
+  Unlike the previous critical number, \(f(c)\) is a \hlsupp{local minimum} at this particular critical number.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=6,height=2in]{./standalones/extrema_example}
+  \end{center}
+
+  Such situation often, but not always, occurs in piecewise functions.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=7,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  Such situation often, but not always, occurs in piecewise functions.
+  \pause 
+  Notice that \(f(c)\) is a \hlsupp{local maximum}.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=8,height=2in]{./standalones/extrema_example}
+  \end{center}
+
+  Notice \(f'(c)\) does not exist because \(f\) is \hlwarn{discontinuous} at \(c\). 
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=9,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  Notice that \(f'(c)\) does not exist because \(f\) is \hlwarn{discontinuous} at \(c\). 
+  \pause 
+  Therefore, \(f(c)\) is NEITHER a local minimum NOR a local maximum.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=10,height=2in]{./standalones/extrema_example}
+  \end{center}
+
+  Notice that \(f'(c)\) does not exist.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=11,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  \pause 
+  Notice that \(f(c)\) is a \hlsupp{local maximum} at this particular critical number.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=12,height=2in]{./standalones/extrema_example}
+  \end{center}
+
+  Notice that \(f'(c)\) does not exist because \(c\) is the right \hlwarn{endpoint} of the domain of \(f\).
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=13,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  Notice that \(f'(c)\) does not exist because \(c\) is the right \hlwarn{endpoint} of the domain of \(f\).
+  \pause        
+  \hlwarn{\faExclamationTriangle{}} We \hlwarn{must exclude endpoints} of the given function when searching for critical numbers.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=14,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  \faComment{} Have we found \emph{all} critical points?
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=15,height=2in]{./standalones/extrema_example}
+  \end{center}
+  
+  Nope. Don't forget the flat part. 
+
+  Every point on this flat part is a critical point because all except the endpoints have horizontal tangent lines.
+\end{frame}
+
+\begin{frame}[t] \small
+  \begin{center}
+    \includegraphics[page=16,height=2in]{./standalones/extrema_example}
+  \end{center}
+
+  Lastly, \(f(x)\) has an absolute maximum but no absolute minimum because \(\lim_{x \to -\infty} f(x) = -\infty\) assuming the trend continues.
+\end{frame}
 
 \begin{frame}
   \frametitle{The general strategy for finding absolute extrema}

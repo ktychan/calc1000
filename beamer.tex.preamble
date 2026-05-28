@@ -6,7 +6,6 @@
 \setbeamersize{text margin right=.5cm} 
 
 \usepackage[normalem]{ulem}
-\usepackage{fontawesome6}
 \usepackage{enumitem}
 \usepackage{qrcode}
 \usepackage{multicol}
