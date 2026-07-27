@@ -1,7 +1,10 @@
 %! Tex Program = lualatex
-\documentclass[aspectratio=169, 14pt]{beamer}
+\documentclass[aspectratio=169, 14pt, handout]{beamer}
 
 \input{./beamer.tex.preamble}
+\usepackage{xr}
+\externaldocument[main-]{.aux/main}
+
 
 \title{Calculus 1000A}
 \date{Fall 2026}
@@ -120,7 +123,7 @@
 
 \section{Fundamentals and Reviews}
 \begin{frame}
-  \frametitle{Inverse functions}
+  \frametitle{Inverse functions\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:inverse}\\on page~\pageref{main-def:inverse}}}}
 
   Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}(x)\) such that
   \[
