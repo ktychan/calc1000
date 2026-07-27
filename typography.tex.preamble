@@ -1,10 +1,11 @@
-% vim: ftn=tex
+% vim: ft=tex
 
 % ------------------------------------------------------------
 %
 %           MATH
 %
 % ------------------------------------------------------------
+\usepackage{amsmath}
 \everymath{\displaystyle}
 \renewcommand{\arcsin}{\sin^{-1}}
 \renewcommand{\arccos}{\cos^{-1}}
@@ -25,6 +26,7 @@
 \setmathfont[range="20D0-"20FF]{TeX Gyre Pagella Math}
 \setmathfont[range=bb]{TeX Gyre Termes Math}
 \setmathfont[range=\int]{Latin Modern Math}
+\setmathfont[range=\underbrace]{Latin Modern Math}
 
 \newfontface{\emojifont}{Noto Color Emoji}[Renderer=Harfbuzz]
 
@@ -40,7 +42,7 @@
 %  Western University brand colours
 %  Source: https://brand.westernu.ca/visual-identity/colours.html
 % ============================================================
- 
+
 % Primary colours
 \definecolor{WesternPurple}{HTML}{4F2683}   % PMS 268 C | CMYK 82/100/0/12 | RGB 79/38/131
 \definecolor{WesternWhite}{HTML}{FFFFFF}    % RGB 255/255/255
