@@ -73,7 +73,7 @@ Limit laws also apply to one-sided limits and piecewise functions.
   \blanklines{15}
 \end{example}
 
-We turn to situations for which the quotient rule does not apply directly, i.e., when the limit of the denominator is \(0\).  If the limit of the numerator is a constant and the limit of the denominator is \(0\), then the entire limit is either \(+\infty\) or \(-\infty\) or does not exist (because its two one-sided limits are different infinities).
+We turn to situations for which the quotient rule does not apply directly, i.e., when the limit of the denominator is \(0\).  If the limit of the numerator is a non-zero constant and the limit of the denominator is \(0\), then the entire limit is either \(+\infty\) or \(-\infty\) or does not exist (because its two one-sided limits are different infinities). \updatenote{Added "non-zero" so this case doesn't overlap with the \(0/0\) case discussed next.}
 
 \begin{example} \label{eg:limit-constant-over-0}
   Evaluate \(\lim_{x \to 1} \frac{x}{x - 1}\).
@@ -114,7 +114,7 @@ Change-of-variable is another way to evaluate limits. To demonstrate this techni
 \end{example}
 
 \begin{exercise} \label{ex:limit-change-of-variable-squared}
-  Use a combination of limit laws and a change of variable evaluate \(\lim_{h \to 0} \left( \frac{\cos(h/2) - 1}{3h} \right)^{2}\). 
+  Use a combination of limit laws and a change of variable to evaluate \(\lim_{h \to 0} \left( \frac{\cos(h/2) - 1}{3h} \right)^{2}\). \updatenote{Added the missing "to".} 
 
   \blanklines{15}
 \end{exercise}
@@ -155,7 +155,7 @@ Change-of-variable is another way to evaluate limits. To demonstrate this techni
 \clearpage
 
 
-The next exercise is a direct application of the squeeze theorem. No need to choose an upper and an lower bound for \(g(x)\) because they are already given. It is more of a ``do I remember the statement of the squeeze theorem?'' type of exercise.
+The next exercise is a direct application of the squeeze theorem. No need to choose an upper and a lower bound for \(g(x)\) because they are already given. \updatenote{"an lower" corrected to "a lower".} It is more of a ``do I remember the statement of the squeeze theorem?'' type of exercise.
 \begin{exercise} \label{ex:limit-squeeze-easy}
   Suppose \(x+1 \le g(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} g(x)\).
 
@@ -195,10 +195,10 @@ Reflection helps us find connections and expand our skill set. Take a look at Ex
   \end{minipage}
   \hspace{0.5in}
   \begin{minipage}{4.5in}
-    This problem is only a tad different from Example~\ref{ex:limit-law-x-square-sin(x)}. However, its solution is a bit more complicated. There two approaches: 
+    This problem is only a tad different from Example~\ref{ex:limit-law-x-square-sin(x)}. However, its solution is a bit more complicated. There are two approaches: \updatenote{Added the missing "are".}
     \begin{enumerate}[{label=(\Alph*)}, itemsep={1ex}, topsep={1ex}]
       \item Use piecewise functions. 
-      \item Evaluate two one-sided limits if you rather not to deal with piecewise functions.
+      \item Evaluate two one-sided limits if you'd rather not deal with piecewise functions. \updatenote{Fixed "rather not to deal" to "rather not deal".}
     \end{enumerate}
 
     We need the squeeze theorem in both approaches.  
@@ -216,7 +216,7 @@ Reflection helps us find connections and expand our skill set. Take a look at Ex
 
   \item Sketch your choices of \(f(x)\) and \(h(x)\) on the graph above. Do they \enquote{squeeze} \(x \sin(1/x)\)? If so, move on to the next step; otherwise, go back to the previous step and try again. Hint: \(f(x) = -x\) and \(h(x) = x\) are the wrong choices.
 
-  \item The piecewise nature of \(f(x)\) and \(g(x)\) forces us to show \(f(x) \le x \sin(1/x) \le g(x)\) in two steps. 
+  \item The piecewise nature of \(f(x)\) and \(h(x)\) forces us to show \(f(x) \le x \sin(1/x) \le h(x)\) in two steps. \updatenote{"g(x)" corrected to "h(x)" to match the upper bound named in the steps below.}
     \begin{enumerate}
       \item Show that \(f(x) \le x \sin\left(\frac{1}{x}\right) \le h(x)\) \hlwarn{for \(x \ge 0\)}.
 
@@ -242,7 +242,7 @@ Reflection helps us find connections and expand our skill set. Take a look at Ex
 
     \blanklines{20}
 
-  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{-}} x \sin(1/x)\).
+  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{+}} x \sin(1/x)\). \updatenote{Second limit corrected from \(0^{-}\) to \(0^{+}\) so the two one-sided limits are actually different.}
 
     \blanklines{20}
 

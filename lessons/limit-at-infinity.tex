@@ -14,7 +14,7 @@
 %
 % \blanklines{5}
 
-\faLightbulb{} Limits at infinity \(\lim_{x \to \infty} f(x)\) is defined using the idea for limits at a number \(\lim_{x \to a} f(x)\).  
+\faLightbulb{} Limits at infinity \(\lim_{x \to \infty} f(x)\) are defined using the idea for limits at a number \(\lim_{x \to a} f(x)\). \updatenote{"is defined" corrected to "are defined" to agree with the plural "Limits".}
 
 \begin{example}
   Consider the following functions.
@@ -99,7 +99,7 @@ The quickest way to determine horizontal asymptotes of transcendental functions 
         \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
       \end{center}
 
-    \item has no limits at both infinities, and \(\lim_{x \to -\infty} f_{3}(x)\) is not an infinity. 
+    \item has no limit at either infinity, and \(\lim_{x \to -\infty} f_{3}(x)\) is not an infinity. \updatenote{"has no limits at both infinities" corrected to "has no limit at either infinity".}
     \item has exactly one horizontal asymptote.
 
       \begin{center}
@@ -156,10 +156,11 @@ All limit laws apply to limits at infinity, but we often need to reorganize func
 \end{example}
 
 \begin{example}\label{eg:dom-term-intro-infinity}
-  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{2x-1} + \sqrt[3]{x}}{x}\).
+  Evaluate \(\lim_{x \to \infty} \frac{x}{\sqrt{2x-1} + \sqrt[3]{x}}\).
 
   \blanklines{8}
 \end{example}
+\updatenote{Numerator and denominator were swapped (was \(\frac{\sqrt{2x-1}+\sqrt[3]{x}}{x}\)); as originally written the dominant term on top grows like \(x^{1/2}\) against \(x^{1}\) on the bottom, so the limit was \(0\), not \(\infty\) as this example's label indicates.}
 \clearpage
 
 

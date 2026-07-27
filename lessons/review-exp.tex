@@ -1,7 +1,7 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Review of exponential functions and logarithms}
-A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\) is called an \hlmain{exponential function with base \(b\)} and exponent \(x\). Within the context of our textbook, every exponential function \(b^{x}\) has an \hlsupp{inverse} called the \hlmain{logarithmic function with base \(b\)}, denoted by \(\log_{b}(x)\). \newline
+A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\), is called an \hlmain{exponential function with base \(b\)} and exponent \(x\). \updatenote{Added the missing comma closing the "where..." clause.} Within the context of our textbook, every exponential function \(b^{x}\) has an \hlsupp{inverse} called the \hlmain{logarithmic function with base \(b\)}, denoted by \(\log_{b}(x)\). \newline
 {\scriptsize Some authors allow \(1^{x}\) to be an exponential function. However, \(1^{x}\) is a constant function and does not have an inverse.}
 
 \begin{minipage}{0.6\textwidth}
@@ -93,11 +93,11 @@ These exercises help you get a feel for the usefulness of change-base-to-\(e\), 
 
   (Preview). Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{2x}\right)^{3x}\). There are (at least) two methods to solve this problem. 
   \begin{enumerate}[wide, label={Method (\arabic*).}]
-    \item Combine the above change-base-to-\(e\) and l'H\^opital's rule.  This methods is widely applicable but requires some algebra steps.
+    \item Combine the above change-base-to-\(e\) and l'H\^opital's rule.  This method is widely applicable but requires some algebra steps. \updatenote{"methods" corrected to "method".}
 
       \blanklines{10}
 
-    \item Perform a change of variable \(u = 2x\) and use the property of continuous functions.  This methods is fast but requires us to recognize \(e\) from the limit stated on page~\ref{def:exp-ln}.
+    \item Perform a change of variable \(u = 2x\) and use the property of continuous functions.  This method is fast but requires us to recognize \(e\) from the limit stated on page~\pageref{def:exp-ln}. \updatenote{"methods" corrected to "method"; changed \texttt{\textbackslash ref} to \texttt{\textbackslash pageref} so this points to the actual page number, matching how the same label is used in lHopitals-rule.tex.}
 
       \blanklines{5}
   \end{enumerate}

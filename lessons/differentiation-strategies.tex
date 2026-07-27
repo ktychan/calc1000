@@ -63,7 +63,7 @@ After applying the chain rule \(\frac{dy}{dx} = \frac{dy}{d{\color{main}u}} \fra
 
   \blanklines{20}
 
-  {\footnotesize The fast starting step: \(\frac{d}{dx} \sin(e^{\cos(x) + 5x}) = \left(\frac{d}{du} \sin(u) \right) \left(\frac{d}{dv} e^{v} \right) \left( \frac{d}{dx} \cos(x) + 5x \right)\) where \(u = e^{v}\) and \(v = \cos(x) + 5x\).}
+  {\footnotesize The fast starting step: \(\frac{d}{dx} \sin(e^{\cos(x) + 5x}) = \left(\frac{d}{du} \sin(u) \right) \left(\frac{d}{dv} e^{v} \right) \left( \frac{d}{dx} \Big(\cos(x) + 5x\Big) \right)\) where \(u = e^{v}\) and \(v = \cos(x) + 5x\). \updatenote{Added the missing parentheses around $\cos(x)+5x$ so $\frac{d}{dx}$ applies to the whole expression (matching $v = \cos(x)+5x$), not just $\cos(x)$.}}
 \end{exercise}
 
 \begin{exercise}
@@ -81,7 +81,7 @@ Derivatives of inverse functions \(y = f^{-1}(x)\) can be \hlmain{systematically
 \end{exercise}
 
 \begin{exercise}
-  Evaluate the derivative for \(\sin^{-1}(x^{3})\) at \(\pi\).  Conventional wisdom says it's easier to start by finding a formula for \(\frac{d}{dx} \arcsin(x)\), then applying the chain rule.
+  Evaluate the derivative for \(\sin^{-1}(x^{3})\) at \(1/2\).  Conventional wisdom says it's easier to start by finding a formula for \(\frac{d}{dx} \arcsin(x)\), then applying the chain rule. \updatenote{Changed the value from \(\pi\) to \(1/2\).}
 
   \blanklines{25}
 \end{exercise}
@@ -101,7 +101,7 @@ Because \(e^{x}\) and \(\ln(x)\) are inverse pairs, the derivative for \(\ln(x)\
 \end{exercise}
 
 \begin{exercise}
-  Find the derivative for \(\log_{b}(x)\) for \(b > 0\) and \(b \ne 1\). Start by changing base to \(e\) or by implicitly differentiate its equivalent equation \(x = b^{y}\). Your choice.
+  Find the derivative for \(\log_{b}(x)\) for \(b > 0\) and \(b \ne 1\). Start by changing base to \(e\) or by implicitly differentiating its equivalent equation \(x = b^{y}\). Your choice. \updatenote{"differentiate" corrected to "differentiating" to match the parallel "changing".}
 
   \blanklines{15}
 \end{exercise}
@@ -193,7 +193,7 @@ Exponential-like functions can be differentiated by changing base to \(e\) or us
   \[
     x^{2} + xy + y^{2} = 1
   \]
-  is parallel to the line \(-2x + 3\).
+  is parallel to the line \(y = -2x + 3\). \updatenote{Added "$y=$" since "$-2x+3$" alone is an expression, not the equation of a line.}
 
   \blanklines{45}
 \end{exercise}

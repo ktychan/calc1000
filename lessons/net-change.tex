@@ -1,7 +1,7 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Net Change Theorem}
-The Net Change theorem provides the physical meaning of FTC part 2.
+The Net Change Theorem provides the physical meaning of FTC part 2. \updatenote{Capitalized "Theorem" for consistency with the theorem's name elsewhere.}
 
 \begin{thm}
   If \(F(x)\) measures some physical quantity, then 
@@ -14,7 +14,7 @@ The Net Change theorem provides the physical meaning of FTC part 2.
 
 \blanklines{5}
 
-For example, if \(s\) is the displacement of an object, and \(v\) measures its velocity, then the Net Change theorem says 
+For example, if \(s\) is the displacement of an object, and \(v\) measures its velocity, then the Net Change Theorem says 
 \[
   s(b) - s(a) = \int_{a}^{b} v(t) \;dt.
 \]
@@ -28,9 +28,9 @@ For example, if \(s\) is the displacement of an object, and \(v\) measures its v
 \end{example}
 \clearpage
 
-Let's change the question ever so slightly from \hlwarn{net} displacement to \hlwarn{total} displacement. The Net Change Theorem still applies, but it requires a small adjustment.
+Let's change the question ever so slightly from \hlwarn{net} displacement to \hlwarn{total} distance. The Net Change Theorem still applies, but it requires a small adjustment. \updatenote{"total displacement" corrected to "total distance" -- displacement is already the net (signed) quantity given by \(\int v(t)\,dt\); the quantity that requires the extra adjustment (integrating \(|v(t)|\)) is called total distance.}
 \begin{exercise}
-  If \(v(t) = -t^{2} + 100\) is the velocity of some particle, find the \hlwarn{total displacement} from time \(t = 0\) to \(t = 30\).
+  If \(v(t) = -t^{2} + 100\) is the velocity of some particle, find the \hlwarn{total distance} from time \(t = 0\) to \(t = 30\).
 
   \blanklines{40}
 \end{exercise}

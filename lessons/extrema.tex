@@ -27,7 +27,7 @@ Visually speaking, an \hlmain{absolute extremum} of a function \(y = f(x)\) is t
 
 We use inequalities to precisely capture the idea of absolute extrema.
 \begin{definition}
-  Let \(f\) be a function defined over an interval \(I\), and let \(c\) in \(I\).  We say
+  Let \(f\) be a function defined over an interval \(I\), and let \(c\) be in \(I\). \updatenote{Added the missing "be".} We say
   \begin{itemize}[itemsep={1ex}]
     \item \(f\) has an \hlmain{absolute maximum on \(I\) at \(c\)} if \(f(c) \ge f(\text{every number in } I)\).
 
@@ -40,7 +40,7 @@ We use inequalities to precisely capture the idea of absolute extrema.
   \textbook{Definition on page 366, slightly reworded}
 \end{definition}
 
-It is not wrong to say that the absolute max/mn of \(f(x)\) is the largest/smallest number \hlwarn{in} the range of \(f\). It is just \emph{not helpful} for calculations because finding the range of a function is usually not an easy process except for reasonably simple functions. 
+It is not wrong to say that the absolute max/min of \(f(x)\) is the largest/smallest number \hlwarn{in} the range of \(f\). \updatenote{"mn" corrected to "min".} It is just \emph{not helpful} for calculations because finding the range of a function is usually not an easy process except for reasonably simple functions. 
 
 An absolute extremum is an absolute maximum or an absolute minimum. The plural of maxim\hlmain{um} is maxim\hlsupp{a}, minim\hlmain{um} is minim\hlsupp{a}, and extrem\hlmain{um} is extrem\hlsupp{a}.  Some textbooks use \emph{global} instead of \emph{absolute}. For example, global maximum and absolute maximum are interchangeable.
 
@@ -85,7 +85,7 @@ Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.  
 \end{example}
 
 \begin{exercise} \label{ex:critical-number-is-candidate}
-  Sketch four functions such that \(f(\text{critical number})\) is \emph{not} a local extrema.
+  Sketch four functions such that \(f(\text{critical number})\) is \emph{not} a local extremum. \updatenote{"extrema" corrected to "extremum" (singular, matching "a").}
 
   \begin{center}
     \includestandalone[page=7]{../standalones/plot-extrema-intro}
@@ -133,7 +133,7 @@ We need to be careful with endpoints when looking for critical numbers.
   \end{center}
 \end{mdframed}
 
-{\footnotesize An arbitrary function can approach an infinity or oscillate towards infinities, one or both absolute extrema do not always exist. In general, we have to rule out the non-existence of absolute extremum or by restricting the domain somehow before applying the above general strategy.}
+{\footnotesize An arbitrary function can approach an infinity or oscillate towards infinities, so one or both absolute extrema do not always exist. In general, we have to rule out the non-existence of absolute extrema or restrict the domain somehow before applying the above general strategy. \updatenote{Fixed a comma splice (added "so"), changed "absolute extremum" to "absolute extrema" to agree with "one or both" earlier in the sentence, and removed a stray "by" so "rule out \ldots{} or restrict \ldots{}" is parallel.}}
 
 A theoretical result called the Extreme Value Theorem (read Theorem 4.1 on textbook page 367) says that \emph{both} absolute extrema for \hlmain{continuous} functions defined over a \hlmain{closed and bounded} interval \([a,b]\) always exist. 
 
@@ -170,7 +170,7 @@ A theoretical result called the Extreme Value Theorem (read Theorem 4.1 on textb
 We eluded at the beginning of this section that minimizing or maximizing functions over a domain is a subtask in (applied) optimization problems.
 Exercise~\ref{ex:extremum-swim} is a subtask of Exercise~\ref{ex:optimization-swim}.
 \begin{exercise} \label{ex:extremum-swim}
-  Minimize \(T\) given \(T(s) = \frac{2 - 6 \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\).
+  Minimize \(T\) given \(T(s) = \frac{2 - \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\). \updatenote{Removed an erroneous factor of \(6\) multiplying \(\sqrt{s^{2}-1}\) in the numerator (this is the time function for Exercise~\ref{ex:optimization-swim}, with \(s\) the swim distance): as originally written, \(T(\sqrt{5}) < 0\), an impossible negative time.}
 
   To minimize means to find the absolute minimum.
 

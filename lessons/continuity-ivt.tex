@@ -9,9 +9,10 @@ Imagine and draw the graph of a temperature function \(H(t)\) that fits the give
 
 \begin{figure}[!h]  % [h] for here, [ht] for here top, [hb] for here bottom
   \centering
-  \includestandalone[width=\textwidth]{standalones/plot_ivt_motivation}
-  \label{fig:label}
+  \includestandalone[width=\textwidth]{../standalones/plot_ivt_motivation}
+  \label{fig:ivt-motivation}
 \end{figure}
+\updatenote{Fixed the image path (was missing "../", so the figure wasn't displaying) and gave the figure a descriptive label instead of the placeholder "fig:label".}
 
 What \underline{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
 
@@ -44,7 +45,7 @@ To apply IVT, we must successfully complete three tasks:
 If we cannot complete one or more of these tasks, then IVT \hlwarn{does not tell us anything}.
 
 \begin{example}
-  Show the function \(f(t) = t^{2} - t^{5} + 1\) has a root between \(-1\) and \(1\).
+  Show the function \(f(t) = t^{5} - t^{2} + 1\) has a root between \(-1\) and \(1\). \updatenote{The two terms were swapped (was \(t^{2} - t^{5} + 1\)); as originally written, \(f(-1) = 3\) and \(f(1) = 1\) are both positive, so IVT does not give a root on \([-1,1]\).}
 \end{example}
 \blanklines{20}
 \clearpage

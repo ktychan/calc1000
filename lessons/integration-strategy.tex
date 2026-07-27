@@ -20,7 +20,7 @@
 
 
 \begin{exercise}
-  Write down the numerical values of the following integrals.  Note that numerical values should be exact, not decimal approximations.
+  Evaluate the following integrals.
 
   \begin{multicols}{3}
     \begin{enumerate}[wide, label=(\alph*)]
@@ -56,7 +56,7 @@
     \begin{enumerate}[wide, label=(\alph*)]
       \item \(\int \frac{1}{\sqrt{1 - x}} \;dx\)
       \item \(\int \frac{1}{\sqrt{1 - x^{2}}} \;dx\)
-      \item \(\int \frac{\sec(x)\tan(x)}{\sqrt{1 - \sec^{2}(x)}} \;dx\)
+      \item \(\int \frac{\sec(x)\tan(x)}{\sqrt{\sec^{2}(x) - 1}} \;dx\) \updatenote{The radicand had \(1\) and \(\sec^{2}(x)\) swapped: \(1 - \sec^{2}(x) \le 0\) always (since \(\sec^{2}(x) \ge 1\)), so the square root was never real. Swapping to \(\sec^{2}(x) - 1 = \tan^{2}(x)\) (Pythagorean identity) makes the integral real-valued and solvable.}
     \end{enumerate}
   \end{multicols}
 
@@ -82,14 +82,14 @@
 \begin{exercise}
   Express the volume of a unit sphere obtained by rotating the semicircle \(y = \sqrt{1 - x^{2}}\) about the \(x\)-axis as an integral.
 
-  Repeat the exercise by expressing the volume of a unit sphere obtained by rotating the ``sideways'' semicircle \(x = \sqrt{1 - y^{2}}\) as an integral.
+  Repeat the exercise by expressing the volume of a unit sphere obtained by rotating the ``sideways'' semicircle \(x = \sqrt{1 - y^{2}}\) about the \(y\)-axis as an integral. \updatenote{Added "about the \(y\)-axis", which had been dropped (needed to match the parallel first part, and to specify the solid unambiguously).}
 
   \blanklines{50}
 \end{exercise}
 \clearpage
 
 \begin{exercise}
-  Find the volume of the solid obtained by rotating the region bounded by \(y = \sqrt{x}\), \(x = 4\), \(x=1\) and the \(y = 0\) about the \(y\)-axis.
+  Find the volume of the solid obtained by rotating the region bounded by \(y = \sqrt{x}\), \(x = 4\), \(x=1\) and \(y = 0\) about the \(y\)-axis. \updatenote{Removed the stray "the" before "\(y=0\)" for consistency with the other boundary curves listed.}
 
   \blanklines{50}
 \end{exercise}
