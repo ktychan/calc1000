@@ -58,7 +58,7 @@
 
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[sincos]
+  \begin{axis}[sincos, title={\(\sin(x)\)}]
     \addplot[very thick] {sin(x)};
   \end{axis}
 \end{tikzpicture}
@@ -66,11 +66,11 @@
 \begin{tikzpicture}
   \begin{axis}[
     sincos, 
-    title={\(\sin(x)\)}, 
+    title={\(\sin(x)\) restricted to domain \([-\pi/2,\pi/2]\)}, 
     xtick={-pi/2, pi/2},
     xticklabels={\(-\pi/2\), \(\pi/2\)},
     ]
-    \addplot[very thick, gray!50] {sin(x)};
+    %\addplot[very thick, gray!50] {sin(x)};
     \addplot[very thick, main, domain={-pi/2}:{pi/2}] {sin(x)};
   \end{axis}
 \end{tikzpicture}
@@ -86,16 +86,15 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[sincos]
+  \begin{axis}[sincos, title={\(\cos(x)\)}]
     ]
     \addplot[very thick] {cos(x)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[sincos, title={\(\cos(x)\)},
-    ]
-    \addplot[very thick, gray!50] {cos(x)};
+  \begin{axis}[sincos, title={\(\cos(x)\) restricted to domain \([0,\pi]\)}]
+    %\addplot[very thick, gray!50] {cos(x)};
     \addplot[very thick, main, domain={0}:{pi}] {cos(x)};
   \end{axis}
 \end{tikzpicture}
@@ -106,12 +105,12 @@
     title={\(\arccos(x)\) on domain \([-1,1]\)},
     ymin={0-pi/6}, ymax={pi+pi/6},
     ]
-    \addplot[very thick] {acos(x)};
+    \addplot[main, very thick] {acos(x)};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[tansec]
+  \begin{axis}[tansec, title={\(\tan(x)\)}]
     \addplot[very thick] {tan(x)};
     \addplot[dotted] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
     \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
@@ -123,16 +122,17 @@
 \begin{tikzpicture}
   \begin{axis}[
     tansec, 
-    title={\(\tan(x)\)}, 
+    title={\(\tan(x)\) with domain restriction \((-\pi/2,\pi/2)\)}, 
     xtick={-pi/2, pi/2},
     xticklabels={\(-\pi/2\), \(\pi/2\)},
     ]
-    \addplot[very thick, gray!50] {tan(x)};
     \addplot[very thick, main, domain={-pi/2}:{pi/2}] {tan(x)};
-    \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
     \addplot[dotted, supp] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
     \addplot[dotted, supp] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
-    \addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
+    
+    %\addplot[very thick, gray!50] {tan(x)};
+    %\addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
+    %\addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
   \end{axis}
 \end{tikzpicture}
 
@@ -149,7 +149,7 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[tansec]
+  \begin{axis}[tansec, title={\(\cot(x)\)}]
     \addplot[very thick] {cot(x)};
     \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
     \addplot[dotted] coordinates {(-1*pi, 5)  (-1*pi, -5)};
@@ -161,16 +161,16 @@
 \begin{tikzpicture}
   \begin{axis}[
     tansec, 
-    title={$\cot(x)$}, 
+    title={\(\cot(x)\) restricted to domain \((0,\pi)\)}, 
     xtick={0,pi}, 
     xticklabels={\(0\), \(\pi\)}
     ]
-    \addplot[very thick, gray!50] {cot(x)};
+    % \addplot[very thick, gray!50] {cot(x)};
     \addplot[very thick, main, domain={0}:{pi}] {cot(x)};
-    \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
-    \addplot[dotted, supp] coordinates {(-1*pi, 5)  (-1*pi, -5)};
+    % \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
+    % \addplot[dotted, supp] coordinates {(-1*pi, 5)  (-1*pi, -5)};
     \addplot[dotted, supp] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
-    \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
+    % \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
   \end{axis}
 \end{tikzpicture}
 

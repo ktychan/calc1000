@@ -1,5 +1,5 @@
 %! Tex Program = lualatex
-\documentclass[aspectratio=169, 14pt, handout]{beamer}
+\documentclass[aspectratio=169, 12pt, handout]{beamer}
 
 \input{./beamer.tex.preamble}
 \usepackage{xr}
@@ -27,10 +27,10 @@
   \bigskip
   \begin{minipage}{2in}
     \centering
-    \qrcode[height=1in]{https://join.iclicker.com/ACQO}
+    \qrcode[height=1in]{https://join.iclicker.com/MKTW}
     \bigskip
 
-    \footnotesize\url{join.iclicker.com/ACQO} 
+    \footnotesize\url{join.iclicker.com/MKTW}
 
     \bigskip
     Use your @uwo.ca email
@@ -48,17 +48,17 @@
 
 
 \begin{frame}
-  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MTuWF @ 11:30}}
+  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MWThF @ 11:30}}
 
   Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
 
   \bigskip
   \begin{minipage}{2in}
     \centering
-    \qrcode[height=1in]{https://join.iclicker.com/WAGZ}
+    \qrcode[height=1in]{https://join.iclicker.com/WIKV}
     \bigskip
 
-    \footnotesize\url{join.iclicker.com/WAGZ} 
+    \footnotesize\url{join.iclicker.com/WIKV}
 
     \bigskip
     Use your @uwo.ca email
@@ -74,12 +74,14 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame} \frametitle{About the course}
+\begin{frame} \frametitle{About Calculus 1000A}
 
   \begin{enumerate}
-    \item Roughly 2400 students, split across X sections.
-    \item Shared assessments.
-    \item Slightly different teaching styles/pace between instructors.
+    \item Roughly 2400 students, split across 8 sections.
+    \item Shared assessments (quizzes, midterm and final exam).
+    \item Slightly different teaching styles/pace among instructors.
+    \item The midterm and final exam are created collaboratively by the instructional team, not by individual profs. 
+    \item Expect to think on your feet during exams.  The instructional team will test you on your understanding and problem-solving skills, not just whether you can memorize formulas.
   \end{enumerate}
 \end{frame}
 
@@ -125,13 +127,14 @@
 \begin{frame}
   \frametitle{Inverse functions\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:inverse}\\on page~\pageref{main-def:inverse}}}}
 
-  Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}(x)\) such that
+  Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}\) such that
   \[
-    f^{-1}(f(x)) = x \text{ on } D \quad\text{and}\quad f(f^{-1}(x)) = x \text{ on } R.
+    \underbrace{f^{-1}(f(x)) = x \text{ on } D}_{\text{must be true for all \(x\) in \(D\)}} \quad\text{and}\quad \underbrace{f(f^{-1}(y)) = y \text{ on } R}_{\text{must be true for all \(y\) in \(R\)}}.
   \]
 
+  % TODO: Insert drawing x -> f -> ... -> f^{-1} -> x
+  % TODO: Insert drawing y -> f^{-1} -> ... -> f -> y
   \pause
-  The two ``\(=\)'' are equalities between functions. The rules and domains on both sides of the equations must match, respectively, for the ``\(=\)'' to be valid.
 \end{frame}
 
 \begin{frame}
@@ -159,21 +162,22 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{\(\sin^{-1}(x)\) has a range restriction}
+  \frametitle{\(\sin^{-1}(x)\) aka \(\mathrm{arcsin}(x)\)}
 
-  \centering \small
+  \centering 
 
-  \begin{minipage}{0.45\textwidth}
+  \begin{minipage}{0.6\textwidth} \small
     \includegraphics[page=1]{./standalones/plot-trigs}
-    Fails the horizontal line test without a domain restriction.
+    \par Fails the horizontal line test. Has no inverse.
+
     \vfill
 
     \pause
     \includegraphics[page=2]{./standalones/plot-trigs}
 
-    Restrict domain to \([-\pi/2,\pi/2]\).
+    The restricted version has an inverse. The domain is restricted to \([-\pi/2,\pi/2]\). 
   \end{minipage}
-  \begin{minipage}{0.45\textwidth}
+  \begin{minipage}{0.35\textwidth}
     \centering
     \pause
     \includegraphics[page=3]{./standalones/plot-trigs}
@@ -182,22 +186,22 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{\(\cos^{-1}(x)\) has a range restriction}
+  \frametitle{\(\cos^{-1}(x)\) aka \(\mathrm{arccos}(x)\)}
 
-  \centering \small
+  \centering 
 
-  \begin{minipage}{0.45\textwidth}
+  \begin{minipage}{0.6\textwidth} \small
     \includegraphics[page=4]{./standalones/plot-trigs}
+    \par Fails the horizontal line test. Has no inverse.
 
-    Fails the horizontal line test without a domain restriction.
     \vfill
 
     \pause
     \includegraphics[page=5]{./standalones/plot-trigs}
 
-    Restrict domain to \([0,\pi]\).
+    The restricted version has an inverse. The domain is restricted to \([0,\pi]\).
   \end{minipage}
-  \begin{minipage}{0.45\textwidth}
+  \begin{minipage}{0.35\textwidth}
     \centering
     \pause
     \includegraphics[page=6]{./standalones/plot-trigs}
@@ -214,7 +218,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Exponentials and logarithms}
+  \frametitle{Exponentials and logarithms\hfill{\parbox{1.5in}{\footnotesize\raggedleft Equation~\eqref{main-eq:log-formulas}\\on page~\pageref{main-eq:log-formulas}}}}
 
   \large
 
@@ -233,7 +237,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{\(e^{x}\) and \(\ln(x)\) are inverses of each other and ...}
+  \frametitle{Summary for \(e^{x}\) and \(\ln(x)\) \hfill{\parbox{1.75in}{\footnotesize\raggedleft Equation~\eqref{main-eq:exp-change-of-base} (page~\pageref{main-eq:exp-change-of-base})\\Equation~\eqref{main-eq:log-formulas} (page~\pageref{main-eq:log-formulas})}}}
   Exponent rules: \(e^{a} e^{b} = e^{a+b}\) and \((e^{a})^{b} = e^{ab}\).
 
   \bigskip
@@ -272,7 +276,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Limit Laws (\(+, -, \times, \div\))}
+  \frametitle{Limit Laws (\(+, -, \times, \div\))\hfill{\parbox{1.25in}{\footnotesize\raggedleft Theorem~\ref{main-thm:limit-laws}\\on page~\pageref{main-thm:limit-laws}}}}
 
   Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{both exist}. Then
   \begin{enumerate}[label=(\arabic*)]
@@ -302,7 +306,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Three types of discontinuities}
+  \frametitle{Three types of discontinuities\hfill{\parbox{1.25in}{\footnotesize\raggedleft Figure~\ref{main-fig:discontinuities}\\on page~\pageref{main-fig:discontinuities}}}}
 
   \includegraphics{./standalones/plot_discontinuity_examples}
 
@@ -310,23 +314,23 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Intermediate Value Theorem}
+  \frametitle{Intermediate Value Theorem\hfill{\parbox{1.25in}{\footnotesize\raggedleft Theorem~\ref{main-thm:ivt}\\on page~\pageref{main-thm:ivt}}}}
 
-  \faLightbulb{} IVT answers the yes-no question: Is it possible to find at least one solution
+  \faLightbulb{} IVT answers the yes-no question: Is it possible to find at least one solution to
   \[
-    f(\text{unknown}) = (\text{given constant, call it } z)
+    f(\text{unknown}) = (\text{given \(y\)-value, call it } z)
   \] 
   so that the unknown lies in the interval \([a,b]\)?
 
-  To apply IVT, check that the given constant \(z\) falls between \(f(a)\) and \(f(b)\), i.e., \(f(a) \le z \le f(b)\) or \(f(a) \ge z \ge f(b)\).
+  To apply IVT, check that the given \(y\)-value falls between \(f(a)\) and \(f(b)\), i.e., \(f(a) \le (\text{given \(y\)-value}) \le f(b)\) or \(f(a) \ge (\text{given \(y\)-value}) \ge f(b)\).
 \end{frame}
 
 \begin{frame}
-  \frametitle{Limits at infinity}
+  \frametitle{Limits at infinity\hfill{\parbox{1.25in}{\footnotesize\raggedleft on page~\pageref{main-page:limits-at-infinity-strategy}}}}
 
   Let's say the variable in the limit is \(x\).
 
-  Factor out \hlmain{the largest powers of \(x\)} \hlwarn{with their coefficients} in the numerator and denominator, leaving everything else with an \(x\) as \(\frac{1}{x^{\text{positive exponent}}}\).
+  Factor out \hlmain{the largest powers of \(x\)} \hlwarn{with their coefficients} in the numerator and denominator, leaving everything else, with an \(x\), as \(\frac{1}{x^{\text{positive exponent}}}\).
 
   For limits at \(-\infty\), start by substituting \(u = -x\).
 \end{frame}
@@ -335,11 +339,11 @@
 
 
 \begin{frame}
-  \frametitle{Concepts associated to \(f'\)}
+  \frametitle{Concepts associated to \(f'\)\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:derivative-at-a-point}\\on page~\pageref{main-def:derivative-at-a-point}}}}
 
   Focus on these two concepts when solving conceptual problems.
 
-  \textbf{Definition} 
+  \textbf{Definition} (especially useful for piecewise functions)
   \[
     f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
     \quad\text{or}\quad
@@ -363,21 +367,26 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(1\) of \(3\))}}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(1\) of \(3\)) --- Theorem~\ref{main-thm:diff-rules-1}, page~\pageref{main-thm:diff-rules-1}}}
   \begin{multicols}{2}
     \begin{enumerate}[label=(\arabic*)]
       \item \(\frac{d}{dx} (\text{constant}) = 0\)
       \item \(\frac{d}{dx} x^{n} = n x^{n-1}\)
       \item \(\frac{d}{dx} e^{x} = e^{x}\)
+      \item \(\frac{d}{dx} b^{x} = \ln(b)b^{x}\)
+      \item \(\frac{d}{dx} \ln(x) = \frac{1}{x}\)
       \item \(\frac{d}{dx} \sin(x) = \cos(x)\)
       \item \(\frac{d}{dx} \cos(x) = -\sin(x)\)
-      \item \(\frac{d}{dx} b^{x} = \ln(b)b^{x}\)
+      \item \(\frac{d}{dx} \tan(x) = \sec^{2}(x)\)
+      \item \(\frac{d}{dx} \sec(x) = \tan(x)\sec(x)\)
     \end{enumerate}
   \end{multicols}
+
+  \faStar{} Know these by heart. You will use all of them very often!
 \end{frame}
 
 \begin{frame}
-  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(2\) of \(3\))}}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(2\) of \(3\)) --- Theorem~\ref{main-thm:diff-rules-2}, page~\pageref{main-thm:diff-rules-2}}}
 
   If \(f\) and \(g\) are \hlwarn{differentiable} functions, then
   \[
@@ -392,7 +401,7 @@
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(3\) of \(3\))}}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(3\) of \(3\)) --- Theorem~\ref{main-thm:diff-rules-3}, page~\pageref{main-thm:diff-rules-3}}}
 
   \begin{enumerate}[itemsep=2ex]
     \item Learn WHEN we must use the chain rule.
@@ -429,10 +438,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Slopes and exchanging \(x\) and \(y\)}
-
-  \vspace{0.5cm}
-  \centerline{\(\frac{dx}{dy} = \frac{1}{dy/dx}\) \hlwarn{as numbers} since \(\frac{dx}{dy}\) represents slopes in the \(yx\)-plane.}
+  \frametitle{Slopes and exchanging \(x\) and \(y\) give us \(\frac{dx}{dy} = \frac{1}{dy/dx}\)}
 
   \centering
   \begin{tikzpicture}
@@ -443,6 +449,8 @@
       \fill (axis cs:1,1) circle[radius=0.075];
     \end{axis}
   \end{tikzpicture}
+  \quad
+  flip
   \quad
   \begin{tikzpicture}
     \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{supp} \(y\)}}, ylabel={{\color{main} \(x\)}}]
@@ -456,7 +464,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Why plug stuff back into the curve}
+  \frametitle{Why plug stuff back into the curve\hfill{\parbox{1.25in}{\footnotesize\raggedleft Example~\ref{main-eg:implicit-vertical-tangent}\\on page~\pageref{main-eg:implicit-vertical-tangent}}}}
 
   The solution {\color{supp}\(y = 0\)} to \(\frac{dx}{dy} = 0\) tells us that vertical tangent lines occur at the \hlwarn{points of intersection} of {\color{supp}\(y = 0\)} and {\color{main}\(x^{2} + y^{2} = 25\)}.  
 
@@ -484,12 +492,12 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Logarithmic Differentiation}
+  \frametitle{Logarithmic Differentiation\hfill{\parbox{1.25in}{\footnotesize\raggedleft Equation~\eqref{main-eq:derivative-of-ln(g(x))}\\on page~\pageref{main-eq:derivative-of-ln(g(x))}}}}
   \begin{enumerate}
     \item Take \(\ln(\cdots)\) on both sides and fully simplify.
     \item Implicitly differentiate.  Use 
       \[
-        \frac{d}{dx} ln\Big(g(x)\Big) = \frac{g'(x)}{g(x)}.
+        \frac{d}{dx} \ln\Big(g(x)\Big) = \frac{g'(x)}{g(x)}.
       \]
     \item Isolate for \(\frac{dy}{dx}\).
     \item Restore \(\frac{dy}{dx}\) as an expression of \(x\) if possible.
@@ -497,7 +505,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Critical number}
+  \frametitle{Critical number\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:critical-number}\\on page~\pageref{main-def:critical-number}}}}
 
   A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\) (but NOT an endpoint) if 
   \[
@@ -505,7 +513,7 @@
   \]
   If \hlmain{\(c\) is a critical number} of \(f(x)\), then \hlsupp{\((c, f(c))\)} is called a \hlsupp{critical point}.
 
-  \faStar{} The precise definition tells us how to find critical numbers.
+  \faStar{} The above tells us how to find critical numbers.
 \end{frame}
 
 \begin{frame}[t] \small
@@ -537,7 +545,7 @@
 
 \begin{frame}[t] \small
   \begin{center}
-    \includegraphics[page=4,height=2in]{../standalones/extrema_example}
+    \includegraphics[page=4,height=2in]{./standalones/extrema_example}
   \end{center}
 
   Similar to the previous critical number, we have a horizontal tangent line here.
@@ -558,7 +566,7 @@
     \includegraphics[page=6,height=2in]{./standalones/extrema_example}
   \end{center}
 
-  Such situation often, but not always, occurs in piecewise functions.
+  Such a situation often, but not always, occurs in piecewise functions.
 \end{frame}
 
 \begin{frame}[t] \small
@@ -566,7 +574,7 @@
     \includegraphics[page=7,height=2in]{./standalones/extrema_example}
   \end{center}
   
-  Such situation often, but not always, occurs in piecewise functions.
+  Such a situation often, but not always, occurs in piecewise functions.
   \pause 
   Notice that \(f(c)\) is a \hlsupp{local maximum}.
 \end{frame}
@@ -651,7 +659,15 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{The general strategy for finding absolute extrema}
+  \frametitle{Reminder from yesterday}
+
+  We defined critical numbers for the purpose of finding extrema.
+
+  Critical numbers \(c\) satisfy \(f'(c) = 0\) of \(f'(c)\) does not exists.
+\end{frame}
+
+\begin{frame}
+  \frametitle{The general strategy for finding absolute extrema\hfill{\parbox{1.25in}{\footnotesize\raggedleft on page~\pageref{main-page:extrema-strategy}}}}
 
   Let \(f(x)\) be a function defined over an interval \(I\).
 
@@ -666,6 +682,8 @@
 \begin{frame}
   \frametitle{Specific strategies for finding absolute extrema}
 
+  TODO: Turn it into a flowchart.
+
   Always start by looking for critical numbers.
   \begin{enumerate}
     \item Compare values at endpoints and at critical numbers.  Too much work? Try the next two.
@@ -675,7 +693,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Derivative Tests}
+  \frametitle{Derivative Tests\hfill{\parbox{1.75in}{\footnotesize\raggedleft Theorem~\ref{main-thm:first-derivative-test} (page~\pageref{main-thm:first-derivative-test})\\Theorem~\ref{main-thm:second-derivative-test} (page~\pageref{main-thm:second-derivative-test})}}}
 
   \begin{itemize}
     \item \(f'>0\) on \((a,b)\) means \(f\) is increasing on \((a,b)\).
@@ -690,16 +708,20 @@
 \begin{frame}
   \frametitle{L'H\^opital's Rule}
 
-  For indeterminate of types \(0/0\) or \(\infty/\infty\), l'H\^opital's rule says
+  For an indeterminate of type \(0/0\) or \(\infty/\infty\), l'H\^opital's rule says
   \[
     \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}.
   \]
 
   Apply l'H\^opital's rule repeatedly until the limit can be fully evaluated.
+
+  \[
+    \lim_{\text{time} \to \infty} \frac{\text{number of virus}}{\text{number of antibody}} = \lim_{\text{time} \to \infty} \frac{\text{\hlmain{growth rate} of virus}}{\text{\hlmain{growth rate} of antibody}} = \cdots
+  \]
 \end{frame}
 
 \begin{frame}
-  \frametitle{Tips for algebraic tricks for l'H\^opital's rule}
+  \frametitle{Algebraic tricks for l'H\^opital's rule}
 
   Indeterminate \(0 \cdot \infty\):
   \[
@@ -714,7 +736,7 @@
     Turn everything into a single fraction.
   \end{center}
 
-  Indeterminate \(0^{\infty}\) or \(\infty^{0}\) or \(1^{0}\):
+  Indeterminate \(0^{0}\) or \(\infty^{0}\) or \(1^{\infty}\):
 
   \begin{center}
     Change base to \(e\) is notationally simpler.
@@ -725,15 +747,15 @@
   \frametitle{Related Rates}
 
   \begin{enumerate}
-    \item Introduce notations. Find an equation that relates all given quantities.
-    \item Make your goal clear to yourself: Find \(\frac{d}{dt} (\text{desired quantity})\) given ....
-    \item Find an expression for \(\frac{d}{dt} (\text{desired quantity})\) using implicit differentiation.
-    \item The expression for \(\frac{d}{dt} (\text{desired quantity})\) tells you exactly what you need to achieve your goal.
+    \item Introduce notation and label every everything. Find an equation that relates all given quantities.
+    \item State your goal for clarity sake: Find \(\frac{d}{dt} \left(\parbox{1in}{\centering desired\\quantity}\right)\) given ....
+  \item Find an expression for \(\frac{d}{dt} \left(\parbox{1in}{\centering desired\\quantity}\right)\) using implicit differentiation.
+    \item Plug in numbers and solve for the desired quantity. Sometimes, these numbers are directly given; other times, you have to do some side calculations.
   \end{enumerate}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Optimization}
+  \frametitle{Optimization\hfill{\parbox{1.25in}{\footnotesize\raggedleft on page~\pageref{main-page:optimization-strategy}}}}
 
   \begin{enumerate}
     \item Describe the objective variable as a single-variable function.
@@ -747,49 +769,10 @@
   \end{enumerate}
 \end{frame}
 
-% \section{Applications}
-%
-% \begin{frame}
-%   \frametitle{Critical Numbers}
-%
-%   A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\), but \hlwarn{NOT an endpint}, if 
-%   \[
-%     \text{either} \quad f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
-%   \]
-%
-%   If \(c\) is a critical number, then \((c, f(c))\) is called a \hlsupp{critical point}.
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Finding absolute extrema}
-%
-%   Absolute extrema can only occur at either a \hlmain{critical number} or an \hlmain{endpoint}.
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Optimization problem tip}
-%   If you have \(2\) variables, then you need \(2\) equations to eliminate one of them.
-%
-%   One of the equation involves the objective variable. 
-%
-%   So look for a relation among the two variables without involving the objective variable.
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{L'H\^opital's Rule}
-%
-%   If \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate of type \(0/0\) or \(\infty/\infty\), \pause then 
-%   \[
-%     \lim_{x \to a} \frac{f(x)}{g(x)} = \pause \lim_{x \to a} \frac{f'(x)}{g'(x)}. \hspace{1in} \text{\onslide<3->{(l'H\^opital's rule)}}
-%   \]
-%
-%   Manipulate the other indeterminate forms to \(0/0\) or \(\infty/\infty\) \emph{before} applying l'H\^opital's rule.
-% \end{frame}
-
 \section{Integration}
 
 \begin{frame}
-  \frametitle{Antiderivatives}
+  \frametitle{Antiderivatives\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:antiderivative}\\on page~\pageref{main-def:antiderivative}}}}
 
   If \({\color{supp} f(x)}\) and \({\color{main} F(x)}\) are related by 
   \(\frac{d}{dx} \hlmain{F(x)} = \hlsupp{f(x)}\) for every \(x\) in the domain of \(f(x)\),
@@ -799,18 +782,18 @@
   Examples. 
   \begin{itemize}
     \item Because \(\frac{d}{dx} \hlmain{(x^{2})} = \hlsupp{2x}\), we say \pause \({\color{main} x^{2}}\) is \emph{an} antiderivative of \({\color{supp} 2x}\).
-    \item \pause Because \(\frac{d}{dx} \hlmain{(x^{2} + 3)} = \hlsupp{2x}\), we say \pause \({\color{main} x^{2}} + 3\) is also \emph{an} antiderivative of \({\color{supp} 2x}\).
+    \item \pause Because \(\frac{d}{dx} \hlmain{(x^{2} + 3)} = \hlsupp{2x}\), we say \pause \({\color{main} x^{2} + 3}\) is also \emph{an} antiderivative of \({\color{supp} 2x}\).
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Indefinite Integrals}
+  \frametitle{Indefinite Integrals\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:indefinite-integral}\\on page~\pageref{main-def:indefinite-integral}}}}
 
-  All antiderivatives of \(f(x)\) has the form \[\underbrace{F(x)}_{\text{any one antiderivative}} + C.\]
+  All antiderivatives of \(f(x)\) have the form \[\underbrace{F(x)}_{\text{any one antiderivative}} + C.\]
 \end{frame}
 
 \begin{frame}
-  \frametitle{Riemann Sum}
+  \frametitle{Riemann Sum\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:riemann-sum}\\on page~\pageref{main-def:riemann-sum}}}}
   \phantom{\(\int_{a}^{b} f(x) \;dx\) is the \hlsupp{net area} ``under'' \(f(x)\) over the interval \([a,b]\) \hlmain{approximated by infinitely} many \hlsupp{rectangles}.}
 
   \[
@@ -819,7 +802,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{\onslide<2->{Definite integrals represent net area}}
+  \frametitle{\onslide<2->{Definite integrals represent net area}\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:definite-integral}\\on page~\pageref{main-def:definite-integral}}}}
   \onslide<2->{
   \(\int_{a}^{b} f(x) \;dx\) is the \hlsupp{net area} ``under'' \(f(x)\) from \(a\) to \(b\).}
 
@@ -831,14 +814,14 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Not so obvious properties of integrals}
+  \frametitle{Not so obvious properties of definite integrals\hfill{\parbox{1.75in}{\footnotesize\raggedleft Equation~\eqref{main-eq:definite-integral-flip} (page~\pageref{main-eq:definite-integral-flip})\\Equation~\eqref{main-eq:definite-integral-split} (page~\pageref{main-eq:definite-integral-split})}}}
 
   \begin{align*}
     \int_{a}^{b} f(x) \;dx &= - \int_{b}^{a} f(x) \;dx &&\text{(flip)}\\
     \int_{a}^{b} f(x) \;dx &= \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx &&\text{(split/merge)}.
   \end{align*}
 
-  All properties can be understood conceptually by drawing pictures.
+  All properties can be understood conceptually by visualizing \(\int_{a}^{b} f(x) \;dx\) as the \hlmain{net area} under \(f\) over \([a,b]\).
 \end{frame}
 
 % \begin{frame}
@@ -856,7 +839,7 @@
 % \end{frame}
 
 \begin{frame}
-  \frametitle{Fundamental Theorem of Calculus (short versions)}
+  \frametitle{Fundamental Theorem of Calculus \hfill{\parbox{1.75in}{\footnotesize\raggedleft Theorem~\ref{main-thm:ftc-part-one} (page~\pageref{main-thm:ftc-part-one})\\Theorem~\ref{main-thm:ftc-part-two} (page~\pageref{main-thm:ftc-part-two})}}}
 
   Suppose \(f(x)\) is continuous.
 
@@ -868,14 +851,14 @@
 
 
 \begin{frame}
-  \frametitle{Substitution for integrals}
+  \frametitle{Substitution for integrals\hfill{\parbox{1.75in}{\footnotesize\raggedleft Equation~\eqref{main-eq:sub-indefinite} (page~\pageref{main-eq:sub-indefinite})\\Equation~\eqref{main-eq:sub-definite} (page~\pageref{main-eq:sub-definite})}}}
 
   Substitute \({\color{main}u = g(x)}\) and \(\color{supp} g'(x)\;dx = du\). 
   Remember that \(g'\) is \emph{calculated} from the \emph{choice} for \(g\).
 
   \begin{align*}
-    \int f({\color{main}g(x)}) {\color{supp} g'(x) dx} & \onslide<2->{\underbrace{= \int f({\color{main} u}) \; {\color{supp}du}}_{\text{substitution}}} \\[2ex]
-    \int_{a}^{b} f({\color{main}g(x)}) {\color{supp} g'(x) dx} &\onslide<3->{\underbrace{= \int_{u(a)}^{u(b)} f({\color{main} u}) \; {\color{supp}du}}_{\text{substitution}}} \onslide<4->{\underbrace{= \left[ \int f({\color{main} u}) \; {\color{supp}du} \right]_{u(a)}^{u(b)}}_{\text{FTC part 2}}}
+    \int f({\color{main}g(x)}) {\color{supp} g'(x) \;dx} & \onslide<2->{\underbrace{= \int f({\color{main} u}) \; {\color{supp}du}}_{\text{substitution}}} \\[2ex]
+    \int_{a}^{b} f({\color{main}g(x)}) {\color{supp} g'(x) \;dx} &\onslide<3->{\underbrace{= \int_{u(a)}^{u(b)} f({\color{main} u}) \; {\color{supp}du}}_{\text{substitution}}} \onslide<4->{\underbrace{= \left[ \int f({\color{main} u}) \; {\color{supp}du} \right]_{u(a)}^{u(b)}}_{\text{FTC part 2}}}
   \end{align*}
 \end{frame}
 
@@ -886,6 +869,8 @@
   \[
     \text{area} = \int_{\text{left}}^{\text{right}}  (\text{upper}) - (\text{lower})  \; dx
   \]
+
+  TODO: add when to integrate with respect to \(y\)
 
   If integrating with respect to \(y\), then
   \[
@@ -1097,7 +1082,7 @@
 
   Treat it like a real midterm.  No notes, calculators or any aid.
 
-  The goal is understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
+  The goal is to understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
 
   Feel free to ask for a one-sentence hint.
 
@@ -1112,19 +1097,28 @@
   The PDF (week 15) is on OWL.
 
   \normalsize
-  Feel free to work in groups and ask for hint.
+  Feel free to work in groups and ask for a hint.
 
   We will do a short iClicker poll near the end.
 \end{frame}
 
 \begin{frame}
-
   Please fill out the course feedback at \url{feedback.uwo.ca}. 
 
   \begin{center}
     \qrcode[height=1.5in]{https://feedback.uwo.ca}
   \end{center}
 
-  Class will resume at 11:40 pm.
+  Class will resume at 11:40 am.
+\end{frame}
+
+\begin{frame}
+  Please fill out the course feedback at \url{feedback.uwo.ca}. 
+
+  \begin{center}
+    \qrcode[height=1.5in]{https://feedback.uwo.ca}
+  \end{center}
+
+  Class will resume at 7:10 pm.
 \end{frame}
 \end{document}

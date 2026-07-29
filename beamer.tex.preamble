@@ -21,7 +21,7 @@
 
 \metroset{
   progressbar=frametitle, % nice modern look
-  numbering=none,
+  % numbering=none,
 }
 
 %

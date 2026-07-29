@@ -137,6 +137,7 @@ We now evaluate limits at infinity.  We need the following facts coming from rel
   \)
 \end{mdframed}
 
+\label{page:limits-at-infinity-strategy}
 All limit laws apply to limits at infinity, but we often need to reorganize functions by \hlmain{factoring out its dominant (fastest growing) terms}. This technique is called \hlmain{analyzing dominant terms}. There are three possible scenarios as demonstrated by Examples~\ref{eg:dom-term-intro-constant}, \ref{eg:dom-term-intro-zero} and \ref{eg:dom-term-intro-infinity}.
 
 % \begin{example}
@@ -156,11 +157,10 @@ All limit laws apply to limits at infinity, but we often need to reorganize func
 \end{example}
 
 \begin{example}\label{eg:dom-term-intro-infinity}
-  Evaluate \(\lim_{x \to \infty} \frac{x}{\sqrt{2x-1} + \sqrt[3]{x}}\).
+  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{2x-1} + \sqrt[3]{x}}{\sqrt[4]{x}}\).
 
   \blanklines{8}
 \end{example}
-\updatenote{Numerator and denominator were swapped (was \(\frac{\sqrt{2x-1}+\sqrt[3]{x}}{x}\)); as originally written the dominant term on top grows like \(x^{1/2}\) against \(x^{1}\) on the bottom, so the limit was \(0\), not \(\infty\) as this example's label indicates.}
 \clearpage
 
 
