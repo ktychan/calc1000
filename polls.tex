@@ -2,13 +2,15 @@
 \documentclass[aspectratio=169, 14pt, t]{beamer}  % 12, 14, 17, 20
 
 \input{./beamer.tex.preamble}
+\usepackage{xr}
+\externaldocument[main-]{.aux/main}
 
 \title{Calculus 1000A}
 \date{Fall 2026}
 \author{Kelvin Chan}
 \institute{Department of Mathematics\\University of Western Ontario}
 
-\begin{document} 
+\begin{document}
 \section{First day of class}
 
 \begin{poll}
@@ -23,31 +25,7 @@
   \end{enumerate} 
 \end{poll}
 
-\begin{poll}
-  We are setting up weekly office hours for the term.  Please pick a time that works for you.
-
-  \bigskip
-  \begin{enumerate}
-    \item Wednesdays, 1 pm to 2:30 pm. 
-    \item % Thursdays,  2 pm to 3:30 pm.
-    \item \sout{Thursdays,  3 pm to 4:30 pm.} (already chosen)
-    \item Fridays,  1 pm to 2:30 pm.
-    \item None of the above.
-  \end{enumerate}
-\end{poll}
-
-
 \section{Fundamentals and Reviews}
-\begin{poll}
-  Which sentence(s) do(es) not make sense to you?
-
-  \begin{enumerate}
-    \item Evaluate \(x^{2} + x + 1\) at \(3\).
-    \item Find \(x^{2} + x + 1\) at \(3\).
-    \item Solve for the derivative of \(x^{2} + x + 1\).
-  \end{enumerate}
-\end{poll}
-
 
 \section{Trigonometry}
 
@@ -111,7 +89,7 @@
 \begin{poll}
   We know identities
   \[
-    e^{\ln(x)} = 0 \text{ for } x > 0 
+    e^{\ln(x)} = x \text{ for } x > 0
     \quad\text{ and }\quad
     \ln(e^{x}) = x \text{ for } -\infty < x < \infty.
   \]
@@ -237,7 +215,7 @@
 
   \begin{enumerate} 
     \item True.
-    \item False
+    \item False. \updatenote{Added the missing period for consistency with ``True.''}
     \item 
     \item 
     \item I am not sure.
@@ -245,24 +223,12 @@
 \end{poll} 
 
 \begin{poll}
-  Analyze the dominant terms of \(\lim_{x \to -\infty} \frac{x^{2}+3x}{\sqrt{3+x}}\). The limit should be
+  Analyze the dominant terms of \(\lim_{x \to -\infty} \frac{x^{2}+3x}{\sqrt{3-x}}\). The limit should be
 
   \begin{enumerate} 
-    \item \(-\infty\). \onslide<2->{\hlmain{We factor out \(x^{2}\) in the numerator and \(x^{1/2}\) in the denominator.}}
+    \item \(-\infty\).
+    \item \(\infty\). \onslide<2->{\hlmain{We factor out \(x^{2}\) in the numerator and \(x^{1/2}\) in the denominator.}}
     \item a finite number.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  What can we deduce from knowing \(\lim_{x \to \infty} f(x)\) exists? 
-
-  \begin{enumerate} 
-    \item \(f\) is not increasing on some interval \((a, \infty)\)
-    \item \(f\) is not decreasing on some interval \((b, \infty)\)
-    \item \(f\) is not oscillating on some interval \((c, \infty)\)
     \item 
     \item I am not sure.
   \end{enumerate} 
@@ -333,7 +299,7 @@
 
 \section{Derivatives}
 \begin{poll}
-  Which is the definition of \(f'(x)\) given that \(f(x) = \sqrt{x + 1}\).
+  Which is the definition of \(f'(x)\) given that \(f(x) = \sqrt{x + 1}\)? \updatenote{Changed the final period to a question mark.}
 
   \begin{enumerate}
     \item \(f'(x) = \frac{1}{2\sqrt{x + 1}}\).
@@ -396,10 +362,10 @@
   Which exercises do you not know how to start?
 
   \begin{enumerate}
-    \item 5.9 on page 71 in week 5.
-    \item 6.7
-    \item 6.8
-    \item 6.9
+    \item \ref{main-eg:find-all-blah-differentiability} on page~\pageref{main-eg:find-all-blah-differentiability} in week~\ref{main-week5}.
+    \item \ref{main-ex:sec-horizontal-tangent}
+    \item \ref{main-ex:quotient-rule-abstract-g}
+    \item \ref{main-ex:find-a-and-b-from-derivatives}
     \item 
   \end{enumerate}
 \end{poll}
@@ -417,7 +383,7 @@
 \end{poll}
 
 \begin{poll}
-  What's a good starting point for Example~5.8?
+  What's a good starting point for Example~\ref{main-eg:find-all-blah-continuity}?
 
   \begin{enumerate}
     \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
@@ -432,8 +398,8 @@
   If a function is \emph{not} differentiable on \((0,1)\), then 
 
   \begin{enumerate} 
-    \item \(f'(a)\) does not exists at any number in \((0,1)\).
-    \item \(f'(a)\) does not exists for at least one number in \((0,1)\).
+    \item \(f'(a)\) does not exist at any number in \((0,1)\).
+    \item \(f'(a)\) does not exist for at least one number in \((0,1)\). \updatenote{``does not exists'' corrected to ``does not exist'' in both options.}
     \item 
     \item 
     \item I am not sure.
@@ -442,7 +408,7 @@
 
 
 \begin{poll}
-  If a function is \emph{not} differentiable on \((0,1)\), then \(f'\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\).
+  If a function is \emph{not} differentiable on \((0,1)\), then \(f\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\). \updatenote{\(f'\) corrected to \(f\): the options (every / exactly one / at least one) test differentiability of \(f\), matching the two sibling polls above. As written it asked about the second derivative.}
 
   \begin{enumerate} 
     \item every 
@@ -505,19 +471,6 @@
 \end{poll}
 
 
-\begin{poll}
-  True or false? By the power rule, \(\frac{d}{dx} 2^{10} = 10 \cdot 2^{9}\).
-
-  \begin{enumerate} 
-    \item asymptote
-    \item secant line
-    \item tangent line
-    \item slope
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
 \section{The Chain Rule}
 
 
@@ -549,34 +502,22 @@
 \begin{poll}
   Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
   \begin{align*}
-    f(1) &= 1,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
-    g(1) &= 2,& g'(1) &= -2, &g(2) &= 4, & g'(4) &= -4?
+    f(1) &= 5,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
+    g(1) &= 2,& g'(1) &= -2, &g(2) &= 1, & g'(2) &= -4?
   \end{align*}
 
-  \begin{enumerate} 
+  \begin{enumerate}
     \item \(h'(1) = -2\)
-    \item \(h'(1) = -1\)
+    \item \(h'(1) = 2\)
     \item \(h'(1) = 6\)
     \item \(h'(1) = -6\)
     \item I am not sure.
-  \end{enumerate} 
+  \end{enumerate}
+
+  \updatenote{\(g'(4)\) corrected to \(g'(2)\) so the table follows one pattern. \(f(1)\), \(g(2)\) and option (2) were also changed so that each distractor now identifies exactly one misuse of the chain rule formula.}
 \end{poll}
 
-\begin{poll}
-  Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
-  \begin{align*}
-    f(1) &= 1,& f'(1) &= -1, &f(2) &= 3, & f'(2) &= -3, \\
-    {\color{teal}g(1)} &{\color{teal}= 2},& {\color{magenta}g'(1)} &{\color{magenta}= -2}, &g(2) &= 4, & g'(4) &= -4?
-  \end{align*}
 
-  \begin{enumerate} 
-    \item 
-    \item 
-    \item \(h'(1) = f'({\color{teal}g(1)}){\color{magenta}g'(1)} \onslide<2->{= f'(2)(-2)} \onslide<3->{= (-3)(-2) = 6}\)
-    \item 
-    \item 
-  \end{enumerate} 
-\end{poll}
 
 \begin{poll}
   Differentiate \(\sin^{2}(x)\).
@@ -595,7 +536,7 @@
 
   \begin{enumerate}
     \item \(\frac{d}{dx} \sin^{2}(x) = 2 \sin(x) \cos(x)\).
-    \item \(\frac{d}{dx} \sin^{2}(x) = \sin(2x)\).  \onslide<3->{\hlwarn{Don't be fool by the simple pattern.}}
+    \item \(\frac{d}{dx} \sin^{2}(x) = \sin(2x)\).  \onslide<3->{\hlwarn{Don't be fooled by the simple pattern.}} \updatenote{``be fool'' corrected to ``be fooled''.}
     \item Neither of the above. \onslide<2->{\hlmain{We learn the HOW of the chain rule.}}
     \item 
     \item I am not sure.
@@ -711,7 +652,7 @@
     \item \(f^{-1}(f(x)) = x\)
     \item \(y = f(x)\)
     \item \(x = f(y)\)
-    \item I don't recognize equations (a) and (b).
+    \item I don't recognize equations (1) and (2). \updatenote{``(a) and (b)'' corrected to ``(1) and (2)'': \texttt{beamer.tex.preamble} numbers options with \texttt{label=(\textbackslash{}arabic*)}, so they render as (1), (2), \ldots{}}
   \end{enumerate} 
 \end{poll}
 
@@ -730,7 +671,7 @@
 
 
 \begin{poll}
-  Is the proposed solution to Exercise 7.30 legit or sketchy?
+  Is the proposed solution to Exercise~\ref{main-ex:implicit-tangent-legit-or-fishy} legit or sketchy?
 
   \begin{enumerate}
     \item Seems fine.
@@ -755,7 +696,7 @@
 
 
 \begin{poll}
-  Translate Exercise~7.33 into a familiar problem.
+  Translate Exercise~\ref{main-ex:tangent-parallel-to-line} into a familiar problem.
 
   \begin{enumerate}
     \item Find ... at which the curve does not touch \(-2x + 3\).
@@ -784,7 +725,7 @@
 \end{poll}
 
 \begin{poll}
-  If there are constants \(a,b\) such that \(a \le f(x) \le b\) for every \(x\) on the domain of \(f\), does it mean that \(f(x)\) must have an absolute extrema?
+  If there are constants \(a,b\) such that \(a \le f(x) \le b\) for every \(x\) on the domain of \(f\), does it mean that \(f(x)\) must have an absolute extremum? \updatenote{``an absolute extrema'' corrected to ``an absolute extremum'' (singular, matching ``an'').}
 
   \begin{enumerate} 
     \item No.
@@ -812,7 +753,7 @@
 \end{poll}
 
 \begin{poll}
-  How many critical numbers does the function in Example 8.5 have?
+  How many critical numbers does the function in Example~\ref{main-ex:critical-numbers} have?
 
   \begin{multicols}{2}
     \begin{enumerate}
@@ -845,7 +786,7 @@
   \begin{enumerate} \setlength\itemsep{1ex}
     \item Some, but not all, critical points are local extrema.
     \item A local extremum must correspond to a critical point.
-    \item Every critical point correspond to a local extremum.
+    \item Every critical point corresponds to a local extremum. \updatenote{``correspond'' corrected to ``corresponds''.}
     \item \(\{ \text{critical points} \} = \{ \text{local extrema} \}\).
     \item I am not sure.
   \end{enumerate} 
@@ -854,7 +795,7 @@
 \section{Derivative Tests}
 
 \begin{poll}
-  Imagine tracing, from left to right, the graph of an unknown continuous function \(f(x)\).  If the function always increase before reaching \(x = a\) but always decrease after \(x = a\), then \(f(a)\) is ...
+  Imagine tracing, from left to right, the graph of an unknown continuous function \(f(x)\).  If the function always increases before reaching \(x = a\) but always decreases after \(x = a\), then \(f(a)\) is ... \updatenote{``increase''/``decrease'' corrected to ``increases''/``decreases''.}
 
   \begin{enumerate}
     \item minimum.
@@ -894,15 +835,15 @@
 
 \section{Optimization}
 \begin{poll}[c]
-  In Example~9.12, is the domain of \(A(x)\) really \(0 \le x \le 100\)?  Briefly explain your reasoning.
+  In Example~\ref{main-ex:optimization-fence}, is the domain of \(A(x)\) really \(0 \le x \le 100\)?  Briefly explain your reasoning.
 \end{poll}
 
 \begin{poll}[c]
-  In Example~9.13, why do we measure the walking distance \(w\) and the swimming distance \(s\)? Why not something other quantities?
+  In Example~\ref{main-ex:optimization-swim}, why do we measure the walking distance \(w\) and the swimming distance \(s\)? Why not some other quantities? \updatenote{``something other quantities'' corrected to ``some other quantities''.}
 \end{poll}
 
 \begin{poll}
-  What is the domain of \(T(s)\) from Example~9.13?
+  What is the domain of \(T(s)\) from Example~\ref{main-ex:optimization-swim}?
 
   \begin{enumerate} 
     \item \(s \ge 1\). \onslide<2>{\hlsupp{We don't need to swim forever.}}
@@ -921,7 +862,7 @@
     \item \(L_{1} = \lim_{x \to 0} x \ln(x)\).
     \item \(L_{2} = \lim_{x \to 1} (1 - x)^{x}\).
     \item \(L_{3} = \lim_{x \to -\infty} 2^{2x}\).
-    \item \(L_{4} = \lim_{x \to 0} \frac{2x^{1}+1}{\cos(x)}\).
+    \item \(L_{4} = \lim_{x \to 0} \frac{2x+1}{\cos(x)}\). \updatenote{Removed the stray exponent in \(2x^{1}\).}
     \item I am not sure.
   \end{enumerate} 
 \end{poll}
@@ -929,8 +870,10 @@
 \begin{poll}
   What's wrong with the following calculation?
   \[
-    \lim_{x \to 1} \frac{\ln(x)}{2} = \lim_{x \to 1} \frac{\frac{d}{dx} \ln(x)}{\frac{d}{dx} 2} = \lim_{x \to 1} \frac{1/x}{0} = \text{does not exists?!?!}
+    \lim_{x \to 1} \frac{\ln(x)}{2} = \lim_{x \to 1} \frac{\frac{d}{dx} \ln(x)}{\frac{d}{dx} 2} = \lim_{x \to 1} \frac{1/x}{0} = \text{does not exist?!?!}
   \]
+
+  \updatenote{``does not exists'' corrected to ``does not exist''.}
 
   \pause{} 
 
@@ -943,7 +886,7 @@
 \section{Antiderivatives}
 
 \begin{poll}
-  Consider \(f(x) = 2x e^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Which of the following statement is true.
+  Consider \(f(x) = 2x e^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Which of the following statements is true? \updatenote{``statement is true.'' corrected to ``statements is true?'' (plural, and it is a question).}
 
   \begin{enumerate} 
     \item \(f(x)\) is an antiderivative of \(g(x)\).
@@ -952,10 +895,6 @@
     \item \(g(x)\) is the antiderivative of \(f(x)\).
     \item I am not sure.
   \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Why is \(\ln(x)\) not an antiderivative of \(1/x\)?
 \end{poll}
 
 \begin{poll}
@@ -980,10 +919,6 @@
     \item 
     \item I am not sure.
   \end{enumerate} 
-\end{poll}
-
-\begin{poll}[c]
-  Evaluate \(\int (x-1)(x+2) \;dx\). What seems like a good starting step?
 \end{poll}
 
 \begin{poll}
@@ -1028,7 +963,7 @@
 \end{poll}
 
 \begin{poll}
-  A positive function \(f(x)\) is defined over \([-3, 3]\). At what \(x\)-values do we sample \(f(x)\) to approximate its area under the curve using the left-endpoint approximation with \(3\) equal-width rectangles? 
+  A positive function \(f(x)\) is defined over \([-3, 3]\). At what \(x\)-values do we sample \(f(x)\) to approximate the area under it using the left-endpoint approximation with \(3\) equal-width rectangles? 
 
   \begin{multicols}{5}
     \begin{enumerate}
@@ -1068,7 +1003,7 @@
 
   \begin{multicols}{2}
     \begin{enumerate}
-      \item \(\frac{1}{3} + \left(\frac{2}{3}\right)^{2}\frac{1}{3}\).
+      \item \(\left(\frac{1}{3}\right)^{2}\frac{1}{3} + \left(\frac{2}{3}\right)^{2}\frac{1}{3}\).
       \item \(\left(\frac{1}{3}\right)^{2}\frac{1}{3} + \left(\frac{2}{3}\right)^{2}\frac{1}{3} + \left( \frac{3}{3} \right)^{2} \frac{1}{3}\).
       \item \(\left(\frac{3}{1}\right)^{2}\frac{1}{3} + \left(\frac{3}{2}\right)^{2}\frac{1}{3}\).
       \item \(\left(\frac{3}{1}\right)^{2}\frac{1}{3} + \left(\frac{3}{2}\right)^{2}\frac{1}{3} + \left( \frac{3}{3} \right)^{2} \frac{1}{3}\).
@@ -1080,24 +1015,19 @@
   \bigskip
   \begin{center}
     \begin{tikzpicture}[x={3in}]
-      % \draw ( 0, 0) -- (1,0);
       \draw[ultra thick] (0, 0) -- (1,0);
-      % \draw (-4, 0.1) -- (-4, -0.1) node[below] {\(-4\)};
-      % \draw (-3, 0.1) -- (-3, -0.1) node[below] {\(-3\)};
-      % \draw (-2, 0.1) -- (-2, -0.1) node[below] {\(-2\)};
-      % \draw (-1, 0.1) -- (-1, -0.1) node[below] {\(-1\)};
-      \draw ( 0, 0.1) -- ( 0, -0.1) node[below] {\(0\)};
-      \draw ( 1, 0.1) -- ( 1, -0.1) node[below] {\(1\)};
-      \draw ( 2, 0.1) -- ( 2, -0.1) node[below] {\(2\)};
-      \draw ( 3, 0.1) -- ( 3, -0.1) node[below] {\(3\)};
-      % \draw ( 3, 0.1) -- ( 3, -0.1) node[below] {\(3\)};
-      % \draw ( 4, 0.1) -- ( 4, -0.1) node[below] {\(4\)};
-      \node[above] at (0, 0.1) {\(x_{0}\)};
-      \node[above] at (1, 0.1) {\(x_{1}\)};
-      \node[above] at (2, 0.1) {\(x_{2}\)};
-      \node[above] at (3, 0.1) {\(x_{3}\)};
+      \draw ( 0/3, 0.1) -- ( 0/3, -0.1) node[below] {\(0\)};
+      \draw ( 1/3, 0.1) -- ( 1/3, -0.1) node[below] {\(\frac{1}{3}\)};
+      \draw ( 2/3, 0.1) -- ( 2/3, -0.1) node[below] {\(\frac{2}{3}\)};
+      \draw ( 3/3, 0.1) -- ( 3/3, -0.1) node[below] {\(1\)};
+      \node[above] at (0/3, 0.1) {\(x_{0}\)};
+      \node[above] at (1/3, 0.1) {\(x_{1}\)};
+      \node[above] at (2/3, 0.1) {\(x_{2}\)};
+      \node[above] at (3/3, 0.1) {\(x_{3}\)};
     \end{tikzpicture}
   \end{center}
+
+  \updatenote{Option (1) was missing the square on its first term, so no option was correct. The axis placed its ticks at \(0,1,2,3\) while the interval is \([0,1]\) in thirds --- at \texttt{x=3in} the \(2\) and \(3\) ticks landed 6in and 9in off the slide --- so it now matches the \([0,3]\) poll below.}
 \end{poll}
 \begin{poll}
   Which of the following is the left-endpoint approximation for \(x^{2}\) over \([0,3]\) using \(3\) equal-width rectangles?
@@ -1239,7 +1169,7 @@
 
 \section{Fundamental Theorem of Calculus}
 \begin{poll}
-  Suppose \(\int_{a}^{b} x \sin(x) \;dx = 5\). If \(F'(x) = x \sin(x)\) and \(f(b) = -1\), what is \(F(a)\)?
+  Suppose \(\int_{a}^{b} x \sin(x) \;dx = 5\). If \(F'(x) = x \sin(x)\) and \(F(b) = -1\), what is \(F(a)\)?
 
   \begin{enumerate}
     \item There is not enough information.
@@ -1251,18 +1181,16 @@
 \end{poll}
 
 
-
-
 \begin{poll}
   Are you convinced?  
 
   \[
-    \frac{d}{dx} \int_{x}^{\sqrt{2}} e^{t^{2}} \;dt \only<1>{= - e^{t^{2}}.} \only<2->{= {\color{warn} -}\frac{d}{dx}\int_{{\color{warn}\sqrt{2}}}^{{\color{warn}x}} e^{x^{2}} \;dt} \onslide<3->{= {\color{warn}-} e^{x^{2}}.}
+    \frac{d}{dx} \int_{x}^{\sqrt{2}} e^{t^{2}} \;dt \only<1>{= e^{t^{2}}.} \only<2->{= {\color{warn} -}\frac{d}{dx}\int_{{\color{warn}\sqrt{2}}}^{{\color{warn}x}} e^{t^{2}} \;dt} \onslide<3->{= {\color{warn}-} e^{x^{2}}.}
   \]
 
   \begin{multicols}{2}
     \begin{enumerate}
-      \item Seems legit.
+      \item Seems legit. % intended outcome to check if students have picked up on the importance of paying attention to the bounds of integration
       \item Smells fishy.
       \item 
       \item 
@@ -1361,7 +1289,7 @@
   Which integrals require substitution?
 
   \begin{enumerate}
-    \item \(\int \x^{3} \sqrt{1 + x^{2}} \;dx\)
+    \item \(\int x^{3} \sqrt{1 + x^{2}} \;dx\) \updatenote{\texttt{\textbackslash{}x} corrected to \texttt{x}. \texttt{\textbackslash{}x} is a font-selection macro here, so it compiled without any error or warning while silently dropping the \(x\) from the integrand.}
     \item \(\int \frac{1}{x\ln(x)} \;dx\)
     \item \(\int \frac{x^{2} + 1}{x-1} \;dx\)
     \item 
@@ -1404,7 +1332,7 @@
 \end{poll}
 
 \begin{poll}
-  Which integral represents the volume for Exercise 14.7?
+  Which integral represents the volume for Exercise~\ref{main-ex:volume-sqrt-x-about-y-axis}?
 
   \begin{enumerate}
     \item \(\int_{1}^{4} \pi \left( \sqrt{x} \right)^{2} \;dy\).
@@ -1416,7 +1344,7 @@
 \end{poll}
 
 \begin{poll}
-  Which integral represents the volume for Exercise 14.8?
+  Which integral represents the volume for Exercise~\ref{main-ex:volume-two-curves-about-y-axis}?
 
   \begin{enumerate}
     \item \(\int_{1}^{2} \pi (y - 1) - \pi (y-1)^{4} \;dy\)
@@ -1470,7 +1398,7 @@
 \end{poll}
 
 \begin{poll}
-  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)?
+  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)? \updatenote{Removed a verbatim duplicate of this poll that immediately followed it.}
 
   \begin{enumerate} 
     \item Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
@@ -1480,21 +1408,6 @@
     \item I am not sure.
   \end{enumerate} 
 \end{poll}
-
-
-\begin{poll}
-  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)?
-
-  \begin{enumerate} 
-    \item Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
-    \item Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
-    \item Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
 \begin{poll}
   Suppose \(x f(x)^{2} = 3\) and \(f(3) = -1\). Find \(f'(3)\).
 
@@ -1508,7 +1421,7 @@
 \end{poll}
 
 \begin{poll}
-  Which of the followings seems like a good starting point for you?
+  Which of the following seems like a good starting point for you? \updatenote{``followings'' corrected to ``following''.}
 
   \begin{enumerate}
     \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
@@ -1537,12 +1450,12 @@
 \begin{poll}
   What differentiation topics should we focus on?
 
-  {\small Notes: We will partially cover Exercise 7.33 on page 104.Realistically, we have enough time to cover about 5 exercises in details and maybe about 8 if we only focus on the big ideas.}
+  {\small Notes: We will partially cover Exercise~\ref{main-ex:tangent-parallel-to-line} on page~\pageref{main-ex:tangent-parallel-to-line}. Realistically, we have enough time to cover about 5 exercises in detail and maybe about 8 if we only focus on the big ideas.} \updatenote{Added the missing space after ``page 104.'' and corrected ``in details'' to ``in detail''.}
 
   \begin{enumerate}
     \item Find derivative of inverses.
     \item Find tangent line on a curve (implicit differentiation).
-    \item Do some "legit or sketchy?" exercises.
+    \item Do some ``legit or sketchy?'' exercises. \updatenote{Straight double quotes replaced with \TeX{} quotes, which were rendering as closing quotes on both sides.}
     \item I am fine with derivatives. Go back to limits.
     \item I have no opinion.
   \end{enumerate}
@@ -1560,7 +1473,7 @@
   \begin{enumerate} 
     \item Shapes of graphs (min/max and derivative tests).
     \item Related rates or optimization.
-    \item Fundamental of integration.
+    \item Fundamentals of integration. \updatenote{``Fundamental'' corrected to ``Fundamentals''.}
     \item Integration techniques.
     \item Go through past exams.
   \end{enumerate} 

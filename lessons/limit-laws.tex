@@ -3,7 +3,6 @@
 \begin{document} \section{Algebraic techniques for evaluating limits}
 Direct substitution and limit laws are the main algebraic tools for evaluating limits. 
 
-  % \faExclamationTriangle{} This section covers a bit more than the corresponding textbook section and is organized differently to minimize redundancy. See the last page for a short comparison.
 
 \begin{thm}[direct sub]
   If \(f(x)\) is a polynomial or a rational function, then
@@ -17,7 +16,6 @@ Direct substitution and limit laws are the main algebraic tools for evaluating l
 % Note that a must be in the domain of f and is not an infinity.
 % DO NOT DO arithmetic with infinity.  
 
-% \faExclamationTriangle{} If your intuition from high school leads to doing arithmetic with infinities, then that's a good sign that you need to use limit laws explicitly.
 \begin{thm}[limit laws] \label{thm:limit-laws}
   Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{both exist}. Then
   \begin{enumerate}[label=(\arabic*)]
@@ -35,13 +33,6 @@ Direct substitution and limit laws are the main algebraic tools for evaluating l
 
 \faStar{} All limit laws apply to \hlmain{one-sided} (of the same type) as well as \hlmain{two-sided} limits.
 
-% Tips: 
-% \begin{enumerate*}[label=(\alph*)]
-%   \item Group the constant multiple and the product laws together because a constant multiple is also a product.
-%   \item A power is just a repeated product. Therefore, the power law is a special case of the product law.
-%   \item Group the root and the power law together because \(\sqrt[n]{\cdots} = (\cdots)^{1/n}\).  They come from the same theorem anyway.
-% \end{enumerate*}
-
 \begin{example}
   Evaluate \(\lim_{x \to 1} \sqrt[3]{\frac{x^{2} + 1}{x+1}} - 2 (4x - 3)^{100}\).
 
@@ -49,8 +40,6 @@ Direct substitution and limit laws are the main algebraic tools for evaluating l
 \end{example}
 \clearpage
 
-% \faExclamationTriangle{} As far as grading is concerned, we are expected to \hlwarn{show details of calculations} in assignments, tests and the final exam.  Unless stated otherwise, solutions (to short and long answer questions) without details or sufficient justification will typically be given \(0\), regardless of correctness. 
-\clearpage
 
 Limit laws are useful when only abstract information is available.
 \begin{example} \label{eg:limit-law-abstract}
@@ -58,13 +47,6 @@ Limit laws are useful when only abstract information is available.
 
   \blanklines{10}
 \end{example}
-
-% A variation-on-the-theme problem.  
-% \begin{exercise}
-%   Find the value for the unknown constant \(c\) given that \(\lim_{x \to 1} \sqrt{2x^{3} + cx - 1} = 3\). 
-%
-%   \blanklines{10}
-% \end{exercise}
 
 Limit laws also apply to one-sided limits and piecewise functions.
 \begin{example}
@@ -260,7 +242,7 @@ Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examp
 \vfill{}
 {\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
 \begin{tikzpicture}[scale=1]
-  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization} are both just one quotient. However, the function in Example~\ref{eg:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
 \end{tikzpicture}
 \clearpage
 

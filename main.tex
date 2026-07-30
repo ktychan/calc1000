@@ -7,7 +7,10 @@
 \input{./typography.tex.preamble}
 \input{./tikz.tex.preamble}
 
-\newcommand{\updatenote}[1]{{\textcolor{magenta}{Updated. #1}}}
+% \updatenote is defined in typography.tex.preamble so that main.tex, slides.tex
+% and polls.tex all share one definition. Kept here for reference -- uncomment
+% only if that definition ever goes away, otherwise it clashes with it.
+% \newcommand{\updatenote}[1]{{\textcolor{magenta}{Updated. #1}}}
 
 \begin{document}
 

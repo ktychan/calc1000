@@ -81,6 +81,9 @@
 \newcommand{\ulattn}[1]{{\color{attn}\underline{#1}}}
 \newcommand{\ulwarn}[1]{{\color{warn}\underline{#1}}}
 
+% update notes -- single source for main.tex, slides.tex and polls.tex
+\newcommand{\updatenote}[1]{{\textcolor{magenta}{Updated. #1}}}
+
 % URL
 \NewDocumentCommand{\link}{O{}m}{%
   \IfBlankTF{#1}%

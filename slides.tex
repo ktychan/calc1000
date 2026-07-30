@@ -39,7 +39,7 @@
     Join iClicker for in-class activities. \\Start next week.
 
     \bigskip
-    Count for \(4\%\) of your final grade. \\Completion marks only. 
+    Counts for \(4\%\) of your final grade. \\Completion marks only. \updatenote{``Count for'' corrected to ``Counts for''.}
 
     \medskip
     The \hlmain{iClicker Student} app is recommended.
@@ -67,7 +67,7 @@
     Join iClicker for in-class activities. \\Start next week.
 
     \bigskip
-    Count for \(4\%\) of your final grade. \\Completion marks only. 
+    Counts for \(4\%\) of your final grade. \\Completion marks only. \updatenote{``Count for'' corrected to ``Counts for''.}
 
     \medskip
     The \hlmain{iClicker Student} app is recommended.
@@ -260,7 +260,7 @@
 \begin{frame}
   \frametitle{The idea of limits}
 
-  \faLightbulb{} To \emph{estimate} \(\lim_{x \to a} f(x)\), we move \(x\) closer and closer to the constant \(a\) (but not touching \(a\)) from both sides and look for a pattern: Does \(f(x)\) eventually get arbitrarily closer to some constant \(L\)? 
+  \faLightbulb{} To \emph{estimate} \(\lim_{x \to a} f(x)\), we move \(x\) closer and closer to the constant \(a\) (but not touching \(a\)) from both sides and look for a pattern: Does \(f(x)\) eventually get arbitrarily close to some constant \(L\)? \updatenote{``arbitrarily closer'' corrected to ``arbitrarily close''.}
 
   \begin{center}
     If such an \(L\) \hlmain{exists}, then \(\lim_{x \to a} f(x) = L\); otherwise, the limit \(\lim_{x \to a}f(x)\) \hlmain{does not exist}.
@@ -294,7 +294,7 @@
 
 
 \begin{frame}
-  \frametitle{Infinite limits (special cases of non-existent limit)}
+  \frametitle{Infinite limits (special cases of non-existent limits)}
   \[
     \begin{array}{rcl}
       \lim_{x \to a^{+}} \frac{1}{(x-a)^{\text{odd positive power}}} &=& + \infty  \\
@@ -351,7 +351,7 @@
   \]
 
   \textbf{Geometry}:  
-  The number \(f'(a)\) is the \hlmain{slope} of the tangent line \(f(x)\) at \(x = a\).  The equation of the tangent line is
+  The number \(f'(a)\) is the \hlmain{slope} of the tangent line to \(y = f(x)\) at \(x = a\). \updatenote{Added ``to \(y =\)''; as written the slide said the tangent line \emph{is} \(f(x)\).}  The equation of the tangent line is
   \[
     y = f'(a) (x - a) + f(a).
   \]
@@ -367,7 +367,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(1\) of \(3\)) --- Theorem~\ref{main-thm:diff-rules-1}, page~\pageref{main-thm:diff-rules-1}}}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(1\) of \(3\)) --- on page~\pageref{main-thm:diff-rules-1}}}
   \begin{multicols}{2}
     \begin{enumerate}[label=(\arabic*)]
       \item \(\frac{d}{dx} (\text{constant}) = 0\)
@@ -383,10 +383,12 @@
   \end{multicols}
 
   \faStar{} Know these by heart. You will use all of them very often!
+
+  \updatenote{Dropped the theorem number. These rules sit in an \texttt{mdframed} box, which steps no counter, so \texttt{\textbackslash{}ref} printed an unrelated statement number --- parts 1 and 2 both read ``Theorem 6.2''. The page reference was always correct and is kept.}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(2\) of \(3\)) --- Theorem~\ref{main-thm:diff-rules-2}, page~\pageref{main-thm:diff-rules-2}}}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(2\) of \(3\)) --- on page~\pageref{main-thm:diff-rules-2}}}
 
   If \(f\) and \(g\) are \hlwarn{differentiable} functions, then
   \[
@@ -398,10 +400,12 @@
       \frac{d}{dx} \frac{f(x)}{g(x)} &=& \frac{f'(x)g(x) - f(x)g'(x)}{\big[g(x)\big]^{2}}
     \end{array}
   \]
+
+  \updatenote{Dropped the theorem number. These rules sit in an \texttt{mdframed} box, which steps no counter, so \texttt{\textbackslash{}ref} printed an unrelated statement number --- parts 1 and 2 both read ``Theorem 6.2''. The page reference was always correct and is kept.}
 \end{frame}
 
 \begin{frame}[t]
-  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(3\) of \(3\)) --- Theorem~\ref{main-thm:diff-rules-3}, page~\pageref{main-thm:diff-rules-3}}}
+  \frametitle{Differentiation Rules \hfill {\footnotesize (part \(3\) of \(3\)) --- on page~\pageref{main-thm:diff-rules-3}}}
 
   \begin{enumerate}[itemsep=2ex]
     \item Learn WHEN we must use the chain rule.
@@ -419,6 +423,8 @@
   \end{enumerate}
 
   Getting used to the Leibniz notation will help you with implicit differentiation.
+
+  \updatenote{Dropped the theorem number. These rules sit in an \texttt{mdframed} box, which steps no counter, so \texttt{\textbackslash{}ref} printed an unrelated statement number --- parts 1 and 2 both read ``Theorem 6.2''. The page reference was always correct and is kept.}
 \end{frame}
 
 \begin{frame}
@@ -538,7 +544,7 @@
   \end{center}
   
   \pause
-  The constant \hlmain{\(c\) is a critical number}, but the point \hlsupp{\((c, f(c))\)} is a critical point.
+  The constant \hlmain{\(c\) is a critical number}, whereas the point \hlsupp{\((c, f(c))\)} is a critical point. \updatenote{``but'' corrected to ``whereas''; the contrast is number-vs-point, not a concession.}
 
   Also notice that \(f(c)\) is a \hlsupp{local maximum}.
 \end{frame}
@@ -663,7 +669,7 @@
 
   We defined critical numbers for the purpose of finding extrema.
 
-  Critical numbers \(c\) satisfy \(f'(c) = 0\) of \(f'(c)\) does not exists.
+  Critical numbers \(c\) satisfy \(f'(c) = 0\) or \(f'(c)\) does not exist. \updatenote{``of'' corrected to ``or'' --- which changed the logic of the definition --- and ``does not exists'' corrected to ``does not exist''.}
 \end{frame}
 
 \begin{frame}
@@ -716,8 +722,10 @@
   Apply l'H\^opital's rule repeatedly until the limit can be fully evaluated.
 
   \[
-    \lim_{\text{time} \to \infty} \frac{\text{number of virus}}{\text{number of antibody}} = \lim_{\text{time} \to \infty} \frac{\text{\hlmain{growth rate} of virus}}{\text{\hlmain{growth rate} of antibody}} = \cdots
+    \lim_{\text{time} \to \infty} \frac{\text{number of viruses}}{\text{number of antibodies}} = \lim_{\text{time} \to \infty} \frac{\text{\hlmain{growth rate} of viruses}}{\text{\hlmain{growth rate} of antibodies}} = \cdots
   \]
+
+  \updatenote{``virus''/``antibody'' pluralised to ``viruses''/``antibodies''.}
 \end{frame}
 
 \begin{frame}
@@ -739,7 +747,7 @@
   Indeterminate \(0^{0}\) or \(\infty^{0}\) or \(1^{\infty}\):
 
   \begin{center}
-    Change base to \(e\) is notationally simpler.
+    Changing base to \(e\) is notationally simpler. \updatenote{``Change'' corrected to ``Changing''.}
   \end{center}
 \end{frame}
 
@@ -747,8 +755,8 @@
   \frametitle{Related Rates}
 
   \begin{enumerate}
-    \item Introduce notation and label every everything. Find an equation that relates all given quantities.
-    \item State your goal for clarity sake: Find \(\frac{d}{dt} \left(\parbox{1in}{\centering desired\\quantity}\right)\) given ....
+    \item Introduce notation and label everything. Find an equation that relates all given quantities. \updatenote{Removed the duplicated ``every''.}
+    \item State your goal for clarity's sake: \updatenote{``for clarity sake'' corrected to ``for clarity's sake''.} Find \(\frac{d}{dt} \left(\parbox{1in}{\centering desired\\quantity}\right)\) given ....
   \item Find an expression for \(\frac{d}{dt} \left(\parbox{1in}{\centering desired\\quantity}\right)\) using implicit differentiation.
     \item Plug in numbers and solve for the desired quantity. Sometimes, these numbers are directly given; other times, you have to do some side calculations.
   \end{enumerate}
@@ -762,7 +770,7 @@
       \begin{enumerate}
         \item Sketch the given scenario and introduce variables to measure relevant quantities.
         \item Identify the objective variable. Write ``Goal: We need to maximize/minimize ....''
-        \item Find relations among our variable.
+        \item Find relations among our variables. \updatenote{``variable'' corrected to ``variables''.}
         \item Eliminate all but one independent variable.
       \end{enumerate}
     \item Maximize or minimize the objective variable.
@@ -794,10 +802,10 @@
 
 \begin{frame}
   \frametitle{Riemann Sum\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:riemann-sum}\\on page~\pageref{main-def:riemann-sum}}}}
-  \phantom{\(\int_{a}^{b} f(x) \;dx\) is the \hlsupp{net area} ``under'' \(f(x)\) over the interval \([a,b]\) \hlmain{approximated by infinitely} many \hlsupp{rectangles}.}
+  \phantom{\(\int_{a}^{b} f(x) \;dx\) is the \hlsupp{net area} ``under'' \(f(x)\) from \(a\) to \(b\).}
 
   \[
-    \phantom{\overbrace{\int_{a}^{b} f(x) \;dx}^{\text{\parbox{1.5in}{\centering net area ``under'' \(f(x)\)\\over \([a,b]\)}}} =} \overbrace{\color{main} \lim_{n \to \infty}}^{\text{infinite}} \overbrace{\sum_{i=1}^{n} \underbrace{f(x_{i}^{*})}_{\text{\hlsupp{height}}} \underbrace{\Delta x}_{\text{\hlsupp{width}}}}^{\text{\parbox{1.5in}{\centering approximation \\using \(n\) rectangles}}}
+    \phantom{\overbrace{\int_{a}^{b} f(x) \;dx}^{\text{\parbox{1.5in}{\centering net area ``under'' \(f(x)\)\\over \([a,b]\)}}} =} \overbrace{\color{main} \lim_{n \to \infty}}^{\text{infinite}} \overbrace{\sum_{i=1}^{n} \underbrace{f(x_{i}^{*})}_{\text{\hlsupp{height}}} \underbrace{\Delta x}_{\text{\hlsupp{width}}}}^{\text{\parbox{1.5in}{\centering right-approx.\\using \(n\) rectangles}}}
   \]
 \end{frame}
 
@@ -883,17 +891,17 @@
 
   If the solid is obtained by rotating a region about the \(x\)-axis, then
   \[
-    \text{volume} = \int_{\text{left}}^{\text{right}} \pi \left( \text{\parbox{1.5cm}{\centering outer\\radius}} \right)^{2} - \pi \left( \parbox{1.5cm}{\centering inner\\radius} \right)^2 \;dx
+    \text{volume} = \int_{\text{left}}^{\text{right}} \pi \left( \text{\parbox{1.5cm}{\centering outer\\radius}} \right)^{2} - \pi \left( \text{\parbox{1.5cm}{\centering inner\\radius}} \right)^{2} \;dx
   \]
 
  
   \pause
   If the solid is obtained by rotating a region about the \(y\)-axis, then
   \[
-    \text{volume} = \int_{\text{bottom}}^{\text{top}} \pi \left( \text{\parbox{1.5cm}{\centering outer\\radius}} \right)^{2} - \pi \left( \parbox{1.5cm}{\centering inner\\radius} \right)^2 \;dy
+    \text{volume} = \int_{\text{bottom}}^{\text{top}} \pi \left( \text{\parbox{1.5cm}{\centering outer\\radius}} \right)^{2} - \pi \left( \text{\parbox{1.5cm}{\centering inner\\radius}} \right)^{2} \;dy
   \]
 
-  Solve for the points of intersections to determine the upper/lower or left/right bounds.
+  Solve for the points of intersection to determine the upper/lower or left/right bounds. \updatenote{``points of intersections'' corrected to ``points of intersection''.}
 \end{frame}
 
 % \section{Problem-solving skills}
