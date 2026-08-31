@@ -87,6 +87,56 @@
 % URL
 \NewDocumentCommand{\link}{O{}m}{%
   \IfBlankTF{#1}%
-    {\href{#2}{{\small\ttfamily\color{link}{#2}\;\faExternalLink*}}}%
-    {\href{#2}{{\small\ttfamily\color{link}{#1}\;\faExternalLink*}}}%
+    {\href{#2}{{\footnotesize\ttfamily\color{link}{#2}\;\faExternalLink*}}}%
+    {\href{#2}{{\footnotesize\ttfamily\color{link}{#1}\;\faExternalLink*}}}%
 }
+
+% A figure set beside the text rather than above it.  The body is the text;
+% the figure is the argument, set flush right in an \rlap so it takes no
+% horizontal space and \smash'ed so it takes none vertically, while
+% \rightskip narrows the text column for as long as the environment lasts.
+% Deliberately not a minipage: a minipage would impose its own list
+% parameters, and the enumerate/itemize inside would lose the document's
+% spacing.
+%
+%   \begin{sidefigure}{\includestandalone[page=3, width=\sidefigwidth]{...}}
+%     text, lists, whatever
+%   \end{sidefigure}
+%
+% The optional argument is the fraction of \textwidth the figure gets
+% (default 0.38); \sidefigwidth is that width, for sizing the graphic, and
+% \sidefiggutter is the space kept between the two columns.  If the figure
+% is taller than the text beside it, the environment adds the difference as
+% vertical space, so what follows starts below the figure.
+\newlength{\sidefigwidth}
+\newlength{\sidefiggutter}
+\setlength{\sidefiggutter}{1.5em}
+\newsavebox{\sidefigbox}
+\NewDocumentEnvironment{sidefigure}{O{0.38} m}
+  {\par
+   \setlength{\sidefigwidth}{#1\textwidth}%
+   \sbox{\sidefigbox}{#2}%
+   \edef\sidefigystart{\the\pagetotal}%
+   \begingroup
+   % Narrow the writing column: \hsize carries the paragraphs and the list
+   % items, \linewidth and \columnwidth carry anything that measures the
+   % column for itself, such as \blanks.  Narrowing \rightskip instead
+   % would not survive a list -- every \item resets it, and the items would
+   % then run under the figure.
+   \dimen0=\dimexpr\sidefigwidth+\sidefiggutter\relax
+   \advance\hsize-\dimen0
+   \advance\linewidth-\dimen0
+   \advance\columnwidth-\dimen0
+   \noindent\rlap{\hspace*{\dimexpr\textwidth-\sidefigwidth\relax}%
+     \smash{\raisebox{-\height}{\usebox{\sidefigbox}}}}%
+   \ignorespaces}
+  {\par
+   \endgroup
+   % How much vertical space the text took; pad out to the figure's height
+   % if it took less.  Capped at the figure height so a page break inside
+   % the environment cannot turn this into a runaway skip.
+   \dimen0=\dimexpr\ht\sidefigbox+\dp\sidefigbox-\pagetotal+\sidefigystart\relax
+   \ifdim\dimen0>\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax
+     \dimen0=\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax
+   \fi
+   \ifdim\dimen0>0pt\relax\vspace*{\dimen0}\fi}

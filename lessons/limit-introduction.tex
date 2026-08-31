@@ -1,72 +1,87 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{The concept of limits of a function}
-A limit describes the pattern of a function when its \emph{independent variable} moves closer to a constant. \updatenote{Added the missing period.}
+\begin{document} \section{The concept of limit at a number}
+The concept of limit describes the pattern of a function when its \emph{independent variable} moves closer closer to a constant \(a\) but never touching \(a\). In this lesson, we study three related concepts.
+\[
+  \underbrace{\lim_{x \to a^{-}} f(x)}_{\text{left limit}}, 
+  \quad 
+  \underbrace{\lim_{x \to a} f(x)}_{\text{two-sided limit}},
+  \quad 
+  \underbrace{\lim_{x \to a^{+}} f(x)}_{\text{right limit}}.
+\]
 
-\faLightbulb{} To \emph{estimate} \(\lim_{x \to a} f(x)\), we move \(x\) closer and closer to the constant \(a\) (but not touching \(a\)) from both sides and look for a pattern: Does \(f(x)\) eventually get arbitrarily closer to some constant \(L\)? 
-
+To \emph{estimate} (or visually evaluate) one of the three above limits, move \(x\) towards \(a\) (depending on the direction, but never actually touching \(a\)) and answer the question:
 \begin{center}
-  If such an \(L\) \hlmain{exists}, then \(\lim_{x \to a} f(x) = L\); otherwise, the limit \(\lim_{x \to a}f(x)\) \hlmain{does not exist}.
+  \faStar{} \hlattn{Does \(f(x)\) eventually get arbitrarily closer to some constant \(L\)?}
 \end{center}
+If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}; otherwise, we say \hlsupp{\(\lim_{x \to a} f(x) = L\) does not exist}.
 
 \bigskip
-\begin{example}
-  Consider the following functions.
 
-  \centerline{
-    \includestandalone[page=1]{../standalones/plot-limit-intro}
-    \qquad
+\begin{example}
+  Evaluate a \hlmain{left limit} by moving \(x\) towards \(a\)  from the \hlmain{left side} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.
+
+  \begin{center}
     \includestandalone[page=2]{../standalones/plot-limit-intro}
     \qquad
-    \includestandalone[page=3]{../standalones/plot-limit-intro}
-  }
+    \includestandalone[page=4]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=6]{../standalones/plot-limit-intro}
+  \end{center}
 
-  Estimate the following values graphically:
-  \begin{align*}
-    \lim_{x \to 1} g_{1}(x)   \;
-      & \underline{\hspace{3cm}}  
-      & \lim_{x \to 1} g_{2}(x)  \;
-      & \underline{\hspace{3cm}}
-      & \lim_{x \to 1} g_{3}(x)  \;
-      & \underline{\hspace{3cm}} \\[2ex]
-      g_{1}(1)   \;
-      & \underline{\hspace{3cm}}  
-      & g_{2}(1)  \;
-      & \underline{\hspace{3cm}}
-      & g_{3}(1)  \;
-      & \underline{\hspace{3cm}}
-  \end{align*}
+  \blanks*
 \end{example}
-
-\faComments{} Suppose we have a function \(f(x)\), and we know \(\lim_{x \to a} f(x)\) exists. What do we know about \(f(a)\)?
-\blanklines{5}
-
-To evaluate \(\lim_{x \to a} f(x)\), we approach the constant \(a\) from both sides. Why not just look at it \hlsupp{one side at a time}?  Let's define \hlmain{one-sided limits}.
-\begin{itemize}
-  \item If we can make \(f(x)\) arbitrarily close to a constant \(L\) by moving \(x\) closer to \(a\) \hlmain{from the left}, then we say \(\lim_{x \to a^{-}} f(x) = L\); otherwise, \(\lim_{x \to a^{-}} f(x)\) does not exist.
-
-  \item If we can make \(f(x)\) arbitrarily close to a constant \(L\) by moving \(x\) closer to \(a\) \hlmain{from the right}, then we say \(\lim_{x \to a^{+}} f(x) = L\); otherwise, \(\lim_{x \to a^{+}} f(x)\) does not exist.
-\end{itemize}
-
-\blanklines{2}
 
 \begin{example}
-  Let's look at \(g_{1}(x)\) and \(g_{2}(x)\) again.
-  Estimate the following one-sided limits.
+  Evaluate a \hlmain{right limit} by moving \(x\) towards \(a\) from the \hlmain{right side} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.
 
-  \begin{align*}
-    \lim_{x \to 1^{-}} g_{1}(x)  \;
-      & \underline{\hspace{2cm}}
-      & \lim_{x \to 1^{-}} g_{2}(x)  \;
-      & \underline{\hspace{2cm}} \\[2ex]
-      \lim_{x \to 1^{+}} g_{1}(x)  \;
-      & \underline{\hspace{2cm}}
-      & \lim_{x \to 1^{+}} g_{2}(x)  \;
-      & \underline{\hspace{2cm}}
-  \end{align*}
+  \begin{center}
+    \includestandalone[page=3]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=5]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=7]{../standalones/plot-limit-intro}
+  \end{center}
+
+  \blanks*
+\end{example}
+\clearpage
+
+\begin{example}[two-sided limit] \label{eg:two-sided-limits}
+  Evaluate a \hlmain{two-sided limit} by moving \(x\) towards \(a\) from \hlmain{both sides} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.  
+
+  \begin{center}
+    \includestandalone[page=16]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=17]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=18]{../standalones/plot-limit-intro}
+  \end{center}
+  \blanks{5}
+
+  \begin{center}
+    \includestandalone[page=20]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=21]{../standalones/plot-limit-intro}
+    \qquad
+    \includestandalone[page=22]{../standalones/plot-limit-intro}
+  \end{center}
+  \blanks{5}
+
 \end{example}
 
+In high school, we look for vertical asymptotes by looking for roots of the denominator. This concept \hlattn{expands} now that we understand limits.
+\begin{definition} \label{def:vertical-asymptote}
+  A vertical line \(x = a\) is called a \hlmain{vertical asymptote} of \(f(x)\) if
+  \[
+    \lim_{x \to a^{-}} f(x) = \pm \infty \qquad\text{ or }\qquad \lim_{x \to a^{+}} f(x) = \pm \infty.
+  \]
+
+  \textbook{page 149}
+\end{definition}
 \clearpage
+
+The relation between one-sided limits and two-sided limit we observed in Example~\ref{eg:two-sided-limits} is always true. We summarize this relation in Theorem~\ref{thm:limit-two-one-sides}.
 
 \begin{thm} \label{thm:limit-two-one-sides}
   Suppose \(f(x)\) is defined at all values in an open interval containing some constant \(a\) with the possible exception of \(a\) itself, and let \(L\) be a real number. Then
@@ -77,15 +92,32 @@ To evaluate \(\lim_{x \to a} f(x)\), we approach the constant \(a\) from both si
   \textbook{Theorem 2.2 on page 145}
 \end{thm}
 
-The relation between one-sided and two-sided limits comes in handy for piecewise functions (as demonstrated in \(g_{2}(x)\)) and many challenging situations involving limits. When in doubt, evaluate two one-sided limits and compare their values.
+Theorem~\ref{thm:limit-two-one-sides} is useful in the following situations.
+% The relation between one-sided and two-sided limits comes in handy for piecewise functions (as demonstrated in \(g_{2}(x)\)) and many challenging situations involving limits. When in doubt, evaluate two one-sided limits and compare their values.
 
-\begin{itemize}[wide, itemsep={5ex}, topsep={2ex}]
-  \item If we know \underline{\hspace{2in}}, then conclude \underline{\hspace{2.5in}}.
-  \item If we know \underline{\hspace{2in}}, then conclude \underline{\hspace{2.5in}}.
-  \item If we know \underline{\hspace{2in}} or one of them does not exist, then conclude that 
+\begin{itemize}[wide]
+  \item If we know \hlmain{\(\lim_{x \to a} f(x) = L\) (exists)}, then conclude
 
-    \blanklines{2}
+    \blanks{3}
+
+
+  \item If we know \hlmain{\(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)}, then conclude
+
+    \blanks{3}
+
+  \item If we know \hlsupp{\(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}}f(x)\)} or \hlsupp{one of them does not exist}, then conclude that 
+
+    \blanks{3}
 \end{itemize}
+
+\bigskip
+These exercises help you practise using Theorem~\ref{thm:limit-two-one-sides}. Remember that \enquote{does not exist} is a possible answer to these questions.
+
+\begin{exercise}
+  What is the value of \(\lim_{x \to 1} g(x)\) if \(\left( \lim_{x \to 1^{-}} g(x)\right) - \left(\lim_{x \to 1^{+}} g(x) \right) = 3\)?
+
+  \blanklines{5}
+\end{exercise}
 
 \begin{exercise}
   Let \(h(x)\) be a function. We know \(\lim_{x \to -3} h(x) = 3\). What is \(\lim_{x \to (-3)^{+}} h(x)\)?
@@ -98,131 +130,80 @@ The relation between one-sided and two-sided limits comes in handy for piecewise
 
   \blanklines{5}
 \end{exercise}
-
-\begin{exercise}
-  Let \(g(x)\) be a function. We know that \(\left|\left( \lim_{x \to 1^{-}} g(x)\right) - \left(\lim_{x \to 1^{+}} g(x) \right)\right| = 3\). What is the value of \(\lim_{x \to 1} g(x)\)?
-
-  \blanklines{5}
-\end{exercise}
 \clearpage
 
-The third bullet point following Theorem~\ref{thm:limit-two-one-sides} says that a cause for which a limit fails to exist is when two one-sided limits do not equal each other. On this page, we introduce two more causes for which a limit does not exist.
+University studies emphasize \emph{rigor}. We are required to pay attention to details and edge cases even if they don't show up very often.
 
-\bigskip
+\faStar{} When a statement is about a collection of functions, its truth depends on all possible objects in the collection. When a statement is true for some functions but false for some other functions (in the collection), we say such a statement is false.
 
-The second cause is oscillation as demonstrated in Example~\ref{eg:limit-oscillation}.  Examples~\ref{eg:limit-oscillation} and \ref{eg:limit-oscillation-nonexample} can be hard to come up with without a lot of trial and error. You are recommended to memorize them.
+\begin{example} 
+  The examples we say in this lesson is helpful for avoiding misconceptions.
 
-\begin{example} \label{eg:limit-oscillation}
-  The function \(\color{supp} \sin\left(\frac{1}{x}\right)\) oscillates near \(0\). Therefore, 
-  \[
-    \lim_{x \to 0} {\color{supp} \sin\left(\frac{1}{x}\right)} \text{ does not exist.}
-  \]
+  \begin{itemize}[wide]
+    \item Is \enquote{\(\lim_{x \to a} f(x) = f(a)\)} true?
 
-  Graph: \url{https://www.desmos.com/calculator/cbosu9tn22}
+      \blanks{10}
+
+    \item Is \enquote{\(\lim_{x \to a} f(x)\) exists means the function \(f(x)\) is defined at \(a\)} true?
+
+      \blanks{10}
+    \item Is \enquote{Roots of the denominator are always vertical asymptotes} true?
+
+      \blanks{10}
+
+    \item Is \enquote{\(\lim_{x \to a} f(x) = \infty\) means the limit exists and is infinity} true?
+
+      \blanks{10}
+
+  \end{itemize}
+
 \end{example}
-
-\begin{example} \label{eg:limit-oscillation-nonexample}
-  Compare Example~\ref{eg:limit-oscillation} to \(\lim_{x \to 0} \color{main} x \sin\left(\frac{1}{x}\right)\). The two limits look very similar. However, we can estimate (see Exercise~\ref{ex:limit-law-x-sin(x)} for a relevant algebraic technique) that 
-  \[
-    \lim_{x \to 0} {\color{main} x \sin \left( \frac{1}{x} \right)} = 0.
-  \]
-
-  Graph: \url{https://www.desmos.com/calculator/c9oi2qk5kw}
-\end{example}
-
-\bigskip
-
-The third cause is the so-called \hlmain{infinite limit} as demonstrated below. Note that an infinite limit is a special case of a non-existent limit. Infinite limits have four cases. 
-\begin{center}
-  \includestandalone[page=3]{../standalones/plot-infinite-limits} \hspace{1em}
-  \includestandalone[page=4]{../standalones/plot-infinite-limits} \hspace{1em}
-  \includestandalone[page=5]{../standalones/plot-infinite-limits} \hspace{1em}
-  \includestandalone[page=6]{../standalones/plot-infinite-limits}
-\end{center}
-\begin{align*}
-  \lim_{x \to 1^{-}} h_{1}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1^{-}} h_{2}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1^{-}} h_{3}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1^{-}} h_{4}(x) 
-    &\; \underline{\hspace{1.2cm}} \\[2ex]
-    \lim_{x \to 1^{+}} h_{1}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1^{+}} h_{2}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1^{+}} h_{3}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1^{+}} h_{4}(x) 
-    &\; \underline{\hspace{1.2cm}} \\[2ex]
-    \lim_{x \to 1} h_{1}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1} h_{2}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1} h_{3}(x) 
-    &\; \underline{\hspace{1.2cm}} 
-    & \lim_{x \to 1} h_{4}(x) 
-    &\; \underline{\hspace{1.2cm}}
-\end{align*}
-\blanklines{5}
 \clearpage
 
-We don't always have a graph to help us evaluate limits. Theorem~2.3 in the textbook tells us how to recognize infinite limits from certain specific rational functions.  
+The following mindmap shows the \textbf{fundamentals} within limits and continuity at a constant \(a\) (meaning \(a\) must be a finite number) and the general strategy for routine calculations.
+
+\faExclamationTriangle{} Nuanced applications of limits and continuity require a combination of skills listed here. They are not included in this map and will be discussed when appropriate. 
 
 \begin{center}
-  \includestandalone[page=1]{../standalones/plot-infinite-limits}
-  \qquad
-  \includestandalone[page=2]{../standalones/plot-infinite-limits}
+  \includestandalone[page=1]{../standalones/mindmap-limits}
 \end{center}
-
-\blanklines{15}
-
-\begin{definition}
-  A vertical line \(x = a\) is called a \hlmain{vertical asymptote} of \(f(x)\) if
-  \[
-    \lim_{x \to a^{-}} f(x) = \pm \infty \qquad\text{ or }\qquad \lim_{x \to a^{+}} f(x) = \pm \infty.
-  \]
-
-  \textbook{page 149}
-\end{definition}
-
-\faExclamationTriangle{} Vertical asymptotes have a subtle trap: Roots of the denominator are \hlwarn{not always} vertical asymptotes.  To avoid making subtle mistakes, always use the definition above to identify vertical asymptotes.
-
-\begin{exercise}
-  Is \(x = 1\) a vertical asymptote of \(f(x) = \frac{x^{2} - 3x + 2}{x - 1}\)?  Plot it in Desmos to find out.
-
-  \blanklines{10}
-\end{exercise}
+\clearpage
 
 
-Here is a variation-on-the-theme exercise on the fundamental of limits.
-\begin{exercise}
-  A function \(f(t)\) is sampled at selected \(t\)-values below. Assume the numerical pattern continues. Estimate \(\lim_{t \to 0} f(x)\).
+\textbf{Summary of the fundamentals of limits}.
+We learned three fundamental concepts of limits at a constant \(a\) and their relationships.
 
-  \includegraphics{../standalones/table_t_squared}
-\end{exercise}
+\begin{enumerate}
+  \item To \hlmain{evaluate} a \emph{left} or \emph{right limit} as \(x\) approaches \(a\) is to determine which of the three cases below applies to the function \(f(x)\) as \(x\) approaches \(a\) from the left or right. 
 
-The next exercise provides an opportunity to adjust our intuition for piecewise functions. 
-\begin{exercise} \label{ex:limit-piecewise-and-quotient}
-  Consider the function \(f(x) = \frac{|(x-2)(x+4)|}{x-2}\). Just by looking at the algebraic expression, do you expect this function to have any vertical asymptotes? Does \(\lim_{x \to 2} f(x)\) exist? Does \(\lim_{x \to -4} f(x)\) exist? 
+    \begin{center}
+      \includestandalone[page=8]{../standalones/plot-limit-intro}
+      \qquad
+      \includestandalone[page=10]{../standalones/plot-limit-intro}
+      \qquad
+      \includestandalone[page=12]{../standalones/plot-limit-intro}
+    \end{center}
 
-  Plot the function in Desmos. Use the graph to evaluate the following limits
-  \[
-    \lim_{x \to 2^{-}} f(x) \underline{\hspace{2cm}} ,\quad
-    \lim_{x \to 2^{+}} f(x) \underline{\hspace{2cm}} ,\quad
-    \lim_{x \to (-4)^{-}} f(x) \underline{\hspace{2cm}} ,\quad
-    \lim_{x \to (-4)^{+}} f(x) \underline{\hspace{2cm}}.
-  \]
+  \item Remember Theorem~\ref{thm:limit-two-one-sides} and that vertical asymptotes are \emph{defined} in terms of one-sided limits.
 
-  Now what is \(\lim_{x \to 2} f(x)\)? \(\lim_{x \to -4} f(x)\)? Does \(f(x)\) have any vertical asymptotes? \updatenote{"symptoms" corrected to "asymptotes".}
-
-  \blanklines{5}
-
-  Let's return to the algebraic expression for \(f(x)\). The mistake \(\frac{|\cancel{(x-2)}(x+4)|}{\cancel{x-2}} = |x+4|\) is not uncommon and potentially causes misconceptions for limits and vertical asymptotes,  so let's fix it. Write \(f(x)\) as a piecewise function.
-
-  Recall that the idea to correctly simplify away the absolute value of a function is on page~\pageref{ex:piecewise-abs-of-function}. 
-
-  \blanklines{15}
-\end{exercise}
+  \item To \hlmain{evaluate} a \emph{two-sided limit} as \(x\) approaches \(a\) is to determine whether its two one-sided limits are equal.  This is supported by the Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides}.  Also remember that the function value \(f(a)\) has nothing to do with \(\lim_{x \to a} f(x)\). 
+    \begin{itemize}
+      \item If the two one-sided limits are equal, then the two-sided limit equals that common value (which can be a finite number or \(\pm \infty\)).
+        \begin{center}
+          \includestandalone[page=33]{../standalones/plot-limit-intro}
+          \qquad
+          \includestandalone[page=35]{../standalones/plot-limit-intro}
+        \end{center}
+      \item If the two one-sided limits are different, then the two-sided limit does not exist.
+        \begin{center}
+          \includestandalone[page=36]{../standalones/plot-limit-intro}
+          \quad
+          \includestandalone[page=37]{../standalones/plot-limit-intro}
+          \quad
+          \includestandalone[page=38]{../standalones/plot-limit-intro}
+        \end{center}
+    \end{itemize}
+  \item When \(\lim_{x \to a} f(x) = \infty\), the \enquote{\(=\infty\)} is only a shorthand for \enquote{limit approaches infinity}, and the limit does not exist.  The same is true for \enquote{\(=-\infty\)}.
+\end{enumerate}
+\clearpage
 \end{document}

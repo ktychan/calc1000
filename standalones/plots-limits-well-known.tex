@@ -14,7 +14,7 @@
 
 \begin{document}
 \begin{tikzpicture}
-  \begin{axis}[lesson limit intro, title={\color{main}\(\lim_{x \to 0} \frac{\sin(x)}{x} = \underline{\hspace{1cm}}\)}]
+  \begin{axis}[lesson limit intro, title={\color{main}\(\lim_{x \to 0} \frac{\sin(x)}{x} = 1\)}]
     \addplot[main, very thick] {sin(x)/x};
     \draw[main, thick, fill=white] (axis cs:0,1) circle (0.1);
     % \draw[fill=black] (axis cs:1,-1) circle (0.05);
@@ -24,7 +24,7 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[lesson limit intro, title={\color{main}\(\lim_{x \to 0} \frac{\cos(x) - 1}{x} = \underline{\hspace{1cm}}\)}]
+  \begin{axis}[lesson limit intro, title={\color{main}\(\lim_{x \to 0} \frac{\cos(x) - 1}{x} = 0\)}]
     \addplot[main, very thick] {(cos(x) - 1)/x};
     \draw[main, thick, fill=white] (axis cs:0,0) circle (0.1);
     % \draw[fill=black] (axis cs:1,-1) circle (0.05);
@@ -34,7 +34,7 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[lesson limit intro, title={\color{main}\(\lim_{x \to 0} \frac{e^{x} - 1}{x} = \underline{\hspace{1cm}}\)}]
+  \begin{axis}[lesson limit intro, title={\color{main}\(\lim_{x \to 0} \frac{e^{x} - 1}{x} = 1\)}]
     \addplot[main, very thick] {(exp(x) - 1)/x};
     \draw[main, thick, fill=white] (axis cs:0,1) circle (0.1);
     % \draw[fill=black] (axis cs:1,-1) circle (0.05);
