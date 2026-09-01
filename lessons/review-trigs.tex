@@ -48,18 +48,17 @@ Midterm and final exams are closed-book with no formula sheets, no calculators a
   \blanklines{12}
 \end{example}
 
-We need to remember trigonometric equations often, but not always, have more than one solution. \updatenote{"solutions" corrected to "solution".}
-If a question does not state a restriction for \(\theta\), then we need to find as many solutions as possible.
+We need to remember trigonometric equations often, but not always, have more than one solution. If a question does not state a restriction for \(\theta\), then we need to find as many solutions as possible.
 
-Moreover, Example~\ref{ex:trig-problem-solving-1} and \ref{ex:trig-problem-solving-2} together demonstrate the technique of \hlmain{change of variable}, which is fairly useful in mathematics.
+Moreover, Example~\ref{ex:trig-problem-solving-1} and \ref{ex:trig-problem-solving-2} together demonstrate the technique of \hlmain{change of variable}.
 \begin{example} \label{ex:trig-problem-solving-1}
-  Find all solutions of \(\sin(u) = \frac{\sqrt{3}}{2}\), i.e., solve for \(u\).
+  Find all solutions of \(\cos(u) = \frac{1}{2}\), i.e., solve for \(u\).
 
   \blanklines{10}
 \end{example}
 
 \begin{example} \label{ex:trig-problem-solving-2}
-  Find all solutions of \(\sin(\theta + \pi/3) = \frac{\sqrt{3}}{2}\), i.e., solve for \(\theta\).
+  Find all solutions of \(\cos(x + \pi/3) = \frac{1}{2}\), i.e., solve for \(x\).
 
   {\footnotesize Make a change of variable \(u = (\cdots)\) so that you can \hlmain{reuse} the solution of Example~\ref{ex:trig-problem-solving-1}.}
 
@@ -69,8 +68,45 @@ Moreover, Example~\ref{ex:trig-problem-solving-1} and \ref{ex:trig-problem-solvi
 \end{example}
 \clearpage
 
+\clearpage
 
+Remember we can apply trig identities to manipulate trig functions.
+\begin{example}[Textbook Example~1.25a on page 68]
+  Find all solutions of \(1 + \cos(2 \theta) = \cos(\theta)\).
 
+  {\scriptsize The textbook straight up tells us to use trig identities. Why? What's a \hlmain{general} problem-solving idea that helps us in the long run?}
+
+  \blanklines{45}
+\end{example}
+\clearpage
+
+Sometimes, we need to solve inequalities involving trig functions. You will see similar problems in the quizzes. We warm up with a very basic inequality.
+\begin{example} \label{eg:sin(x)<1/2}
+  Solve \(\sin(x) \le \frac{1}{2}\).
+
+  \blanks{15}
+\end{example}
+
+% TODO replace "trap" with something neutral.
+The next problems has a not-so-obvious trap and deserves a detailed discussion.
+% talk about (2)(-2) ≤ (-2).
+\begin{example}
+  Solve \(\sin(2\theta) \le \cos(\theta)\).
+
+  \blanks*
+\end{example}
+\clearpage
+
+You can use the next exercise to self-test whether you understood the problem-solving principles demonstrated in Example~\ref{eg:sin(x)<1/2}. However, remember that \(u^{2} \le a\) simplifies to \(-\sqrt{a} \le u \le \sqrt{a}\) and \(u^{2} \ge a\) expands to \(u \le -\sqrt{a}\) or \(u \ge \sqrt{a}\).
+\begin{exercise}
+  Solve \(\cos^{2}(x) \ge 1/2\).
+  
+  \blanks*
+\end{exercise}
+
+The textbook offers a variety of practice problems. 
+
+\clearpage
 All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the relations among trigonometric functions helps us remember their properties.
 
 \begin{mdframed}[style=simple-compact]
@@ -86,8 +122,6 @@ All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the r
 
 \begin{exercise}
   Complete Table~\ref{table:trig-values}.  Write \hlsupp{VA} for vertical asymptotes.
-
-
 
   \begin{table}[H]
     \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
@@ -117,28 +151,14 @@ All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the r
       \(   -\pi + 2k\pi\) &&& \\[2ex]
     \end{tabular}
 
-    \caption{Special values for trigonometric functions \updatenote{"function" corrected to "functions".}}
+    \caption{Special values for trigonometric functions}
     \label{table:trig-values}
   \end{table}
 \end{exercise}
-
-
-\clearpage
-
-Let's turn to algebra skills.
-\begin{example}[Textbook Example~1.25a on page 68]
-  Find all solutions of \(1 + \cos(2 \theta) = \cos(\theta)\).
-
-  {\scriptsize The textbook straight up tells us to use trig identities. Why? What's a \hlmain{general} problem-solving idea that helps us in the long run?}
-
-  \blanklines{45}
-\end{example}
-
-\faExclamationTriangle{} Most of the suggested exercises in this section challenge your algebra skill --- a key requirement for success in calculus. Please do all of them and discuss your results with others. Talk about how you break up a problem into smaller ones, the purpose of your calculations and problem-solving strategies. 
 \clearpage
 
 \begin{exercise}
-  Label each graph with its corresponding trig function. Which ones are even functions? Which ones are odd functions? \updatenote{"their" corrected to "its".}
+  Label each graph with its corresponding trig function.
   \bigskip
 
   \begin{center}
@@ -162,4 +182,101 @@ Let's turn to algebra skills.
   \end{center}
   \vfill{}
 \end{exercise}
+\clearpage
+
+Inverse trig functions undo their corresponding trig functions. You may be familiar with the identity
+\[
+  \sin^{-1}(\sin(x)) = x, \quad \underline{\hspace{2in}}.
+\]
+
+\faExclamationTriangle{} In \thiscourse, we denote \(\mathrm{arcsin}(x)\) by \(\sin^{-1}(x)\).
+
+% Play a game here to tease out the necessity of range restriction
+\blanks*
+
+\begin{tabular}{l|p{1in}|p{1in}||l|p{1in}|p{1in}}
+  \toprule
+                       & domain & range &
+                       & domain & range \\\midrule
+  \(y = \sin^{-1}(x)\) & \(-1 \le x \le 1\) & &
+  \(y = \csc^{-1}(x)\) &  & \\[3ex]\midrule
+  \(y = \cos^{-1}(x)\) & \(-1 \le x \le 1\) & &
+  \(y = \sec^{-1}(x)\) &  & \\[3ex]\midrule
+  \(y = \tan^{-1}(x)\) & all \(x\)          & &
+  \(y = \cot^{-1}(x)\) &  & \\[3ex]\bottomrule
+\end{tabular}
+\clearpage
+
+These three graphs are for your reference.
+\vfill
+
+Let's see if the details of inverse trig functions has sink in yet.
+\begin{example} \label{eg:arccos-cos-caution}
+  Evaluate \(\cos^{-1}(\cos(2\pi))\). 
+
+  \blanks{10}
+\end{example}
+
+\begin{exercise}
+  Evaluate \(\arctan\left(\frac{\sqrt{3}}{3}\right)\).
+
+  \blanklines{10}
+\end{exercise}
+\clearpage
+
+Learn the thinking process in Example~\ref{eg:trig-sec-arctan}, and remember its \emph{starting} step.  The idea applies to all problems in Exercise~\ref{ex:trig-f-finverse}.
+
+\begin{example} \label{ex:trig-cos-arcsin}
+  Simplify \(\sec(\arctan(2))\).
+
+  \blanklines{25}
+\end{example}
+
+\begin{example} \label{eg:trig-sec-arctan}
+  Simplify \(\sec(\arctan(x))\).
+
+  \blanklines{25}
+\end{example}
+\clearpage
+
+\begin{exercise} \label{ex:trig-f-finverse}
+  Practise using triangles to simplify the following expressions. 
+
+  \begin{multicols}{4}
+    \begin{enumerate}
+      \item \(\sin(\sin^{-1}(x))\)
+      \item \(\cos(\sin^{-1}(x))\)
+      \item \(\tan(\sin^{-1}(x))\)
+      \item \(\sec(\sin^{-1}(x))\)
+      \item \(\sin(\cos^{-1}(x))\)
+      \item \(\cos(\cos^{-1}(x))\)
+      \item \(\tan(\cos^{-1}(x))\)
+      \item \(\sec(\cos^{-1}(x))\)
+      \item \(\sin(\tan^{-1}(x))\)
+      \item \(\cos(\tan^{-1}(x))\)
+      \item \(\tan(\tan^{-1}(x))\)
+      \item \(\sec(\tan^{-1}(x))\)
+      \item \(\sin(\sec^{-1}(x))\)
+      \item \(\cos(\sec^{-1}(x))\)
+      \item \(\tan(\sec^{-1}(x))\)
+      \item \(\sec(\sec^{-1}(x))\)
+    \end{enumerate}
+  \end{multicols}
+
+  \blanklines{45}
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Label the graphs with corresponding inverse trig functions.
+
+  \begin{center}
+    \includestandalone[page=15]{../standalones/plot-trigs}
+
+    \includestandalone[page=16]{../standalones/plot-trigs}
+
+    \includestandalone[page=17]{../standalones/plot-trigs}
+  \end{center}
+\end{exercise}
+\clearpage
 \end{document}

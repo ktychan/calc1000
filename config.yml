@@ -17,8 +17,10 @@ term:
   readingweek: 2026-10-12
   noclass:
     - 2026-09-30
+    - 2026-10-30
   special:
   assessment:
+    - 2026-10-30: Midterm
 
 sections:
   "004":
