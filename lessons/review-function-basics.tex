@@ -1,14 +1,14 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{Fundamental thinking skills}
+\begin{document} \section{Fundamentals of functions and operations}
 
-We review some prerequisite material with the goal to help you develop essential study and thinking skills for this course.
+We review some prerequisite material with the goal of helping you develop essential study and thinking skills for this course.
 
 \begin{example} \label{eg:review-lines}
-  Lines are one of the simplest type of mathematical concepts. We'll use it to understand important \hlattn{thinking skills}.
+  Lines are one of the simplest types of mathematical concepts.
 
   \begin{enumerate}
-    \item What is the equation and the graph of the line with \(y\)-intercept \(-1\) and slope \(3\)?
+    \item What are the equation and the graph of the line with \(y\)-intercept \(-1\) and slope \(3\)?
 
       \blanks{10}
 
@@ -17,21 +17,21 @@ We review some prerequisite material with the goal to help you develop essential
       \blanks{10}
   \end{enumerate}
 
-  \faStar{} What are the general forms of a line?
+  \faStar{} What are the general form\underline{s} of a line?
+  % slope-intercept, point-slope and general
 
   \blanks{10}
 
-  Is \(3x + 4y = 2\) the equation of a line? If so, what is its slope and \(x\)-intercept?
+  Is \(3x + 4y = 2\) the equation of a line? If so, what are its slope and \(x\)-intercept?
 
   \blanks{10}
 \end{example}
 \clearpage
 
-Exercises in the notes are take-home practices. Past students report that doing exercises help them reinforce and develop the skills and concepts discussed in class. In rare cases, we may have time to discuss them in class. Solutions will be posted to OWL BrightSpace when we finish a week's material.
+Exercises in the notes are take-home practice. Past students report that doing exercises helps them reinforce and develop the skills and concepts discussed in class. In rare cases, we may have time to discuss them in class. Solutions will be posted to OWL BrightSpace when we finish a week's material.
 
-Exercises on the same page typically progressively require more problem-solving skills. 
+Exercises on the same page or on adjacent pages usually require progressively more problem-solving skills.  This learning and teaching technique is called \emph{scaffolding}. It anchors complex thoughts to simpler ones.  Here are some scaffolded exercises that you see quite often in high school.
 
-Here are some warm-up exercises that you see quite often in high school but are way too simple for a university-level exam.  
 \begin{exercise}
   What is the equation of the line that passes through points \((-1,1)\) and \((1,2)\)?
 
@@ -45,7 +45,7 @@ Here are some warm-up exercises that you see quite often in high school but are 
 \end{exercise}
 
 \begin{exercise}
-  A line passes through a point \((a,3)\), \((1,1)\) and has slope \(-1\). Solve for the unknown \(a\).
+  A line passes through the points \((a,3)\) and \((1,1)\), and has slope \(-1\). Solve for the unknown \(a\).
 
   {\footnotesize Hint: Use the equation of the line to set up an equation with \(a\) as the only unknown and solve for \(a\). This problem is simple enough that you can also just sketch the line to solve for \(a\). However, please keep in mind that sketching is not always possible for more complicated problems.}
 
@@ -53,7 +53,7 @@ Here are some warm-up exercises that you see quite often in high school but are 
 \end{exercise}
 \clearpage
 
-In Example~\ref{eg:review-lines}, we used the thinking skills of \textcolor{attn}{recall and reproduction} and \hlattn{recognize patterns and strategize}. On this page, we \hlattn{recall} a few more terms you learned in high school and discuss the contrast between examples and general patterns. 
+Naming functions by type helps us organize and understand their behavior. Functions of the same type share similar properties and problem-solving techniques.
 
 Functions we see in this course are built from these basic ones.
 
@@ -74,7 +74,7 @@ Functions we see in this course are built from these basic ones.
 \newcommand{\ftype}[1]{\parbox[t][\ftyperow][t]{1.25in}{\hlmain{#1}}}
 
 \begin{center}
-  \label{ex:review-function-types}
+  \label{ex:review-function-types}  % for future reference. unused for now.
   % Top inner margin: \extrarowheight (array package) adds space above the
   % first line of every row. Scoped to this center group.
   \setlength{\extrarowheight}{6pt}
@@ -82,20 +82,19 @@ Functions we see in this course are built from these basic ones.
   % b{} for bottom, and tabular[t] aligns the whole table with the text.
   \begin{tabular}{l p{2.5in}|p{2.5in}}
     Type & Examples & General pattern \\\midrule
-    \ftype{Polynomials} & & sums of \(x^{n}\) where \(n\) is a non-negative integer \[c_{n}x^{n} + \cdots + c_{1}x + c_{0}\] \\\midrule
     \ftype{Power functions} & & \(x^{p}\) where \(p\) is any real number \\\midrule
+    \ftype{Polynomials} & & \[c_{n}x^{n} + \cdots + c_{1}x + c_{0}\] \\\midrule
     \ftype{Rational\newline functions} & & \(\frac{\text{polynomial}}{\text{non-zero polynomial}}\) \\\midrule
     % \ftype{Algebraic\newline functions} & & functions that can be expressed using a finite number of \(+, -, \times, \div\), and taking roots \\\midrule
-    \ftype{Trigonometric functions} & & \\\midrule
-    \ftype{Exponential\newline functions} & & \(b^{x}\) where \(b > 0\) and \(b \ne 1\)\\\midrule
-    \ftype{Logarithmic\newline functions} & & \(\log_b(x)\) where \(b > 0\) and \(b \ne 1\)\\\midrule
-    \ftype{Inverse\newline trigonometric functions} & & \\\midrule
+    % \ftype{Trigonometric functions} & & \\\midrule
+    % \ftype{Exponential\newline functions} & & \(b^{x}\) where \(b > 0\) and \(b \ne 1\)\\\midrule
+    % \ftype{Logarithmic\newline functions} & & \(\log_b(x)\) where \(b > 0\) and \(b \ne 1\)\\\midrule
+    % \ftype{Inverse\newline trigonometric functions} & & \\\midrule
     % \ftype{Piecewise\newline functions} & & \\\midrule
   \end{tabular}
 \end{center}
-\clearpage
 
-Sophisticated functions are built by iteratively combining basic functions (the ones on the previous page) using operations
+Sophisticated functions are built by iteratively combining basic functions (the ones above, trigs, exponentials and logarithms) using operations
 \[
   f+g \hspace{0.75in}
   f-g \hspace{0.75in}
@@ -105,18 +104,25 @@ Sophisticated functions are built by iteratively combining basic functions (the 
   f(x) = \begin{cases} \cdots \\ \cdots \\ \cdots \end{cases}
 \]
 
-\faStar{} The operation \(f \circ g\) is called \underline{\hspace{1.5in}} and is defined by \(f \circ g = f(g(x))\).
-
-% iClicker x -> f -> g or x -> g -> f?
-\blanks{5}
-
+\clearpage
+\faStar{} The operation \(f \circ g\) is called \hlmain{composition} and is defined by 
+  \[
+    (f \circ g)(x) = f(g(x)).
+  \] 
 \begin{example}
-  Suppose \(f(x) = \sqrt{x}\) and \(g(x) = \sin(x)\). Write down \(f \circ g\) and \(g \circ f\).
+  Suppose \(f(x) = \sqrt{x}\) and \(g(x) = \sin(x)\). Write down \((f \circ g)(x)\) and \((g \circ f)(x)\).
 
   \blanks{5}
 \end{example}
 
-The above example only requires following a formula. The next example is closer\footnote{But not quite. It is still fairly simple.} to an exam question where we have some abstract information. \hlattn{Recognizing patterns and strategizing} are the main thinking skills here.
+Function composition models \emph{chain processes} in real life.
+% happens in stages
+
+% iClicker x -> f -> g or x -> g -> f?
+\blanks{5}
+
+While many functions have concrete expressions (like \(x^{2}\)), we can run into somewhat abstract functions like the one in Example~\ref{eg:review-function-composition-abstract}.
+% TODO find exam stats.
 
 \begin{example} \label{eg:review-function-composition-abstract}
   Some data for \(f(x)\) and \(g(x)\) is given below.
@@ -133,17 +139,9 @@ The above example only requires following a formula. The next example is closer\
 
   \blanks*
 \end{example}
-
-% TODO: Add to slides: Do you want me to include (in lecture notes) suggestions for AI prompts to generate \emph{course-aligned} variations for practice?
-% \faRobot{} AI can generate variations of this problem for extra practice. Here are some useful prompts: 
-% \begin{itemize}
-% \item \enquote{Generate a similar problem with a longer chain of composition.} 
-% \item \enquote{Generate a similar problem with a mix of concrete functions and abstract information in a chain of composition.} 
-% \item You may need to add \enquote{Don't show me the answers until I ask for them.} to avoid getting the answer immediately.
-% \end{itemize}
 \clearpage
 
-\hlmain{Change of variable} is the the \enquote{opposite} of function composition. It is used to break up a complicated expression into smaller subproblems.  
+\hlmain{Change of variable} is the \enquote{opposite} of function composition. It is used to break up a complicated expression into smaller and more manageable pieces.
 
 We demonstrate a basic problem-solving technique using a change of variable. More complicated examples will be discussed in later lessons.
 \begin{example}
@@ -152,13 +150,13 @@ We demonstrate a basic problem-solving technique using a change of variable. Mor
   \blanks*
 \end{example}
 
-\faStar{} \hlattn{Pattern recognition} hint: If you see a \hlmain{composite} function, try a change of variable! We will see lots examples throughout the course. 
+\faStar{} \hlattn{Pattern recognition} hint: If you see a \hlmain{composite} function, try a change of variable! We will see lots of examples throughout the course.
 
-High schools rarely discuss change of variable as an overarching problem-solving strategy. You tend to know them as \enquote{special tricks} applicable in specific situations. It is worth see the bigger picture because it is used in many situations in this course, including but not limited to the following.
+You may or may not have been taught that change of variable is a one-off trick. It is worth seeing the bigger picture. Change of variable is used fairly often in \thiscourse{}.
 \begin{itemize}
-  \item Calculating domains such as \(\frac{1}{\sqrt{x + 1} - 1}\).
+  \item Calculate domains for \emph{composite} functions like \(\frac{1}{\sqrt{x + 1} - 1}\).
 
-  \item Solve an equation involving \emph{composition} functions such as 
+  \item Solve an equation involving \emph{composite} functions such as
     \[
       e^{2x} + e^{x} - 6 = 0, 
       \quad
@@ -178,13 +176,100 @@ High schools rarely discuss change of variable as an overarching problem-solving
       \lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}.
     \]
 
-  \item The chain rule in differentiation is a change-of-variable technique.
+  \item Differentiate a composite function using the chain rule.
 
-  \item The \enquote{\(u\)-sub} in integration is a change-of-variable technique in integration.
+  \item Integrate a function using \enquote{\(u\)-sub}.
 \end{itemize}
-
 \clearpage
-Before moving onto specific types of functions, we review calculating domains.  The key algebra skill from high school is to solve and combine inequalities.
+We talked about the five common operations \(+, -, \times, \div, \circ\). Now we discuss piecewise functions.
+
+The left-brace notation for a piecewise function \(f(x)\) prescribes expressions for \(f(x)\) on two or more \emph{non-intersecting} intervals called subdomains. Each line in the left-brace notation is the expression for \(f(x)\) on the specified subdomain.  The domain of \(f(x)\) is the union of all its subdomains.
+
+\begin{example}
+  Sketch the function
+  \(
+  f(x) = 
+  \begin{cases}
+    x + 1, &x > 2 \\
+    2, &x \le 1
+  \end{cases}
+  \).
+
+  \begin{tikzpicture}
+    \begin{axis}[xmin=-1, xmax=4, ymin=0, ymax=4, grid=major, width=2.5in, xtick={-1,0,...,4}, ytick={0,1,...,4}, enlargelimits=true]
+    \end{axis}
+  \end{tikzpicture}
+
+  \blanks*
+\end{example}
+
+\begin{exercise}
+  The graph of a function \(g(x)\) on the domain \([-2,5]\) is given below. Express \(g(x)\) using the left-brace notation.
+
+  \begin{minipage}{3in}
+    \begin{tikzpicture}
+      \begin{axis}[
+        enlargelimits=true,
+        xmin=-2, xmax=5,
+        ymin=-2, ymax=3,
+        xtick={-2,-1,...,5},
+        ytick={-2,-1,...,3},
+        grid=major,
+        title={The graph of \(g(x)\)},
+        ]
+        \addplot[ultra thick] coordinates {(-2, 2) (-1, 2)};
+        \addplot[ultra thick] coordinates {(-1, 0) ( 2, 2)};
+        \addplot[ultra thick] coordinates {( 2, 1) ( 5,-2)};
+        \fill (axis cs:-1,2) circle[radius=0.1];
+        \fill (axis cs: 2,1) circle[radius=0.1];
+        \draw[fill=white] (axis cs:-1,0) circle (0.075);
+        \draw[fill=white] (axis cs:2,2) circle (0.075);
+      \end{axis}
+    \end{tikzpicture}
+  \end{minipage}
+  \begin{minipage}{2in}
+    \[
+      g(x) = 
+      \begin{cases}
+        \phantom{a} \\[10ex]
+        \phantom{a}
+      \end{cases}
+    \]
+  \end{minipage}
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+We now review absolute values. The absolute value function is fundamentally a piecewise function.
+\begin{equation} \label{eq:abs}
+  |x| = 
+  \begin{cases}
+    x, &\text{if } x \ge 0, \\
+    -x, &\text{if } x < 0.
+  \end{cases}
+\end{equation}
+
+\faExclamationTriangle{} The identity \(|x| = \sqrt{x^{2}}\) is true, but it makes easy-to-miss details even harder to notice. You are advised to use Equation~\eqref{eq:abs}.
+
+To write down the absolute value of a function as a piecewise function, please remember that the input \(x\) shows up in five different places in Equation~\eqref{eq:abs}. You have to replace \(x\) in five places with the expression inside the absolute value.
+
+\blanks{8}
+
+\begin{exercise} \label{ex:piecewise-abs-of-function}
+  Write down \(|(x + 2)(x - 4)|\) using the left-brace notation for piecewise functions.
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}
+  Write down \(\left| \frac{x + 2}{x - 4} \right|\) using the left-brace notation for piecewise functions.
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+Before moving on to specific types of functions, we review calculating domains. The key algebra skill from high school is to solve and combine inequalities.
 
 \begin{example}
   Do \(\sqrt{x - 4}\sqrt{x + 3}\) and \(\sqrt{(x - 4)(x + 3)}\) have the same domain? 
@@ -196,15 +281,14 @@ Before moving onto specific types of functions, we review calculating domains.  
 \clearpage
 
 \begin{example}
-  Find the domain of \(f(x) = \frac{\ln(x - 1)}{\sqrt{ \sqrt{x + 3} - 1 }}\).
+  Find the domain of \(f(x) = \frac{\ln(x + 5)}{\sqrt{ 3 - \sqrt{x + 3} }}\).
 
   \blanks{30}
 \end{example}
 
+Here is a drill-type exercise.
 \begin{exercise}
   Find the domain of \(f(x) = \frac{1}{\sqrt{ \sqrt{x^{2} - 1} - 1}}\).
-
-  {\footnotesize This is a simple variation of the previous example.}
 
   \blanks*
 \end{exercise}

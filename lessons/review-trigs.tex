@@ -30,7 +30,8 @@
   \end{center}
 
   \bigskip
-  All trigonometric functions are periodic with period \(2\pi\).
+  \(\sin(x)\) and \(\cos(x)\) are periodic with period \(2\pi\).
+
   \begin{center}
     \includestandalone[page=5]{../standalones/triangle}
 
@@ -40,7 +41,7 @@
 \clearpage
 
 \faExclamationTriangle{}
-Midterm and final exams are closed-book with no formula sheets, no calculators and no aids of any kind.  Trying to memorize too much might result in false memory.  Trying to deduce everything might take up a lot of time.  \hlmain{Find the right balance for yourself through practice.}
+Midterm and final exams are closed-book with no formula sheets, no calculators and no aids of any kind.  Trying to memorize too much might result in false memories.  Trying to deduce everything might take up a lot of time.  \hlmain{Find the right balance for yourself through practice.}
 
 \begin{example}
   Evaluate \(\cos(11\pi/3)\).
@@ -48,9 +49,10 @@ Midterm and final exams are closed-book with no formula sheets, no calculators a
   \blanklines{12}
 \end{example}
 
-We need to remember trigonometric equations often, but not always, have more than one solution. If a question does not state a restriction for \(\theta\), then we need to find as many solutions as possible.
+We need to remember that trigonometric equations often, but not always, have more than one solution. If a question does not state a restriction for \(\theta\), then we need to find all solutions.
 
-Moreover, Example~\ref{ex:trig-problem-solving-1} and \ref{ex:trig-problem-solving-2} together demonstrate the technique of \hlmain{change of variable}.
+Moreover, Examples~\ref{ex:trig-problem-solving-1} and~\ref{ex:trig-problem-solving-2} together demonstrate the technique of \hlmain{change of variable}.
+
 \begin{example} \label{ex:trig-problem-solving-1}
   Find all solutions of \(\cos(u) = \frac{1}{2}\), i.e., solve for \(u\).
 
@@ -66,8 +68,6 @@ Moreover, Example~\ref{ex:trig-problem-solving-1} and \ref{ex:trig-problem-solvi
 
   % Common misconception: Why not just apply \(\arcsin\) to both sides?
 \end{example}
-\clearpage
-
 \clearpage
 
 Remember we can apply trig identities to manipulate trig functions.
@@ -87,8 +87,7 @@ Sometimes, we need to solve inequalities involving trig functions. You will see 
   \blanks{15}
 \end{example}
 
-% TODO replace "trap" with something neutral.
-The next problems has a not-so-obvious trap and deserves a detailed discussion.
+The next problem shows us that cancelling a factor in inequalities requires a sign analysis.
 % talk about (2)(-2) ≤ (-2).
 \begin{example}
   Solve \(\sin(2\theta) \le \cos(\theta)\).
@@ -97,16 +96,14 @@ The next problems has a not-so-obvious trap and deserves a detailed discussion.
 \end{example}
 \clearpage
 
-You can use the next exercise to self-test whether you understood the problem-solving principles demonstrated in Example~\ref{eg:sin(x)<1/2}. However, remember that \(u^{2} \le a\) simplifies to \(-\sqrt{a} \le u \le \sqrt{a}\) and \(u^{2} \ge a\) expands to \(u \le -\sqrt{a}\) or \(u \ge \sqrt{a}\).
+You can use the next exercise to self-test whether you have understood the problem-solving principles demonstrated in Example~\ref{eg:sin(x)<1/2}. Remember that, for \(a \ge 0\), \(u^{2} \le a\) simplifies to \(-\sqrt{a} \le u \le \sqrt{a}\) and \(u^{2} \ge a\) expands to \(u \le -\sqrt{a}\) or \(u \ge \sqrt{a}\).
 \begin{exercise}
   Solve \(\cos^{2}(x) \ge 1/2\).
   
   \blanks*
 \end{exercise}
-
-The textbook offers a variety of practice problems. 
-
 \clearpage
+
 All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the relations among trigonometric functions helps us remember their properties.
 
 \begin{mdframed}[style=simple-compact]
@@ -116,7 +113,7 @@ All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the r
     \sec(\theta) &= \hspace{1.5in} & \csc(\theta) &= \hspace{1.5in}& 
   \end{align}
 
-  Pythagorean Theorem gives us two \emph{more} fundamental trig identities.
+  The Pythagorean Theorem gives us two \emph{more} fundamental trig identities.
   \vspace{1.5in}
 \end{mdframed}
 
@@ -126,61 +123,34 @@ All trigonometric functions build on \(\sin(x)\) and \(\cos(x)\).  Knowing the r
   \begin{table}[H]
     \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
       \(\theta\) & \(\sin(\theta)\) & \(\cos(\theta)\) & \(\tan(\theta)\) & \(\cot(\theta)\) \\\toprule 
-      \(    0 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \(\pi/6 + 2k\pi\) &&& \\[2ex]\midrule
-      \(\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
-      \(\pi/3 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \(  \pi/2 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \(2\pi/3 + 2k\pi\) &&& \\[2ex]\midrule
-      \(3\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
-      \(5\pi/6 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \(   \pi + 2k\pi\) &&& \\[2ex]
+      \(    0 + 2k\pi\)  &&&& \\[2ex]\midrule\midrule
+      \(\pi/6 + 2k\pi\)  &&&& \\[2ex]\midrule
+      \(\pi/4 + 2k\pi\)  &&&& \\[2ex]\midrule
+      \(\pi/3 + 2k\pi\)  &&&& \\[2ex]\midrule\midrule
+      \(\pi/2 + 2k\pi\)  &&&& \\[2ex]\midrule\midrule
+      \(2\pi/3 + 2k\pi\) &&&& \\[2ex]\midrule
+      \(3\pi/4 + 2k\pi\) &&&& \\[2ex]\midrule
+      \(5\pi/6 + 2k\pi\) &&&& \\[2ex]\midrule\midrule
+      \(   \pi + 2k\pi\) &&&& \\[2ex]
     \end{tabular}
     \quad
     \begin{tabular}{r|p{1cm}|p{1cm}|p{1cm}|p{1cm}}
       \(\theta\) & \(\sin(\theta)\) & \(\cos(\theta)\) & \(\tan(\theta)\) & \(\cot(\theta)\) \\\toprule 
-      \(     0 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \(-\pi/6 + 2k\pi\) &&& \\[2ex]\midrule
-      \(-\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
-      \(-\pi/3 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \( -\pi/2 + 2k\pi\) &&& \\[2ex]\midrule\midrule
-      \(-2\pi/3 + 2k\pi\) &&& \\[2ex]\midrule
-      \(-3\pi/4 + 2k\pi\) &&& \\[2ex]\midrule
-      \(-5\pi/6 + 2k\pi\) &&& \\[2ex]\midrule
+      \(     0 + 2k\pi\)  &&&& \\[2ex]\midrule\midrule
+      \(-\pi/6 + 2k\pi\)  &&&& \\[2ex]\midrule
+      \(-\pi/4 + 2k\pi\)  &&&& \\[2ex]\midrule
+      \(-\pi/3 + 2k\pi\)  &&&& \\[2ex]\midrule\midrule
+      \( -\pi/2 + 2k\pi\) &&&& \\[2ex]\midrule\midrule
+      \(-2\pi/3 + 2k\pi\) &&&& \\[2ex]\midrule
+      \(-3\pi/4 + 2k\pi\) &&&& \\[2ex]\midrule
+      \(-5\pi/6 + 2k\pi\) &&&& \\[2ex]\midrule
       \midrule
-      \(   -\pi + 2k\pi\) &&& \\[2ex]
+      \(   -\pi + 2k\pi\) &&&& \\[2ex]
     \end{tabular}
 
     \caption{Special values for trigonometric functions}
     \label{table:trig-values}
   \end{table}
-\end{exercise}
-\clearpage
-
-\begin{exercise}
-  Label each graph with its corresponding trig function.
-  \bigskip
-
-  \begin{center}
-    \includestandalone[page=1]{../standalones/plot-trigs}
-    \hfill\vline\hfill
-    \includestandalone[page=4]{../standalones/plot-trigs}
-  \end{center}
-  \vfill{}
-
-  \begin{center}
-    \includestandalone[page=7]{../standalones/plot-trigs}
-    \hfill\vline\hfill
-    \includestandalone[page=10]{../standalones/plot-trigs}
-  \end{center}
-  \vfill{}
-
-  \begin{center}
-    \includestandalone[page=13]{../standalones/plot-trigs}
-    \hfill\vline\hfill
-    \includestandalone[page=14]{../standalones/plot-trigs}
-  \end{center}
-  \vfill{}
 \end{exercise}
 \clearpage
 
@@ -194,53 +164,53 @@ Inverse trig functions undo their corresponding trig functions. You may be famil
 % Play a game here to tease out the necessity of range restriction
 \blanks*
 
-\begin{tabular}{l|p{1in}|p{1in}||l|p{1in}|p{1in}}
-  \toprule
-                       & domain & range &
-                       & domain & range \\\midrule
-  \(y = \sin^{-1}(x)\) & \(-1 \le x \le 1\) & &
-  \(y = \csc^{-1}(x)\) &  & \\[3ex]\midrule
-  \(y = \cos^{-1}(x)\) & \(-1 \le x \le 1\) & &
-  \(y = \sec^{-1}(x)\) &  & \\[3ex]\midrule
-  \(y = \tan^{-1}(x)\) & all \(x\)          & &
-  \(y = \cot^{-1}(x)\) &  & \\[3ex]\bottomrule
-\end{tabular}
+
+\begin{figure}[H]
+  \centering
+  \includestandalone[page=29]{../standalones/plot-trigs}
+  \quad
+  \includestandalone[page=30]{../standalones/plot-trigs}
+  \quad
+  \includestandalone[page=31]{../standalones/plot-trigs}
+  
+  \caption{Graph, domain and \hlsupp{range (in purple)} of common inverse trig functions}
+\end{figure}
+Pro-tip: Name the output of an inverse trig function \(\theta\) to remind yourself that it is an angle.
 \clearpage
 
-These three graphs are for your reference.
-\vfill
+Let's see if the details of inverse trig functions have sunk in yet.
 
-Let's see if the details of inverse trig functions has sink in yet.
 \begin{example} \label{eg:arccos-cos-caution}
   Evaluate \(\cos^{-1}(\cos(2\pi))\). 
 
-  \blanks{10}
+  \blanks{5}
 \end{example}
 
-\begin{exercise}
-  Evaluate \(\arctan\left(\frac{\sqrt{3}}{3}\right)\).
+The next example is interesting because it has at least two approaches.
+\begin{example} \label{eg:arctan-sqrt(3)/3}
+  Evaluate \(\arctan\left(-\frac{\sqrt{3}}{3}\right)\).
 
-  \blanklines{10}
-\end{exercise}
+  \blanks*
+\end{example}
 \clearpage
 
-Learn the thinking process in Example~\ref{eg:trig-sec-arctan}, and remember its \emph{starting} step.  The idea applies to all problems in Exercise~\ref{ex:trig-f-finverse}.
+The trick for solving the remaining problems in this lesson is the unit circle or triangle technique we discussed in Example~\ref{eg:arctan-sqrt(3)/3}. The idea applies to all problems in Exercise~\ref{ex:trig-f-finverse}.
 
-\begin{example} \label{ex:trig-cos-arcsin}
-  Simplify \(\sec(\arctan(2))\).
+\begin{example} \label{ex:trig-sin-arctan}
+  Simplify \(\sin(\arctan(2))\).
 
   \blanklines{25}
 \end{example}
 
-\begin{example} \label{eg:trig-sec-arctan}
-  Simplify \(\sec(\arctan(x))\).
+\begin{example} \label{eg:trig-sin-arccos}
+  Simplify \(\sin(\arccos(x))\).
 
   \blanklines{25}
 \end{example}
 \clearpage
 
 \begin{exercise} \label{ex:trig-f-finverse}
-  Practise using triangles to simplify the following expressions. 
+  Simplify the following expressions. 
 
   \begin{multicols}{4}
     \begin{enumerate}
@@ -264,19 +234,6 @@ Learn the thinking process in Example~\ref{eg:trig-sec-arctan}, and remember its
   \end{multicols}
 
   \blanklines{45}
-\end{exercise}
-\clearpage
-
-\begin{exercise}
-  Label the graphs with corresponding inverse trig functions.
-
-  \begin{center}
-    \includestandalone[page=15]{../standalones/plot-trigs}
-
-    \includestandalone[page=16]{../standalones/plot-trigs}
-
-    \includestandalone[page=17]{../standalones/plot-trigs}
-  \end{center}
 \end{exercise}
 \clearpage
 \end{document}

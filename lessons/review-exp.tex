@@ -17,21 +17,21 @@ A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\
   \includestandalone[page=1]{../standalones/plot-exp-log}
 \end{minipage}
 
-Let's quickly recall exponents rules. \(e^{a}e^{b} = \underline{\hspace{1in}}\) and \((e^{a})^{b} = \underline{\hspace{1in}}\) for any \(a,b\).
+Let's quickly recall exponent rules. \(e^{a}e^{b} = \underline{\hspace{1in}}\) and \((e^{a})^{b} = \underline{\hspace{1in}}\) for any \(a,b\).
 \blanklines{5}
 
-The number \(e\) is an important constant defined by \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). Whenever you see the limit on the right-hand side, you can write down \(e\) as the answer with justification ``by definition.'' 
+The number \(e\) is an important constant defined by \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). Whenever you see the limit on the right-hand side, you can write down \(e\) as the answer with justification \enquote{by definition.}
 \bigskip
 
 \begin{definition} \label{def:exp-ln}
   The \emph{natural} exponential function is \(e^{x}\) and the \emph{natural} logarithm is \(\ln(x) = \log_{e}(x)\).  They are inverses of each other:
   \begin{equation} \label{eq:exp-log}
-    e^{\ln(x)} = x \text{ on } \underline{\hspace{1in}} \quad\text{and}\quad \ln(e^{x}) = x \text{ on } \underline{\hspace{1in}}.
+    e^{\ln(x)} = x \text{ for } \underline{\hspace{1in}} \quad\text{and}\quad \ln(e^{x}) = x \text{ for } \underline{\hspace{1in}}.
   \end{equation}
 
-  The goal of this lesson is to consolidate all of our knowledge of exponential and exponential-like functions to Equation~\eqref{eq:exp-log} and the ``\hlmain{change base to \(e\)}'' trick
+  The goal of this lesson is to consolidate all of our knowledge of exponential and exponential-like functions into Equation~\eqref{eq:exp-log} and the ``\hlmain{change base to \(e\)}'' trick
   \begin{equation} \label{eq:exp-change-of-base}
-    b = \underline{\hspace{1in}} \quad\text{and}\quad b^{x} = \underline{\hspace{1in}}, \quad\text{ but need } b > 0.
+    b = \underline{\hspace{1in}} \quad\text{and}\quad b^{x} = \underline{\hspace{1in}}, \quad\text{ but need } b > 0 \text{ and } b \ne 1.
   \end{equation}
 \end{definition}
 \faStar{} Equation~\eqref{eq:exp-change-of-base} offers a \hlattn{universal method}, called \hlmain{change base to \(e\)}, to deal with all exponential or exponential-like functions. The typical example is \(x^{x}\).
@@ -59,7 +59,7 @@ The number \(e\) is an important constant defined by \(e = \lim_{x \to \infty} \
 \end{exercise}
 \clearpage
 
-Formulas in Equation~\eqref{eq:log-formulas} can be deduced from Equation~\eqref{eq:exp-change-of-base} and can help solve problems \emph{quickly}. 
+The formulas in Equation~\eqref{eq:log-formulas}, where \(a\) and \(b\) are positive and \(b \ne 1\), can be deduced from Equation~\eqref{eq:exp-change-of-base} and can help solve problems \emph{quickly}.
 \begin{equation} \label{eq:log-formulas}
   \log_{b}(a) = \frac{\ln(a)}{\ln(b)},
   \quad
@@ -93,11 +93,11 @@ We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqr
 %
 %   (Preview). Evaluate \(\lim_{x \to \infty} \left(1 + \frac{1}{2x}\right)^{3x}\). There are (at least) two methods to solve this problem. 
 %   \begin{enumerate}[wide, label={Method (\arabic*).}]
-%     \item Combine the above change-base-to-\(e\) and l'H\^opital's rule.  This method is widely applicable but requires some algebra steps. \updatenote{"methods" corrected to "method".}
+%     \item Combine the above change-base-to-\(e\) and l'H\^opital's rule.  This method is widely applicable but requires some algebra steps.
 %
 %       \blanklines{10}
 %
-%     \item Perform a change of variable \(u = 2x\) and use the property of continuous functions.  This method is fast but requires us to recognize \(e\) from the limit stated on page~\pageref{def:exp-ln}. \updatenote{"methods" corrected to "method"; changed \texttt{\textbackslash ref} to \texttt{\textbackslash pageref} so this points to the actual page number, matching how the same label is used in lHopitals-rule.tex.}
+%     \item Perform a change of variable \(u = 2x\) and use the property of continuous functions.  This method is fast but requires us to recognize \(e\) from the limit stated on page~\pageref{def:exp-ln}.
 %
 %       \blanklines{5}
 %   \end{enumerate}
@@ -114,7 +114,7 @@ We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqr
 % \end{exercise}
 % \clearpage
 
-\begin{exercise}[Summary of exponential and logarithms rules]
+\begin{exercise}[Summary of exponential and logarithm rules]
   First, remember the universal method, \hlmain{change base to \(e\)}, for dealing with exponential or exponential-like functions.
   \[
     \begin{array}{rclcrcl}
@@ -124,7 +124,7 @@ We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqr
     \end{array}
   \]
 
-  Once everything is in base \(e\), then use the following rules.
+  Once everything is in base \(e\), use the following rules.
   \[
     \begin{array}{rclcrclcrcl}
        && & & 
@@ -145,17 +145,17 @@ We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqr
   \]
 \end{exercise}
 
-Here are some exercises targeting the use of identities for exponential and logarithmic functions. 
-\begin{exercise}
-  Solve the equation \(\ln \sqrt{x - 1} = 0\). 
+% Here are some exercises targeting the use of identities for exponential and logarithmic functions. 
+% \begin{exercise}
+%   Solve the equation \(\ln \sqrt{x - 1} = 0\). 
 
-  \blanklines{10}
-\end{exercise}
+%   \blanklines{10}
+% \end{exercise}
 
-\begin{exercise}
-  Simplify \(\frac{\log_{6}(3)}{\log_{7}(49)}\).
+% \begin{exercise}
+%   Simplify \(\frac{\log_{6}(3)}{\log_{7}(49)}\).
 
-  \blanklines{10}
-\end{exercise}
+%   \blanklines{10}
+% \end{exercise}
 \end{document}
 

@@ -3,14 +3,12 @@
 \begin{document} \section{Algebraic techniques for evaluating limits}
 Direct substitution and limit laws are the main algebraic tools for evaluating limits. 
 
-\faStar{} Basic functions, e.g., polynomials, rational functions, trigs, \(e^{x}\), \(\ln(x)\) share a common feature on their graphs. If a constant \(a\) is in the domain of these functions, then the graph of \(f(x)\) will always \enquote{go through} the point \((a,f(a))\). In other words, as long as \(f(x)\) is one of the basic functions and \hlsupp{\(a\) is in its domain}, then \(\lim_{x \to a} f(x) = f(a)\). This is called \hlmain{direct substitution}.
+\faStar{} Basic functions --- polynomials, rational functions, trigs, \(e^{x}\), \(\ln(x)\) --- share a common feature on their graphs. If a constant \(a\) is in the domain of these functions, then the graph of \(f(x)\) will always \enquote{go through} the point \((a,f(a))\). In other words, as long as \(f(x)\) is one of the basic functions and \hlsupp{\(a\) is in its domain}, then \(\lim_{x \to a} f(x) = f(a)\). This is called \hlmain{direct substitution}.
 
-Note that \(a\) must be in the domain of the above functions. 
-
-However, if a function \(f(x)\) is built from basic functions using algebraic operations, evaluating limits for \(f\) requires the following limit laws.
+However, if \(f(x)\) is built from basic functions using algebraic operations, we need the limit laws below.
 
 \begin{thm}[limit laws] \label{thm:limit-laws}
-  Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{both exist}. Then
+  Suppose \(\lim_{x \to a} f(x)\) and \(\lim_{x \to a} g(x)\) \hlwarn{are finite numbers}. Then
   \begin{enumerate}[label=(\arabic*)]
     \item \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\) \hfill (sum)
     \item \(\lim_{x \to a} [f(x) - g(x)] = \lim_{x \to a} f(x) - \lim_{x \to a} g(x)\) \hfill (difference)
@@ -24,7 +22,7 @@ However, if a function \(f(x)\) is built from basic functions using algebraic op
   \textbook{Theorem 2.5 on page 161}
 \end{thm}
 
-\faStar{} All limit laws apply to \hlmain{one-sided} (of the same type) as well as \hlmain{two-sided} limits.
+\faStar{} All limit laws apply to \hlmain{two-sided} limits and to \hlmain{one-sided} limits of the same type.
 
 \begin{example}
   Evaluate \(\lim_{x \to 1} \sqrt[3]{\frac{x^{2} + 1}{x+1}} - 2 (4x - 3)^{100}\).
@@ -35,10 +33,10 @@ However, if a function \(f(x)\) is built from basic functions using algebraic op
 
 \begin{sidefigure}[0.40]{%
   \includestandalone[page=11, width=\sidefigwidth]{../standalones/mindmap-limits}}
-  The figure on the right show you \emph{one way} to model the decision-making process for evaluating limits. First, we discuss when to try direct sub and when to resort to the basic concepts discussed in the last lesson.
+  The figure on the right shows \emph{one way} to model the decision-making process for evaluating limits. We start with when to try direct substitution and when to return to the basic concepts from the last lesson.
 \end{sidefigure}
 
-\begin{example}
+\begin{example} \label{eg:limit-law-abstract}
   Suppose \(\lim_{x \to -3} f(x) = 4\). 
 
   Evaluate \(\lim_{x \to -3} \left( f(x) \right)^{3/2}\) if possible.
@@ -46,10 +44,10 @@ However, if a function \(f(x)\) is built from basic functions using algebraic op
   \blanks{15}
 \end{example}
 
-Sometimes, we can run into a combination of graphical and algebraic information.
+Sometimes we are given a combination of graphical and algebraic information.
 
 \begin{exercise}[Midterm, Fall 2023]
-  The graph of a function \(f(x)\) is given below. 
+  The graph of a function \(f(x)\) is given on the right. 
 
   \begin{sidefigure}{%
     \includestandalone[page=4]{../standalones/plot-limits-complex}}
@@ -68,7 +66,7 @@ Sometimes, we can run into a combination of graphical and algebraic information.
 \clearpage
 
 \begin{example}
-  The graphs for \(f(x)\) and \(g(x)\) are given below. 
+  The graphs of \(f(x)\) and \(g(x)\) are given below. 
 
   \begin{center}
     \includestandalone[page=1]{../standalones/plot-limits-complex}
@@ -86,7 +84,7 @@ Sometimes, we can run into a combination of graphical and algebraic information.
 \end{example}
 
 \begin{example} \label{eg:limit-composition-abstract}
-  The graphs for \(f(x)\) and \(g(x)\) are given below. 
+  The graphs of \(f(x)\) and \(g(x)\) are given below. 
 
   \begin{center}
     \includestandalone[page=2]{../standalones/plot-limits-complex}
@@ -107,7 +105,7 @@ Sometimes, we can run into a combination of graphical and algebraic information.
 Here are more variations of the same idea for practice. 
 
 \begin{exercise}[Midterm, Fall 2023]
-  The graph of a function \(f(x)\) is given below. 
+  The graph of a function \(f(x)\) is given on the right. 
   
   Find \(\lim_{x \to 2} \Big(f(x) + 2 f(-x)\Big)\).
 
@@ -126,8 +124,8 @@ Here are more variations of the same idea for practice.
 \end{exercise}
 
 
-\begin{exercise} \label{eg:limit-composition-abstract}
-  The graphs for \(f(x)\) and \(g(x)\) are given below. 
+\begin{exercise} \label{ex:limit-composition-shifted}
+  The graphs of \(f(x)\) and \(g(x)\) are given below. 
 
   \begin{center}
     \includestandalone[page=3]{../standalones/plot-limits-complex}
@@ -148,7 +146,7 @@ Here are more variations of the same idea for practice.
 \begin{sidefigure}{
 \includestandalone[page=5, width=\sidefigwidth]{../standalones/mindmap-limits}
 }
-  Now we evaluating a limits in which the full algebraic information of a function is given. The two \(\frac{\cdots}{0}\) decision-making branches are the direct consequence of the quotient law in Theorem~\ref{thm:limit-laws}.  If the limit of the denominator is \(0\), then the quotient law does not apply.  We will need to use other algebraic techniques to evaluate the limit. 
+  Now we evaluate limits for which the full algebraic information of the function is given. The two \(\frac{\cdots}{0}\) decision-making branches follow directly from the quotient law in Theorem~\ref{thm:limit-laws}. When the limit of the denominator is \(0\), the quotient law does not apply and we need to \emph{try} other algebraic techniques.
 \end{sidefigure}
 
 \begin{example}
@@ -174,26 +172,32 @@ Here are more variations of the same idea for practice.
 \begin{sidefigure}{
 \includestandalone[page=6, width=\sidefigwidth]{../standalones/mindmap-limits}
 }
-If the limits of the numerator and the denominator are both \(0\), then we will need some algebra skills. In such a case, the application of the quotient rule must wait until after we manipulate the function so that the limit of the denominator is not zero.
+If the limits of the numerator and the denominator are both \(0\), we need to try a few algebra techniques to turn it into another form.
 \end{sidefigure}
 
 \begin{example} \label{eg:limit-cancellation}
   Evaluate \(\lim_{t \to 2} \frac{t^{2} - 3t + 2}{t - 2}\).
 
-  \blanks*
+  \blanks{10}
 \end{example}
 
 \begin{example} \label{eg:limit-rationalization}
   Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2}+1}-1}{x^{2}}\).
 
-  \blanks*
+  \blanks{13}
 \end{example}
+
+\begin{exercise} \label{ex:limit-rationalization-2}
+  Evaluate \(\lim_{x \to 1} \frac{\sqrt{x + 3}-2}{\sqrt{x + 8} - 3}\).
+
+  \blanks*
+\end{exercise}
 \clearpage
 
 \begin{sidefigure}{
 \includestandalone[page=4, width=\sidefigwidth]{../standalones/mindmap-limits}
 }
-  We now discuss change of variable in the context of limits. From Example~\ref{eg:limit-composition-abstract}, you already understand how to perform a change of variable using picture. Now we discuss how to apply it with concrete functions.
+  We now discuss change of variable in the context of limits. Example~\ref{eg:limit-composition-abstract} showed a change of variable in pictures; here we apply the same idea to concrete functions.
 
   \faExclamationTriangle{} When performing a change of variable, remember to update the limit of the variable.
 \end{sidefigure}
@@ -204,7 +208,7 @@ If the limits of the numerator and the denominator are both \(0\), then we will 
   \blanks*
 \end{example}
 
-\faStar{} You can take these three limits for granted in quizzes, assignments and exams. 
+\faStar{} You may use take these three limits for granted, i.e., use them without proof in quizzes, assignments and exams.
 \begin{center}
   \includegraphics[page=1]{../standalones/plots-limits-well-known}
   \hfill{}
@@ -225,13 +229,13 @@ Here are more change-of-variable exercises that do not appear in our textbook.
 \begin{exercise} \label{ex:limit-cube-root}
   Evaluate \(\lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}\) using a change of variable \(u = \sqrt[6]{x}\).
 
-  {\footnotesize It is possible to solve this problem using rationalization. However, the solution ends up being a lot longer. Factorization hint: \(a^{3} - b^{3} = (a-b)(a^{2} + ab + b^{2})\).}
+  {\footnotesize Factorization hint: \(a^{3} - b^{3} = (a-b)(a^{2} + ab + b^{2})\). Rationalization also works, but the solution is slightly longer.}
 
   \blanks*
 \end{exercise}
 \clearpage
 
-Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization} but challenges our algebra skills. It is a good practice, but leave it until you have mastered all other skills. Hopefully, the hint at the bottom of the page helps.
+Exercise~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization}, but it challenges our algebra skills. It is good practice once you are comfortable with the other skills. The hint at the bottom of the page can get you started.
 \begin{exercise}[Textbook Example~2.20] \label{ex:limit-textbook-2.28}
   Evaluate \(\lim_{x \to 0} \left( \frac{1}{x} + \frac{5}{x(x-5)}\right)\) or explain why it does not exist.
 
@@ -239,9 +243,9 @@ Example~\ref{ex:limit-textbook-2.28} is a subtle variation on the theme of Examp
 \end{exercise}
 
 \vfill{}
-{\scriptsize Hint to Example~\ref{ex:limit-textbook-2.28}}. \newline
+{\scriptsize Hint to Exercise~\ref{ex:limit-textbook-2.28}}. \newline
 \begin{tikzpicture}[scale=1]
-  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the functions in Examples~\ref{eg:limit-cancellation} and \ref{eg:limit-rationalization} are both just one quotient. However, the function in Example~\ref{ex:limit-textbook-2.28} is a sum of two functions AND the sum limit law DOES NOT APPLY. It seems sensible to try manipulating the function in Example~\ref{ex:limit-textbook-2.28} to a single quotient. How can we be sure that this idea works? We don't! This requires a bit of trial and error.}};
+  \node[rotate={pi}, inner sep=0pt] {\parbox{\linewidth}{\scriptsize Notice the sum law cannot be used because \(\lim_{x \to 0} 1/x\) does not exist. Remember that the limit law can only be used to break up a larger limit into two smaller limits when both smaller limits exist. The trick is to rewriting the function in Exercise~\ref{ex:limit-textbook-2.28} as a single quotient. Can we be sure this works? We can't! It takes a bit of trial and error.}};
 \end{tikzpicture}
 \clearpage
 

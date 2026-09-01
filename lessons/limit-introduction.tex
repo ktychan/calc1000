@@ -1,7 +1,7 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The concept of limit at a number}
-The concept of limit describes the pattern of a function when its \emph{independent variable} moves closer closer to a constant \(a\) but never touching \(a\). In this lesson, we study three related concepts.
+The concept of limit describes the pattern of a function when its \emph{independent variable} moves closer and closer to a constant \(a\) without ever touching \(a\). In this lesson, we study three related concepts.
 \[
   \underbrace{\lim_{x \to a^{-}} f(x)}_{\text{left limit}}, 
   \quad 
@@ -10,16 +10,16 @@ The concept of limit describes the pattern of a function when its \emph{independ
   \underbrace{\lim_{x \to a^{+}} f(x)}_{\text{right limit}}.
 \]
 
-To \emph{estimate} (or visually evaluate) one of the three above limits, move \(x\) towards \(a\) (depending on the direction, but never actually touching \(a\)) and answer the question:
+To \emph{estimate} (or visually evaluate) one of the three limits above, move \(x\) towards \(a\) from the appropriate side, never actually touching \(a\), and answer the question:
 \begin{center}
-  \faStar{} \hlattn{Does \(f(x)\) eventually get arbitrarily closer to some constant \(L\)?}
+  \faStar{} \hlattn{Does \(f(x)\) eventually get arbitrarily close to some constant \(L\)?}
 \end{center}
-If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}; otherwise, we say \hlsupp{\(\lim_{x \to a} f(x) = L\) does not exist}.
+If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}; otherwise, we say \hlsupp{\(\lim_{x \to a} f(x)\) does not exist}. 
 
 \bigskip
 
 \begin{example}
-  Evaluate a \hlmain{left limit} by moving \(x\) towards \(a\)  from the \hlmain{left side} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.
+  Evaluate a \hlmain{left limit} by moving \(x\) towards \(a\) from the \hlmain{left side} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.
 
   \begin{center}
     \includestandalone[page=2]{../standalones/plot-limit-intro}
@@ -70,7 +70,7 @@ If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}
 
 \end{example}
 
-In high school, we look for vertical asymptotes by looking for roots of the denominator. This concept \hlattn{expands} now that we understand limits.
+Before calculus, we looked for vertical asymptotes among the roots of the denominator. Limits \hlattn{expand} this idea.
 \begin{definition} \label{def:vertical-asymptote}
   A vertical line \(x = a\) is called a \hlmain{vertical asymptote} of \(f(x)\) if
   \[
@@ -81,10 +81,10 @@ In high school, we look for vertical asymptotes by looking for roots of the deno
 \end{definition}
 \clearpage
 
-The relation between one-sided limits and two-sided limit we observed in Example~\ref{eg:two-sided-limits} is always true. We summarize this relation in Theorem~\ref{thm:limit-two-one-sides}.
+The relationship between the one-sided limits and the two-sided limit that we observed in Example~\ref{eg:two-sided-limits} is always true. We summarize this relationship in Theorem~\ref{thm:limit-two-one-sides}.
 
 \begin{thm} \label{thm:limit-two-one-sides}
-  Suppose \(f(x)\) is defined at all values in an open interval containing some constant \(a\) with the possible exception of \(a\) itself, and let \(L\) be a real number. Then
+  Suppose \(f(x)\) is defined on an open interval containing \(a\), except possibly at \(a\) itself, and let \(L\) be a \emph{finite number} or \(\pm\infty\). Then
   \[
     \lim_{x \to a} f(x) = L \qquad\text{if and only if}\qquad \lim_{x \to a^{-}} f(x) = L \text{ and } \lim_{x \to a^{+}} f(x) = L.
   \]
@@ -93,10 +93,9 @@ The relation between one-sided limits and two-sided limit we observed in Example
 \end{thm}
 
 Theorem~\ref{thm:limit-two-one-sides} is useful in the following situations.
-% The relation between one-sided and two-sided limits comes in handy for piecewise functions (as demonstrated in \(g_{2}(x)\)) and many challenging situations involving limits. When in doubt, evaluate two one-sided limits and compare their values.
 
 \begin{itemize}[wide]
-  \item If we know \hlmain{\(\lim_{x \to a} f(x) = L\) (exists)}, then conclude
+  \item If we know \hlmain{\(\lim_{x \to a} f(x) = L\)}, then conclude
 
     \blanks{3}
 
@@ -111,7 +110,7 @@ Theorem~\ref{thm:limit-two-one-sides} is useful in the following situations.
 \end{itemize}
 
 \bigskip
-These exercises help you practise using Theorem~\ref{thm:limit-two-one-sides}. Remember that \enquote{does not exist} is a possible answer to these questions.
+These exercises explores applications of Theorem~\ref{thm:limit-two-one-sides}. Remember that \enquote{does not exist} is a possible answer.
 
 \begin{exercise}
   What is the value of \(\lim_{x \to 1} g(x)\) if \(\left( \lim_{x \to 1^{-}} g(x)\right) - \left(\lim_{x \to 1^{+}} g(x) \right) = 3\)?
@@ -132,19 +131,19 @@ These exercises help you practise using Theorem~\ref{thm:limit-two-one-sides}. R
 \end{exercise}
 \clearpage
 
-University studies emphasize \emph{rigor}. We are required to pay attention to details and edge cases even if they don't show up very often.
+University studies emphasize \emph{rigor}, attention to details and the completeness of theoretical understanding.
 
-\faStar{} When a statement is about a collection of functions, its truth depends on all possible objects in the collection. When a statement is true for some functions but false for some other functions (in the collection), we say such a statement is false.
+\faStar{} When a statement is about a collection of functions, its truth depends on every function in the collection. A statement that is true for some functions but false for others is a false statement.
 
 \begin{example} 
-  The examples we say in this lesson is helpful for avoiding misconceptions.
+  The examples in this lesson help us avoid common misconceptions.
 
   \begin{itemize}[wide]
     \item Is \enquote{\(\lim_{x \to a} f(x) = f(a)\)} true?
 
       \blanks{10}
 
-    \item Is \enquote{\(\lim_{x \to a} f(x)\) exists means the function \(f(x)\) is defined at \(a\)} true?
+    \item Is \enquote{if \(\lim_{x \to a} f(x)\) exists, then \(f(x)\) is defined at \(a\)} true?
 
       \blanks{10}
     \item Is \enquote{Roots of the denominator are always vertical asymptotes} true?
@@ -160,7 +159,7 @@ University studies emphasize \emph{rigor}. We are required to pay attention to d
 \end{example}
 \clearpage
 
-The following mindmap shows the \textbf{fundamentals} within limits and continuity at a constant \(a\) (meaning \(a\) must be a finite number) and the general strategy for routine calculations.
+The following mindmap shows the \textbf{fundamentals} of limits and continuity at a constant \(a\) (meaning \(a\) must be a finite number) and the general strategy for routine calculations.
 
 \faExclamationTriangle{} Nuanced applications of limits and continuity require a combination of skills listed here. They are not included in this map and will be discussed when appropriate. 
 
@@ -174,7 +173,7 @@ The following mindmap shows the \textbf{fundamentals} within limits and continui
 We learned three fundamental concepts of limits at a constant \(a\) and their relationships.
 
 \begin{enumerate}
-  \item To \hlmain{evaluate} a \emph{left} or \emph{right limit} as \(x\) approaches \(a\) is to determine which of the three cases below applies to the function \(f(x)\) as \(x\) approaches \(a\) from the left or right. 
+  \item To \hlmain{evaluate} a \emph{left} or \emph{right limit} is to decide which of the three cases below applies as \(x\) approaches \(a\) from that side.
 
     \begin{center}
       \includestandalone[page=8]{../standalones/plot-limit-intro}
@@ -186,7 +185,7 @@ We learned three fundamental concepts of limits at a constant \(a\) and their re
 
   \item Remember Theorem~\ref{thm:limit-two-one-sides} and that vertical asymptotes are \emph{defined} in terms of one-sided limits.
 
-  \item To \hlmain{evaluate} a \emph{two-sided limit} as \(x\) approaches \(a\) is to determine whether its two one-sided limits are equal.  This is supported by the Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides}.  Also remember that the function value \(f(a)\) has nothing to do with \(\lim_{x \to a} f(x)\). 
+  \item To \hlmain{evaluate} a \emph{two-sided limit} as \(x\) approaches \(a\) is to determine whether its two one-sided limits are equal. If they are equal, then the value of the two-sided limit is the common value of corresponding one-sided limits. This is supported by Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides}.  Also remember that the function value \(f(a)\) has nothing to do with \(\lim_{x \to a} f(x)\).
     \begin{itemize}
       \item If the two one-sided limits are equal, then the two-sided limit equals that common value (which can be a finite number or \(\pm \infty\)).
         \begin{center}
@@ -203,7 +202,7 @@ We learned three fundamental concepts of limits at a constant \(a\) and their re
           \includestandalone[page=38]{../standalones/plot-limit-intro}
         \end{center}
     \end{itemize}
-  \item When \(\lim_{x \to a} f(x) = \infty\), the \enquote{\(=\infty\)} is only a shorthand for \enquote{limit approaches infinity}, and the limit does not exist.  The same is true for \enquote{\(=-\infty\)}.
+  \item When \(\lim_{x \to a} f(x) = \infty\), the \enquote{\(=\infty\)} is only shorthand for \enquote{the limit approaches infinity}, and the limit does not exist.  The same is true for \enquote{\(=-\infty\)}.
 \end{enumerate}
 \clearpage
 \end{document}

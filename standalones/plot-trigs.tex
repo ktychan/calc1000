@@ -34,7 +34,9 @@
 \pgfplotsset{
   inverse trigs/.style = {
     basic curve,
-    xlabel=\empty, ylabel=\empty,
+    xlabel={\(x\)}, ylabel={\(\theta\)},
+    xlabel style = {anchor=west},
+    ylabel style = {anchor=west},
     xtick distance={2},
     grid=none,
     samples=500,
@@ -56,59 +58,133 @@
   },
 }
 
+% Every plot comes in two versions: one with a title naming the function and
+% one without.  Use an untitled page whenever the name of the function is the
+% answer to the exercise (see lessons/review-trigs.tex).
+%
+% The inverse trig curves (arcsin, arccos, arctan, arccot) are drawn ultra
+% thick in black, so black reads as "the graph" and supp purple as "the range".
+% Every arcsin and arccos page (3, 6, 15, 16, 29, 30) also carries solid dots
+% at x = -1 and x = 1, since those endpoints belong to the graph.
+%
+% The titled inverse trig plots (3, 6, 9, 12 and the aligned trio 29--31) also
+% carry their range on the vertical axis, drawn in supp with filled/hollow
+% endpoints exactly like the number lines in the notes, so the graph alone
+% states the domain (in the title) and the range.  The untitled copies
+% (15, 16, 17, 26) stay plain: those are the ones students annotate.
+%
+% PAGE MAP -- pages 1--17 are unchanged.  Other files index into this file by
+% page number (slides.tex and lessons/review-trigs.tex), so append new plots at
+% the end rather than inserting them.
+%
+%       plot                     titled   untitled
+%       sin                        1        18
+%       sin restricted             2        19
+%       arcsin                     3        15
+%       cos                        4        20
+%       cos restricted             5        21
+%       arccos                     6        16
+%       tan                        7        22
+%       tan restricted             8        23
+%       arctan                     9        17
+%       cot                       10        24
+%       cot restricted            11        25
+%       arccot                    12        26
+%       sec                       27        13
+%       csc                       28        14
+%
+% Pages 29--31 are arcsin, arccos and arctan again, drawn on one common
+% y-range so that the three sit side by side with their x-axes at the same
+% height (see the reference trio in lessons/review-trigs.tex).  Keep their
+% ymin/ymax identical to each other, or the alignment is lost.
+
+% The range of an inverse trig function, drawn on the vertical axis: a
+% supp-coloured segment, with a filled dot at an endpoint that belongs to the
+% range and a hollow dot at one that does not.
+%
+%   \rangeseg{<from>}{<to>}   \rangedot{<y>}   \rangehole{<y>}
+\newcommand{\rangeseg}[2]{%
+  \addplot[supp, line width=1.4pt, no markers] coordinates {(0,#1) (0,#2)};}
+\newcommand{\rangedot}[1]{%
+  \addplot[supp, only marks, mark=*, mark size=2.2pt] coordinates {(0,#1)};}
+% Solid dots at the ends of a curve, marking endpoints that belong to the
+% graph (arcsin and arccos at x = -1 and x = 1).
+%
+%   \curveends{<x1>}{<y1>}{<x2>}{<y2>}
+\newcommand{\curveends}[4]{%
+  \addplot[black, only marks, mark=*, mark size=2.2pt]
+    coordinates {(#1,#2) (#3,#4)};}
+\newcommand{\rangehole}[1]{%
+  \addplot[supp, only marks, mark=*, mark size=2.2pt,
+           mark options={fill=white, draw=supp, line width=0.9pt}]
+    coordinates {(0,#1)};}
+
 \begin{document}
+%%% ------------------------------------------------------------ pages 1--12
+%%% page 1: sin
 \begin{tikzpicture}
   \begin{axis}[sincos, title={\(\sin(x)\)}]
     \addplot[very thick] {sin(x)};
   \end{axis}
 \end{tikzpicture}
 
+%%% page 2: sin restricted
 \begin{tikzpicture}
   \begin{axis}[
-    sincos, 
-    title={\(\sin(x)\) restricted to domain \([-\pi/2,\pi/2]\)}, 
+    sincos,
+    title={\(\sin(x)\) restricted to domain \([-\pi/2,\pi/2]\)},
     xtick={-pi/2, pi/2},
     xticklabels={\(-\pi/2\), \(\pi/2\)},
     ]
-    %\addplot[very thick, gray!50] {sin(x)};
     \addplot[very thick, main, domain={-pi/2}:{pi/2}] {sin(x)};
   \end{axis}
 \end{tikzpicture}
 
+%%% page 3: arcsin
 \begin{tikzpicture}
   \begin{axis}[
-    arcsin, 
-    title={\(\arcsin(x)\) on domain \([-1,1]\)},
+    arcsin,
+    title={\(\theta = \arcsin(x)\) on domain \([-1,1]\)},
     ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
     ]
-    \addplot[very thick, main] {asin(x)};
+    \addplot[ultra thick, black] {asin(x)};
+    \rangeseg{-pi/2}{pi/2}
+    \rangedot{-pi/2}
+    \rangedot{pi/2}
+    \curveends{-1}{-pi/2}{1}{pi/2}
   \end{axis}
 \end{tikzpicture}
 
+%%% page 4: cos
 \begin{tikzpicture}
   \begin{axis}[sincos, title={\(\cos(x)\)}]
-    ]
     \addplot[very thick] {cos(x)};
   \end{axis}
 \end{tikzpicture}
 
+%%% page 5: cos restricted
 \begin{tikzpicture}
   \begin{axis}[sincos, title={\(\cos(x)\) restricted to domain \([0,\pi]\)}]
-    %\addplot[very thick, gray!50] {cos(x)};
     \addplot[very thick, main, domain={0}:{pi}] {cos(x)};
   \end{axis}
 \end{tikzpicture}
 
+%%% page 6: arccos
 \begin{tikzpicture}
   \begin{axis}[
-    arcsin, 
-    title={\(\arccos(x)\) on domain \([-1,1]\)},
+    arcsin,
+    title={\(\theta = \arccos(x)\) on domain \([-1,1]\)},
     ymin={0-pi/6}, ymax={pi+pi/6},
     ]
-    \addplot[main, very thick] {acos(x)};
+    \addplot[ultra thick, black] {acos(x)};
+    \rangeseg{0}{pi}
+    \rangedot{0}
+    \rangedot{pi}
+    \curveends{-1}{pi}{1}{0}
   \end{axis}
 \end{tikzpicture}
 
+%%% page 7: tan
 \begin{tikzpicture}
   \begin{axis}[tansec, title={\(\tan(x)\)}]
     \addplot[very thick] {tan(x)};
@@ -119,35 +195,37 @@
   \end{axis}
 \end{tikzpicture}
 
+%%% page 8: tan restricted
 \begin{tikzpicture}
   \begin{axis}[
-    tansec, 
-    title={\(\tan(x)\) with domain restriction \((-\pi/2,\pi/2)\)}, 
+    tansec,
+    title={\(\tan(x)\) with domain restriction \((-\pi/2,\pi/2)\)},
     xtick={-pi/2, pi/2},
     xticklabels={\(-\pi/2\), \(\pi/2\)},
     ]
     \addplot[very thick, main, domain={-pi/2}:{pi/2}] {tan(x)};
     \addplot[dotted, supp] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
     \addplot[dotted, supp] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
-    
-    %\addplot[very thick, gray!50] {tan(x)};
-    %\addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
-    %\addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
   \end{axis}
 \end{tikzpicture}
 
+%%% page 9: arctan
 \begin{tikzpicture}
   \begin{axis}[
-    arctan, 
-    title={\(\arctan(x)\) on domain \((-\infty,\infty)\)},
+    arctan,
+    title={\(\theta = \arctan(x)\) on domain \((-\infty,\infty)\)},
     ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
     ]
-    \addplot[very thick, main] {atan(x)};
+    \addplot[ultra thick, black] {atan(x)};
     \addplot[dotted, supp] coordinates {(-10, pi/2)  ( 10, pi/2)};
     \addplot[dotted, supp] coordinates {(-10,-pi/2)  ( 10,-pi/2)};
+    \rangeseg{-pi/2}{pi/2}
+    \rangehole{-pi/2}
+    \rangehole{pi/2}
   \end{axis}
 \end{tikzpicture}
 
+%%% page 10: cot
 \begin{tikzpicture}
   \begin{axis}[tansec, title={\(\cot(x)\)}]
     \addplot[very thick] {cot(x)};
@@ -158,34 +236,37 @@
   \end{axis}
 \end{tikzpicture}
 
+%%% page 11: cot restricted
 \begin{tikzpicture}
   \begin{axis}[
-    tansec, 
-    title={\(\cot(x)\) restricted to domain \((0,\pi)\)}, 
-    xtick={0,pi}, 
+    tansec,
+    title={\(\cot(x)\) restricted to domain \((0,\pi)\)},
+    xtick={0,pi},
     xticklabels={\(0\), \(\pi\)}
     ]
-    % \addplot[very thick, gray!50] {cot(x)};
     \addplot[very thick, main, domain={0}:{pi}] {cot(x)};
-    % \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
-    % \addplot[dotted, supp] coordinates {(-1*pi, 5)  (-1*pi, -5)};
     \addplot[dotted, supp] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
-    % \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
   \end{axis}
 \end{tikzpicture}
 
+%%% page 12: arccot
 \begin{tikzpicture}
   \begin{axis}[
-    arctan, 
-    title={\(\cot^{-1}(x)\) on domain \((-\infty,\infty)\)},
+    arctan,
+    title={\(\theta = \cot^{-1}(x)\) on domain \((-\infty,\infty)\)},
     ymin={0-pi/6}, ymax={pi+pi/6},
     ]
-    \addplot[very thick, main] {pi/2-atan(x)};
+    \addplot[ultra thick, black] {pi/2-atan(x)};
     \addplot[dotted, supp] coordinates {(-10, 0)  ( 10, 0)};
     \addplot[dotted, supp] coordinates {(-10,pi)  ( 10,pi)};
+    \rangeseg{0}{pi}
+    \rangehole{0}
+    \rangehole{pi}
   \end{axis}
 \end{tikzpicture}
 
+%%% ----------------------------------------------------------- pages 13--17
+%%% page 13: sec, untitled
 \begin{tikzpicture}
   \begin{axis}[tansec]
     \addplot[very thick] {1/cos(x)};
@@ -196,6 +277,7 @@
   \end{axis}
 \end{tikzpicture}
 
+%%% page 14: csc, untitled
 \begin{tikzpicture}
   \begin{axis}[tansec]
     \addplot[very thick] {1/sin(x)};
@@ -206,33 +288,204 @@
   \end{axis}
 \end{tikzpicture}
 
-
+%%% page 15: arcsin, untitled
 \begin{tikzpicture}
   \begin{axis}[
-    arcsin, 
+    arcsin,
     ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
     ]
-    \addplot[very thick, main] {asin(x)};
+    \addplot[ultra thick, black] {asin(x)};
+    \curveends{-1}{-pi/2}{1}{pi/2}
   \end{axis}
 \end{tikzpicture}
 
+%%% page 16: arccos, untitled
 \begin{tikzpicture}
   \begin{axis}[
-    arcsin, 
+    arcsin,
     ymin={0-pi/6}, ymax={pi+pi/6},
     ]
-    \addplot[very thick, main] {acos(x)};
+    \addplot[ultra thick, black] {acos(x)};
+    \curveends{-1}{pi}{1}{0}
   \end{axis}
 \end{tikzpicture}
 
+%%% page 17: arctan, untitled
 \begin{tikzpicture}
   \begin{axis}[
-    arctan, 
+    arctan,
     ymin={-pi/2-pi/6}, ymax={pi/2+pi/6},
     ]
-    \addplot[very thick, main] {atan(x)};
+    \addplot[ultra thick, black] {atan(x)};
     \addplot[dotted, supp] coordinates {(-10, pi/2)  ( 10, pi/2)};
     \addplot[dotted, supp] coordinates {(-10,-pi/2)  ( 10,-pi/2)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% ----------------------------------------------------------- pages 18--26
+%%% Untitled counterparts of pages 1, 2, 4, 5, 7, 8, 10, 11 and 12.
+%%% page 18: sin, untitled
+\begin{tikzpicture}
+  \begin{axis}[sincos]
+    \addplot[very thick] {sin(x)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 19: sin restricted, untitled
+\begin{tikzpicture}
+  \begin{axis}[
+    sincos,
+    xtick={-pi/2, pi/2},
+    xticklabels={\(-\pi/2\), \(\pi/2\)},
+    ]
+    \addplot[very thick, main, domain={-pi/2}:{pi/2}] {sin(x)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 20: cos, untitled
+\begin{tikzpicture}
+  \begin{axis}[sincos]
+    \addplot[very thick] {cos(x)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 21: cos restricted, untitled
+\begin{tikzpicture}
+  \begin{axis}[sincos]
+    \addplot[very thick, main, domain={0}:{pi}] {cos(x)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 22: tan, untitled
+\begin{tikzpicture}
+  \begin{axis}[tansec]
+    \addplot[very thick] {tan(x)};
+    \addplot[dotted] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
+    \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
+    \addplot[dotted] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
+    \addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 23: tan restricted, untitled
+\begin{tikzpicture}
+  \begin{axis}[
+    tansec,
+    xtick={-pi/2, pi/2},
+    xticklabels={\(-\pi/2\), \(\pi/2\)},
+    ]
+    \addplot[very thick, main, domain={-pi/2}:{pi/2}] {tan(x)};
+    \addplot[dotted, supp] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
+    \addplot[dotted, supp] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 24: cot, untitled
+\begin{tikzpicture}
+  \begin{axis}[tansec]
+    \addplot[very thick] {cot(x)};
+    \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
+    \addplot[dotted] coordinates {(-1*pi, 5)  (-1*pi, -5)};
+    \addplot[dotted] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
+    \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 25: cot restricted, untitled
+\begin{tikzpicture}
+  \begin{axis}[
+    tansec,
+    xtick={0,pi},
+    xticklabels={\(0\), \(\pi\)}
+    ]
+    \addplot[very thick, main, domain={0}:{pi}] {cot(x)};
+    \addplot[dotted, supp] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 26: arccot, untitled
+\begin{tikzpicture}
+  \begin{axis}[
+    arctan,
+    ymin={0-pi/6}, ymax={pi+pi/6},
+    ]
+    \addplot[ultra thick, black] {pi/2-atan(x)};
+    \addplot[dotted, supp] coordinates {(-10, 0)  ( 10, 0)};
+    \addplot[dotted, supp] coordinates {(-10,pi)  ( 10,pi)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% ----------------------------------------------------------- pages 27--28
+%%% Titled counterparts of pages 13 and 14.
+%%% page 27: sec
+\begin{tikzpicture}
+  \begin{axis}[tansec, title={\(\sec(x)\)}]
+    \addplot[very thick] {1/cos(x)};
+    \addplot[dotted] coordinates {(-1*pi/2, 5)  (-1*pi/2, -5)};
+    \addplot[dotted] coordinates {(-3*pi/2, 5)  (-3*pi/2, -5)};
+    \addplot[dotted] coordinates {( 1*pi/2, 5)  ( 1*pi/2, -5)};
+    \addplot[dotted] coordinates {( 3*pi/2, 5)  ( 3*pi/2, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 28: csc
+\begin{tikzpicture}
+  \begin{axis}[tansec, title={\(\csc(x)\)}]
+    \addplot[very thick] {1/sin(x)};
+    \addplot[dotted] coordinates {(-1*pi, 5)  (-1*pi, -5)};
+    \addplot[dotted] coordinates {(-2*pi, 5)  (-2*pi, -5)};
+    \addplot[dotted] coordinates {( 1*pi, 5)  ( 1*pi, -5)};
+    \addplot[dotted] coordinates {( 2*pi, 5)  ( 2*pi, -5)};
+  \end{axis}
+\end{tikzpicture}
+
+%%% ----------------------------------------------------------- pages 29--31
+%%% arcsin, arccos and arctan on one common y-range.  Same y-limits and
+%%% "axis equal image" give the three pictures the same height, so placing
+%%% them side by side puts every x-axis at the same height.
+%%% page 29: arcsin, aligned
+\begin{tikzpicture}
+  \begin{axis}[
+    arcsin,
+    title={\(\theta = \arcsin(x)\) on domain \([-1,1]\)},
+    ymin={-pi/2-pi/6}, ymax={pi+pi/6},
+    ]
+    \addplot[ultra thick, black] {asin(x)};
+    \rangeseg{-pi/2}{pi/2}
+    \rangedot{-pi/2}
+    \rangedot{pi/2}
+    \curveends{-1}{-pi/2}{1}{pi/2}
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 30: arccos, aligned
+\begin{tikzpicture}
+  \begin{axis}[
+    arcsin,
+    title={\(\theta = \arccos(x)\) on domain \([-1,1]\)},
+    ymin={-pi/2-pi/6}, ymax={pi+pi/6},
+    ]
+    \addplot[ultra thick, black] {acos(x)};
+    \rangeseg{0}{pi}
+    \rangedot{0}
+    \rangedot{pi}
+    \curveends{-1}{pi}{1}{0}
+  \end{axis}
+\end{tikzpicture}
+
+%%% page 31: arctan, aligned
+\begin{tikzpicture}
+  \begin{axis}[
+    arctan,
+    title={\(\theta = \arctan(x)\) on domain \((-\infty,\infty)\)},
+    ymin={-pi/2-pi/6}, ymax={pi+pi/6},
+    ]
+    \addplot[ultra thick, black] {atan(x)};
+    \addplot[dotted, supp] coordinates {(-10, pi/2)  ( 10, pi/2)};
+    \addplot[dotted, supp] coordinates {(-10,-pi/2)  ( 10,-pi/2)};
+    \rangeseg{-pi/2}{pi/2}
+    \rangehole{-pi/2}
+    \rangehole{pi/2}
   \end{axis}
 \end{tikzpicture}
 \end{document}
