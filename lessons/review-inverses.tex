@@ -1,12 +1,16 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Review of inverse functions}
+% Temporarily hides every \updatenote in this file while checking the lecture
+% flow -- the notes sit inline, so they cannot be line-commented without taking
+% the surrounding prose with them.  Delete this line to show them again.
+\renewcommand{\updatenote}[1]{}
 Intuitively, the inverse of a function \(f(x)\) is another function \(g(x)\) that undoes whatever \(f(x)\) does to its input. This intuition is not precise enough to be useful. Let's start with the definition.
 
 \begin{definition}[inverse] \label{def:inverse}
   Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}(x)\) such that
   \[
-    f^{-1}(f(x)) = x \text{ on } D \quad\text{and}\quad f(f^{-1}(x)) = x \text{ on } R.
+    f^{-1}(f(x)) = x \text{ for every \(x\) in \(D\)} \quad\text{and}\quad f(f^{-1}(x)) = x \text{ for every \(x\) in \(R\)}.
   \]
 
   Terminology: An \hlmain{one-to-one function} is a function that has an inverse.
@@ -14,93 +18,72 @@ Intuitively, the inverse of a function \(f(x)\) is another function \(g(x)\) tha
   \textbook{Page 78}
 \end{definition}
 
-{\faExclamationTriangle{} \(f^{-1}(x)\) is NOT \(\tfrac{1}{f(x)}\). To write \(\tfrac{1}{f(x)}\) as a power, write \(\tfrac{1}{f(x)} = f(x)^{-1}\) or \(\tfrac{1}{f(x)} = \big( f(x) \big)^{-1}\).}
-\bigskip
+{\footnotesize \faExclamationTriangle{} \(f^{-1}(x)\) is NOT \(\tfrac{1}{f(x)}\). To write \(\tfrac{1}{f(x)}\) as a power, write \(\tfrac{1}{f(x)} = f(x)^{-1}\) or \(\tfrac{1}{f(x)} = \big( f(x) \big)^{-1}\).}
 
-We go through inverse functions in three steps: (1) the concept, (2) the algebra and (3) some unusual tricks.
 \clearpage
 
-(1) The concept. What does the above symbols all mean?! What does an inverse function look like graphically? How do we evaluate inverse functions?
+There are two types of typical calculations involving inverse. 
+\begin{itemize}
+  \item Given two functions \(f(x)\) and \(g(x)\), determine if they are inverses of each other.
+  \item Given a function \(f(x)\) and its domain, find an expression for its inverses.
+\end{itemize}
 
-We use the Horizontal Line Test to determine whether a function has an inverse.
+The first type of question requires us to understand the definition. 
 
-\begin{exercise}
+\begin{example} \label{ex:inverse-cube-pair}
   Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
 
-  \blanklines{15}
+  \blanks*
+\end{example}
+
+\begin{exercise} \label{ex:inverse-square}
+  Suppose \(f(x) = x^{2}\) is defined for all real numbers \(x\) and \(g(x) = \sqrt{x}\). Are \(f(x)\) and \(g(x)\) inverses of each other?
+
+  \blanks{20}
 \end{exercise}
+\clearpage
 
-(2) The algebra. How do we find an inverse function?
 
-To find the inverse of a function \(y = f(x)\), we switch \(x\) and \(y\) and isolate for \(y\). If you prefer, you can also first isolate for \(x\) in \(y = f(x)\) and swap \(x\) and \(y\) last. However, be warned that the switching \(x\) and \(y\) first is also used in other situation, such as implicit differentiation.
+The second type of question is a common procedure. To find the inverse of a function \(y = f(x)\), we switch \(x\) and \(y\) and isolate for \(y\). If you prefer, you can also first isolate for \(x\) in \(y = f(x)\) and swap \(x\) and \(y\) last. However, be warned that switching \(x\) and \(y\) first is also used in other situations, such as implicit differentiation.
 
 \begin{example} \label{eg:find-inverse}
   Find the inverse of \(\frac{2x}{1 + x}\).
 
-  \blanklines{10}
+  \blanks*
 \end{example}
+
+\begin{exercise}[Midterm, Fall 2025]
+  Suppose \(f(x) = \ln(x) - \ln(x - 1)\) is defined for all \(x > 1\). Take for granted that \(f^{-1}\) exists. Find an expression for \(f^{-1}\). 
+
+  % {\footnotesize This was a multiple-choice problem.}
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Find an inverse of \(f(x) = \frac{(x-3)^{4}}{2}\) on the domain \([3,\infty)\).  Determine the domain and range of the inverse.
+
+  \blanks*
+\end{exercise}
 
 \begin{exercise}
   Find the inverse of \(f(x) = \frac{x+2}{2x - 3}\).
 
-  \blanks{10}
+  \blanks*
 \end{exercise}
-
-\begin{example}
-  Find the inverse of \(f(x) = \frac{(x-3)^{4}}{2}\) on the domain \((-\infty, 0]\).
-
-  \blanks{20}
-\end{example}
-
-(3) The common mistake. Pay attention to domain restriction when working with even roots.
+\clearpage
 
 \begin{exercise}
-  Are \(x^{2}\) and \(\sqrt{x}\) inverses of each other? Assume \(x^{2}\) is defined for all real numbers.
-
-  \blanks{20}
-\end{exercise}
-\clearpage
-
-\begin{example}
-  Find an inverse of \(\frac{(x - 3)^{4}}{2}\), restrict the domain if necessary.  Determine the domain and range of its inverse.
-
-  \blanklines{20}
-\end{example}
-\clearpage
-
-\begin{example}[Midterm, Fall 2025]
-  Suppose \(f(x) = \ln(x) - \ln(x - 1)\) is defined for all \(x > 1\). Take for granted that \(f^{-1}\) exists. Find an expression for \(f^{-1}\). 
-
-  {\footnotesize This was a multiple-choice problem.}
+  Suppose \(f(x) = x^{2}\) is defined for \(x < 0\). Find \(f^{-1}(x)\) and its domain.
 
   \blanks*
-\end{example}
-\clearpage
- 
-% Summary of the fundamentals of inverses.
-%
-% \begin{enumerate}
-%   \item If \(f(x)\) has an inverse, then \(f(a) = b\) means \(f^{-1}(b) = a\) and vice versa.
-%
-%   See Example TODO.
-%
-%   \item The graphs of \(f(x)\) and \(f^{-1}(x)\) are symmetric about the line \(y = x\).
-%
-%   See Example TODO.
-%
-%   \item To check if \(f(x)\) and \(g(x)\) are inverses of each other, verify algebraically that \(f(g(x)) = x\) is true on the domain of \(g\) and \(g(f(x)) = x\) is true on the domain of \(f\).
-%
-%   See Example TODO.
-%
-%   \item To find the inverse of \(f(x)\), switch \(x\) and \(y\) in \(y = f(x)\) and isolate for \(y\). If you take \emph{even} roots when isolating for \(y\), you must pick the sign that matches the domain restriction on \(f(x)\).
-%
-%   See Examples TODO and TODO.
-%
-%   \item You can use inverses to find the range of a function. 
-%
-%   See Example TODO.
-% \end{enumerate}
-% \clearpage
+\end{exercise}
 
+\begin{exercise} \label{ex:inverse-vs-reciprocal}
+  Are \(f(x) = \frac{x-1}{x+1}\) and \(g(x) = \frac{x+1}{x-1}\) inverses of each other?
+
+  \blanks*
+\end{exercise}
 \end{document}
 
