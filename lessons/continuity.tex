@@ -1,137 +1,207 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Continuity}
-Functions that model nature typically don't ``break.'' Conversely, ``breaks'' in functions are really horrible to work with. We make such a notion precise. \updatenote{Added the missing "a".}
+Intuitively, a function is \hlmain{continuous} if we can trace its graph without lifting our pencil. On the other hand, a function is \hlsupp{discontinuous at an \(x\)-value \(a\)} if we have to lift the pencil at \(a\) while tracing the graph of the function.
+
+% The blank graphs are to be used in class to tease out discontinuities.
+\begin{center}
+  \includestandalone[page=2]{../standalones/plot-continuity}
+  \qquad
+  \includestandalone[page=1]{../standalones/plot-continuity}
+  \includestandalone[page=1]{../standalones/plot-continuity}
+  \includestandalone[page=1]{../standalones/plot-continuity}
+\end{center}
+
+To make the idea of \emph{continuity} computable, we need to mathematically describe \enquote{lifting the pencil}.
 
 \begin{definition}[continuity] \label{def:continuity}
-  A function \(f(x)\) is \emph{continuous at a number \(a\)} if 
+  A function \(f(x)\) is \hlmain{continuous at a number \(a\)} if 
   \[
     {\lim_{x \to a} f(x) = f(a).}
   \]
+  
+  If this equality is false for any reason, then we say \hlsupp{\(f(x)\) is discontinuous at \(a\)} or \hlsupp{\(f(x)\) has a discontinuity at \(a\)}.
+
   \textbook{Page 180}
 \end{definition}
 
-To conclude that \(f(x)\) is continuous at a number \(a\), we must successfully complete all three tasks:
-\begin{enumerate}[label=(C\arabic*), itemsep={2ex}]
-  \item Calculate \underline{\hspace{3in}}.
-  \item Calculate \underline{\hspace{3in}}.
-  \item Verify \underline{\hspace{3.23in}}.
-\end{enumerate}
+Definition~\ref{def:continuity} is the first serious definition in \thiscourse{}. In plain English, \(f(x)\) is continuous at a constant \(a\) when we can successfully complete all three tasks:
 
-\begin{example}
-  Is \(f(x) = \sqrt{x}\) continuous at \(1\)? 
+\begin{sidefigure}{\includestandalone[page=8]{../standalones/mindmap-limits}}
+  \begin{enumerate}[label=(C\arabic*), itemsep={2ex}]
+    \item Calculate \underline{\hspace{3in}}.
+    \item Calculate \underline{\hspace{3in}}.
+    \item Verify \underline{\hspace{3.23in}}.
+  \end{enumerate}
 
-  \blanklines{10}
-\end{example}
+  \begin{example} \label{eg:continuity-intro}
+    Is \(f(x) = \sqrt{x}\) continuous at \(1\)? 
 
-\begin{exercise}
-  Is \(f(x) = \frac{x^{2}-1}{x+1}\) continuous at \(-1\)? 
-
-  \blanklines{10}
-\end{exercise}
-
-\begin{mdframed}[style=withref-compact]
-  Polynomials, rational functions and trigonometric functions are all continuous at every number \underline{\hspace{2in}}. 
-
-  \textbook{Theorem~2.8 on page 183 and Theorem~2.10 on page 188}
-\end{mdframed}
+    \blanklines{10}
+  \end{example}
+\end{sidefigure}
 \clearpage
 
+Example~\ref{eg:continuity-intro} shows us how to determine continuity \hlattn{when we have unfamiliar functions}. Theorem~\ref{thm:continuity-for-basic-functions} says such a computation need not be repeated for basic functions. 
 
-If \(f\) is \emph{not} continuous at \(a\), then we say
+\begin{thm} \label{thm:continuity-for-basic-functions}
+  Basic functions (polynomials, rational functions, trig, inverse trig, exponentials and logarithms) are continuous at every number in their domain.
+
+  \textbook{Theorem~2.8 on page 183 and Theorem~2.10 on page 188}
+\end{thm}
+
+\begin{example}
+  Find all \(x\)-values at which \(f(x) = \begin{cases} \frac{x^{2}-1}{x+1}, &\text{if } x \ne -1\\[1ex]0, &\text{if } x = -1\end{cases}\) is discontinuous.
+
+  \blanklines{20}
+\end{example}
+\clearpage
+
+Recall, from Definition~\ref{def:continuity}, that if \(f\) is \emph{not} continuous at \(a\), we say
 \begin{center}
   ``\(f\) is \hlmain{discontinuous} at \(a\)'' \quad or \quad ``\(f\) has a \hlmain{discontinuity} at \(a\).''
 \end{center}
 
-What do discontinuities look like? There are three \emph{types} of discontinuities.
+We name different types of discontinuities and describe how to find them mathematically. \faStar{} Note that all three involve calculating one-sided limits.
 
-\begin{figure}[h]  % [h] for here, [ht] for here top, [hb] for here bottom
-  \centering
-  \includestandalone{../standalones/plot_discontinuity_examples}
-  \label{fig:discontinuities}
-\end{figure}
+\begin{definition} \label{def:discontinuities}
+  There are three types of discontinuity.
 
-\begin{enumerate}[itemsep={3ex}]
-  \item If \underline{\hspace{3in}}, then \(f\) has a \hlmain{removable} discontinuity at \(a\).
-  \item If \underline{\hspace{3in}}, then \(f\) has a \hlmain{jump} discontinuity at \(a\).
-  \item If \underline{\hspace{3in}}, then \(f\) has an \hlmain{infinite} discontinuity at \(a\).
-\end{enumerate}
+  \begin{itemize}[itemsep={3ex}]
+    \item A \hlsupp{removable discontinuity at \(x = a\)} is characterized by \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}}f(x)\), and \(f(a)\) is not the common value or \(f(a)\) is undefined.
 
-Discontinuities naturally ``break'' a function into pieces.
-A function is called \hlmain{continuous over an interval} if it is continuous at every number in that interval. At the endpoints of each interval, we only require a function to be continuous from one side. \updatenote{"one-side" corrected to "one side".}
+      \begin{center}
+        \includestandalone[page=3]{../standalones/plot-continuity}
+      \end{center}
 
-We say a function \(f\) is 
-\begin{itemize}
-  \item \hlmain{continuous from the \underline{\hspace{1in}}} at a number \(a\) if \(\lim_{{x \to a^{-}}} f(x) = f(a)\).
-  \item \hlmain{continuous from the \underline{\hspace{1in}}} at a number \(a\) if \(\lim_{{x \to a^{+}}} f(x) = f(a)\).
-\end{itemize}
+    \item A \hlsupp{jump discontinuity at \(x = a\)} is characterized by \(\lim_{x \to a^{-}} f(x) \ne \lim_{x \to a^{+}}f(x)\) and both exist as finite numbers. The value \(f(a)\) is irrelevant.
 
-Intuitively, if a pen can trace the graph of a function without leaving the paper over an interval \(I\), then the function is continuous over \(I\).
+      \begin{center}
+        \includestandalone[page=4]{../standalones/plot-continuity}
+      \end{center}
 
-For example, 
-\begin{itemize}[itemsep={3ex}]
-  \item \(f_{1}(x)\) is continuous over \underline{\hspace{2in}}.
-  \item \(f_{2}(x)\) is continuous over \underline{\hspace{2in}}.
-  \item \(f_{3}(x)\) is continuous over \underline{\hspace{2in}}.
-\end{itemize}
-\vfill{}
+    \item An \hlsupp{infinite discontinuity at \(x = a\)} is just another name for a vertical asymptote at \(x = a\). Remember Definition~\ref{def:vertical-asymptote} on page~\pageref{def:vertical-asymptote}.
+
+      \begin{center}
+        \includestandalone[page=7]{../standalones/plot-continuity}
+      \end{center}
+  \end{itemize}
+  \vspace{3ex}
+\end{definition}
+
 \clearpage
 
 \label{technique:classify-discontinuities}
-To \hlmain{classify} a discontinuity is to determine if the discontinuity is removable, a jump or an infinite discontinuity.
+To \hlmain{classify} a discontinuity is to determine if the discontinuity is removable, a jump or an infinite discontinuity. 
 
-\faComments{} How can we find discontinuities?
+\begin{center}
+  \includestandalone[page=12]{../standalones/mindmap-limits}
+\end{center}
 
-\blanklines{15}
+We learn the general decision-making process for classifying discontinuities. We'll do it without any computation first so you can see the idea.
 
-\begin{example}
-  Classify all discontinuities of \(f(x) = \frac{x^{2}-x}{(x-1)(x+2)}\), if any.  Find the intervals over which \(f(x)\) is continuous.
+\begin{example} \label{eg:discontinuity-classify-abstract}
+  Suppose you know the following about a function \(f(x)\). Find all of its discontinuities. For each discontinuity, determine if it is removable, jump or infinite.
 
-  \blanklines{15}
+  \begin{multicols}{3}
+    \begin{itemize}
+      \item \(f\) is continuous over \((-\infty, -5)\).
+      \item \(f\) is continuous over \((-5, 2)\).
+      \item \(f\) is continuous over \((2, \infty)\).
+        \columnbreak
+      \item \(f(-5) = 1\)
+      \item \(\lim_{x \to (-5)^{-}} f(x) = 1\).
+      \item \(\lim_{x \to (-5)^{+}} f(x) = 1/2\).
+        \columnbreak
+      \item \(f(2) = 0\)
+      \item \(\lim_{x \to (2)^{-}} f(x) = 0\).
+      \item \(\lim_{x \to (2)^{+}} f(x) = -\infty\).
+    \end{itemize}
+  \end{multicols}
+
+  {\footnotesize Pro-tip: Try sketching the given information.}
+  
+  \blanks*
 \end{example}
+\clearpage
 
-\begin{exercise}
-  Classify all discontinuities of \(f(x) = \begin{cases} \sqrt{x} - 2,& x \ge 4 \\ 3x - 1, &x < 4\end{cases}\), if any.  Find the intervals over which \(f(x)\) is continuous.
+Now we take it up a notch. Remember to apply the decision-making process you learned in Example~\ref{eg:discontinuity-classify-abstract}. You should learn from the next example what limits to evaluate when you run into a discontinuity classification problem.
 
-  \blanklines{10}
+\faExclamationTriangle{} Grading standards! The phrase \enquote{using the definition of continuity/discontinuity} signals that you must use Definitions~\ref{def:continuity} and/or \ref{def:discontinuities} by calculating one-sided limits. This is a rigor requirement of university study.
+
+\begin{example}[Midterm, Fall 2024]
+  Using the definition of continuity, classify the discontinuities of the function
+  \[
+    f(x) = 
+    \begin{cases}
+      (x-1)(x+2),          & \text{if } x < -1 \\[1ex]
+      \frac{x-1}{x^{2}+1}, & \text{if } -1 \le x < 1 \\[1ex]
+      1,                   & \text{if } x = 1 \\[1ex]
+      \frac{x-1}{x^{2}+5}, & \text{if } x > 1.
+    \end{cases}
+  \]
+
+  \blanks*
+\end{example}
+\clearpage
+
+\begin{exercise}[Midterm, Fall 2025]
+  Using the definition of continuity, classify the discontinuities of the function
+  \[
+    f(x) = 
+    \begin{cases}
+      \frac{\sin(x)}{x}, & \text{if } x < 0 \\[1ex]
+      1,                 & \text{if } x = 0\\[1ex]
+      |2x-1|,            & \text{if } 0 < x < 1 \\[1ex]
+      \ln(x),            & \text{if } x \ge 1.
+    \end{cases}
+  \]
+
+  \blanks*
 \end{exercise}
 \clearpage
 
-\begin{exercise}
-  Is \(f(x) = \frac{x}{\sin(x)}\) continuous over \((-2\pi, 2\pi)\)? If not, find the intervals over which \(f(x)\) is continuous.
+Here is what we can do \hlattn{if we know} a given function is continuous. 
 
-  \blanklines{15}
-\end{exercise}
+\begin{sidefigure}{\includestandalone[page=10]{../standalones/mindmap-limits}}
+  \begin{enumerate}[wide, itemsep={2ex}]
+    \item If you know \(f(x)\) is continuous at \(a\), then you can use direct substitution to evaluate \(\lim_{x \to a} f(x)\). 
 
+      We learned this last week.
 
-Continuity and limits are closely related as we can see from the definition of continuity: \updatenote{"Continuities" corrected to "Continuity".} Whenever a function \(f(x)\) is {continuous} at \(a\), then we can evaluate \(\lim_{x \to a} f(x)\) by direct substitution. 
+    \item If you know \(f(x)\) is continuous, then you can use a change-of-variable to evaluate limits. 
 
-But there is more!
+      We also learned this last week.
 
-\begin{mdframed}[style=withref]
-  \textbf{Theorem}. If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then 
+    \item Apply the Intermediate Value Theorem.  
+    
+      This one is new. We discuss it after this page.
+  \end{enumerate}
+\end{sidefigure}
+
+\vspace{1in}
+
+Continuity provides the theoretical support for Points 1 and 2 above. In particular, change of variable works because of Theorem~\ref{thm:limit-composite}.
+
+\begin{thm} \label{thm:limit-composite}
+  If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then 
   \[
     {\color{main} \lim_{x \to a}} {\color{attn}f({\color{black}g(x)})} = {\color{attn}f \left( {\color{main} \lim_{x \to a}} {\color{black} g(x) }\right)}.
   \]
 
-  \textbook{Theorem~2.9 on page 187}
-\end{mdframed}
+  \textbook{Theorem~2.9 (Composite Function Theorem) on page 187}
+\end{thm}
 
-Notice the ``inside function'' \(g(x)\) is allowed to be discontinuous at \(a\).
-\begin{example}
+Let's do one more exercise involving limits.
+
+\begin{exercise}
   Suppose \(f\) is continuous, \(f(1) = 3\) and \(f(2) = 5\).  Find \(\lim_{x \to \pi/4} f( \tan(x) + 1 )\).
 
   \blanklines{10}
-\end{example}
+\end{exercise}
 \clearpage
 
-\begin{exercise}
-  Evaluate \(\lim_{x \to 2} \sin( - x^{3} + 7  )\).
-
-  \blanklines{10}
-\end{exercise}
-
-\begin{example} \label{eg:continuity-and-cancellation}
+\begin{exercise} \label{ex:continuity-and-cancellation}
   Find the mistake(s) in the following \emph{incorrect} reasoning about the continuity of \[f(x) = \frac{(3x-1)(x-2)}{(x-2)}.\]
   \bigskip
 
@@ -145,36 +215,8 @@ Notice the ``inside function'' \(g(x)\) is allowed to be discontinuous at \(a\).
   \end{quote}
 
   \blanklines{15}
-\end{example}
-
-\begin{exercise}[Midterm, Fall 2024]
-  Using the definition of continuity, classify the discontinuities of the function
-  \[
-    f(x) = 
-    \begin{cases}
-      (x-1)(x+2), &\text{ x < -1 } \\
-      \frac{x-1}{x^{2}+1}, &\text{ -1 \le x < 1 } \\
-      1, &\text{x = 1}\\
-      \frac{x-1}{x^{2}+5}, &\text{x > 1}.
-    \end{cases}
-  \]
-
-  \blanks*
 \end{exercise}
 \clearpage
 
-\begin{exercise}[Midterm, Fall 2025]
-  Using the definition of continuity, classify the discontinuities of the function
-  \[
-    f(x) = 
-    \begin{cases}
-      \frac{\sin(x)}{x}, &\text{ x < 0 } \\
-      1, &\text{x = 0}\\
-      |2x-1|, &\text{0 < x < 1} \\
-      \ln(x), &\text{x \ge 1}.
-    \end{cases}
-  \]
-  \blanks*
-\end{exercise}
 \end{document}
 

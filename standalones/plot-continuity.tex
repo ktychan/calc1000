@@ -1,0 +1,233 @@
+\documentclass[tikz]{standalone}
+\input{../tikz.tex.preamble}
+\input{../typography.tex.preamble}
+\usetikzlibrary{calc}
+
+\pgfplotsset{
+  discontinuity example/.style={
+    basic curve,
+    ylabel style = {anchor=west},
+    % only the one-sided continuity examples below carry titles
+    title style = {font=\footnotesize, align=center},
+    height=2in,
+    enlargelimits=false,
+    xtick distance={2},
+    ytick distance={2},
+    minor tick num=1,
+    grid=both,
+    xmin=-2, xmax=4,
+    ymin=-3, ymax=4,
+  },
+  % place an axis to the right of the one named in the argument
+  right of/.style={
+    at={(#1.right of south east)}, anchor=left of south west,
+    xshift=1em,
+  },
+}
+
+% the discontinuity itself is what we want the reader to look at
+\tikzset{
+  exclusion/.style={supp, fill=white},
+  inclusion/.style={supp, fill=warn},
+  asymptote/.style={supp, dashed},
+}
+
+\begin{document}
+
+% a blank grid for sketching
+\begin{tikzpicture}
+  \begin{axis}[discontinuity example]
+  \end{axis}
+\end{tikzpicture}
+
+% a concave down parabola meets a line of positive slope; the corner where they
+% join is not a discontinuity
+\begin{tikzpicture}
+  \begin{axis}[discontinuity example, name=joined]
+    \addplot[very thick, domain=-2:1] {3 - x^2};
+    \addplot[very thick, domain=1:4] {x/2 + 3/2};
+  \end{axis}
+
+  \node[anchor=south, yshift=1ex] at (joined.north) {\footnotesize continuous everywhere};
+\end{tikzpicture}
+
+% removable discontinuity: the same curve without and with a value at x = 2
+\begin{tikzpicture}
+  \begin{axis}[discontinuity example, name=removA]
+    \addplot[very thick, domain=-2:4] {x};
+    \draw[exclusion] (axis cs:2,2) circle[radius=0.125];
+  \end{axis}
+
+  \begin{axis}[discontinuity example, right of=removA, name=removB]
+    \addplot[very thick, domain=-2:4] {x};
+    \draw[exclusion] (axis cs:2,2) circle[radius=0.125];
+    \draw[inclusion] (axis cs:2,1) circle[radius=0.125];
+  \end{axis}
+
+  % no middle axis to carry the title, so centre it over the pair by hand
+  \node[anchor=south, yshift=1ex] at ($(removA.north)!0.5!(removB.north)$)
+    {\footnotesize Examples of removable discontinuity at \(x=2\)};
+\end{tikzpicture}
+
+
+% jump discontinuity: three variants of the same jump at x = 1
+\begin{tikzpicture}
+  \begin{axis}[discontinuity example, name=jumpA]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[exclusion] (axis cs:1,1) circle[radius=0.125]; 
+    \draw[inclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+
+  \begin{axis}[discontinuity example, right of=jumpA, name=jumpB]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[exclusion] (axis cs:1,1) circle[radius=0.125]; 
+    \draw[exclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+
+  \begin{axis}[discontinuity example, right of=jumpB, name=jumpC]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[inclusion] (axis cs:1,1) circle[radius=0.125]; 
+    \draw[exclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+
+  % jumpB is the middle axis, so its north is centred over the group
+  \node[anchor=south, yshift=1ex] at (jumpB.north) {\footnotesize Examples of jump discontinuity at \(x=1\)};
+\end{tikzpicture}
+
+
+
+% one-sided continuity, built from the jump example above: the same parabola,
+% now the whole of f on (-infty, 1], with the three things f(1) can be.  Only
+% the value at the endpoint changes from panel to panel, and each axis is
+% titled with what that value makes f at 1; which value it is, the picture
+% shows.
+\begin{tikzpicture}
+  % f(1) = 1 = the left limit: left-continuous
+  \begin{axis}[discontinuity example, name=leftA, title={left-continuous at \(1\)}]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \draw[inclusion] (axis cs:1,1) circle[radius=0.125];
+  \end{axis}
+
+  % f(1) = 2 != the left limit
+  \begin{axis}[discontinuity example, right of=leftA, name=leftB, title={not left-continuous at \(1\)}]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \draw[exclusion] (axis cs:1,1) circle[radius=0.125];
+    \draw[inclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+
+  % no value at all: f(1) undefined
+  \begin{axis}[discontinuity example, right of=leftB, name=leftC, title={not left-continuous at \(1\)}]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \draw[exclusion] (axis cs:1,1) circle[radius=0.125];
+  \end{axis}
+\end{tikzpicture}
+
+
+% the other half of the same jump: f on [1, infty) alone, again with the three
+% things f(1) can be.
+\begin{tikzpicture}
+  % f(1) = 2 = the right limit: right-continuous
+  \begin{axis}[discontinuity example, name=rightA, title={right-continuous at \(1\)}]
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[inclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+
+  % f(1) = 1 != the right limit
+  \begin{axis}[discontinuity example, right of=rightA, name=rightB, title={not right-continuous at \(1\)}]
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[exclusion] (axis cs:1,2) circle[radius=0.125];
+    \draw[inclusion] (axis cs:1,1) circle[radius=0.125];
+  \end{axis}
+
+  % no value at all: f(1) undefined
+  \begin{axis}[discontinuity example, right of=rightB, name=rightC, title={not right-continuous at \(1\)}]
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[exclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+\end{tikzpicture}
+
+% infinite discontinuity: three variants of the same asymptote at x = 5/2
+\begin{tikzpicture}
+  % one branch down, the other up
+  \begin{axis}[discontinuity example, name=infA]
+    \addplot[very thick, domain=-2:2.4] {1/(x-5/2)};
+    \addplot[very thick, domain=2.6:4] {1/(x-5/2)};
+    \addplot[asymptote] coordinates {(5/2, 4) (5/2,-4)};
+  \end{axis}
+
+  % both branches up
+  \begin{axis}[discontinuity example, right of=infA, name=infB]
+    \addplot[very thick, domain=-2:2.4] {1/(x-5/2)^2};
+    \addplot[very thick, domain=2.6:4] {1/(x-5/2)^2};
+    \addplot[asymptote] coordinates {(5/2, 4) (5/2,-4)};
+  \end{axis}
+
+  % both branches down
+  \begin{axis}[discontinuity example, right of=infB, name=infC]
+    \addplot[very thick, domain=-2:2.4] {-1/(x-5/2)^2};
+    \addplot[very thick, domain=2.6:4] {-1/(x-5/2)^2};
+    \addplot[asymptote] coordinates {(5/2, 4) (5/2,-4)};
+  \end{axis}
+
+  % infB is the middle axis, so its north is centred over the group
+  \node[anchor=south, yshift=1ex] at (infB.north) {\footnotesize Examples of infinite discontinuity at \(x=5/2\)};
+\end{tikzpicture}
+
+
+
+% the three kinds side by side, one panel each, lifted from the groups above:
+% the first variant of the removable, jump and infinite examples, so a reader
+% who has met them one kind at a time can compare them in one picture.
+\begin{tikzpicture}
+  % f(x) = x with the value at x = 2 taken away
+  \begin{axis}[discontinuity example, name=kindA, title={removable at \(x=2\)}]
+    \addplot[very thick, domain=-2:4] {x};
+    \draw[exclusion] (axis cs:2,2) circle[radius=0.125];
+  \end{axis}
+
+  % the parabola meets the line one unit above where it left off
+  \begin{axis}[discontinuity example, right of=kindA, name=kindB,
+               title={jump at \(x=1\)}]
+    \addplot[very thick, domain=-2:1] {x^2};
+    \addplot[very thick, domain=1:3] {x+1};
+    \draw[exclusion] (axis cs:1,1) circle[radius=0.125];
+    \draw[inclusion] (axis cs:1,2) circle[radius=0.125];
+  \end{axis}
+
+  % one branch down, the other up
+  \begin{axis}[discontinuity example, right of=kindB, name=kindC,
+               title={infinite at \(x=5/2\)}]
+    \addplot[very thick, domain=-2:2.4] {1/(x-5/2)};
+    \addplot[very thick, domain=2.6:4] {1/(x-5/2)};
+    \addplot[asymptote] coordinates {(5/2, 4) (5/2,-4)};
+  \end{axis}
+
+  % kindB is the middle axis, so its north is centred over the group; above
+  % its title, not its frame, or the two would sit on top of each other
+  \node[anchor=south, yshift=1ex] at (kindB.above north)
+    {\footnotesize Examples of the three kinds of discontinuity};
+\end{tikzpicture}
+% exercise: a corner is not a discontinuity: the two legs meet at the marked
+% peak. Left untitled and in plain black so the picture gives nothing away.
+\begin{tikzpicture}
+  \begin{axis}[discontinuity example]
+    \addplot[very thick, domain=-2:2] {x};
+    \addplot[very thick, domain=2:4] {4-x};
+    \draw[fill=black] (axis cs:2,2) circle[radius=0.125];
+  \end{axis}
+\end{tikzpicture}
+
+
+% exercise: continuous from the left, infinite from the right
+\begin{tikzpicture}
+  \begin{axis}[discontinuity example]
+    \addplot[very thick, domain=-2:1] {x};
+    \addplot[very thick, domain=1.1:4] {1/(x-1)};
+    \addplot[dashed] coordinates {(1, 4) (1,-4)};
+    \draw[fill=black] (axis cs:1,1) circle[radius=0.125];
+  \end{axis}
+\end{tikzpicture}
+\end{document}

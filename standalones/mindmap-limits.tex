@@ -1,9 +1,10 @@
 %! TeX program = lualatex
-% Eleven pages: the whole map, then ten layers of it -- the two-sided limit
-% branch, the first decision, the 0/0 case, the nonzero/0 case, the
-% evaluation techniques, the continuity branch, the continuity test, why
-% substitution works, the discontinuous branch, and the two limit branches
-% together.  Each page is trimmed to
+% Thirteen pages: the whole map, then twelve layers of it -- the two-sided
+% limit branch, the first decision, the 0/0 case, the nonzero/0 case, the
+% evaluation techniques, the continuity branch, the continuous-or-not
+% decision, the continuity test, why substitution works, the discontinuous
+% branch, where an infinite discontinuity comes from, and the two limit
+% branches together.  Each page is trimmed to
 % its own content, and each layer places its nodes exactly where page 1
 % puts them, so the pages still read as views of one drawing.
 % The quarter-turn print variant of page 1 lives in
@@ -663,7 +664,61 @@
 \end{mmpage}
 
 % ===================================================================
-%  Page 8 -- the continuity test: the root, `continuity at a',
+%  Page 8 -- the answer to the continuity test: the root, `continuity
+%  at a', and the two answers it can have.  The one-sided tests that sit
+%  between them are page 9, and what each answer leads to is on the pages
+%  around it.
+%
+%  `missing' holds the places of those two tests, so `continuous' and
+%  `discontinuous' fan out at page 1's angles.
+% ===================================================================
+\newcommand{\continuityanswerlayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    child [concept color=gray!20,
+           every node/.append style={text width=2.1cm},
+           level 2/.append style={level distance=5cm, sibling angle=50},
+           level 3/.append style={level distance=3.6cm, sibling angle=52}] { 
+      % Wide enough to keep the test on one line -- a node option beats the
+      % 2.1cm this subtree sets for everything below it.
+      node [minimum size=3.2cm, text width=3.4cm, font=\footnotesize] (conttest)
+        {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+      [counterclockwise from=75]
+      child [concept color=substcase] { node (yes) {continuous} }
+      % The two one-sided tests sit between them on page 1; `missing' keeps
+      % their places so `discontinuous' still lands on its own bar.
+      child [missing]
+      child [missing]
+      child [concept color=gray!20] { node (no)
+        {discontinuous\note{calculate both\\one-sided limits}} }
+    }
+    ;
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+
+}
+
+\begin{mmpage}
+\resizebox{2.732in}{!}{%
+\begin{tikzpicture}[map levels]
+  \continuityanswerlayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 9 -- the continuity test: the root, `continuity at a',
 %  and the four answers it can have.  What each answer leads to is on the
 %  pages around it.
 % ===================================================================
@@ -713,7 +768,7 @@
 \end{mmpage}
 
 % ===================================================================
-%  Page 9 -- why substitution works: `continuity at a' and what
+%  Page 10 -- why substitution works: `continuity at a' and what
 %  a continuous function buys you, beside the one case of direct
 %  substitution that needs nothing further, and the arrow from that case
 %  to continuity.
@@ -777,7 +832,7 @@
 \end{mmpage}
 
 % ===================================================================
-%  Page 10 -- the discontinuous branch: `continuity at a', the
+%  Page 11 -- the discontinuous branch: `continuity at a', the
 %  answer that ends the question, and the three ways a function can fail
 %  to be continuous.
 % ===================================================================
@@ -829,7 +884,87 @@
 \end{mmpage}
 
 % ===================================================================
-%  Page 11 -- what a limit is and what to do with it: the root, the
+%  Page 12 -- where an infinite discontinuity comes from: the
+%  discontinuous branch of page 11 again, with `try direct substitution'
+%  and its nonzero/0 case beside it and the arc that joins the two.  It is
+%  the one place the map's two decision trees meet on the failing side.
+%
+%  Two subtrees with different level distances share this picture, so each
+%  is drawn in a scope of its own rather than the levels being set on the
+%  picture.
+% ===================================================================
+\newcommand{\infinitecaselayer}{%
+  \begin{scope}[continuity levels]
+  % `conttest' is this layer's root, placed where page 1 puts it: the first
+  % of the root's branches, 150 degrees out at the level-1 5.5cm.  The
+  % styling is what `every child node' gives it there, spelled out because
+  % it is no longer a child of anything.
+  \node [concept color=gray!20, concept, minimum size=3.2cm, text width=3.4cm,
+         align=center, font=\footnotesize] (conttest) at (150:5.5cm)
+    {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+    [counterclockwise from=75]
+    child [concept color=substcase] { node (yes) {continuous} }
+    % The two one-sided tests sit between them on page 1; `missing' keeps
+    % their places so `no' still lands on its own bar.
+    child [missing]
+    child [missing]
+    child [concept color=gray!20,
+           level 2/.append style={level distance=5.2cm, sibling angle=40}] { 
+      node (no) {discontinuous\note{calculate both\\one-sided limits}}
+      [counterclockwise from=187]
+      % Cyan for the two cases where both one-sided limits exist -- not gold,
+      % which is the connector-label colour.  The infinite case keeps the
+      % pink it shares with nonzero/0.
+      child [concept color=bothexist] { node (removable) {removable} }
+      child [concept color=bothexist] { node (jump) {jump} }
+      child [concept color=pink!50] { node (infinite) [text width=2.6cm]
+        {infinite and \(f\) has\\a vertical\\asymptote at \(a\)} }
+    }
+    ;
+  \end{scope}
+
+  % The other tree's root, placed where page 1 puts it: the second of the
+  % root's branches, 30 degrees out at the level-1 5.5cm.  `missing' holds
+  % the places of Squeeze and 0/0, so nonzero/0 keeps page 1's angle;
+  % `any number/nonzero', the last child, simply goes.
+  \begin{scope}[technique levels]
+    \node [concept color=gray!20, concept, minimum size=2.4cm, text width=2.2cm,
+           align=center, font=\footnotesize] (dirsub) at (30:5.5cm)
+      {try direct\\substitution\note{is the denominator \(0\)?}}
+      [counterclockwise from=-90]
+      child [missing]
+      child [missing]
+      child [concept color=pink!50] { node (constzero)
+        {\(\frac{\text{nonzero}}{0}\)} }
+      ;
+  \end{scope}
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+  \node [barlabel] at ($(no)!0.5!(removable)$)
+    {both exist and agree,\\but \(\ne f(a)\)};
+  \node [barlabel] at ($(no)!0.5!(jump)$) {both exist\\but disagree};
+  \node [barlabel] at ($(no)!0.5!(infinite)$)
+    {one of them\\is \(\pm\infty\)};
+
+  % A circular arc, bowed away from the root so it threads the gap between
+  % the root and its branches.  No heads, to match page 1.
+  \begin{pgfonlayer}{background}
+    \draw [concept connection, pink]
+      (constzero.south) to [bend left=20] (infinite);
+  \end{pgfonlayer}
+}
+
+\begin{mmpage}
+\resizebox{5.750in}{!}{%
+\begin{tikzpicture}[mindmap base]
+  \infinitecaselayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 13 -- what a limit is and what to do with it: the root, the
 %  two-sided limit branch cut short of the well-known limits, and `try
 %  direct substitution' with its four children.
 %  Continuity, the root's first branch, is left out; `missing' holds its

@@ -1,0 +1,189 @@
+%! TeX program = lualatex
+% One page: the whole decision map for limits at infinity, in the style of
+% mindmap-limits.tex -- three branches off the root, the same node shapes,
+% colours and connector labels.  The box of known limits in the lesson
+% (lim e^x, lim 1/x^p, e^x beats x^p, the polynomial sign rule) is deliberately
+% NOT a branch here: this map is about what to do, not what to recall.
+% `multi' is what makes each mmpage a page of its own -- the [tikz] option
+% would do that for a bare tikzpicture, but it leaves the picture ungrouped
+% and \resizebox below then fails with a missing \endgroup.
+\documentclass[multi=mmpage]{standalone}
+\input{../typography.tex.preamble}
+
+% DO NOT use the tikz preamble: its `basic curve' styles pull in pgfplots, and
+% enabling `trig format=rad' there makes this picture die with a dimension too
+% large error.
+% \input{../tikz.tex.preamble}
+\usepackage{graphicx}   % for \resizebox
+\usepackage{tikz}
+
+\usetikzlibrary{mindmap, backgrounds, calc}
+
+% The case that ends well: a finite answer, which is the one that names an
+% asymptote.  WesternSpring on its own is a neon lime; muting it through grey
+% keeps it in the palette without shouting.
+\colorlet{finitecase}{WesternSpring!55!gray!45}
+% Same hue at full strength, for the arrow joining two finitecase nodes.
+\colorlet{finiteline}{WesternSpring!55!gray}
+% The answer is zero -- still a finite answer, but worth its own fill so the
+% three outcomes of a dominant-term analysis read as three.  WesternSky neat
+% is a neon cyan, so mute it through grey the same way.
+\colorlet{zerocase}{WesternSky!60!gray!45}
+% The named theorem this map tells you to reach for.  Its own colour marks it
+% as a different kind of thing: a theorem you invoke, not a case in a decision
+% tree.  Same blue mindmap-limits.tex gives Squeeze and the IVT.
+\colorlet{namedthm}{blue!20}
+
+% Connector labels.  Neutral and italic rather than coloured: the node fills
+% already carry the colour coding.
+\colorlet{decision}{black!60}
+
+\newenvironment{mmpage}{}{}
+
+% Second line of a concept label.  Formulas stay in \displaystyle, as
+% \everymath sets course-wide, so \lim subscripts sit underneath: the circles
+% below are sized to allow for that.
+\newcommand{\sub}[1]{\\[0.3ex]{\scriptsize\(#1\)}}
+\newcommand{\note}[1]{\\[0.1ex]{\tiny #1}}
+
+% The mindmap library gives a level-2 concept 1.5cm of text width and a
+% level-3 one just 1cm, which hyphenates single words.  Widen them, and keep
+% the manual line breaks short enough to fit what is set here.
+\tikzset{
+  mindmap base/.style={
+    mindmap,
+    grow cyclic,
+    concept color=gray!20,
+    every child node/.style={concept, minimum size=1.4cm, text width=1.7cm,
+                             align=center, font=\scriptsize},
+  },
+  % Connector labels.  `mindmap' hands every node a large minimum size; that is
+  % harmless when a label is centred on a point, but an edge-anchored one ends
+  % up centimetres off its bar unless the box is shrunk back to its text.
+  barlabel/.style={font=\footnotesize\itshape, text=decision, align=center,
+                   inner sep=2pt, minimum size=0pt,
+                   minimum width=0pt, minimum height=0pt},
+}
+
+% The level distances and sibling angles this map draws with.  Three branches
+% rather than four, so level 1 fans by 120 degrees.
+\tikzset{
+  map levels/.style={
+    mindmap base,
+    level 1/.append style={level distance=5.5cm, sibling angle=120},
+    level 2/.append style={level distance=4cm, sibling angle=60},
+    level 3/.append style={level distance=3.4cm, sibling angle=44},
+  },
+}
+
+% Two things about the angles on this page.
+%
+% (1) A `clockwise from' given to the root's children leaks down to every
+%     deeper level, so without a correction every node's children fan in the
+%     same absolute direction instead of pointing outward.  Each node
+%     therefore restates its own fan, in the path right after it.
+%     The value is (parent angle) - (children - 1) * (sibling angle) / 2.
+%
+% (2) Level distances and sibling angles differ per subtree, so they are set
+%     in each child's option list, where they propagate down that subtree.
+
+\begin{document}
+% ===================================================================
+%  The whole map -- limits at infinity
+% ===================================================================
+\begin{mmpage}
+% The guided notes want a 7in-wide graphic.  The picture is drawn wider than
+% that and scaled down to fit, so keep labels short: at this size every extra
+% line of text costs legibility.
+\resizebox{7in}{!}{%
+\begin{tikzpicture}[map levels]
+  % Branches at 150, 30 and -90: what the answer means, how to compute it, and
+  % the moves that make the computation possible.
+  % The axis in the root's label is the counterpart of the number line in
+  % mindmap-limits.tex: no ticks, arrows running off both ways.
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at infinity\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [<->, thin] (0,0) -- (2.6,0);
+       \node [below] at (0.15,0) {\scriptsize\(-\infty\)};
+       \node [below] at (2.45,0) {\scriptsize\(\infty\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    % ---------------------------------------------------------------
+    % What the answer means.
+    % ---------------------------------------------------------------
+    child [concept color=gray!20,
+           every node/.append style={text width=2.1cm},
+           level 2/.append style={level distance=4.4cm, sibling angle=52}] {
+      node (ha) [minimum size=2.6cm, text width=2.6cm, font=\footnotesize]
+        {horizontal asymptotes\note{do \(+\infty\) and \(-\infty\)\\separately: at most two}}
+      [counterclockwise from=98]
+      child [concept color=finitecase] { node (finite) [text width=2.3cm]
+        {a finite \(L\)\sub{y = L} } }
+      child [concept color=pink!50] { node (infty) {\(+\infty\) or \(-\infty\)\note{no asymptote\\that side}} }
+      child [concept color=supp!20] { node (dne) {no limit\note{oscillates: no asymptote}} }
+    }
+    % ---------------------------------------------------------------
+    % How to compute it.
+    % ---------------------------------------------------------------
+    child [concept color=gray!20,
+           level 2/.append style={level distance=4.2cm, sibling angle=56}] {
+      % Both lines are broken by hand: left to itself TeX hyphenates
+      % `dominant' rather than moving it down, and runs the note wider than
+      % the blob it sits in.
+      node (dominant) [minimum size=2.6cm, text width=2.6cm, font=\footnotesize]
+        {analyze\\dominant terms\note{factor out the\\fastest-growing term}}
+      [counterclockwise from=-26]
+      child [concept color=pink!50] { node (toinfty) {\(\to \pm\infty\)\note{numerator wins}} }
+      child [concept color=finitecase] { node (toconst) [text width=2.1cm]
+        {\(\to\) a nonzero constant\note{same growth}} }
+      child [concept color=zerocase] { node (tozero) {\(\to 0\)\note{denominator wins}} }
+    }
+    % ---------------------------------------------------------------
+    % The moves that make the computation possible.
+    % ---------------------------------------------------------------
+    child [concept color=gray!20,
+           level 2/.append style={level distance=4.2cm, sibling angle=46}] {
+      node (moves) [minimum size=2.4cm, text width=2.2cm, font=\footnotesize]
+        {before you factor}
+      [counterclockwise from=-159]
+      child { node (negx) [text width=2.4cm]
+        {change of variable\sub{u = -x}\note{sends \(x \to -\infty\)\\to \(u \to \infty\)}} }
+      child [concept color=supp!20] { node (expo) [text width=2.4cm]
+        {factor out \(e^{x}\)\note{or \(u = e^{x}\);\\other bases: \(b^{x} = e^{x \ln(b)}\)}} }
+      child [concept color=namedthm] { node (squeeze) {Squeeze\\Theorem\note{bounded times\\something small}} }
+      child { node (graphit) [text width=2.3cm]
+        {read the graph\note{trigs, inverse trigs,\\\(e^{x}\), \(\ln(x)\)}} }
+    }
+    ;
+
+  % Labels riding the bars into a branch, rather than sitting in it as one
+  % more node.  All of them are decisions or instructions, so they read as a
+  % layer distinct from the concept names.
+  \node [barlabel] at ($(root)!0.5!(dominant)$) {limit laws\\still apply};
+  \node [barlabel] at ($(root)!0.5!(ha)$) {what the\\answer means};
+  \node [barlabel] at ($(dominant)!0.5!(toconst)$) {compare\\growth rates};
+
+  % The computation is what names the asymptote: the two branches are one
+  % question asked twice.  Drawn on the background layer, in the finite case's
+  % own colour, and shortened so the head clears the concept's blob outline.
+  \begin{pgfonlayer}{background}
+    % Bowed over the root rather than run straight across the top: a chord
+    % from one branch's outermost child to the other's would cross every node
+    % between them.  Head at the asymptote branch, because the value you
+    % compute is what names the asymptote, not the other way round.
+    \draw [concept connection, finiteline, ->, >=stealth, shorten >=4pt]
+      (dominant) to [bend right=22] (ha);
+    % Plain and grey, like the map's spine: these are the moves you make
+    % before a dominant-term analysis, not a separate method.
+    \draw [concept connection, gray!20, ->, >=stealth, shorten >=4pt]
+      (moves) edge (dominant);
+  \end{pgfonlayer}
+\end{tikzpicture}
+}
+\end{mmpage}
+\end{document}
