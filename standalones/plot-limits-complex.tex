@@ -1,0 +1,176 @@
+%! TeX program = lualatex
+% Two functions for the limit-law examples in lessons/limit-laws.tex: one
+% asks for the sum and the difference at 2, the next for the two
+% compositions.  Page 1 is the gentle pair, page 2 the one that forces the
+% reader to watch which side each limit is approached from, and page 3 the
+% exercise, where shifts inside the compositions move the action to x = -1,
+% and page 4 the midterm exercise that reads one function at x and at -x.
+% Both jump at x = 2, yet both composites still have a limit there:
+%
+%   lim_{x->2^-} g = 3,   lim_{x->2^+} g = 4    (different, both exist)
+%   lim_{x->2^-} f = 0,   lim_{x->2^+} f = 1    (different, both exist)
+%
+% f is constant (-1) on [2.5, 4.5], an interval holding both of g's
+% one-sided limits, so f(g(x)) -> -1 from either side.
+% g is constant (3) on [-1, 2), an interval holding both of f's one-sided
+% limits, so g(f(x)) -> 3 from either side.
+% Neither function is constant, and the sum has no limit at 2: it goes to
+% 0 + 3 from the left and 1 + 4 from the right.  That contrast is the point
+% of the example -- the sum law fails where the composition survives.
+\documentclass[tikz]{standalone}
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{composition axis/.style={
+    basic curve,
+    axis equal image=true,
+    % No axis names: reading a composition off these graphs is partly about
+    % relabelling the axes -- f's input axis is where g's output lands --
+    % so the picture leaves that naming to the reader.  Tick numbers stay;
+    % they are what the values are read from.
+    xlabel={}, ylabel={},
+    width=2.9in, height=2.3in,
+    grid=both, minor tick num=1,
+    title style={yshift=2pt},
+}}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[composition axis, name=fplot,
+               xmin=-1.2, xmax=5.8, ymin=-3.2, ymax=2.3,
+               title={\(f(x)\)}]
+    \addplot[very thick, domain=-1:2]     {x-2};
+    \addplot[very thick, domain=2:2.5]    {1-4*(x-2)};
+    % the flat stretch that carries both one-sided limits of g
+    \addplot[very thick, domain=2.5:4.5]  {-1};
+    \addplot[very thick, domain=4.5:5.5]  {-1+2*(x-4.5)};
+    \draw[fill=white] (axis cs:2,0) circle (2pt);
+    \draw[fill=black] (axis cs:2,1) circle (2pt);
+  \end{axis}
+  \begin{axis}[composition axis, name=gplot,
+               at={(3.4in,0)}, anchor=south west,
+               xmin=-2.2, xmax=4.2, ymin=0, ymax=6,
+               title={\(g(x)\)}]
+    \addplot[very thick, domain=-2:-1] {3+2*(x+1)};
+    % the flat stretch that carries both one-sided limits of f
+    \addplot[very thick, domain=-1:2]  {3};
+    \addplot[very thick, domain=2:4]   {4+(x-2)/2};
+    \draw[fill=white] (axis cs:2,3) circle (2pt);
+    \draw[fill=black] (axis cs:2,4) circle (2pt);
+  \end{axis}
+\end{tikzpicture}
+% ---------------------------------------------------------------------
+% A harder pair, for reading f(g(x)) off the graphs.  Same jumps at 2, but
+% now the direction of each approach decides which one-sided value of f to
+% read, because f jumps at both of g's one-sided limits:
+%
+%   x -> 2^-:  g decreases to g(2) = 4, so the argument arrives from ABOVE
+%              4, and f(g(x)) -> lim_{t->4^+} f(t) = -1.
+%   x -> 2^+:  g rises to 3 from BELOW, so f(g(x)) -> lim_{t->3^-} f = -1.
+%
+% Both sides give -1, so the limit exists -- but reading f at the dots
+% instead, f(4) = f(3) = 0.5, gives the wrong answer.  That is the trap the
+% picture is built around.
+%
+% g is still flat (5) across an interval holding both one-sided limits of f
+% at 2, which are 0 and 1, so g(f(x)) -> 5 and that composition is safe.
+\begin{tikzpicture}
+  \begin{axis}[composition axis, name=fplot,
+               xmin=-1.2, xmax=5.8, ymin=-3.2, ymax=1.6,
+               title={\(f(x)\)}]
+    \addplot[very thick, domain=-1:2]   {x-2};
+    \addplot[very thick, domain=2:3]    {1-2*(x-2)};
+    % between the two jumps: dips and comes back, so it is constant nowhere
+    \addplot[very thick, domain=3:4]    {0.5+2*(x-3)*(x-4)};
+    \addplot[very thick, domain=4:5.5]  {-1+(x-4)/2};
+    \draw[fill=white] (axis cs:2,0)    circle (2pt);
+    \draw[fill=black] (axis cs:2,1)    circle (2pt);
+    \draw[fill=white] (axis cs:3,-1)   circle (2pt);
+    \draw[fill=black] (axis cs:3,0.5)  circle (2pt);
+    \draw[fill=white] (axis cs:4,-1)   circle (2pt);
+    \draw[fill=black] (axis cs:4,0.5)  circle (2pt);
+  \end{axis}
+  \begin{axis}[composition axis, name=gplot,
+               at={(3.4in,0)}, anchor=south west,
+               xmin=-2.2, xmax=4.2, ymin=1.4, ymax=5.6,
+               title={\(g(x)\)}]
+    \addplot[very thick, domain=-2:-1]  {5+2*(x+1)};
+    % the flat stretch that carries both one-sided limits of f
+    \addplot[very thick, domain=-1:1.2] {5};
+    % down to g(2) = 4, so x -> 2^- sends the argument to 4 from above
+    \addplot[very thick, domain=1.2:2]  {5-(x-1.2)/0.8};
+    % up to 3, so x -> 2^+ sends the argument to 3 from below
+    \addplot[very thick, domain=2:4]    {3-(x-2)/2};
+    \draw[fill=black] (axis cs:2,4) circle (2pt);
+    \draw[fill=white] (axis cs:2,3) circle (2pt);
+  \end{axis}
+\end{tikzpicture}
+% ---------------------------------------------------------------------
+% Page 3 -- the exercise, where the shifts move the action off the jumps.
+% The point of interest is x = -1, and both composites are shifted:
+%
+%   f(g(x)+1) as x -> -1.  g jumps at -1: it comes DOWN to g(-1) = 2 on the
+%     left and UP to 1 on the right, so the argument of f arrives at 3 from
+%     above and at 2 from below.  f jumps at both, and the halves that get
+%     used are lim_{t->3^+} f = -1 and lim_{t->2^-} f = -1, so the limit is
+%     -1.  Reading f at the dots gives f(3) = 0.5 and f(2) = 1 instead.
+%
+%   g(f(x+1)) as x -> -1.  The shift puts the inner point at 0, where f
+%     jumps: f -> -2 from the left and -2.5 from the right.  g is flat (3)
+%     across an interval holding both, so the limit is 3.
+%
+% Shapes are varied from the earlier pages on purpose -- a parabola into
+% the jump at 0, lines of different slopes elsewhere -- so the reasoning
+% cannot be pattern-matched from the worked example.
+\begin{tikzpicture}
+  \begin{axis}[composition axis, name=fplot,
+               xmin=-1.8, xmax=4.3, ymin=-3.2, ymax=1.6,
+               title={\(f(x)\)}]
+    \addplot[very thick, domain=-1.5:0] {-2+x^2};
+    \addplot[very thick, domain=0:2]    {-2.5+0.75*x};
+    \addplot[very thick, domain=2:3]    {1-0.5*(x-2)};
+    \addplot[very thick, domain=3:4]    {-1+0.5*(x-3)};
+    \draw[fill=white] (axis cs:0,-2)   circle (2pt);
+    \draw[fill=black] (axis cs:0,-2.5) circle (2pt);
+    \draw[fill=white] (axis cs:2,-1)   circle (2pt);
+    \draw[fill=black] (axis cs:2,1)    circle (2pt);
+    \draw[fill=black] (axis cs:3,0.5)  circle (2pt);
+    \draw[fill=white] (axis cs:3,-1)   circle (2pt);
+  \end{axis}
+  \begin{axis}[composition axis, name=gplot,
+               at={(3.4in,0)}, anchor=south west,
+               xmin=-4.3, xmax=3.3, ymin=-1.6, ymax=4.6,
+               title={\(g(x)\)}]
+    \addplot[very thick, domain=-4:-3]    {3+(-3-x)};
+    % the flat stretch that carries both one-sided limits of f at 0
+    \addplot[very thick, domain=-3:-1.5]  {3};
+    % down to g(-1) = 2, so x -> -1^- sends g(x)+1 to 3 from above
+    \addplot[very thick, domain=-1.5:-1]  {3-2*(x+1.5)};
+    % up to 1, so x -> -1^+ sends g(x)+1 to 2 from below
+    \addplot[very thick, domain=-1:3]     {1-(x+1)/2};
+    \draw[fill=black] (axis cs:-1,2) circle (2pt);
+    \draw[fill=white] (axis cs:-1,1) circle (2pt);
+  \end{axis}
+\end{tikzpicture}
+% ---------------------------------------------------------------------
+% Page 4 -- the Fall 2023 midterm exercise: one function, read at 2 and at
+% -2, for lim_{x->2} f(x) + 2 f(-x).  As x -> 2 the reflected argument -x
+% approaches -2 from the other side, so the two jumps cancel:
+%
+%   x -> 2^-:  f(x) -> -4 and f(-x) -> 2, giving -4 + 4 = 0
+%   x -> 2^+:  f(x) ->  2 and f(-x) -> -1, giving  2 - 2 = 0
+%
+% Axis names are kept here, unlike the composition pages: nothing has to be
+% relabelled to read this one.
+\begin{tikzpicture}
+  \begin{axis}[composition axis, xmin=-5, xmax=5, ymin=-5, ymax=5, title={\(f(x)\)}, xtick={-4, -2, 0, 2, 4}, ytick={-4, -2, 0, 2, 4}]
+    \addplot[very thick] coordinates {(-5, -4) (-2, -1)};
+    \addplot[very thick] coordinates {(-2,  2) ( 2, -4)};
+    \addplot[very thick] coordinates {( 2,  2) ( 5,  5)};
+    \draw[thick, fill=white] (axis cs:-2,-1) circle[radius=0.15];
+    \draw[thick, fill=black] (axis cs:-2, 2) circle[radius=0.15];
+    \draw[thick, fill=black] (axis cs: 2,-4) circle[radius=0.15];
+    \draw[thick, fill=white] (axis cs: 2, 2) circle[radius=0.15];
+  \end{axis}
+\end{tikzpicture}
+\end{document}

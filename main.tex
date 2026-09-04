@@ -2,34 +2,39 @@
 \documentclass{./guidednotes/guidednotes}
 
 \loadconfig[./config.yml]
+\usepackage{qrcode}
 
 \standaloneconfig{mode=image}
 \input{./typography.tex.preamble}
 \input{./tikz.tex.preamble}
 
-\newcommand{\updatenote}[1]{{\textcolor{magenta}{Updated. #1}}}
+% \updatenote is defined in typography.tex.preamble so that main.tex, slides.tex
+% and polls.tex all share one definition. Kept here for reference -- uncomment
+% only if that definition ever goes away, otherwise it clashes with it.
+% \newcommand{\updatenote}[1]{{\textcolor{magenta}{Updated. #1}}}
 
 \begin{document}
 
 \begin{week}{September 9 to 11}
+  \subfile{./misc/introduction.tex} \clearpage
   \subfile{./lessons/review-function-basics.tex} \clearpage
+  \subfile{./lessons/review-trigs.tex} \clearpage
 \end{week}
 
 \begin{week}{September 14 to 18}
-  \subfile{./lessons/review-trigs.tex} \clearpage
-  \subfile{./lessons/review-inverses.tex} \clearpage
   \subfile{./lessons/review-exp.tex} \clearpage
-  \subfile{./lessons/review-piecewise.tex} \clearpage
+  \subfile{./lessons/review-inverses.tex} \clearpage
+  \subfile{./lessons/limit-introduction.tex} \clearpage
 \end{week}
 
 \begin{week}{September 21 to 25}
-  \subfile{./lessons/limit-introduction.tex} \clearpage
   \subfile{./lessons/limit-laws.tex} \clearpage
-  \subfile{./lessons/continuity.tex} \clearpage
+  \subfile{./lessons/limit-squeeze.tex} \clearpage
 \end{week}
 
-% Wed, Sep 30 is a non-instructional day
+% Tue, Sep 30 is a non-instructional day
 \begin{week}{September 28 to October 2}
+  \subfile{./lessons/continuity.tex} \clearpage
   \subfile{./lessons/continuity-ivt.tex} \clearpage
   \subfile{./lessons/limit-at-infinity.tex} \clearpage
 \end{week}
@@ -37,17 +42,17 @@
 \begin{week}{October 5 to 9}
   \subfile{./lessons/derivative-at-a-point.tex} \clearpage
   \subfile{./lessons/derivative-as-a-function.tex} \clearpage
+  \subfile{./lessons/differentiation-formulas.tex} \clearpage
+  \subfile{./lessons/differentiation-rules.tex} \clearpage
   \subfile{./lessons/working-with-equations.tex} \clearpage
 \end{week}
 
-% Mon, Oct 12 is Thanksgiving
+% Mon, Oct 13 is Thanksgiving
 \begin{week}{October 12 to 16}
   \subfile{./lessons/reading-week.tex} \clearpage
 \end{week}
 
 \begin{week}{October 19 to 23}
-  \subfile{./lessons/differentiation-formulas.tex} \clearpage
-  \subfile{./lessons/differentiation-rules.tex} \clearpage
   \subfile{./lessons/differentiation-chain.tex} \clearpage
   \subfile{./lessons/differentiation-implicit.tex} \clearpage
 \end{week}
@@ -60,30 +65,30 @@
 
 \begin{week}{November 2 to 6}
   \subfile{./lessons/extrema.tex} \clearpage
+  \subfile{./lessons/derivative-tests.tex} \clearpage
+  \subfile{./lessons/optimization.tex} \clearpage
 \end{week}
 
 \begin{week}{November 9 to 13}
-  \subfile{./lessons/derivative-tests.tex} \clearpage
-  \subfile{./lessons/optimization.tex} \clearpage
   \subfile{./lessons/lHopitals-rule.tex} \clearpage
-\end{week}
-
-\begin{week}{November 16 to 20} % 4.10 and 5.1
   \subfile{./lessons/integration-intro.tex} \clearpage
   \subfile{./lessons/integration-formulas.tex} \clearpage
+\end{week}
+
+\begin{week}{November 16 to 20}
   \subfile{./lessons/antiderivatives.tex} \clearpage
   \subfile{./lessons/sigma-notation.tex} \clearpage
   \subfile{./lessons/the-area-problem.tex} \clearpage
 \end{week}
 
-\begin{week}{November 23 to 27} % 5.2 and 5.3
+\begin{week}{November 23 to 27} % 4.10 and 5.1
   \subfile{./lessons/the-definite-integral.tex} \clearpage
   \subfile{./lessons/ftc-part-one.tex} \clearpage
   \subfile{./lessons/ftc-part-two.tex} \clearpage
   \subfile{./lessons/net-change.tex} \clearpage
 \end{week}
 
-\begin{week}{November 30 to December 4} % 5.4, 5.5, 5.6, 6.1 and 6.2
+\begin{week}{November 30 to December 4} % 5.2 and 5.3
   \subfile{./lessons/integration-substitution.tex} \clearpage
   \subfile{./lessons/area-between-curves.tex} \clearpage
   \subfile{./lessons/volume-by-slicing.tex} \clearpage

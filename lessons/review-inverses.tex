@@ -1,166 +1,89 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Review of inverse functions}
+% Temporarily hides every \updatenote in this file while checking the lecture
+% flow -- the notes sit inline, so they cannot be line-commented without taking
+% the surrounding prose with them.  Delete this line to show them again.
+\renewcommand{\updatenote}[1]{}
 Intuitively, the inverse of a function \(f(x)\) is another function \(g(x)\) that undoes whatever \(f(x)\) does to its input. This intuition is not precise enough to be useful. Let's start with the definition.
 
 \begin{definition}[inverse] \label{def:inverse}
   Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}(x)\) such that
   \[
-    f^{-1}(f(x)) = x \text{ on } D \quad\text{and}\quad f(f^{-1}(x)) = x \text{ on } R.
+    f^{-1}(f(x)) = x \text{ for every \(x\) in \(D\)} \quad\text{and}\quad f(f^{-1}(x)) = x \text{ for every \(x\) in \(R\)}.
   \]
+
+  Terminology: An \hlmain{one-to-one function} is a function that has an inverse.
 
   \textbook{Page 78}
 \end{definition}
 
-{\faExclamationTriangle{} \(f^{-1}(x)\) is NOT \(\tfrac{1}{f(x)}\). To write \(\tfrac{1}{f(x)}\) as a power, write \(\tfrac{1}{f(x)} = f(x)^{-1}\) or \(\tfrac{1}{f(x)} = \big( f(x) \big)^{-1}\).}
-\bigskip
+{\footnotesize \faExclamationTriangle{} \(f^{-1}(x)\) is NOT \(\tfrac{1}{f(x)}\). To write \(\tfrac{1}{f(x)}\) as a power, write \(\tfrac{1}{f(x)} = f(x)^{-1}\) or \(\tfrac{1}{f(x)} = \big( f(x) \big)^{-1}\).}
 
-This definition is actually very useful. This definition \emph{alone} tells us how to
-\begin{enumerate}[noitemsep]
-  \item check whether two functions are inverses of each other, 
-  \item determine whether a function has an inverse graphically, 
-  \item sketch the inverse function, 
-  \item find inverses (graphically and algebraically) if possible,
-  \item find inverses (graphically and algebraically) by restricting the domain, and
-  \item avoid subtle mistakes.
-\end{enumerate}
-
-We skip the trial-and-error part of the story and go straight to the insight: Let's pretend \(f(x)\) has an inverse and denote \underline{\hspace{2in}}. The definition now gives us a useful equation. \updatenote{"an useful" corrected to "a useful".}
-
-\blanklines{25}
 \clearpage
 
-\begin{example}
-  Are \(x^{2}\) and \(\sqrt{x}\) inverses of each other? Assume \(x^{2}\) is defined for all real numbers.
+There are two types of typical calculations involving inverse. 
+\begin{itemize}
+  \item Given two functions \(f(x)\) and \(g(x)\), determine if they are inverses of each other.
+  \item Given a function \(f(x)\) and its domain, find an expression for its inverses.
+\end{itemize}
 
-  \blanklines{5}
+The first type of question requires us to understand the definition. 
+
+\begin{example} \label{ex:inverse-cube-pair}
+  Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
+
+  \blanks*
 \end{example}
+
+\begin{exercise} \label{ex:inverse-square}
+  Suppose \(f(x) = x^{2}\) is defined for all real numbers \(x\) and \(g(x) = \sqrt{x}\). Are \(f(x)\) and \(g(x)\) inverses of each other?
+
+  \blanks{20}
+\end{exercise}
+\clearpage
+
+
+The second type of question is a common procedure. To find the inverse of a function \(y = f(x)\), we switch \(x\) and \(y\) and isolate for \(y\). If you prefer, you can also first isolate for \(x\) in \(y = f(x)\) and swap \(x\) and \(y\) last. However, be warned that switching \(x\) and \(y\) first is also used in other situations, such as implicit differentiation.
 
 \begin{example} \label{eg:find-inverse}
   Find the inverse of \(\frac{2x}{1 + x}\).
 
-  \blanklines{10}
+  \blanks*
 \end{example}
 
-\begin{exercise}
-  Find an inverse of \(\frac{(x - 3)^{4}}{2}\), restrict the domain if necessary.  Determine the domain and range of its inverse.
+\begin{exercise}[Midterm, Fall 2025]
+  Suppose \(f(x) = \ln(x) - \ln(x - 1)\) is defined for all \(x > 1\). Take for granted that \(f^{-1}\) exists. Find an expression for \(f^{-1}\). 
 
-  \blanklines{15}
-\end{exercise}
+  % {\footnotesize This was a multiple-choice problem.}
 
-\begin{exercise}
-  Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
-
-  \blanklines{15}
+  \blanks*
 \end{exercise}
 \clearpage
 
 \begin{exercise}
-  Sketch the inverse of the given function if it exists.
+  Find an inverse of \(f(x) = \frac{(x-3)^{4}}{2}\) on the domain \([3,\infty)\).  Determine the domain and range of the inverse.
 
-  \includestandalone[page=2]{../standalones/plot-exercise-sketch-inverse}
-  \quad
-  \includestandalone[page=1]{../standalones/plot-exercise-sketch-inverse}
+  \blanks*
 \end{exercise}
 
 \begin{exercise}
-  Sketch the inverse of the given function if it exists.
+  Find the inverse of \(f(x) = \frac{x+2}{2x - 3}\).
 
-  \includestandalone[page=3]{../standalones/plot-exercise-sketch-inverse}
-  \quad
-  \includestandalone[page=1]{../standalones/plot-exercise-sketch-inverse}
-\end{exercise}
-
-\begin{exercise}
-  Let \(f(x) = x^{2}\) on domain \((-\infty, 0]\). Its inverse is \(-\sqrt{x}\) on domain \([0, \infty)\). One can explain this phenomenon using a graph, the definition and an appropriate equivalent equation. 
-
-  Find at least two out of the three explanations for yourself.
-
-  \blanklines{19}
-\end{exercise}
-\clearpage
-
-We now turn to inverses of trig functions which have \hlwarn{restrictions on their range} because all trig functions fail the horizontal line test.
-
-\begin{tabular}{l|p{1in}|p{1in}||l|p{1in}|p{1in}}
-  \toprule
-                       & domain & range &
-                       & domain & range \\\midrule
-  \(y = \sin^{-1}(x)\) & \(-1 \le x \le 1\) & &
-  \(y = \csc^{-1}(x)\) &  & \\[3ex]\midrule
-  \(y = \cos^{-1}(x)\) & \(-1 \le x \le 1\) & &
-  \(y = \sec^{-1}(x)\) &  & \\[3ex]\midrule
-  \(y = \tan^{-1}(x)\) & all \(x\)          & &
-  \(y = \cot^{-1}(x)\) &  & \\[3ex]\bottomrule
-\end{tabular}
-
-Remember, equivalent equations apply to inverse trig functions.
-\begin{example} \label{eg:arccos-cos-caution}
-  Evaluate \(\cos^{-1}(\cos(2\pi))\). 
-
-  \blanklines{10}
-\end{example}
-
-\begin{exercise}
-  Evaluate \(\tan^{-1}\left(\frac{\sqrt{3}}{3}\right)\).
-
-  \blanklines{25}
-\end{exercise}
-\clearpage
-
-Learn the thinking process in Example~\ref{eg:trig-sec-arctan}, and remember its \emph{starting} step.  The idea applies to all problems in Exercise~\ref{ex:trig-f-finverse}.
-\begin{example} \label{eg:trig-sec-arctan}
-  Simplify \(\sec(\tan^{-1}(x))\).   
-
-  \blanklines{25}
-\end{example}
-
-\begin{exercise} \label{ex:trig-cos-arcsin}
-  Simplify \(\frac{1}{\cos(\sin^{-1}(x))}\).
-
-  \blanklines{25}
-\end{exercise}
-\clearpage
-
-\begin{exercise} \label{ex:trig-f-finverse}
-  Practise using triangles to simplify the following expressions. 
-
-  \begin{multicols}{4}
-    \begin{enumerate}
-      \item \(\sin(\sin^{-1}(x))\)
-      \item \(\cos(\sin^{-1}(x))\)
-      \item \(\tan(\sin^{-1}(x))\)
-      \item \(\sec(\sin^{-1}(x))\)
-      \item \(\sin(\cos^{-1}(x))\)
-      \item \(\cos(\cos^{-1}(x))\)
-      \item \(\tan(\cos^{-1}(x))\)
-      \item \(\sec(\cos^{-1}(x))\)
-      \item \(\sin(\tan^{-1}(x))\)
-      \item \(\cos(\tan^{-1}(x))\)
-      \item \(\tan(\tan^{-1}(x))\)
-      \item \(\sec(\tan^{-1}(x))\)
-      \item \(\sin(\sec^{-1}(x))\)
-      \item \(\cos(\sec^{-1}(x))\)
-      \item \(\tan(\sec^{-1}(x))\)
-      \item \(\sec(\sec^{-1}(x))\)
-    \end{enumerate}
-  \end{multicols}
-
-  \blanklines{45}
+  \blanks*
 \end{exercise}
 \clearpage
 
 \begin{exercise}
-  Label the graphs with corresponding inverse trig functions.
+  Suppose \(f(x) = x^{2}\) is defined for \(x < 0\). Find \(f^{-1}(x)\) and its domain.
 
-  \begin{center}
-    \includestandalone[page=15]{../standalones/plot-trigs}
-
-    \includestandalone[page=16]{../standalones/plot-trigs}
-
-    \includestandalone[page=17]{../standalones/plot-trigs}
-  \end{center}
+  \blanks*
 \end{exercise}
-\clearpage
+
+\begin{exercise} \label{ex:inverse-vs-reciprocal}
+  Are \(f(x) = \frac{x-1}{x+1}\) and \(g(x) = \frac{x+1}{x-1}\) inverses of each other?
+
+  \blanks*
+\end{exercise}
 \end{document}
 

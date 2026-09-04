@@ -1,0 +1,105 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{thm}[Squeeze] \label{thm:limit-squeeze}
+  Let {\({\color{main}f(x)} \le g(x) \le {\color{supp}h(x)}\)} when \(x\) is near \(a\) and 
+  \[ 
+    \lim_{x \to a} {\color{main}f(x)} = L \quad\text{and}\quad \lim_{x \to a} {\color{supp}h(x)} = L,
+  \]
+  then
+  {\(\lim_{x \to a} g(x) = L\).}
+
+  \textbook{Theorem 2.7 on page 171}
+\end{thm}
+
+
+\begin{sidefigure}{%
+  \includestandalone[page=6]{../standalones/mindmap-limits}}
+\begin{example} \label{ex:limit-law-x-square-sin(x)}
+  Evaluate \(\lim_{x \to 0} x^{2} \sin\left(\frac{1}{x}\right)\).
+
+  \blanks*
+\end{example}
+\end{sidefigure}
+\clearpage
+
+This exercise is very similar to Example~\ref{ex:limit-law-x-square-sin(x)}. We walk you through two approaches to evaluate the limit. Both approaches are valid. Pick your favourite.
+
+\begin{exercise} \label{ex:limit-law-x-sin(x)}
+  Evaluate \(\lim_{x \to 0} x \sin\left(\frac{1}{x}\right)\).
+
+  \medskip
+  \begin{minipage}{2in}
+    \includestandalone[width=2in]{../standalones/plot_squeeze}
+  \end{minipage}
+  \hspace{0.5in}
+  \begin{minipage}{4.5in}
+    This problem is only a tad different from Example~\ref{ex:limit-law-x-square-sin(x)}. However, its solution is a bit more complicated. There are two approaches:
+    \begin{enumerate}[{label=(\Alph*)}, itemsep={1ex}, topsep={1ex}]
+      \item Use piecewise functions. 
+      \item Evaluate two one-sided limits if you'd rather not deal with piecewise functions.
+    \end{enumerate}
+
+    We need the squeeze theorem in both approaches.  
+  \end{minipage}
+
+\textbf{Approach (A).}
+\begin{enumerate}[wide]
+  \item The form of \(x \sin(1/x)\) suggests that we choose
+    \begin{itemize}
+      \item the lower bound to be \(f(x) = \underline{\hspace{1in}}\),
+      \item the upper bound to be \(h(x) = \underline{\hspace{1in}}\).
+    \end{itemize}
+
+  \item Sketch your choices of \(f(x)\) and \(h(x)\) on the graph above. Do they \enquote{squeeze} \(x \sin(1/x)\)? If so, move on to the next step; otherwise, go back to the previous step and try again. Hint: \(f(x) = -x\) and \(h(x) = x\) are the wrong choices.
+
+  \item The piecewise nature of \(f(x)\) and \(h(x)\) forces us to show \(f(x) \le x \sin(1/x) \le h(x)\) in two steps. \updatenote{"g(x)" corrected to "h(x)" to match the upper bound named in the steps below.}
+    \begin{enumerate}
+      \item Show that \(f(x) \le x \sin\left(\frac{1}{x}\right) \le h(x)\) \hlwarn{for \(x \ge 0\)}.
+
+        \blanklines{10}
+
+      \item Show that \(f(x) \le x \sin\left(\frac{1}{x}\right) \le h(x)\) \hlwarn{for \(x < 0\)}.
+
+        \blanklines{10}
+    \end{enumerate}
+
+  \item Apply the Squeeze Theorem to finish evaluating the limit.
+
+    \blanklines{4}
+\end{enumerate}
+\clearpage
+
+\includestandalone[width=2in]{../standalones/plot_squeeze}
+
+\textbf{Approach (B).} To avoid dealing with piecewise functions, we can calculate two one-sided limits.
+
+\begin{enumerate}[wide]
+  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{-}} x \sin(1/x)\).
+
+    \blanklines{20}
+
+  \item Use the Squeeze Theorem to evaluate \(\lim_{x \to 0^{+}} x \sin(1/x)\). \updatenote{Second limit corrected from \(0^{-}\) to \(0^{+}\) so the two one-sided limits are actually different.}
+
+    \blanklines{20}
+
+  \item The two one-sided limits should have the same value. Conclude that \(\lim_{x \to 0} x \sin(1/x) = \underline{\hspace{1cm}}\).
+\end{enumerate}
+\end{exercise}
+
+The next exercises are direct application of the squeeze theorem. No need to choose an upper and a lower bound for \(g(x)\) because they are already given. \updatenote{"an lower" corrected to "a lower".} It is more of a ``do I remember the statement of the squeeze theorem?'' type of exercise.
+\begin{exercise} \label{ex:limit-squeeze-easy}
+  Suppose \(x+1 \le g(x) \le x^{3} - 2x + 3\). Find \(\lim_{x \to 1} g(x)\).
+
+  \blanks*
+\end{exercise}
+
+This requires a combination of the techniques from Exercise~\ref{ex:limit-law-x-square-sin(x)} and the one above.
+\begin{exercise}[Midterm, Fall 2024]
+  Evaluate \(\lim_{x \to 0} f(x)\) given that \(0 \le f(x) \le |x \sin(1/x)|\) for all \(x\).
+
+  \blanks*
+\end{exercise}
+\clearpage
+\end{document}

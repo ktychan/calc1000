@@ -14,17 +14,17 @@
 %
 % \blanklines{5}
 
-\faLightbulb{} Limits at infinity \(\lim_{x \to \infty} f(x)\) are defined using the idea for limits at a number \(\lim_{x \to a} f(x)\). \updatenote{"is defined" corrected to "are defined" to agree with the plural "Limits".}
+\faLightbulb{} Limits at infinity \(\lim_{x \to \infty} f(x)\) are defined using the same idea as limits at a number \(\lim_{x \to a} f(x)\).
 
 \begin{example}
   Consider the following functions.
 
   \centerline{
-    \includestandalone[page=4]{../standalones/plot-limit-intro}
+    \includestandalone[page=23]{../standalones/plot-limit-intro}
     \qquad
-    \includestandalone[page=5]{../standalones/plot-limit-intro}
+    \includestandalone[page=24]{../standalones/plot-limit-intro}
     \qquad
-    \includestandalone[page=6]{../standalones/plot-limit-intro}
+    \includestandalone[page=25]{../standalones/plot-limit-intro}
   }
 
   Estimate the following values graphically:
@@ -49,11 +49,11 @@
   \bigskip
 
   \centerline{
-    \includestandalone[page=7]{../standalones/plot-limit-intro}
+    \includestandalone[page=26]{../standalones/plot-limit-intro}
     \qquad
-    \includestandalone[page=8]{../standalones/plot-limit-intro}
+    \includestandalone[page=27]{../standalones/plot-limit-intro}
     \qquad
-    \includestandalone[page=9]{../standalones/plot-limit-intro}
+    \includestandalone[page=28]{../standalones/plot-limit-intro}
   }
 
   Estimate the following values graphically:
@@ -82,7 +82,7 @@
 
   \textbook{page 408}
 \end{definition}
-The quickest way to determine horizontal asymptotes of transcendental functions (trigs, inverse trigs, \(e^{x}\) and \(\ln(x)\)) is by graphing them.
+The quickest way to determine horizontal asymptotes of transcendental functions (trigs, inverse trigs, \(e^{x}\) and \(\ln(x)\)) is to graph them.
 
 \clearpage
 \begin{exercise}
@@ -99,7 +99,7 @@ The quickest way to determine horizontal asymptotes of transcendental functions 
         \includestandalone[page=1]{../standalones/plot_limit_at_infinity_exercise}
       \end{center}
 
-    \item has no limit at either infinity, and \(\lim_{x \to -\infty} f_{3}(x)\) is not an infinity. \updatenote{"has no limits at both infinities" corrected to "has no limit at either infinity".}
+    \item has no limit at either infinity, and \(\lim_{x \to -\infty} f_{3}(x)\) is not \(\pm\infty\).
     \item has exactly one horizontal asymptote.
 
       \begin{center}
@@ -121,7 +121,7 @@ The quickest way to determine horizontal asymptotes of transcendental functions 
 \end{exercise}
 \clearpage
 
-We now evaluate limits at infinity.  We need the following facts coming from relevant graphs.
+We now evaluate limits at infinity. The following facts all come from the graphs of these functions.
 
 \begin{mdframed}[style=simple-compact]
 
@@ -137,7 +137,12 @@ We now evaluate limits at infinity.  We need the following facts coming from rel
   \)
 \end{mdframed}
 
-All limit laws apply to limits at infinity, but we often need to reorganize functions by \hlmain{factoring out its dominant (fastest growing) terms}. This technique is called \hlmain{analyzing dominant terms}. There are three possible scenarios as demonstrated by Examples~\ref{eg:dom-term-intro-constant}, \ref{eg:dom-term-intro-zero} and \ref{eg:dom-term-intro-infinity}.
+\label{page:limits-at-infinity-strategy}
+All limit laws apply to limits at infinity, but we often need to reorganize functions by \hlmain{factoring out their dominant (fastest-growing) terms}. This technique is called \hlmain{analyzing dominant terms}. There are three possible scenarios as demonstrated by Examples~\ref{eg:dom-term-intro-constant}, \ref{eg:dom-term-intro-zero} and \ref{eg:dom-term-intro-infinity}.
+
+% \begin{center}
+%   \includestandalone[page=1]{../standalones/mindmap-limit-at-infinity}
+% \end{center}
 
 % \begin{example}
 %   \(\lim_{x \to \infty} \frac{e^{x} + x^{2} - 1}{x^{2} + 1} = \underline{\hspace{1cm}}\) and \(\lim_{x \to \infty} \frac{x^{2} + 1}{e^{x} + x^{2} - 1} = \underline{\hspace{1cm}}\).
@@ -156,11 +161,10 @@ All limit laws apply to limits at infinity, but we often need to reorganize func
 \end{example}
 
 \begin{example}\label{eg:dom-term-intro-infinity}
-  Evaluate \(\lim_{x \to \infty} \frac{x}{\sqrt{2x-1} + \sqrt[3]{x}}\).
+  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{2x-1} + \sqrt[3]{x}}{\sqrt[4]{x}}\).
 
   \blanklines{8}
 \end{example}
-\updatenote{Numerator and denominator were swapped (was \(\frac{\sqrt{2x-1}+\sqrt[3]{x}}{x}\)); as originally written the dominant term on top grows like \(x^{1/2}\) against \(x^{1}\) on the bottom, so the limit was \(0\), not \(\infty\) as this example's label indicates.}
 \clearpage
 
 

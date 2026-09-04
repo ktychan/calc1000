@@ -1,0 +1,1028 @@
+%! TeX program = lualatex
+% Thirteen pages: the whole map, then twelve layers of it -- the two-sided
+% limit branch, the first decision, the 0/0 case, the nonzero/0 case, the
+% evaluation techniques, the continuity branch, the continuous-or-not
+% decision, the continuity test, why substitution works, the discontinuous
+% branch, where an infinite discontinuity comes from, and the two limit
+% branches together.  Each page is trimmed to
+% its own content, and each layer places its nodes exactly where page 1
+% puts them, so the pages still read as views of one drawing.
+% The quarter-turn print variant of page 1 lives in
+% mindmap-limits-big.tex.  `multi' is what
+% makes each mmpage a page of its own -- the [tikz] option would do that for a
+% bare tikzpicture, but it leaves the picture ungrouped and \resizebox below
+% then fails with a missing \endgroup.
+\documentclass[multi=mmpage]{standalone}
+\input{../typography.tex.preamble}
+
+% DO NOT use the tikz preamble: its `basic curve' styles pull in pgfplots, and
+% enabling `trig format=rad' there makes this picture die with a dimension too
+% large error.
+% \input{../tikz.tex.preamble}
+\usepackage{graphicx}   % for \resizebox; no image is read any more
+\usepackage{tikz}
+
+\usetikzlibrary{mindmap, backgrounds, calc}
+
+% The "substitution just works" case.  WesternSpring on its own is a neon
+% lime; muting it through grey keeps it in the palette without shouting.
+\colorlet{substcase}{WesternSpring!55!gray!45}
+% Same hue at full strength, for the arrow joining two substcase nodes.
+\colorlet{substline}{WesternSpring!55!gray}
+% Both one-sided limits exist.  WesternSky neat is a neon cyan, so mute it
+% through grey the same way.
+\colorlet{bothexist}{WesternSky!60!gray!45}
+% The named theorems the map tells you to reach for -- the Intermediate
+% Value Theorem and Squeeze.  They sit in different branches, so a colour of
+% their own is what marks them as the same kind of thing: a theorem you
+% invoke, rather than a case in somebody's decision tree.
+\colorlet{namedthm}{blue!20}
+
+% Connector labels.  Neutral and italic rather than coloured: the node fills
+% already carry the colour coding, and `attn' gold went muddy beside them.
+\colorlet{decision}{black!60}
+
+\newenvironment{mmpage}{}{}
+
+% Second line of a concept label.  Formulas stay in \displaystyle, as
+% \everymath sets course-wide, so \lim subscripts sit underneath: the circles
+% below are sized to allow for that.
+\newcommand{\sub}[1]{\\[0.3ex]{\scriptsize\(#1\)}}
+\newcommand{\note}[1]{\\[0.1ex]{\tiny #1}}
+
+% The mindmap library gives a level-2 concept 1.5cm
+% of text width and a level-3 one just 1cm, which hyphenates single words like
+% remov-able and Inter-mediate.  Widen them, and keep the manual line breaks
+% short enough to fit what is set here.
+\tikzset{
+  mindmap base/.style={
+    mindmap,
+    grow cyclic,
+    concept color=gray!20,
+    every child node/.style={concept, minimum size=1.4cm, text width=1.7cm,
+                             align=center, font=\scriptsize},
+  },
+  % Connector labels.  `mindmap' hands every node a large minimum size; that is
+  % harmless when a label is centred on a point, but an edge-anchored one ends
+  % up centimetres off its bar unless the box is shrunk back to its text.
+  barlabel/.style={font=\footnotesize\itshape, text=decision, align=center,
+                   inner sep=2pt, minimum size=0pt,
+                   minimum width=0pt, minimum height=0pt},
+}
+
+% The level distances and sibling angles page 1 draws with.  Every layer
+% lifted from it is drawn with the same ones, so a node cannot land
+% anywhere but where page 1 puts it.
+\tikzset{
+  map levels/.style={
+    mindmap base,
+    level 1/.append style={level distance=5.5cm, sibling angle=120},
+    level 2/.append style={level distance=4cm, sibling angle=60},
+    level 3/.append style={level distance=3.6cm, sibling angle=44},
+  },
+  % A layer with `dirsub' for its own root: what page 1 sets for levels 2
+  % and 3 is set here for levels 1 and 2.  Split in two so a layer that
+  % draws this subtree beside another one can put just the levels in a
+  % scope of their own.
+  technique levels/.style={
+    level 1/.append style={level distance=4cm, sibling angle=60},
+    level 2/.append style={level distance=4.2cm, sibling angle=40},
+  },
+  extract levels/.style={mindmap base, technique levels},
+  % Likewise with `conttest' for the root.  The 2.1cm is what page 1's
+  % continuity branch sets for everything in it, and it belongs in a scope
+  % around the tree rather than on the whole picture: the connector labels
+  % break their own lines and must not be given a text width.
+  continuity levels/.style={
+    every node/.append style={text width=2.1cm},
+    level 1/.append style={level distance=5cm, sibling angle=50},
+    level 2/.append style={level distance=3.6cm, sibling angle=52},
+  },
+}
+
+% Two things about the angles on every page.
+%
+% (1) A `clockwise from' given to the root's children leaks down to every
+%     deeper level, so without a correction every node's children fan in the
+%     same absolute direction instead of pointing outward.  Each node
+%     therefore restates its own fan, in the path right after it -- in a
+%     child's option list the key would instead re-aim that child itself.
+%     The value is (parent angle) - (children - 1) * (sibling angle) / 2.
+%
+% (2) Level distances and sibling angles differ per subtree, so they are set
+%     in each child's option list, where they propagate down that subtree.
+
+\begin{document}
+% ===================================================================
+%  Page 1 -- limits at a number
+% ===================================================================
+\begin{mmpage}
+% The guided notes want a 7in-wide graphic (mindmap-integration.pdf is 7.3in).
+% The picture is drawn wider than that and scaled down to fit, so keep labels
+% short: at this size every extra line of text costs legibility.
+\resizebox{7in}{!}{%
+\begin{tikzpicture}[map levels]
+  % Branches at 135, 45, -45, -135.  Continuity sits next to direct
+  % substitution so the cross-connection between them stays short.
+  % The number line is a nested tikzpicture inside the root's label: no tick
+  % labels, one dot at a, and the axis tip named x.
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    child [concept color=gray!20,
+           every node/.append style={text width=2.1cm},
+           level 2/.append style={level distance=5cm, sibling angle=50},
+           level 3/.append style={level distance=3.6cm, sibling angle=52}] { 
+      % Wide enough to keep the test on one line -- a node option beats the
+      % 2.1cm this subtree sets for everything below it.
+      node [minimum size=3.2cm, text width=3.4cm, font=\footnotesize] (conttest)
+        {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+      [counterclockwise from=75]
+      child [concept color=substcase] { 
+        node (yes) {continuous}
+        [counterclockwise from=65]
+        child [concept color=namedthm] { node (ivt) {Intermediate\\Value Theorem} }
+        child { node (families) [text width=2.6cm] {can use direct\\substitution\note{to evaluate limits of\\polynomials, rational,\\trigs, \(e^{x}\), \(\ln(x)\)\\in their domain}} }
+      }
+      child { node (leftcont) [minimum size=2.2cm, text width=2.4cm]
+        {left-continuous\note{\(\lim_{x \to a^{-}} f(x) \overset{?}{=} f(a)\)}} }
+      child { node (rightcont) [minimum size=2.2cm, text width=2.4cm]
+        {right-continuous\note{\(\lim_{x \to a^{+}} f(x) \overset{?}{=} f(a)\)}} }
+      child [concept color=gray!20,
+             level 3/.append style={level distance=5.2cm, sibling angle=40}] { 
+        node (no) {discontinuous\note{calculate both\\one-sided limits}}
+        [counterclockwise from=187]
+        % Cyan for the two cases where both one-sided limits exist -- not gold,
+        % which is the connector-label colour.  The infinite case keeps the
+        % pink it shares with nonzero/0.
+        child [concept color=bothexist] { node (removable) {removable} }
+        child [concept color=bothexist] { node (jump) {jump} }
+        child [concept color=pink!50] { node (infinite) [text width=2.6cm]
+          {infinite and \(f\) has\\a vertical\\asymptote at \(a\)} }
+      }
+    }
+    % Pushed further out than its siblings: the bar into it carries a
+    % two-line label, and the techniques hanging off it need the room.
+    child [concept color=gray!20, level distance=5.5cm,
+           level 3/.append style={level distance=4.2cm, sibling angle=40}] { 
+      node [minimum size=2.4cm, text width=2.2cm, font=\footnotesize] (dirsub)
+        {try direct\\substitution\note{is the denominator \(0\)?}}
+      [counterclockwise from=-90]
+      % Squeeze hangs off `try direct substitution' itself rather than off
+      % 0/0.  It goes first, so the fan starts one sibling angle earlier
+      % (-90 rather than -30) and the three cases keep the angles page 1
+      % gives them; its own level distance puts it within 0.3cm of where
+      % it sat as a grandchild, and `missing' holds its old place there.
+      child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+      child [concept color=supp!20] { 
+        node (zerozero) {\(\frac{0}{0}\)}
+        % Four children now, and the fan is swung well below this node's own
+        % direction so the last of them clears the nonzero/0 subtree above.
+        [counterclockwise from=-139]
+        child [missing]
+        child { node (cov) {change of\\variable} }
+        child { node (rationalize) {rationalize} }
+        child { node (factor) {factor} }
+        % Its own colour, reserved for differentiation elsewhere in the notes.
+        child [concept color=main!25] { node (deriv) [text width=2.2cm]
+          {recognize as\\a derivative} }
+      }
+      % Pink to pair it with the infinite discontinuity the arrow points at.
+      child [concept color=pink!50,
+             level 3/.append style={level distance=5.2cm}] { 
+        node (constzero) {\(\frac{\text{nonzero}}{0}\)}
+        [counterclockwise from=10]
+        child { node (differ) {limit does\\not exist} }
+        child { node (agree) {\(+\infty\) or \(-\infty\)} }
+      }
+      child [concept color=substcase] { node (algno) [text width=2.1cm]
+          {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    }
+    child [concept color=gray!20,
+           level 2/.append style={level distance=5cm}] { 
+      node (twosided) [minimum size=2.2cm, text width=2.3cm]
+        {two-sided limit\sub{\lim_{x \to a} f(x)}}
+      [counterclockwise from=-150]
+      child { node (leftlim) [minimum size=2.2cm, text width=2.3cm]
+        {left limit at \(a\)\sub{\lim_{x \to a^{-}} f(x)}} }
+      child { node (rightlim) [minimum size=2.2cm, text width=2.3cm]
+        {right limit at \(a\)\sub{\lim_{x \to a^{+}} f(x)}} }
+      child [concept color=supp!20] { node (known) [text width=2cm]
+        {well-known\\limits} }
+    }
+    ;
+
+
+  % Rides the bar into Squeeze the way the other decisions ride theirs.
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+
+  \node [concept color=white, annotation, text width=, right,
+         font=\scriptsize, align=center] at (known.east)
+    % `aligned' rather than `align*': a display environment inside a TikZ node
+    % dies with a missing \endgroup.  \everymath is \displaystyle, so this
+    % sets exactly as align* would.
+    {\(\begin{aligned}
+       \lim_{x \to 0} \frac{\sin(x)}{x} &= 1\\
+       \lim_{x \to 0} \frac{\cos(x) - 1}{x} &= 0\\
+       \lim_{x \to 0} \frac{e^{x} - 1}{x} &= 1\\
+       \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^{x} &= e
+     \end{aligned}\)};
+
+  \node [concept color=white, annotation, right, text width=4.2cm,
+         font=\scriptsize, align=left] at (ivt.east)
+    {IVT applies to continuous function over \([a,b]\) and \(f(a) \ne f(b)\)};
+
+  % Labels riding the bars into a branch, rather than sitting in it as one
+  % more node.  All of them are decisions or instructions, so they share the
+  % `attn' colour and read as a layer distinct from the concept names.
+  % In the foreground, not on the arrow's own path: the arrow is drawn on the
+  % background layer, so a label riding it disappears under the nodes it passes.
+  \node [barlabel, align=left, anchor=west]
+    at ([shift={(0.35cm,0)}]$(cov)!0.5!(known)$) {in some cases,\\we use \dots};
+  \node [barlabel] at ($(no)!0.5!(removable)$)
+    {both exist and agree,\\but \(\ne f(a)\)};
+  \node [barlabel] at ($(no)!0.5!(jump)$) {both exist\\but disagree};
+  \node [barlabel] at ($(no)!0.5!(infinite)$)
+    {one of them\\is \(\pm\infty\)};
+  \node [barlabel] at ($(constzero)!0.5!(agree)$)
+    {one-sided\\limits agree};
+  \node [barlabel] at ($(constzero)!0.5!(differ)$)
+    {one-sided\\limits disagree};
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+  \node [barlabel] at ($(root)!0.5!(dirsub)$) {calculations uses\\limit laws};
+
+
+
+
+  % Nudged clear of the connection it labels -- the label sits on the main
+  % layer and the bar below it is saturated, so text straight on top of it
+  % would not read.
+  \node [barlabel, anchor=south]
+    at ($(conttest)!0.5!(dirsub)$) {testing for continuity\\uses these techniques};
+
+  % The two decision trees reach the same place by different routes.
+  \begin{pgfonlayer}{background}
+    \draw [concept connection, substline, ->, >=stealth, shorten >=4pt]
+      (algno) edge (yes);
+    % Directed: continuity is what borrows the techniques, not the other way
+    % round.  Shortened so the head clears the concept's blob outline.  Drawn
+    % in the root's own grey, so it reads as part of the map's spine rather
+    % than as one of the coloured cross-links.
+    \draw [concept connection, gray!20, ->, >=stealth, shorten >=4pt]
+      (conttest) edge (dirsub);
+    \draw [concept connection, supp!60, ->, >=stealth, shorten >=4pt]
+      (cov) edge (known);
+    % A circular arc, bowed away from the root so it threads the gap between
+    % the root and its branches.  No heads, to match the other plain link.
+    \draw [concept connection, pink]
+      (constzero.south) to [bend left=20] (infinite);
+  \end{pgfonlayer}
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 2 -- the two-sided limit layer: the root, the branch that
+%  defines the limit, and the two one-sided limits under it.
+%
+%  Only the root's third branch is drawn, so the fan starts at that
+%  branch's own angle instead of at 150: with a single child, `clockwise
+%  from=150' would put it where the first branch goes.  Everything else is
+%  page 1's code unchanged.
+% ===================================================================
+\newcommand{\twosidedlayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=-90]
+    child [concept color=gray!20,
+           level 2/.append style={level distance=5cm}] { 
+      node (twosided) [minimum size=2.2cm, text width=2.3cm]
+        {two-sided limit\sub{\lim_{x \to a} f(x)}}
+      [counterclockwise from=-150]
+      child { node (leftlim) [minimum size=2.2cm, text width=2.3cm]
+        {left limit at \(a\)\sub{\lim_{x \to a^{-}} f(x)}} }
+      child { node (rightlim) [minimum size=2.2cm, text width=2.3cm]
+        {right limit at \(a\)\sub{\lim_{x \to a^{+}} f(x)}} }
+    % Page 1's third child here is `well-known limits'; this layer stops at
+    % the two one-sided limits, and being the last child it can simply go.
+    }
+    ;
+
+}
+
+\begin{mmpage}
+\resizebox{1.830in}{!}{%
+\begin{tikzpicture}[map levels]
+  \twosidedlayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 3 -- the first decision: the root, `try direct substitution', and
+%  what hangs off it -- the three cases the denominator can fall into, and
+%  Squeeze.  What to do about each
+%  is page 4.
+%
+%  Same one-branch trick as page 2, aimed at the second branch (30).  The
+%  three cases keep the colours and the fan page 1 gives them; only their
+%  own children are left out.
+% ===================================================================
+\newcommand{\firstdecisionlayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=30]
+    child [concept color=gray!20, level distance=5.5cm,
+           level 3/.append style={level distance=4.2cm, sibling angle=40}] { 
+      node [minimum size=2.4cm, text width=2.2cm, font=\footnotesize] (dirsub)
+        {try direct\\substitution\note{is the denominator \(0\)?}}
+      % Squeeze is a child of `try direct substitution' too, so the fan
+      % starts one sibling angle earlier and it takes the first place, as
+      % on page 1.
+      [counterclockwise from=-90]
+      child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+      child [concept color=supp!20] { node (zerozero) {\(\frac{0}{0}\)} }
+      child [concept color=pink!50] { node (constzero)
+        {\(\frac{\text{nonzero}}{0}\)} }
+      child [concept color=substcase] { node (algno) [text width=2.1cm]
+          {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    }
+    ;
+
+  \node [barlabel] at ($(root)!0.5!(dirsub)$) {calculations uses\\limit laws};
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+}
+
+\begin{mmpage}
+\resizebox{2.707in}{!}{%
+\begin{tikzpicture}[map levels]
+  \firstdecisionlayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+
+% ===================================================================
+%  Page 4 -- the 0/0 layer: `try direct substitution' with all its
+%  children, and the one case that needs work opened up: the five ways of
+%  doing it and the link from
+%  the change of variable to the well-known limits, listed as page 1 lists
+%  them.  The other two cases arrive on pages 5 and 6.
+%
+%  Drawn like the techniques layer, with `dirsub' as its own root at the
+%  point page 1 puts it, and the same fan for the 0/0 subtree, so this
+%  page registers with page 1.
+% ===================================================================
+\newcommand{\zerozerolayer}{%
+  \node [concept, minimum size=2.4cm, text width=2.2cm, align=center,
+         font=\footnotesize] (dirsub) at (30:5.5cm)
+    {try direct\\substitution\note{is the denominator \(0\)?}}
+    [counterclockwise from=-90]
+    % Squeeze hangs off `try direct substitution' itself rather than off
+    % 0/0.  It goes first, so the fan starts one sibling angle earlier
+    % (-90 rather than -30) and the three cases keep the angles page 1
+    % gives them; its own level distance puts it within 0.3cm of where
+    % it sat as a grandchild, and `missing' holds its old place there.
+    child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+    child [concept color=supp!20] { 
+      node (zerozero) {\(\frac{0}{0}\)}
+      % Four children now, and the fan is swung well below this node's own
+      % direction so the last of them clears the nonzero/0 subtree above.
+      [counterclockwise from=-139]
+      child [missing]
+      child { node (cov) {change of\\variable} }
+      child { node (rationalize) {rationalize} }
+      child { node (factor) {factor} }
+      % Its own colour, reserved for differentiation elsewhere in the notes.
+      child [concept color=main!25] { node (deriv) [text width=2.2cm]
+        {recognize as\\a derivative} }
+    }
+    % The other two cases, in their page 1 places and colours but without
+    % their own subtrees: this layer is about what 0/0 leads to, and they
+    % are here to show it is one case of three.
+    child [concept color=pink!50] { node (constzero)
+      {\(\frac{\text{nonzero}}{0}\)} }
+    child [concept color=substcase] { node (algno) [text width=2.1cm]
+        {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    ;
+
+
+  % Rides the bar into Squeeze the way the other decisions ride theirs.
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+
+  % Off the tree: on page 1 this hangs from the two-sided branch, which is
+  % not part of this layer, so it is placed at the point that branch would
+  % put it and drawn with the styling `every child node' would have given it.
+  \node [concept color=supp!20, concept, minimum size=1.4cm, text width=2cm,
+         align=center, font=\scriptsize] (known)
+    at ($(-90:5.5cm)+(-30:5cm)$) {well-known\\limits};
+
+  \node [concept color=white, annotation, text width=, right,
+         font=\scriptsize, align=center] at (known.east)
+    % `aligned' rather than `align*': a display environment inside a TikZ node
+    % dies with a missing \endgroup.  \everymath is \displaystyle, so this
+    % sets exactly as align* would.
+    {\(\begin{aligned}
+       \lim_{x \to 0} \frac{\sin(x)}{x} &= 1\\
+       \lim_{x \to 0} \frac{\cos(x) - 1}{x} &= 0\\
+       \lim_{x \to 0} \frac{e^{x} - 1}{x} &= 1\\
+       \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^{x} &= e
+     \end{aligned}\)};
+
+  % In the foreground, not on the arrow's own path: the arrow is drawn on
+  % the background layer, so a label riding it disappears under the nodes it
+  % passes.
+  \node [barlabel, align=left, anchor=west]
+    at ([shift={(0.35cm,0)}]$(cov)!0.5!(known)$) {in some cases,\\we use \dots};
+
+  \begin{pgfonlayer}{background}
+    \draw [concept connection, supp!60, ->, >=stealth, shorten >=4pt]
+      (cov) edge (known);
+  \end{pgfonlayer}
+}
+
+\begin{mmpage}
+\resizebox{2.537in}{!}{%
+\begin{tikzpicture}[extract levels]
+  \zerozerolayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 5 -- the nonzero/0 layer: `try direct substitution' with all its
+%  children -- the three cases and Squeeze -- and the case that ends in an
+%  infinity worked out.  The 0/0
+%  case keeps its place in the fan but not its own subtree, which is pages
+%  6 and 7.
+%
+%  Drawn like the other techniques layers, with `dirsub' as its own root at
+%  the point page 1 puts it, so this page registers with page 1.
+% ===================================================================
+\newcommand{\nonzerolayer}{%
+  \node [concept, minimum size=2.4cm, text width=2.2cm, align=center,
+         font=\footnotesize] (dirsub) at (30:5.5cm)
+    {try direct\\substitution\note{is the denominator \(0\)?}}
+    % Squeeze is a child of `try direct substitution' too, so the fan starts
+    % one sibling angle earlier and it takes the first place, as on page 1.
+    [counterclockwise from=-90]
+    child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+    child [concept color=supp!20] { node (zerozero) {\(\frac{0}{0}\)} }
+    % Pink on page 1 to pair it with the infinite discontinuity its arc
+    % points at.  That arc is not in this layer, but the colour stays.
+    child [concept color=pink!50,
+           level 2/.append style={level distance=5.2cm}] { 
+      node (constzero) {\(\frac{\text{nonzero}}{0}\)}
+      [counterclockwise from=10]
+      child { node (differ) {limit does\\not exist} }
+      child { node (agree) {\(+\infty\) or \(-\infty\)} }
+    }
+    child [concept color=substcase] { node (algno) [text width=2.1cm]
+        {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    ;
+
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+  \node [barlabel] at ($(constzero)!0.5!(agree)$)
+    {one-sided\\limits agree};
+  \node [barlabel] at ($(constzero)!0.5!(differ)$)
+    {one-sided\\limits disagree};
+}
+
+\begin{mmpage}
+\resizebox{2.771in}{!}{%
+\begin{tikzpicture}[extract levels]
+  \nonzerolayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 6 -- the evaluation techniques on their own: the `try
+%  direct substitution' subtree of page 1, lifted out of the full map, with
+%  the 0/0 case worked out.  The other two cases keep their places in the
+%  fan but not their own subtrees, which are page 5; the well-known limits
+%  this one can feed into are page 4.
+%
+%  Every node keeps the position page 1 gives it, measured from that
+%  page's root, so this layer registers with page 1 like the others do.
+%  That is why the subtree is not simply re-rooted: `dirsub' is placed
+%  by hand at the root's second branch (clockwise from 150, so 30 degrees
+%  out, at the 5.5cm level-1 distance).  The root itself is not drawn here.
+%
+%  Levels shift up by one once `dirsub' is the root, so what page 1 sets
+%  for levels 2 and 3 is set here for levels 1 and 2.  Node sizes do not
+%  shift with them: `every child node' in `mindmap base' pins those for
+%  every level alike.
+% ===================================================================
+\newcommand{\techniqueslayer}{%
+  \node [concept, minimum size=2.4cm, text width=2.2cm, align=center,
+         font=\footnotesize] (dirsub) at (30:5.5cm)
+    {try direct\\substitution\note{is the denominator \(0\)?}}
+    [counterclockwise from=-90]
+    % Squeeze hangs off `try direct substitution' itself rather than off
+    % 0/0.  It goes first, so the fan starts one sibling angle earlier
+    % (-90 rather than -30) and the three cases keep the angles page 1
+    % gives them; its own level distance puts it within 0.3cm of where
+    % it sat as a grandchild, and `missing' holds its old place there.
+    child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+    child [concept color=supp!20] { 
+      node (zerozero) {\(\frac{0}{0}\)}
+      % Four children now, and the fan is swung well below this node's own
+      % direction so the last of them clears the nonzero/0 subtree above.
+      [counterclockwise from=-139]
+      child [missing]
+      child { node (cov) {change of\\variable} }
+      child { node (rationalize) {rationalize} }
+      child { node (factor) {factor} }
+      % Its own colour, reserved for differentiation elsewhere in the notes.
+      child [concept color=main!25] { node (deriv) [text width=2.2cm]
+        {recognize as\\a derivative} }
+    }
+    % Pink on page 1 to pair it with the infinite discontinuity its arc
+    % points at.  That arc is not in this extract, but the colour stays:
+    % the two drawings are meant to be read against each other.
+    child [concept color=pink!50] { node (constzero)
+      {\(\frac{\text{nonzero}}{0}\)} }
+    child [concept color=substcase] { node (algno) [text width=2.1cm]
+        {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    ;
+
+  % Rides the bar into Squeeze the way the other decisions ride theirs.
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+
+}
+
+\begin{mmpage}
+\resizebox{2.398in}{!}{%
+\begin{tikzpicture}[extract levels]
+  \techniqueslayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 7 -- the continuity layer: the root and the whole
+%  `continuity at a' branch, with the graphs and the IVT note that hang
+%  off it on page 1.
+% ===================================================================
+\newcommand{\continuitylayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    child [concept color=gray!20,
+           every node/.append style={text width=2.1cm},
+           level 2/.append style={level distance=5cm, sibling angle=50},
+           level 3/.append style={level distance=3.6cm, sibling angle=52}] { 
+      % Wide enough to keep the test on one line -- a node option beats the
+      % 2.1cm this subtree sets for everything below it.
+      node [minimum size=3.2cm, text width=3.4cm, font=\footnotesize] (conttest)
+        {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+      [counterclockwise from=75]
+      child [concept color=substcase] { 
+        node (yes) {continuous}
+        [counterclockwise from=65]
+        child [concept color=namedthm] { node (ivt) {Intermediate\\Value Theorem} }
+        child { node (families) [text width=2.6cm] {can use direct\\substitution\note{to evaluate limits of\\polynomials, rational,\\trigs, \(e^{x}\), \(\ln(x)\)\\in their domain}} }
+      }
+      child { node (leftcont) [minimum size=2.2cm, text width=2.4cm]
+        {left-continuous\note{\(\lim_{x \to a^{-}} f(x) \overset{?}{=} f(a)\)}} }
+      child { node (rightcont) [minimum size=2.2cm, text width=2.4cm]
+        {right-continuous\note{\(\lim_{x \to a^{+}} f(x) \overset{?}{=} f(a)\)}} }
+      child [concept color=gray!20,
+             level 3/.append style={level distance=5.2cm, sibling angle=40}] { 
+        node (no) {discontinuous\note{calculate both\\one-sided limits}}
+        [counterclockwise from=187]
+        % Cyan for the two cases where both one-sided limits exist -- not gold,
+        % which is the connector-label colour.  The infinite case keeps the
+        % pink it shares with nonzero/0.
+        child [concept color=bothexist] { node (removable) {removable} }
+        child [concept color=bothexist] { node (jump) {jump} }
+        child [concept color=pink!50] { node (infinite) [text width=2.6cm]
+          {infinite and \(f\) has\\a vertical\\asymptote at \(a\)} }
+      }
+    }
+    ;
+
+  \node [concept color=white, annotation, right, text width=4.2cm,
+         font=\scriptsize, align=left] at (ivt.east)
+    {IVT applies to continuous function over \([a,b]\) and \(f(a) \ne f(b)\)};
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+
+  \node [barlabel] at ($(no)!0.5!(removable)$)
+    {both exist and agree,\\but \(\ne f(a)\)};
+  \node [barlabel] at ($(no)!0.5!(jump)$) {both exist\\but disagree};
+  \node [barlabel] at ($(no)!0.5!(infinite)$)
+    {one of them\\is \(\pm\infty\)};
+
+}
+
+\begin{mmpage}
+\resizebox{4.371in}{!}{%
+\begin{tikzpicture}[map levels]
+  \continuitylayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 8 -- the answer to the continuity test: the root, `continuity
+%  at a', and the two answers it can have.  The one-sided tests that sit
+%  between them are page 9, and what each answer leads to is on the pages
+%  around it.
+%
+%  `missing' holds the places of those two tests, so `continuous' and
+%  `discontinuous' fan out at page 1's angles.
+% ===================================================================
+\newcommand{\continuityanswerlayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    child [concept color=gray!20,
+           every node/.append style={text width=2.1cm},
+           level 2/.append style={level distance=5cm, sibling angle=50},
+           level 3/.append style={level distance=3.6cm, sibling angle=52}] { 
+      % Wide enough to keep the test on one line -- a node option beats the
+      % 2.1cm this subtree sets for everything below it.
+      node [minimum size=3.2cm, text width=3.4cm, font=\footnotesize] (conttest)
+        {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+      [counterclockwise from=75]
+      child [concept color=substcase] { node (yes) {continuous} }
+      % The two one-sided tests sit between them on page 1; `missing' keeps
+      % their places so `discontinuous' still lands on its own bar.
+      child [missing]
+      child [missing]
+      child [concept color=gray!20] { node (no)
+        {discontinuous\note{calculate both\\one-sided limits}} }
+    }
+    ;
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+
+}
+
+\begin{mmpage}
+\resizebox{2.732in}{!}{%
+\begin{tikzpicture}[map levels]
+  \continuityanswerlayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 9 -- the continuity test: the root, `continuity at a',
+%  and the four answers it can have.  What each answer leads to is on the
+%  pages around it.
+% ===================================================================
+\newcommand{\continuitytestlayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    child [concept color=gray!20,
+           every node/.append style={text width=2.1cm},
+           level 2/.append style={level distance=5cm, sibling angle=50},
+           level 3/.append style={level distance=3.6cm, sibling angle=52}] { 
+      % Wide enough to keep the test on one line -- a node option beats the
+      % 2.1cm this subtree sets for everything below it.
+      node [minimum size=3.2cm, text width=3.4cm, font=\footnotesize] (conttest)
+        {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+      [counterclockwise from=75]
+      child [concept color=substcase] { node (yes) {continuous} }
+      child { node (leftcont) [minimum size=2.2cm, text width=2.4cm]
+        {left-continuous\note{\(\lim_{x \to a^{-}} f(x) \overset{?}{=} f(a)\)}} }
+      child { node (rightcont) [minimum size=2.2cm, text width=2.4cm]
+        {right-continuous\note{\(\lim_{x \to a^{+}} f(x) \overset{?}{=} f(a)\)}} }
+      child [concept color=gray!20] { node (no)
+        {discontinuous\note{calculate both\\one-sided limits}} }
+    }
+    ;
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+
+}
+
+\begin{mmpage}
+\resizebox{3.167in}{!}{%
+\begin{tikzpicture}[map levels]
+  \continuitytestlayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 10 -- why substitution works: `continuity at a' and what
+%  a continuous function buys you, beside the one case of direct
+%  substitution that needs nothing further, and the arrow from that case
+%  to continuity.
+%
+%  Two subtrees with different level distances share this picture, so each
+%  is drawn in a scope of its own rather than the levels being set on the
+%  picture.
+% ===================================================================
+\newcommand{\substitutionworkslayer}{%
+  % `missing' children hold the places of the siblings this layer leaves
+  % out, so the ones it keeps fan out at page 1's angles without the start
+  % of the fan having to be recomputed.
+  \begin{scope}[continuity levels]
+  % `conttest' is this layer's root, placed where page 1 puts it: the first
+  % of the root's branches, 150 degrees out at the level-1 5.5cm.  The
+  % styling is what `every child node' gives it there, spelled out because
+  % it is no longer a child of anything.
+  \node [concept color=gray!20, concept, minimum size=3.2cm, text width=3.4cm,
+         align=center, font=\footnotesize] (conttest) at (150:5.5cm)
+    {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+    [counterclockwise from=75]
+    child [concept color=substcase] { 
+      node (yes) {continuous}
+      [counterclockwise from=65]
+      child [concept color=namedthm] { node (ivt) {Intermediate\\Value Theorem} }
+      child { node (families) [text width=2.6cm] {can use direct\\substitution\note{to evaluate limits of\\polynomials, rational,\\trigs, \(e^{x}\), \(\ln(x)\)\\in their domain}} }
+    }
+    ;
+  \end{scope}
+
+  \begin{scope}[technique levels]
+    \node [concept color=gray!20, concept, minimum size=2.4cm, text width=2.2cm,
+           align=center, font=\footnotesize] (dirsub) at (30:5.5cm)
+      {try direct\\substitution\note{is the denominator \(0\)?}}
+      [counterclockwise from=-30]
+      child [missing]
+      child [missing]
+      child [concept color=substcase] { node (algno) [text width=2.1cm]
+          {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+      ;
+  \end{scope}
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [concept color=white, annotation, right, text width=4.2cm,
+         font=\scriptsize, align=left] at (ivt.east)
+    {IVT applies to continuous function over \([a,b]\) and \(f(a) \ne f(b)\)};
+
+  % The two decision trees reach the same place by different routes.
+  \begin{pgfonlayer}{background}
+    \draw [concept connection, substline, ->, >=stealth, shorten >=4pt]
+      (algno) edge (yes);
+  \end{pgfonlayer}
+}
+
+\begin{mmpage}
+\resizebox{3.092in}{!}{%
+\begin{tikzpicture}[mindmap base]
+  \substitutionworkslayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 11 -- the discontinuous branch: `continuity at a', the
+%  answer that ends the question, and the three ways a function can fail
+%  to be continuous.
+% ===================================================================
+\newcommand{\discontinuouslayer}{%
+  \begin{scope}[continuity levels]
+  % `conttest' is this layer's root, placed where page 1 puts it: the first
+  % of the root's branches, 150 degrees out at the level-1 5.5cm.  The
+  % styling is what `every child node' gives it there, spelled out because
+  % it is no longer a child of anything.
+  \node [concept color=gray!20, concept, minimum size=3.2cm, text width=3.4cm,
+         align=center, font=\footnotesize] (conttest) at (150:5.5cm)
+    {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+    [counterclockwise from=75]
+    child [concept color=substcase] { node (yes) {continuous} }
+    % The two one-sided tests sit between them on page 1; `missing' keeps
+    % their places so `no' still lands on its own bar.
+    child [missing]
+    child [missing]
+    child [concept color=gray!20,
+           level 2/.append style={level distance=5.2cm, sibling angle=40}] { 
+      node (no) {discontinuous\note{calculate both\\one-sided limits}}
+      [counterclockwise from=187]
+      % Cyan for the two cases where both one-sided limits exist -- not gold,
+      % which is the connector-label colour.  The infinite case keeps the
+      % pink it shares with nonzero/0.
+      child [concept color=bothexist] { node (removable) {removable} }
+      child [concept color=bothexist] { node (jump) {jump} }
+      child [concept color=pink!50] { node (infinite) [text width=2.6cm]
+        {infinite and \(f\) has\\a vertical\\asymptote at \(a\)} }
+    }
+    ;
+  \end{scope}
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+  \node [barlabel] at ($(no)!0.5!(removable)$)
+    {both exist and agree,\\but \(\ne f(a)\)};
+  \node [barlabel] at ($(no)!0.5!(jump)$) {both exist\\but disagree};
+  \node [barlabel] at ($(no)!0.5!(infinite)$)
+    {one of them\\is \(\pm\infty\)};
+}
+
+\begin{mmpage}
+\resizebox{2.949in}{!}{%
+\begin{tikzpicture}[mindmap base]
+  \discontinuouslayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 12 -- where an infinite discontinuity comes from: the
+%  discontinuous branch of page 11 again, with `try direct substitution'
+%  and its nonzero/0 case beside it and the arc that joins the two.  It is
+%  the one place the map's two decision trees meet on the failing side.
+%
+%  Two subtrees with different level distances share this picture, so each
+%  is drawn in a scope of its own rather than the levels being set on the
+%  picture.
+% ===================================================================
+\newcommand{\infinitecaselayer}{%
+  \begin{scope}[continuity levels]
+  % `conttest' is this layer's root, placed where page 1 puts it: the first
+  % of the root's branches, 150 degrees out at the level-1 5.5cm.  The
+  % styling is what `every child node' gives it there, spelled out because
+  % it is no longer a child of anything.
+  \node [concept color=gray!20, concept, minimum size=3.2cm, text width=3.4cm,
+         align=center, font=\footnotesize] (conttest) at (150:5.5cm)
+    {continuity at \(a\)\sub{\lim_{x \to a} f(x) \overset{?}{=} f(a)}}
+    [counterclockwise from=75]
+    child [concept color=substcase] { node (yes) {continuous} }
+    % The two one-sided tests sit between them on page 1; `missing' keeps
+    % their places so `no' still lands on its own bar.
+    child [missing]
+    child [missing]
+    child [concept color=gray!20,
+           level 2/.append style={level distance=5.2cm, sibling angle=40}] { 
+      node (no) {discontinuous\note{calculate both\\one-sided limits}}
+      [counterclockwise from=187]
+      % Cyan for the two cases where both one-sided limits exist -- not gold,
+      % which is the connector-label colour.  The infinite case keeps the
+      % pink it shares with nonzero/0.
+      child [concept color=bothexist] { node (removable) {removable} }
+      child [concept color=bothexist] { node (jump) {jump} }
+      child [concept color=pink!50] { node (infinite) [text width=2.6cm]
+        {infinite and \(f\) has\\a vertical\\asymptote at \(a\)} }
+    }
+    ;
+  \end{scope}
+
+  % The other tree's root, placed where page 1 puts it: the second of the
+  % root's branches, 30 degrees out at the level-1 5.5cm.  `missing' holds
+  % the places of Squeeze and 0/0, so nonzero/0 keeps page 1's angle;
+  % `any number/nonzero', the last child, simply goes.
+  \begin{scope}[technique levels]
+    \node [concept color=gray!20, concept, minimum size=2.4cm, text width=2.2cm,
+           align=center, font=\footnotesize] (dirsub) at (30:5.5cm)
+      {try direct\\substitution\note{is the denominator \(0\)?}}
+      [counterclockwise from=-90]
+      child [missing]
+      child [missing]
+      child [concept color=pink!50] { node (constzero)
+        {\(\frac{\text{nonzero}}{0}\)} }
+      ;
+  \end{scope}
+
+  \node [barlabel] at ($(conttest)!0.5!(yes)$) {yes};
+  \node [barlabel] at ($(conttest)!0.5!(no)$) {no};
+  \node [barlabel] at ($(no)!0.5!(removable)$)
+    {both exist and agree,\\but \(\ne f(a)\)};
+  \node [barlabel] at ($(no)!0.5!(jump)$) {both exist\\but disagree};
+  \node [barlabel] at ($(no)!0.5!(infinite)$)
+    {one of them\\is \(\pm\infty\)};
+
+  % A circular arc, bowed away from the root so it threads the gap between
+  % the root and its branches.  No heads, to match page 1.
+  \begin{pgfonlayer}{background}
+    \draw [concept connection, pink]
+      (constzero.south) to [bend left=20] (infinite);
+  \end{pgfonlayer}
+}
+
+\begin{mmpage}
+\resizebox{5.750in}{!}{%
+\begin{tikzpicture}[mindmap base]
+  \infinitecaselayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+% ===================================================================
+%  Page 13 -- what a limit is and what to do with it: the root, the
+%  two-sided limit branch cut short of the well-known limits, and `try
+%  direct substitution' with its four children.
+%  Continuity, the root's first branch, is left out; `missing' holds its
+%  place so the other two fan out at page 1's angles.
+% ===================================================================
+\newcommand{\lawslayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=150]
+    child [missing]
+    child [concept color=gray!20, level distance=5.5cm,
+           level 3/.append style={level distance=4.2cm, sibling angle=40}] { 
+      node [minimum size=2.4cm, text width=2.2cm, font=\footnotesize] (dirsub)
+        {try direct\\substitution\note{is the denominator \(0\)?}}
+      % Squeeze is a child of `try direct substitution' too, so the fan
+      % starts one sibling angle earlier and it takes the first place, as
+      % on page 1.
+      [counterclockwise from=-90]
+      child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+      child [concept color=supp!20] { node (zerozero) {\(\frac{0}{0}\)} }
+      child [concept color=pink!50] { node (constzero)
+        {\(\frac{\text{nonzero}}{0}\)} }
+      child [concept color=substcase] { node (algno) [text width=2.1cm]
+          {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    }
+    child [concept color=gray!20,
+           level 2/.append style={level distance=5cm}] { 
+      node (twosided) [minimum size=2.2cm, text width=2.3cm]
+        {two-sided limit\sub{\lim_{x \to a} f(x)}}
+      [counterclockwise from=-150]
+      child { node (leftlim) [minimum size=2.2cm, text width=2.3cm]
+        {left limit at \(a\)\sub{\lim_{x \to a^{-}} f(x)}} }
+      child { node (rightlim) [minimum size=2.2cm, text width=2.3cm]
+        {right limit at \(a\)\sub{\lim_{x \to a^{+}} f(x)}} }
+    % Page 1's third child here is `well-known limits'; this layer stops at
+    % the two one-sided limits, and being the last child it can simply go.
+    }
+    ;
+
+  \node [barlabel] at ($(root)!0.5!(dirsub)$) {calculations uses\\limit laws};
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+}
+
+\begin{mmpage}
+\resizebox{3.605in}{!}{%
+\begin{tikzpicture}[map levels]
+  \lawslayer
+\end{tikzpicture} 
+}
+\end{mmpage}
+
+\end{document}
