@@ -21,6 +21,8 @@ misc
 *.log
 *.out
 *.xdv
+*.toc
+weeks.csv
 
 # beamer files
 *.snm
