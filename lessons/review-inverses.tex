@@ -4,31 +4,25 @@
 % Temporarily hides every \updatenote in this file while checking the lecture
 % flow -- the notes sit inline, so they cannot be line-commented without taking
 % the surrounding prose with them.  Delete this line to show them again.
-\renewcommand{\updatenote}[1]{}
-Intuitively, the inverse of a function \(f(x)\) is another function \(g(x)\) that undoes whatever \(f(x)\) does to its input. This intuition is not precise enough to be useful. Let's start with the definition.
+% \renewcommand{\updatenote}[1]{}
 
+We reviewed how \(\arcsin(x)\) undoes \(\sin(x)\), and how \(\ln(x)\) undoes \(e^{x}\). The idea of \enquote{undoing} goes further. Intuitively, the inverse of a function \(f(x)\) is another function \(g(x)\) that undoes whatever \(f(x)\) does to its input.
+
+% Use Uber fare as an example as an inverse.
 \begin{definition}[inverse] \label{def:inverse}
   Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}(x)\) such that
   \[
     f^{-1}(f(x)) = x \text{ for every \(x\) in \(D\)} \quad\text{and}\quad f(f^{-1}(x)) = x \text{ for every \(x\) in \(R\)}.
   \]
 
-  Terminology: An \hlmain{one-to-one function} is a function that has an inverse.
+  Terminology: A \hlmain{one-to-one function} is a function that has an inverse.
+
+  {\footnotesize \faExclamationTriangle{} \(f^{-1}(x)\) is NOT \(\tfrac{1}{f(x)}\). To express \(\tfrac{1}{f(x)}\) as a power, write \(f(x)^{-1}\) or \(\big( f(x) \big)^{-1}\).}
 
   \textbook{Page 78}
 \end{definition}
 
-{\footnotesize \faExclamationTriangle{} \(f^{-1}(x)\) is NOT \(\tfrac{1}{f(x)}\). To write \(\tfrac{1}{f(x)}\) as a power, write \(\tfrac{1}{f(x)} = f(x)^{-1}\) or \(\tfrac{1}{f(x)} = \big( f(x) \big)^{-1}\).}
-
-\clearpage
-
-There are two types of typical calculations involving inverse. 
-\begin{itemize}
-  \item Given two functions \(f(x)\) and \(g(x)\), determine if they are inverses of each other.
-  \item Given a function \(f(x)\) and its domain, find an expression for its inverses.
-\end{itemize}
-
-The first type of question requires us to understand the definition. 
+The subtlety of \enquote{undoing} is that the inverse function \(f^{-1}\) must undo \hlmain{every single input} in the domain of \(f\). 
 
 \begin{example} \label{ex:inverse-cube-pair}
   Are \(f(x) = (x+1)^{3} - 2\) and \(g(x) = (x+2)^{1/3} - 1\) inverses of each other?
@@ -39,43 +33,39 @@ The first type of question requires us to understand the definition.
 \begin{exercise} \label{ex:inverse-square}
   Suppose \(f(x) = x^{2}\) is defined for all real numbers \(x\) and \(g(x) = \sqrt{x}\). Are \(f(x)\) and \(g(x)\) inverses of each other?
 
-  \blanks{20}
+  \blanks{15}
 \end{exercise}
 \clearpage
 
+Sometimes, we need to find the inverse of a given function \(y = f(x)\). We switch \(x\) and \(y\) in \(y = f(x)\) and isolate for \(y\). But why does it work?
 
-The second type of question is a common procedure. To find the inverse of a function \(y = f(x)\), we switch \(x\) and \(y\) and isolate for \(y\). If you prefer, you can also first isolate for \(x\) in \(y = f(x)\) and swap \(x\) and \(y\) last. However, be warned that switching \(x\) and \(y\) first is also used in other situations, such as implicit differentiation.
+\begin{figure}[H]
+  \includestandalone[page=32]{../standalones/plot-trigs}
+\end{figure}
+
+If you prefer, you can also first isolate for \(x\) in \(y = f(x)\) and swap \(x\) and \(y\) last. However, please note that switching \(x\) and \(y\) first is also used in other situations, such as implicit differentiation.
 
 \begin{example} \label{eg:find-inverse}
-  Find the inverse of \(\frac{2x}{1 + x}\).
+  Find the inverse of \(f(x) = \frac{2x}{1 + x}\).
 
-  \blanks*
+  \blanks{10}
 \end{example}
 
 \begin{exercise}[Midterm, Fall 2025]
   Suppose \(f(x) = \ln(x) - \ln(x - 1)\) is defined for all \(x > 1\). Take for granted that \(f^{-1}\) exists. Find an expression for \(f^{-1}\). 
 
-  % {\footnotesize This was a multiple-choice problem.}
+  {\footnotesize This was a multiple-choice question.}
 
   \blanks*
 \end{exercise}
 \clearpage
 
-\begin{exercise}
+The remaining exercises are a mix of routine calculations and thinking questions, listed in no particular order.
+
+\begin{exercise} \label{ex:find-inverse-under-restriction}
   Find an inverse of \(f(x) = \frac{(x-3)^{4}}{2}\) on the domain \([3,\infty)\).  Determine the domain and range of the inverse.
 
-  \blanks*
-\end{exercise}
-
-\begin{exercise}
-  Find the inverse of \(f(x) = \frac{x+2}{2x - 3}\).
-
-  \blanks*
-\end{exercise}
-\clearpage
-
-\begin{exercise}
-  Suppose \(f(x) = x^{2}\) is defined for \(x < 0\). Find \(f^{-1}(x)\) and its domain.
+  {\footnotesize Hint: Sketch \(f(x)\) over the specified domain. Remember that the domain of \(f\) is the same as the range of \(f^{-1}\), and the domain of \(f^{-1}\) is the same as the range of \(f\).}
 
   \blanks*
 \end{exercise}
@@ -85,5 +75,21 @@ The second type of question is a common procedure. To find the inverse of a func
 
   \blanks*
 \end{exercise}
+\clearpage
+
+\begin{exercise}
+  Find the inverse of \(f(x) = \frac{x+2}{2x - 3}\). Take for granted that \(f^{-1}\) exists.
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}
+  Suppose \(f(x) = x^{2}\) is defined for \(x < 0\). Find \(f^{-1}(x)\) and its domain.
+
+  {\footnotesize Active recall: What is the hint in Exercise~\ref{ex:find-inverse-under-restriction} (find the inverse of \(f(x)=\tfrac{(x-3)^{4}}{2}\) on the domain \([3,\infty)\))?}
+
+  \blanks*
+\end{exercise}
+\clearpage
 \end{document}
 

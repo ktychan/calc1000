@@ -20,7 +20,7 @@ A function \(b^{x}\), where \(b\) is a constant so that \(b > 0\) and \(b \ne 1\
 Let's quickly recall exponent rules. \(e^{a}e^{b} = \underline{\hspace{1in}}\) and \((e^{a})^{b} = \underline{\hspace{1in}}\) for any \(a,b\).
 \blanklines{4}
 
-The number \(e\) is called the Euler's number and is defined as \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). We will discuss this limit in week 3.
+The number \(e\) is called Euler's number and is defined as \(e = \lim_{x \to \infty} \left( 1 + \frac{1}{x} \right)^{x}\). We will discuss this limit in week 3.
 \bigskip
 
 \begin{definition} \label{def:exp-ln}
@@ -30,7 +30,7 @@ The number \(e\) is called the Euler's number and is defined as \(e = \lim_{x \t
   \end{equation}
 \end{definition}
 
-\faStar{} The goal of this lesson is to consolidate all of our knowledge of exponential and exponential-like functions into Equation~\eqref{eq:exp-log} and the ``\hlmain{change base to \(e\)}'' trick
+\faStar{} The goal of this lesson is to consolidate our knowledge of exponential and exponential-like functions into Equation~\eqref{eq:exp-log} and the ``\hlmain{change base to \(e\)}'' trick
 \begin{equation} \label{eq:exp-change-of-base}
   b = \underline{\hspace{1cm}} \quad\text{and}\quad \underbrace{b^{x} = \hspace{1.5in}}_{\text{\hlmain{change base to \(e\)}}}, \quad\text{ but need } b > 0 \text{ and } b \ne 1.
 \end{equation}
@@ -54,11 +54,15 @@ The number \(e\) is called the Euler's number and is defined as \(e = \lim_{x \t
   \blanklines{25}
 \end{example}
 
-\begin{exercise}
-  Solve the equation \(5^{x/3 - 1} = e\). 
+We solved two equations involving \(e^{x}\). They are
+\[
+  e^{2x} + e^{x} - 6 = 0
+  \quad\text{and}\quad
+  \frac{e^{2x}}{2^{x-1}} = 3.
+\]
+Their starting steps are very different. How can we identify an effective starting step?
+\blanks*
 
-  \blanklines{20}
-\end{exercise}
 \clearpage
 
 The formulas in Equation~\eqref{eq:log-formulas}, where \(a\) and \(b\) are positive and \(b \ne 1\), can be deduced from Equation~\eqref{eq:exp-change-of-base} and can help solve problems \emph{quickly}.
@@ -72,17 +76,17 @@ The formulas in Equation~\eqref{eq:log-formulas}, where \(a\) and \(b\) are posi
   \ln(a/b) = \ln(a) - \ln(b).
 \end{equation}
 
-We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqref{eq:log-formulas}.  
-\begin{example}
-  Solve for \(y\) given that \(\log_{2}\left(\frac{y}{\sqrt{x}}\right) = 3\).
+\begin{exercise}[Midterm, Fall 2025]
+  Solve the equation \(\log_{7}(2x^{2} - 1) = 2\).
+  % Solve the equation \(7^{x - 1} = \log_{2}(8)\).
 
-  \blanklines{30}
-\end{example}
+  \blanks*
+\end{exercise}
 
 \begin{exercise}
-  Solve the equation \(7^{x - 1} = \log_{2}(8)\).
+  Solve for \(y\) given that \(\log_{2}\left(\frac{y}{\sqrt{x}}\right) = 3\).
 
-  \blanklines{10}
+  \blanks{20}
 \end{exercise}
 \clearpage
 
@@ -145,6 +149,13 @@ We demonstrate \hlmain{strategic thinking} with and without the formulas in \eqr
       \ln(a/b) &=& \underline{\hspace{1in}} \\[2ex]
     \end{array}
   \]
+\end{exercise}
+
+Here is one more drill-type exercise to help you practise applying exponential and logarithm laws.
+\begin{exercise}
+  Solve the equation \(\ln(x) + \ln(x-1) = \ln(6)\).
+
+  \blanks*
 \end{exercise}
 
 % Here are some exercises targeting the use of identities for exponential and logarithmic functions. 

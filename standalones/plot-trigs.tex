@@ -488,4 +488,34 @@
     \rangehole{pi/2}
   \end{axis}
 \end{tikzpicture}
+
+%%% page 32: sin restricted and arcsin side-by-side
+\begin{tikzpicture}
+  \begin{axis}[
+    name=left,
+    sincos,
+    xmin={-pi/2}, xmax={ pi/2},
+    ymin={-pi/2}, ymax={ pi/2},
+    xticklabels={\(-\pi/2\), \(\pi/2\)},
+    enlargelimits,
+    xlabel={}, ylabel={},
+    colormap={bluered}{color=(blue) color=(red)},
+    ]
+    \addplot[very thick, domain={-pi/2}:{pi/2},
+      mesh, shader=interp, point meta=y] {sin(x)};
+    \curveends{-pi/2}{-1}{pi/2}{1}
+  \end{axis}
+  \begin{axis}[
+    at={(left.east)}, anchor=west, xshift={3ex},
+    arcsin,
+    xmin={-pi/2}, xmax={ pi/2},
+    ymin={-pi/2}, ymax={ pi/2},
+    enlargelimits,
+    xlabel={}, ylabel={},
+    colormap={bluered}{color=(blue) color=(red)},
+    ]
+    \addplot[ultra thick, mesh, shader=interp, point meta=y] {asin(x)};
+    \curveends{-1}{-pi/2}{1}{pi/2}
+  \end{axis}
+\end{tikzpicture}
 \end{document}

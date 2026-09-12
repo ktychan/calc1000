@@ -18,7 +18,7 @@ If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}
 
 \bigskip
 
-\begin{example}
+\begin{example} \label{eg:left-limits}
   Evaluate a \hlmain{left limit} by moving \(x\) towards \(a\) from the \hlmain{left side} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.
 
   \begin{center}
@@ -32,7 +32,7 @@ If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}
   \blanks*
 \end{example}
 
-\begin{example}
+\begin{example} \label{eg:right-limits}
   Evaluate a \hlmain{right limit} by moving \(x\) towards \(a\) from the \hlmain{right side} of \(a\) on the number line (but never touching \(a\)) and answer the question \faStar{}.
 
   \begin{center}
@@ -70,7 +70,7 @@ If it does, we say \hlmain{\(\lim_{x \to a} f(x)\) exists and is equal to \(L\)}
 
 \end{example}
 
-Before calculus, we looked for vertical asymptotes among the roots of the denominator. Limits \hlattn{expand} this idea.
+Vertical asymptotes are often found among the roots of the denominator of a rational function. Limits \hlattn{expand} this idea.
 \begin{definition} \label{def:vertical-asymptote}
   A vertical line \(x = a\) is called a \hlmain{vertical asymptote} of \(f(x)\) if
   \[
@@ -79,6 +79,7 @@ Before calculus, we looked for vertical asymptotes among the roots of the denomi
 
   \textbook{page 149}
 \end{definition}
+\blanks*
 \clearpage
 
 The relationship between the one-sided limits and the two-sided limit that we observed in Example~\ref{eg:two-sided-limits} is always true. We summarize this relationship in Theorem~\ref{thm:limit-two-one-sides}.
@@ -110,53 +111,61 @@ Theorem~\ref{thm:limit-two-one-sides} is useful in the following situations.
 \end{itemize}
 
 \bigskip
-These exercises explores applications of Theorem~\ref{thm:limit-two-one-sides}. Remember that \enquote{does not exist} is a possible answer.
+These exercises explore applications of Theorem~\ref{thm:limit-two-one-sides}. Remember that \enquote{does not exist} is a possible answer.
 
 \begin{exercise}
   What is the value of \(\lim_{x \to 1} g(x)\) if \(\left( \lim_{x \to 1^{-}} g(x)\right) - \left(\lim_{x \to 1^{+}} g(x) \right) = 3\)?
 
-  \blanklines{5}
+  \blanks*
 \end{exercise}
 
 \begin{exercise}
   Let \(h(x)\) be a function. We know \(\lim_{x \to -3} h(x) = 3\). What is \(\lim_{x \to (-3)^{+}} h(x)\)?
 
-  \blanklines{5}
+  \blanks*
 \end{exercise}
 
 \begin{exercise}
   A function \(f(x)\) has a left limit \(\lim_{x \to 5^{-}} f(x) = -2.7\).  We also know that \(\lim_{x \to 5}f(x)\) exists. What is the value of \(\lim_{x \to 5^{+}} f(x)\)?
 
-  \blanklines{5}
+  \blanks*
 \end{exercise}
 \clearpage
 
-University studies emphasize \emph{rigor}, attention to details and the completeness of theoretical understanding.
+University studies emphasize \emph{rigour}, attention to details and the completeness of theoretical understanding.
 
-\faStar{} When a statement is about a collection of functions, its truth depends on every function in the collection. A statement that is true for some functions but false for others is a false statement.
+\faStar{} When a statement is about a collection of functions, its truth depends on every function in the collection. A statement that is true for some functions but false for others (in the same collection) is a false statement.
 
-\begin{example} 
-  The examples in this lesson help us avoid common misconceptions.
+\begin{exercise} 
+  The examples in today's lesson help us avoid common misconceptions.
 
   \begin{itemize}[wide]
     \item Is \enquote{\(\lim_{x \to a} f(x) = f(a)\)} true?
 
-      \blanks{10}
+      {\footnotesize Notice that \(f\) can be any function. So the question asks \enquote{is \(\lim_{x \to a} f(x) = f(a)\) always true for \emph{all} functions and \emph{all} constants \(a\)?}}
+
+      \blanks*
 
     \item Is \enquote{if \(\lim_{x \to a} f(x)\) exists, then \(f(x)\) is defined at \(a\)} true?
 
-      \blanks{10}
+      {\footnotesize Hint: See Example~\ref{eg:two-sided-limits}.}
+
+      \blanks*
     \item Is \enquote{Roots of the denominator are always vertical asymptotes} true?
 
-      \blanks{10}
+      {\footnotesize Hint: Plot \(\tfrac{x^{2}-1}{x-1}\) in Desmos.}
+
+      \blanks*
 
     \item Is \enquote{\(\lim_{x \to a} f(x) = \infty\) means the limit exists and is infinity} true?
 
-      \blanks{10}
+      {\footnotesize This is an active recall exercise. We discussed this during the lecture.}
+
+      \blanks*
 
   \end{itemize}
 
-\end{example}
+\end{exercise}
 \clearpage
 
 The following mindmap shows the \textbf{fundamentals} of limits and continuity at a constant \(a\) (meaning \(a\) must be a finite number) and the general strategy for routine calculations.
@@ -185,7 +194,7 @@ We learned three fundamental concepts of limits at a constant \(a\) and their re
 
   \item Remember Theorem~\ref{thm:limit-two-one-sides} and that vertical asymptotes are \emph{defined} in terms of one-sided limits.
 
-  \item To \hlmain{evaluate} a \emph{two-sided limit} as \(x\) approaches \(a\) is to determine whether its two one-sided limits are equal. If they are equal, then the value of the two-sided limit is the common value of corresponding one-sided limits. This is supported by Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides}.  Also remember that the function value \(f(a)\) has nothing to do with \(\lim_{x \to a} f(x)\).
+  \item To \hlmain{evaluate} a \emph{two-sided limit} as \(x\) approaches \(a\) is to determine whether its two one-sided limits are equal. If they are equal, then the value of the two-sided limit is the common value of the corresponding one-sided limits. This is supported by Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides}.  Also remember that the function value \(f(a)\) has nothing to do with \(\lim_{x \to a} f(x)\).
     \begin{itemize}
       \item If the two one-sided limits are equal, then the two-sided limit equals that common value (which can be a finite number or \(\pm \infty\)).
         \begin{center}
@@ -195,11 +204,11 @@ We learned three fundamental concepts of limits at a constant \(a\) and their re
         \end{center}
       \item If the two one-sided limits are different, then the two-sided limit does not exist.
         \begin{center}
-          \includestandalone[page=36]{../standalones/plot-limit-intro}
-          \quad
           \includestandalone[page=37]{../standalones/plot-limit-intro}
           \quad
           \includestandalone[page=38]{../standalones/plot-limit-intro}
+          \quad
+          \includestandalone[page=39]{../standalones/plot-limit-intro}
         \end{center}
     \end{itemize}
   \item When \(\lim_{x \to a} f(x) = \infty\), the \enquote{\(=\infty\)} is only shorthand for \enquote{the limit approaches infinity}, and the limit does not exist.  The same is true for \enquote{\(=-\infty\)}.
