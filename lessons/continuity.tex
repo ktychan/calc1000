@@ -165,9 +165,7 @@ Here is what we can do \hlattn{if we know} a given function is continuous.
 
 \begin{sidefigure}{\includestandalone[page=10]{../standalones/mindmap-limits}}
   \begin{enumerate}[wide, itemsep={2ex}]
-    \item If you know \(f(x)\) is continuous at \(a\), then you can use direct substitution to evaluate \(\lim_{x \to a} f(x)\). 
-
-      We learned this last week.
+    \item If you know \(f(x)\) is continuous at \(a\), then you can use direct substitution to evaluate \(\lim_{x \to a} f(x)\).  See next page.
 
     \item If you know \(f(x)\) is continuous, then you can use a change-of-variable to evaluate limits. 
 
@@ -192,12 +190,56 @@ Continuity provides the theoretical support for Points 1 and 2 above. In particu
   \textbook{Theorem~2.9 (Composite Function Theorem) on page 187}
 \end{thm}
 
-Let's do one more exercise involving limits.
-
 \begin{exercise}
   Suppose \(f\) is continuous, \(f(1) = 3\) and \(f(2) = 5\).  Find \(\lim_{x \to \pi/4} f( \tan(x) + 1 )\).
 
   \blanklines{10}
+\end{exercise}
+\clearpage
+
+\begin{sidefigure}{
+    \includestandalone[page=4, width=\sidefigwidth]{../standalones/mindmap-limits}
+  }
+  Here is how we perform a change of variable for limits.
+
+  \faStar{} Suppose we wish to evaluate \(\lim_{x \to a} f(g(x))\) with a change of variable \(u = g(x)\). Calculate \(b = \lim_{x \to a} g(x)\) and perform the change of variable
+  \[
+    \lim_{x \to a} f(g(x)) = \lim_{u \to b} f(u) = \cdots \text{ continue your calculation } \cdots
+  \]
+
+  \faExclamationTriangle{} This step needs \(f\) to be \hlmain{continuous at \(b\)}, or \(g(x) \ne b\) for every \(x\) near \(a\). Otherwise, we need to calculate two one-sided limits as shown in Example~\ref{eg:limit-composition-abstract}.
+\end{sidefigure}
+
+\begin{example} \label{eg:limit-change-of-variable}
+  Evaluate \(\lim_{x \to 1} \frac{(\sin(3x - 3))^2}{x - 1} \).
+
+  \blanks*
+\end{example}
+
+\faStar{} You may take these three limits for granted, i.e., use them without proof in quizzes, assignments and exams.
+\begin{center}
+  \includegraphics[page=1]{../standalones/plots-limits-well-known}
+  \hfill{}
+  \includegraphics[page=2]{../standalones/plots-limits-well-known}
+  \hfill{}
+  \includegraphics[page=3]{../standalones/plots-limits-well-known}
+\end{center}
+\clearpage
+
+Here are more change-of-variable exercises that do not appear in our textbook.
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to 0} \frac{\sqrt{x^{2} + 1} - 1}{x^{2}}\) using a change of variable \(u = \sqrt{x^{2} + 1}\).
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise} \label{ex:limit-cube-root}
+  Evaluate \(\lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}\) using a change of variable \(u = \sqrt[6]{x}\).
+
+  {\footnotesize Factorization hint: \(a^{3} - b^{3} = (a-b)(a^{2} + ab + b^{2})\). Rationalization also works, but the solution is slightly longer.}
+
+  \blanks*
 \end{exercise}
 \clearpage
 
