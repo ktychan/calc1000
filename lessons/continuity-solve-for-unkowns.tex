@@ -1,0 +1,24 @@
+%! TeX program = lualatex
+\documentclass[../main.tex]{subfiles}
+\begin{document} \section{Continuity, solve for unknowns}
+In some applications of calculus, we put an unknown constant in a function (because we really don't know what it is) and ask for its value so that the function is continuous everywhere. We use the fact that a function continuous at \(a\) must satisfy
+\[
+  \lim_{x \to a^{-}} f(x) = f(a) = \lim_{x \to a^{+}} f(x).
+\]
+
+The only challenge for such a problem is knowing how to start, which is the same for all such problems. If a piecewise function has more than one such unknown, then we just repeat the same starting step at each boundary. Notice it is necessary to evaluate limits.
+
+\begin{example} \label{eg:continuity-solve-simple}
+  Find the value of \(k\) that makes
+  \(
+  f(x) =
+  \begin{cases}
+    2x + k, &x \le 1 \\
+    \frac{x^{2}-1}{x-1},  &x > 1
+  \end{cases}
+  \)
+  continuous everywhere.
+
+  \blanks*
+\end{example}
+\end{document}

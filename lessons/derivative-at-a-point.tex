@@ -6,68 +6,71 @@ The derivative is a major topic in calculus and appears everywhere.
 \begin{minipage}{0.5\textwidth}
   \centering
   \includestandalone[page=1]{../standalones/derivative-intro}
-  \url{https://www.desmos.com/calculator/la4liidanr}
+  \url{https://www.desmos.com/calculator/fix1w568x5}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
   \centering
   \includestandalone[page=2]{../standalones/derivative-intro}
-  \url{https://www.desmos.com/calculator/xem9i18kfh}
+  \url{https://www.desmos.com/calculator/u712nxde4s}
 \end{minipage}
 
-The graphs of \(f(x)\) and \(g(x)\) are \emph{qualitatively} different at the marked point.
+Near the marked point, the graph of 
 \begin{itemize}
-  \item The graph of \(f(x)\) near the marked point appears to be \underline{\hspace{1in}} if we zoom in enough.
-  \item The graph of \(g(x)\) near the marked point does not appear to be \underline{\hspace{1in}} no matter how much we zoom in.
+  \item \(f(t)\) appears to be \underline{\hspace{2in}} if we zoom in enough.
+  \item \(g(t)\) does NOT appear to be \underline{\hspace{2in}} no matter how much we zoom in.
 \end{itemize}
 
+\medskip
 The derivative quantifies this qualitative difference.  
 
 \begin{definition} \label{def:derivative-at-a-point}
-  Let \(f(x)\) be a function defined on an \underline{\hspace{1in}} interval containing some constant \(a\). The \hlmain{derivative of \(f(x)\) at \(a\)}, denoted by \hlmain{\(f'(a)\)} is defined by
+  Let \(f(x)\) be a function defined on an open interval containing some constant \(a\). 
+  
+  The \hlmain{derivative of \(f(x)\) at \(a\)}, denoted by \hlmain{\(f'(a)\)} is defined by
   \begin{align} 
     \label{eq:def-derivative-1}
-    f'(a) &= \phantom{\lim_{h \to 0} \frac{f(a + h) - f(a)}{h}}\\
+    f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \\
     \intertext{or equivalently}
     \label{eq:def-derivative-2}
-    f'(a) &= \phantom{\lim_{x \to a} \frac{f(x) - f(a)}{x - a}}
+    f'(a) &= \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
   \end{align}
-  provided that \underline{\hspace{2in}}.
+  provided that the limit is a finite number. The two limits are related by a change of variable \(x = a + h\) or \(h = x - a\). 
 
-  The \hlmain{tangent line for \(f(x)\) at \(x = a\)} is the line with slope \underline{\hspace{2cm}} and passes through the point \underline{\hspace{3cm}}. Its equation is
+  The \hlmain{tangent line for \(f(x)\) at \(x = a\)} is the line with slope \(f'(a)\) and passes through the point \((a, f(a))\). Its equation is
   \[
-    y = \phantom{f'(a) (x - a) + f(a)} \hspace{1in}
+    y = \underbrace{f'(a)}_{\text{slope}} (x - a) + f(a), \quad\text{if \(f'(a)\) is a finite number.}
   \]
 
   \textbook{page 217}
 \end{definition}
 
-\faStar{} Geometrically, \(f'(a)\) represents \underline{\hspace{4in}}.
+% \faStar{} Geometrically, the number \(f'(a)\) represents the slope of the curve \(y = f(x)\) at the point \((a, f(a))\) if \(f'(a)\) exists. 
 
-Terminology: If \(f'(a)\) exists, then \(f\) is said to be \hlmain{differentiable at \(a\)}, and \(f(x)\) has a tangent line at \(x = a\). If \(f'(a)\) does not exist, then \(f\) is said to be \hlmain{not differentiable at \(a\)}, and \(f(x)\) does not have a tangent line at \(x = a\).
+Terminology: If \(f'(a)\) is a \emph{finite number}, then \(f\) is said to be \hlmain{differentiable at \(a\)}. If \(f'(a)\) is not a finite number, then \(f\) is said to be \hlmain{not differentiable at \(a\)}.
 \clearpage
 
-The limit definition of derivatives, e.g. Equation~\eqref{eq:def-derivative-1} or \eqref{eq:def-derivative-2}, is fundamentally important and \hlmain{useful for unfamiliar problems}. If you know differentiation rules, the exercises in this section may seem overly complicated. However, it is the purpose of this section to help you understand that, fundamentally, the derivative is a limit. Everything you know about limits can be used to solve differentiation problems, especially the unfamiliar ones.  \label{comment:derivative-definition}
+The limit definition of derivatives, e.g. Equation~\eqref{eq:def-derivative-1} or \eqref{eq:def-derivative-2}, is fundamentally important and \hlwarn{useful for unfamiliar problems}. If you know differentiation rules, the exercises in this section may seem overly complicated. However, it is the purpose of this section to help you understand that, fundamentally, the derivative is a limit. Everything you know about limits can be used to solve differentiation problems, especially the unfamiliar ones.  \label{comment:derivative-definition}
 
 \begin{example} 
-  Find the derivative of \(f(x) = \sqrt{x}\) at \(4\) using Equation~\eqref{eq:def-derivative-1} or \eqref{eq:def-derivative-2}. Write down the equation of the tangent line at \(x = 4\).
+  Write down the limit definition of the derivative of \(\sin(x), \cos(x), e^{x}\) at \(0\). No need to evaluate the limits, but notice that you have seen these limits before.
 
-  \blanklines{20}
+  \blanks{20}
 \end{example}
 
-\begin{example}
-  Show that \(y = |x|\) is not differentiable at \(0\).
+\begin{example} \label{eg:derivative-absolute-value}
+  Is the function \(y = |x - 1|\) differentiable at \(x = 0\)? At \(x = 1\)?
 
-  \blanklines{20}
+  \blanks*
 \end{example}
 
 \clearpage
-\begin{exercise}[Midterm, Fall 2025]
+\begin{exercise}[Midterm, Fall 2025] \label{ex:midterm-f2025-derivative-at-a-point}
   This is a two-part question. Please read the entire question before answering.
 
   Consider the function \(f(x) = x|x|\) at \(x = 0\).
 
   \begin{enumerate}
-    \item Write down the definition of the derivative of \(f'(0)\) as a limit. DO NOT simplify.
+    \item Write down the definition of \(f'(0)\) as a limit. DO NOT simplify.
 
       \begin{tikzpicture}
         \draw (-1/2,-1/10) rectangle (10,2);
@@ -85,29 +88,56 @@ The limit definition of derivatives, e.g. Equation~\eqref{eq:def-derivative-1} o
   \blanks{10}
 \end{exercise}
 
-\begin{exercise}[The slingshot] \label{ex:the-slingshot}
+Example~\ref{eg:derivative-absolute-value} and Exercise~\ref{ex:midterm-f2025-derivative-at-a-point} are both about differentiability for piecewise functions. Here is a similar exercise.
+
+% the slingshot
+\begin{exercise} \label{ex:the-slingshot}
   Consider \(f(x) = \begin{cases} x^{2} &\text{if } x \le 2\\ 4x - 4& \text{if } x > 2 \end{cases}\). Does \(f'(2)\) exist?
 
-  \blanklines{25}
+  \blanks*
 \end{exercise}
 \clearpage
 
-Want to see how fundamentally important the limit definition is?
-\begin{exercise}[Midterm Fall 2024] \label{ex:midterm-f2024-squeezed-derivative}
-  Suppose we have a function \(f(x)\) defined for all real numbers, and suppose that we know
-  \[
-    \frac{x^{6}}{36} - \frac{x^{4}}{3} + x^{2} \le f(x) \le \sin^{2}(x) \quad\text{ for all } x \text{ in } (-1, 1).
-  \]
+Differentiability is fundamentally dependent on continuity. 
+\begin{thm} \label{thm:differentiability-implies-continuity}
+  If \(f\) is \hlsupp{differentiable at \(a\)}, then \(f\) is \hlmain{continuous at \(a\)} and, consequently, \hlmain{\(f(a)\) must be defined}.
 
-  Find the derivative of \(f(x)\) at \(x = 0\).  \quad Hint: The first paragraph in page \pageref{comment:derivative-definition}.
+  If differentiability at \(a\) is a PB\&J, then continuity at \(a\) and \(f(a)\) are like peanut butter and jam. Without continuity at \(a\), a function cannot be differentiable at \(a\).
 
-  {\footnotesize This is a hard short-answer problem. Two hints were provided in the midterm for this question so that the analysis and the calculation could be completed within a reasonable amount of time. One of the hints is that \(f(0) = 0\). The solution that gets the full credit is not short. The solution where one simply differentiates \(x^{6}/36 - x^{4}/3 + x^{2}\) and \(\sin^{2}(x)\) at \(0\) is invalid and receives \(0\) mark.}
+  \textbook{Theorem 3.1 on page 237}
+\end{thm}
+
+\begin{example}
+  Find all values of \(a\) and \(b\) such that
+  \(
+  f(x) =
+  \begin{cases}
+    a x^{2}, &\text{if } x \le 1 \\
+    b x - 2,  &\text{if } x > 1
+  \end{cases}
+  \)
+  is differentiable at \(x = 1\).
+
+  \blanks*
+\end{example}
+\clearpage
+
+% Want to see how fundamentally important the limit definition is?
+% \begin{exercise}[Midterm Fall 2024] \label{ex:midterm-f2024-squeezed-derivative}
+%   Suppose we have a function \(f(x)\) defined for all real numbers, and suppose that we know
+%   \[
+%     \frac{x^{6}}{36} - \frac{x^{4}}{3} + x^{2} \le f(x) \le \sin^{2}(x) \quad\text{ for all } x \text{ in } (-1, 1).
+%   \]
+
+%   Find the derivative of \(f(x)\) at \(x = 0\).  \quad Hint: The first paragraph in page \pageref{comment:derivative-definition}.
+
+%   {\footnotesize This is a hard short-answer problem. Two hints were provided in the midterm for this question so that the analysis and the calculation could be completed within a reasonable amount of time. One of the hints is that \(f(0) = 0\). The solution that gets the full credit is not short. The solution where one simply differentiates \(x^{6}/36 - x^{4}/3 + x^{2}\) and \(\sin^{2}(x)\) at \(0\) is invalid and receives \(0\) mark.}
 
   
 
-  \blanklines{40}
-\end{exercise}
-\clearpage
+%   \blanklines{40}
+% \end{exercise}
+% \clearpage
 
 \end{document}
 

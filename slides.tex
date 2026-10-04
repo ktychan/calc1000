@@ -1,108 +1,48 @@
 %! Tex Program = lualatex
-\documentclass[aspectratio=169, 12pt, handout]{beamer}
+\documentclass[aspectratio=169, 12pt]{beamer}
 
 \input{./beamer.tex.preamble}
 \usepackage{xr}
 \externaldocument[main-]{.aux/main}
 
 
-\title{Calculus 1000A}
+\title{Welcome to Calculus 1000A!}
 \date{Fall 2026}
 \author{Kelvin Chan}
 \institute{Department of Mathematics\\University of Western Ontario}
 
+\setbeamertemplate{page number in head/foot}{}
+% \beamerdefaultoverlayspecification{<+->}
 \begin{document} 
 
 \begin{frame}
   \maketitle{}
 \end{frame}
 
-\section{First day of class}
-
-\begin{frame}
-  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 004\\TuTh @ 7pm}}
-
-  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
-
-  \bigskip
-  \begin{minipage}{2in}
-    \centering
-    \qrcode[height=1in]{https://join.iclicker.com/MKTW}
-    \bigskip
-
-    \footnotesize\url{join.iclicker.com/MKTW}
-
-    \bigskip
-    Use your @uwo.ca email
-  \end{minipage}
-  \begin{minipage}{3.5in}
-    Join iClicker for in-class activities. \\Start next week.
-
-    \bigskip
-    Counts for \(4\%\) of your final grade. \\Completion marks only.
-
-    \medskip
-    The \hlmain{iClicker Student} app is recommended.
-  \end{minipage}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Welcome to Calc~1000A! \hfill \parbox{1.25in}{\small Section 005\\MWThF @ 11:30}}
-
-  Check the course website (\href{https://owl.uwo.ca}{\texttt{owl.uwo.ca}}) at least once a week.
-
-  \bigskip
-  \begin{minipage}{2in}
-    \centering
-    \qrcode[height=1in]{https://join.iclicker.com/WIKV}
-    \bigskip
-
-    \footnotesize\url{join.iclicker.com/WIKV}
-
-    \bigskip
-    Use your @uwo.ca email
-  \end{minipage}
-  \begin{minipage}{3.5in}
-    Join iClicker for in-class activities. \\Start next week.
-
-    \bigskip
-    Counts for \(4\%\) of your final grade. \\Completion marks only. 
-
-    \medskip
-    The \hlmain{iClicker Student} app is recommended.
-  \end{minipage}
-\end{frame}
-
-\begin{frame} \frametitle{About Calculus 1000A}
-
+\setbeamercovered{transparent}
+\begin{frame} \frametitle{Welcome to Calc 1000A!}
+  \beamerdefaultoverlayspecification{<+->}
   \begin{enumerate}
-    \item Roughly 2400 students, split across 8 sections.
+    \item Roughly 2300 students, split across 8 sections.
     \item Shared assessments (quizzes, midterm and final exam).
     \item Slightly different teaching styles/pace among instructors.
-    \item The midterm and final exam are created collaboratively by the instructional team, not by individual profs. 
-    \item Expect to think on your feet during exams.  The instructional team will test you on your understanding and problem-solving skills, not just whether you can memorize formulas.
   \end{enumerate}
+
+  \bigskip
+  \onslide<1->{Make sure you have the fillable notes on OWL. Libraries have printers if you want paper copies.}
 \end{frame}
+\setbeamercovered{invisible}
 
-\begin{frame} \frametitle{Where are the course materials?}
+\begin{frame}
+  \frametitle{Class time}
 
-  OWL BrightSpace (\url{owl.uwo.ca}) is our Learning Management System. 
+  Education research shows that, in a traditional \emph{passive} lecture, students understand \onslide<2->{\hlwarn{roughly 6 minutes}} of a 50-min lecture.
 
-  \qrcode{https://owl.uwo.ca/}
+  \pause
+  Our lectures interleave theory and hands-on practice. 
 
-  \begin{enumerate}
-    \item The course outline.
-    \item Lecture materials.
-    \item Assessment schedules.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame} \frametitle{The fillable notes}
-  Find them on OWL BrightSpace (\url{owl.uwo.ca}) \uline{under our section}.
-
-  INSERT screenshots here.
-
+  \pause
+  Moreover, in response to feedback from last year, we added more repetition with slight variations in class.
 \end{frame}
 
 \begin{frame}
@@ -110,34 +50,23 @@
 
   \frametitle{Tips (?) for success}
 
+  \beamerdefaultoverlayspecification{<+->}
   \begin{enumerate}
     \item Take care of your body and mind, i.e., be healthy!
     \item It's okay to say ``I don't know.'' 
     \item Learning takes time. Be kind to yourself and others.
-    \item Hit the Math Help Centre when you want a helping mind.
+    \item Study with \hlmain{spaced repetition} and \hlmain{active recall}.
+    \item Feel free to chat with me after class.
+    \item Hit the Math Help Centre or my Office Hours when you want a helping mind.
   \end{enumerate}
 
   \bigskip
   \pause \Huge
-  Remember to party!
+  Remember to have fun!
 \end{frame}
 
 
 \section{Fundamentals and Reviews}
-
-\begin{frame}
-  \frametitle{Inverse functions\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:inverse}\\on page~\pageref{main-def:inverse}}}}
-
-  Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}\) such that
-  \[
-    \underbrace{f^{-1}(f(x)) = x \text{ on } D}_{\text{must be true for all \(x\) in \(D\)}} \quad\text{and}\quad \underbrace{f(f^{-1}(y)) = y \text{ on } R}_{\text{must be true for all \(y\) in \(R\)}}.
-  \]
-
-  % TODO: Insert drawing x -> f -> ... -> f^{-1} -> x
-  % TODO: Insert drawing y -> f^{-1} -> ... -> f -> y
-  \pause
-\end{frame}
-
 \begin{frame}
   \frametitle{The equivalent equation for \(f^{-1}(x)\)}
 
@@ -255,6 +184,18 @@
   \end{align*}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Inverse functions\hfill{\parbox{1.25in}{\footnotesize\raggedleft Definition~\ref{main-def:inverse}\\on page~\pageref{main-def:inverse}}}}
+
+  Given a function \(f\) whose domain is \(D\) and range is \(R\), its \hlmain{inverse function} (if it exists) is \hlsupp{the} function \(f^{-1}\) such that
+  \[
+    \underbrace{f^{-1}(f(x)) = x \text{ on } D}_{\text{must be true for all \(x\) in \(D\)}} \quad\text{and}\quad \underbrace{f(f^{-1}(y)) = y \text{ on } R}_{\text{must be true for all \(y\) in \(R\)}}.
+  \]
+
+  % TODO: Insert drawing x -> f -> ... -> f^{-1} -> x
+  % TODO: Insert drawing y -> f^{-1} -> ... -> f -> y
+  \pause
+\end{frame}
 
 \section{Limits and continuity}
 
@@ -1121,4 +1062,7 @@
 
   Class will resume at 7:10 pm.
 \end{frame}
+
+\section{Announcements}
+
 \end{document}

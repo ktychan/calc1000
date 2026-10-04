@@ -13,49 +13,52 @@ Imagine and draw the graph of a temperature function \(H(t)\) that fits the give
   \label{fig:ivt-motivation}
 \end{figure}
 
-What \emph{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
+% What \emph{mathematical property} of the temperature function \(H(t)\) \emph{guides} you to think this way?
+%
+% \blanks*
+%
+% Can you tell \emph{exactly} when (down to seconds) the temperature reached \(8^{\circ}\)C?
+%
+% \blanks*
+% \clearpage
 
-\blanks*
+The Intermediate Value Theorem (IVT) is the mathematical description of patterns like the above.
 
-Can you tell \emph{exactly} when (down to seconds) the temperature reached \(8^{\circ}\)C?
-
-\blanks*
-\clearpage
-
-The Intermediate Value Theorem (IVT) is the mathematical description of the pattern we see on the previous page.
 \begin{thm}[Intermediate Value Theorem] \label{thm:ivt}
   Let \(f\) be a \underline{\hspace{1in}} function over a closed, bounded interval \([a,b]\). If \(z\) is any real number between \(f(a)\) and \(f(b)\), then \underline{\hspace{1in}} a number \(c\) in \([a,b]\) satisfying \(f(c) = z\).
 
   \textbook{Theorem 2.11 on page 188}
 \end{thm}
-\blanklines{5}
 
-The Intermediate Value Theorem (IVT) is \hlmain{useful} when we wish to \underline{\hspace{2in}} and \underline{\hspace{4in}}.
+Note that \emph{closed and bounded} means an interval must have a finite length and include both endpoints. For example \([1,\infty)\) and \((1,3]\) are not closed and bounded intervals.
+\clearpage
 
-\blanklines{3}
+\faStar{} The Intermediate Value Theorem (IVT) is \hlmain{useful} when we wish to predict whether an equation has at least one solution but do not need to find their exact expression.
 
 To apply IVT, we must successfully complete three tasks: 
 \begin{enumerate}[wide, label=(IVT \arabic*)]
-  \item Find, guess, or be given {a \emph{closed and bounded} interval \([a,b]\)}
-  \item Verify that {\(f\) is continuous on \([a,b]\)}.
-  \item Verify that {\(z\) is between \(f(a)\) and \(f(b)\)}.
+  \item Verify that we have a \hlmain{closed and bounded} interval \([a,b]\).
+  \item Verify that {\(f\) is \hlmain{continuous} on \([a,b]\)}.
+  \item Verify that {\(z\) is \hlmain{between} \(f(a)\) and \(f(b)\)}. You may wish to sketch this.
 \end{enumerate}
 If we cannot complete one or more of these tasks, then IVT \hlwarn{does not tell us anything}.
 
+When we apply the IVT to predict the existence of a solution, it's always easier to move everything to the left-hand side to get an equation of the form \(f(x) = 0\) and apply IVT to \(f(x)\) over the specified interval.
+
 \begin{example}
-  Show the function \(f(t) = t^{5} - t^{2} + 1\) has a root between \(-1\) and \(1\).
+  Show the function \(f(t) = -t^{5} + t^{2} - 1\) has a root between \(-1\) and \(1\).
+  \blanks*
 \end{example}
-\blanklines{20}
+
+\begin{exercise}
+  Does \(3^{x} = x^{2}\) have at least one solution on the interval \([-1,1]\)? 
+
+  \blanks*
+\end{exercise}
 \clearpage
 
 \begin{exercise}[Midterm, Fall 2023]
   Use the Intermediate Value Theorem to show that the equation \(x^{3} - x^{2} + x = 10\) has at least one solution.
-
-  \blanks*
-\end{exercise}
-
-\begin{exercise}
-  Does \(3^{x} = x^{2}\) have at least one solution on the interval \([-1,1]\). 
 
   \blanks*
 \end{exercise}
@@ -67,11 +70,11 @@ If we cannot complete one or more of these tasks, then IVT \hlwarn{does not tell
     \item \([0, 1]\)
     \item \([1, 2]\)
     \item \([-2, -1]\)
-    \item \([-2, -2]\)
-    \item \((-\infty, \infty\)
+    \item \([-2,  2]\)
+    \item \([0, \infty)\)
   \end{enumerate}
 
-  \blanks{5}
+  \blanks{10}
 \end{exercise}
 
 \end{document}
