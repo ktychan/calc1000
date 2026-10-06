@@ -9,6 +9,7 @@
 \usepackage{enumitem}
 \usepackage{qrcode}
 \usepackage{multicol}
+\usepackage{csquotes}
 
 
 \usetheme{metropolis}
