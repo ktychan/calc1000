@@ -55,7 +55,7 @@
 
 \section{Trigonometry}
 \begin{poll}
-  What are \emph{some} solutions to \(1 + \cos(2\theta) = \cos(\theta)\). 
+  What are \emph{some} solutions to \(1 + \cos(2\theta) = \cos(\theta)\)? 
   
   Check all that you find.
 
@@ -76,14 +76,14 @@
 \end{poll}
 
 \begin{poll}
-  What is an effective starting step for Example~1.25?  Reflect on what we did in Example~1.24.
+  What is an effective starting step for Example~\ref{main-eg:trig-sin-arctan}?  Reflect on what we did in Example~\ref{main-eg:arctan-sqrt(3)/3}.
 
   \begin{enumerate}
     \item Calculate \(\arctan(2)\).
     \item Substitute \(\theta = \arctan(2)\).
     \item Apply Pythagorean Theorem.
     \item 
-    \item I am not sure how Example~1.24 is related this problem.
+    \item I am not sure how Example~\ref{main-eg:arctan-sqrt(3)/3} is related this problem.
   \end{enumerate}
 \end{poll}
 
@@ -94,7 +94,7 @@
   Does the following reasoning make sense?
 
   \begin{center}
-    If we have \(2 \sin(\theta) \cos(\theta) \le \cos(\theta)\), then we cancel \(\cos(\theta)\) to get \(2 \sin(\theta) ≤ 1\).
+    If we have \(2 \sin(\theta) \cos(\theta) \le \cos(\theta)\), then we cancel \(\cos(\theta)\) to get \(2 \sin(\theta) \le 1\).
   \end{center}
 
   \begin{multicols}{2}
@@ -237,14 +237,14 @@
 \end{poll}
 
 \begin{poll}
-  Suppose \(f(x) = \ln(x) - \ln(x-1)\) is defined for all \(x \ge 1\). Take for granted that \(f^{-1}\) exists. Find an expression for \(f^{-1}\).
+  Suppose \(f(x) = \ln(x) - \ln(x-1)\) is defined for all \(x > 1\). Take for granted that \(f^{-1}\) exists. Find an expression for \(f^{-1}\).
 
   \begin{enumerate}
     \item \(f^{-1}(x) = \frac{x}{x-1}\)
     \item \(f^{-1}(x) = e^{\frac{x}{x-1}}\)
     \item \(f^{-1}(x) = \frac{e^{x}}{e^{x}-1}\) % correct
     \item \(f^{-1}(x) = \frac{e^{x}}{e^{x-1}}\)
-    \item \(f^{-1}(x) = \ln(\frac{x}{x+1}\)
+    \item \(f^{-1}(x) = \ln\left(\frac{x}{x+1}\right)\)
   \end{enumerate}
 \end{poll}
 
@@ -302,7 +302,7 @@
 \end{poll}
 
 \begin{poll}
-  Does the answer to Example~3.3 change if we are given \(f(-3) = 1\) and \(\lim_{x \to -3} f(x) = 4\).
+  Does the answer to Example~\ref{main-eg:limit-law-abstract} change if we are given \(f(-3) = 1\) and \(\lim_{x \to -3} f(x) = 4\).
 
   \begin{enumerate}
     \item Yes, the answer will change to \(1\).
@@ -314,15 +314,15 @@
 \end{poll}
 
 \begin{poll}
-  Evaluate the limit \(\lim_{x \to 0} \frac{x^{2} + f(x) + 3}{\sqrt[3]{3 f(x) + 5}}\) in Exercise~3.4.
+  Evaluate the limit \(\lim_{x \to 0} \frac{x^{2} + f(x) + 3}{\sqrt[3]{3 f(x) + 5}}\) in Exercise~\ref{main-ex:midterm-limit-at-continuity}.
 
   \begin{minipage}{0.55\textwidth}
     \begin{enumerate}[itemsep={1ex}]
       \item \(0\)
-      \item \(\sqrt[3]{4}/\sqrt[3]{3}\)
-      \item \(2/\sqrt[3]{3}\)
-      \item \(\sqrt[3]{3}/\sqrt[3]{3}\)
-      \item Does not exist.
+      \item \(\sqrt[3]{4}\) % correct
+      \item \(2\)
+      \item \(\sqrt[3]{3}\)
+      \item \(\sqrt[3]{2}\)
     \end{enumerate}
   \end{minipage}
   \begin{minipage}{0.4\textwidth}
@@ -333,7 +333,7 @@
 \end{poll}
 
 \begin{poll}
-  Does the answer to Exercise~3.4 change if the given graph changes to this?
+  Does the answer to Exercise~\ref{main-ex:midterm-limit-at-continuity} change if the given graph changes to this?
 
   \begin{minipage}{0.55\textwidth}
     \begin{enumerate}[itemsep={1ex}]
@@ -352,7 +352,7 @@
 \end{poll}
 
 \begin{poll}
-  Evaluate the limit \(\lim_{x \to 2} f(g(x))\) in Exercise~3.6.
+  Evaluate the limit \(\lim_{x \to 2} f(g(x))\) in Example~\ref{main-eg:limit-composition-abstract}.
 
   \begin{center}
     \includegraphics[page=2,width=0.8\textwidth]{./standalones/plot-limits-complex.pdf}
@@ -496,7 +496,7 @@
 \end{poll}
 
 \begin{poll}
-  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{9x^{4} + 5x + 2}}{\sqrt[3]{1 - x^{6}}}\) in Example~4.11.
+  Evaluate \(\lim_{x \to \infty} \frac{\sqrt{9x^{4} + 5x + 2}}{\sqrt[3]{1 - x^{6}}}\) in Example~\ref{main-eg:dom-term-intro-constant}.
 
   \begin{enumerate}
     \item \(\infty\) or \(-\infty\) or \(0\) \onslide<2->{\hlwarn{factorization went wrong.}}
@@ -511,7 +511,7 @@
 
 % \begin{poll}
 %   \begin{poll}
-%     Evaluate \(\lim_{x \to \infty} \frac{\sqrt{9x^{4} + 5x + 2}{\sqrt[3]{1 - x^{6}}}}\) in Example~4.11.
+%     Evaluate \(\lim_{x \to \infty} \frac{\sqrt{9x^{4} + 5x + 2}{\sqrt[3]{1 - x^{6}}}}\) in Example~\ref{main-eg:dom-term-intro-constant}.
 %
 %     \begin{enumerate}
 %       \item \(9\)
@@ -525,6 +525,42 @@
 
 
 \section{Derivatives}
+\begin{poll}
+  What is the velocity of the balloon as it touches the needle?
+
+  \begin{enumerate}
+    \item \(0\)
+    \item not \(0\)
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  Now... evaluate the limit \(\lim_{x \to 0} \frac{\sin(x)}{x}\).
+  
+  \begin{enumerate}
+    \item \(0\)
+    \item \(1\)
+    \item \(e\)
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  We know that \(|x|\) is not differentiable at \(0\).  Now consider the derivative of \(f(x) = x|x|\).
+
+  \begin{enumerate}
+    \item \(f'(0) = 0\).
+    \item \(f'(0)\) does not exist, because \(|x|\) is not differentiable at \(0\).
+    \item \(f'(0)\) does not exist, because \(|x|\) is a piecewise function.
+    \item \(f'(0)\) does not exist, because its associated left and right limits are not equal.
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
 \begin{poll}
   Which is the definition of \(f'(x)\) given that \(f(x) = \sqrt{x + 1}\)? 
 
@@ -603,7 +639,7 @@
   \begin{enumerate} 
     \item \(f\) is not continuous on \((0,1)\).
     \item \(f\) is a piecewise function.
-    \item 
+    \item There is not enough information to conclude anything about \(f\).
     \item 
     \item I am not sure.
   \end{enumerate} 
@@ -659,17 +695,6 @@
   \end{enumerate} 
 \end{poll}
 
-\begin{poll}
-  We know that \(|x|\) is not differentiable at \(0\).  Now consider the derivative of \(f(x) = x|x|\).
-
-  \begin{enumerate}
-    \item \(f'(0) = 0\).
-    \item \(f'(0)\) does not exist, because \(|x|\) is not differentiable at \(0\).
-    \item \(f'(0)\) does not exist, because \(|x|\) is a piecewise function.
-    \item \(f'(0)\) does not exist, because its associated left and right limits are not equal.
-    \item I am not sure.
-  \end{enumerate}
-\end{poll}
 
 \section{Differentiation Rules}
 \begin{poll}
@@ -714,7 +739,7 @@
 \end{poll}
 
 \begin{poll}
-  Differentiate \((x - \frac{4}{x})^{8}\).
+  Differentiate \((x - \frac{4}{x})^{8}\). Choose \emph{all} correct options.
 
   \begin{enumerate}
     \item \(8 \left( x - \frac{4}{x} \right)^{7}(1 + \frac{4}{x^{2}})\)
@@ -865,7 +890,7 @@
     \item Zero.
     \item Finitely many.
     \item Infinitely many.
-    \item I don't know \emph{WHAT} to solve for in \(\tfrac{y}{x - y} = 0\).
+    \item I don't know \emph{WHAT} to solve for in \(\tfrac{y}{y - x} = 0\).
     \item I don't know how to start.
   \end{enumerate} 
 \end{poll}
@@ -956,7 +981,7 @@
 
   \begin{enumerate} 
     \item No.
-    \item \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because of functions like \(x \sin(1/x)\).}
+    \item \only<1>{Yes.}\only<2>{\sout{Yes.}} \onslide<2>{This is wrong because of functions like \(\arctan(x)\), which never reaches \(\pm \pi/2\).}
     \item 
     \item 
     \item I am not sure.
@@ -1401,7 +1426,7 @@
   \begin{enumerate}
     \item There is not enough information.
     \item \(F(a) = 4\).
-    \item \(F(a) = 6\).
+    \item \(F(a) = -6\). % correct
     \item 
     \item I am not sure.
   \end{enumerate}

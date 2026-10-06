@@ -124,7 +124,7 @@ We do not cover oblique asymptotes in \thiscourse{}.
 
 We now evaluate limits at infinity algebraically. The following facts will serve us well.
 
-\begin{mdframed}[style=simple-compact]
+\begin{mdframed}[style=simple-compact] \label{page:limits-at-infinity-facts}
 
   % One fact per row, each with a picture of it: the exponent is any positive
   % constant, so each picture carries a fast and a slow representative rather
@@ -238,22 +238,23 @@ This little trick is not in the textbook but helps avoid subtle sign mistakes wh
 \end{exercise}
 \clearpage
 
+\label{page:limits-at-infinity-exp}
 Factor out powers of \(e^{x}\) for limits at infinity involving exponential functions.  Alternatively, you can substitute \(u = e^{x}\) to convert the function into an algebraic function.  The three exercises below progress from using this idea in its simplest form to requiring some algebra skills. % \thiscourse{} does not deal with functions with a mix of polynomials and \(e^{x}\).
 
-\begin{exercise}
+\begin{exercise}\label{ex:asymptote-exp-basic}
   Find horizontal asymptotes for \(f(x) = \frac{e^{x}+1}{e^{x}-2}\).
 
   \blanks*
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:asymptote-exp-squared}
   Find horizontal asymptotes for \(f(x) = \frac{e^{2x}+1}{e^{x}-2}\). Hint: \(e^{2x} = (e^{x})^{2}\) or sub \(u = e^{x}\).
 
   \blanks*
 \end{exercise}
 \clearpage
 
-\begin{exercise}
+\begin{exercise}\label{ex:asymptote-exp-mixed-bases}
   Find horizontal asymptotes for \(f(x) = \frac{e^{x}+1}{2^{x}-2}\). 
 
   {\footnotesize Hint: What is trick at the bottom of page \pageref{eq:exp-change-of-base}?}
@@ -262,7 +263,7 @@ Factor out powers of \(e^{x}\) for limits at infinity involving exponential func
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\label{ex:limit-at-infinity-squeeze}
   Evaluate \(\lim_{x \to \infty} \frac{1}{x} \sin(x)\).
 
   {\scriptsize Hint: Use the squeeze theorem. Notice we only need to consider the case when \(x\) is positive because \(x \to \infty\). The solution is relatively straightforward and not very long.}
