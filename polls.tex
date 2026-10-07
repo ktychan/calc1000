@@ -39,7 +39,9 @@
   \end{minipage}
 \end{poll}
 
-\section{Fundamentals and Reviews}
+\section{Reviews}
+
+\subsection{Fundamentals}
 
 \begin{poll}
   Do \(\sqrt{x-4}\sqrt{x+3}\) and \(\sqrt{(x-4)(x+3)}\) have the same domain?
@@ -53,7 +55,8 @@
   \end{enumerate}
 \end{poll}
 
-\section{Trigonometry}
+\subsection{Trigonometry}
+
 \begin{poll}
   What are \emph{some} solutions to \(1 + \cos(2\theta) = \cos(\theta)\)? 
   
@@ -86,9 +89,6 @@
     \item I am not sure how Example~\ref{main-eg:arctan-sqrt(3)/3} is related this problem.
   \end{enumerate}
 \end{poll}
-
-
-
 
 \begin{poll}
   Does the following reasoning make sense?
@@ -177,8 +177,7 @@
   \end{minipage}
 \end{poll}
 
-
-\section{Exponential and logarithmic functions}
+\subsection{Exponential and logarithmic functions}
 
 \begin{poll}
   We know identities
@@ -222,6 +221,8 @@
   \end{enumerate}
 \end{poll}
 
+\subsection{Inverse functions}
+
 \begin{poll}
   Does \(\sqrt{x}\) undo \(x^{2}\)?
 
@@ -248,7 +249,9 @@
   \end{enumerate}
 \end{poll}
 
-\section{Limits}
+\section{Limits and continuity}
+
+\subsection{Limits}
 
 \begin{poll}
   Suppose we know \(\lim_{x \to 3} f(x)\) exists. What do we know about \(f(3)\)?
@@ -276,7 +279,6 @@
     \item I am not sure.
   \end{enumerate}
 \end{poll}
-
 
 \begin{poll} 
 
@@ -382,6 +384,7 @@
   \end{enumerate} 
 \end{poll}
 
+\subsection{Continuity}
 
 \begin{poll}
   If \(f(x)\) is discontinuous on \([1,3]\), then we know \(f(x)\) has a discontinuity at \underline{\hspace{1in}} number in \([1,3]\). 
@@ -395,7 +398,6 @@
   \end{enumerate} 
 \end{poll} 
 
-
 \begin{poll}
   Which of the following tell us a function \(f(x)\) is NOT continuous at \(a\)?
 
@@ -408,7 +410,6 @@
   \end{enumerate} 
 \end{poll}
 
-
 \begin{poll}
   True or false? Every piecewise function has at least one discontinuity in its domain.
 
@@ -420,20 +421,6 @@
     \item I am not sure.
   \end{enumerate} 
 \end{poll} 
-
-\begin{poll}
-  Analyze the dominant terms of \(\lim_{x \to -\infty} \frac{x^{2}+3x}{\sqrt{3-x}}\). The limit should be
-
-  \begin{enumerate} 
-    \item \(-\infty\).
-    \item \(\infty\). \onslide<2->{\hlmain{We factor out \(x^{2}\) in the numerator and \(x^{1/2}\) in the denominator.}}
-    \item a finite number.
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\section{Continuity}
 
 \begin{poll}
   Which of the following indicate \(f(x)\) has a discontinuity at \(a\)?  Choose all that apply.
@@ -495,6 +482,82 @@
   \end{enumerate}
 \end{poll}
 
+\subsection{Continuity, solve for unknowns}
+
+\begin{poll}
+  What's a good starting point for Example~\ref{main-eg:find-all-blah-continuity}?
+
+  \begin{enumerate}
+    \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
+    \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
+    \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
+    \item It doesn't matter. We just need all three numbers to be equal to each other.
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
+
+  \begin{enumerate} 
+    \item Apply limit laws.
+    \item Calculate and compare left and right limits at \(c\).
+    \item Check if \(\lim_{x \to c}f(x) = f(c)\). May have to calculate left and right limits separately.
+    \item Check if \(f(x)\) is defined at \(c\).
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What information seems useful?
+
+  \begin{enumerate} 
+    \item Limit laws.
+    \item Squeeze Theorem.
+    \item \(f(x)\) is continuous on \([0,1]\).
+    \item Intermediate Value Theorem.
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). Continuity seems important. What else is useful?
+
+  \begin{enumerate} 
+    \item \(f\) must be continuous at \(0\).
+    \item \(f\) must be continuous at \(1\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)? 
+
+  \begin{enumerate} 
+    \item Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
+    \item Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
+    \item Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Which of the following seems like a good starting point for you? 
+
+  \begin{enumerate}
+    \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
+    \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
+    \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
+    \item Calculate \(\lim_{x \to a^{-}} f(x)\), \(\lim_{x \to a^{+}} f(x)\) and \(f(a)\) and make them equal to each other.
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\subsection{Limits at infinity}
+
 \begin{poll}
   Evaluate \(\lim_{x \to \infty} \frac{\sqrt{9x^{4} + 5x + 2}}{\sqrt[3]{1 - x^{6}}}\) in Example~\ref{main-eg:dom-term-intro-constant}.
 
@@ -523,8 +586,34 @@
 %   \end{poll}
 % \end{poll}
 
+\begin{poll}
+  Analyze the dominant terms of \(\lim_{x \to -\infty} \frac{x^{2}+3x}{\sqrt{3-x}}\). The limit should be
+
+  \begin{enumerate} 
+    \item \(-\infty\).
+    \item \(\infty\). \onslide<2->{\hlmain{We factor out \(x^{2}\) in the numerator and \(x^{1/2}\) in the denominator.}}
+    \item a finite number.
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  What is \(\lim_{h \to 0^{+}} \frac{0}{h}\)?
+
+  \begin{enumerate}
+    \item \(0\)
+    \item \(\infty\)
+    \item \(-\infty\)
+    \item The limit does not exist.
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
 
 \section{Derivatives}
+
+\subsection{Definition of the derivative}
+
 \begin{poll}
   What is the velocity of the balloon as it touches the needle?
 
@@ -553,10 +642,25 @@
   We know that \(|x|\) is not differentiable at \(0\).  Now consider the derivative of \(f(x) = x|x|\).
 
   \begin{enumerate}
-    \item \(f'(0) = 0\).
+    \item \(f'(0) = 0\). \onslide<2>{\hlmain{CORRECT!}}
     \item \(f'(0)\) does not exist, because \(|x|\) is not differentiable at \(0\).
     \item \(f'(0)\) does not exist, because \(|x|\) is a piecewise function.
     \item \(f'(0)\) does not exist, because its associated left and right limits are not equal.
+    \item I am not sure.
+  \end{enumerate}
+  
+  \pause
+  \hlwarn{(B) is a prime example of reasoning by analogy or association which is not always valid. Going back to the limit definition is the only way to get it right.}
+\end{poll}
+
+\begin{poll}
+  Rate the difficulty of Exercise~\ref{main-ex:midterm-f2025-derivative-at-a-point}.
+  
+  \begin{enumerate}
+    \item Easy, just need to remember the limit definition of the derivative.
+    \item Doable, but need some time to think about it.
+    \item Hard, not sure how to start.
+    \item 
     \item I am not sure.
   \end{enumerate}
 \end{poll}
@@ -598,24 +702,115 @@
 \end{poll}
 
 \begin{poll}
-  Evaluate \(\frac{d^{4}}{dx^{4}} \cos(x)\) at \(x = -3\pi/2\).
+  If a function is \emph{not} differentiable on \((0,1)\), then 
+
+  \begin{enumerate} 
+    \item \(f\) is not continuous on \((0,1)\).
+    \item \(f\) is a piecewise function.
+    \item There is not enough information to conclude anything about \(f\).
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  If a function is \emph{not} differentiable on \((0,1)\), then 
+
+  \begin{enumerate} 
+    \item \(f'(a)\) does not exist at any number in \((0,1)\).
+    \item \(f'(a)\) does not exist for at least one number in \((0,1)\). 
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  If a function is \emph{not} differentiable on \((0,1)\), then \(f\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\). 
+
+  \begin{enumerate} 
+    \item every 
+    \item exactly one
+    \item at least one
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  True or false? If \(f(x)\) is not differentiable at \(a\), then \(f\) is not continuous at \(a\).
+
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Rate the difficulty of Example~\ref{main-eg:find-a-and-b-differentiability}.
 
   \begin{enumerate}
-    \item \(1\)
-    \item \(0\)
-    \item \(\sqrt{2}/2\)
+    \item Easy, differentiate both branches at \(x = 1\) to solve for \(a,b\).
+    \item Doable, but need a few minutes.
+    \item Hard, not sure how to start.
     \item 
     \item I am not sure.
   \end{enumerate}
 \end{poll}
 
 \begin{poll}
-  Is the calculation \(\frac{d}{dx} (x^{2} + 3)^{5} = 5 (x^{2} + 3)\) correct?
+  We now have to calculate \[\lim_{h \to 0^{+}} \frac{b(1+h) - 2 - a}{h}. \]  Is this equal to the right limit of the derivative of \(g(x) = bx - 2\) at \(x = 1\)?
+
+  \begin{multicols}{2}
+    \begin{enumerate}
+      \item \only<1>{Yes.} \only<2->{Yes}
+      \item No.  
+    \end{enumerate}
+  \end{multicols}
+  
+  \pause This is a very subtle.  The right limit for \(g'(1)\) is
+  \[
+    \lim_{h \to 0^{+}} \frac{g(1 + h) - \hlwarn{g(1)}}{h} 
+    = \pause
+    \lim_{h \to 0^{+}} \frac{b(1+h) - 2 - \hlwarn{(b - 2)}}{h}.
+  \]
+\end{poll}
+\subsection{Differentiation Rules}
+
+\begin{poll}
+  True or false? By the power rule, \(\frac{d}{dx} \frac{1}{\sqrt{x}} = \frac{1}{\frac{1}{2}x^{-1/2}}\).
+
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  True or false? By the power rule, \(\frac{d}{dx} 2^{x} = x \cdot 2^{x-1}\).
+
+  \begin{enumerate} 
+    \item True.
+    \item False.
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Evaluate \(\frac{d^{4}}{dx^{4}} \cos(x)\) at \(x = -3\pi/2\).
 
   \begin{enumerate}
-    \item Yes.
-    \item No.
-    \item 
+    \item \(1\)
+    \item \(0\)
+    \item \(\sqrt{2}/2\)
     \item 
     \item I am not sure.
   \end{enumerate}
@@ -634,97 +829,42 @@
 \end{poll}
 
 \begin{poll}
-  If a function is \emph{not} differentiable on \((0,1)\), then 
-
-  \begin{enumerate} 
-    \item \(f\) is not continuous on \((0,1)\).
-    \item \(f\) is a piecewise function.
-    \item There is not enough information to conclude anything about \(f\).
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  What's a good starting point for Example~\ref{main-eg:find-all-blah-continuity}?
-
+  Find the \(y\)-intercept in Exercise~\ref{main-ex:midterm-f2024-tangent-from-derivative-graph}.
+  
   \begin{enumerate}
-    \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
-    \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
-    \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
-    \item It doesn't matter. We just need all three numbers to be equal to each other.
+    \item \(y = 3\)
+    \item \(y = 1\)
+    \item \(y = 0\)
+    \item \(y = -5\)
     \item I am not sure.
   \end{enumerate}
 \end{poll}
 
 \begin{poll}
-  If a function is \emph{not} differentiable on \((0,1)\), then 
+  Exercise~\ref{main-ex:midterm-f2024-tangent-from-derivative-graph} was on the Fall 2024 midterm. What do you think its success rate was?
 
-  \begin{enumerate} 
-    \item \(f'(a)\) does not exist at any number in \((0,1)\).
-    \item \(f'(a)\) does not exist for at least one number in \((0,1)\). 
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
+  \begin{enumerate}
+    \item Around \(20\%\)
+    \item Around \(40\%\)
+    \item Around \(60\%\)
+    \item Around \(80\%\)
+    \item I'd rather not guess.
+  \end{enumerate}
 \end{poll}
 
+\subsection{The Chain Rule}
 
 \begin{poll}
-  If a function is \emph{not} differentiable on \((0,1)\), then \(f\) is not differentiable at \underline{\hspace{1in}} number in \((0,1)\). 
+  Is the calculation \(\frac{d}{dx} (x^{2} + 3)^{5} = 5 (x^{2} + 3)\) correct?
 
-  \begin{enumerate} 
-    \item every 
-    \item exactly one
-    \item at least one
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
-\begin{poll}
-  True or false? If \(f(x)\) is not differentiable at \(a\), then \(f\) is not continuous at \(a\).
-
-  \begin{enumerate} 
-    \item True.
-    \item False.
+  \begin{enumerate}
+    \item Yes.
+    \item No.
     \item 
     \item 
     \item I am not sure.
-  \end{enumerate} 
+  \end{enumerate}
 \end{poll}
-
-
-\section{Differentiation Rules}
-\begin{poll}
-  True or false? By the power rule, \(\frac{d}{dx} \frac{1}{\sqrt{x}} = \frac{1}{\frac{1}{2}x^{-1/2}}\).
-
-  \begin{enumerate} 
-    \item True.
-    \item False.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
-\begin{poll}
-  True or false? By the power rule, \(\frac{d}{dx} 2^{x} = x \cdot 2^{x-1}\).
-
-  \begin{enumerate} 
-    \item True.
-    \item False.
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-
-\section{The Chain Rule}
-
 
 \begin{poll}
   Differentiate \(e^{2x + 1}\).
@@ -750,7 +890,6 @@
   \end{enumerate}
 \end{poll}
 
-
 \begin{poll}
   Suppose \(h(x) = f(g(x))\). What is \(h'(1)\) given
   \begin{align*}
@@ -768,8 +907,6 @@
 
   
 \end{poll}
-
-
 
 \begin{poll}
   Differentiate \(\sin^{2}(x)\).
@@ -807,7 +944,8 @@
   \end{enumerate} 
 \end{poll}
 
-\section{Implicit Differentiation}
+\subsection{Implicit Differentiation}
+
 \begin{poll}
   Given \(\sin(y) = x\), what is \(dy/dx\)? Choose all correct options.
 
@@ -882,7 +1020,6 @@
   \end{enumerate} 
 \end{poll}
 
-
 \begin{poll}
   How many horizontal tangent lines does the curve \(y^{2}/2 - xy = 1\) have? 
 
@@ -894,7 +1031,6 @@
     \item I don't know how to start.
   \end{enumerate} 
 \end{poll}
-
 
 \begin{poll}
   Assume \(y = f^{-1}(x)\). To which equations do we apply the chain rule to calculate \(y'\)? Choose all correct options.
@@ -908,7 +1044,6 @@
   \end{enumerate} 
 \end{poll}
 
-
 \begin{poll}
   Can the inverse function theorem be deduced from implicit differentiation?
 
@@ -921,6 +1056,7 @@
   \end{enumerate} 
 \end{poll}
 
+\subsection{Differentiation strategies}
 
 \begin{poll}
   Is the proposed solution to Exercise~\ref{main-ex:implicit-tangent-legit-or-fishy} legit or sketchy?
@@ -946,7 +1082,6 @@
   \end{enumerate} 
 \end{poll}
 
-
 \begin{poll}
   Translate Exercise~\ref{main-ex:tangent-parallel-to-line} into a familiar problem.
 
@@ -959,10 +1094,30 @@
   \end{enumerate}
 \end{poll}
 
-\section{Related rates}
+\begin{poll}
+  Suppose \(\sin(f(x)) = 0\), \(f(1) = \pi\). Find \(f'(1)\).
+
+  What question did you ask yourself to discover a problem-solving idea?
+\end{poll}
+
+\begin{poll}
+  Suppose \(x f(x)^{2} = 3\) and \(f(3) = -1\). Find \(f'(3)\).
+
+  \begin{enumerate} 
+    \item \(1/6\)
+    \item \(-1/6\)
+    \item
+    \item
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
+
+\subsection{Related rates}
 
 
-\section{Extrema}
+\section{Applications of derivatives}
+
+\subsection{Extrema}
 
 \begin{poll}
   True or false? If a function \(f(x)\) has a vertical asymptote, then \emph{both} absolute extrema can still be found.
@@ -1019,6 +1174,7 @@
     \includegraphics[page=1]{./standalones/extrema_example.pdf}
   \end{multicols}
 \end{poll}
+
 \begin{poll}
   Is it true that every absolute extremum is also a local extremum?
 
@@ -1030,7 +1186,6 @@
     \item I am not sure.
   \end{enumerate} 
 \end{poll}
-
 
 \begin{poll}
   What is the relation between local extrema and critical points?
@@ -1044,7 +1199,7 @@
   \end{enumerate} 
 \end{poll}
 
-\section{Derivative Tests}
+\subsection{Derivative Tests}
 
 \begin{poll}
   Imagine tracing, from left to right, the graph of an unknown continuous function \(f(x)\).  If the function always increases before reaching \(x = a\) but always decreases after \(x = a\), then \(f(a)\) is ... 
@@ -1057,7 +1212,6 @@
     \item I am not sure.
   \end{enumerate}
 \end{poll}
-
 
 \begin{poll}
   Can the First Derivative Test be applied to find the local min of \(f(x) = |x|\) (and, more generally, any continuous piecewise function)? 
@@ -1085,7 +1239,8 @@
   \end{enumerate} 
 \end{poll}
 
-\section{Optimization}
+\subsection{Optimization}
+
 \begin{poll}[c]
   In Example~\ref{main-ex:optimization-fence}, is the domain of \(A(x)\) really \(0 \le x \le 100\)?  Briefly explain your reasoning.
 \end{poll}
@@ -1106,7 +1261,8 @@
   \end{enumerate} 
 \end{poll}
 
-\section{L'H\^opital's Rule}
+\subsection{L'H\^opital's Rule}
+
 \begin{poll}
   Which of the following is an indeterminate form? Choose all correct options.
 
@@ -1134,8 +1290,35 @@
   ONLY apply l'H\^opital's rule to indeterminate forms of \(0/0\) or \(\infty/\infty\) and nothing else.
 \end{poll}
 
+\section{Integration}
 
-\section{Antiderivatives}
+\subsection{Integration formulas}
+
+\begin{poll}
+  Recall that differentiating a {\color{red} non-constant polynomial} lowers its degree by one. Does integrating any {\color{red} non-zero polynomial} (including constant ones) raise its degree by one?
+
+  \begin{enumerate} 
+    \item Yes, because \(\frac{d}{dx} x^{n} = n x^{n-1}\) for any integer \(n \ge 0\).
+    \item No, because \(\frac{d}{dx} (\text{any constant}) = 0\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\begin{poll}
+  Does integrating a {\color{red} power function}, i.e., \(x^{n}\) with NO restriction on \(n\), always raise its degree by one? Are there any exceptions?
+
+  \begin{enumerate} 
+    \item Yes. There are no exceptions.
+    \item No, an exception is \(x^{-1}\).
+    \item 
+    \item 
+    \item I am not sure.
+  \end{enumerate} 
+\end{poll}
+
+\subsection{Antiderivatives}
 
 \begin{poll}
   Consider \(f(x) = 2x e^{x^{2}}\) and \(g(x) = e^{x^{2}}\). Which of the following statements is true? 
@@ -1185,7 +1368,7 @@
   \end{enumerate}
 \end{poll}
 
-\section{Sigma Notations}
+\subsection{Sigma Notations}
 
 \begin{poll}
   Do \(\sum_{i=1}^{3} f(a + i/2)\) and \(\sum_{i=0}^{2} f(a + (i+1)/2)\) represent different objects?
@@ -1213,6 +1396,8 @@
     \item I am not sure.
   \end{enumerate} 
 \end{poll}
+
+\subsection{Approximating area}
 
 \begin{poll}
   A positive function \(f(x)\) is defined over \([-3, 3]\). At what \(x\)-values do we sample \(f(x)\) to approximate the area under it using the left-endpoint approximation with \(3\) equal-width rectangles? 
@@ -1281,6 +1466,7 @@
 
   
 \end{poll}
+
 \begin{poll}
   Which of the following is the left-endpoint approximation for \(x^{2}\) over \([0,3]\) using \(3\) equal-width rectangles?
 
@@ -1318,34 +1504,7 @@
   \end{center}
 \end{poll}
 
-\section{Integration formulas}
-\begin{poll}
-  Recall that differentiating a {\color{red} non-constant polynomial} lowers its degree by one. Does integrating any {\color{red} non-zero polynomial} (including constant ones) raise its degree by one?
-
-  \begin{enumerate} 
-    \item Yes, because \(\frac{d}{dx} x^{n} = n x^{n-1}\) for any integer \(n \ge 0\).
-    \item No, because \(\frac{d}{dx} (\text{any constant}) = 0\).
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Does integrating a {\color{red} power function}, i.e., \(x^{n}\) with NO restriction on \(n\), always raise its degree by one? Are there any exceptions?
-
-  \begin{enumerate} 
-    \item Yes. There are no exceptions.
-    \item No, an exception is \(x^{-1}\).
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\section{Definite integrals}
-
-
+\subsection{Definite integrals}
 
 \begin{poll}
   What is defined by \(\lim_{n \to \infty} \sum_{i=1}^{n} \frac{i^{2}}{n^{3}}\)?
@@ -1419,7 +1578,8 @@
   \end{enumerate} 
 \end{poll}
 
-\section{Fundamental Theorem of Calculus}
+\subsection{Fundamental Theorem of Calculus}
+
 \begin{poll}
   Suppose \(\int_{a}^{b} x \sin(x) \;dx = 5\). If \(F'(x) = x \sin(x)\) and \(F(b) = -1\), what is \(F(a)\)?
 
@@ -1431,7 +1591,6 @@
     \item I am not sure.
   \end{enumerate}
 \end{poll}
-
 
 \begin{poll}
   Are you convinced?  
@@ -1498,7 +1657,8 @@
   \end{align*}
 \end{poll}
 
-\section{The Substitution Rule}
+\subsection{The Substitution Rule}
+
 \begin{poll}
   What if we didn't see the ``convenient'' choice for \(u\)? 
 
@@ -1606,83 +1766,6 @@
     \item I am not sure.
   \end{enumerate}
 \end{poll}
-\section{Problem-solving}
-\begin{poll}
-  Suppose \(\sin(f(x)) = 0\), \(f(1) = \pi\). Find \(f'(1)\).
-
-  What question did you ask yourself to discover a problem-solving idea?
-\end{poll}
-
-\begin{poll}
-  How can we determine the continuity of a piecewise function \(f(x)\) at a constant \(c\)?
-
-  \begin{enumerate} 
-    \item Apply limit laws.
-    \item Calculate and compare left and right limits at \(c\).
-    \item Check if \(\lim_{x \to c}f(x) = f(c)\). May have to calculate left and right limits separately.
-    \item Check if \(f(x)\) is defined at \(c\).
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What information seems useful?
-
-  \begin{enumerate} 
-    \item Limit laws.
-    \item Squeeze Theorem.
-    \item \(f(x)\) is continuous on \([0,1]\).
-    \item Intermediate Value Theorem.
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). Continuity seems important. What else is useful?
-
-  \begin{enumerate} 
-    \item \(f\) must be continuous at \(0\).
-    \item \(f\) must be continuous at \(1\).
-    \item 
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-
-\begin{poll}
-  Suppose \(f(x) = \begin{cases} ax^{2} &\text{if } 0 \le x < 1 \\ -1 &\text{if } x = 1 \end{cases}\) is continuous on \([0,1]\) and you are asked to find \(a\). What can we do with the continuity at \(1\)? 
-
-  \begin{enumerate} 
-    \item Deduce \(\lim_{x \to 1^{-}} f(x) = \lim_{x \to 1^{+}} f(x)\).
-    \item Deduce \(\lim_{x \to 1^{+}} f(x) = f(1)\).
-    \item Deduce \(\lim_{x \to 1^{-}} f(x) = f(1)\).
-    \item 
-    \item I am not sure.
-  \end{enumerate} 
-\end{poll}
-\begin{poll}
-  Suppose \(x f(x)^{2} = 3\) and \(f(3) = -1\). Find \(f'(3)\).
-
-  \begin{enumerate} 
-    \item \(1/6\)
-    \item \(-1/6\)
-    \item
-    \item
-    \item I am not sure.
-  \end{enumerate}
-\end{poll}
-
-\begin{poll}
-  Which of the following seems like a good starting point for you? 
-
-  \begin{enumerate}
-    \item \(\lim_{x \to a^{-}} f(x) = \lim_{x \to a^{+}} f(x)\)
-    \item \(\lim_{x \to a^{-}} f(x) = f(a)\)
-    \item \(\lim_{x \to a^{+}} f(x) = f(a)\)
-    \item Calculate \(\lim_{x \to a^{-}} f(x)\), \(\lim_{x \to a^{+}} f(x)\) and \(f(a)\) and make them equal to each other.
-    \item I am not sure.
-  \end{enumerate}
-\end{poll}
 
 \section{Miscellaneous}
 
@@ -1698,7 +1781,6 @@
   \end{enumerate} 
 \end{poll}
 
-
 \begin{poll}
   What differentiation topics should we focus on?
 
@@ -1713,11 +1795,9 @@
   \end{enumerate}
 \end{poll}
 
-
 \begin{poll}[c]
   Articulate the challenges you faced during the mock test. What will you do to prepare for the real midterm? What can your instructor do to help?
 \end{poll}
-
 
 \begin{poll}
   What topic should we review?
@@ -1769,4 +1849,5 @@
 \begin{poll}
 
 \end{poll}
+
 \end{document}
