@@ -2,6 +2,8 @@
 \documentclass[aspectratio=169, 12pt]{beamer}
 
 \input{./beamer.tex.preamble}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{booktabs}
 \usepackage{xr}
 \externaldocument[main-]{.aux/main}
 
@@ -1062,6 +1064,265 @@
 
   Class will resume at 7:10 pm.
 \end{frame}
+
+\section{Midterm Prep}
+
+\begin{frame}
+  Let's say you work on 10 practice problems on a single topic, say limits.
+
+  % Said out loud instead -- the figure below carries both scenarios.
+  % You notice that every pair of them has a common shortcut. You practice each shortcut twice.
+  %
+  % You apply the same systematic but longer approach to each problem. You practice the systematic approach \(10\) times.
+
+  \begin{center}
+    % Same ten problems twice over.  Colour is the technique used, so the top
+    % row breaks into five pairs and the bottom row is one unbroken block --
+    % the repetition count is the only thing that differs.
+    \begin{tikzpicture}[
+        tile/.style={rounded corners=2pt, draw=WesternGrey,
+                     minimum width=0.75cm, minimum height=0.6cm, inner sep=0pt},
+        caption/.style={anchor=west, font=\small}]
+      \node[caption] at (-0.375, 1.75) {Five shortcuts, \(2\) repetitions each};
+      \foreach \c [count=\n from 0] in {%
+          WesternSky, WesternSky, WesternSpring, WesternSpring, WesternVivid,
+          WesternVivid, WesternTiger, WesternTiger, WesternOrchid, WesternOrchid}
+        \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
+
+      \node[caption] at (-0.375, 0.15) {One systematic approach, \(10\) repetitions};
+      \foreach \n in {0,...,9}
+        \node[tile, fill=main!40] at ({\n*0.85}, -0.5) {};
+    \end{tikzpicture}
+  \end{center}
+
+  \pause
+  \hlattn{You are more likely to remember the technique you practiced \(10\) times than the shortcuts you practiced only twice.
+  }
+\end{frame}
+
+\begin{frame}
+  As you move closer to exam time, you need to practice \hlmain{multiple techniques} in short successions to practice \hlattn{how to choose an effective technique} for a given problem.
+
+  \begin{center}
+    % Same twelve problems, same three techniques (one per colour); only the
+    % order changes.  Blocked on top, interleaved below -- the second ordering
+    % is the one that forces a choice before every problem.
+    \begin{tikzpicture}[
+        tile/.style={rounded corners=2pt, draw=WesternGrey,
+                     minimum width=0.75cm, minimum height=0.6cm, inner sep=0pt},
+        caption/.style={anchor=west, font=\small}]
+      \node[caption] at (-0.375, 1.75) {Learning a technique: one type of problem at a time};
+      \foreach \c [count=\n from 0] in {%
+          WesternSky, WesternSky, WesternSky, WesternSky,
+          WesternSpring, WesternSpring, WesternSpring, WesternSpring,
+          WesternTiger, WesternTiger, WesternTiger, WesternTiger}
+        \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
+
+      \node[caption] at (-0.375, 0.15) {Closer to the exam: mixed together};
+      \foreach \c [count=\n from 0] in {%
+          WesternSky, WesternTiger, WesternSpring, WesternTiger,
+          WesternSky, WesternSpring, WesternTiger, WesternSky,
+          WesternSpring, WesternSky, WesternTiger, WesternSpring}
+        \node[tile, fill=\c!70] at ({\n*0.85}, -0.5) {};
+    \end{tikzpicture}
+  \end{center}
+  
+  \hlattn{Map out the techniques and when to use them. List all examples, exercises and quiz problems that use each technique.}
+\end{frame}
+
+
+
+\begin{frame}
+  This exercise is called \hlattn{priming}. We use \hlmain{active recall} to pull in relevant facts for \hlattn{problems of the same type} before attempting to solve them.
+
+  \bigskip
+  Take a few minutes to recall and map out
+  \begin{itemize}
+    \item techniques for evaluating limits and 
+    \item when to use them.
+  \end{itemize}
+\end{frame}
+
+
+\begin{poll}
+  Evaluate \(\displaystyle \lim_{x \to 5} \frac{\sqrt[4]{3x + 1} - 2}{\sqrt[2]{3x + 1} - 4}\).
+
+  \only<1>{
+  What techniques are relevant for evaluating this limit?
+  }
+  \only<2->{
+    \textbf{Idea}. Direct substitution results in \(0/0\). We can use the \hlwarn{change of variable} \({\color{main}u} = {\color{main}\sqrt[4]{3x + 1}}\).
+    
+    % Sub \({\color{main}u} = {\color{main}\sqrt[4]{3x + 1}}\). Then \hlwarn{\(b = \lim_{x \to 5} u = \lim_{x \to 5} \sqrt[4]{3x + 1} = 2\)} and \({\color{supp}\sqrt[2]{3x + 1}} = {\color{supp}u^{2}}\).
+    % \begin{align*}
+    %   \lim_{x \to 5} \frac{{\color{main}\sqrt[4]{3x + 1}} - 2}{{\color{supp}\sqrt[2]{3x + 1}} - 4}
+    %   &= \lim_{u \to 2} \frac{{\color{main}u} - 2}{{\color{supp}u^{2}} - 4}
+    %    \onslide<3->{= \lim_{u \to 2} \frac{\cancel{u - 2}}{\cancel{(u - 2)}(u + 2)}}\\
+    %   &\onslide<4->{= \lim_{u \to 2} \frac{1}{u + 2}}
+    %    \onslide<5->{= \frac{1}{4}.}
+    % \end{align*}
+  }
+\end{poll}
+
+\begin{poll}
+  Evaluate these limits.
+  \[
+    \lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x}.
+    \qquad\text{and}\qquad
+    \lim_{x \to 36} \frac{36 - x}{\sqrt{x} - 6}
+  \]
+
+  What techniques are relevant for evaluating these limits?
+
+  \only<2->{
+    \textbf{Idea}. Direct substitution results in \(0/0\) and roots suggest \hlwarn{rationalization}.
+    % \begin{align*}
+    %   \lim_{x \to 36} \frac{36 - x}{\sqrt{x} - 6}
+    %   &\onslide<3->{= \lim_{x \to 36} \frac{36 - x}{\sqrt{x} - 6} \cdot \frac{\sqrt{x} + 6}{\sqrt{x} + 6}}\\
+    %   &\onslide<4->{= \lim_{x \to 36} \frac{(36 - x)(\sqrt{x} + 6)}{x - 36}}\\
+    %   &\onslide<5->{= \lim_{x \to 36} -(\sqrt{x} + 6)}\\
+    %   &\onslide<6->{= -12.}
+    % \end{align*}
+    %
+    % \begin{align*}
+    %   \lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x}
+    %   &\onslide<3->{= \lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x} \cdot \frac{\sqrt{x + 1} + 1}{\sqrt{x + 1} + 1}}\\
+    %   &\onslide<4->{= \lim_{x \to 0} \frac{(x + 1) - 1}{x(\sqrt{x + 1} + 1)}}\\
+    %   &\onslide<5->{= \lim_{x \to 0} \frac{x}{x(\sqrt{x + 1} + 1)}}\\
+    %   &\onslide<6->{= \lim_{x \to 0} \frac{1}{\sqrt{x + 1} + 1}}\\
+    %   &\onslide<7->{= \frac{1}{2}.}
+    % \end{align*}
+    }
+\end{poll}
+
+\begin{frame}
+  Here are some strange statistics. Both problems appeared on the SAME midterm.
+
+  \begin{center}
+    \renewcommand{\arraystretch}{2}
+    \begin{tabular}{l|c}
+      Limit & Success rate \\\midrule
+      \(\lim_{x \to 0} \frac{\sqrt{x + 1} - 1}{x}\) & \hlwarn{\(79\%\)}\\\midrule
+      \(\lim_{x \to 36} \frac{36 - x}{\sqrt{x} - 6}\) & \hlwarn{\(60\%\)}
+    \end{tabular}
+  \end{center}
+
+
+  \pause\bigskip
+  \hlattn{Consistently use your mind map with active recall. You will develop a systematic approach to solve problems, leading to more consistent success.}
+\end{frame}
+
+\begin{poll}
+  Suppose a function \(f(x)\) is defined for all real numbers. Moreover, \(f(x)\) satisfies
+  \[
+    \lim_{x \to (-1)^{-}} f(x) = -1,
+    \quad
+    \lim_{x \to (-1)^{+}} f(x) = \infty,
+    \quad\text{and}\quad
+    f(-1) = 0.
+  \]
+  Which of the following statements is true?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item Such a function does not exist.
+    \item \(f(x)\) has a jump discontinuity at \(-1\).
+    \item \(f(x)\) has a removable discontinuity at \(-1\).
+    \item \(f(x)\) has an infinite discontinuity at \(-1\).
+    \item \(f(x)\) is continuous at \(-1\).
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  Evaluate \(\frac{d}{dx} |e^{\pi}|\).
+
+  \begin{enumerate}
+    \item \(\pi e^{\pi - 1}\)
+    \item \(e^{\pi}\)
+    \item \(1\)
+    \item \(0\)
+    \item The function is not differentiable.
+  \end{enumerate}
+\end{poll}
+
+\begin{poll}[t]
+  A function \(f(x)\) satisfies
+  \[
+    \frac{5 \sqrt{x}}{\sqrt{x + 25}} \le f(x) \le \frac{10 e^{x} - 2}{2 e^{x}}
+  \]
+  for all \(x > 0\). Evaluate \(\lim_{x \to \infty} f(x)\).
+  
+  \only<1>{
+    What techniques are relevant for evaluating this limit?
+  % \begin{enumerate}
+  %   \item \(0\)
+  %   \item \(1\)
+  %   \item \(5\)
+  %   \item \(\infty\)
+  %   \item The limit does not exist.
+  % \end{enumerate}
+  }
+  \only<2->{
+    \textbf{Solution}. The inequalities suggest \hlwarn{the squeeze theorem}. 
+    \begin{align*}
+      \lim_{x \to \infty} \frac{5 \sqrt{x}}{\sqrt{x + 25}}
+      &= \onslide<3->{\lim_{x \to \infty} \frac{5\cancel{\sqrt{x}}}{\cancel{\sqrt{x}}\sqrt{1 + \frac{25}{x}}} &=} 5,
+      &&& \onslide<3->{\parbox{5cm}{\color{warn} factor out the largest power and its coeffcient}} \\
+      \lim_{x \to \infty} \frac{10 e^{x} - 2}{2 e^{x}}
+      &= \onslide<3->{\lim_{u \to \infty} \frac{10 u - 2}{2 u} &=} 5.
+      &&& \onslide<3->{\text{\color{warn} sub \(u = e^{x}\)}}
+    \end{align*}
+
+    \onslide<3->{The two limits agree, so the squeeze theorem implies \(\lim_{x \to \infty} f(x) = 5\).}
+  }
+\end{poll}
+
+\begin{poll}
+  Differentiate \(\left|x^{2}\right|\) at \(x = 0\).
+  What is an effective starting strategy?
+  
+  \pause
+  \[
+    \left|x^{2}\right| = \begin{cases}
+      x^{2}, & x^{2} \ge 0,\\
+      -x^{2}, & x^{2} < 0.
+    \end{cases}
+    = x^{2} \quad\text{ because \(x^{2}\) is never negative.}
+  \]
+
+  \hlsupp{Takeaway:} Writing \(|x^{2}|\) as a piecewise function dramatically simplifies the problem.
+\end{poll}
+
+\begin{poll}
+  Consider the function 
+  \[
+    f(x) = \frac{1}{|x + 1|} + \left| x^{3} - 3x^{2} \right| \onslide<2->{= \hlmain{\frac{1}{|x + 1|} + |x^{2}(x - 3)|} = \hlsupp{\frac{1}{|x + 1|}} + x^{2}\hlsupp{|x - 3|}}.
+  \]
+  Find \(f'(0)\).
+  
+  Do you have to use the limit definition of derivative to find \(f'(0)\)?
+  \begin{enumerate}
+    \item Yes
+    \item No
+  \end{enumerate}
+
+  \pause
+  \bigskip
+  \begin{center}
+    \begin{tikzpicture}[x={3.6cm},
+        piece/.style={decorate, decoration={brace, amplitude=5pt, raise=3pt}},
+        pieceexpr/.style={midway, above=11pt, font=\footnotesize}]
+      \draw[<->] (0,0) -- (3,0) node[right] {\(x\)};
+      \draw (1, 0.12) -- (1, -0.12) node[below] {\(-1\)};
+      \draw (2, 0.12) -- (2, -0.12) node[below] {\(3\)};
+      \fill (1.3, 0) circle (2pt) node[below=2pt] {\(0\)};
+      \draw[piece] (0.05,0) -- (1,0) node[pieceexpr] {\(-\frac{1}{x+1} - (x^{3} - 3x^{2})\)};
+      \draw[piece] (1,0) -- (2,0) node[pieceexpr] {\(\frac{1}{x+1} - (x^{3} - 3x^{2})\)};
+      \draw[piece] (2,0) -- (2.95,0) node[pieceexpr] {\(\frac{1}{x+1} + (x^{3} - 3x^{2})\)};
+    \end{tikzpicture}
+  \end{center}
+
+  \hlsupp{Takeaway:} Writing \(f(x)\) as a piecewise function dramatically simplifies the problem because we do not need to resort to the limit definition of derivative.
+\end{poll}
 
 \section{Announcements}
 

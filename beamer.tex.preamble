@@ -10,6 +10,7 @@
 \usepackage{qrcode}
 \usepackage{multicol}
 \usepackage{csquotes}
+\usepackage{cancel}
 
 
 \usetheme{metropolis}
