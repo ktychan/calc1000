@@ -2,7 +2,72 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\section{A collection of challenging problems}
+\section{Active recalls for midterm prep}
+
+% This is a selection of past midterm multiple-choice questions. The number of questions DOES NOT reflect the number of questions on the real midterm because we only have 45 minutes for this in-class exercise. \updatenote{Removed the extraneous "of" after "reflect".}  There are thirteen questions. 
+% For this exercise only, you are welcome to work in groups. However, you cannot use aids of any kind. 
+
+\begin{exercise}
+  Recall the procedure to find the inverse of a function \(f(x)\).
+\end{exercise}
+
+\begin{exercise}
+  Recall the definition of continuity. 
+  Check that your definition is consistent with Definition~\ref{def:continuity} on page~\pageref{def:continuity}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the definition of a jump discontinuity and a removable discontinuity. 
+  Check that your definitions are consistent with Definition~\ref{def:discontinuities} on page~\pageref{def:discontinuities}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the definition of a vertical asymptote or an infinite discontinuity. 
+  Check that your definition is consistent with Definition~\ref{def:vertical-asymptote} on page~\pageref{def:vertical-asymptote}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to apply the Intermediate Value Theorem. 
+  Check that your understanding is consistent with Theorem~\ref{thm:ivt} on page~\pageref{thm:ivt}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure for a change of variable in a limit.
+  Check that your understanding is consistent with the discussion on the top left of page~\pageref{sec:change-of-variable}.
+  
+  List all examples, exercises and quiz problems that use this technique. This helps you to see the pattern for when to use it.
+\end{exercise}
+
+\begin{exercise}
+  Recall when you have to evaluate a two-sided limit by evaluating two one-sided limits.
+
+  List all examples, exercises and quiz problems that use this technique. This helps you to see the pattern for when to use it. Don't forget we did quite few problems on graphs only.
+\end{exercise}
+
+\begin{exercise}
+  Recall the Squeeze Theorem and how to apply it.
+
+  What conclusion should you draw if the limit of the upper bound and the lower bound are different?
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to evaluate a limit at infinity, at negative infinity, and if it involves exponential functions.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to find horizontal asymptotes of a function.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to solve for unknown(s) to make a function continuous at a number or everywhere.
+\end{exercise}
+
+\begin{exercise}
+  Recall the limit definition of the derivative.
+  Check that your definition is consistent with the one on page~\pageref{def:derivative-at-a-point}.
+  
+  List all examples, exercises and quiz problems that MUST use limit definition to evaluate a derivative. This helps you see the pattern for when you MUST resort to basics.
+\end{exercise}
 
 \begin{exercise} \label{ex:midterm-practice-1}
   % (Midterm, Fall 2019)
@@ -62,7 +127,6 @@
 \begin{exercise} \label{ex:midterm-exercise-4}
   % (Midterm, Fall 2022)
   Suppose \(f(x) = \frac{1}{x - 1}\). How many discontinuities does the function \(f(f(x))\) have?
-
   \begin{enumerate}[label=\Alph*.]
     \item \(f(x)\) is continuous everywhere.
     \item Exactly one.
@@ -202,8 +266,160 @@
 \vfill
 \clearpage
 
+\begin{exercise} \label{ex:midterm-practice-12}
+  % (Midterm, Fall 2024)
+    Evaluate \(\lim_{x \to 0} f(x)\) if \(0 \le f(x) \le |x \sin(1/x)|\) for all \(x\).
+    \begin{enumerate}[label=\Alph*.]
+      \item \(0\)
+      \item \(1\)
+      \item \(\frac{1}{\sqrt{2}}\)
+      \item \(\sqrt{2}\)
+      \item None of the above.
+    \end{enumerate}
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise} \label{ex:midterm-practice-13}
+  Evaluate \(\lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}\).
+  Write your solution in the box provided below.
+
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (6,2); 
+    \node[right] at (0.5, 0.5) {The limit is \underline{\hspace{2cm}}};
+  \end{tikzpicture}
+\end{exercise}
+
+\begin{exercise}
+  % (Midterm, Fall 2025)
+  A function \(f(x)\) satisfies 
+  \[
+    \frac{5 \sqrt{x}}{\sqrt{x + 25}} ≤ f(x) ≤ \frac{10 e^{x} - 2}{2 e^{x}}
+  \]
+  for all \(x > 0\). Evaluate \(\lim_{x \to \infty} f(x)\).
+  
+  \begin{enumerate}
+    \item \(0\)
+    \item \(1\)
+    \item \(5\)
+    \item \(\infty\)
+    \item The limit does not exists.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  % (Midterm, Fall 2025)
+  Consider the function \(f(x) = 1 + \sqrt{x}\), defined for \(x \ge 0\). Which of the following is true?
+
+  \begin{enumerate}
+    \item The inverse of \(f\) is \(f^{-1}(x) = (x - 1)^{2}\).
+    \item The domain of \(f^{-1}\) is \((0, \infty)\).
+    \item The range of \(f\) is \([0, \infty)\).
+    \item The inverse of \(f\) does not exist.
+    \item None of the above.
+  \end{enumerate}
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  % Midterm, Fall 2025
+  Suppose a function \(f(x)\) is defined for all real numbers. Moreover, \(f(x)\) satisfies
+  \[
+    \lim_{x \to (-1)^{-}} f(x) = -1,
+    \quad
+    \lim_{x \to (-1)^{+}} f(x) = \infty,
+    \quad\text{and}\quad
+    f(-1) = 0.
+  \]
+  Which of the following statements is true?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item Such a function does not exist.
+    \item \(f(x)\) has a jump discontinuity at \(-1\).
+    \item \(f(x)\) has a removable discontinuity at \(-1\).
+    \item \(f(x)\) has an infinite discontinuity at \(-1\).
+    \item \(f(x)\) is continuous at \(-1\).
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Consider the function 
+  \[
+    f(x) = \frac{1}{|x + 1|} + | x^{2} - 3x^{2} |.
+  \]
+  Find \(f'(0)\).
+
+  \begin{enumerate}
+    \item \(0\)
+    \item \(-1\)
+    \item \(1\)
+    \item \(2\)
+    \item None of the above.
+  \end{enumerate}
+\end{exercise}
+\clearpage
+
+\begin{exercise} \label{ex:change-of-variable-cube-at-8}
+  Evaluate \(\lim_{x \to 8} \frac{\sqrt[3]{x} - 2}{x - 8}\).
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise} \label{ex:change-of-variable-fourth-at-16}
+  Evaluate \(\lim_{x \to 16} \frac{\sqrt[4]{x} - 2}{\sqrt{x} - 4}\).
+\end{exercise}
+\clearpage
+
+\begin{exercise} \label{ex:change-of-variable-two-roots-at-64}
+  Evaluate \(\lim_{x \to 64} \frac{\sqrt{x} - 8}{\sqrt[3]{x} - 4}\).
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise} \label{ex:change-of-variable-shifted-cube}
+  Evaluate \(\lim_{x \to 0} \frac{\sqrt[3]{1 + x} - 1}{x}\).
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise}[Midterm, Fall 2024] \label{ex:change-of-variable-cube-at-8-shifted}
+  Evaluate \(\lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h}\).
+
+  % {\footnotesize Hint: let \(u = \sqrt[3]{8 + h}\). Cube both sides to write \(h\) in terms of \(u\), and find what \(u\) approaches.}
+\end{exercise}
+\clearpage
+
+\begin{exercise} \label{ex:infinity-root-negative}
+  If possible, evaluate \(\lim_{x \to -\infty} \frac{3x - 7}{\sqrt{25x^{2} + 5x + 1}}\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(-7\)
+    \item \(\frac{3}{25}\)
+    \item \(-\frac{3}{5}\)
+    \item \(0\)
+    \item The limit does not exist.
+  \end{enumerate}
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise} \label{ex:infinity-root-abs-numerator}
+  Evaluate \(\lim_{x \to -\infty} \frac{\left| 2x + 5 \right|}{\sqrt{9x^{2} - 4x + 1}}\).
+\end{exercise}
+\clearpage
+
+\begin{exercise} \label{ex:infinity-root-outside-term}
+  Evaluate \(\lim_{x \to -\infty} \frac{4x + 1}{3x + \sqrt[4]{16x^{4} + 3x}}\).
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise} \label{ex:infinity-odd-root}
+  Evaluate \(\lim_{x \to -\infty} \frac{2x - 1}{\sqrt[3]{8x^{3} + x^{2}}}\).
+\end{exercise}
+\clearpage
+
 \printhints
 
+% ---- Sample solutions withheld for now; uncomment to publish. ----
+% The sample solutions below are some of the fastest ways to get to the solution. However, they are not the only solutions. As you may have noticed, these problems involve a mix of the ideas we discussed in class and require a clear understanding of when certain laws can or cannot be used.  
+%
+% \bigskip
+%
 % \begin{enumerate}[wide, label=\textbf{Sample solution for Exercise~\thechapter.\arabic*.}, itemsep={1cm}]
 %   \item 
 %     This is a ``find all ... that satisfy ...'' type of question as discussed on page~\pageref{sec:working-with-equations}. We need equations involving the unknowns \(a\) and \(b\). The points \(f(x)\) passes through give us two equations. \updatenote{"pass" corrected to "passes" to agree with the singular subject "$f(x)$".}
@@ -247,7 +463,6 @@
 %       \frac{x}{2} = \left( \ln(y) \right)^{3} \quad\longrightarrow\quad \sqrt[3]{x/2} = \ln(y) \quad\longrightarrow\quad e^{\sqrt[3]{x/2}} = y.
 %     \]
 %     It is quite easy to make the following mistake: \(\Big(\ln(x)\Big)^{3} = 3\ln(x)\). The correct logarithm law is \(\ln(x^{a}) = a\ln(x)\). Brackets matter! \updatenote{First displayed equation had "$(\ln(x))^3$", inconsistent with $x=2(\ln(y))^3$ above and $\ln(y)$ in the next step; corrected to $(\ln(y))^3$. (The "common mistake" remark's use of $\ln(x)$ is unrelated and intentionally generic.)}
-
 %   \item 
 %     This is about applying limit laws (Theorem~\ref{thm:limit-laws} on page~\pageref{thm:limit-laws}) with only abstract information. Example~\ref{eg:limit-law-abstract} on page~\pageref{eg:limit-law-abstract} is relevant.
 %     \[
@@ -355,7 +570,6 @@
 %     \[
 %       \frac{0^{2} + {\displaystyle \lim_{x \to 0} f(x)} + 3}{\sqrt[3]{3{\displaystyle \lim_{x \to 0}f(x) + 5}}} = \frac{-1 + 3}{\sqrt[3]{3(-1) + 5}} = \sqrt[3]{4}.
 %     \]
-
 %   \item 
 %     Work your way down the list.
 %     \begin{enumerate}[label=\Alph*.]
