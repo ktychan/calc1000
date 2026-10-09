@@ -140,3 +140,54 @@
      \dimen0=\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax
    \fi
    \ifdim\dimen0>0pt\relax\vspace*{\dimen0}\fi}
+
+% Hints written inside an exercise but typeset later, as one list.
+%
+%   \begin{exercise} ...
+%     \begin{hint} text \end{hint}
+%   \end{exercise}
+%   ...
+%   \printhints        % or \printhints[itemsep=1cm]; options go to enumitem
+%
+% The hint body is stored, not typeset.  At \end{exercise} the stored hints
+% are tied to that exercise's number and hyperref anchor, captured by value,
+% so \printhints needs no \label and no second run.  By then any list or
+% equation inside the exercise has closed and \@currentlabel and
+% \@currentcounter are the exercise's again, so a hint placed inside the
+% choices list still points at the exercise rather than at item A.  The
+% anchor is rebuilt from \@currentcounter the way hyperref names it, because
+% hyperref sets \@currentHref globally and a later item or equation would
+% have overwritten it.
+% \printhints typesets every hint collected since the previous \printhints
+% and then empties the collection, so each subfile can print its own.
+\makeatletter
+\newcommand*{\hint@list}{}
+\newcommand*{\hint@pending}{}
+\newif\ifhint@inexercise
+\AddToHook{env/exercise/begin}{\hint@inexercisetrue}
+\AddToHook{env/exercise/end}{%
+  \ifx\hint@pending\@empty\else
+    \xdef\hint@list{%
+      \unexpanded\expandafter{\hint@list}%
+      \noexpand\hint@item
+        {\@currentcounter.\csname theH\@currentcounter\endcsname}%
+        {\unexpanded\expandafter{\@currentlabel}}%
+        {\unexpanded\expandafter{\hint@pending}}}%
+    \global\let\hint@pending\@empty
+  \fi}
+\NewDocumentEnvironment{hint}{+b}
+  {\ifhint@inexercise\else
+     \PackageError{hint}{The hint environment must be inside an exercise}{}%
+   \fi
+   \xdef\hint@pending{\unexpanded\expandafter{\hint@pending}\unexpanded{#1}}}
+  {\ignorespacesafterend}
+\newcommand{\hint@item}[3]{% long: the body may contain \par
+  \item[\textbf{Hint for \hyperlink{#1}{Exercise~#2}.}] #3}
+\NewDocumentCommand{\printhints}{O{}}{%
+  \ifx\hint@list\@empty\else
+    \begin{enumerate}[wide, #1]
+      \hint@list
+    \end{enumerate}%
+    \global\let\hint@list\@empty
+  \fi}
+\makeatother
