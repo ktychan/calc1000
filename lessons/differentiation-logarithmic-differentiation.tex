@@ -1,10 +1,10 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Logarithmic differentiation}
-We introduce a method called \emph{logarithmic differentiation}. It works by combining implicit differentiation, Equation~\eqref{eq:derivative-of-ln(g(x))} below and properties of logarithms.
+We introduce a method called \emph{logarithmic differentiation}. It works by combining implicit differentiation, Equation~\eqref{eq:derivative-of-ln-chain} below and properties of logarithms.
 \begin{mdframed}[style=withref]
   If \(g(x)\) is a differentiable function, then by the Chain Rule
-  \begin{equation} \label{eq:derivative-of-ln(g(x))}
+  \begin{equation} \label{eq:derivative-of-ln-chain}
     \frac{d}{dx} \ln( g(x) ) = \frac{g'(x)}{g(x)}.
   \end{equation}
 
@@ -28,23 +28,23 @@ Here is the \emph{reference} for the full idea. To differentiate \(y = f(x)\) us
     \end{equation}
     where all products and quotients in \(f(x)\) are turned into sums and differences of \(\ln(\cdots)\), and all powers in \(f(x)\) are turned into constants in front of \(\ln(\text{simpler function})\).
 
-    \hlmain{Benefit: Equation~\eqref{eq:logarithmic-differentiation} has a simpler structure. Its summands can often (not always) be differentiated in a single step using Equation~\eqref{eq:derivative-of-ln(g(x))}. If the (stuff) in front of a \(ln(\text{simpler function})\) is a non-constant function, then we need the product rule.}
+    \hlmain{Benefit: Equation~\eqref{eq:logarithmic-differentiation} has a simpler structure. Its summands can often (not always) be differentiated in a single step using Equation~\eqref{eq:derivative-of-ln-chain}. If the (stuff) in front of a \(ln(\text{simpler function})\) is a non-constant function, then we need the product rule.}
 
-  \item Implicitly differentiate Equation~\eqref{eq:logarithmic-differentiation} with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln(g(x))} when appropriate.
+  \item Implicitly differentiate Equation~\eqref{eq:logarithmic-differentiation} with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln-chain} when appropriate.
 
   \item Isolate for \(\frac{dy}{dx}\) to rewrite your expression as \(\frac{dy}{dx} = \cdots\). 
   \item Replace \(y\) by the original expression \(f(x)\), so that \(dy/dx\) restored as a function of \(x\).
 \end{enumerate}
 \clearpage
 
-\begin{example} \label{ex:log-diff}
+\begin{example} \label{eg:log-diff}
   Differentiate \(y = \frac{\sin(2x)^{4/3} \sqrt{x^{2}+1}}{e^{x} \cos^{5}(x)}\) using logarithmic differentiation.
 
   \begin{enumerate}[wide, noitemsep]
     \item Take \(\ln(\cdots{})\) of both sides of the equation. Simplify the right-hand side using properties of logarithms.
 
       \blanklines{30}
-    \item Implicitly differentiate Equation~\eqref{eq:logarithmic-differentiation} with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln(g(x))} when appropriate.
+    \item Implicitly differentiate Equation~\eqref{eq:logarithmic-differentiation} with respect to \(x\). Use Equation~\eqref{eq:derivative-of-ln-chain} when appropriate.
 
       \blanklines{19}
     \item Isolate for \(\frac{dy}{dx}\) to rewrite your expression as \(\frac{dy}{dx} = \cdots\). 

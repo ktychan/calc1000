@@ -1,136 +1,635 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Reading week}
-The reading week offers an opportunity to reflect.  Here are some reflection prompts.
+The reading week offers some time for reflection.  Here is some food for thought.
 
 \begin{enumerate}
-  \item \hlmain{Do you remember all definitions and theorem statements?} A popular strategy to make sure we don't miss anything is to make a list of all statements taught in the course for easy reference. Flash cards are also quite popular.
+  \item \textbf{How often you practise a technique may affect how well you can recall it in an exam.} Suppose you work on 10 practice problems on a single topic, say limits. You notice that every pair of them shares a shortcut. You end up practising each shortcut twice. Alternatively, you apply the same systematic (but longer) approach to every problem, so you practise that one approach 10 times.
 
-  \item \hlmain{Do you remember examples and exercises?} Definitions and theorem statements can be very abstract and difficult to remember. For each theorem statement in your reference, list a few examples to make abstract statements concrete.
+  \begin{center}
+    \includestandalone[page=1]{../standalones/study-skills}
+  \end{center}
+  Quiz questions are grouped so that, hopefully, you see the benefit of a systematic approach. \hlattn{You are more likely to remember the technique you practised 10 times than the shortcuts you practised only twice.} 
 
-  \item \hlmain{Can you mix and match techniques to solve complex problems?} We often introduce techniques in isolation so that we can understand the basic ideas.  Textbook exercises only help us gain procedural competency one technique at a time.  Make sure to work on complex problems to learn the connections among different ideas and techniques.
+  \item \textbf{The order you practise in matters too.} As you move closer to exam time, you need to practise \hlmain{multiple techniques} in short succession to practise \hlattn{how to choose an effective technique} for a problem.
 
-  \item \hlmain{Can you explicitly describe relevant problem-solving principles?} Some examples in the lecture notes discuss problem-solving principles and strategies. If you do a lot of exercises but cannot really describe the purpose of doing these exercises in terms of the ideas taught in class, then you might be slipping into rote practice.  Knowledge acquired through rote practice gives us a false sense of competency.
+  \begin{center}
+    \includestandalone[page=2]{../standalones/study-skills}
+  \end{center}
 
-  \item \hlmain{Do you experience information overload?} We go through a lot of examples in the course. If you feel like every example is a new trick waiting to be memorized, then you might be missing the big picture and need to organize your knowledge. Take a look at examples and exercises presented under similar topics and describe for yourself the common problem-solving strategy.
+  \hlattn{Map out the techniques and when to use them. List all
+  examples, exercises and quiz problems that use each technique.} Refer back to your map often to develop proficiency and consistency. Ultimately, the goal is to recall and use your map during an exam.
+  
+  You may use the index-card method. Whenever you finish a practice problem, write down the problem on one side of an index card and the relevant techniques on the other side. During an exam prep session, shuffle the cards and practise identifying the relevant techniques for each problem. Alternatively, give an AI the entire set of lecture notes (with or without your own notes) and ask it to pick out a random set of problems.
 
-  % \item \hlmain{Reflect on your recent midterm-writing experience.}  How did your expectation differ from reality?  What aspect of the midterm do you feel good about?  How will you adapt your study habits to achieve your goal?
+  \item \textbf{Priming} uses \hlmain{active recall} to pull in relevant facts for \hlattn{problems of the same type} before attempting them, so that solving becomes a matter of choosing among techniques you have already listed rather than searching for one. Its effectiveness depends on the completeness of your map of knowledge.
+
+  \item \textbf{Ease your mental load during an exam.} Exam questions are not listed in any particular order. Read through the exam and group questions by topic. For example, do all the limit questions first, then all the continuity questions, and so on. If you work from the first question to the last, you may have to tackle concepts in a random order.
+  
+  Use \hlattn{priming} to prepare yourself before attempting each type of problem. This way, you can focus on one topic at a time and ease your mental load. Use \href{https://westernu.brightspace.com/d2l/le/lessons/201580/units/3922747}{\color{link} past midterms \footnotesize\faExternalLink*} to experiment and find what works well. For example, you may prefer priming before looking for all the limit questions. Alternatively, maybe you prefer finding all the limit questions, priming, then attempting them. Lastly, there is a time cost to priming. Maybe you prefer to prime just once, right before the test.
 \end{enumerate}
 
+\section{Active recall for midterm prep}
+
+The midterm is a closed-book test with no aids of any kind. You will need to actively recall concepts, procedures, techniques and strategies during the test. The more you practise active recall before the test, the more likely you are to do so successfully during the test.
+
+\begin{exercise}
+  Recall the product rule and the quotient rule for derivatives. Check that your formulas are consistent with the ones on page~\pageref{thm:diff-rules-2}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to find higher-order derivatives.
+  Check that your procedure is consistent with Definition~\ref{def:higher-derivatives} on page~\pageref{def:higher-derivatives}.
+\end{exercise}
+
+\begin{exercise}
+  Recall differentiation formulas for \(e^{x}\), \(\ln(x)\), \(\sin(x)\), \(\cos(x)\), \(\tan(x)\) and \(\sec(x)\). Check that your formulas are consistent with the ones on page~\pageref{lesson:differentiation-formulas}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the relation between differentiability and continuity.
+  Check that your understanding is consistent with Theorem~\ref{thm:differentiability-implies-continuity} on page~\pageref{thm:differentiability-implies-continuity}.
+
+  For what problems do we need to use this relation?
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to solve for unknown(s) to make a function differentiable at a number or everywhere. Check that your procedure is consistent with Example~\ref{eg:find-a-and-b-differentiability} on page~\pageref{eg:find-a-and-b-differentiability}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the equation of the tangent line for a function at \(a\).
+\end{exercise}
+
+\begin{exercise}
+  Recall the limit definition of the derivative. Check that your definition is consistent with the one on page~\pageref{def:derivative-at-a-point}.
+  
+  List all examples, exercises and quiz problems that MUST use the limit definition to evaluate a derivative. This helps you see the pattern for when you MUST resort to basics.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to find horizontal asymptotes of a function.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to evaluate a limit at infinity. What techniques are useful if such limits approach negative infinity or involve exponential functions?
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to apply the Intermediate Value Theorem. 
+  Check that your understanding is consistent with Theorem~\ref{thm:ivt} on page~\pageref{thm:ivt}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to solve for unknown(s) to make a function continuous at a number or everywhere.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure for a change of variable in a limit.
+  Check that your understanding is consistent with the discussion on the top left of page~\pageref{sec:change-of-variable}. List all examples, exercises and quiz problems that use this technique. This helps you to see the pattern for when to use it.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to find and classify discontinuities.
+  Check that your procedure is consistent with the one on page~\pageref{technique:classify-discontinuities}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the definition of a jump discontinuity and a removable discontinuity. 
+  Check that your definitions are consistent with Definition~\ref{def:discontinuities} on page~\pageref{def:discontinuities}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the definition of continuity, and the three associated tasks to check for continuity at a number \(a\) and to find discontinuities.
+  Check that your definition is consistent with Definition~\ref{def:continuity} on page~\pageref{def:continuity}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the Squeeze Theorem and how to apply it.
+
+  Common missed subtlety: Can you draw any conclusion if the limit of the upper bound and the lower bound are different?
+\end{exercise}
+
+\begin{exercise}
+  Recall the limit laws. Check that your understanding is consistent with the laws on page~\pageref{thm:limit-laws}.
+\end{exercise}
+
+\begin{exercise}
+  Recall when you have to evaluate a two-sided limit by evaluating two one-sided limits. List all examples, exercises and quiz problems that use this technique. This helps you to see the pattern for when to use it. Don't forget we did quite a few problems on graphs only.
+\end{exercise}
+
+\begin{exercise}
+  Recall the definition of a vertical asymptote or an infinite discontinuity. 
+  Check that your definition is consistent with Definition~\ref{def:vertical-asymptote} on page~\pageref{def:vertical-asymptote}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the procedure to find the inverse of a function \(f(x)\).
+\end{exercise}
+
+\begin{exercise}
+  Recall the exponent and logarithm rules. Check that your formulas are consistent with the ones on page~\pageref{eq:log-formulas}.
+\end{exercise}
+
+\begin{exercise}
+  Recall the technique to write the absolute value of a function as a piecewise function. Check that your approach is consistent with Equation~\eqref{eq:abs} on page~\pageref{eq:abs}.
+\end{exercise}
+
+\section{Additional practice problems}
+
+% No \vfill or \clearpage in this section -- the problems simply flow.  To stop
+% an exercise being split over a page boundary, each one asks for a few lines of
+% room before it starts and forbids the usual break points inside it: between
+% lines (\samepage), and before or inside the list of options
+% (\@beginparpenalty, \@itempenalty).  Both hooks are undone at the end of the
+% file so that later lessons page-break normally.
+\makeatletter
+\let\rwOrigExercise\exercise
+\AtBeginEnvironment{exercise}{%
+  \Needspace*{5\baselineskip}%
+  \samepage
+  \@beginparpenalty\@M \@itempenalty\@M \@endparpenalty\@M
+}
+\makeatother
+
+Here is a selection of past midterm problems covering techniques up to the limit definition of the derivative, with hints on page~\pageref{page:midterm-prep-hints}. We barely touched on differentiation rules, so problems on differentiation rules and implicit differentiation are not included.
+
+After the reading week, we will spend two hours (Thursday and Friday for Section 005, Thursday for Section 004) to discuss systematic approaches to tackle hard problems.
+
+\begin{exercise} \label{ex:midterm-practice-1}
+  % (Midterm, Fall 2019)
+  The logarithmic function \(f(x) = \log_{a}(x) + b\) whose graph passes through points \((1,2)\) and \((2,1)\) is 
+  \begin{enumerate}[label=\Alph*.]
+    \item \(\ln(e^{2}x)\)
+    \item \(\log_{1/2}\left(\frac{x}{4}\right) + 1\)
+    \item \(\log_{1/2}(x) + 2\)
+    \item \(\log_{2}(x) - 1\)
+    \item \(\log_{2}(x) + 2\)
+  \end{enumerate}
+  \begin{hint}
+    This is similar to Problem 11, Quiz 1 on WebWork.
+  \end{hint}
+
+  \begin{solution}
+    We need equations involving the unknowns \(a\) and \(b\). The points \(f(x)\) passes through give us two equations.
+    \[
+    \left\{
+    \begin{array}{rcl}
+    f(1) &=& 2\\
+    f(2) &=& 1
+    \end{array} 
+    \right.
+    \longrightarrow
+    \left\{
+    \begin{array}{rcl}
+    \log_{a}(1) + b &=& 2\\
+    \log_{a}(2) + b &=& 1
+    \end{array} 
+    \right.
+    \overset{\text{\tiny \(\log_{a}(1) = 0\)}}{\longrightarrow}
+    \left\{
+    \begin{array}{rcl}
+    b &=& 2\\
+    \log_{a}(2) + 2 &=& 1
+    \end{array} 
+    \right.
+    \overset{\text{\tiny see below}}{\longrightarrow}
+    \left\{
+    \begin{array}{rcl}
+    b &=& 2\\
+    a &=& 1/2
+    \end{array} 
+    \right.
+    \]
+    In the last step, we solve for \(a\) in \(\log_{a}(2) = -1\). The fast method is to raise both sides to base \(a\) to get \(2 = a^{-1}\) and then \(a = 1/2\).  The systematic method (adds just one step) is to change base to \(e\) to get \(\frac{\ln(2)}{\ln(a)} = -1\) which turns into \(-\ln(2) = \ln(a)\). Raise both sides to \(e\) to get \(a = 2^{-1}\).
+
+    Alternatively, if you prefer exponentials over logarithms, start by converting \(f(x) = \log_{a}(x) + b\) into exponentials by raising both sides to \(a\) to get \(a^{f(x)} = x a^{b}\). Notice it is quite tempting to make an algebra mistake here. Plug in the point \((1,2)\) to get \(a^{2} = 1 a^{b}\) which means \(b = 2\). Plug in the point \((2,1)\) and \(b = 2\) to get \(a^{1} = 2 a^{2}\). Manipulate the exponents to get \(a = 2^{-1}\).
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-practice-2}
+  % (Midterm, Fall 2019) 
+  If \(f(x) = 2(\ln(x))^{3}\), then the inverse function \(f^{-1}(x)\) is 
+  \begin{enumerate}[label=\Alph*.]
+    \item \(e^{\sqrt[3]{x/2}}\)
+    \item \(\sqrt[3]{e^{x/2}}\)
+    \item \(2(e^{x})^{3}\)
+    \item \(2e^{x/2}\)
+    \item The inverse function does not exist.
+  \end{enumerate}
+  
+  \begin{hint}
+    Find the inverse function by isolating for \(y\) in the equation \(x = f(y)\) which comes from applying \(f(x)\) to both sides of \(y = f^{-1}(x)\).
+  \end{hint}
+  \begin{solution}
+    This is a mix of the fundamentals of inverse functions, the equivalent equation in particular, and the inverse pair \(e^{x}\) and \(\ln(x)\).  Start by writing down the equivalent equation for \(y = f^{-1}(x)\), as discussed in Example~\ref{eg:find-inverse}, which is \(x = 2(\ln(y))^{3}\). Isolate for \(y\) as follows:
+    \[
+    \frac{x}{2} = \left( \ln(y) \right)^{3} \quad\longrightarrow\quad \sqrt[3]{x/2} = \ln(y) \quad\longrightarrow\quad e^{\sqrt[3]{x/2}} = y.
+    \]
+    It is quite easy to make the following mistake: \(\Big(\ln(x)\Big)^{3} = 3\ln(x)\). The correct logarithm law is \(\ln(x^{a}) = a\ln(x)\). Brackets matter!
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-practice-3}
+  % (Midterm, Fall 2022)
+  Evaluate \(\lim_{x \to 0^{-}} e^{\frac{1}{\sin(x)}}\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(-\infty\)
+    \item \(0\)
+    \item \(e\)
+    \item \(\infty\)
+    \item The limit does not exist.
+  \end{enumerate}
+  \begin{hint}
+    The systematic approach to limits of composite functions is change of variable. A typical mistake is to directly substitute \(0\) into the function without realizing that the limit approaches \(0\) from the left and conclude that \(1/0 = \infty\) and \(e^{\infty} = \infty\).
+  \end{hint}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-exercise-4}
+  % (Midterm, Fall 2022)
+  Suppose \(f(x) = \frac{1}{x - 1}\). How many discontinuities does the function \(f(f(x))\) have?
+  \begin{enumerate}[label=\Alph*.]
+    \item \(f(x)\) is continuous everywhere.
+    \item Exactly one.
+    \item Exactly two.
+    \item Exactly three.
+    \item More than three.
+  \end{enumerate}
+  
+  \begin{hint}
+    Simplify a complex and unfamiliar expression. Notice that
+    \[
+      f(f(x)) = \frac{1}{\frac{1}{x-1} - 1}.
+    \]
+    
+    The systematic approach to finding discontinuities is to start with the three tasks in Definition~\ref{def:continuity} on page~\pageref{def:continuity}. For what values of \(a\) is \(f(a)\) not defined? \(\lim_{x \to a} f(x)\) does not exist? \(\lim_{x \to a} f(x) \ne f(a)\)?  The number of discontinuities is the number of \(a\) for which at least one of the three tasks fails.
+  \end{hint}
+  \begin{solution}
+    This exercise involves a mix of domain, function composition, finding discontinuities (a subtask of classifying \emph{dis}continuities discussed in class on page~\pageref{technique:classify-discontinuities}).
+
+    Carry out the composition to get a concrete expression \(\frac{1}{\frac{1}{x-1} - 1}\). We can see a discontinuity \(x = 1\) because the inner quotient cannot be \(0\) in the denominator.  The zeros of the denominator of the whole quotient give us the remaining discontinuities.  We solve for \(x\) in \(\frac{1}{x - 1} - 1 = 0\). Therefore, \(x = 1\) and \(x = 2\) are the only discontinuities.
+
+    We would have missed the discontinuity at \(x = 1\) had we immediately manipulated \(f(f(x))\) to \(\frac{x-1}{2-x}\).  Remember, some algebraic operations change the domain of the function. 
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-exercise-5}
+  % (Midterm, Fall 2022)
+  Solve for \(x\) in the equation \(\ln(x) + \ln(x - 1) = 0\).
+  \begin{enumerate}[label=\Alph*.]
+    \item \(\frac{1 + \sqrt{5}}{2}\)
+    \item \(\frac{1 + \sqrt{5}}{2}, \frac{1 - \sqrt{5}}{2}\)
+    \item \(\frac{-1 + \sqrt{5}}{2}\)
+    \item \(\frac{-1 - \sqrt{5}}{2}\)
+    \item \(\frac{5}{2}\)
+  \end{enumerate}
+  
+  \begin{hint}
+    Apply logarithm rules to simplify the problem.
+  \end{hint}
+
+  \begin{solution}
+    This exercise is about properties (rules) of exponential functions and logarithms.  It is entirely an exercise in remembering the rules correctly and remembering that \(e^{x}\) and \(\ln(x)\) are inverses of each other. They ``cancel out.'' See the top of page~\pageref{eq:log-formulas} for a refresher on the logarithm rules.
+
+    Use the logarithm rule \(\ln(ab) = \ln(a) + \ln(b)\). \[\ln(x) + \ln(x - 1) = 0 \quad\longrightarrow\quad \ln(x(x-1)) = 0 \quad\longrightarrow\quad x^{2} - x = 1.\] In the last step, we raise both sides to base \(e\).  Finish the calculation using the quadratic formula or completing the square. Pick only the positive one because \(\ln(\cdots)\) does not accept negative numbers as inputs. 
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-exercise-6}
+  % (Midterm, Fall 2022)
+  Find the limit \(\lim_{h \to 0} \frac{(1 + h)^{100} - 4(1 + h)^{20} + 3}{h}\).
+  \begin{enumerate}[label=\Alph*.]
+    \item \(0\)
+    \item \(-3\)
+    \item \(20\)
+    \item \(23\)
+    \item The limit does not exist.
+  \end{enumerate}
+  
+  \begin{hint}
+    Use the mind map on page~\pageref{page:mindmap-limits-zero-over-zero}. Problem 7 in Quiz 3 shows you how to recognize the derivative from a limit.
+  \end{hint}
+  \begin{solution}
+    The form of the limit suggests that the given limit is the derivative of something. Connect Definition~\ref{def:derivative-at-a-point} on page~\pageref{def:derivative-at-a-point} with differentiation rules.
+
+    From a problem-solving point of view, this exercise is harder than the brevity of its solution suggests. Please do not be lured into thinking that ``oh I \emph{just} need to recognize the derivative.'' The situational awareness for \emph{just} recognizing something is the result of frequent and deliberate reflection on definitions, techniques and strategies. 
+
+    This limit is the \hlwarn{definition} for \(f'(1)\) where \(f(x) = x^{100} - 4x^{20}\).  We find this \(f\) by a guess-and-check process: match the limit against the definition and read off what \(f\) and \(a\) must be. Calculate \(f'(x) = 100 x^{99} - 80 x^{19}\) and plug in \(1\) to get \(20\).
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-exercise-7}
+  % (Midterm, Fall 2023) 
+  Find all values of \(c\) for which the function 
+  \[
+    f(x) = 
+    \begin{cases}
+      \frac{|x - 3|}{x - c}, &\text{if } x \ne c \\
+      1, &\text{if } x = c
+    \end{cases}
+  \]
+  is continuous on \((-\infty, \infty)\).
+  \begin{enumerate}[label=\Alph*.]
+    \item There are no such \(c\).
+    \item \(c = 3\).
+    \item All real numbers except \(3\).
+    \item \(c = 0\).
+    \item All real numbers except \(0\).
+  \end{enumerate}
+  
+  \begin{hint}
+    This is a very complex problem. The mind map on page~\pageref{page:mindmap-limits-full} essentially guides us through it.
+    
+    \begin{itemize}
+      \item Start at the \enquote{continuity at \(a\)} node.
+
+       Systematically, go down the list of three tasks in the definition of continuity on page~\pageref{def:continuity}.  The first two tasks are easily satisfied.  The third task requires the following equation 
+        \[
+          \lim_{x \to c} f(x) = f(c)
+        \]
+        to be true for the unknown \(c\).
+      
+      \item Write down the concrete expressions for both sides to see what we are dealing with.
+        \[
+          \lim_{x \to c} \frac{|x-3|}{x-c} = 1.
+        \]
+
+      \item In every example of such a problem (see Example~\ref{eg:continuity-solve-simple} on page~\pageref{eg:continuity-solve-simple} and the rest of Section~\ref{sec:solve-for-unknowns}), we attempted to evaluate the limit. We do the same here starting at the \enquote{try direct substitution} node in the mind map. 
+        
+    There are two possibilities.
+    \begin{itemize}
+      \item If \(c \ne 3\), then we have \(\frac{\text{nonzero}}{0}\) which does not exist and \(f(x)\) is not continuous at \(c\). So \(c\) must be \(3\). 
+      \item If \(c = 3\), then we have a concrete equation
+      \[
+        \lim_{x \to 3} \frac{|x-3|}{x-3} = 1.
+      \]
+      We can directly evaluate the limit on the left-hand side using one-sided limits. The slightly faster way to do so is to recognize that the limit on the left-hand side is similar to 
+      \begin{itemize}
+        \item Part (b) of Problem 4 in Quiz 2,
+        \item Part (d) of Problem 4 in Quiz 2, and
+        \item Example~\ref{eg:derivative-absolute-value} on page~\pageref{eg:derivative-absolute-value}, where the derivative of \(|x-1|\) at \(1\) is the limit \(\lim_{h \to 0} \frac{|h|}{h}\).
+      \end{itemize}
+      
+      Being able to recall these results helps you to quickly conclude that the limit on the left-hand side does not exist.  So \(c\) cannot be \(3\) either. 
+    \end{itemize}
+    \end{itemize}
+
+    Finally, we conclude that there is no choice of \(c\) for which the function \(f(x)\) is continuous at \(c\).
+  \end{hint}
+  \begin{solution}
+    The function is continuous everywhere except possibly at \(c\). The \hlwarn{definition} of continuity at \(c\) gives us an equation \(\lim_{x \to c} \frac{|x - 3|}{x - c} = f(c)\) involving the unknown \(c\). Starting from this equation, we are going to draw a conclusion about the continuity at \(c\).  Recall the three tasks discussed immediately below the definition of continuity on page~\pageref{def:continuity}.
+
+    The right-hand side is \(1\).  The left-hand side requires two separate analyses.
+    \begin{enumerate}
+    \item Case \(c \ne 3\).  Then \(\lim_{x \to c} \frac{|x - 3|}{x - c}\) is of type \(\frac{\text{non-zero constant}}{0}\) which does not exist.  See Example~\ref{eg:limit-constant-over-0} for a reference.
+
+    \item Case \(c = 3\). Notice \(\lim_{x \to c} \frac{|x - 3|}{x - c}\) is of type \(\frac{0}{0}\). We learned on page~\pageref{eg:limit-cancellation} that limits of this type require more work. The piecewise nature of the function suggests that Equation~\eqref{eq:abs} on page~\pageref{eq:abs} and Example~\ref{eg:piecewise-abs-of-function} on page~\pageref{eg:piecewise-abs-of-function} are relevant. We perform the following sequence of calculations.  Start by applying the techniques discussed on page~\pageref{eq:abs} to write \(|x - 3|\) as a piecewise function.
+    \[
+    |x - 3| = 
+    \begin{cases}
+    x - 3 & \text{if } x \ge 3 \\
+    -(x - 3) & \text{if } x < 3.
+    \end{cases}
+    \]
+    Divide both branches by \(x - 3\) to get a concrete expression
+    \[
+    \frac{|x - 3|}{{\color{main}x-3}} 
+    =
+    \begin{cases}
+    \frac{x-3}{{\color{main}x-3}} &\text{if } x > 3 \\
+    \frac{-(x-3)}{{\color{main}x-3}} &\text{if } x < 3
+    \end{cases}
+    =
+    \begin{cases}
+    1 &\text{if } x > 3 \\
+    -1 &\text{if } x < 3
+    \end{cases}
+    .
+    \]
+
+    The limit approaches the boundary of the two branches. The two one-sided limits are quite obviously not equal. Therefore, the two-sided limit does not exist.
+    \end{enumerate}
+
+    The two-sided limit at \(c\) does not exist in either case.  There is no choice of \(c\) for which the equation \(\lim_{x \to c} f(x) = f(c)\) is true. Therefore, the function cannot be continuous at \(c\) regardless the choice of \(c\).
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-exercise-8}
+  % (Midterm, Fall 2023)
+  If \(\lim_{x \to 8^{-}} f(x) = 1\), \(\lim_{x \to 8^{+}} f(x) = 1\), and \(f(8) = -1\), then which of the following statements is true?
+  \begin{enumerate}[label=\Alph*.]
+    \item \(f\) is continuous at \(8\).
+    \item \(\lim_{x \to 8} f(x)\) exists and \(f\) is discontinuous at \(8\).
+    \item \(\lim_{x \to 8} f(x)\) does not exist and \(f\) is discontinuous at \(8\).
+    \item \(f\) is differentiable at \(8\).
+    \item \(f'(8) = 0\).
+  \end{enumerate}
+  
+  \begin{hint}
+    Sketch the given information as we did in Example~\ref{eg:discontinuity-classify-abstract} on page~\pageref{eg:discontinuity-classify-abstract}.
+  \end{hint}
+
+  \begin{solution}
+    This is about Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides} and the \hlwarn{definition} of continuity on page~\pageref{def:continuity}. The given left and right limits at \(8\) are equal. Therefore, \(\lim_{x \to 8} f(x)\) does exist. The \hlwarn{definition} for continuity at \(8\) requires \(\lim_{x \to 8} f(x) = f(8)\) to be true.  Therefore, the limit does exist but \(f\) is discontinuous at \(8\). 
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-practice-11}
+  % (Midterm, Fall 2023)
+  Let \(f(x) = \begin{cases} x \sin\left(\frac{1}{x^{2}}\right) &\text{if } x < 0 \\ 2x &\text{if } x \ge 0\end{cases}\), then 
+  \begin{enumerate}[label=\Alph*.]
+    \item \(f\) is not defined at \(0\).
+    \item \(f\) is defined at \(0\) but has no limit there.
+    \item \(f\) is differentiable at \(0\) but not continuous there.
+    \item \(f\) is differentiable at \(0\)
+    \item \(f\) is continuous at \(0\) but not differentiable there.
+  \end{enumerate}
+  
+  \begin{hint}
+    The systematic approach is to work your way up from the most fundamental concept starting at the domain. This is simply five problems squished into a single multiple-choice problem.
+  \end{hint}
+  \begin{solution}
+    Work your way down the list.
+    \begin{enumerate}[label=\Alph*.]
+    \item The function is defined at \(0\) in the second branch. 
+    \item The left limit is \(\lim_{x \to 0^{-}} x \sin(x^{-2}) = 0\) by the squeeze theorem because \(-x \ge x \sin(x^{-2}) \ge x\).  The right limit is \(0\). The two-sided limit at \(0\) exists.
+    \end{enumerate}
+
+
+    The next three options are all about the derivative at \(0\). It cannot be C because continuity is a critical ingredient of differentiation as discussed on page~\pageref{thm:differentiability-implies-continuity}.  It comes down to either D or E. 
+
+    The number \(0\) sits at the boundary of the two branches. Therefore, we are forced to work with the \hlwarn{definition} of the derivative at \(0\) as two one-sided limits.
+    \[
+    \lim_{h \to 0^{-}} \frac{h\sin(1/h^{2})}{h} = \lim_{h \to 0^{-}} \sin(1/h^{2}) \overset{\text{sub } u = h^{2}}{=} \lim_{u \to 0^{+}} \sin(1/u).
+    \]
+    The sine term cycles between \(-1\) and \(1\) ever faster as \(u \to 0^{+}\), so it settles on no value. Therefore, the left limit does not exist.
+
+    No need to go any further for this particular exercise. The derivative at \(0\) does not exist by the \hlwarn{definition} of the derivative at \(0\).
+  \end{solution}
+\end{exercise}
+
+\begin{exercise} \label{ex:midterm-practice-12}
+  % (Midterm, Fall 2024)
+    Evaluate \(\lim_{x \to 0} f(x)\) if \(0 \le f(x) \le |x \sin(1/x)|\) for all \(x\).
+    \begin{enumerate}[label=\Alph*.]
+      \item \(0\)
+      \item \(1\)
+      \item \(\frac{1}{\sqrt{2}}\)
+      \item \(\sqrt{2}\)
+      \item None of the above.
+    \end{enumerate}
+  
+  \begin{hint}
+    This is Exercise~\ref{ex:limit-squeeze-abs-x-sin} on page~\pageref{ex:limit-squeeze-abs-x-sin}.
+  \end{hint}
+
+  \begin{solution}
+    The only information available for \(f(x)\) is an inequality.  That's a sign for the squeeze theorem as demonstrated in Exercise~\ref{ex:limit-squeeze-easy}.  The limit for the upper bound at \(0\) is calculated using the squeeze theorem again. However, this calculation is much simpler than Exercise~\ref{ex:limit-law-x-sin(x)} since the function \(|x \sin(1/x)|\) only outputs positive numbers.  The bounds are \(0 \le | x \sin(1/x)| \le |x|\). The limit of the upper bound function \(|x|\) as \(x \to 0\) is \(0\). Voil\`a! The squeeze theorem says \(\lim_{x \to 0} f(x) = 0\).
+  \end{solution}
+\end{exercise}
+\vspace{2cm}
+
+\begin{exercise} \label{ex:midterm-practice-13}
+  Evaluate \(\lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}\).
+  Write your solution in the box provided below.
+
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (6,2); 
+    \node[right] at (0.5, 0.5) {The limit is \underline{\hspace{2cm}}};
+  \end{tikzpicture}
+  
+  \begin{hint}
+    Attempt a direct substitution to get \(0/0\) and use a change of variable \(u = x^{1/6}\) to turn the unfamiliar problem into a familiar one.
+  \end{hint}
+
+  \begin{solution}
+    This is about using a change of variable to turn an unfamiliar problem into a familiar one.
+    Substitute \(u = x^{1/6}\). As \(x \to 1\), \(u\) approaches the ``happy face'' \(\lim_{x \to 1} x^{1/6} = 1\). Moreover \(x^{1/3} = u^{2}\) and \(x^{1/2} = u^{3}\). After all substitutions, we arrive at
+    \[
+    \lim_{x \to 1} \frac{\sqrt[3]{x}-1}{\sqrt{x}-1} \overset{\text{sub \(u = x^{1/6}\)}}{=} \lim_{u \to 1} \frac{u^{2} - 1}{u^{3} - 1} = \lim_{u \to 1} \frac{\cancel{(u-1)}(u+1)}{\cancel{(u-1)}(u^{2}+u+1)} = \frac{2}{3}.
+    \]
+  \end{solution}
+\end{exercise}
+
+\begin{exercise}
+  % (Midterm, Fall 2025)
+  A function \(f(x)\) satisfies 
+  \[
+    \frac{5 \sqrt{x}}{\sqrt{x + 25}} \le f(x) \le \frac{10 e^{x} - 2}{2 e^{x}}
+  \]
+  for all \(x > 0\). Evaluate \(\lim_{x \to \infty} f(x)\).
+  
+  \begin{enumerate}
+    \item \(0\)
+    \item \(1\)
+    \item \(5\)
+    \item \(\infty\)
+    \item The limit does not exist.
+  \end{enumerate}
+  
+  \begin{hint}
+    The inequality suggests the squeeze theorem.
+  \end{hint}
+\end{exercise}
+
+\begin{exercise}
+  % (Midterm, Fall 2025)
+  Consider the function \(f(x) = 1 + \sqrt{x}\), defined for \(x \ge 0\). Which of the following is true?
+
+  \begin{enumerate}
+    \item The inverse of \(f\) is \(f^{-1}(x) = (x - 1)^{2}\).
+    \item The domain of \(f^{-1}\) is \((0, \infty)\).
+    \item The range of \(f\) is \([0, \infty)\).
+    \item The inverse of \(f\) does not exist.
+    \item None of the above.
+  \end{enumerate}
+  
+  \begin{hint}
+    Start with the most fundamental concept, which is domain, and work your way up. Also recall the relationship between the domain and range of a function and its inverse as discussed in Exercise~\ref{ex:find-inverse-under-restriction} on page~\pageref{ex:find-inverse-under-restriction}. This is just five small tasks squished into a single multiple-choice problem.
+  \end{hint}
+\end{exercise}
+
+\begin{exercise}
+  % Midterm, Fall 2025
+  Suppose a function \(f(x)\) is defined for all real numbers. Moreover, \(f(x)\) satisfies
+  \[
+    \lim_{x \to (-1)^{-}} f(x) = -1,
+    \quad
+    \lim_{x \to (-1)^{+}} f(x) = \infty,
+    \quad\text{and}\quad
+    f(-1) = 0.
+  \]
+  Which of the following statements is true?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item Such a function does not exist.
+    \item \(f(x)\) has a jump discontinuity at \(-1\).
+    \item \(f(x)\) has a removable discontinuity at \(-1\).
+    \item \(f(x)\) has an infinite discontinuity at \(-1\).
+    \item \(f(x)\) is continuous at \(-1\).
+  \end{enumerate}
+  
+  \begin{hint}
+    Sketch the given information as we did in Example~\ref{eg:discontinuity-classify-abstract} on page~\pageref{eg:discontinuity-classify-abstract}.
+  \end{hint}
+\end{exercise}
+
+% \begin{exercise}
+%   Consider the function 
+%   \[
+%     f(x) = \frac{1}{|x + 1|} + | x^{2} - 3x^{2} |.
+%   \]
+%   Find \(f'(0)\).
+
+%   \begin{enumerate}
+%     \item \(0\)
+%     \item \(-1\)
+%     \item \(1\)
+%     \item \(2\)
+%     \item None of the above.
+%   \end{enumerate}
+  
+%   \begin{hint}
+%     The systematic approach starts by applying the sum rule for derivatives.    \end{hint}
+% \end{exercise}
+
+\begin{exercise} \label{ex:change-of-variable-cube-at-8-shifted}
+  Evaluate \(\lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h}\).
+  
+  \begin{hint}
+    Attempt a direct substitution to get \(0/0\). Depending on your preference, you can either substitute \(u = \sqrt[3]{x}\) and use the difference of cubes formula, or recognize that this limit is the definition for \(f'(8)\) where \(f(x) = \sqrt[3]{x}\).
+  \end{hint}
+\end{exercise}
+
+\begin{exercise} \label{ex:infinity-root-negative}
+  Evaluate \(\lim_{x \to -\infty} \frac{3x - 7}{\sqrt{25x^{2} + 5x + 1}}\).
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(-7\)
+    \item \(\frac{3}{25}\)
+    \item \(-\frac{3}{5}\)
+    \item \(0\)
+    \item The limit does not exist.
+  \end{enumerate}
+  
+  \begin{hint}
+    The systematic approach is to factor out the largest power of \(x\) with its coefficient from both the numerator and denominator.
+  \end{hint}
+\end{exercise}
+\vspace{2cm}
+
+\makeatletter
+\let\exercise\rwOrigExercise
+\makeatother
+
+\section{Selected hints for exercises}
+\printhints \label{page:midterm-prep-hints}
 \clearpage
 
-% % TODO move to implicit differentiation lesson
-% \begin{exercise}[Final exam, Fall 2024]
-%   Find the slope of the tangent line to the curve \(x^{y} = 8\) at \((2,3)\).
-%
-%   \begin{enumerate}[label=\Alph*.]
-%     \item \(-\frac{3}{2}\)
-%     \item \(-\frac{8}{\ln(3)}\)
-%     \item \(\frac{3\ln(2)}{3}\)
-%     \item \(\frac{2}{3}\)
-%     \item \(-\frac{3}{2\ln(2)}\)
-%   \end{enumerate}
-% \end{exercise}
-% \vfill{}
-%
-% % TODO move to derivative test lesson
-% \begin{exercise}[Final exam, Fall 2024]
-%   Let \(f'(x) = e^{-x^{2}}\).  Which of the following is true?
-%
-%   \begin{enumerate}[label=(\Alph*)]
-%     \item \(f(x)\) is increasing and concave up everywhere.
-%     \item \(f(x)\) is increasing and concave down everywhere.
-%     \item \(f(x)\) has an inflection point at \(x = 0\).
-%     \item \(f(x)\) is decreasing for \(x > 0\).
-%     \item \(f(x)\) is a constant function.
-%   \end{enumerate}
-% \end{exercise}
-% \vfill
-% \clearpage
-%
-% % TODO move to the extrema lesson
-% \begin{exercise}[Final exam, Fall 2024]
-%   Determine the absolute extrema for the function 
-%   \[
-%     h(x) = 2x^{3} - 9x^{2} - 24x + 1, \text{ defined over the interval } [-2, 3].
-%   \]
-%
-%   \begin{enumerate}[label=\Alph*.]
-%     \item The absolute maximum is \(14\), and the absolute minimum is \(-3\).
-%     \item The absolute maximum is \(38\), and the absolute minimum is \(-3\).
-%     \item The absolute maximum is \(-1\), and the absolute minimum is \(-111\).
-%     \item The absolute maximum is \(38\), and the absolute minimum is \(1\).
-%     \item The absolute maximum is \(14\), and the absolute minimum is \(-98\).
-%   \end{enumerate}
-% \end{exercise}
-% \vfill
-%
-% % TODO move to the optimization lesson
-% \begin{exercise}[Final exam, Fall 2024]
-%   A piece of wire of length \(1\) metre is to be cut into two pieces, one of length \(x\) and the other of length \(y\). The piece of length \(x\) is to be formed into a circle, the piece of length \(y\) is to be formed into a square. Recall that the length of the perimeter of a circle is \(2\pi r\) where \(r\) is its radius.
-%
-%   Let \(A\) measure the total area of the two shapes. In the box below, write down an expression for a \emph{single-variable} function whose dependent variable is \(A\).  You are free to choose the independent variable.
-%
-%   You do not need to simplify the final answer.
-%
-%   \begin{tikzpicture}
-%     \draw (0,0) rectangle (7in,2); 
-%     \node[right] at (0.5, 0.5) {\(A = \) \underline{\hspace{4in}} (a single-variable function)};
-%   \end{tikzpicture}
-% \end{exercise}
-% \vfill
-% \clearpage
-%
-% % TODO move to the related rates lesson
-% \begin{exercise}[Final exam, Fall 2024, short answer]
-%   A particle moves along the graph of \(f(x) = e^{x}\) such that its \(x\)-coordinate is changing at a constant velocity of \(1\) unit per second.  Find the rate at which the distance of the particle from the origin changes when the particle is at the point \((0,1)\).
-%
-%   \blanklines{45}
-% \end{exercise}
-% \clearpage
-%
-% % TODO move to the curve sketching lesson
-% % TODO add a similar problem that asks students to sketch f(x) = g(x)e^{-x} given partial information about f(x).
-% We did the first three parts of Exercise~\ref{ex:final-f24-sketching} in Examples~\ref{eg:shape-1}, \ref{eg:shape-2} and \ref{eg:shape-3}.
-% \begin{exercise}[Final exam, Fall 2024, short answer] \label{ex:final-f24-sketching}
-%   Consider the function \(f(x) = x e^{x/3}\).
-%
-%   \begin{enumerate}[wide, label=(\alph*)]
-%     \item Find the intervals over which \(f(x)\) is increasing or decreasing.
-%
-%     \item Find all local extrema of \(f(x)\).
-%
-%     \item Find the intervals over which \(f(x)\) is concave up or down, and all inflection points.
-%
-%     \item Find all horizontal asymptotes of \(f(x)\).
-%
-%       \blanklines{15}
-%
-%     \item Sketch the graph based on your previous work.
-%
-%       \begin{center}
-%         \begin{tikzpicture}
-%           \begin{axis}[basic curve, xmin={-8}, xmax={8}, ymin={-4}, ymax={4}, width = {7in}]
-%           \end{axis}
-%         \end{tikzpicture}
-%       \end{center}
-%   \end{enumerate}
-% \end{exercise}
-% \clearpage
-%
-% % TODO move to the optimization lesson
-% \begin{exercise}[Final exam, Fall 2024, short answer]
-%   A farmer wishes to construct two small rectangular pens, one for their cows and the other for their goats.  Each of these pens will have the same dimensions and be constructed from wood that the farmer has purchased.  They have enough wood to construct \(48\) metres of fencing.  In order to save on fencing, the farmer decides to put the pens next to each other in order to share a common side.  In other words, the farmer will use one fence to divide the pens (as shown). What is the maximum area that can be enclosed by the pens (in total)?
-%
-%   \hfill{}
-%   \begin{tikzpicture}[scale=0.5]
-%     \draw[very thick] (0,0) rectangle (12, 8);
-%     \draw[very thick] (6,0) -- (6, 8);
-%     \node at (3,4) {\footnotesize cows};
-%     \node at (9,4) {\footnotesize goats};
-%   \end{tikzpicture}
-%   \hspace{1cm}
-%
-%   \blanklines{35}
-% \end{exercise}
+% The sample solutions below are some of the fastest ways to get to the solution. However, they are not the only solutions. As you may have noticed, these problems involve a mix of the ideas we discussed in class and require a clear understanding of when certain laws can or cannot be used.
+
+% \printsolutions[itemsep={1cm}] \label{page:midterm-prep-solutions}
+
+
 \end{document}

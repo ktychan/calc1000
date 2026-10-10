@@ -1085,23 +1085,7 @@
   % You apply the same systematic but longer approach to each problem. You practice the systematic approach \(10\) times.
 
   \begin{center}
-    % Same ten problems twice over.  Colour is the technique used, so the top
-    % row breaks into five pairs and the bottom row is one unbroken block --
-    % the repetition count is the only thing that differs.
-    \begin{tikzpicture}[
-        tile/.style={rounded corners=2pt, draw=WesternGrey,
-                     minimum width=0.75cm, minimum height=0.6cm, inner sep=0pt},
-        caption/.style={anchor=west, font=\small}]
-      \node[caption] at (-0.375, 1.75) {Five shortcuts, \(2\) repetitions each};
-      \foreach \c [count=\n from 0] in {%
-          WesternSky, WesternSky, WesternSpring, WesternSpring, WesternVivid,
-          WesternVivid, WesternTiger, WesternTiger, WesternOrchid, WesternOrchid}
-        \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
-
-      \node[caption] at (-0.375, 0.15) {One systematic approach, \(10\) repetitions};
-      \foreach \n in {0,...,9}
-        \node[tile, fill=main!40] at ({\n*0.85}, -0.5) {};
-    \end{tikzpicture}
+    \includegraphics[page=1]{./standalones/study-skills}
   \end{center}
 
   Quiz questions are grouped so that, hopefully, you see the benefit of a systematic approach. 
@@ -1114,27 +1098,7 @@
   As we move closer to exam time, we need to practice \hlmain{multiple techniques} in short succession to practice \hlattn{how to choose an effective technique} for a given problem.
 
   \begin{center}
-    % Same twelve problems, same three techniques (one per colour); only the
-    % order changes.  Blocked on top, interleaved below -- the second ordering
-    % is the one that forces a choice before every problem.
-    \begin{tikzpicture}[
-        tile/.style={rounded corners=2pt, draw=WesternGrey,
-                     minimum width=0.75cm, minimum height=0.6cm, inner sep=0pt},
-        caption/.style={anchor=west, font=\small}]
-      \node[caption] at (-0.375, 1.75) {Learning a technique: one type of problem at a time};
-      \foreach \c [count=\n from 0] in {%
-          WesternSky, WesternSky, WesternSky, WesternSky,
-          WesternSpring, WesternSpring, WesternSpring, WesternSpring,
-          WesternTiger, WesternTiger, WesternTiger, WesternTiger}
-        \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
-
-      \node[caption] at (-0.375, 0.15) {Closer to the exam: mixed together};
-      \foreach \c [count=\n from 0] in {%
-          WesternSky, WesternTiger, WesternSpring, WesternTiger,
-          WesternSky, WesternSpring, WesternTiger, WesternSky,
-          WesternSpring, WesternSky, WesternTiger, WesternSpring}
-        \node[tile, fill=\c!70] at ({\n*0.85}, -0.5) {};
-    \end{tikzpicture}
+    \includegraphics[page=2]{./standalones/study-skills}
   \end{center}
   
   \hlattn{Map out the techniques and when to use them. List all examples, exercises and quiz problems that use each technique.}

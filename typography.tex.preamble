@@ -191,3 +191,37 @@
     \global\let\hint@list\@empty
   \fi}
 \makeatother
+
+% Sample solutions, written inside an exercise but typeset later -- the same
+% machinery as hint above, with its own collection so that \printsolutions can
+% come after \printhints and the two lists stay separate.  Reuses hint's
+% "are we inside an exercise?" flag, since the question is the same one.
+\makeatletter
+\newcommand*{\solution@list}{}
+\newcommand*{\solution@pending}{}
+\AddToHook{env/exercise/end}{%
+  \ifx\solution@pending\@empty\else
+    \xdef\solution@list{%
+      \unexpanded\expandafter{\solution@list}%
+      \noexpand\solution@item
+        {\@currentcounter.\csname theH\@currentcounter\endcsname}%
+        {\unexpanded\expandafter{\@currentlabel}}%
+        {\unexpanded\expandafter{\solution@pending}}}%
+    \global\let\solution@pending\@empty
+  \fi}
+\NewDocumentEnvironment{solution}{+b}
+  {\ifhint@inexercise\else
+     \PackageError{solution}{The solution environment must be inside an exercise}{}%
+   \fi
+   \xdef\solution@pending{\unexpanded\expandafter{\solution@pending}\unexpanded{#1}}}
+  {\ignorespacesafterend}
+\newcommand{\solution@item}[3]{% long: the body may contain \par
+  \item[\textbf{Sample solution for \hyperlink{#1}{Exercise~#2}.}] #3}
+\NewDocumentCommand{\printsolutions}{O{}}{%
+  \ifx\solution@list\@empty\else
+    \begin{enumerate}[wide, #1]
+      \solution@list
+    \end{enumerate}%
+    \global\let\solution@list\@empty
+  \fi}
+\makeatother

@@ -1,0 +1,61 @@
+%! TeX program = lualatex
+% Two pictures about how to space practice, shared by the reading-week slides
+% and the lesson of the same week.
+%
+%   page 1 -- how OFTEN a technique is practised.  Ten problems either way; on
+%             top they are split among five shortcuts (two repetitions each),
+%             below they all use one systematic approach (ten repetitions).
+%   page 2 -- in what ORDER techniques are practised.  Twelve problems and
+%             three techniques either way; blocked on top, interleaved below.
+%
+% One tile is one practice problem and its colour is the technique used, so the
+% two pictures share a vocabulary and read as a pair.  Both rows of a picture
+% hold the same number of tiles at the same positions on purpose: the only
+% thing that changes between the rows is the quantity the picture is about, so
+% neither can be misread as "do more problems".
+\documentclass[tikz]{standalone}
+\input{../tikz.tex.preamble}
+\input{../typography.tex.preamble}
+
+\tikzset{
+  practice tiles/.style={
+    tile/.style={rounded corners=2pt, draw=WesternGrey,
+                 minimum width=0.75cm, minimum height=0.6cm, inner sep=0pt},
+    caption/.style={anchor=west, font=\small},
+  },
+}
+
+\begin{document}
+% ---------------------------------------------------------------------
+% Page 1 -- repetition count.  Five shortcuts twice each against one
+% systematic approach ten times.
+\begin{tikzpicture}[practice tiles]
+  \node[caption] at (-0.375, 1.75) {Five shortcuts, \(2\) repetitions each};
+  \foreach \c [count=\n from 0] in {%
+      WesternSky, WesternSky, WesternSpring, WesternSpring, WesternVivid,
+      WesternVivid, WesternTiger, WesternTiger, WesternOrchid, WesternOrchid}
+    \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
+
+  \node[caption] at (-0.375, 0.15) {One systematic approach, \(10\) repetitions};
+  \foreach \n in {0,...,9}
+    \node[tile, fill=main!40] at ({\n*0.85}, -0.5) {};
+\end{tikzpicture}
+% ---------------------------------------------------------------------
+% Page 2 -- ordering.  Blocked practice on top, interleaved below; the second
+% ordering is the one that forces a choice of technique before every problem.
+\begin{tikzpicture}[practice tiles]
+  \node[caption] at (-0.375, 1.75) {Learning a technique: one type of problem at a time};
+  \foreach \c [count=\n from 0] in {%
+      WesternSky, WesternSky, WesternSky, WesternSky,
+      WesternSpring, WesternSpring, WesternSpring, WesternSpring,
+      WesternTiger, WesternTiger, WesternTiger, WesternTiger}
+    \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
+
+  \node[caption] at (-0.375, 0.15) {Closer to the exam: mixed together};
+  \foreach \c [count=\n from 0] in {%
+      WesternSky, WesternTiger, WesternSpring, WesternTiger,
+      WesternSky, WesternSpring, WesternTiger, WesternSky,
+      WesternSpring, WesternSky, WesternTiger, WesternSpring}
+    \node[tile, fill=\c!70] at ({\n*0.85}, -0.5) {};
+\end{tikzpicture}
+\end{document}
