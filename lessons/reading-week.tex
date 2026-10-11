@@ -22,7 +22,7 @@ The reading week offers some time for reflection.  Here is some food for thought
   
   You may use the index-card method. Whenever you finish a practice problem, write down the problem on one side of an index card and the relevant techniques on the other side. During an exam prep session, shuffle the cards and practise identifying the relevant techniques for each problem. Alternatively, give an AI the entire set of lecture notes (with or without your own notes) and ask it to pick out a random set of problems.
 
-  \item \textbf{Priming} uses \hlmain{active recall} to pull in relevant facts for \hlattn{problems of the same type} before attempting them, so that solving becomes a matter of choosing among techniques you have already listed rather than searching for one. Its effectiveness depends on the completeness of your map of knowledge.
+  \item \textbf{Priming} uses \hlmain{active recall} to pull in relevant facts for \hlattn{problems of the same type} before attempting them, so that your working (short term) memory is filled with relevant facts. Its effectiveness depends on the completeness of your map of knowledge.
 
   \item \textbf{Ease your mental load during an exam.} Exam questions are not listed in any particular order. Read through the exam and group questions by topic. For example, do all the limit questions first, then all the continuity questions, and so on. If you work from the first question to the last, you may have to tackle concepts in a random order.
   
@@ -137,114 +137,10 @@ The midterm is a closed-book test with no aids of any kind. You will need to act
 
 \section{Additional practice problems}
 
-% No \vfill or \clearpage in this section -- the problems simply flow.  To stop
-% an exercise being split over a page boundary, each one asks for a few lines of
-% room before it starts and forbids the usual break points inside it: between
-% lines (\samepage), and before or inside the list of options
-% (\@beginparpenalty, \@itempenalty).  Both hooks are undone at the end of the
-% file so that later lessons page-break normally.
-\makeatletter
-\let\rwOrigExercise\exercise
-\AtBeginEnvironment{exercise}{%
-  \Needspace*{5\baselineskip}%
-  \samepage
-  \@beginparpenalty\@M \@itempenalty\@M \@endparpenalty\@M
-}
-\makeatother
 
 Here is a selection of past midterm problems covering techniques up to the limit definition of the derivative, with hints on page~\pageref{page:midterm-prep-hints}. We barely touched on differentiation rules, so problems on differentiation rules and implicit differentiation are not included.
 
 After the reading week, we will spend two hours (Thursday and Friday for Section 005, Thursday for Section 004) to discuss systematic approaches to tackle hard problems.
-
-\begin{exercise} \label{ex:midterm-practice-1}
-  % (Midterm, Fall 2019)
-  The logarithmic function \(f(x) = \log_{a}(x) + b\) whose graph passes through points \((1,2)\) and \((2,1)\) is 
-  \begin{enumerate}[label=\Alph*.]
-    \item \(\ln(e^{2}x)\)
-    \item \(\log_{1/2}\left(\frac{x}{4}\right) + 1\)
-    \item \(\log_{1/2}(x) + 2\)
-    \item \(\log_{2}(x) - 1\)
-    \item \(\log_{2}(x) + 2\)
-  \end{enumerate}
-  \begin{hint}
-    This is similar to Problem 11, Quiz 1 on WebWork.
-  \end{hint}
-
-  \begin{solution}
-    We need equations involving the unknowns \(a\) and \(b\). The points \(f(x)\) passes through give us two equations.
-    \[
-    \left\{
-    \begin{array}{rcl}
-    f(1) &=& 2\\
-    f(2) &=& 1
-    \end{array} 
-    \right.
-    \longrightarrow
-    \left\{
-    \begin{array}{rcl}
-    \log_{a}(1) + b &=& 2\\
-    \log_{a}(2) + b &=& 1
-    \end{array} 
-    \right.
-    \overset{\text{\tiny \(\log_{a}(1) = 0\)}}{\longrightarrow}
-    \left\{
-    \begin{array}{rcl}
-    b &=& 2\\
-    \log_{a}(2) + 2 &=& 1
-    \end{array} 
-    \right.
-    \overset{\text{\tiny see below}}{\longrightarrow}
-    \left\{
-    \begin{array}{rcl}
-    b &=& 2\\
-    a &=& 1/2
-    \end{array} 
-    \right.
-    \]
-    In the last step, we solve for \(a\) in \(\log_{a}(2) = -1\). The fast method is to raise both sides to base \(a\) to get \(2 = a^{-1}\) and then \(a = 1/2\).  The systematic method (adds just one step) is to change base to \(e\) to get \(\frac{\ln(2)}{\ln(a)} = -1\) which turns into \(-\ln(2) = \ln(a)\). Raise both sides to \(e\) to get \(a = 2^{-1}\).
-
-    Alternatively, if you prefer exponentials over logarithms, start by converting \(f(x) = \log_{a}(x) + b\) into exponentials by raising both sides to \(a\) to get \(a^{f(x)} = x a^{b}\). Notice it is quite tempting to make an algebra mistake here. Plug in the point \((1,2)\) to get \(a^{2} = 1 a^{b}\) which means \(b = 2\). Plug in the point \((2,1)\) and \(b = 2\) to get \(a^{1} = 2 a^{2}\). Manipulate the exponents to get \(a = 2^{-1}\).
-  \end{solution}
-\end{exercise}
-
-\begin{exercise} \label{ex:midterm-practice-2}
-  % (Midterm, Fall 2019) 
-  If \(f(x) = 2(\ln(x))^{3}\), then the inverse function \(f^{-1}(x)\) is 
-  \begin{enumerate}[label=\Alph*.]
-    \item \(e^{\sqrt[3]{x/2}}\)
-    \item \(\sqrt[3]{e^{x/2}}\)
-    \item \(2(e^{x})^{3}\)
-    \item \(2e^{x/2}\)
-    \item The inverse function does not exist.
-  \end{enumerate}
-  
-  \begin{hint}
-    Find the inverse function by isolating for \(y\) in the equation \(x = f(y)\) which comes from applying \(f(x)\) to both sides of \(y = f^{-1}(x)\).
-  \end{hint}
-  \begin{solution}
-    This is a mix of the fundamentals of inverse functions, the equivalent equation in particular, and the inverse pair \(e^{x}\) and \(\ln(x)\).  Start by writing down the equivalent equation for \(y = f^{-1}(x)\), as discussed in Example~\ref{eg:find-inverse}, which is \(x = 2(\ln(y))^{3}\). Isolate for \(y\) as follows:
-    \[
-    \frac{x}{2} = \left( \ln(y) \right)^{3} \quad\longrightarrow\quad \sqrt[3]{x/2} = \ln(y) \quad\longrightarrow\quad e^{\sqrt[3]{x/2}} = y.
-    \]
-    It is quite easy to make the following mistake: \(\Big(\ln(x)\Big)^{3} = 3\ln(x)\). The correct logarithm law is \(\ln(x^{a}) = a\ln(x)\). Brackets matter!
-  \end{solution}
-\end{exercise}
-
-\begin{exercise} \label{ex:midterm-practice-3}
-  % (Midterm, Fall 2022)
-  Evaluate \(\lim_{x \to 0^{-}} e^{\frac{1}{\sin(x)}}\).
-
-  \begin{enumerate}[label=\Alph*.]
-    \item \(-\infty\)
-    \item \(0\)
-    \item \(e\)
-    \item \(\infty\)
-    \item The limit does not exist.
-  \end{enumerate}
-  \begin{hint}
-    The systematic approach to limits of composite functions is change of variable. A typical mistake is to directly substitute \(0\) into the function without realizing that the limit approaches \(0\) from the left and conclude that \(1/0 = \infty\) and \(e^{\infty} = \infty\).
-  \end{hint}
-\end{exercise}
 
 \begin{exercise} \label{ex:midterm-exercise-4}
   % (Midterm, Fall 2022)
@@ -273,51 +169,24 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     We would have missed the discontinuity at \(x = 1\) had we immediately manipulated \(f(f(x))\) to \(\frac{x-1}{2-x}\).  Remember, some algebraic operations change the domain of the function. 
   \end{solution}
 \end{exercise}
+\nopagebreak\vfill
 
-\begin{exercise} \label{ex:midterm-exercise-5}
+\begin{exercise} \label{ex:midterm-practice-3}
   % (Midterm, Fall 2022)
-  Solve for \(x\) in the equation \(\ln(x) + \ln(x - 1) = 0\).
+  Evaluate \(\lim_{x \to 0^{-}} e^{\frac{1}{\sin(x)}}\).
+
   \begin{enumerate}[label=\Alph*.]
-    \item \(\frac{1 + \sqrt{5}}{2}\)
-    \item \(\frac{1 + \sqrt{5}}{2}, \frac{1 - \sqrt{5}}{2}\)
-    \item \(\frac{-1 + \sqrt{5}}{2}\)
-    \item \(\frac{-1 - \sqrt{5}}{2}\)
-    \item \(\frac{5}{2}\)
-  \end{enumerate}
-  
-  \begin{hint}
-    Apply logarithm rules to simplify the problem.
-  \end{hint}
-
-  \begin{solution}
-    This exercise is about properties (rules) of exponential functions and logarithms.  It is entirely an exercise in remembering the rules correctly and remembering that \(e^{x}\) and \(\ln(x)\) are inverses of each other. They ``cancel out.'' See the top of page~\pageref{eq:log-formulas} for a refresher on the logarithm rules.
-
-    Use the logarithm rule \(\ln(ab) = \ln(a) + \ln(b)\). \[\ln(x) + \ln(x - 1) = 0 \quad\longrightarrow\quad \ln(x(x-1)) = 0 \quad\longrightarrow\quad x^{2} - x = 1.\] In the last step, we raise both sides to base \(e\).  Finish the calculation using the quadratic formula or completing the square. Pick only the positive one because \(\ln(\cdots)\) does not accept negative numbers as inputs. 
-  \end{solution}
-\end{exercise}
-
-\begin{exercise} \label{ex:midterm-exercise-6}
-  % (Midterm, Fall 2022)
-  Find the limit \(\lim_{h \to 0} \frac{(1 + h)^{100} - 4(1 + h)^{20} + 3}{h}\).
-  \begin{enumerate}[label=\Alph*.]
+    \item \(-\infty\)
     \item \(0\)
-    \item \(-3\)
-    \item \(20\)
-    \item \(23\)
+    \item \(e\)
+    \item \(\infty\)
     \item The limit does not exist.
   \end{enumerate}
-  
   \begin{hint}
-    Use the mind map on page~\pageref{page:mindmap-limits-zero-over-zero}. Problem 7 in Quiz 3 shows you how to recognize the derivative from a limit.
+    The systematic approach to limits of composite functions is change of variable. A typical mistake is to directly substitute \(0\) into the function without realizing that the limit approaches \(0\) from the left and conclude that \(1/0 = \infty\) and \(e^{\infty} = \infty\).
   \end{hint}
-  \begin{solution}
-    The form of the limit suggests that the given limit is the derivative of something. Connect Definition~\ref{def:derivative-at-a-point} on page~\pageref{def:derivative-at-a-point} with differentiation rules.
-
-    From a problem-solving point of view, this exercise is harder than the brevity of its solution suggests. Please do not be lured into thinking that ``oh I \emph{just} need to recognize the derivative.'' The situational awareness for \emph{just} recognizing something is the result of frequent and deliberate reflection on definitions, techniques and strategies. 
-
-    This limit is the \hlwarn{definition} for \(f'(1)\) where \(f(x) = x^{100} - 4x^{20}\).  We find this \(f\) by a guess-and-check process: match the limit against the definition and read off what \(f\) and \(a\) must be. Calculate \(f'(x) = 100 x^{99} - 80 x^{19}\) and plug in \(1\) to get \(20\).
-  \end{solution}
 \end{exercise}
+\clearpage
 
 \begin{exercise} \label{ex:midterm-exercise-7}
   % (Midterm, Fall 2023) 
@@ -414,6 +283,59 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     The two-sided limit at \(c\) does not exist in either case.  There is no choice of \(c\) for which the equation \(\lim_{x \to c} f(x) = f(c)\) is true. Therefore, the function cannot be continuous at \(c\) regardless the choice of \(c\).
   \end{solution}
 \end{exercise}
+\nopagebreak\vfill
+
+\begin{exercise} \label{ex:midterm-practice-1}
+  % (Midterm, Fall 2019)
+  The logarithmic function \(f(x) = \log_{a}(x) + b\) whose graph passes through points \((1,2)\) and \((2,1)\) is 
+  \begin{enumerate}[label=\Alph*.]
+    \item \(\ln(e^{2}x)\)
+    \item \(\log_{1/2}\left(\frac{x}{4}\right) + 1\)
+    \item \(\log_{1/2}(x) + 2\)
+    \item \(\log_{2}(x) - 1\)
+    \item \(\log_{2}(x) + 2\)
+  \end{enumerate}
+  \begin{hint}
+    This is similar to Problem 11, Quiz 1 on WebWork.
+  \end{hint}
+
+  \begin{solution}
+    We need equations involving the unknowns \(a\) and \(b\). The points \(f(x)\) passes through give us two equations.
+    \[
+    \left\{
+    \begin{array}{rcl}
+    f(1) &=& 2\\
+    f(2) &=& 1
+    \end{array} 
+    \right.
+    \longrightarrow
+    \left\{
+    \begin{array}{rcl}
+    \log_{a}(1) + b &=& 2\\
+    \log_{a}(2) + b &=& 1
+    \end{array} 
+    \right.
+    \overset{\text{\tiny \(\log_{a}(1) = 0\)}}{\longrightarrow}
+    \left\{
+    \begin{array}{rcl}
+    b &=& 2\\
+    \log_{a}(2) + 2 &=& 1
+    \end{array} 
+    \right.
+    \overset{\text{\tiny see below}}{\longrightarrow}
+    \left\{
+    \begin{array}{rcl}
+    b &=& 2\\
+    a &=& 1/2
+    \end{array} 
+    \right.
+    \]
+    In the last step, we solve for \(a\) in \(\log_{a}(2) = -1\). The fast method is to raise both sides to base \(a\) to get \(2 = a^{-1}\) and then \(a = 1/2\).  The systematic method (adds just one step) is to change base to \(e\) to get \(\frac{\ln(2)}{\ln(a)} = -1\) which turns into \(-\ln(2) = \ln(a)\). Raise both sides to \(e\) to get \(a = 2^{-1}\).
+
+    Alternatively, if you prefer exponentials over logarithms, start by converting \(f(x) = \log_{a}(x) + b\) into exponentials by raising both sides to \(a\) to get \(a^{f(x)} = x a^{b}\). Notice it is quite tempting to make an algebra mistake here. Plug in the point \((1,2)\) to get \(a^{2} = 1 a^{b}\) which means \(b = 2\). Plug in the point \((2,1)\) and \(b = 2\) to get \(a^{1} = 2 a^{2}\). Manipulate the exponents to get \(a = 2^{-1}\).
+  \end{solution}
+\end{exercise}
+\nopagebreak\vfill
 
 \begin{exercise} \label{ex:midterm-exercise-8}
   % (Midterm, Fall 2023)
@@ -434,6 +356,145 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     This is about Theorem~\ref{thm:limit-two-one-sides} on page~\pageref{thm:limit-two-one-sides} and the \hlwarn{definition} of continuity on page~\pageref{def:continuity}. The given left and right limits at \(8\) are equal. Therefore, \(\lim_{x \to 8} f(x)\) does exist. The \hlwarn{definition} for continuity at \(8\) requires \(\lim_{x \to 8} f(x) = f(8)\) to be true.  Therefore, the limit does exist but \(f\) is discontinuous at \(8\). 
   \end{solution}
 \end{exercise}
+\clearpage
+
+\begin{exercise} \label{ex:midterm-exercise-6}
+  % (Midterm, Fall 2022)
+  Find the limit \(\lim_{h \to 0} \frac{(1 + h)^{100} - 4(1 + h)^{20} + 3}{h}\).
+  \begin{enumerate}[label=\Alph*.]
+    \item \(0\)
+    \item \(-3\)
+    \item \(20\)
+    \item \(23\)
+    \item The limit does not exist.
+  \end{enumerate}
+  
+  \begin{hint}
+    Use the mind map on page~\pageref{page:mindmap-limits-zero-over-zero}. Problem 7 in Quiz 3 shows you how to recognize the derivative from a limit.
+  \end{hint}
+  \begin{solution}
+    The form of the limit suggests that the given limit is the derivative of something. Connect Definition~\ref{def:derivative-at-a-point} on page~\pageref{def:derivative-at-a-point} with differentiation rules.
+
+    From a problem-solving point of view, this exercise is harder than the brevity of its solution suggests. Please do not be lured into thinking that ``oh I \emph{just} need to recognize the derivative.'' The situational awareness for \emph{just} recognizing something is the result of frequent and deliberate reflection on definitions, techniques and strategies. 
+
+    This limit is the \hlwarn{definition} for \(f'(1)\) where \(f(x) = x^{100} - 4x^{20}\).  We find this \(f\) by a guess-and-check process: match the limit against the definition and read off what \(f\) and \(a\) must be. Calculate \(f'(x) = 100 x^{99} - 80 x^{19}\) and plug in \(1\) to get \(20\).
+  \end{solution}
+\end{exercise}
+\nopagebreak\vfill
+
+\begin{exercise}
+  % Midterm, Fall 2025
+  Suppose a function \(f(x)\) is defined for all real numbers. Moreover, \(f(x)\) satisfies
+  \[
+    \lim_{x \to (-1)^{-}} f(x) = -1,
+    \quad
+    \lim_{x \to (-1)^{+}} f(x) = \infty,
+    \quad\text{and}\quad
+    f(-1) = 0.
+  \]
+  Which of the following statements is true?
+
+  \begin{enumerate}[label=\Alph*.]
+    \item Such a function does not exist.
+    \item \(f(x)\) has a jump discontinuity at \(-1\).
+    \item \(f(x)\) has a removable discontinuity at \(-1\).
+    \item \(f(x)\) has an infinite discontinuity at \(-1\).
+    \item \(f(x)\) is continuous at \(-1\).
+  \end{enumerate}
+  
+  \begin{hint}
+    Sketch the given information as we did in Example~\ref{eg:discontinuity-classify-abstract} on page~\pageref{eg:discontinuity-classify-abstract}.
+  \end{hint}
+\end{exercise}
+
+% \begin{exercise}
+%   Consider the function 
+%   \[
+%     f(x) = \frac{1}{|x + 1|} + | x^{2} - 3x^{2} |.
+%   \]
+%   Find \(f'(0)\).
+
+%   \begin{enumerate}[label=\Alph*.]
+%     \item \(0\)
+%     \item \(-1\)
+%     \item \(1\)
+%     \item \(2\)
+%     \item None of the above.
+%   \end{enumerate}
+  
+%   \begin{hint}
+%     The systematic approach starts by applying the sum rule for derivatives.    \end{hint}
+% \end{exercise}
+\nopagebreak\vfill
+
+\begin{exercise} \label{ex:midterm-practice-12}
+  % (Midterm, Fall 2024)
+    Evaluate \(\lim_{x \to 0} f(x)\) if \(0 \le f(x) \le |x \sin(1/x)|\) for all \(x\).
+    \begin{enumerate}[label=\Alph*.]
+      \item \(0\)
+      \item \(1\)
+      \item \(\frac{1}{\sqrt{2}}\)
+      \item \(\sqrt{2}\)
+      \item None of the above.
+    \end{enumerate}
+  
+  \begin{hint}
+    This is Exercise~\ref{ex:limit-squeeze-abs-x-sin} on page~\pageref{ex:limit-squeeze-abs-x-sin}.
+  \end{hint}
+
+  \begin{solution}
+    The only information available for \(f(x)\) is an inequality.  That's a sign for the squeeze theorem as demonstrated in Exercise~\ref{ex:limit-squeeze-easy}.  The limit for the upper bound at \(0\) is calculated using the squeeze theorem again. However, this calculation is much simpler than Exercise~\ref{ex:limit-law-x-sin(x)} since the function \(|x \sin(1/x)|\) only outputs positive numbers.  The bounds are \(0 \le | x \sin(1/x)| \le |x|\). The limit of the upper bound function \(|x|\) as \(x \to 0\) is \(0\). Voil\`a! The squeeze theorem says \(\lim_{x \to 0} f(x) = 0\).
+  \end{solution}
+\end{exercise}
+\vfill
+\clearpage
+
+\begin{exercise} \label{ex:midterm-practice-13}
+  Evaluate \(\lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}\).
+  Write your solution in the box provided below.
+
+  \begin{tikzpicture}
+    \draw (0,0) rectangle (6,2); 
+    \node[right] at (0.5, 0.5) {The limit is \underline{\hspace{2cm}}};
+  \end{tikzpicture}
+  
+  \begin{hint}
+    Attempt a direct substitution to get \(0/0\) and use a change of variable \(u = x^{1/6}\) to turn the unfamiliar problem into a familiar one.
+  \end{hint}
+
+  \begin{solution}
+    This is about using a change of variable to turn an unfamiliar problem into a familiar one.
+    Substitute \(u = x^{1/6}\). As \(x \to 1\), \(u\) approaches the ``happy face'' \(\lim_{x \to 1} x^{1/6} = 1\). Moreover \(x^{1/3} = u^{2}\) and \(x^{1/2} = u^{3}\). After all substitutions, we arrive at
+    \[
+    \lim_{x \to 1} \frac{\sqrt[3]{x}-1}{\sqrt{x}-1} \overset{\text{sub \(u = x^{1/6}\)}}{=} \lim_{u \to 1} \frac{u^{2} - 1}{u^{3} - 1} = \lim_{u \to 1} \frac{\cancel{(u-1)}(u+1)}{\cancel{(u-1)}(u^{2}+u+1)} = \frac{2}{3}.
+    \]
+  \end{solution}
+\end{exercise}
+\nopagebreak\vfill
+
+\begin{exercise} \label{ex:midterm-practice-2}
+  % (Midterm, Fall 2019) 
+  If \(f(x) = 2(\ln(x))^{3}\), then the inverse function \(f^{-1}(x)\) is 
+  \begin{enumerate}[label=\Alph*.]
+    \item \(e^{\sqrt[3]{x/2}}\)
+    \item \(\sqrt[3]{e^{x/2}}\)
+    \item \(2(e^{x})^{3}\)
+    \item \(2e^{x/2}\)
+    \item The inverse function does not exist.
+  \end{enumerate}
+  
+  \begin{hint}
+    Find the inverse function by isolating for \(y\) in the equation \(x = f(y)\) which comes from applying \(f(x)\) to both sides of \(y = f^{-1}(x)\).
+  \end{hint}
+  \begin{solution}
+    This is a mix of the fundamentals of inverse functions, the equivalent equation in particular, and the inverse pair \(e^{x}\) and \(\ln(x)\).  Start by writing down the equivalent equation for \(y = f^{-1}(x)\), as discussed in Example~\ref{eg:find-inverse}, which is \(x = 2(\ln(y))^{3}\). Isolate for \(y\) as follows:
+    \[
+    \frac{x}{2} = \left( \ln(y) \right)^{3} \quad\longrightarrow\quad \sqrt[3]{x/2} = \ln(y) \quad\longrightarrow\quad e^{\sqrt[3]{x/2}} = y.
+    \]
+    It is quite easy to make the following mistake: \(\Big(\ln(x)\Big)^{3} = 3\ln(x)\). The correct logarithm law is \(\ln(x^{a}) = a\ln(x)\). Brackets matter!
+  \end{solution}
+\end{exercise}
+\nopagebreak\vfill
 
 \begin{exercise} \label{ex:midterm-practice-11}
   % (Midterm, Fall 2023)
@@ -468,49 +529,8 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     No need to go any further for this particular exercise. The derivative at \(0\) does not exist by the \hlwarn{definition} of the derivative at \(0\).
   \end{solution}
 \end{exercise}
-
-\begin{exercise} \label{ex:midterm-practice-12}
-  % (Midterm, Fall 2024)
-    Evaluate \(\lim_{x \to 0} f(x)\) if \(0 \le f(x) \le |x \sin(1/x)|\) for all \(x\).
-    \begin{enumerate}[label=\Alph*.]
-      \item \(0\)
-      \item \(1\)
-      \item \(\frac{1}{\sqrt{2}}\)
-      \item \(\sqrt{2}\)
-      \item None of the above.
-    \end{enumerate}
-  
-  \begin{hint}
-    This is Exercise~\ref{ex:limit-squeeze-abs-x-sin} on page~\pageref{ex:limit-squeeze-abs-x-sin}.
-  \end{hint}
-
-  \begin{solution}
-    The only information available for \(f(x)\) is an inequality.  That's a sign for the squeeze theorem as demonstrated in Exercise~\ref{ex:limit-squeeze-easy}.  The limit for the upper bound at \(0\) is calculated using the squeeze theorem again. However, this calculation is much simpler than Exercise~\ref{ex:limit-law-x-sin(x)} since the function \(|x \sin(1/x)|\) only outputs positive numbers.  The bounds are \(0 \le | x \sin(1/x)| \le |x|\). The limit of the upper bound function \(|x|\) as \(x \to 0\) is \(0\). Voil\`a! The squeeze theorem says \(\lim_{x \to 0} f(x) = 0\).
-  \end{solution}
-\end{exercise}
-\vspace{2cm}
-
-\begin{exercise} \label{ex:midterm-practice-13}
-  Evaluate \(\lim_{x \to 1} \frac{\sqrt[3]{x} - 1}{\sqrt{x} - 1}\).
-  Write your solution in the box provided below.
-
-  \begin{tikzpicture}
-    \draw (0,0) rectangle (6,2); 
-    \node[right] at (0.5, 0.5) {The limit is \underline{\hspace{2cm}}};
-  \end{tikzpicture}
-  
-  \begin{hint}
-    Attempt a direct substitution to get \(0/0\) and use a change of variable \(u = x^{1/6}\) to turn the unfamiliar problem into a familiar one.
-  \end{hint}
-
-  \begin{solution}
-    This is about using a change of variable to turn an unfamiliar problem into a familiar one.
-    Substitute \(u = x^{1/6}\). As \(x \to 1\), \(u\) approaches the ``happy face'' \(\lim_{x \to 1} x^{1/6} = 1\). Moreover \(x^{1/3} = u^{2}\) and \(x^{1/2} = u^{3}\). After all substitutions, we arrive at
-    \[
-    \lim_{x \to 1} \frac{\sqrt[3]{x}-1}{\sqrt{x}-1} \overset{\text{sub \(u = x^{1/6}\)}}{=} \lim_{u \to 1} \frac{u^{2} - 1}{u^{3} - 1} = \lim_{u \to 1} \frac{\cancel{(u-1)}(u+1)}{\cancel{(u-1)}(u^{2}+u+1)} = \frac{2}{3}.
-    \]
-  \end{solution}
-\end{exercise}
+\vfill
+\clearpage
 
 \begin{exercise}
   % (Midterm, Fall 2025)
@@ -520,7 +540,7 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \]
   for all \(x > 0\). Evaluate \(\lim_{x \to \infty} f(x)\).
   
-  \begin{enumerate}
+  \begin{enumerate}[label=\Alph*.]
     \item \(0\)
     \item \(1\)
     \item \(5\)
@@ -532,12 +552,22 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     The inequality suggests the squeeze theorem.
   \end{hint}
 \end{exercise}
+\nopagebreak\vfill
+
+\begin{exercise} \label{ex:change-of-variable-cube-at-8-shifted}
+  Evaluate \(\lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h}\).
+  
+  \begin{hint}
+    Attempt a direct substitution to get \(0/0\). Depending on your preference, you can either substitute \(u = \sqrt[3]{x}\) and use the difference of cubes formula, or recognize that this limit is the definition for \(f'(8)\) where \(f(x) = \sqrt[3]{x}\).
+  \end{hint}
+\end{exercise}
+\nopagebreak\vfill
 
 \begin{exercise}
   % (Midterm, Fall 2025)
   Consider the function \(f(x) = 1 + \sqrt{x}\), defined for \(x \ge 0\). Which of the following is true?
 
-  \begin{enumerate}
+  \begin{enumerate}[label=\Alph*.]
     \item The inverse of \(f\) is \(f^{-1}(x) = (x - 1)^{2}\).
     \item The domain of \(f^{-1}\) is \((0, \infty)\).
     \item The range of \(f\) is \([0, \infty)\).
@@ -549,58 +579,31 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     Start with the most fundamental concept, which is domain, and work your way up. Also recall the relationship between the domain and range of a function and its inverse as discussed in Exercise~\ref{ex:find-inverse-under-restriction} on page~\pageref{ex:find-inverse-under-restriction}. This is just five small tasks squished into a single multiple-choice problem.
   \end{hint}
 \end{exercise}
+\vfill
+\clearpage
 
-\begin{exercise}
-  % Midterm, Fall 2025
-  Suppose a function \(f(x)\) is defined for all real numbers. Moreover, \(f(x)\) satisfies
-  \[
-    \lim_{x \to (-1)^{-}} f(x) = -1,
-    \quad
-    \lim_{x \to (-1)^{+}} f(x) = \infty,
-    \quad\text{and}\quad
-    f(-1) = 0.
-  \]
-  Which of the following statements is true?
-
+\begin{exercise} \label{ex:midterm-exercise-5}
+  % (Midterm, Fall 2022)
+  Solve for \(x\) in the equation \(\ln(x) + \ln(x - 1) = 0\).
   \begin{enumerate}[label=\Alph*.]
-    \item Such a function does not exist.
-    \item \(f(x)\) has a jump discontinuity at \(-1\).
-    \item \(f(x)\) has a removable discontinuity at \(-1\).
-    \item \(f(x)\) has an infinite discontinuity at \(-1\).
-    \item \(f(x)\) is continuous at \(-1\).
+    \item \(\frac{1 + \sqrt{5}}{2}\)
+    \item \(\frac{1 + \sqrt{5}}{2}, \frac{1 - \sqrt{5}}{2}\)
+    \item \(\frac{-1 + \sqrt{5}}{2}\)
+    \item \(\frac{-1 - \sqrt{5}}{2}\)
+    \item \(\frac{5}{2}\)
   \end{enumerate}
   
   \begin{hint}
-    Sketch the given information as we did in Example~\ref{eg:discontinuity-classify-abstract} on page~\pageref{eg:discontinuity-classify-abstract}.
+    Apply logarithm rules to simplify the problem.
   \end{hint}
+
+  \begin{solution}
+    This exercise is about properties (rules) of exponential functions and logarithms.  It is entirely an exercise in remembering the rules correctly and remembering that \(e^{x}\) and \(\ln(x)\) are inverses of each other. They ``cancel out.'' See the top of page~\pageref{eq:log-formulas} for a refresher on the logarithm rules.
+
+    Use the logarithm rule \(\ln(ab) = \ln(a) + \ln(b)\). \[\ln(x) + \ln(x - 1) = 0 \quad\longrightarrow\quad \ln(x(x-1)) = 0 \quad\longrightarrow\quad x^{2} - x = 1.\] In the last step, we raise both sides to base \(e\).  Finish the calculation using the quadratic formula or completing the square. Pick only the positive one because \(\ln(\cdots)\) does not accept negative numbers as inputs. 
+  \end{solution}
 \end{exercise}
-
-% \begin{exercise}
-%   Consider the function 
-%   \[
-%     f(x) = \frac{1}{|x + 1|} + | x^{2} - 3x^{2} |.
-%   \]
-%   Find \(f'(0)\).
-
-%   \begin{enumerate}
-%     \item \(0\)
-%     \item \(-1\)
-%     \item \(1\)
-%     \item \(2\)
-%     \item None of the above.
-%   \end{enumerate}
-  
-%   \begin{hint}
-%     The systematic approach starts by applying the sum rule for derivatives.    \end{hint}
-% \end{exercise}
-
-\begin{exercise} \label{ex:change-of-variable-cube-at-8-shifted}
-  Evaluate \(\lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h}\).
-  
-  \begin{hint}
-    Attempt a direct substitution to get \(0/0\). Depending on your preference, you can either substitute \(u = \sqrt[3]{x}\) and use the difference of cubes formula, or recognize that this limit is the definition for \(f'(8)\) where \(f(x) = \sqrt[3]{x}\).
-  \end{hint}
-\end{exercise}
+\nopagebreak\vfill
 
 \begin{exercise} \label{ex:infinity-root-negative}
   Evaluate \(\lim_{x \to -\infty} \frac{3x - 7}{\sqrt{25x^{2} + 5x + 1}}\).
@@ -617,13 +620,9 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     The systematic approach is to factor out the largest power of \(x\) with its coefficient from both the numerator and denominator.
   \end{hint}
 \end{exercise}
-\vspace{2cm}
+\vfill
 
-\makeatletter
-\let\exercise\rwOrigExercise
-\makeatother
-
-\section{Selected hints for exercises}
+\subsection{Selected hints for exercises}
 \printhints \label{page:midterm-prep-hints}
 \clearpage
 
