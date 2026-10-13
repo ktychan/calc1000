@@ -1,0 +1,36 @@
+# latexindent settings for this repo; `make format` applies them.
+# Only whitespace changes: indentation and trailing spaces, never line breaks.
+
+defaultIndent: "  "
+
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
+
+# Continuation lines of an \item get two spaces like everything else,
+# instead of hanging under the item's text.
+indentRules:
+  item: "  "
+
+# Leave & where they were typed instead of padding rows into columns.
+lookForAlignDelims:
+  align: 0
+  align*: 0
+  aligned: 0
+  array: 0
+  cases: 0
+  tabular: 0
+
+noAdditionalIndentGlobal:
+  # A word before a brace group, e.g. "find.\n\n{\footnotesize ...}", would
+  # otherwise be read as a named group and indent the group.
+  namedGroupingBracesBrackets: 1
+  # pgfplots/tikz option lists stay at body level: \begin{axis}[ ... ].
+  optionalArguments: 1
+
+# Hand-formatted; left exactly as written.
+verbatimEnvironments:
+  luacode: 1
+  luacode*: 1
+  verbatim: 1
+  minted: 1

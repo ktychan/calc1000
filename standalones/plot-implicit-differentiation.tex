@@ -70,4 +70,77 @@
     \addplot[dashed] coordinates { (6,0)  (6,1)};
   \end{axis}
 \end{tikzpicture}
+
+% Pages 7 and 8: x^2 - xy + y^2 = 1, whole and zoomed in near
+% (-1/sqrt(3), 1/sqrt(3)).  The curve is the ellipse traced by
+% (cos t - sin t/sqrt(3), cos t + sin t/sqrt(3)); the point is t = pi/2.  Both
+% windows are square and drawn at the same size, so the zoom is a true 5x
+% magnification.
+\pgfmathsetmacro{\zoomx}{-1/sqrt(3)}
+\pgfmathsetmacro{\zoomy}{1/sqrt(3)}
+\pgfmathsetmacro{\zoomr}{0.3}  % half the side of the zoom window
+\pgfmathsetmacro{\zoomxmin}{\zoomx - \zoomr}
+\pgfmathsetmacro{\zoomxmax}{\zoomx + \zoomr}
+\pgfmathsetmacro{\zoomymin}{\zoomy - \zoomr}
+\pgfmathsetmacro{\zoomymax}{\zoomy + \zoomr}
+
+% Q = (-2/sqrt(3), -1/sqrt(3)), t = 5pi/6: the leftmost point, where the
+% tangent line is vertical.  Zoomed in on page 9, and boxed in supp on page 7.
+\pgfmathsetmacro{\vertx}{-2/sqrt(3)}
+\pgfmathsetmacro{\verty}{-1/sqrt(3)}
+\pgfmathsetmacro{\vertxmin}{\vertx - \zoomr}
+\pgfmathsetmacro{\vertxmax}{\vertx + \zoomr}
+\pgfmathsetmacro{\vertymin}{\verty - \zoomr}
+\pgfmathsetmacro{\vertymax}{\verty + \zoomr}
+
+\begin{tikzpicture}
+  % No tick labels: the curve passes through all four of (+-1,0), (0,+-1).
+  \begin{axis}[basic curve, width={180pt},
+      xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5,
+      xticklabels={}, yticklabels={},
+      % Lift the title clear of the y-axis label, which sits at the top middle.
+      title={The entire curve of \(x^{2} - xy + y^{2} = 1\)}, title style={yshift=1.5ex}]
+    \addplot[very thick, domain=0:2*pi] ({cos(x) - sin(x)/sqrt(3)}, {cos(x) + sin(x)/sqrt(3)});
+    \draw[main, thick] (axis cs:\zoomxmin,\zoomymin) rectangle (axis cs:\zoomxmax,\zoomymax);
+    \fill[main] (axis cs:\zoomx,\zoomy) circle[radius=2pt] node[above left, main, font=\scriptsize] {\(P\)};
+    \draw[supp, thick] (axis cs:\vertxmin,\vertymin) rectangle (axis cs:\vertxmax,\vertymax);
+    \fill[supp] (axis cs:\vertx,\verty) circle[radius=2pt] node[left, supp, font=\scriptsize] {\(Q\)};
+  \end{axis}
+\end{tikzpicture}
+
+% The zoom near (-1/sqrt(3), 1/sqrt(3)), titled #1, with the point labelled #2
+% (may be empty); drawn as page 8 and again, retitled and labelled, as page 10.
+\newcommand{\zoomregular}[2]{%
+  \begin{tikzpicture}
+    \begin{axis}[basic curve, width={180pt},
+        axis lines=box, axis line style={main, thick},
+        xlabel={\empty}, ylabel={\empty},
+        xmin=\zoomxmin, xmax=\zoomxmax, ymin=\zoomymin, ymax=\zoomymax,
+        xtick distance={0.2}, ytick distance={0.2},
+        title style={align=center}, title={#1}]
+      \addplot[very thick, domain={pi/2-0.5}:{pi/2+0.5}] ({cos(x) - sin(x)/sqrt(3)}, {cos(x) + sin(x)/sqrt(3)});
+      \fill[main] (axis cs:\zoomx,\zoomy) circle[radius=2pt] node[above left, main] {#2};
+    \end{axis}
+  \end{tikzpicture}%
+}
+
+\zoomregular{Zoomed in near \(\left(-\tfrac{1}{\sqrt{3}}, \tfrac{1}{\sqrt{3}}\right)\)}{}
+
+% Page 9: the same 5x zoom as page 8, but near Q.  However far we zoom in, the
+% curve still doubles back there.  Framed in supp to match Q's box on page 7.
+\begin{tikzpicture}
+  \begin{axis}[basic curve, width={180pt},
+      axis lines=box, axis line style={supp, thick},
+      xlabel={\empty}, ylabel={\empty},
+      xmin=\vertxmin, xmax=\vertxmax, ymin=\vertymin, ymax=\vertymax,
+      xtick distance={0.2}, ytick distance={0.2},
+      title style={align=center},
+      title={\(y\) IS NOT an implicit function\\near \(Q = \left(-\tfrac{2}{\sqrt{3}}, -\tfrac{1}{\sqrt{3}}\right)\)}]
+    \addplot[very thick, domain={5*pi/6-1}:{5*pi/6+1}] ({cos(x) - sin(x)/sqrt(3)}, {cos(x) + sin(x)/sqrt(3)});
+    \fill[supp] (axis cs:\vertx,\verty) circle[radius=2pt] node[left, supp] {\(Q\)};
+  \end{axis}
+\end{tikzpicture}
+
+% Page 10: page 8 retitled, to pair with page 9 after the definition.
+\zoomregular{\(y\) IS an implicit function\\near \(P = \left(-\tfrac{1}{\sqrt{3}}, \tfrac{1}{\sqrt{3}}\right)\)}{\(P\)}
 \end{document}

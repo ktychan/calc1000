@@ -380,59 +380,59 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Slopes and exchanging \(x\) and \(y\) give us \(\frac{dx}{dy} = \frac{1}{dy/dx}\)}
+% \begin{frame}
+%   \frametitle{Slopes and exchanging \(x\) and \(y\) give us \(\frac{dx}{dy} = \frac{1}{dy/dx}\)}
 
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{main} \(x\)}}, ylabel={{\color{supp} \(y\)}}]
-      \addplot[very thick] {x^2};
-      \addplot[very thick, main] {2*x-1};
-      \node[below] at (axis cs:2,2) {\footnotesize \(\frac{{\color{supp}dy}}{{\color{main}dx}} = {\color{warn}2}\)};
-      \fill (axis cs:1,1) circle[radius=0.075];
-    \end{axis}
-  \end{tikzpicture}
-  \quad
-  flip
-  \quad
-  \begin{tikzpicture}
-    \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{supp} \(y\)}}, ylabel={{\color{main} \(x\)}}]
-      \addplot[very thick, main] {1/2*(x-1) + 1};
-      \addplot[domain={0:3}, very thick] {sqrt(x)};
-      \addplot[domain={0:1}, very thick] {-sqrt(x)};
-      \node[above] at (axis cs:2,2) {\footnotesize \(\frac{{\color{main}dx}}{{\color{supp}dy}} = \frac{1}{{\color{warn}2}}\)};
-      \fill (axis cs:1,1) circle[radius=0.075];
-    \end{axis} 
-  \end{tikzpicture}
-\end{frame}
+%   \centering
+%   \begin{tikzpicture}
+%     \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{main} \(x\)}}, ylabel={{\color{supp} \(y\)}}]
+%       \addplot[very thick] {x^2};
+%       \addplot[very thick, main] {2*x-1};
+%       \node[below] at (axis cs:2,2) {\footnotesize \(\frac{{\color{supp}dy}}{{\color{main}dx}} = {\color{warn}2}\)};
+%       \fill (axis cs:1,1) circle[radius=0.075];
+%     \end{axis}
+%   \end{tikzpicture}
+%   \quad
+%   flip
+%   \quad
+%   \begin{tikzpicture}
+%     \begin{axis}[basic curve, xmin=-1, xmax=3, ymin=-1, ymax=3, width={3in}, xlabel={{\color{supp} \(y\)}}, ylabel={{\color{main} \(x\)}}]
+%       \addplot[very thick, main] {1/2*(x-1) + 1};
+%       \addplot[domain={0:3}, very thick] {sqrt(x)};
+%       \addplot[domain={0:1}, very thick] {-sqrt(x)};
+%       \node[above] at (axis cs:2,2) {\footnotesize \(\frac{{\color{main}dx}}{{\color{supp}dy}} = \frac{1}{{\color{warn}2}}\)};
+%       \fill (axis cs:1,1) circle[radius=0.075];
+%     \end{axis} 
+%   \end{tikzpicture}
+% \end{frame}
 
-\begin{frame}
-  \frametitle{Why plug stuff back into the curve\hfill{\parbox{1.25in}{\footnotesize\raggedleft Example~\ref{main-eg:implicit-vertical-tangent}\\on page~\pageref{main-eg:implicit-vertical-tangent}}}}
+% \begin{frame}
+%   \frametitle{Why plug stuff back into the curve\hfill{\parbox{1.25in}{\footnotesize\raggedleft Example~\ref{main-eg:implicit-vertical-tangent}\\on page~\pageref{main-eg:implicit-vertical-tangent}}}}
 
-  The solution {\color{supp}\(y = 0\)} to \(\frac{dx}{dy} = 0\) tells us that vertical tangent lines occur at the \hlwarn{points of intersection} of {\color{supp}\(y = 0\)} and {\color{main}\(x^{2} + y^{2} = 25\)}.  
+%   The solution {\color{supp}\(y = 0\)} to \(\frac{dx}{dy} = 0\) tells us that vertical tangent lines occur at the \hlwarn{points of intersection} of {\color{supp}\(y = 0\)} and {\color{main}\(x^{2} + y^{2} = 25\)}.  
 
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      basic curve,
-      enlargelimits={abs=0.5}, 
-      xmin=-5, xmax=5, ymin=-5, ymax=5,
-      width={200pt}, 
-      xtick distance={2},
-      ytick distance={2},
-      xlabel={\empty}, ylabel={\empty},
-      samples=500,
-      ]
+%   \centering
+%   \begin{tikzpicture}
+%     \begin{axis}[
+%       basic curve,
+%       enlargelimits={abs=0.5}, 
+%       xmin=-5, xmax=5, ymin=-5, ymax=5,
+%       width={200pt}, 
+%       xtick distance={2},
+%       ytick distance={2},
+%       xlabel={\empty}, ylabel={\empty},
+%       samples=500,
+%       ]
 
-      \addplot[main, very thick, domain=-5:5] {sqrt(25 - x^2)};
-      \addplot[main, very thick, domain=-5:5] {-sqrt(25 - x^2)};
-      \addplot[supp, very thick] coordinates {(-6, 0) (6,0)};
+%       \addplot[main, very thick, domain=-5:5] {sqrt(25 - x^2)};
+%       \addplot[main, very thick, domain=-5:5] {-sqrt(25 - x^2)};
+%       \addplot[supp, very thick] coordinates {(-6, 0) (6,0)};
 
-      \fill[warn] (axis cs:-5,0) circle[radius=0.25];
-      \fill[warn] (axis cs: 5,0) circle[radius=0.25];
-    \end{axis}
-  \end{tikzpicture}
-\end{frame}
+%       \fill[warn] (axis cs:-5,0) circle[radius=0.25];
+%       \fill[warn] (axis cs: 5,0) circle[radius=0.25];
+%     \end{axis}
+%   \end{tikzpicture}
+% \end{frame}
 
 \begin{frame}
   \frametitle{Logarithmic Differentiation\hfill{\parbox{1.25in}{\footnotesize\raggedleft Equation~\eqref{main-eq:derivative-of-ln(g(x))}\\on page~\pageref{main-eq:derivative-of-ln(g(x))}}}}

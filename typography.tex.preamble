@@ -209,7 +209,7 @@
         {\unexpanded\expandafter{\solution@pending}}}%
     \global\let\solution@pending\@empty
   \fi}
-\NewDocumentEnvironment{solution}{+b}
+\DeclareDocumentEnvironment{solution}{+b}
   {\ifhint@inexercise\else
      \PackageError{solution}{The solution environment must be inside an exercise}{}%
    \fi

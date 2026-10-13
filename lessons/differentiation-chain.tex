@@ -2,12 +2,12 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The chain rule\texorpdfstring{ \((f \circ g)'(x) = f'(g(x))g'(x)\)}{}}
 
-This section is about building procedural competency for the chain rule.
+This lesson is about developing procedural proficiency for the chain rule.
 
 \begin{mdframed}[style=simple-compact] \label{thm:diff-rules-3}
   \textbf{Differentiation Rules} \hfill {\footnotesize (part \(3\) of \(3\))}
 
-  The derivative of a composite function \(f(g(x))\), if it is well-defined, can be calculated by the formula \updatenote{Added the missing "it".}
+  The derivative of a composite function \(f(g(x))\), if it is well-defined, can be calculated by the formula
   \begin{align*}
     \frac{d}{dx} f\big( g(x) \big)
     &= f'(g(x)) g'(x)
@@ -16,61 +16,70 @@ This section is about building procedural competency for the chain rule.
   \end{align*}
 \end{mdframed}
 
-\begin{example}
-  Differentiate \(\tan^{3}(x)\).
+\faStar{} The chain rule is required whenever we differentiate a composite function.
 
-  \blanklines{10}
+\begin{example}
+  Differentiate \(f(x) = \left(\log_{2}(x)\right)^{3}\).
+
+  \blanks{15}
 \end{example}
 
-\begin{exercise}
-  Differentiate \(e^{2x + 1}\).
+\begin{example}
+  Let \(f(x) = \sin(2x)\). Find \(f^{(5)}(0)\).
 
-  \blanklines{10}
-\end{exercise}
-
-\begin{exercise}
-  Differentiate \(\left( x - \frac{4}{x} \right)^{8}\).
-
-  \blanklines{10}
-\end{exercise}
-
+  \blanks*
+\end{example}
 \clearpage
 
-\begin{exercise}
-  Find all \(x\) at which the curve \(y = \left( x - \frac{4}{x} \right)^{8}\) has a horizontal tangent line.
+\begin{example} \label{eg:chain-rule-constant}
+  Evaluate \(\frac{d^{2}}{dx^{2}} \tan\left( \sin^{-1}(\ln(2))\right)\).
 
-  \blanklines{15}
-\end{exercise}
-
-The chain rule can help us differentiate composition functions where part or all of the functions are unknown.
-\begin{example}
-  Differentiate \(\sec(g(x))\) where \(g\) is an unknown but differentiable function. 
-
-  \blanklines{5}
+  \blanks{10}
 \end{example}
 
 \begin{exercise}
-  Differentiate \((4 g(x) + 3)^{3}\) where \(g(x)\) is an unknown but differentiable function.
+  Differentiate \(\left( x^{5} + \ln(x) \right)^{2025}\).
 
-  \blanklines{10}
+  \blanks*
 \end{exercise}
 
 \begin{exercise}
   Find the derivative of \(\sqrt{2^{x} + g(x)}\) at \(x = 1\) given that \(g(1) = 1\) and \(g'(1) = 0\).
 
-  \blanklines{15}
-\end{exercise}
-
-\begin{exercise}
-  Find all \(x\) at which \(\cos^{2}(x)\) has a horizontal tangent line.
-
-  \blanklines{20}
-\end{exercise}
-
-\begin{exercise}
-  Find all \(x\) at which \(\cos^{2}(x)\) has a tangent line with slope \(1\).
-
-  \blanklines{20}
+  \blanks*
 \end{exercise}
 \clearpage
+
+% \begin{exercise}
+%   Find all \(x\) at which the curve \(y = \left( x - \frac{4}{x} \right)^{8}\) has a horizontal tangent line.
+
+%   \blanklines{15}
+% \end{exercise}
+
+% The chain rule can help us differentiate composition functions where part or all of the functions are unknown.
+% \begin{example}
+%   Differentiate \(\sec(g(x))\) where \(g\) is an unknown but differentiable function. 
+
+%   \blanklines{5}
+% \end{example}
+
+% \begin{exercise}
+%   Differentiate \((4 g(x) + 3)^{3}\) where \(g(x)\) is an unknown but differentiable function.
+
+%   \blanklines{10}
+% \end{exercise}
+
+
+% \begin{exercise}
+%   Find all \(x\) at which \(\cos^{2}(x)\) has a horizontal tangent line.
+
+%   \blanklines{20}
+% \end{exercise}
+
+% \begin{exercise}
+%   Find all \(x\) at which \(\cos^{2}(x)\) has a tangent line with slope \(1\).
+
+%   \blanklines{20}
+% \end{exercise}
+% \clearpage
 \end{document}
