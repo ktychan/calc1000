@@ -78,6 +78,7 @@ We put the entire implicit differentiation process together in the following exe
 We can use implicit differentiation to find the derivative of the inverse of a function.
 
 \begin{mdframed}[style=simple-compact]
+  \label{technique:implicit-differentiation-inverse}
   \textbf{How to} use implicit differentiation to calculate \((f^{-1})'(x)\) for an invertible \(f(x)\).
 
   Using \hlattn{the equation} \(y = f^{-1}(x)\),
@@ -100,7 +101,7 @@ We can use implicit differentiation to find the derivative of the inverse of a f
   \begin{enumerate}[wide]
     \item Find \((f^{-1})'(x)\).
 
-      \blanks{10}
+      \blanks{12}
 
     \item Find \((f^{-1})'(6)\).
 
@@ -121,22 +122,36 @@ We can use implicit differentiation to find the derivative of the inverse of a f
 %   \blanklines{13}
 % \end{example}
 
-Theorem~\ref{thm:lift} below packages the thinking process demonstrated in Example~\ref{eg:implicit-differentiation-inverse-as-a-function} and Exercise~\ref{ex:implicit-differentiation-inverse} into a single formula.
+Theorem~\ref{thm:lift} below packages the HOW TO on page~\pageref{technique:implicit-differentiation-inverse} into a single formula.
 
-However, please be warned that Theorem~\ref{thm:lift} is only useful for finding \(\left(f^{-1}\right)'(\text{constant})\), but not suitable if you need to find \((f^{-1}(x))'\) as an expression of \(x\). For example, it is EXTREMELY COMPLICATED to use the theorem to solve Part 1 of Example~\ref{eg:implicit-differentiation-inverse-as-a-function}. Notice that at no point during Example~\ref{eg:implicit-differentiation-inverse-as-a-function} and Exercise~\ref{ex:implicit-differentiation-inverse} did we calculate \(f^{-1}\) as an expression of \(x\) because it was very complicated.
-
-It is possible to use Theorem~\ref{thm:lift} to solve Part 2 of Example~\ref{eg:implicit-differentiation-inverse-as-a-function} because \(6\) is a constant.
 
 \begin{thm}[The Inverse Function Theorem] \label{thm:lift}
   Suppose a function \(f\) is differentiable and has an inverse \(f^{-1}(x)\).
   \[
-    \left(f^{-1}\right)'(\text{constant}) = \frac{1}{f'(f^{-1}(\text{constant}))}.
+    \left(f^{-1}\right)'(x) = \frac{1}{f'(f^{-1}(x))}.
   \]
   The derivative (as a number) does not exist if the denominator is \(0\).
 
   \textbook{Theorem 3.11 on page 300}
 \end{thm}
 
+\begin{exercise}
+  Here is how you can apply Theorem~\ref{thm:lift} to find \((f^{-1})'(6)\) for \(f(x) = x^{3} + 2x + 3\).
+  
+  \begin{enumerate}[wide]
+    \item Calculate \(f'(x)\) directly.
+
+      \blanks{5}
+      
+    \item Find \(y = f^{-1}(6)\).
+      
+      \blanks{10}
+    
+    \item Plug the numbers into Theorem~\ref{thm:lift} to find \((f^{-1})'(6)\).
+
+      \blanks*
+  \end{enumerate}
+\end{exercise}
 \clearpage
 
 Here are two more exercises to help you practise implicit differentiation and finding the derivative of an inverse function.
