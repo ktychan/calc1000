@@ -1,9 +1,9 @@
 %! Tex Program = lualatex
-\documentclass[12pt]{beamer} 
-\usetheme{metropolis} 
-\everymath{\displaystyle} 
-\setbeamersize{text margin left=.5cm} 
-\setbeamersize{text margin right=.5cm} 
+\documentclass[12pt]{beamer}
+\usetheme{metropolis}
+\everymath{\displaystyle}
+\setbeamersize{text margin left=.5cm}
+\setbeamersize{text margin right=.5cm}
 \beamertemplatenavigationsymbolsempty{}
 
 \usepackage{fontawesome5}
@@ -11,7 +11,7 @@
 \input{../typography.tex.preamble}
 \input{../tikz.tex.preamble}
 
-\begin{document} 
+\begin{document}
 \begin{frame}[t]
   The obvious routes \emph{do not} minimize travel time. Why?
   \begin{center}
@@ -25,9 +25,9 @@
         \draw[very thick] (0,1) -- (2,1);
       }
       \draw[decorate, decoration={brace, raise=5pt}] (2,0) -- (0,0)
-        node[midway, below=5pt] {\footnotesize \(2\) km};
+      node[midway, below=5pt] {\footnotesize \(2\) km};
       \draw[decorate, decoration={brace, raise=5pt, mirror}] (2,0) -- (2,1)
-        node[midway, right=5pt] {\footnotesize \(1\) km};
+      node[midway, right=5pt] {\footnotesize \(1\) km};
       \onslide<1>{
         \draw[Aquamarine, domain=0.2:1.8, smooth, samples=100] plot ({\x},{sin(4*pi*\x)*0.05+0.75});
         \draw[Aquamarine, domain=0.2:1.8, smooth, samples=100] plot ({\x},{sin(4*pi*\x)*0.051+0.50});
@@ -41,11 +41,11 @@
         \draw[main, dashed, very thick] (2,1) -- (2,0) node[midway, left] {\footnotesize swim};
       }
       \onslide<4>{
-        \draw[main, dashed, very thick] (0,1) 
-          -- (1,1) 
-          node[midway, above] {\footnotesize walk \(1\) km}
-          -- (2,0) 
-          node[midway, left] {\footnotesize swim};
+        \draw[main, dashed, very thick] (0,1)
+        -- (1,1)
+        node[midway, above] {\footnotesize walk \(1\) km}
+        -- (2,0)
+        node[midway, left] {\footnotesize swim};
       }
     \end{tikzpicture}
   \end{center}
@@ -57,8 +57,8 @@
     \)
   }
 
-  \onslide<3->{\footnotesize 
-    If one walks the whole length and swims across, then it takes 
+  \onslide<3->{\footnotesize
+    If one walks the whole length and swims across, then it takes
     \[
       \frac{2 \text{ km}}{6 \text{ kph}} + \frac{1 \text{ km}}{3 \text{ kph}} \approx 0.666 \text{ hour}.
     \]
@@ -73,7 +73,7 @@
 \end{frame}
 
 \begin{frame}[t]
-  Some combination of walk+swim minimizes travel time. 
+  Some combination of walk+swim minimizes travel time.
 
   \begin{center}
     \begin{tikzpicture}[scale=1.75]
@@ -84,18 +84,18 @@
       \draw[very thick] (0,0) -- (2,0);
       % \draw[very thick] (0,1) -- (2,1);
       \draw[decorate, decoration={brace, raise=5pt}] (2,0) -- (0,0)
-        node[midway, below=5pt] {\footnotesize \(2\) km};
+      node[midway, below=5pt] {\footnotesize \(2\) km};
       \draw[decorate, decoration={brace, raise=5pt, mirror}] (2,0) -- (2,1)
-        node[midway, right=5pt] {\footnotesize \(1\) km};
-      \draw[main, dashed, very thick] (0,1) 
-        -- (0.75,1) 
-        node[midway, above] {\footnotesize \(w\)} 
-        -- (2,0) 
-        node[midway, left] {\footnotesize \(s\)};
+      node[midway, right=5pt] {\footnotesize \(1\) km};
+      \draw[main, dashed, very thick] (0,1)
+      -- (0.75,1)
+      node[midway, above] {\footnotesize \(w\)}
+      -- (2,0)
+      node[midway, left] {\footnotesize \(s\)};
     \end{tikzpicture}
   \end{center}
 
-  Let \(w\) denote the \emph{walking distance} and \(s\) the swimming distance as shown. 
+  Let \(w\) denote the \emph{walking distance} and \(s\) the swimming distance as shown.
 
   Let \(T\) denote travel time. \hlattn{Goal: We want to minimize \(T\).}
 \end{frame}
@@ -112,24 +112,24 @@
       \draw[very thick] (0,0) -- (2,0);
       % \draw[very thick] (0,1) -- (2,1);
       \draw[decorate, decoration={brace, raise=5pt}] (2,0) -- (0,0)
-        node[midway, below=5pt] {\footnotesize \(2\) km};
+      node[midway, below=5pt] {\footnotesize \(2\) km};
       \draw[decorate, decoration={brace, raise=5pt, mirror}] (2,0) -- (2,1)
-        node[midway, right=5pt] {\footnotesize \(1\) km};
+      node[midway, right=5pt] {\footnotesize \(1\) km};
       \onslide<3->{
         \fill[supp!25] (0.75,1) -- (0.75,0) -- (2,0) -- (0.75,1);
       }
 
-      \draw[main, dashed, very thick] (0,1) 
-        -- (0.75,1) 
-        node[midway, above] {\footnotesize \(w\)} 
-        -- (2,0) 
-        node[midway, left] {\footnotesize \(s\)};
+      \draw[main, dashed, very thick] (0,1)
+      -- (0.75,1)
+      node[midway, above] {\footnotesize \(w\)}
+      -- (2,0)
+      node[midway, left] {\footnotesize \(s\)};
     \end{tikzpicture}
   \end{center}
 
   We have relations
   \[
-    \onslide<2->{T = \frac{w}{6} + \frac{s}{3}} 
+    \onslide<2->{T = \frac{w}{6} + \frac{s}{3}}
     \quad\text{and}\quad
     \onslide<3->{w + {\color{supp}\sqrt{s^{2} - 1^{2}}} = 2}.
   \]
@@ -156,16 +156,16 @@
       \draw[very thick] (0,0) -- (2,0);
       % \draw[very thick] (0,1) -- (2,1);
       \draw[decorate, decoration={brace, raise=5pt}] (2,0) -- (0,0)
-        node[midway, below=5pt] {\footnotesize \(2\) km};
+      node[midway, below=5pt] {\footnotesize \(2\) km};
       \draw[decorate, decoration={brace, raise=5pt, mirror}] (2,0) -- (2,1)
-        node[midway, right=5pt] {\footnotesize \(1\) km};
+      node[midway, right=5pt] {\footnotesize \(1\) km};
       \fill[supp!25] (0.75,1) -- (0.75,0) -- (2,0) -- (0.75,1);
 
-      \draw[main, dashed, very thick] (0,1) 
-        -- (0.75,1) 
-        node[midway, above] {\footnotesize \(w\)} 
-        -- (2,0) 
-        node[midway, left] {\footnotesize \(s\)};
+      \draw[main, dashed, very thick] (0,1)
+      -- (0.75,1)
+      node[midway, above] {\footnotesize \(w\)}
+      -- (2,0)
+      node[midway, left] {\footnotesize \(s\)};
     \end{tikzpicture}
   \end{center}
 
@@ -191,9 +191,9 @@
     \]
     because \(s = \sqrt{(2-w)^{2}+1}\).
   }
-  
+
   \bigskip
-  
+
   We can now use tools from previous sections to minimize \(T\) using \onslide<2->{either}
   \[
     T(s) = \frac{2 - \sqrt{s^{2} - 1}}{6} + \frac{s}{3}, \text{ on domain } 1 \le s \le \sqrt{5}.

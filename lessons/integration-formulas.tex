@@ -4,68 +4,68 @@
 Every \hlmain{integration} formula comes from a \hlsupp{differentiation} formula.
 
 \[
-  \begin{array}{rcclcrclllcl} 
+  \begin{array}{rcclcrclllcl}
     \multicolumn{5}{c}{\text{\textbf{\hlsupp{Differentiation} Formulas}}} & \multicolumn{7}{c}{\text{\textbf{\hlmain{Integration} Formulas}}} \\
     \frac{d}{dx} & {\color{supp} cx} &=& {\color{main} c}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} c} & dx &=& {\color{supp} cx} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} c} & dx &=& {\color{supp} cx}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} x^{n+1}  } &=& {\color{main} (n+1) x^{n}}
-                 & \overset{\color{warn} n \ne -1}{\longleftrightarrow}
-                 & \int & {\color{main} x^{n}} & dx &=& {\color{supp} \frac{x^{n+1}}{n+1} } 
-                 &+& (\text{constant}) \\[2ex]
+    & \overset{\color{warn} n \ne -1}{\longleftrightarrow}
+    & \int & {\color{main} x^{n}} & dx &=& {\color{supp} \frac{x^{n+1}}{n+1} }
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \ln|x| } &=& {\color{main} x^{-1}}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} x^{-1}} & dx &=& {\color{supp} \ln|x|} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} x^{-1}} & dx &=& {\color{supp} \ln|x|}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} e^{x}} &=& {\color{main} e^{x}}
-                 & \longleftrightarrow
-                 & \int & {\color{main} e^{x}      } & dx &=& {\color{supp} e^{x}} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} e^{x}      } & dx &=& {\color{supp} e^{x}}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \sin(x)} &=& {\color{main} \cos(x)}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} \cos(x)} & dx &=& {\color{supp} \sin(x)} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} \cos(x)} & dx &=& {\color{supp} \sin(x)}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \cos(x)} &=& {\color{main} -\sin(x)}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} \sin(x)} & dx &=& {\color{supp} -\cos(x)} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} \sin(x)} & dx &=& {\color{supp} -\cos(x)}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \tan(x)} &=& {\color{main} \sec^{2}(x)}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} \sec^{2}(x)} & dx &=& {\color{supp} \tan(x)} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} \sec^{2}(x)} & dx &=& {\color{supp} \tan(x)}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \sec(x)} &=& {\color{main} \tan(x)\sec(x)}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} \tan(x)\sec(x)} & dx &=& {\color{supp} \sec(x)} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} \tan(x)\sec(x)} & dx &=& {\color{supp} \sec(x)}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \arctan(x)} &=& {\color{main} \frac{1}{x^{2}+1}}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} \frac{1}{x^{2} + 1}} & dx &=& {\color{supp} \arctan(x)} 
-                 &+& (\text{constant}) \\[2ex]
+    & \longleftrightarrow
+    & \int & {\color{main} \frac{1}{x^{2} + 1}} & dx &=& {\color{supp} \arctan(x)}
+    &+& (\text{constant}) \\[2ex]
     \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& {\color{main} \frac{1}{\sqrt{1 - x^{2}}}}
-                 & \longleftrightarrow 
-                 & \int & {\color{main} \frac{1}{\sqrt{1 - x^{2}}}} & dx &=& {\color{supp} \arcsin(x)} 
-                 &+& (\text{constant})
+    & \longleftrightarrow
+    & \int & {\color{main} \frac{1}{\sqrt{1 - x^{2}}}} & dx &=& {\color{supp} \arcsin(x)}
+    &+& (\text{constant})
   \end{array}
 \]
 
 {\footnotesize \faExclamationTriangle{} The restriction \hlwarn{\(n \ne -1\)} on the second line \hlwarn{applies to the entire line}.}
 
 \bigskip
-\textbf{Properties of definite and indefinite integrals}. 
+\textbf{Properties of definite and indefinite integrals}.
 \begin{align*}
-  \int (\text{constant}) f(x) \;dx 
-    &= (\text{constant}) \int f(x) \;dx && \text{(constant multiple)}\\
-    \int f(x) + g(x) \;dx 
-    &= \int f(x) \;dx + \int g(x) \;dx && \text{(sum)}\\
-    \int f(x) - g(x) \;dx 
-    &= \int f(x) \;dx - \int g(x) \;dx && \text{(difference)}
-    \intertext{\textbf{Additional properties of definite integrals only}.}
-  \int_{a}^{b} f(x) \;dx 
-  &= - \int_{b}^{a} f(x) \;dx 
+  \int (\text{constant}) f(x) \;dx
+  &= (\text{constant}) \int f(x) \;dx && \text{(constant multiple)}\\
+  \int f(x) + g(x) \;dx
+  &= \int f(x) \;dx + \int g(x) \;dx && \text{(sum)}\\
+  \int f(x) - g(x) \;dx
+  &= \int f(x) \;dx - \int g(x) \;dx && \text{(difference)}
+  \intertext{\textbf{Additional properties of definite integrals only}.}
+  \int_{a}^{b} f(x) \;dx
+  &= - \int_{b}^{a} f(x) \;dx
   &&\text{(flip)} \\
-  \int_{a}^{b} f(x) \;dx 
-  &= \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx 
+  \int_{a}^{b} f(x) \;dx
+  &= \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx
   &&\text{(split/join)}.
 \end{align*}
 For the ``split/join'' property, the number \(c\) can be any number, not limited to \([a,b]\).

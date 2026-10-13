@@ -32,13 +32,13 @@
 \begin{tikzpicture}[practice tiles]
   \node[caption] at (-0.375, 1.75) {Five shortcuts, \(2\) repetitions each};
   \foreach \c [count=\n from 0] in {%
-      WesternSky, WesternSky, WesternSpring, WesternSpring, WesternVivid,
-      WesternVivid, WesternTiger, WesternTiger, WesternOrchid, WesternOrchid}
-    \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
+    WesternSky, WesternSky, WesternSpring, WesternSpring, WesternVivid,
+    WesternVivid, WesternTiger, WesternTiger, WesternOrchid, WesternOrchid}
+  \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
 
   \node[caption] at (-0.375, 0.15) {One systematic approach, \(10\) repetitions};
   \foreach \n in {0,...,9}
-    \node[tile, fill=main!40] at ({\n*0.85}, -0.5) {};
+  \node[tile, fill=main!40] at ({\n*0.85}, -0.5) {};
 \end{tikzpicture}
 % ---------------------------------------------------------------------
 % Page 2 -- ordering.  Blocked practice on top, interleaved below; the second
@@ -46,16 +46,16 @@
 \begin{tikzpicture}[practice tiles]
   \node[caption] at (-0.375, 1.75) {Learning a technique: one type of problem at a time};
   \foreach \c [count=\n from 0] in {%
-      WesternSky, WesternSky, WesternSky, WesternSky,
-      WesternSpring, WesternSpring, WesternSpring, WesternSpring,
-      WesternTiger, WesternTiger, WesternTiger, WesternTiger}
-    \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
+    WesternSky, WesternSky, WesternSky, WesternSky,
+    WesternSpring, WesternSpring, WesternSpring, WesternSpring,
+    WesternTiger, WesternTiger, WesternTiger, WesternTiger}
+  \node[tile, fill=\c!70] at ({\n*0.85}, 1.1) {};
 
   \node[caption] at (-0.375, 0.15) {Closer to the exam: mixed together};
   \foreach \c [count=\n from 0] in {%
-      WesternSky, WesternTiger, WesternSpring, WesternTiger,
-      WesternSky, WesternSpring, WesternTiger, WesternSky,
-      WesternSpring, WesternSky, WesternTiger, WesternSpring}
-    \node[tile, fill=\c!70] at ({\n*0.85}, -0.5) {};
+    WesternSky, WesternTiger, WesternSpring, WesternTiger,
+    WesternSky, WesternSpring, WesternTiger, WesternSky,
+    WesternSpring, WesternSky, WesternTiger, WesternSpring}
+  \node[tile, fill=\c!70] at ({\n*0.85}, -0.5) {};
 \end{tikzpicture}
 \end{document}

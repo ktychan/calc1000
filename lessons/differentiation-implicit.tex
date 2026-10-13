@@ -2,7 +2,7 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Implicit differentiation}
 
-Implicit differentiation is a procedure to find the derivative of a function \(y = f(x)\) where \(f(x)\) is unknown but defined implicitly by an equation. We progress from familiar contexts to more complicated ones. 
+Implicit differentiation is a procedure to find the derivative of a function \(y = f(x)\) where \(f(x)\) is unknown but defined implicitly by an equation. We progress from familiar contexts to more complicated ones.
 
 \begin{example}
   Let \hlattn{\(y = f(x)\) be an unknown function}. Evaluate \(\frac{d}{dx}\left(x^{2} - xf(x) + \left(f(x)\right)^{2}\right)\).
@@ -28,7 +28,7 @@ The entire curve of \(x^{2} - xy + y^{2} = 1\) fails the vertical line test, so 
   \includestandalone[page=10]{../standalones/plot-implicit-differentiation}
   \qquad
   \includestandalone[page=9]{../standalones/plot-implicit-differentiation}
-  
+
   \caption{Desmos (\url{https://www.desmos.com/calculator/amkbgk724g})}
 \end{figure}
 \clearpage
@@ -39,7 +39,7 @@ Implicit differentiation is a procedure to find \hlmain{\(\tfrac{dy}{dx}\)} with
 
 \begin{mdframed}[style=simple-compact]
   \textbf{The procedure} for applying implicit differentiation to \emph{an equation} involving \(x,y\).
-  
+
   \begin{enumerate}
     \item Differentiate both sides of \emph{the given equation} with respect to \(x\)
       \[
@@ -56,7 +56,7 @@ Implicit differentiation is a procedure to find \hlmain{\(\tfrac{dy}{dx}\)} with
 
 \begin{example} \label{ex:implicit-circle}
   Find an equation of the tangent line at \(\left(-\tfrac{1}{\sqrt{3}}, \tfrac{1}{\sqrt{3}}\right)\) on the curve \(x^{2} - xy + y^{2} = 1\).
-  
+
   % {\footnotesize Remember we calculated \(y'\) in Example~\ref{eg:implicit-differentiation-intro}.}
 
   % DONE insert the expression for y as a function of x to show students why it is not desirable to calculate y as a function of x.
@@ -70,22 +70,22 @@ Implicit differentiation is a procedure to find \hlmain{\(\tfrac{dy}{dx}\)} with
 We put the entire implicit differentiation process together in the following exercise.
 \begin{exercise} \label{ex:implicit-differentiation-inverse}
   Find the slope of the tangent line to the curve \(x = y^{3} + 2y + 3\) at the point \((6,1)\).
-  
+
   \blanks*
 \end{exercise}
 \clearpage
 
-We can use implicit differentiation to find the derivative of the inverse of a function. 
+We can use implicit differentiation to find the derivative of the inverse of a function.
 
 \begin{mdframed}[style=simple-compact]
   \textbf{How to} use implicit differentiation to calculate \((f^{-1})'(x)\) for an invertible \(f(x)\).
 
   Using \hlattn{the equation} \(y = f^{-1}(x)\),
-  finding \(\left(f^{-1}\right)'(x)\) means to find \(\tfrac{dy}{dx}\) or just \(y'\). 
+  finding \(\left(f^{-1}\right)'(x)\) means to find \(\tfrac{dy}{dx}\) or just \(y'\).
   \[
     \underbrace{\hspace{1.25in}}_{\parbox{1.25in}{\scriptsize\centering what we\\want to differentiate}}
     \quad\longleftrightarrow\quad
-    \underbrace{\hspace{1.75in}}_{\text{apply the theory from page~\pageref{def:inverse}}} 
+    \underbrace{\hspace{1.75in}}_{\text{apply the theory from page~\pageref{def:inverse}}}
     \quad\longleftrightarrow\quad \underbrace{\hspace{1.25in}}_{\parbox{1.25in}{\scriptsize\centering implicitly differentiate\\this instead}}
   \]
 \end{mdframed}
@@ -95,16 +95,16 @@ We can use implicit differentiation to find the derivative of the inverse of a f
 % Implicit differentiation helps us find an expression in \(y\) for the derivative of the inverse of any invertible function \(f\) without having to calculate \(y = f^{-1}(x)\) as an expression of \(x\). \updatenote{"an expression as $y$" corrected to "an expression in $y$".} To do so, we implicitly differentiate the equivalent equation \(x = f(y)\) and isolate for \(\tfrac{dy}{dx}\) (see page \pageref{ex:implicit-differentiation-inverse}).
 
 \begin{example} \label{eg:implicit-differentiation-inverse-as-a-function}
-  Let \(f(x) = x^{3} + 2x + 3\) and assume it is invertible. 
-  
+  Let \(f(x) = x^{3} + 2x + 3\) and assume it is invertible.
+
   \begin{enumerate}[wide]
     \item Find \((f^{-1})'(x)\).
-      
-    \blanks{10}
-    
+
+      \blanks{10}
+
     \item Find \((f^{-1})'(6)\).
-      
-    \blanks*
+
+      \blanks*
   \end{enumerate}
 \end{example}
 \clearpage
@@ -121,11 +121,11 @@ We can use implicit differentiation to find the derivative of the inverse of a f
 %   \blanklines{13}
 % \end{example}
 
-Theorem~\ref{thm:lift} below packages the thinking process demonstrated in Example~\ref{eg:implicit-differentiation-inverse-as-a-function} and Exercise~\ref{ex:implicit-differentiation-inverse} into a single formula. 
+Theorem~\ref{thm:lift} below packages the thinking process demonstrated in Example~\ref{eg:implicit-differentiation-inverse-as-a-function} and Exercise~\ref{ex:implicit-differentiation-inverse} into a single formula.
 
-However, please be warned that Theorem~\ref{thm:lift} is only useful for finding \(\left(f^{-1}\right)'(\text{constant})\), but not suitable if you need to find \((f^{-1}(x))'\) as an expression of \(x\). For example, it is EXTREMELY COMPLICATED to use the theorem to solve Part 1 of Example~\ref{eg:implicit-differentiation-inverse-as-a-function}. Notice that at no point during Example~\ref{eg:implicit-differentiation-inverse-as-a-function} and Exercise~\ref{ex:implicit-differentiation-inverse} did we calculate \(f^{-1}\) as an expression of \(x\) because it was very complicated. 
+However, please be warned that Theorem~\ref{thm:lift} is only useful for finding \(\left(f^{-1}\right)'(\text{constant})\), but not suitable if you need to find \((f^{-1}(x))'\) as an expression of \(x\). For example, it is EXTREMELY COMPLICATED to use the theorem to solve Part 1 of Example~\ref{eg:implicit-differentiation-inverse-as-a-function}. Notice that at no point during Example~\ref{eg:implicit-differentiation-inverse-as-a-function} and Exercise~\ref{ex:implicit-differentiation-inverse} did we calculate \(f^{-1}\) as an expression of \(x\) because it was very complicated.
 
-It is possible to use Theorem~\ref{thm:lift} to solve Part 2 of Example~\ref{eg:implicit-differentiation-inverse-as-a-function} because \(6\) is a constant. 
+It is possible to use Theorem~\ref{thm:lift} to solve Part 2 of Example~\ref{eg:implicit-differentiation-inverse-as-a-function} because \(6\) is a constant.
 
 \begin{thm}[The Inverse Function Theorem] \label{thm:lift}
   Suppose a function \(f\) is differentiable and has an inverse \(f^{-1}(x)\).

@@ -22,7 +22,7 @@
     xmin=-5, xmax=5,
     ymin=-5, ymax=5,
     restrict y to domain=-10:10,
-    grid=major, 
+    grid=major,
     xlabel={\empty},
     xticklabels={\empty},
     width={200pt}
@@ -72,7 +72,7 @@
 \begin{tikzpicture}
   \begin{axis}[lesson limit intro]
     \addplot[very thick, variable=\t, domain={pi/1.5}:{100*pi}, samples=1200]
-      ({1/2 - pi/t}, {1/2 + sin(t)});
+    ({1/2 - pi/t}, {1/2 + sin(t)});
   \end{axis}
 \end{tikzpicture}
 
@@ -80,7 +80,7 @@
 \begin{tikzpicture}
   \begin{axis}[lesson limit intro]
     \addplot[very thick, variable=\t, domain={pi/1.5}:{100*pi}, samples=1200]
-      ({1/2 + pi/t}, {1/2 + sin(t)});
+    ({1/2 + pi/t}, {1/2 + sin(t)});
   \end{axis}
 \end{tikzpicture}
 
@@ -120,7 +120,7 @@
 \begin{tikzpicture}
   \begin{axis}[lesson limit intro, title={left limit at \hlattn{\(a\)} does not exist}]
     \addplot[very thick, variable=\t, domain={pi/1.5}:{100*pi}, samples=1200]
-      ({1/2 - pi/t}, {1/2 + sin(t)});
+    ({1/2 - pi/t}, {1/2 + sin(t)});
   \end{axis}
 \end{tikzpicture}
 
@@ -128,7 +128,7 @@
 \begin{tikzpicture}
   \begin{axis}[lesson limit intro, title={right limit at \hlattn{\(a\)} does not exist}]
     \addplot[very thick, variable=\t, domain={pi/1.5}:{100*pi}, samples=1200]
-      ({1/2 + pi/t}, {1/2 + sin(t)});
+    ({1/2 + pi/t}, {1/2 + sin(t)});
   \end{axis}
 \end{tikzpicture}
 

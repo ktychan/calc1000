@@ -14,27 +14,27 @@ The derivative is a major topic in calculus and appears everywhere.
   \url{https://www.desmos.com/calculator/u712nxde4s}
 \end{minipage}
 
-Near the marked point, the graph of 
+Near the marked point, the graph of
 \begin{itemize}
   \item \(f(t)\) appears to be \underline{\hspace{2in}} if we zoom in enough.
   \item \(g(t)\) does NOT appear to be \underline{\hspace{2in}} no matter how much we zoom in.
 \end{itemize}
 
 \medskip
-The derivative quantifies this qualitative difference.  
+The derivative quantifies this qualitative difference.
 
 \begin{definition} \label{def:derivative-at-a-point}
-  Let \(f(x)\) be a function defined on an open interval containing some constant \(a\). 
-  
+  Let \(f(x)\) be a function defined on an open interval containing some constant \(a\).
+
   The \hlmain{derivative of \(f(x)\) at \(a\)}, denoted by \hlmain{\(f'(a)\)} is defined by
-  \begin{align} 
+  \begin{align}
     \label{eq:def-derivative-1}
     f'(a) &= \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} \\
     \intertext{or equivalently}
     \label{eq:def-derivative-2}
     f'(a) &= \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
   \end{align}
-  provided that the limit is a finite number. The two limits are related by a change of variable \(x = a + h\) or \(h = x - a\). 
+  provided that the limit is a finite number. The two limits are related by a change of variable \(x = a + h\) or \(h = x - a\).
 
   The \hlmain{tangent line for \(f(x)\) at \(x = a\)} is the line with slope \(f'(a)\) and passes through the point \((a, f(a))\). Its equation is
   \[
@@ -51,7 +51,7 @@ Terminology: If \(f'(a)\) is a \emph{finite number}, then \(f\) is said to be \h
 
 The limit definition of derivatives, e.g. Equation~\eqref{eq:def-derivative-1} or \eqref{eq:def-derivative-2}, is fundamentally important and \hlwarn{useful for unfamiliar problems}. If you know differentiation rules, the exercises in this section may seem overly complicated. However, it is the purpose of this section to help you understand that, fundamentally, the derivative is a limit. Everything you know about limits can be used to solve differentiation problems, especially the unfamiliar ones.  \label{comment:derivative-definition}
 
-\begin{example} 
+\begin{example}
   Write down the limit definition of the derivative of \(\sin(x), \cos(x), e^{x}\) at \(0\). No need to evaluate the limits, but notice that you have seen these limits before.
 
   \blanks{20}
@@ -98,7 +98,7 @@ Example~\ref{eg:derivative-absolute-value} and Exercise~\ref{ex:midterm-f2025-de
 \end{exercise}
 \clearpage
 
-Differentiability is fundamentally dependent on continuity. 
+Differentiability is fundamentally dependent on continuity.
 \begin{thm} \label{thm:differentiability-implies-continuity}
   If \(f\) is \hlsupp{differentiable at \(a\)}, then \(f\) is \hlmain{continuous at \(a\)} and, consequently, \hlmain{\(f(a)\) must be defined}.
 
@@ -133,7 +133,7 @@ Differentiability is fundamentally dependent on continuity.
 
 %   {\footnotesize This is a hard short-answer problem. Two hints were provided in the midterm for this question so that the analysis and the calculation could be completed within a reasonable amount of time. One of the hints is that \(f(0) = 0\). The solution that gets the full credit is not short. The solution where one simply differentiates \(x^{6}/36 - x^{4}/3 + x^{2}\) and \(\sin^{2}(x)\) at \(0\) is invalid and receives \(0\) mark.}
 
-  
+
 
 %   \blanklines{40}
 % \end{exercise}

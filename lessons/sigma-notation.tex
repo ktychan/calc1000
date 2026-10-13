@@ -1,7 +1,7 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Sigma notation}
-The Sigma notation is a compact way to express the sum of a bunch of numbers and is mainly used in \thiscourse{} to express and manipulate Riemann sums (See Definitions~\ref{def:riemann-sum}~and~\ref{def:definite-integral}).  It is \hlmain{important} that you can recognize the expression in Definition~\ref{def:riemann-sum}.  Therefore, the entire purpose of this lecture is to help you feel comfortable with the Sigma notation. 
+The Sigma notation is a compact way to express the sum of a bunch of numbers and is mainly used in \thiscourse{} to express and manipulate Riemann sums (See Definitions~\ref{def:riemann-sum}~and~\ref{def:definite-integral}).  It is \hlmain{important} that you can recognize the expression in Definition~\ref{def:riemann-sum}.  Therefore, the entire purpose of this lecture is to help you feel comfortable with the Sigma notation.
 
 \blanklines{3}
 
@@ -13,9 +13,9 @@ The Sigma notation is a compact way to express the sum of a bunch of numbers and
   Write the following summations in expanded form.
   \begin{align*}
     \sum_{i=3}^{5} (2i^{3} + 1)
-      &= \underline{\hspace{5in}} \\[3ex]
-      \sum_{k=10}^{13} x
-      &= \underline{\hspace{5in}}.
+    &= \underline{\hspace{5in}} \\[3ex]
+    \sum_{k=10}^{13} x
+    &= \underline{\hspace{5in}}.
   \end{align*}
 \end{example}
 
@@ -44,7 +44,7 @@ When we need to express a sum using Sigma notation, remember that the index of s
 \end{exercise}
 
 \begin{exercise}
-  Express the following sum \(A\) using Sigma notation. 
+  Express the following sum \(A\) using Sigma notation.
   \[
     A =  \bigg( -\frac{1}{3} \bigg)^{2} +  \bigg( 0 \bigg)^{2} +  \bigg( \frac{1}{3} \bigg)^{2} +  \bigg( \frac{2}{3} \bigg)^{2} +  \bigg( 1 \bigg)^{2} + \left( \frac{4}{3} \right)^{2} + \left( \frac{5}{3} \right)^{2}.
   \]
@@ -56,22 +56,22 @@ When we need to express a sum using Sigma notation, remember that the index of s
 \clearpage
 \begin{thm}
   \label{page:summation-properties}
-  Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be two lists of numbers. 
+  Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be two lists of numbers.
   \begin{align*}
-    \sum_{i=1}^{n} {\color{attn} \mathbf{c}} \; a_{i} 
-      &= {\color{attn} \mathbf{c}} \sum_{i=1}^{n} a_{i} 
-      &&\text{(constant multiple)} \\[6ex]
-      \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{+}\,} \sum_{i=1}^{n} b_{i} 
-      &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{+}\,}\, b_{i}) 
-      &&\text{(sum)} \\[6ex]
-      \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{-}\,} \sum_{i=1}^{n} b_{i} 
-      &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{-}\,} b_{i})
-      && \text{(difference)} \\[6ex]
-      \sum_{i=1}^{{\color{attn}\mathbf{n}}} a_{i} 
-      &= 
-      \sum_{i=1}^{{\color{attn}\mathbf{m}}} a_{i} + 
-      \sum_{i={\color{attn}\mathbf{m+1}}}^{{\color{attn}\mathbf{n}}} a_{i} 
-      && \text{(split/merge a sum)} \\[6ex]
+    \sum_{i=1}^{n} {\color{attn} \mathbf{c}} \; a_{i}
+    &= {\color{attn} \mathbf{c}} \sum_{i=1}^{n} a_{i}
+    &&\text{(constant multiple)} \\[6ex]
+    \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{+}\,} \sum_{i=1}^{n} b_{i}
+    &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{+}\,}\, b_{i})
+    &&\text{(sum)} \\[6ex]
+    \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{-}\,} \sum_{i=1}^{n} b_{i}
+    &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{-}\,} b_{i})
+    && \text{(difference)} \\[6ex]
+    \sum_{i=1}^{{\color{attn}\mathbf{n}}} a_{i}
+    &=
+    \sum_{i=1}^{{\color{attn}\mathbf{m}}} a_{i} +
+    \sum_{i={\color{attn}\mathbf{m+1}}}^{{\color{attn}\mathbf{n}}} a_{i}
+    && \text{(split/merge a sum)} \\[6ex]
   \end{align*}
 
   \textbook{Rule: Properties of Sigma Notation, page 509}
@@ -97,13 +97,13 @@ To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notati
 
 % \blanklines{5}
 \begin{exercise}
-  Evaluate \(\sum_{i=10}^{100} i^{3}\).  
+  Evaluate \(\sum_{i=10}^{100} i^{3}\).
   \hfill {\footnotesize Hint: Use the split/merge property.}
 
   \blanklines{15}
 \end{exercise}
 
-\begin{exercise} 
+\begin{exercise}
   Evaluate \(\sum_{i=50}^{300} 6 i^{2}\).
 
   \blanklines{15}

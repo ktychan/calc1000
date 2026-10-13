@@ -10,7 +10,7 @@ We have seen throughout the course that \hlmain{a change of variable} can \emph{
     \int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{u(a)}^{u(b)} f({\color{main} u}) \;{\color{supp}du}.
   \end{equation}
 
-  For indefinite integrals, simply do nothing for the bounds: 
+  For indefinite integrals, simply do nothing for the bounds:
   \begin{equation} \label{eq:sub-indefinite}
     \int f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int f(u) \;{\color{supp}du}.
   \end{equation}
@@ -18,11 +18,11 @@ We have seen throughout the course that \hlmain{a change of variable} can \emph{
   \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
 \end{thm}
 
-The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule. 
-Once a substitution \(u\) is chosen, substitute \(dx = \frac{du}{u'}\), simplify and change the leftover into a function of \(u\). Update the bounds for definite integrals. 
+The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule.
+Once a substitution \(u\) is chosen, substitute \(dx = \frac{du}{u'}\), simplify and change the leftover into a function of \(u\). Update the bounds for definite integrals.
 
 \medskip
-\begin{example} 
+\begin{example}
   Evaluate \(\int_{1}^{2} x e^{x^{2}} \;dx\).
 
   \blanklines{25}
@@ -42,7 +42,7 @@ Once a substitution \(u\) is chosen, substitute \(dx = \frac{du}{u'}\), simplify
 
 Notice how the strategy on page~\pageref{ex:u-sub-1} is used here.
 \begin{exercise}
-  Evaluate \(\int \sin(x) e^{\cos(x)} \;dx\).  
+  Evaluate \(\int \sin(x) e^{\cos(x)} \;dx\).
 
   \blanklines{20}
 \end{exercise}
@@ -51,7 +51,7 @@ Notice how the strategy on page~\pageref{ex:u-sub-1} is used here.
   Let \(D = \int_{0}^{\pi/4} \tan(x) \sec^{2}(x) \;dx\). In the box below, write down an expression for \(D\). Perform all necessary differentiation and integration.
 
   \begin{tikzpicture}
-    \draw (0,0) rectangle (5in,2); 
+    \draw (0,0) rectangle (5in,2);
     \node[right] at (0.5, 0.5) {\(D = \) \underline{\hspace{4in}}};
   \end{tikzpicture}
 

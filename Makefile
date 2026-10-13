@@ -15,15 +15,20 @@ clean:
 	rm -f {*,**/*}.synctex.gz
 	rm -rf **/.aux build
 
-# Reindent with latexindent per .latexindent.yaml; it needs a perl with
-# YAML::Tiny and File::HomeDir (`conda install latexindent.pl` brings both).
+# Reindent with latexindent per .latexindent.yaml. `conda install
+# latexindent.pl` puts the script and the perl modules it needs in the active
+# env, and only that env's perl can find them; a shell can show (sage) yet put
+# /usr/bin/perl first on PATH, so call the env's perl directly. Without an env
+# that has latexindent.pl, fall back to whatever latexindent is on PATH.
 # Narrow it with FILES, e.g. `make format FILES=polls.tex`. Changed files are
 # backed up to .aux/latexindent/. The mindmaps are skipped: their TikZ trees
 # are aligned by hand, and reindenting would flatten them.
+CONDA_LATEXINDENT = $(wildcard $(CONDA_PREFIX)/bin/latexindent.pl)
+LATEXINDENT ?= $(if $(CONDA_LATEXINDENT),$(CONDA_PREFIX)/bin/perl $(CONDA_LATEXINDENT),latexindent)
 FORMAT_EXCLUDE = standalones/mindmap-%.tex
 FILES ?= $(filter-out $(FORMAT_EXCLUDE),$(shell git ls-files '*.tex'))
 format:
 	@mkdir -p .aux/latexindent
 	@for f in $(FILES); do \
-	    latexindent -s -wd -l=$(CURDIR)/.latexindent.yaml -c=.aux/latexindent/ -g=/dev/null "$$f"; \
+	    $(LATEXINDENT) -s -wd -l=$(CURDIR)/.latexindent.yaml -c=.aux/latexindent/ -g=/dev/null "$$f"; \
 	done

@@ -30,22 +30,22 @@
   Estimate the following values graphically:
   \begin{align*}
     \lim_{x \to \infty} h_{1}(x)   \;
-      & \underline{\hspace{3cm}}  
-      & \lim_{x \to \infty} h_{2}(x)  \;
-      & \underline{\hspace{3cm}}
-      & \lim_{x \to \infty} h_{3}(x)  \;
-      & \underline{\hspace{3cm}} \\[2ex]
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to \infty} h_{2}(x)  \;
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to \infty} h_{3}(x)  \;
+    & \underline{\hspace{3cm}} \\[2ex]
     \lim_{x \to -\infty} h_{1}(x)   \;
-      & \underline{\hspace{3cm}}  
-      & \lim_{x \to -\infty} h_{2}(x)  \;
-      & \underline{\hspace{3cm}}
-      & \lim_{x \to -\infty} h_{3}(x)  \;
-      & \underline{\hspace{3cm}} 
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to -\infty} h_{2}(x)  \;
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to -\infty} h_{3}(x)  \;
+    & \underline{\hspace{3cm}}
   \end{align*}
-% \end{example}
-%
-% \begin{example}
-%   Consider the following functions.
+  % \end{example}
+  %
+  % \begin{example}
+  %   Consider the following functions.
   \bigskip
 
   \centerline{
@@ -59,22 +59,22 @@
   Estimate the following values graphically:
   \begin{align*}
     \lim_{x \to \infty} h_{4}(x)   \;
-      & \underline{\hspace{3cm}}  
-      & \lim_{x \to \infty} h_{5}(x)  \;
-      & \underline{\hspace{3cm}}
-      & \lim_{x \to \infty} h_{6}(x)  \;
-      & \underline{\hspace{3cm}} \\[2ex]
-      \lim_{x \to -\infty} h_{4}(x)   \;
-      & \underline{\hspace{3cm}}  
-      & \lim_{x \to -\infty} h_{5}(x)  \;
-      & \underline{\hspace{3cm}}
-      & \lim_{x \to -\infty} h_{6}(x)  \;
-      & \underline{\hspace{3cm}} 
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to \infty} h_{5}(x)  \;
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to \infty} h_{6}(x)  \;
+    & \underline{\hspace{3cm}} \\[2ex]
+    \lim_{x \to -\infty} h_{4}(x)   \;
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to -\infty} h_{5}(x)  \;
+    & \underline{\hspace{3cm}}
+    & \lim_{x \to -\infty} h_{6}(x)  \;
+    & \underline{\hspace{3cm}}
   \end{align*}
 \end{example}
 
 \begin{definition}[horizontal asymptote]
-  If a constant \(L\) satisfies 
+  If a constant \(L\) satisfies
   \[
     L = \lim_{x \to \infty} f(x) \quad\text{or}\quad L = \lim_{x \to -\infty} f(x),
   \]
@@ -89,7 +89,7 @@ We do not cover oblique asymptotes in \thiscourse{}.
 \begin{exercise}
   Sketch example functions with prescribed limits and horizontal asymptotes. Label your graphs with the name of the function.
 
-  Each part has infinitely many correct answers. 
+  Each part has infinitely many correct answers.
 
   \begin{enumerate}[label=\(f_{\arabic*}\)]
     \item satisfies \(\lim_{x \to \infty} f_{1}(x) = -2\) and \(\lim_{x \to -\infty} f_{1}(x) = 3\).
@@ -132,15 +132,15 @@ We now evaluate limits at infinity algebraically. The following facts will serve
   \begin{center}
     \begin{tabular}{@{}l@{\hspace{2em}}c@{}}
       \(\displaystyle \lim_{x \to \infty} x^{(\text{positive constant})} = \lim_{x \to \infty} e^{\text{(positive constant)} x} = \infty\)
-        & \raisebox{-0.5\height}{\includestandalone[page=1]{../standalones/plot-limits-at-infinity-facts}} \\[4ex]
-        \(\displaystyle \lim_{x \to \infty} \frac{1}{x^{(\text{positive constant})}} = \lim_{x \to \infty} \frac{1}{e^{\text{(positive constant)} x}} = 0\)
-        & \raisebox{-0.5\height}{\includestandalone[page=2]{../standalones/plot-limits-at-infinity-facts}} \\
+      & \raisebox{-0.5\height}{\includestandalone[page=1]{../standalones/plot-limits-at-infinity-facts}} \\[4ex]
+      \(\displaystyle \lim_{x \to \infty} \frac{1}{x^{(\text{positive constant})}} = \lim_{x \to \infty} \frac{1}{e^{\text{(positive constant)} x}} = 0\)
+      & \raisebox{-0.5\height}{\includestandalone[page=2]{../standalones/plot-limits-at-infinity-facts}} \\
     \end{tabular}
   \end{center}
 
   Moreover,
   \(\lim_{x \to \infty} (\text{polynomial}) = (\text{the sign of the coefficient for \(x^{\text{largest power}}\)}) \, \infty\).
-  
+
 \end{mdframed}
 
 \label{page:limits-at-infinity-strategy}
@@ -151,9 +151,9 @@ Here is the technique in its simplest form. Factor the largest powers of \(x\) t
 \begin{minipage}{0.5\textwidth}
   \begin{align*}
     \lim_{x \to \infty} \frac{\sqrt{x^{4} + 5x}}{2x - 1}
-  &= \lim_{x \to \infty} \frac{x^{2}\sqrt{1 + \frac{5}{x^{3}}}}{2x\left( 1 - \frac{1}{2x} \right)} \\[3ex]
-  &= \lim_{x \to \infty} \left( \frac{x}{2} \cdot \frac{\sqrt{1 + \frac{5}{x^{3}}}}{1 - \frac{1}{2x}} \right) \\[3ex]
-  &= \infty.
+    &= \lim_{x \to \infty} \frac{x^{2}\sqrt{1 + \frac{5}{x^{3}}}}{2x\left( 1 - \frac{1}{2x} \right)} \\[3ex]
+    &= \lim_{x \to \infty} \left( \frac{x}{2} \cdot \frac{\sqrt{1 + \frac{5}{x^{3}}}}{1 - \frac{1}{2x}} \right) \\[3ex]
+    &= \infty.
   \end{align*}
 \end{minipage}
 
@@ -222,17 +222,17 @@ We analyze dominant terms for the limit of three very similar functions at infin
 \[
   \lim_{x \to -\infty} f(x) = \lim_{u \to \infty} f(-u).
 \]
-This little trick is not in the textbook but helps avoid subtle sign mistakes while analyzing dominant terms at \(-\infty\), \hlsupp{especially for functions with even roots}. 
+This little trick is not in the textbook but helps avoid subtle sign mistakes while analyzing dominant terms at \(-\infty\), \hlsupp{especially for functions with even roots}.
 
 
 \begin{example}
-  Evaluate \(\lim_{x \to -\infty} \frac{\sqrt{x^{2} + 1}}{x + 1}\). 
+  Evaluate \(\lim_{x \to -\infty} \frac{\sqrt{x^{2} + 1}}{x + 1}\).
 
   \blanklines{25}
 \end{example}
 
 \begin{exercise}
-  Find horizontal asymptotes for \(f(x) = \frac{\sqrt[3]{-5x^{5} + 3x} - 2}{x^{2} + 1}\). 
+  Find horizontal asymptotes for \(f(x) = \frac{\sqrt[3]{-5x^{5} + 3x} - 2}{x^{2} + 1}\).
 
   \blanklines{20}
 \end{exercise}
@@ -255,7 +255,7 @@ Factor out powers of \(e^{x}\) for limits at infinity involving exponential func
 \clearpage
 
 \begin{exercise}\label{ex:asymptote-exp-mixed-bases}
-  Find horizontal asymptotes for \(f(x) = \frac{e^{x}+1}{2^{x}-2}\). 
+  Find horizontal asymptotes for \(f(x) = \frac{e^{x}+1}{2^{x}-2}\).
 
   {\footnotesize Hint: What is trick at the bottom of page \pageref{eq:exp-change-of-base}?}
 

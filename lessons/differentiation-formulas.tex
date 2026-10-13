@@ -1,35 +1,35 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Differentiation formulas and properties} \label{lesson:differentiation-formulas}
-Derivatives of sophisticated functions are calculated from derivatives of basic functions. Allow the Leibniz notation \(\frac{d}{dx} \bigg( \cdots \bigg)\) to guide you through the differentiation process. 
+Derivatives of sophisticated functions are calculated from derivatives of basic functions. Allow the Leibniz notation \(\frac{d}{dx} \bigg( \cdots \bigg)\) to guide you through the differentiation process.
 
 \medskip\hrule
 
 \[
   \begin{array}{rccll}
     \multicolumn{4}{c}{\text{\textbf{\hlsupp{Differentiation} Formulas}}} & \hspace{4in} \\[2ex]
-    \frac{d}{dx} & {\color{supp} (\text{constant})  } &=& {\color{main} 0} 
-                 & \hspace{4in} \\[2ex]
+    \frac{d}{dx} & {\color{supp} (\text{constant})  } &=& {\color{main} 0}
+    & \hspace{4in} \\[2ex]
     % \frac{d}{dx} & {\color{supp} cx        } &=& {\color{main} c} 
-                %  & \hspace{4in} \\[2ex]
+    %  & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} x^{n}   } &=& {\color{main} n x^{n - 1}} \text{ but only for } {\hlwarn{n \ne 0}}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} \ln(x)    } &=& {\color{main} x^{-1}}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} e^{x}     } &=& {\color{main} e^{x}}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} \sin(x)   } &=& {\color{main} \cos(x)}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} \cos(x)   } &=& {\color{main} -\sin(x)}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} \tan(x)   } &=& {\color{main} \sec^{2}(x)}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} \sec(x)   } &=& {\color{main} \tan(x)\sec(x)}
-                 & \hspace{4in} \\[2ex]
+    & \hspace{4in} \\[2ex]
     \frac{d}{dx} & {\color{supp} \arctan(x)} &=& {\color{main} \frac{1}{x^{2}+1}}
-                 & \hspace{4in} \\[2ex]
-    \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& {\color{main} \frac{1}{\sqrt{1 - x^{2}}}} 
-                 & \hspace{4in} 
+    & \hspace{4in} \\[2ex]
+    \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& {\color{main} \frac{1}{\sqrt{1 - x^{2}}}}
+    & \hspace{4in}
   \end{array}
 \]
 
@@ -51,7 +51,7 @@ Derivatives of sophisticated functions are calculated from derivatives of basic 
   \frac{d}{dx} f(g(x)) = f'\big({\color{supp}g(x)}\big)g'(x)
   \quad\text{or in Leibniz notation,}\quad
   \frac{d}{dx} \underbrace{f\big(\overbrace{\color{supp}g(x)}^{{\color{main}u}}\big)}_{y = f({\color{main}u})}
-                                  = \frac{dy}{d{\color{main}u}} \cdot \frac{d{\color{supp}u}}{dx}
+  = \frac{dy}{d{\color{main}u}} \cdot \frac{d{\color{supp}u}}{dx}
 \]
 where, in Leibniz notation, \(y = f({\color{main}u})\) is the \emph{result} of the change of variable \({\color{main}u} \;=\; {\color{supp}g(x)}\).
 The green \({\color{main}u}\) is the name of the change of variable. The purple \({\color{supp}u}\) is a placeholder for the inside function \({\color{supp}g(x)}\).
@@ -65,18 +65,18 @@ The green \({\color{main}u}\) is the name of the change of variable. The purple 
 
 Applying implicit differentiation always involves two steps:
 \begin{enumerate}
-  \item Under the assumption that \(y\) is implicitly a function of \(x\), apply \(\frac{d}{dx}\) to \hlmain{both sides of an equation} using the chain rule. 
+  \item Under the assumption that \(y\) is implicitly a function of \(x\), apply \(\frac{d}{dx}\) to \hlmain{both sides of an equation} using the chain rule.
   \item Isolate for \(\frac{dy}{dx}\).
 \end{enumerate}
 
 Typical (but not all) applications of implicit differentiation include:
 \begin{enumerate}
-  \item Given a curve defined by \hlsupp{an equation} (NOT a function), find the equation of the tangent line at a point on the curve.  
+  \item Given a curve defined by \hlsupp{an equation} (NOT a function), find the equation of the tangent line at a point on the curve.
   \item Given an invertible function \(f(x)\), find the derivative of \(f^{-1}(x)\) by implicitly differentiating the equivalent equation \(x = f(y)\). When \(f^{-1}(x)\) has an explicit expression, we can also use the formula
-  \[
-    \left(f^{-1}\right)'(x) = \frac{1}{f'\big(f^{-1}(x)\big)}.
-  \]
-  However, this formula is not always useful. For example, the inverse of \(f(x) = x + \sin(x)\) does not have a concrete expression, meaning we do not know how to write down \(f^{-1}(x)\) explicitly, so we must use implicit differentiation to find the derivative of \(f^{-1}(x)\).
+    \[
+      \left(f^{-1}\right)'(x) = \frac{1}{f'\big(f^{-1}(x)\big)}.
+    \]
+    However, this formula is not always useful. For example, the inverse of \(f(x) = x + \sin(x)\) does not have a concrete expression, meaning we do not know how to write down \(f^{-1}(x)\) explicitly, so we must use implicit differentiation to find the derivative of \(f^{-1}(x)\).
 
   \item Logarithmic differentiation (NOT covered on the midterm, but will be on the final exam).
 

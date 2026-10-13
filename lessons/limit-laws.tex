@@ -1,7 +1,7 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Algebraic techniques for evaluating limits}
-Direct substitution and limit laws are the main algebraic tools for evaluating limits. 
+Direct substitution and limit laws are the main algebraic tools for evaluating limits.
 
 \faStar{} Basic functions --- polynomials, rational functions, trigs, \(e^{x}\), \(\ln(x)\) --- share a common feature on their graphs. If a constant \(a\) is in the domain of these functions, then the graph of \(f(x)\) will always \enquote{go through} the point \((a,f(a))\). In other words, as long as \(f(x)\) is one of the basic functions and \hlsupp{\(a\) is in its domain}, then \(\lim_{x \to a} f(x) = f(a)\). This is called \hlmain{direct substitution}.
 
@@ -32,12 +32,12 @@ However, if \(f(x)\) is built from basic functions using algebraic operations, w
 \clearpage
 
 \begin{sidefigure}[0.40]{%
-  \includestandalone[page=13, width=\sidefigwidth]{../standalones/mindmap-limits}}
+    \includestandalone[page=13, width=\sidefigwidth]{../standalones/mindmap-limits}}
   The figure on the right shows \emph{one way} to model the decision-making process for evaluating limits. We start with when to try direct substitution and when to return to the basic concepts from the last lesson.
 \end{sidefigure}
 
 \begin{example} \label{eg:limit-law-abstract}
-  Suppose \(\lim_{x \to -3} f(x) = 4\). 
+  Suppose \(\lim_{x \to -3} f(x) = 4\).
 
   Evaluate \(\lim_{x \to -3} \left( f(x) \right)^{3/2}\) if possible.
 
@@ -47,10 +47,10 @@ However, if \(f(x)\) is built from basic functions using algebraic operations, w
 Sometimes we are given a combination of graphical and algebraic information.
 
 \begin{exercise}[Midterm, Fall 2023] \label{ex:midterm-limit-at-continuity}
-  The graph of a function \(f(x)\) is given on the right. 
+  The graph of a function \(f(x)\) is given on the right.
 
   \begin{sidefigure}{%
-    \includestandalone[page=4]{../standalones/plot-limits-complex}}
+      \includestandalone[page=4]{../standalones/plot-limits-complex}}
     Find \(\lim_{x \to 0} \frac{x^{2} + f(x) + 3}{\sqrt[3]{3 f(x) + 5}}\).
     \begin{enumerate}[label=\Alph*.]
       \item \(0\)
@@ -66,7 +66,7 @@ Sometimes we are given a combination of graphical and algebraic information.
 \clearpage
 
 \begin{example}
-  The graphs of \(f(x)\) and \(g(x)\) are given below. 
+  The graphs of \(f(x)\) and \(g(x)\) are given below.
 
   \begin{center}
     \includestandalone[page=1]{../standalones/plot-limits-complex}
@@ -84,7 +84,7 @@ Sometimes we are given a combination of graphical and algebraic information.
 \end{example}
 
 \begin{example} \label{eg:limit-composition-abstract}
-  The graphs of \(f(x)\) and \(g(x)\) are given below. 
+  The graphs of \(f(x)\) and \(g(x)\) are given below.
 
   \begin{center}
     \includestandalone[page=2]{../standalones/plot-limits-complex}
@@ -102,15 +102,15 @@ Sometimes we are given a combination of graphical and algebraic information.
 \end{example}
 \clearpage
 
-Here are more variations of the same idea for practice. 
+Here are more variations of the same idea for practice.
 
-\begin{exercise}[Midterm, Fall 2023] 
-  The graph of a function \(f(x)\) is given on the right. 
-  
+\begin{exercise}[Midterm, Fall 2023]
+  The graph of a function \(f(x)\) is given on the right.
+
   Find \(\lim_{x \to 2} \Big(f(x) + 2 f(-x)\Big)\).
 
   \begin{sidefigure}{%
-    \includestandalone[page=4]{../standalones/plot-limits-complex}}
+      \includestandalone[page=4]{../standalones/plot-limits-complex}}
     \begin{enumerate}[label=\Alph*., itemsep={2ex}]
       \item \(6\)
       \item \(0\)
@@ -125,7 +125,7 @@ Here are more variations of the same idea for practice.
 
 
 \begin{exercise} \label{ex:limit-composition-shifted}
-  The graphs of \(f(x)\) and \(g(x)\) are given below. 
+  The graphs of \(f(x)\) and \(g(x)\) are given below.
 
   \begin{center}
     \includestandalone[page=3]{../standalones/plot-limits-complex}
@@ -144,15 +144,15 @@ Here are more variations of the same idea for practice.
 \clearpage
 
 \begin{sidefigure}{
-\includestandalone[page=5, width=\sidefigwidth]{../standalones/mindmap-limits}
-}
+    \includestandalone[page=5, width=\sidefigwidth]{../standalones/mindmap-limits}
+  }
   Now we evaluate limits for which the full algebraic information of the function is given. The two \(\frac{\cdots}{0}\) decision-making branches follow directly from the quotient law in Theorem~\ref{thm:limit-laws}. When the limit of the denominator is \(0\), the quotient law does not apply and we need to \emph{try} other algebraic techniques. \label{page:mindmap-limits-direct-substitution}
 \end{sidefigure}
 
 \begin{example} \label{eg:limit-piecewise}
   Evaluate \(\lim_{x \to 2} f(x)\) and \(\lim_{x \to 1} f(x)\) given
   \[
-    f(x) = 
+    f(x) =
     \begin{cases}
       \sqrt{x - 1} + 1, &x > 1\\[1ex]
       \frac{2x}{x + 1}, &x < 1
@@ -170,9 +170,9 @@ Here are more variations of the same idea for practice.
 
 \clearpage
 \begin{sidefigure}{
-\includestandalone[page=6, width=\sidefigwidth]{../standalones/mindmap-limits}
-}
-If the limits of the numerator and the denominator are both \(0\), we need to try a few algebra techniques to turn it into another form. \label{page:mindmap-limits-zero-over-zero}
+    \includestandalone[page=6, width=\sidefigwidth]{../standalones/mindmap-limits}
+  }
+  If the limits of the numerator and the denominator are both \(0\), we need to try a few algebra techniques to turn it into another form. \label{page:mindmap-limits-zero-over-zero}
 \end{sidefigure}
 
 \begin{example} \label{eg:limit-cancellation}
@@ -196,7 +196,7 @@ If the limits of the numerator and the denominator are both \(0\), we need to tr
   \blanks*
 \end{exercise}
 
-Let's see if we understood the decision-making process in evaluating limits. 
+Let's see if we understood the decision-making process in evaluating limits.
 \begin{exercise}[Midterm, Fall 2025]
   Evaluate \(\lim_{x \to 2} \frac{\sqrt{5 - x} - 2}{\sqrt{2 - x} - 1}\).
 

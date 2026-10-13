@@ -9,9 +9,9 @@
 \pgfplotsset{
   implicit curve/.style={
     basic curve,
-    enlargelimits={abs=0.5}, 
+    enlargelimits={abs=0.5},
     xmin=-5, xmax=5, ymin=-5, ymax=5,
-    width={200pt}, 
+    width={200pt},
     xtick distance={2},
     ytick distance={2},
     xlabel={\empty}, ylabel={\empty},
@@ -96,10 +96,10 @@
 \begin{tikzpicture}
   % No tick labels: the curve passes through all four of (+-1,0), (0,+-1).
   \begin{axis}[basic curve, width={180pt},
-      xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5,
-      xticklabels={}, yticklabels={},
-      % Lift the title clear of the y-axis label, which sits at the top middle.
-      title={The entire curve of \(x^{2} - xy + y^{2} = 1\)}, title style={yshift=1.5ex}]
+    xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5,
+    xticklabels={}, yticklabels={},
+    % Lift the title clear of the y-axis label, which sits at the top middle.
+    title={The entire curve of \(x^{2} - xy + y^{2} = 1\)}, title style={yshift=1.5ex}]
     \addplot[very thick, domain=0:2*pi] ({cos(x) - sin(x)/sqrt(3)}, {cos(x) + sin(x)/sqrt(3)});
     \draw[main, thick] (axis cs:\zoomxmin,\zoomymin) rectangle (axis cs:\zoomxmax,\zoomymax);
     \fill[main] (axis cs:\zoomx,\zoomy) circle[radius=2pt] node[above left, main, font=\scriptsize] {\(P\)};
@@ -113,11 +113,11 @@
 \newcommand{\zoomregular}[2]{%
   \begin{tikzpicture}
     \begin{axis}[basic curve, width={180pt},
-        axis lines=box, axis line style={main, thick},
-        xlabel={\empty}, ylabel={\empty},
-        xmin=\zoomxmin, xmax=\zoomxmax, ymin=\zoomymin, ymax=\zoomymax,
-        xtick distance={0.2}, ytick distance={0.2},
-        title style={align=center}, title={#1}]
+      axis lines=box, axis line style={main, thick},
+      xlabel={\empty}, ylabel={\empty},
+      xmin=\zoomxmin, xmax=\zoomxmax, ymin=\zoomymin, ymax=\zoomymax,
+      xtick distance={0.2}, ytick distance={0.2},
+      title style={align=center}, title={#1}]
       \addplot[very thick, domain={pi/2-0.5}:{pi/2+0.5}] ({cos(x) - sin(x)/sqrt(3)}, {cos(x) + sin(x)/sqrt(3)});
       \fill[main] (axis cs:\zoomx,\zoomy) circle[radius=2pt] node[above left, main] {#2};
     \end{axis}
@@ -130,12 +130,12 @@
 % curve still doubles back there.  Framed in supp to match Q's box on page 7.
 \begin{tikzpicture}
   \begin{axis}[basic curve, width={180pt},
-      axis lines=box, axis line style={supp, thick},
-      xlabel={\empty}, ylabel={\empty},
-      xmin=\vertxmin, xmax=\vertxmax, ymin=\vertymin, ymax=\vertymax,
-      xtick distance={0.2}, ytick distance={0.2},
-      title style={align=center},
-      title={\(y\) IS NOT an implicit function\\near \(Q = \left(-\tfrac{2}{\sqrt{3}}, -\tfrac{1}{\sqrt{3}}\right)\)}]
+    axis lines=box, axis line style={supp, thick},
+    xlabel={\empty}, ylabel={\empty},
+    xmin=\vertxmin, xmax=\vertxmax, ymin=\vertymin, ymax=\vertymax,
+    xtick distance={0.2}, ytick distance={0.2},
+    title style={align=center},
+    title={\(y\) IS NOT an implicit function\\near \(Q = \left(-\tfrac{2}{\sqrt{3}}, -\tfrac{1}{\sqrt{3}}\right)\)}]
     \addplot[very thick, domain={5*pi/6-1}:{5*pi/6+1}] ({cos(x) - sin(x)/sqrt(3)}, {cos(x) + sin(x)/sqrt(3)});
     \fill[supp] (axis cs:\vertx,\verty) circle[radius=2pt] node[left, supp] {\(Q\)};
   \end{axis}

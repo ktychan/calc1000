@@ -15,11 +15,11 @@ Intuitively, a function is \hlmain{continuous} if we can trace its graph without
 To make the idea of \emph{continuity} computable, we need to mathematically describe \enquote{lifting the pencil}.
 
 \begin{definition}[continuity] \label{def:continuity}
-  A function \(f(x)\) is \hlmain{continuous at a number \(a\)} if 
+  A function \(f(x)\) is \hlmain{continuous at a number \(a\)} if
   \[
     {\lim_{x \to a} f(x) = f(a).}
   \]
-  
+
   If this equality is false for any reason, then we say \hlsupp{\(f(x)\) is discontinuous at \(a\)} or \hlsupp{\(f(x)\) has a discontinuity at \(a\)}.
 
   \textbook{Page 180}
@@ -35,14 +35,14 @@ Definition~\ref{def:continuity} is the first serious definition in \thiscourse{}
   \end{enumerate}
 
   \begin{example} \label{eg:continuity-intro}
-    Is \(f(x) = \sqrt{x}\) continuous at \(1\)? 
+    Is \(f(x) = \sqrt{x}\) continuous at \(1\)?
 
     \blanklines{10}
   \end{example}
 \end{sidefigure}
 \clearpage
 
-Example~\ref{eg:continuity-intro} shows us how to determine continuity \hlattn{when we have unfamiliar functions}. Theorem~\ref{thm:continuity-for-basic-functions} says such a computation need not be repeated for basic functions. 
+Example~\ref{eg:continuity-intro} shows us how to determine continuity \hlattn{when we have unfamiliar functions}. Theorem~\ref{thm:continuity-for-basic-functions} says such a computation need not be repeated for basic functions.
 
 \begin{thm} \label{thm:continuity-for-basic-functions}
   Basic functions (polynomials, rational functions, trig, inverse trig, exponentials and logarithms) are continuous at every number in their domain.
@@ -92,7 +92,7 @@ We name different types of discontinuities and describe how to find them mathema
 \clearpage
 
 \label{technique:classify-discontinuities}
-To \hlmain{classify} a discontinuity is to determine if the discontinuity is removable, a jump or an infinite discontinuity. 
+To \hlmain{classify} a discontinuity is to determine if the discontinuity is removable, a jump or an infinite discontinuity.
 
 \begin{center}
   \includestandalone[page=12]{../standalones/mindmap-limits}
@@ -120,7 +120,7 @@ We learn the general decision-making process for classifying discontinuities. We
   \end{multicols}
 
   {\footnotesize Pro-tip: Try sketching the given information.}
-  
+
   \blanks*
 \end{example}
 \clearpage
@@ -132,7 +132,7 @@ Now we take it up a notch. Remember to apply the decision-making process you lea
 \begin{example}[Midterm, Fall 2024]
   Using the definition of continuity, classify the discontinuities of the function
   \[
-    f(x) = 
+    f(x) =
     \begin{cases}
       (x-1)(x+2),          & \text{if } x < -1 \\[1ex]
       \frac{x-1}{x^{2}+1}, & \text{if } -1 \le x < 1 \\[1ex]
@@ -148,7 +148,7 @@ Now we take it up a notch. Remember to apply the decision-making process you lea
 \begin{exercise}[Midterm, Fall 2025]
   Using the definition of continuity, classify the discontinuities of the function
   \[
-    f(x) = 
+    f(x) =
     \begin{cases}
       \frac{\sin(x)}{x}, & \text{if } x < 0 \\[1ex]
       1,                 & \text{if } x = 0\\[1ex]
@@ -161,18 +161,18 @@ Now we take it up a notch. Remember to apply the decision-making process you lea
 \end{exercise}
 \clearpage
 
-Here is what we can do \hlattn{if we know} a given function is continuous. 
+Here is what we can do \hlattn{if we know} a given function is continuous.
 
 \begin{sidefigure}{\includestandalone[page=10]{../standalones/mindmap-limits}}
   \begin{enumerate}[wide, itemsep={2ex}]
     \item If you know \(f(x)\) is continuous at \(a\), then you can use direct substitution to evaluate \(\lim_{x \to a} f(x)\).  See next page.
 
-    \item If you know \(f(x)\) is continuous, then you can use a change-of-variable to evaluate limits. 
+    \item If you know \(f(x)\) is continuous, then you can use a change-of-variable to evaluate limits.
 
       We also learned this last week.
 
-    \item Apply the Intermediate Value Theorem.  
-    
+    \item Apply the Intermediate Value Theorem.
+
       This one is new. We discuss it after this page.
   \end{enumerate}
 \end{sidefigure}
@@ -182,7 +182,7 @@ Here is what we can do \hlattn{if we know} a given function is continuous.
 Continuity provides the theoretical support for Points 1 and 2 above. In particular, change of variable works because of Theorem~\ref{thm:limit-composite}.
 
 \begin{thm} \label{thm:limit-composite}
-  If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then 
+  If \(f\) is continuous at \(b\) and \(\lim_{x \to a} g(x) = b\), then
   \[
     {\color{main} \lim_{x \to a}} {\color{attn}f({\color{black}g(x)})} = {\color{attn}f \left( {\color{main} \lim_{x \to a}} {\color{black} g(x) }\right)}.
   \]
