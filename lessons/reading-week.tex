@@ -185,6 +185,17 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \begin{hint}
     The systematic approach to limits of composite functions is change of variable. A typical mistake is to directly substitute \(0\) into the function without realizing that the limit approaches \(0\) from the left and conclude that \(1/0 = \infty\) and \(e^{\infty} = \infty\).
   \end{hint}
+  \begin{solution}
+    We have a composite function, so perform a change of variable \(u = \frac{1}{\sin(x)}\). We need to calculate what \(u\) approaches when \(x\) approaches \(0\) from the left. Note that
+    \[
+      b = \lim_{x \to 0^{-}} \frac{1}{\sin(x)} = -\infty,
+    \]
+    because \(\sin(x)\) is negaive when \(x\) approaches \(0\) from the left.
+    Therefore, we have
+    \[
+      \lim_{x \to 0^{-}} e^{\frac{1}{\sin(x)}} = \lim_{u \to -\infty} e^u = 0.
+    \]
+  \end{solution}
 \end{exercise}
 \vfill
 \clearpage
@@ -248,40 +259,7 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
     Finally, we conclude that there is no choice of \(c\) for which the function \(f(x)\) is continuous at \(c\).
   \end{hint}
   \begin{solution}
-    The function is continuous everywhere except possibly at \(c\). The \hlwarn{definition} of continuity at \(c\) gives us an equation \(\lim_{x \to c} \frac{|x - 3|}{x - c} = f(c)\) involving the unknown \(c\). Starting from this equation, we are going to draw a conclusion about the continuity at \(c\).  Recall the three tasks discussed immediately below the definition of continuity on page~\pageref{def:continuity}.
-
-    The right-hand side is \(1\).  The left-hand side requires two separate analyses.
-    \begin{enumerate}
-      \item Case \(c \ne 3\).  Then \(\lim_{x \to c} \frac{|x - 3|}{x - c}\) is of type \(\frac{\text{non-zero constant}}{0}\) which does not exist.  See Example~\ref{eg:limit-constant-over-0} for a reference.
-
-      \item Case \(c = 3\). Notice \(\lim_{x \to c} \frac{|x - 3|}{x - c}\) is of type \(\frac{0}{0}\). We learned on page~\pageref{eg:limit-cancellation} that limits of this type require more work. The piecewise nature of the function suggests that Equation~\eqref{eq:abs} on page~\pageref{eq:abs} and Example~\ref{eg:piecewise-abs-of-function} on page~\pageref{eg:piecewise-abs-of-function} are relevant. We perform the following sequence of calculations.  Start by applying the techniques discussed on page~\pageref{eq:abs} to write \(|x - 3|\) as a piecewise function.
-        \[
-          |x - 3| =
-          \begin{cases}
-            x - 3 & \text{if } x \ge 3 \\
-            -(x - 3) & \text{if } x < 3.
-          \end{cases}
-        \]
-        Divide both branches by \(x - 3\) to get a concrete expression
-        \[
-          \frac{|x - 3|}{{\color{main}x-3}}
-          =
-          \begin{cases}
-            \frac{x-3}{{\color{main}x-3}} &\text{if } x > 3 \\
-            \frac{-(x-3)}{{\color{main}x-3}} &\text{if } x < 3
-          \end{cases}
-          =
-          \begin{cases}
-            1 &\text{if } x > 3 \\
-            -1 &\text{if } x < 3
-          \end{cases}
-          .
-        \]
-
-        The limit approaches the boundary of the two branches. The two one-sided limits are quite obviously not equal. Therefore, the two-sided limit does not exist.
-    \end{enumerate}
-
-    The two-sided limit at \(c\) does not exist in either case.  There is no choice of \(c\) for which the equation \(\lim_{x \to c} f(x) = f(c)\) is true. Therefore, the function cannot be continuous at \(c\) regardless the choice of \(c\).
+    The hint is the solution.
   \end{solution}
 \end{exercise}
 \nopagebreak\vfill
@@ -407,6 +385,9 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \begin{hint}
     Sketch the given information as we did in Example~\ref{eg:discontinuity-classify-abstract} on page~\pageref{eg:discontinuity-classify-abstract}.
   \end{hint}
+  \begin{solution}
+    The function has an infinite discontinuity at \(x = -1\) because the right limit at \(1\) is \(\infty\).
+  \end{solution}
 \end{exercise}
 
 % \begin{exercise}
@@ -465,8 +446,8 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \end{hint}
 
   \begin{solution}
-    This is about using a change of variable to turn an unfamiliar problem into a familiar one.
-    Substitute \(u = x^{1/6}\). As \(x \to 1\), \(u\) approaches the ``happy face'' \(\lim_{x \to 1} x^{1/6} = 1\). Moreover \(x^{1/3} = u^{2}\) and \(x^{1/2} = u^{3}\). After all substitutions, we arrive at
+    Substitute \(u = x^{1/6}\). As \(x \to 1\), \(u\) approaches \(b = \lim_{x \to 1} x^{1/6} = 1\). Moreover \(x^{1/3} = u^{2}\) and \(x^{1/2} = u^{3}\). 
+    After all substitutions, we arrive at
     \[
       \lim_{x \to 1} \frac{\sqrt[3]{x}-1}{\sqrt{x}-1} \overset{\text{sub \(u = x^{1/6}\)}}{=} \lim_{u \to 1} \frac{u^{2} - 1}{u^{3} - 1} = \lim_{u \to 1} \frac{\cancel{(u-1)}(u+1)}{\cancel{(u-1)}(u^{2}+u+1)} = \frac{2}{3}.
     \]
@@ -553,6 +534,17 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \begin{hint}
     The inequality suggests the squeeze theorem.
   \end{hint}
+  \begin{solution}
+    Use the squeeze theorem. The limit of the lower bound is
+    \[
+      \lim_{x \to \infty} \frac{5 \sqrt{x}}{\sqrt{x + 25}} = \lim_{x \to \infty} \frac{5}{\sqrt{1 + 25/x}} = 5.
+    \]
+    The limit of the upper bound is
+    \[
+      \lim_{x \to \infty} \frac{10 e^{x} - 2}{2 e^{x}} = \lim_{x \to \infty} \frac{10 - 2 e^{-x}}{2} = 5.
+    \]
+    By the squeeze theorem, we conclude that \(\lim_{x \to \infty} f(x) = 5\).
+  \end{solution}
 \end{exercise}
 \nopagebreak\vfill
 
@@ -560,8 +552,21 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   Evaluate \(\lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h}\).
 
   \begin{hint}
-    Attempt a direct substitution to get \(0/0\). Depending on your preference, you can either substitute \(u = \sqrt[3]{x}\) and use the difference of cubes formula, or recognize that this limit is the definition for \(f'(8)\) where \(f(x) = \sqrt[3]{x}\).
+    Attempt a direct substitution to get \(0/0\). Depending on your preference, you can either substitute \(u = \sqrt[3]{h}\) and use the difference of cubes formula, or recognize that this limit is the definition for \(f'(8)\) where \(f(x) = \sqrt[3]{x}\).
   \end{hint}
+  \begin{solution}
+    There are two ways to do this.
+    
+    If you choose to substitute \(u = \sqrt[3]{h}\), then \(u\) approaches \(b = \lim_{h \to 0} \sqrt[3]{8 + h} = 2\) as \(h \to 0\). Moreover, \(8 + h = u^{3}\) and \(h = u^{3} - 8\). After all substitutions, we arrive at
+    \[
+      \lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h} \overset{\text{sub \(u = \sqrt[3]{8 + h}\)}}{=} \lim_{u \to 2} \frac{u - 2}{u^{3} - 8} = \lim_{u \to 2} \frac{1}{(u^{2} + 2u + 4)} = \frac{1}{12}.
+    \]
+    
+    If you recognize that this limit is the definition for \(f'(8)\) where \(f(x) = \sqrt[3]{x}\), then you can quickly get
+    \[
+      \lim_{h \to 0} \frac{\sqrt[3]{8 + h} - 2}{h} = f'(8) = \frac{1}{3(8)^{2/3}} = \frac{1}{12}.
+    \]
+  \end{solution}
 \end{exercise}
 \nopagebreak\vfill
 
@@ -580,6 +585,9 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \begin{hint}
     Start with the most fundamental concept, which is domain, and work your way up. Also recall the relationship between the domain and range of a function and its inverse as discussed in Exercise~\ref{ex:find-inverse-under-restriction} on page~\pageref{ex:find-inverse-under-restriction}. This is just five small tasks squished into a single multiple-choice problem.
   \end{hint}
+  \begin{solution}
+    It's \emph{E. none of the above}.
+  \end{solution}
 \end{exercise}
 \vfill
 \clearpage
@@ -620,6 +628,16 @@ After the reading week, we will spend two hours (Thursday and Friday for Section
   \begin{hint}
     The systematic approach is to factor out the largest power of \(x\) with its coefficient from both the numerator and denominator.
   \end{hint}
+  
+  \begin{solution}
+    Perform a change of variable \(u = -x\) to convert this problem to a limit at positive infinity problem. We get
+    \begin{align*}
+      \lim_{x \to -\infty} \frac{3x - 7}{\sqrt{25x^{2} + 5x + 1}} 
+      &= \lim_{u \to \infty} \frac{-3u - 7}{\sqrt{25u^{2} - 5u + 1}}\\
+      &= \lim_{u \to \infty} \frac{-3 - 7/u}{\sqrt{25 - 5/u + 1/u^{2}}}\\
+      &= \frac{-3}{5}.
+    \end{align*}
+  \end{solution}
 \end{exercise}
 
 \subsection{Selected hints for exercises}
