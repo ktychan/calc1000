@@ -858,161 +858,342 @@
 %
 %   \includegraphics{./standalones/misc-questioning-skill-triangle}
 % \end{frame}
-%
-% \section{Reviews}
-%
-% \begin{frame}
-%   \frametitle{Midterm Overview}
-%
-%   \begin{enumerate}[itemsep=1ex]
-%     \item Do you \hlmain{remember} and \hlmain{understand} when and how to apply EVERY \hlwarn{definition} and \hlwarn{technique} in the fillable notes?
-%
-%     \item Do \hlmain{understand} EVERY \hlwarn{example} and do-at-home \hlwarn{exercise} before page~\pageref{main-lesson:related-rates}? Everything before related rates.
-%
-%     \item Do \hlmain{understand} EVERY \hlwarn{quiz} and \hlwarn{assignment 1 problem}?
-%
-%     \item Have you done past midterm problems to get a sense how concepts and techniques are connected to each other?
-%   \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Some exam-writing tips}
-%
-%   \begin{enumerate}
-%     \item Drink enough water. SLEEP WELL!
-%
-%     \item Bring water, some snacks and candies.
-%
-%     \item Take a short break when necessary.
-%
-%     \item Not every question takes the same amount of time.
-%
-%     \item Check your work.
-%   \end{enumerate}
-%
-%
-%   \faStar{} Read each question and relevant instructions carefully. 
-% \end{frame}
-%
-%
-%
-% \begin{frame}
-%   \frametitle{Two major concepts and their relation}
-%
-%   \pause
-%   \begin{enumerate}[itemsep={2ex}]
-%     \item A function \(f(x)\) is \hlmain{continuous at \(a\)} if \( \lim_{x \to a} f(x) = f(a) \).
-%     \item The \hlmain{derivative of \(f(x)\) at \(a\)} is 
-%       \(
-%         f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}
-%       \).
-%   \end{enumerate}
-%
-%   \pause
-%   If \(f(x)\) is differentiable at \(a\), then \(f(x)\) must be continuous at \(a\).
-%
-%   \bigskip
-%   \faStar{} Before applying any technique to solve a problem, figure out what concepts are relevant!
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Discontinuities}
-%
-%   \begin{enumerate}
-%     \item Discontinuities occur at \(a\) when \(\lim_{x \to a} f(x) \ne f(a)\).
-%
-%     \item The three different types of discontinuities are \hlmain{defined} in terms of \hlmain{one-sided limits} (Definition~\ref{main-def:discontinuities} on page~\pageref{main-def:discontinuities}). Remember them!
-%
-%     \item Major technique: Finding and classifying discontinuities are all about the \hlmain{definition} of continuity.
-%   \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Main techniques for evaluating limits}
-%
-%   \begin{enumerate}
-%     \item Is it a continuous function? If so, plug it in!
-%     \item Is it type \(\frac{\text{non-zero constant}}{0}\)? Doesn't exist and could be \(\pm\infty\).
-%     \item Is it type \(\frac{0}{0}\)? Need more work!
-%     \item Use the squeeze theorem?
-%     \item At \(+\infty\)? Analyze dominant terms.
-%     \item At \(-\infty\)? Sub \(u = -x\).
-%   \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Techniques for limits of \(0/0\) type}
-%
-%   DO NOT immediately conclude the limit does not exist. 
-%
-%   \begin{enumerate}
-%     \item Factor and cancel?
-%     \item Rationalize?
-%     \item Special limit? \(\lim_{x \to 0} \frac{\sin(x)}{x} = 1\) and \(\lim_{x \to 0} \frac{\cos(x) - 1}{x} = 0\).
-%     \item Change of variable? Don't forget to calculate ``happy face''.
-%     \item Is it a derivative? Do you see \(\text{something} + h\)?
-%   \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Techniques for limits at \(\infty\)}
-%
-%   Do you remember the table on page~\pageref{main-page:limits-at-infinity-facts}?
-%
-%   \begin{enumerate}
-%     \item Factor out the largest power of \(x\) in the numerator and denominator separately.
-%       There are three possibilities.
-%
-%     \item There are \(e^{x}\)?! Sub \(u = e^{x}\). See page~\pageref{main-page:limits-at-infinity-exp}.
-%
-%     \item Don't forget the squeeze theorem can be useful. Do you see trigs? See page~\pageref{main-ex:limit-at-infinity-squeeze}.
-%   \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Derivatives}
-%
-%   Geometrically, \(\frac{dy}{dx}\) at \(x = a\) is the slope the tangent line of the curve \(y = f(x)\) at \(x = a\).
-%
-%   \begin{enumerate}
-%     \item Use differentiation rules or the definition to calculate derivatives.
-%
-%     \item Absolute value of functions? Turn them into piecewise functions! 
-%
-%     \item Implicit differentiation solves almost every problem not involving the definition.
-%
-%     \item Use side calculations to manage complexity.
-%   \end{enumerate}
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Subtle facts reminder 1}
-%
-%   If you know \(f(x)\) is continuous (maybe you know they have a derivative), then use direct substitution to evaluate their limits.
-%
-%   This is Theorem~\ref{main-thm:limit-composite} and the comment above it on page~\pageref{main-thm:limit-composite}.
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Subtle facts reminder 2}
-%
-%   You can use the squeeze theorem for limits at infinity.
-%
-%   You can sub \(u = e^{x}\) for limits at infinity.
-%
-%   See Exercises~\ref{main-ex:asymptote-exp-basic}, \ref{main-ex:asymptote-exp-squared} and \ref{main-ex:asymptote-exp-mixed-bases} and \ref{main-ex:limit-at-infinity-squeeze} on pages~\pageref{main-ex:asymptote-exp-basic} to~\pageref{main-ex:limit-at-infinity-squeeze}.
-% \end{frame}
-%
-% \begin{frame}
-%   \frametitle{Subtle facts reminder 3}
-%
-%   Differentiability at \(a\) depends on continuity at \(a\).
-%
-%   This is Theorem~\ref{main-thm:differentiability-implies-continuity} and the comment in it on page~\pageref{main-thm:differentiability-implies-continuity}.
-% \end{frame}
-%
-% \section{Misc}
-%
+
+\section{Midterm Reviews}
+
+\begin{frame}
+  \frametitle{Function basics}
+
+  A function \(y = f(x)\) has a \hlmain{domain}, a \hlsupp{range} and a graph.
+
+  \begin{minipage}{0.52\textwidth} \small \raggedright
+    \begin{itemize}[itemsep=1ex]
+      \item The domain of a quotient \(\frac{f(x)}{g(x)}\) is every real number \emph{except} the roots of \(g(x)\). Basically, we avoid division by zero.
+      \item The domains of \(\ln(x)\), some trigs and the inverse trigs are special cases.
+      \item The range usually comes from the graph.
+    \end{itemize}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.44\textwidth}
+    \centering
+    \only<1>{\includegraphics[page=1, width=\linewidth]{./standalones/plot-function-basics}}%
+    \only<2->{\includegraphics[page=2, width=\linewidth]{./standalones/plot-function-basics}}
+
+    \onslide<2->{\footnotesize Here \hlattn{\(f(1) = 2\)}.}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Trig functions and the unit circle (or just triangles)}
+
+  We can solve a lot of trig and inverse trig problems by labelling the sides of a triangle and using the CAST rule.
+
+  \centering
+  \includegraphics[page=10, height=1.7in]{./standalones/triangle}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Inverse functions and exchanging \(x\) and \(y\)}
+
+  \onslide<2->{This technique} \(y = f^{-1}(x) \longleftrightarrow x = f(y)\) \onslide<2->{is typically used in}
+
+  \bigskip
+  \begin{minipage}{0.58\textwidth}
+    \onslide<2->{
+      \begin{itemize}[itemsep=1ex]
+        \item inverse trig functions.
+          \begin{center}
+            \footnotesize \color{attn}
+            \(\sin^{-1}(x) = y \longleftrightarrow x = \sin(y)\)
+          \end{center}
+          
+        \item solving equations involving log and exp.
+          \begin{center}
+            \footnotesize \color{attn}
+            \(\ln(a) = b \longleftrightarrow a = e^{b}\)
+          \end{center}
+
+        \item finding \(f^{-1}\) given \(f\).
+          \begin{center}
+            \footnotesize \color{attn}
+            isolate for \(y\) in \(x = f(y)\).
+          \end{center}
+        \item finding \((f^{-1})'\) given \(f\).
+          \begin{center}
+            \footnotesize \color{attn}
+            implicitly differentiate \(x = f(y)\) to find \(\frac{dy}{dx}\).
+          \end{center}
+      \end{itemize}
+    }
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.4\textwidth}
+    \includegraphics[page=2, height=1.7in]{./standalones/plot-inverse-reflection}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of log and exp functions}
+  
+  \begin{minipage}[t]{0.47\textwidth}
+    \centering
+    \hlmain{Exponentials}
+    \begin{align*}
+      e^{a} e^{b} &= e^{a+b} \\
+      \frac{e^{a}}{e^{b}} &= e^{a-b} \\
+      \left(e^{a}\right)^{b} &= e^{ab} \\
+      b^{x} &= e^{x \ln(b)}
+    \end{align*}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.47\textwidth}
+    \centering
+    \hlsupp{Logarithms}
+    \begin{align*}
+      \ln(ab) &= \ln(a) + \ln(b) \\
+      \ln(a/b) &= \ln(a) - \ln(b) \\
+      \ln(a^{x}) &= x \ln(a) \\
+      \log_{b}(a) &= \frac{\ln(a)}{\ln(b)}
+    \end{align*}
+  \end{minipage}
+  
+  \bigskip
+  Change base to \(e\) (the last line) is a systematic way to deal with many problems.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Limits}
+
+  \(\lim_{x \to a} f(x)\) exists if and only if \(\lim_{x \to a^{-}} f(x)\) and \(\lim_{x \to a^{+}} f(x)\) both exist and are equal.
+  
+  \centering
+  % page 40 is the lecture's jump sketch with the left-hand approach traced;
+  % page 33 is the same lecture's two-sided-limit-exists sketch
+  \includegraphics[page=40, height=2.1in]{./standalones/plot-limit-intro}%
+  \hspace{0.04\textwidth}%
+  \includegraphics[page=33, height=2.1in]{./standalones/plot-limit-intro}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Strategies for evaluating limits}
+  
+  \begin{minipage}{0.52\textwidth}
+    \centering
+    % page 14 is the whole limit-evaluation branch with its root: direct
+    % substitution, the three cases it lands in, Squeeze, the five ways out of
+    % 0/0 and the two outcomes of nonzero/0
+    \includegraphics[page=14, height=2.35in]{./standalones/mindmap-limits}
+    
+    {\tiny Turn absolute values of functions into piecewise functions to evaluate limits.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.44\textwidth}
+    \centering
+    \pause
+    % page 6 is the composition example's pair of graphs, stacked
+    \includegraphics[page=6, height=1.9in]{./standalones/plot-limits-complex}
+
+    % narration goes here
+    % the size has to be set before math mode is entered: math fonts are
+    % picked from the surrounding text size, so a size command inside \(...\)
+    % comes too late and LaTeX ignores it
+    {\tiny\(\lim_{x \to 2} f(g(x)) = (\text{trace the graphs one side at a time})\)}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Squeeze Theorem}
+  
+  Use it
+  \begin{itemize}[itemsep=1ex]
+    \item if you are directly given \[(\text{lower bound}) \le f(x) \le (\text{upper bound})\]
+    
+    \item if you see \(\sin(1/x)\) or \(\cos(1/x)\) or something similar. 
+  \end{itemize}
+  
+  Remember 
+  \begin{itemize}
+    \item you can multiply an inequality through by an expression or exponentiate through an inequality.
+    \item the squeeze theorem can be inconclusive if the lower and upper bounds have different limits.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Limits at infinity}
+  
+  \hlmain{Factor out the largest power of \(x\) with its coefficient} in the numerator and denominator separately. Finish the problem by analyzing the leftover terms using the facts below.
+  \bigskip
+  
+  % the reference box from lessons/limit-at-infinity.tex, page
+  % \pageref{main-page:limits-at-infinity-facts}
+  \begin{mdframed}[style=simple-compact] \small
+    \begin{center}
+      \tiny
+      \(\displaystyle \lim_{x \to \infty} x^{(\text{positive constant})} = \lim_{x \to \infty} e^{\text{(positive constant)} x} = \infty\)
+
+      \smallskip
+      \(\displaystyle \lim_{x \to \infty} \frac{1}{x^{(\text{positive constant})}} = \lim_{x \to \infty} \frac{1}{e^{\text{(positive constant)} x}} = 0\)
+    \end{center}
+
+    \tiny
+    Moreover, \(\lim_{x \to \infty} (\text{polynomial}) = (\text{the sign of the coefficient for \(x^{\text{largest power}}\)}) \, \infty\).
+  \end{mdframed}
+  
+  Lastly, remember you can conjugate to get a quotient.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Continuity and discontinuity}
+  
+  Fundamentally, continuity at \(a\) means \(\lim_{x \to a} f(x) = f(a)\) is true.
+  
+  \pause
+  \begin{center}
+    \includegraphics[page=8, height=1.6in]{./standalones/plot-continuity}
+  \end{center}
+  
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Finding and classifying discontinuities}
+  
+  \begin{itemize}[itemsep={2ex}]
+    \item Figure out where the function is not defined.  Be careful NOT to cancel any factors in a quotient.
+
+    \item If you have a piecewise function, also find the boundaries of the subdomains.
+  \end{itemize}
+
+  \pause 
+  For each number \(a\) you find above, calculate left and right limits at \(a\) and \(f(a)\). Apply the definition of the three types of discontinuities to draw the correct conclusion.
+
+  Sketching is a good way to visualize the discontinuities and their types.
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{Derivative, slope and tangent line}
+  Fundamentally, the derivative is a limit
+  \[
+    f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h}.
+  \]
+
+  \begin{center}
+    \includegraphics[height=1.27in]{./standalones/plot-tangent-at-a-point}
+  \end{center}
+  
+  The tangent line at \(x = a\) is \(y = f'(a)(x - a) + f(a)\).
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{The basic derivatives}
+  
+  % the formula table from lessons/differentiation-formulas.tex, split into
+  % two columns to fit a slide; the colour coding is the notes': supp for the
+  % function, main for its derivative
+  \small
+  \begin{minipage}{0.48\textwidth}
+    \[
+      \begin{array}{rccl}
+        \frac{d}{dx} & {\color{supp} (\text{constant})} &=& {\color{main} 0} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} x^{n}} &=& {\color{main} n x^{n-1}} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} \ln(x)} &=& {\color{main} x^{-1}} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} e^{x}} &=& {\color{main} e^{x}} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} \sin(x)} &=& {\color{main} \cos(x)}
+      \end{array}
+    \]
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \[
+      \begin{array}{rccl}
+        \frac{d}{dx} & {\color{supp} \cos(x)} &=& {\color{main} -\sin(x)} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} \tan(x)} &=& {\color{main} \sec^{2}(x)} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} \sec(x)} &=& {\color{main} \tan(x)\sec(x)} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} \arctan(x)} &=& {\color{main} \frac{1}{x^{2}+1}} \\[1.5ex]
+        \frac{d}{dx} & {\color{supp} \arcsin(x)} &=& {\color{main} \frac{1}{\sqrt{1-x^{2}}}}
+      \end{array}
+    \]
+  \end{minipage}
+
+  \faExclamationTriangle{} The power rule \(\frac{d}{dx} x^{n} = n x^{n-1}\) holds only for \hlwarn{\(n \ne 0\)}.
+\end{frame}
+
+\begin{frame}[t]
+  \frametitle{The chain rule and implicit differentiation}
+  
+  The chain rule
+  \[ 
+  \frac{d}{dx} f\big(g(x)\big) = f'(g(x)) \cdot g'(x).
+  \]
+  
+  \bigskip
+  Implicit differentiation
+  \begin{enumerate}[itemsep=2ex]
+    \item Treat \(y\) as a function of \(x\) which means we need the product/quotient/chain rule when differentiating \(y\) terms.
+    \item \(\frac{d}{dx} \big( \text{ LHS } \big) = \frac{d}{dx} \big( \text{ RHS } \big)\) and isolate for \(\frac{dy}{dx}\) (or \(y'\)).
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Finding \((f^{-1})'\) given \(f\)}
+  
+  \begin{minipage}[t]{0.55\textwidth}
+    Use implicit differentiation.
+    \begin{enumerate}[itemsep=1ex]
+      \item Set up notation \(y = f^{-1}(x)\).
+      \item Find \(\frac{dy}{dx}\) by implicit differentiation \[\frac{d}{dx} x = \frac{d}{dx} f(y).\]
+    \end{enumerate}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.40\textwidth}
+    Use inverse function theorem.
+    \[
+      \left(f^{-1}\right)'(x) = \frac{1}{f'(f^{-1}(x))}
+    \]
+  \end{minipage}
+  
+  \bigskip
+  Lastly, plug in numbers or simplify. 
+  \begin{itemize}
+    \item If \(x = (\text{given})\), then solve for \(y\) using \((\text{given}) = f(y)\). 
+    \item Guess and check may be useful.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The derivative of \(\arctan(x)\) using implicit differentiation}
+  
+  % \onslide takes no argument here: a braced form cannot hold the alignment
+  % tab, so each row sets the visibility for the rest of that row
+  \footnotesize
+  \begin{align*}
+    y &= \arctan(x) \\[0.8ex]
+    \onslide<2-> \frac{d}{dx} \big(x\big) &= \frac{d}{dx} \big(\tan(y)\big) && \text{(set up notation)}\\[0.8ex]
+    \onslide<3-> 1 &= \sec^{2}(y) \frac{dy}{dx} && \text{(chain rule)} \\[0.8ex]
+    \onslide<4-> \frac{dy}{dx} &= \frac{1}{\sec^{2}(y)} \\[0.8ex]
+    \onslide<5-> &= \frac{1}{\sec^{2}(\arctan(x))} \\[0.8ex]
+    \onslide<6-> &= \frac{1}{1 + x^{2}} && \text{(use a triangle)}.
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some exam-writing tips}
+
+  \begin{enumerate}
+    \item Drink enough water. SLEEP WELL!
+
+    \item Bring water, some snacks and candies.
+
+    \item Take a short break when necessary.
+
+    \item Not every question takes the same amount of time.
+
+    \item Check your work.
+  \end{enumerate}
+
+  \faStar{} Read each question and relevant instructions carefully. 
+\end{frame}
+
+\section{Misc}
 \begin{frame}[c]
 
   \large

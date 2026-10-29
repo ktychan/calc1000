@@ -11,6 +11,21 @@
 \usepackage{multicol}
 \usepackage{csquotes}
 \usepackage{cancel}
+\usepackage[framemethod=tikz]{mdframed}
+
+% The notes' reference-box style, repeated here: it is defined in
+% guidednotes.cls, which the slides do not load.  Keep the two in step.
+\mdfdefinestyle{simple-compact}{
+  userdefinedwidth=0.9\textwidth,
+  innertopmargin=0.5em,
+  innerleftmargin=1em,
+  innerbottommargin=0.5em,
+  innerrightmargin=1em,
+  skipabove=0.5em,
+  skipbelow=0.5em,
+  align=center,
+  roundcorner=3pt,
+}
 
 
 \usetheme{metropolis}

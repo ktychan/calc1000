@@ -1,0 +1,69 @@
+% ! TeX program = lualatex
+% A function, its domain on the x-axis and its range on the y-axis, then the
+% correspondence that sends one input to one output.  Used by the midterm
+% review slides.
+%
+%   page 1 -- the graph with the domain [-1, 3] and the range [1, 3] marked
+%   page 2 -- the same picture with the input 1 and the output 2
+%
+% The curve is f(x) = (x^3 - 3x^2 + 6)/2 restricted to [-1, 3].  The cubic is
+% picked so that every number in the picture is an integer: both domain
+% endpoints, both range endpoints, and the pair (1, 2).  The restriction is
+% what makes the domain readable as a segment rather than as the whole axis,
+% and the dip is what makes the range something to read off the picture
+% instead of guess from the endpoints.  The curve stays above the x-axis and
+% meets the y-axis only at its peak, so neither coloured segment is crossed.
+\documentclass[multi=tikzpicture,crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{function basics/.style={
+    basic curve,
+    enlargelimits=false,
+    % padded sideways rather than cropped: the 1.5:1 shape keeps the picture
+    % short enough for the slide column it shares with the bullet list
+    xmin=-2.2, xmax=4.2,
+    ymin=-0.6, ymax=3.6,
+    % a tick on every integer so the grid is readable, and so the domain,
+    % the range and the pair (1, 2) can all be read off it
+    xtick distance={1}, ytick distance={1},
+    width={200pt},
+  }}
+
+% The graph, with closed endpoints so the domain reads as [-1, 3].
+\newcommand{\functiongraph}{%
+  \addplot[very thick, domain=-1:3] {(x^3 - 3*x^2 + 6)/2};
+  \draw[fill=black] (axis cs:-1,1) circle (0.05);
+  \draw[fill=black] (axis cs:3,3) circle (0.05);
+}
+
+% The domain sits on the x-axis and the range on the y-axis.
+\newcommand{\domainandrange}{%
+  \draw[main, very thick, |-|] (axis cs:-1,0) -- (axis cs:3,0);
+  \draw[supp, very thick, |-|] (axis cs:0,1) -- (axis cs:0,3);
+}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- the graph, the domain and the range.
+\begin{tikzpicture}
+  \begin{axis}[function basics]
+    \functiongraph{}
+    \domainandrange{}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- the input 1 and the one output 2 it is sent to.
+\begin{tikzpicture}
+  \begin{axis}[function basics]
+    \functiongraph{}
+    \domainandrange{}
+    \draw[attn, thick, dashed]
+    (axis cs:1,0) -- (axis cs:1,2) -- (axis cs:0,2);
+    \draw[attn, fill=attn] (axis cs:1,2) circle (0.06);
+  \end{axis}
+\end{tikzpicture}
+\end{document}

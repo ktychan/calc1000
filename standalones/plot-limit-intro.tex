@@ -364,4 +364,21 @@
     \addplot[very thick, domain=1/2:2] {-1/(x-1/2)^(0.5) + 2};
   \end{axis}
 \end{tikzpicture}
+
+% two-sided disagree and finite, with the left-hand approach traced: a
+% sequence of inputs marching up to a and the dots on the curve they land on.
+% The dots take attn, the same colour the style gives the tick for a, so the
+% tracing reads as one idea.  The cubic flattens quickly, so the later dots
+% bunch against the left limit -- which is the behaviour, not a defect.
+\begin{tikzpicture}
+  \begin{axis}[lesson limit intro, title={two-sided limit does not exist},
+      title style={font=\footnotesize}]
+    \addplot[very thick, domain=-1:1/2] {-(x-1/2)^3 + 1/2};
+    \addplot[very thick, domain=1/2:2] {-(x-1/2)^3 + 1};
+    \addplot[attn, only marks, mark=*, mark size=1.5pt] coordinates
+    {(-0.4,1.229) (0,0.625) (0.2,0.527) (0.35,0.5034) (0.45,0.5001)};
+    \draw[fill=white] (axis cs:1/2,1/2) circle (0.05);
+    \draw[fill=white] (axis cs:1/2,1) circle (0.05);
+  \end{axis}
+\end{tikzpicture}
 \end{document}

@@ -188,4 +188,37 @@
     \draw[thick, red, fill=red] (axis cs: 0, 1) circle[radius=0.15];
   \end{axis}
 \end{tikzpicture}
+% ---------------------------------------------------------------------
+% Page 6 -- the same pair as page 2, stacked rather than side by side, for a
+% slide where the picture shares a row with the limit mindmap.  Only g's
+% placement changes: it drops below f instead of sitting to its right.
+\begin{tikzpicture}
+  \begin{axis}[composition axis, name=fplot,
+    xmin=-1.2, xmax=5.8, ymin=-3.2, ymax=1.6,
+    title={\(f(x)\)}]
+    \addplot[very thick, domain=-1:2]   {x-2};
+    \addplot[very thick, domain=2:3]    {1-2*(x-2)};
+    \addplot[very thick, domain=3:4]    {0.5+2*(x-3)*(x-4)};
+    \addplot[very thick, domain=4:5.5]  {-1+(x-4)/2};
+    \draw[fill=white] (axis cs:2,0)    circle (2pt);
+    \draw[fill=black] (axis cs:2,1)    circle (2pt);
+    \draw[fill=white] (axis cs:3,-1)   circle (2pt);
+    \draw[fill=black] (axis cs:3,0.5)  circle (2pt);
+    \draw[fill=white] (axis cs:4,-1)   circle (2pt);
+    \draw[fill=black] (axis cs:4,0.5)  circle (2pt);
+  \end{axis}
+  \begin{axis}[composition axis, name=gplot,
+    % anchored to f's own bounding box rather than a guessed offset, so the
+    % two sit as close as their labels allow
+    at={(fplot.below south west)}, anchor=above north west, yshift=-0.6em,
+    xmin=-2.2, xmax=4.2, ymin=1.4, ymax=5.6,
+    title={\(g(x)\)}]
+    \addplot[very thick, domain=-2:-1]  {5+2*(x+1)};
+    \addplot[very thick, domain=-1:1.2] {5};
+    \addplot[very thick, domain=1.2:2]  {5-(x-1.2)/0.8};
+    \addplot[very thick, domain=2:4]    {3-(x-2)/2};
+    \draw[fill=black] (axis cs:2,4) circle (2pt);
+    \draw[fill=white] (axis cs:2,3) circle (2pt);
+  \end{axis}
+\end{tikzpicture}
 \end{document}

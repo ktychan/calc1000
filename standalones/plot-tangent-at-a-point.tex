@@ -1,0 +1,45 @@
+% ! TeX program = lualatex
+% The geometric reading of the derivative: a curve, a point a on the x-axis,
+% and the tangent line there.  Used by the midterm review slides.
+%
+% The curve is 3 - (x-3)^2/4 on [0, 6], chosen so the tangent at a = 1 has
+% slope exactly 1 and touches at (1, 2) -- whole numbers, so the picture can
+% be read off without the slope looking accidental.  Ticks are off: this
+% frame talks about a and f'(a) rather than about particular values.
+\documentclass[multi=tikzpicture,crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{tangent sketch/.style={
+    basic curve,
+    enlargelimits=false,
+    xmin=-0.8, xmax=6.8,
+    ymin=-0.8, ymax=4.4,
+    % a grid for scale, but no numbers on it: this frame talks about a and
+    % f(a), so the only labelled ticks are those two
+    xtick distance={1}, ytick distance={1},
+    xticklabels={}, yticklabels={},
+    extra x ticks={1}, extra x tick label={\(a\)},
+    extra x tick style={tick style={attn, thick}, tick label style={attn}},
+    extra y ticks={2}, extra y tick label={\(f(a)\)},
+    extra y tick style={tick style={attn, thick}, tick label style={attn}},
+    width={220pt},
+  }}
+
+\begin{document}
+
+\begin{tikzpicture}
+  \begin{axis}[tangent sketch]
+    \addplot[very thick, domain=0:6, samples=100] {3 - (x-3)^2/4};
+    \node[anchor=north] at (axis cs:4.3,0.9) {\(y = f(x)\)};
+
+    % slope 1 at a = 1, so the tangent is y = x + 1
+    \addplot[main, very thick, domain=-0.5:3] {x + 1};
+    \node[main, anchor=west] at (axis cs:3.2,3.7) {slope \(= \frac{dy}{dx}\)};
+
+    \draw[attn, dashed] (axis cs:1,0) -- (axis cs:1,2) -- (axis cs:0,2);
+    \draw[attn, fill=attn] (axis cs:1,2) circle (0.07);
+  \end{axis}
+\end{tikzpicture}
+\end{document}

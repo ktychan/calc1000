@@ -1,0 +1,66 @@
+% ! TeX program = lualatex
+% A function and its inverse as reflections in the line y = x.  Used by the
+% midterm review slides.
+%
+%   page 1 -- y = f(x), the line y = x, and the point (2, 3) on the curve
+%   page 2 -- the same picture with f^{-1} and the reflected point (3, 2)
+%
+% The curve is f(x) = x^3/4 + 1, which is increasing (so it has an inverse),
+% is nowhere near symmetric in y = x (so the reflection is visibly a second
+% curve), and passes through (2, 3), (0, 1) and (-2, -1), so the swap can be
+% read off the grid in whole numbers.
+%
+% The inverse is drawn parametrically as (f(t), t) rather than from a formula
+% for f^{-1}.  That is the same exchange of x and y the slide is about, and it
+% sidesteps plotting a cube root through negative numbers.
+\documentclass[multi=tikzpicture,crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{inverse reflection/.style={
+    basic curve,
+    enlargelimits=false,
+    % extra room on the right for the y = f^{-1}(x) label
+    xmin=-2.9, xmax=5.3,
+    ymin=-2.9, ymax=4.4,
+    width={210pt},
+  }}
+
+% y = x, the mirror, plus the original curve and the point we follow.
+\newcommand{\originalcurve}{%
+  \addplot[dashed] coordinates {(-2.9,-2.9) (4.4,4.4)};
+
+  \addplot[main, very thick, domain=-2.2:2.2] {(x^3)/4 + 1};
+
+  \draw[main, fill=main] (axis cs:2,3) circle (0.07);
+}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- the function and the mirror.
+\begin{tikzpicture}
+  \begin{axis}[inverse reflection]
+    \originalcurve{}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- the reflection, drawn as (f(t), t).
+\begin{tikzpicture}
+  \begin{axis}[inverse reflection]
+    \originalcurve{}
+
+    \addplot[supp, very thick, variable=\t, domain=-2.2:2.2, samples=100]
+    ({(t^3)/4 + 1}, {t});
+    % the one curve under both of its names, each sitting above it
+    \node[main, fill=white, inner sep=1pt] at (axis cs:2,4)
+    {\(x = f(y)\)};
+    \node[supp, fill=white, inner sep=1pt] at (axis cs:4,2.5)
+    {\(y = f^{-1}(x)\)};
+
+    \draw[supp, fill=supp] (axis cs:3,2) circle (0.07);
+  \end{axis}
+\end{tikzpicture}
+\end{document}

@@ -19,6 +19,24 @@
   }
 }
 
+% A reference triangle big enough to carry side lengths rather than unit-circle
+% coordinates.  The limits leave room for the vertex label above the triangle.
+\pgfplotsset{
+  reference triangle/.style = {
+    basic curve,
+    enlargelimits=false,
+    grid=none,
+    title={\(\tan(\theta) = -3/5\) and \(\pi/2 \le \theta \le \pi\)},
+    % the picture is scaled down on the slide, so the title is set a size up
+    % ... and lifted clear of the y-axis label at the top of the axis
+    title style={font=\large, yshift=5pt},
+    xmin={-6.8}, xmax={1.6},
+    ymin={-1.2}, ymax={4.2},
+    xtick=\empty, ytick=\empty,
+    width={230pt},
+  }
+}
+
 \pgfplotsset{
   trigs/.style = {
     basic curve,
@@ -132,6 +150,35 @@
     \drawcircle{1};
     \drawtriangle{pi/6}{1};
     \drawtheta[supp]{pi/6}{0.3}{\(\pi/6\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Pages 10 and 11 -- a reference triangle for an angle in the second
+% quadrant, drawn for tan(theta) = -3/5.  The triangle carries the two
+% lengths 3 and 5; the coordinates of the vertex carry the signs, which is
+% what the CAST rule is a mnemonic for.  Page 11 adds the hypotenuse.
+\newcommand{\referencetriangle}[1]{%
+  \draw[very thick] (axis cs:0,0) -- (axis cs:-5,0) -- (axis cs:-5,3) -- cycle;
+  \draw (axis cs:-4.65,0) -- (axis cs:-4.65,0.35) -- (axis cs:-5,0.35);
+
+  \node[below] at (axis cs:-2.5,0) {\(5\)};
+  \node[left] at (axis cs:-5,1.5) {\(3\)};
+  #1
+
+  \draw[attn, fill=attn] (axis cs:-5,3) circle (0.07);
+  \node[attn, above] at (axis cs:-5,3) {\((-5, 3)\)};
+}
+
+\begin{tikzpicture}
+  \begin{axis}[reference triangle]
+    \referencetriangle{}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[reference triangle]
+    \referencetriangle{\node at (axis cs:-2.6,2.1) {\(\sqrt{34}\)};}
   \end{axis}
 \end{tikzpicture}
 

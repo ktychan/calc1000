@@ -1,10 +1,11 @@
 %! TeX program = lualatex
-% Thirteen pages: the whole map, then twelve layers of it -- the two-sided
+% Fourteen pages: the whole map, then twelve layers of it -- the two-sided
 % limit branch, the first decision, the 0/0 case, the nonzero/0 case, the
 % evaluation techniques, the continuity branch, the continuous-or-not
 % decision, the continuity test, why substitution works, the discontinuous
 % branch, where an infinite discontinuity comes from, and the two limit
-% branches together.  Each page is trimmed to
+% branches together -- and last the limit-evaluation branch with its root.
+% Each page is trimmed to
 % its own content, and each layer places its nodes exactly where page 1
 % puts them, so the pages still read as views of one drawing.
 % The quarter-turn print variant of page 1 lives in
@@ -1025,4 +1026,73 @@
 }
 \end{mmpage}
 
+
+% ===================================================================
+%  Page 14 -- the whole limit-evaluation branch, root included: the root,
+%  `try direct substitution', the three cases the denominator can fall into,
+%  Squeeze, and both worked-out subtrees -- the five ways out of 0/0 and the
+%  two outcomes of nonzero/0.  It is page 1 with the continuity branch left
+%  off, for a slide that is only about evaluating limits.
+%
+%  The branch is page 1's code unchanged, so every node lands where page 1
+%  puts it and this page registers with the others.  Only the root's second
+%  branch is drawn, so the fan starts at that branch's own angle (30) rather
+%  than at 150, the way pages 2 and 3 do it.
+% ===================================================================
+\newcommand{\evaluationlayer}{%
+  \node [concept, minimum size=3.8cm, text width=3.2cm, font=\small] (root)
+    {limit at a constant \(a\)\\[0.8ex]
+     % The nested picture inherits the mindmap's node sizing, which flings
+     % these two labels centimetres away; reset it here.
+     \begin{tikzpicture}[baseline,
+         every node/.style={inner sep=1.5pt, minimum size=0pt, minimum width=0pt,
+                            minimum height=0pt, text width=, align=center}]
+       \draw [->, thin] (0,0) -- (2.5,0) node [right] {\scriptsize\(x\)};
+       \fill (1.25,0) circle (1.4pt);
+       \node [below] at (1.25,0) {\scriptsize\(a\)};
+     \end{tikzpicture}}
+    [clockwise from=30]
+    child [concept color=gray!20, level distance=5.5cm,
+           level 3/.append style={level distance=4.2cm, sibling angle=40}] {
+      node [minimum size=2.4cm, text width=2.2cm, font=\footnotesize] (dirsub)
+        {try direct\\substitution\note{is the denominator \(0\)?}}
+      [counterclockwise from=-90]
+      child [concept color=namedthm, level distance=4.76cm] { node (squeeze) {Squeeze\\Theorem} }
+      child [concept color=supp!20] {
+        node (zerozero) {\(\frac{0}{0}\)}
+        [counterclockwise from=-139]
+        child [missing]
+        child { node (cov) {change of\\variable} }
+        child { node (rationalize) {rationalize} }
+        child { node (factor) {factor} }
+        child [concept color=main!25] { node (deriv) [text width=2.2cm]
+          {recognize as\\a derivative} }
+      }
+      child [concept color=pink!50,
+             level 3/.append style={level distance=5.2cm}] {
+        node (constzero) {\(\frac{\text{nonzero}}{0}\)}
+        [counterclockwise from=10]
+        child { node (differ) {limit does\\not exist} }
+        child { node (agree) {\(+\infty\) or \(-\infty\)} }
+      }
+      child [concept color=substcase] { node (algno) [text width=2.1cm]
+          {\(\frac{\text{any number}}{\text{nonzero}}\)} }
+    }
+    ;
+
+  \node [barlabel] at ($(root)!0.5!(dirsub)$) {calculations uses\\limit laws};
+  \node [barlabel] at ($(dirsub)!0.5!(squeeze)$) {recognize\\inequalities};
+  \node [barlabel] at ($(constzero)!0.5!(agree)$) {one-sided\\limits agree};
+  \node [barlabel] at ($(constzero)!0.5!(differ)$) {one-sided\\limits disagree};
+}
+
+\begin{mmpage}
+\resizebox{3.987in}{!}{%
+\begin{tikzpicture}[map levels]
+  \evaluationlayer
+\end{tikzpicture}
+}
+\end{mmpage}
+
 \end{document}
+
