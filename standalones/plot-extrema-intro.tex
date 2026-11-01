@@ -18,7 +18,7 @@
 
 
 \begin{tikzpicture}
-  \begin{axis}[extrema, title={\(f_{1}(x)\) on \([-1,3]\)}]
+  \begin{axis}[extrema]
     \addplot[very thick, domain=-1:3, smooth, samples=1000] {abs(sin(pi*(x-1))*(x-1))};
     \draw[fill=black] (axis cs:-1,0) circle[radius=0.1];
     \draw[fill=black] (axis cs: 3,0) circle[radius=0.1];
@@ -26,46 +26,74 @@
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[extrema, title={\(f_{2}(x)\) on \([0,2]\)}]
-    \addplot[supp, very thick] coordinates {(0,1) (1,3)};
-    \addplot[supp, very thick] coordinates {(1,1) (2,0)};
-    \draw[supp, fill=supp] (axis cs:0,1) circle[radius=0.1];
-    \draw[supp, fill=white] (axis cs:1,3) circle[radius=0.1];
-    \draw[supp, fill=supp] (axis cs:1,1) circle[radius=0.1];
-    \draw[supp, fill=supp] (axis cs:2,0) circle[radius=0.1];
-  \end{axis}
-\end{tikzpicture}
-
-\begin{tikzpicture}
-\begin{axis}[extrema, title={\(f_{3}(x)\) on \((0,3]\)}]
-\addplot[supp, very thick, smooth, domain=0:3] {1/(20*x) + sin(2*pi/3*x)};
-\draw[supp, fill=supp] (axis cs:3,0) circle[radius=0.1];
-\end{axis}
-\end{tikzpicture}
-
-\begin{tikzpicture}
-  \begin{axis}[extrema, xmin=-1, xmax=1, ymin=0, ymax=2, enlargelimits=0.1, title={\(f_{4}(x)\) on \((-\infty, \infty)\)}, xtick={-1,0,1}, xticklabels={-10,0,10}, grid=major, ylabel={}]
-    \addplot[very thick, smooth, samples=100, domain=-10:0] {-1/(5*x)};
-    \addplot[very thick, smooth, samples=100, domain=0:10] {e^(-10*x)};
+  \begin{axis}[extrema]
+    \addplot[very thick] coordinates {(0,1) (1,3)};
+    \addplot[very thick] coordinates {(1,1) (2,0)};
     \draw[fill=black] (axis cs:0,1) circle[radius=0.1];
+    \draw[fill=white] (axis cs:1,3) circle[radius=0.1];
+    \draw[fill=black] (axis cs:1,1) circle[radius=0.1];
+    \draw[fill=black] (axis cs:2,0) circle[radius=0.1];
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-  \begin{axis}[extrema, xmin=0, xmax=2, ymin=-2, ymax=0, enlargelimits=0.1, title={\(f_{5}(x)\) on \((0,2)\)}]
-    \addplot[very thick, domain=0:2, smooth, samples=100] {(1/5)*(x-1)/(x*(2-x))-1};
+  \begin{axis}[extrema]
+    % shifted half a unit right, so this domain starts at 1/2 like f_3 and f_5
+    \addplot[very thick] coordinates {(1/2,1) (3/2,2)};
+    \addplot[very thick] coordinates {(3/2,1) (5/2,0)};
+    \draw[fill=black] (axis cs:1/2,1) circle[radius=0.1];
+    \draw[fill=white] (axis cs:3/2,2) circle[radius=0.1];
+    \draw[fill=black] (axis cs:3/2,1) circle[radius=0.1];
+    \draw[fill=white] (axis cs:5/2,0) circle[radius=0.1];
+  \end{axis}
+\end{tikzpicture}
+
+% Defined on [-1, infinity), oscillating about the horizontal asymptote
+% y = 3/2 with an amplitude that decays, so the values settle towards 3/2
+% without the function ever being equal to it.  The decay rate is 0.6 rather
+% than 1.5: over a four-unit window the faster rate flattens the curve onto the
+% asymptote within the first unit and the rest of the sketch says nothing.  The
+% plot runs past the right edge of the axis so the frame clips it, which reads
+% as the domain continuing rather than the function stopping at 3.
+\begin{tikzpicture}
+  \begin{axis}[extrema]
+    % the asymptote goes down first so the curve draws over it
+    \draw[dashed] (axis cs:-1.5,3/2) -- (axis cs:3.5,3/2);
+    \addplot[very thick, smooth, samples=400, domain=-1:3.5]
+    {e^(-0.6*(x+1))*cos(2*pi*(x+1)) + 3/2};
+    \draw[fill=black] (axis cs:-1,5/2) circle[radius=0.1];
+  \end{axis}
+\end{tikzpicture}
+
+% Vertical asymptotes at both open ends, so again neither extremum exists.
+% Shifted half a unit right, matching f_3, so the left asymptote sits at 1/2.
+% The plotted domain stops where the curve is already past the top and bottom
+% of the axis, so both asymptotes are clipped by the frame.
+\begin{tikzpicture}
+  \begin{axis}[extrema]
+    \draw[dashed] (axis cs:1/2,-1.5) -- (axis cs:1/2,3.5);
+    \draw[dashed] (axis cs:5/2,-1.5) -- (axis cs:5/2,3.5);
+    % the denominator's factor of 2 is dropped for the same reason as in f_3:
+    % it doubles the distance between the branches and the asymptotes
+    \addplot[very thick, smooth, samples=1000, domain=0.62:2.38]
+    {(x-3/2)/((x-1/2)*(5/2-x)) + 1};
   \end{axis}
 \end{tikzpicture}
 
 \begin{tikzpicture}
-\begin{axis}[extrema, xmin=0, xmax=2, ymin=0, ymax=2, enlargelimits=0.1, title={\(f_{6}(x)\) on \([0,2)\)}]
-\addplot[very thick] coordinates {(0,1) (1,2)};
-\addplot[very thick] coordinates {(1,1) (2,0)};
-\draw[fill=black] (axis cs:0,1) circle[radius=0.1];
-\draw[fill=white] (axis cs:1,2) circle[radius=0.1];
-\draw[fill=black] (axis cs:1,1) circle[radius=0.1];
-\draw[fill=white] (axis cs:2,0) circle[radius=0.1];
-\end{axis}
+  \begin{axis}[extrema]
+    % vertical asymptote at 1/2, horizontal asymptote at 2
+    \draw[dashed] (axis cs:1/2,-1.5) -- (axis cs:1/2,3.5);
+    \draw[dashed] (axis cs:-1.5,2) -- (axis cs:3.5,2);
+    % 2 - 1/(x-1/2) rises towards 2 from below and is never equal to it, which
+    % is the contrast with f_4: that one crosses its asymptote on every swing.
+    % The coefficient 1 keeps the branch a visible distance from the vertical
+    % asymptote, entering the frame about 0.3 units to its right, and the plot
+    % runs past the right edge so the frame clips it rather than the curve
+    % appearing to stop.
+    \addplot[very thick, smooth, samples=400, domain=0.72:3.5]
+    {2 - 1/(x-1/2)};
+  \end{axis}
 \end{tikzpicture}
 
 
