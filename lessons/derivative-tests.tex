@@ -2,34 +2,22 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Derivatives and the shape of a graph}
 
-\begin{center}
-  \hfill{}
-  \includestandalone[page=1]{../standalones/plot-derivative-test}
-  \hfill{}
-  \includestandalone[page=2]{../standalones/plot-derivative-test}
-  \hfill{}
-  \includestandalone[page=3]{../standalones/plot-derivative-test}
-  \hfill{}
-  \includestandalone[page=4]{../standalones/plot-derivative-test}
-  \hfill{}
-\end{center}
+Some functions can be fairly complicated. However, we can use derivatives figure out its rough shape and features (intercepts, asymptotes, extrema, concavity, etc.).
 
-\begin{thm} \label{thm:first-derivative-test}
-  Suppose \(f(x)\) is a differentiable function and \(I\) is an interval in the domain of \(f\).
+Visually, a function \(f\) is \hlmain{increasing} on an interval if the \(y\)-value \(f(x)\) increases as \(x\) increases from left to right across the interval. Similarly, \(f\) is \hlsupp{decreasing} on an interval if the \(y\)-value \(f\) decreases as \(x\) increases from left to right across the interval.
 
-  \begin{enumerate}[label=(\alph*)]
-    \item If \(f' > 0\) on \(I\), then \(f(x)\) is (strictly) increasing over \(I\).
-    \item If \(f' < 0\) on \(I\), then \(f(x)\) is (strictly) decreasing over \(I\).
-  \end{enumerate}
-\end{thm}
+% \begin{center}
+%   \hfill{}
+%   \includestandalone[page=1]{../standalones/plot-derivative-test}
+%   \hfill{}
+%   \includestandalone[page=2]{../standalones/plot-derivative-test}
+%   \hfill{}
+%   \includestandalone[page=3]{../standalones/plot-derivative-test}
+%   \hfill{}
+%   \includestandalone[page=4]{../standalones/plot-derivative-test}
+%   \hfill{}
+% \end{center}
 
-\begin{example}[Final exam, Fall 2024, part (a) of a short-answer question] \label{eg:shape-1}
-  Find the intervals over which \(f(x) = x e^{x/3}\) is increasing or decreasing.
-
-  \blanklines{19}
-\end{example}
-
-There are two more tests for local extrema. The idea is that if \(f(x)\) has a local extremum at \(c\), then \((c,f(c))\) must be the ``peak or valley of a mountain.'' \updatenote{"extrema" corrected to "extremum" (singular, matching "a").}  We simply ``look left and right'' at the corresponding critical point.
 \begin{center}
   \includestandalone[page=6]{../standalones/plot-derivative-test}
   \hfill
@@ -37,31 +25,78 @@ There are two more tests for local extrema. The idea is that if \(f(x)\) has a l
   \hfill
   \includestandalone[page=8]{../standalones/plot-derivative-test}
 
-  \url{https://www.geogebra.org/calculator/atcbwgvm}
+  % \url{https://www.geogebra.org/calculator/atcbwgvm}
 \end{center}
-\clearpage
 
-\begin{thm}
-  Suppose that \(f\) is a continuous function on an interval \(I\) containing a critical number \(c\). If \(f\) is differentiable on \(I\), except possibly at \(c\), then \(f(c)\) satisfies one of the following descriptions:
-  \begin{enumerate}
-    \item If \(f'\) \emph{changes} sign from positive when \(x < c\) to negative when \(x > c\), then \(f\) has a local maximum at \(c\).
-    \item If \(f'\) \emph{changes} sign from negative when \(x < c\) to positive when \(x > c\), then \(f\) has a local minimum at \(c\).
-    \item If \(f'\) has the same sign for \(x < c\) and \(x > c\), then \(f(c)\) is neither a local maximum nor a local minimum of \(f\).
+\begin{thm} \label{thm:increasing-decreasing}
+  Suppose \(f(x)\) is a differentiable and \(I\) is an interval.
+
+  \begin{enumerate}[label=(\alph*)]
+    \item If \(f' > 0\) on \(I\), then \(f(x)\) is (strictly) increasing over \(I\).
+    \item If \(f' < 0\) on \(I\), then \(f(x)\) is (strictly) decreasing over \(I\).
   \end{enumerate}
 
-  \textbook{Theorem~4.9 First Derivative Test on page 392}
+  \textbook{Theorem~4.8 (Corollary 3 of the Mean Value Theorem) on page 387}
 \end{thm}
+
+
+\begin{example}[Final exam, Fall 2024, part (a) of a short-answer question] \label{eg:shape-1}
+  Find the intervals over which \(f(x) = x e^{x/3}\) is increasing or decreasing.
+
+  \blanks*
+\end{example}
+
+\clearpage
+
+\begin{thm}[First Derivative Test] \label{thm:first-derivative-test}
+  Suppose that \(f\) is a continuous function on an interval \(I\) containing a critical number \(c\). If \(f\) is differentiable on \(I\), except possibly at \(c\), then \(f(c)\) satisfies one of the following descriptions:
+
+  % Sidefigure hidden: with a number line under each case the text column is
+  % already long, and the sketch beside it pushed the theorem over a page.
+  % \begin{sidefigure}[0.36]{\includestandalone[page=8, width=\sidefigwidth]{../standalones/plot-derivative-test}}
+    \begin{enumerate}
+      \item If \(f'\) \emph{changes sign} from positive when \(x < c\) to negative when \(x > c\), then \(f\) has a local maximum at \(c\).
+
+        \begin{center}
+          \includestandalone[page=1]{../standalones/number-line-derivative-test}
+        \end{center}
+
+      \item If \(f'\) \emph{changes sign} from negative when \(x < c\) to positive when \(x > c\), then \(f\) has a local minimum at \(c\).
+
+        \begin{center}
+          \includestandalone[page=2]{../standalones/number-line-derivative-test}
+        \end{center}
+
+      \item If \(f'\) has the same sign for \(x < c\) and \(x > c\), then \(f(c)\) is neither a local maximum nor a local minimum of \(f\).
+
+        \begin{center}
+          \includestandalone[page=3]{../standalones/number-line-derivative-test}
+          \qquad
+          \text{or}
+          \qquad
+          \includestandalone[page=4]{../standalones/number-line-derivative-test}
+        \end{center}
+
+    \end{enumerate}
+  % \end{sidefigure}
+
+  \textbook{Theorem~4.9 on page 392}
+\end{thm}
+
+\faStar{} The First Derivative Test can be applied visually. Draw a number line labelled with the critical numbers of \(f\) and the intervals of increase and decrease of \(f\) on either side of the critical numbers. Sketch a local picture of the graph of \(f\) at each critical point to determine whether it is a local minimum, local minimum or neither.
 
 \begin{example}[Final exam, Fall 2024, part (b) of a short-answer question] \label{eg:shape-2}
   Find all local extrema of \(f(x) = x e^{x/3}\).
 
-  \blanklines{10}
+  \blanks*
 \end{example}
+\clearpage
 
 \begin{exercise}[Textbook Example~4.18] \label{ex:first-derivative}
-  Use the first derivative test to find all local extrema for \(f(x) = 5x^{1/3} - x^{5/3}\) and the \(x\)-value at which they occur. % Graph: \url{https://www.geogebra.org/calculator/nzwzefct}
+  Use the first derivative test to find all local extrema for \(f(x) = 5x^{1/3} - x^{5/3}\) and the \(x\)-value at which they occur. 
+  % Graph: \url{https://www.geogebra.org/calculator/nzwzefct}
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
 \clearpage
 
@@ -70,8 +105,8 @@ We can dig up more information about a function by considering concavity.
   Let \(f\) be a differentiable function on an \emph{open} interval \(I\).
   \begin{itemize}
     \item If \(f'\) is increasing on an interval \(I\), then we say \(f\) is \hlmain{concave up}.
-    \item If \(f'\) is decreasing on an interval \(I\), then we say \(f\) is \hlmain{concave down}.
-    \item If \(f\) is continuous at \(c\) and changes concavity at \(c\), then \((c,f(c))\) is an \hlmain{inflection point}.
+    \item If \(f'\) is decreasing on an interval \(I\), then we say \(f\) is \hlsupp{concave down}.
+    \item If \(f\) is continuous at \(c\) and changes concavity at \(c\), then \((c,f(c))\) is an \hlattn{inflection point}.
   \end{itemize}
 
   \textbook{Definition on page 395 and 397}
@@ -84,10 +119,10 @@ We can dig up more information about a function by considering concavity.
   \hfill
   \includestandalone[page=11]{../standalones/plot-derivative-test}
 
-  \url{https://www.geogebra.org/calculator/atcbwgvm}
+  % \url{https://www.geogebra.org/calculator/atcbwgvm}
 \end{center}
 
-\begin{thm} \label{thm:second-derivative-test}
+\begin{thm} \label{thm:concavity-test}
   Let \(f\) be a function whose second derivative exists on an interval \(I\).
   \begin{itemize}
     \item If \(f'' > 0\) on an interval \(I\), then the graph of \(f\) is \hlmain{concave up} on \(I\).
@@ -107,22 +142,35 @@ We can dig up more information about a function by considering concavity.
 
 The second derivative test offers a very fast way to find local extrema. However, it is only applicable to functions with a second derivative and can be inconclusive.
 
-\begin{thm}
+\begin{thm}[Second Derivative Test] \label{thm:second-derivative-test}
   Suppose \(f'(c) = 0\) and \(f''\) is continuous near \(c\).
-  \begin{itemize}
-    \item If \(f''(c) > 0\) (meaning \(f\) is concave \underline{\phantom{down}} near \(c\)), then \(f\) has a \underline{\hspace{1in}}.
-    \item If \(f''(c) < 0\) (meaning \(f\) is concave \underline{\phantom{down}} near \(c\)), then \(f\) has a \underline{\hspace{1in}}.
-    \item[\faExclamationTriangle{}] If \(f''(c) = 0\) or \(f''(c)\) does not exist, then the second derivative test is \hlwarn{inconclusive} meaning that we need to explore other methods to determine if \(f\) has a local extremum at \(c\). \updatenote{"extrema" corrected to "extremum" (singular, matching "a").}
-  \end{itemize}
 
-  \textbook{Theorem~4.11 Second Derivative Test on page 400}
+  % Narrower than the first derivative test's 0.36.  Two reasons: the items
+  % here are short enough that a wider figure strands the trailing "at \(c\)."
+  % on a line of its own, and the figure has to fit the height of the text
+  % beside it -- sidefigure pads the text column out to the figure's height
+  % when the figure is taller, but that measurement reads \pagetotal, which
+  % does not advance inside an mdframed theorem, so the figure would hang out
+  % below the frame.
+  \begin{sidefigure}[0.25]{\includestandalone[page=11, width=\sidefigwidth]{../standalones/plot-derivative-test}}
+    \begin{itemize}
+      \item If \(f''(c) > 0\), then \(f\) has a local minimum at \(c\).
+      \item If \(f''(c) < 0\), then \(f\) has a local maximum at \(c\).
+      \item[\faExclamationTriangle{}] If \(f''(c) = 0\) or \(f''(c)\) does not exist, then the second derivative test is \hlwarn{inconclusive}.
+    \end{itemize}
+  \end{sidefigure}
+
+  \textbook{Theorem~4.11 on page 400}
 \end{thm}
+
+\faStar{} The Second Derivative Test can also be applied visually. Draw a number line labelled with the critical numbers of \(f\) and the intervals of concavity of \(f\). Sketch a local picture of the graph of \(f\) at each critical number to determine whether it is a local maximum, local minimum, an inflection point, or none of the above.
 
 \begin{example}
   Use the second derivative test to find local extrema for \(f(x) = x e^{x/3}\).
 
-  \blanklines{10}
+  \blanks*
 \end{example}
+\clearpage
 
 \begin{exercise}
   Use the second derivative test to find all local extrema for \(f(x) = x^{4} - 4x^{3}\).
@@ -131,4 +179,64 @@ The second derivative test offers a very fast way to find local extrema. However
 
   \blanklines{25}
 \end{exercise}
+\clearpage
+
+We did bits and pieces of graph sketching throughout the term. We now put everything together.  Follow these steps to sketch the graph of \(f(x)\).
+\begin{enumerate}
+  \item Sketch \(y\)-intercept.
+  \item Sketch \(x\)-intercept if they are easy to find.
+  \item Sketch discontinuities (jump, removable and infinite).
+  \item Sketch horizontal asymptotes.
+  \item Find intervals of increase and decrease, and local extrema.
+  \item Find intervals of concavity and inflection points.
+  \item Lastly, sketch the graph using all of the information above.
+\end{enumerate}
+\begin{exercise}
+  Sketch a graph of \(f\) with the feature listed below. Label the intercepts, the asymptotes, the local extrema and the inflection points.
+
+  \begin{itemize}
+    \item \(f\) is continuous at every \(x\) except \(x = 1\).
+    \item \(f(0) = 0\) and \(f(-2) = 4\).
+    \item \(\displaystyle\lim_{x \to -\infty} f(x) = -\infty\) and \(\displaystyle\lim_{x \to \infty} f(x) = 2\).
+    \item \(\displaystyle\lim_{x \to 1^{-}} f(x) = -\infty\) and \(\displaystyle\lim_{x \to 1^{+}} f(x) = \infty\).
+    \item \(f' > 0\) on \((-\infty, -2)\), and \(f' < 0\) on \((-2, 1)\) and on \((1, \infty)\).
+    \item \(f'' > 0\) on \((-\infty, -4)\) and on \((1, \infty)\), and \(f'' < 0\) on \((-4, 1)\).
+  \end{itemize}
+
+  \begin{center}
+    \includestandalone[page=1]{../standalones/grid-sketching}
+  \end{center}
+\end{exercise}
+\clearpage
+
+\begin{exercise}[Final Exam, Fall 2025]
+  Consider the function \(f(x) = xe^{-x^{2}/2}\) for the following questions. This question has \(5\) parts.
+
+  \begin{enumerate}[label=(\alph*)]
+    \item Find the intervals over which \(f(x)\) is increasing or decreasing.
+
+      \blanks*
+
+    \item Find the local maximum and minimum values of \(f(x)\).
+
+      \blanks*
+      \clearpage
+
+    \item Find the intervals over which \(f(x)\) is concave up or concave down, and all inflection points.
+
+      \blanks*
+
+    \item Find all horizontal asymptotes of \(f(x)\).
+
+      \blanks*
+      \clearpage
+
+    \item Sketch the graph based on your previous work.
+
+      \begin{center}
+        \includestandalone[page=2]{../standalones/grid-sketching}
+      \end{center}
+  \end{enumerate}
+\end{exercise}
+\clearpage
 \end{document}

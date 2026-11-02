@@ -1,0 +1,172 @@
+%! TeX program = lualatex
+% Why "local" is the right word.
+%
+%   page 1 -- a function on [0, 9] with four turning points and one jump
+%   page 2 -- the same function with everything deleted except a window about
+%             each critical number: main where f' = 0, supp where f' does not
+%             exist
+%   page 3 -- the same, plus the two endpoints in warn
+%
+% Page 2 is the argument: a local maximum or minimum is decided entirely by
+% what the function does NEAR the point, so the stretches that page 2 throws
+% away were never going to affect the answer.  Page 3 then adds the fifth
+% candidate, the jump, which is a critical number for a different reason --
+% f' fails to exist there rather than vanishing -- and the colour is what
+% keeps the two reasons apart.  All three pages share an axis, so the
+% surviving fragments sit exactly where they sat on page 1.
+%
+% The five critical numbers are the turning points 0.8, 2.6, 5.5 and 7.5,
+% together with 4, the jump, where f' does not exist but f is defined.
+%
+% Each piece is the integral of a quadratic whose roots are that piece's
+% turning points, which is why they land on round numbers: the first is 0.8
+% times the antiderivative of (x - 0.8)(x - 2.6), the second is 0.25 times the
+% antiderivative of (u - 1.5)(u - 3.5) for u = x - 4, lifted to start at 1.3,
+% which is what sets the size of the jump: f(4) = 1.963, with the right-hand
+% piece starting at 1.3 and not climbing back past 1.963 until x = 4.74, so
+% f(4) really is the largest value nearby.
+%
+% The right-hand piece is scaled so that it finishes at f(9) = 2.654, half a
+% unit clear of every other high point -- the local maxima are 0.597, 1.963
+% and 2.144 -- so the absolute maximum is unmistakably at the right endpoint.
+% Note what that costs pages 2 and 3: 9 is an endpoint, not a critical number,
+% so the windows delete the very point where the absolute maximum lives.  That
+% is the honest limit of local reasoning, and the reason the strategy for
+% absolute extrema has to test endpoints separately.
+% Moving a turning point means changing the roots and the expanded
+% coefficients below together.
+%
+% The endpoints 0 and 9 are not critical numbers -- the course follows the
+% textbook in barring them -- so pages 2 and 3 delete them along with
+% everything else.  No two critical numbers are closer than 1.4, which is what
+% lets the windows be a generous 0.4 either side.
+\documentclass[multi=tikzpicture,crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+% The shared style's equal-unit scaling is kept, so the grid is made of
+% squares.  That is what fixes the height: a window ten units wide and three
+% tall sits in a band about two inches deep.
+\pgfplotsset{neighbourhoods/.style={
+    basic curve,
+    enlargelimits=false,
+    width={6in},
+    xmin=-0.4, xmax=9.4, ymin=-0.6, ymax=2.9,
+    xtick distance={1}, ytick={0,1,2},
+  }}
+
+% One command per piece, so pages 2 and 3 can redraw the same curves over
+% shorter domains instead of keeping a second copy of the formulas.  The
+% optional argument is the colour, which is how page 3 singles out the jump.
+\newcommand{\pieceA}[3][black]{%
+  \addplot[ultra thick, #1, smooth, samples=200, domain=#2:#3]
+  {0.8*(x^3/3 - 1.7*x^2 + 2.08*x)};}
+\newcommand{\pieceB}[3][black]{%
+  \addplot[ultra thick, #1, smooth, samples=200, domain=#2:#3]
+  {0.25*((x-4)^3/3 - 2.5*(x-4)^2 + 5.25*(x-4)) + 1.3};}
+
+% The jump: solid for the value, hollow for the one-sided limit it is not
+% equal to.  f(4) is the UPPER of the two, so the left-hand piece runs into it
+% and the right-hand piece starts below it -- which is what makes 4 a local
+% maximum as well as a point where f' fails to exist.
+\newcommand{\jumps}[1][black]{%
+  \draw[ultra thick, #1, fill=#1] (axis cs:4,1.963) circle[radius=2.5pt];
+  \draw[ultra thick, #1, fill=white] (axis cs:4,1.3) circle[radius=2.5pt];}
+
+% The four turning-point windows, shared by pages 2 and 3.  They take main,
+% the colour the lesson gives "have flat tangent lines": these are the
+% critical numbers where f' vanishes.
+\newcommand{\turningwindows}{%
+  \pieceA[main]{0.4}{1.2}    % about 0.8
+  \pieceA[main]{2.2}{3}      % about 2.6
+  \pieceB[main]{5.1}{5.9}    % about 5.5
+  \pieceB[main]{7.1}{7.9}}   % about 7.5
+
+% The fifth window, about the jump.  Pages 2 and 3 differ only in the colour
+% colour it supp, which is what the lesson gives "not all local extrema have
+% flat tangent lines": this is the critical number where f' fails to exist
+% rather than vanishing.  warn is reserved for the endpoints on page 1, which
+% are candidates of a third kind -- not critical numbers at all.
+% The two endpoints, in warn.  The name avoids starting with "end": LaTeX's
+% \newcommand refuses any control sequence whose first three letters are end,
+% to protect the \end<environment> namespace.
+%
+% They are candidates for an absolute extremum --
+% the right one IS the absolute maximum -- but they are not critical numbers,
+% so they carry a colour of their own rather than main or supp.
+\newcommand{\domainends}{%
+  \draw[ultra thick, warn, fill=warn] (axis cs:0,0) circle[radius=2.5pt];
+  \draw[ultra thick, warn, fill=warn] (axis cs:9,2.654) circle[radius=2.5pt];}
+
+\newcommand{\jumpwindow}[1][black]{%
+  \pieceA[#1]{3.6}{4}  % from the left
+  \pieceB[#1]{4}{4.4}  % from the right
+  \jumps[#1]}
+
+% A dotted line from each c on the axis to the point it names, so the label
+% and the piece of graph above it are visibly the same candidate.  The
+% heights are f evaluated at the five critical numbers; at 2.6 the graph is
+% below the axis, so that one hangs down rather than rising.  At 4 the height
+% is the UPPER of the two values at the jump, which is the one f actually
+% takes.
+\newcommand{\criticaldrops}{%
+  \draw[dotted, thin] (axis cs:0.8,0) -- (axis cs:0.8,0.597);
+  \draw[dotted, thin] (axis cs:2.6,0) -- (axis cs:2.6,-0.180);
+  \draw[dotted, thin] (axis cs:4,0) -- (axis cs:4,1.963);
+  \draw[dotted, thin] (axis cs:5.5,0) -- (axis cs:5.5,2.144);
+  \draw[dotted, thin] (axis cs:7.5,0) -- (axis cs:7.5,1.810);}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- the whole function.
+\begin{tikzpicture}
+  \begin{axis}[neighbourhoods]
+    \pieceA{0}{4}
+    \pieceB{4}{9}
+    \jumps[black]
+    \domainends{}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- the critical numbers, and only those: main where f' = 0, supp
+% where f' does not exist.  This is the candidate list for a LOCAL extremum.
+\begin{tikzpicture}
+  \begin{axis}[neighbourhoods]
+    \turningwindows{}
+    \jumpwindow[supp]
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 3 -- the same, plus the two endpoints: the candidate list for an
+% ABSOLUTE extremum.  Pages 2 and 3 differ by exactly the endpoints, which is
+% exactly how the two strategies differ.
+%
+% This is the page the closed-interval method sits beside, so the axis is
+% named the way that theorem names things: every critical number is c, and
+% the two ends of the domain are a and b.  They are not five different
+% letters because the theorem does not care which critical number is which
+% -- it says to test all of them.  The integer labels come off (the grid is
+% driven by xtick and stays), and the named ticks go on as extra ticks with
+% grid=none, since extra ticks otherwise draw a second set of grid lines.
+\begin{tikzpicture}
+  \begin{axis}[neighbourhoods,
+    xticklabel={\empty},
+    extra x ticks={0, 0.8, 2.6, 4, 5.5, 7.5, 9},
+    extra x tick labels={\(a\), \(c\), \(c\), \(c\), \(c\), \(c\), \(b\)},
+    % dropped clear of the axis as a row: the graph dips below it at the
+    % third c, and a label sitting at the usual height lands on that arc
+    % the label style has to go inside extra x tick style -- there is no
+    % "extra x tick label style" key
+    extra x tick style={grid=none, xticklabel style={yshift=-11pt}},
+    ]
+    \criticaldrops{}
+    \turningwindows{}
+    \jumpwindow[supp]
+    \domainends{}
+  \end{axis}
+\end{tikzpicture}
+\end{document}

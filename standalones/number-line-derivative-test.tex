@@ -1,0 +1,75 @@
+%! TeX program = lualatex
+% The three cases of the first derivative test, each drawn as the number line
+% the lesson tells students to draw: the critical number in the middle, the
+% sign of f' on either side, and an arrow for what that sign does to f.
+%
+%   page 1 -- positive then negative, a local maximum
+%   page 2 -- negative then positive, a local minimum
+%   page 3 -- positive twice, neither
+%   page 4 -- negative twice, neither
+%
+% The third case needs two pages because "the same sign" is two pictures, not
+% one: the curve can rise through c or fall through c, and in both the
+% tangent at c is horizontal without an extremum there.  Showing only one of
+% them invites a reader to think the case is about decreasing functions.
+%
+% The line carries a single arrow, on the right, labelled x -- the same way
+% pgfplots draws an x-axis everywhere else in these notes.  Everything is
+% \footnotesize so a pair of them fits side by side in the text column.
+%
+% [tikz] rather than [multi=tikzpicture]: the latter does not load TikZ
+% itself, and this file needs \usetikzlibrary before the preamble input.
+\documentclass[tikz, crop]{standalone}
+\usetikzlibrary{arrows.meta}
+
+\input{../typography.tex.preamble}
+
+% The axis itself: one arrow to the right, a tick at the critical number, c
+% beneath it.  Not called \numberline -- LaTeX already owns that name for
+% table of contents entries.
+\newcommand{\signaxis}{%
+  \draw[-{Stealth}] (-1.6,0) -- (1.6,0) node[right] {\(x\)};
+  \draw[thick] (0,-0.1) -- (0,0.1);
+  \node[below] at (0,-0.12) {\(c\)};}
+
+% One side: colour, x position, the relation symbol, and the slope arrow that
+% the sign produces.  Sign above the line, slope below, so a reader can take
+% the two rows separately.
+\newcommand{\sidelabel}[4]{%
+  \node[#1, above] at (#2,0.08) {\(f' #3 0\)};
+  \node[#1, below] at (#2,-0.12) {\(#4\)};}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Case 1 -- f' changes from positive to negative: a local maximum.
+\begin{tikzpicture}[font=\footnotesize]
+  \signaxis{}
+  \sidelabel{main}{-0.8}{>}{\nearrow}
+  \sidelabel{supp}{0.8}{<}{\searrow}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Case 2 -- f' changes from negative to positive: a local minimum.
+\begin{tikzpicture}[font=\footnotesize]
+  \signaxis{}
+  \sidelabel{supp}{-0.8}{<}{\searrow}
+  \sidelabel{main}{0.8}{>}{\nearrow}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Case 3, first possibility -- positive on both sides: f rises through c.
+\begin{tikzpicture}[font=\footnotesize]
+  \signaxis{}
+  \sidelabel{main}{-0.8}{>}{\nearrow}
+  \sidelabel{main}{0.8}{>}{\nearrow}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Case 3, second possibility -- negative on both sides: f falls through c.
+\begin{tikzpicture}[font=\footnotesize]
+  \signaxis{}
+  \sidelabel{supp}{-0.8}{<}{\searrow}
+  \sidelabel{supp}{0.8}{<}{\searrow}
+\end{tikzpicture}
+\end{document}

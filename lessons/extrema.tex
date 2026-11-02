@@ -1,80 +1,111 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} Solving applied optimization problems is a landmark application of differential calculus.
-To optimize something means to find the largest/smallest, most/least, etc., of something.
-
-Optimization problems are not ``cookie-cutter problems'' but doable. Suggested problems in textbook sections 4.3, 4.5 and 4.7 offer excellent opportunities to improve our problem-solving skills. In particular, finding extrema is a subtask of solving applied optimization problems.
+\begin{document} 
 
 \section{Maxima and minima}
+Applied optimization, such as maximizing profit or minimizing risk, is a landmark application of calculus.  In this lesson, we study some basic techniques to find the largest and smallest values of a function over a domain.  
 
-Visually speaking, an \hlmain{absolute extremum} of a function \(y = f(x)\) is the highest or the lowest \(y\)-value on the graph of a function.   The \hlsupp{absolute} in absolute extrema should be interpreted as \hlsupp{for certain}, not as taking absolute values.
+Visually speaking, an \emph{absolute extremum} of a function \(y = f(x)\) is the highest or the lowest \hlwarn{finite} \(y\)-value on its graph.  The \emph{absolute} in \emph{absolute extrema} means \emph{for certain}, not \emph{absolute value}.
 
-\begin{example} \label{ex:abs-extrema}
-  Identify absolute extrema for the functions below, or explain why they do not exist.
+\begin{example}
+  Estimate the range and the absolute max and min of the following functions.
 
   \begin{center}
     \includestandalone[page=1]{../standalones/plot-extrema-intro}
+    \qquad
     \includestandalone[page=2]{../standalones/plot-extrema-intro}
+    \qquad
     \includestandalone[page=3]{../standalones/plot-extrema-intro}
-
-    % \includestandalone[page=4]{../standalones/plot-extrema-intro}
-    % \includestandalone[page=5]{../standalones/plot-extrema-intro}
-    % \includestandalone[page=6]{../standalones/plot-extrema-intro}
   \end{center}
+  \blanks*
 
-  \blanklines{5}
+  \begin{center}
+    \includestandalone[page=4]{../standalones/plot-extrema-intro}
+    \qquad
+    \includestandalone[page=5]{../standalones/plot-extrema-intro}
+    \qquad
+    \includestandalone[page=6]{../standalones/plot-extrema-intro}
+  \end{center}
+  \blanks*
 \end{example}
 
-We use inequalities to precisely capture the idea of absolute extrema.
+The idea of absolute extrema is captured \emph{precisely} using inequalities.
 \begin{definition}
-  Let \(f\) be a function defined over an interval \(I\), and let \(c\) be in \(I\). \updatenote{Added the missing "be".} We say
-  \begin{itemize}[itemsep={1ex}]
-    \item \(f\) has an \hlmain{absolute maximum on \(I\) at \(c\)} if \(f(c) \ge f(\text{every number in } I)\).
+  Let \(f(x)\) be defined over an interval \(I\), and let \(c\) be in \(I\). 
+  We say
+  \begin{itemize}
+    \item \(f\) has an \emph{absolute maximum on \(I\) at \(c\)} if \(f(c) \ge f(\text{every number \hlwarn{in} } I)\).
 
-      % The absolute maximum, if exist, is the largest number \hlwarn{in} the range.
-
-    \item \(f\) has an \hlmain{absolute minimum on \(I\) at \(c\)} if \(f(c) \le f(\text{every number in } I)\).
-
-      % The absolute minimum, if exists, is the smallest number \hlwarn{in} the range.
+    \item \(f\) has an \emph{absolute minimum on \(I\) at \(c\)} if \(f(c) \le f(\text{every number \hlwarn{in} } I)\).
   \end{itemize}
+  
+  We also say that an extremum \emph{occurs at \(x=c\)} to mean that \(f(c)\) is an extremum.
+  
+  The plural of extremum is extrema.
+
   \textbook{Definition on page 366, slightly reworded}
 \end{definition}
-
-It is not wrong to say that the absolute max/min of \(f(x)\) is the largest/smallest number \hlwarn{in} the range of \(f\). \updatenote{"mn" corrected to "min".} It is just \emph{not helpful} for calculations because finding the range of a function is usually not an easy process except for reasonably simple functions.
-
-An absolute extremum is an absolute maximum or an absolute minimum. The plural of maxim\hlmain{um} is maxim\hlsupp{a}, minim\hlmain{um} is minim\hlsupp{a}, and extrem\hlmain{um} is extrem\hlsupp{a}.  Some textbooks use \emph{global} instead of \emph{absolute}. For example, global maximum and absolute maximum are interchangeable.
+\faExclamationTriangle{} In other words, the absolute minimum for \(f(x)\) \emph{does not exist} if the range of \(f\) does not include the bottom endpoint. Similarly, the absolute maximum for \(f(x)\) \emph{does not exist} if the range of \(f\) does not include the top endpoint.
 
 \clearpage
 
-% local = the peak for a local village
-% bring meeples
+Breaking up a large problem into smaller and hopefully more manageable subtasks is a commonly used problem-solving strategy\footnote{not math-specific}.  If we want to find absolute extrema, we start by looking for extrema over smaller intervals.
 
-A problem-solving strategy (not math-specific) is to break up a large problem into smaller ones.  If we want to find absolute extrema, we start by looking for extrema over smaller intervals.
+\begin{center}
+  \includestandalone[page=1]{../standalones/plot-local-neighbourhoods}
+  % \includestandalone[page=2]{../standalones/plot-local-neighbourhoods}
+
+  % \includestandalone[page=3]{../standalones/plot-local-neighbourhoods}
+\end{center}
+\blanks{5}
 
 \begin{definition}
-  Let \(f\) be a function defined over an interval \(I\).
+  Let \(f\) be a function. We say that
 
-  \begin{itemize}[noitemsep]
-    \item \(f\) has a \hlmain{local maximum at \(c\)} if \(f(c) \ge f(\text{every number near \(c\)})\).
-    \item \(f\) has a \hlmain{local minimum at \(c\)} if \(f(c) \le f(\text{every number near \(c\)})\).
+  \begin{itemize}
+    \item \(f\) has a \emph{local maximum at \(c\)} if \(f(c) \ge f(\text{every number \hlmain{near} \(c\)})\).
+    \item \(f\) has a \emph{local minimum at \(c\)} if \(f(c) \le f(\text{every number \hlmain{near} \(c\)})\).
   \end{itemize}
 
-  Moreover, we impose that \hlwarn{local extrema CANNOT occur at endpoints of \(I\)}.
+  Moreover, following our textbook convention, we impose that 
+  \begin{center}
+    \hlwarn{local extrema CANNOT occur at endpoints of the domain}.
+  \end{center}
 
   \textbook{Definition on page 368, slightly simplified}
 \end{definition}
+\bigskip
 
-Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.   Example~\ref{ex:critical-numbers} and Exercise~\ref{ex:critical-number-is-candidate} warn us about the subtle relation between critical numbers and local extrema.
+\begin{center}
+  % \includestandalone[page=1]{../standalones/plot-local-neighbourhoods}
+  % \includestandalone[page=3]{../standalones/plot-local-neighbourhoods}
+  \includestandalone[page=2]{../standalones/plot-local-neighbourhoods}
+\end{center}
+\blanks*
+\clearpage
+
+The sketch on the previous page suggests two observations for finding local extrema.
+
+\begin{enumerate}
+  \item Some local extrema \hlmain{have flat tangent lines}. We can find them by solving \(f'(c) = 0\) for \(c\), which we practised earlier in the term.
+
+  \item Some local extrema \hlsupp{do not have tangent lines at all}. To make sure we find all possible local extrema, we also need to look for \(c\) at which \(f'(c)\) does not exist.
+\end{enumerate}
 
 \begin{definition} \label{def:critical-number}
-  A \hlmain{critical number} \(c\) is a constant in the domain of \(f(x)\), but \hlwarn{NOT an endpoint}, if
-  \[
-    \text{either } \quad f'(c) = 0 \quad\text{or}\quad f'(c) \text{ does not exist}.
-  \]
-  If \hlmain{\(c\) is a critical number} of \(f(x)\), then \hlsupp{\((c, f(c))\)} is called a \hlsupp{critical point}.
+  The term \emph{critical number} captures both observations.
 
-  \textbook{Definition on page 369} {\footnotesize \faExclamationTriangle{} See a grading warning at the bottom of page~\pageref{warning:critical-number}.}
+  A \emph{critical number} \(c\) is an \(x\)-value in the domain of \(f(x)\), but \hlwarn{NOT an endpoint}, if
+  \[
+    {\color{main}\quad f'(c) = 0} \quad\text{or}\quad {\color{supp} f'(c) \text{ does not exist}}.
+  \]
+  
+  If \emph{\(c\) is a critical number} of \(f(x)\), then \((c, f(c))\) is called a \emph{critical point}.
+
+  \textbook{Definition on page 369}
 \end{definition}
+
+Example~\ref{ex:critical-numbers} and Exercise~\ref{ex:critical-number-is-candidate} warn us about the subtle relationship between critical numbers and local extrema.
 
 \begin{example} \label{ex:critical-numbers}
   Label critical numbers, local extrema and absolute extrema of the function below.
@@ -82,10 +113,12 @@ Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.  
   \begin{center}
     \includestandalone[page=1, height=3in]{../standalones/extrema_example}
   \end{center}
+
+  \blanks*
 \end{example}
 
 \begin{exercise} \label{ex:critical-number-is-candidate}
-  Sketch four functions such that \(f(\text{critical number})\) is \emph{not} a local extremum. \updatenote{"extrema" corrected to "extremum" (singular, matching "a").}
+  Sketch four functions such that \(f(\text{critical number})\) is \emph{not} a local extremum.
 
   \begin{center}
     \includestandalone[page=7]{../standalones/plot-extrema-intro}
@@ -96,64 +129,63 @@ Critical numbers are \(x\)-values at which local extrema \hlmain{could occur}.  
     \hfill
     \includestandalone[page=7]{../standalones/plot-extrema-intro}
   \end{center}
+  \blanks*
 \end{exercise}
 \clearpage
 
-We need to be careful with endpoints when looking for critical numbers.
-\begin{center}
-  \begin{tabular}{c|l|l}
-    Domain of \(f\) & Where to find critical numbers? & Critical number \emph{cannot} be \ldots{} \\\midrule
-    \([a,b]\) or \((a,b]\) or \([a,b)\) or \((a,b)\) & & \\[1ex]\midrule
-    \((-\infty, b]\) or \((-\infty, b)\) & & \\[1ex]\midrule
-    \([a, \infty)\) or \((a, \infty)\) & & \\[1ex]\midrule
-  \end{tabular}
-\end{center}
+% We need to be careful with endpoints when looking for critical numbers.
+% \begin{center}
+%   \begin{tabular}{c|l|l}
+%     Domain of \(f\) & Where to find critical numbers? & Critical number \emph{cannot} be \ldots{} \\\midrule
+%     \([a,b]\) or \((a,b]\) or \([a,b)\) or \((a,b)\) & & \\[1ex]\midrule
+%     \((-\infty, b]\) or \((-\infty, b)\) & & \\[1ex]\midrule
+%     \([a, \infty)\) or \((a, \infty)\) & & \\[1ex]\midrule
+%   \end{tabular}
+% \end{center}
 
 \begin{example} \label{ex:critical-number-rational}
   Find critical numbers of \(f(x) = \frac{3}{2} x^{2/3} - \frac{x^{2}}{2}\) over \([-2,2]\).
 
-  \blanklines{20}
+  \blanks*
 \end{example}
 
 \begin{exercise} \label{ex:critical-number-polynomial}
   Find critical numbers of \(f(x) = \frac{x^{3}}{3} - \frac{3}{2}x^{2} + 2x\) over \([0, 5/2]\).
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
-
 \clearpage
 
 
-\begin{mdframed}[style=simple-compact] \label{page:extrema-strategy}
-  A strategy for finding absolute extrema comes from Fermat's Theorem (read Theorem 4.2 on textbook page 369).
+\begin{thm}[Extreme Value Theorem and the closed-interval method] \label{page:extrema-strategy} \label{thm:closed-interval-method}
+  Suppose \(f(x)\) is continuous and defined over a closed and bounded interval \([a,b]\). 
+  Then \emph{both absolute extrema of \(f(x)\) must exist} and can can only occur at \(x\)-values, call them \(c\), in exactly one of three ways.
+  \begin{itemize}
+    \item \hlmain{\(f'(c) = 0\)} (and \(c\) is not an endpoint by the textbook convention),
+    \item \hlsupp{\(f'(c)\) does not exist} (and \(c\) is not an endpoint by the textbook convention), or
+    \item \hlwarn{\(c = a\)} or \hlwarn{\(c = b\)} (the endpoints).
+  \end{itemize}
+  
+  \textbook{Theorem 4.1 (Extreme Value Theorem) on page 367, rephrased as a method}
+\end{thm}
 
-  Absolute extrema for a function defined over an interval \hlwarn{can} only occur at \(x\)-values, call them \(c\), in exactly one of two ways:
-  \begin{center}
-    either \underline{\hspace{2.5in}} or \underline{\hspace{2.5in}}.
-  \end{center}
-\end{mdframed}
-
-{\footnotesize An arbitrary function can approach an infinity or oscillate towards infinities, so one or both absolute extrema do not always exist. In general, we have to rule out the non-existence of absolute extrema or restrict the domain somehow before applying the above general strategy. \updatenote{Fixed a comma splice (added "so"), changed "absolute extremum" to "absolute extrema" to agree with "one or both" earlier in the sentence, and removed a stray "by" so "rule out \ldots{} or restrict \ldots{}" is parallel.}}
-
-A theoretical result called the Extreme Value Theorem (read Theorem 4.1 on textbook page 367) says that \emph{both} absolute extrema for \hlmain{continuous} functions defined over a \hlmain{closed and bounded} interval \([a,b]\) always exist.
-
-
+\begin{center}
+  % \includestandalone[page=1]{../standalones/plot-local-neighbourhoods}
+  % \includestandalone[page=2]{../standalones/plot-local-neighbourhoods}
+  \includestandalone[page=3]{../standalones/plot-local-neighbourhoods}
+\end{center}
 
 \begin{example}
   Find absolute extrema and the \(x\)-values at which they occur for
   \[
-    f(x) = \frac{3}{2} x^{2/3} - x^{2}/2 \qquad\text{defined over } [-2,2].
+    f(x) = \frac{3}{2} x^{2/3} - \frac{x^{2}}{2} \qquad\text{defined over } [-2,2].
   \]
 
   This is the function from Example~\ref{ex:critical-number-rational}. Note that \(\frac{3}{\sqrt[3]{2}}-2 \approx 0.381\).
 
-  \blanklines{25}
+  \blanks*
 \end{example}
-
-\label{warning:critical-number}
-{\footnotesize \faExclamationTriangle{} Some textbooks (e.g. UBC's CLP Calculus) do not include endpoints as a special case because they allow endpoints to be local extrema. \hlwarn{For grading purposes, we will stick to the course textbook's definition} that local extrema and critical numbers cannot occur at endpoints of the domain of \(f\).}
 \clearpage
-
 
 \begin{exercise} \label{ex:closed-interval-method-intro}
   Find absolute extrema and the \(x\)-values at which they occur for
@@ -161,20 +193,50 @@ A theoretical result called the Extreme Value Theorem (read Theorem 4.1 on textb
     f(x) = \frac{x^{3}}{3} - \frac{3}{2}x^{2} + 2x \qquad\text{defined over }[0,5/2].
   \]
 
-  This is the function from Example~\ref{ex:critical-number-polynomial}. Note \(f(5/2) = 5/6\).
+  This is the function from Example~\ref{ex:critical-number-polynomial}. Note that \(f(5/2) = 5/6\).
 
   \blanklines{20}
 \end{exercise}
 \clearpage
 
-We eluded at the beginning of this section that minimizing or maximizing functions over a domain is a subtask in (applied) optimization problems.
+We mentioned at the beginning of this section that minimizing or maximizing functions over a domain is a subtask in (applied) optimization problems. 
 Exercise~\ref{ex:extremum-swim} is a subtask of Exercise~\ref{ex:optimization-swim}.
 \begin{exercise} \label{ex:extremum-swim}
-  Minimize \(T\) given \(T(s) = \frac{2 - \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\). \updatenote{Removed an erroneous factor of \(6\) multiplying \(\sqrt{s^{2}-1}\) in the numerator (this is the time function for Exercise~\ref{ex:optimization-swim}, with \(s\) the swim distance): as originally written, \(T(\sqrt{5}) < 0\), an impossible negative time.}
+  Minimize \(T\) given \(T(s) = \frac{2 - \sqrt{s^{2} - 1}}{6} + \frac{s}{3}\) on the domain \(1 \le s \le \sqrt{5}\).
 
   To minimize means to find the absolute minimum.
 
   \blanklines{40}
 \end{exercise}
 \clearpage
+
+Here are some past exam questions for practice. 
+
+\begin{exercise}[Final Exam, Fall 2026]
+  Let \(f'(x) = e^{-x}\). Which of the following is true?
+
+  \begin{enumerate}[label={\Alph*.}, itemsep={1ex}]
+    \item \(f(x)\) is increasing and concave up everywhere.
+    \item \(f(x)\) is increasing and concave down everywhere.
+    \item \(f(x)\) has an inflection point at \(x = 1\).
+    \item \(f(x)\) is decreasing for \(x < 0\).
+    \item \(f(x)\) is constant.
+  \end{enumerate}
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}[Final Exam, Fall 2026]
+  Consider the function \(f(x) = (x^{2} - 1)^{2}\). Which of the following statements about \(f(x)\) is true?
+
+  \begin{enumerate}[label={\Alph*.}, itemsep={1ex}]
+    \item \(f(x)\) has a local minimum at \(x = 1\) and no inflection point.
+    \item \(f(x)\) has a local maximum at \(x = 0\) and no inflection point.
+    \item \(f(x)\) has an absolute minimum at \(x = 1\) and a local maximum at \(x = 0\).
+    \item \(f(x)\) has no local extrema but has an inflection point at \(x = 1\).
+    \item \(f(x)\) has a local maximum at \(x = 0\) and an inflection point at \(x = -2\).
+  \end{enumerate}
+
+  \blanks*
+\end{exercise}
 \end{document}

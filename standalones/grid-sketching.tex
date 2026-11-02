@@ -1,0 +1,63 @@
+%! TeX program = lualatex
+% A numbered, empty grid for the curve-sketching exercise that closes the
+% derivative tests lesson.  The window is cut for that exercise's data: the
+% vertical asymptote at x = 1, the horizontal asymptote y = 2, the local
+% maximum at (-2,4) and the inflection point near x = -4 all have to sit
+% inside it with room left over, and the branch running down to -infinity has
+% to have somewhere to go.
+%
+% The ticks keep their numbers, unlike the blank grids elsewhere in these
+% notes: the data names particular points, so a student has to be able to
+% find them.
+\documentclass[tikz, crop]{standalone}
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- the exercise built from a list of facts about f, f' and f''.
+\begin{tikzpicture}
+  \begin{axis}[
+    basic curve,
+    width=5in,
+    xmin=-6.5, xmax=6.5,
+    ymin=-4.5, ymax=6.5,
+    ]
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- the final exam question, f(x) = x e^{-x^2/2}.  Everything the
+% earlier parts ask students to find:
+%
+%   x-intercept         0, the only one
+%   local minimum       x = -1,          f = -1/sqrt(e) = -0.607
+%   local maximum       x =  1,          f =  1/sqrt(e) =  0.607
+%   inflection points   x = 0 and +/- sqrt3 = +/- 1.732, where f = +/- 0.387
+%   horizontal asymptote  y = 0, both directions
+%
+% The curve is odd, so the window is symmetric about the origin.  x runs to
+% +/- 4 because that is where the Gaussian factor has flattened the curve
+% onto its asymptote -- f(4) = 0.0013 -- and a student has to be able to see
+% that happen rather than guess it.
+%
+% Equal units are kept, which is what fixes the proportions: the curve is
+% eight units wide and never leaves the band between -0.61 and 0.61, so it
+% genuinely is this flat, and a grid that stretched it vertically would
+% teach the wrong shape.  What the flatness costs is precision -- 0.607 and
+% 0.387 both fall inside one unit square -- so the grid is halved with minor
+% lines, giving a 0.5 rule to read those heights against.
+\begin{tikzpicture}
+  \begin{axis}[
+    basic curve,
+    width=6.2in,
+    xmin=-4.2, xmax=4.2,
+    ymin=-2.1, ymax=2.1,
+    minor tick num=1,
+    grid=both,
+    minor grid style={gray!12},
+    ]
+  \end{axis}
+\end{tikzpicture}
+\end{document}
