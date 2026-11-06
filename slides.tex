@@ -2,18 +2,25 @@
 \documentclass[aspectratio=169, 12pt]{beamer}
 
 \input{./beamer.tex.preamble}
-\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathreplacing,mindmap}
+% Overlay-aware TikZ keys: `visible on=<2->' hides a node or tree child
+% (and its connection) until that slide while keeping its space reserved.
+\tikzset{
+  alt/.code args={<#1>#2#3}{\alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}},
+  visible on/.style={alt={#1{}{opacity=0}}},
+}
 \usepackage{booktabs}
 \usepackage{xr}
 \externaldocument[main-]{.aux/main}
 
 
-\title{Welcome to Calculus 1000A!}
+\title{Calculus 1000A}
 \date{Fall 2026}
 \author{Kelvin Chan}
 \institute{Department of Mathematics\\University of Western Ontario}
 
 \setbeamertemplate{page number in head/foot}{}
+\metroset{numbering=none}
 % \beamerdefaultoverlayspecification{<+->}
 \begin{document}
 
@@ -459,7 +466,31 @@
   \faStar{} The above tells us how to find critical numbers.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t]
+  \frametitle{Critical numbers \only<3>{and the closed-interval method}}
+
+  % the sketches from lessons/extrema.tex (page 128 of the notes), shown one
+  % at a time as a sequence of decisions: the whole function, then keep only
+  % the windows about the critical numbers, then add the endpoints back. Each
+  % replaces the last in the same spot, so the windows stay where they sat on
+  % the full graph. [t] pins the top: page 3 is 2pt taller than page 4, which
+  % would otherwise nudge the sketch when it swaps in.
+  \centering
+  \only<1>{\includegraphics[page=1, width=\textwidth]{./standalones/plot-local-neighbourhoods}}%
+
+  \only<1>{The function we are considering.}
+
+  \only<2>{\includegraphics[page=4, width=\textwidth]{./standalones/plot-local-neighbourhoods}}%
+
+  \only<2>{Critical numbers. notice we don't include the endpoints yet.}
+
+  \only<3>{\includegraphics[page=3, width=\textwidth]{./standalones/plot-local-neighbourhoods}}
+
+  \only<3>{Find the largest and/or smallest function value at critical numbers and endpoints.}
+\end{frame}
+
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=1,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -467,7 +498,8 @@
   We scan the graph from left to right to find critical numbers.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=2,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -475,7 +507,8 @@
   Recall \(f'(c) = 0\) means the graph of \(y = f(x)\) has a horizontal tangent line at \(c\).
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=3,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -486,7 +519,8 @@
   Also notice that \(f(c)\) is a \hlsupp{local maximum}.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=4,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -494,7 +528,8 @@
   Similar to the previous critical number, we have a horizontal tangent line here.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=5,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -504,7 +539,8 @@
   Unlike the previous critical number, \(f(c)\) is a \hlsupp{local minimum} at this particular critical number.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=6,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -512,7 +548,8 @@
   Such a situation often, but not always, occurs in piecewise functions.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=7,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -522,7 +559,8 @@
   Notice that \(f(c)\) is a \hlsupp{local maximum}.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=8,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -530,7 +568,8 @@
   Notice \(f'(c)\) does not exist because \(f\) is \hlwarn{discontinuous} at \(c\).
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=9,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -540,7 +579,8 @@
   Therefore, \(f(c)\) is NEITHER a local minimum NOR a local maximum.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=10,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -548,7 +588,8 @@
   Notice that \(f'(c)\) does not exist.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=11,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -557,7 +598,8 @@
   Notice that \(f(c)\) is a \hlsupp{local maximum} at this particular critical number.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=12,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -565,7 +607,8 @@
   Notice that \(f'(c)\) does not exist because \(c\) is the right \hlwarn{endpoint} of the domain of \(f\).
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=13,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -575,7 +618,8 @@
   \hlwarn{\faExclamationTriangle{}} We \hlwarn{must exclude endpoints} of the given function when searching for critical numbers.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=14,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -583,7 +627,8 @@
   \faComment{} Have we found \emph{all} critical points?
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=15,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -593,7 +638,8 @@
   Every point on this flat part is a critical point because all except the endpoints have horizontal tangent lines.
 \end{frame}
 
-\begin{frame}[t] \small
+\begin{frame}[t] \frametitle{Example~\ref{main-ex:critical-numbers}}
+  \small
   \begin{center}
     \includegraphics[page=16,height=2in]{./standalones/extrema_example}
   \end{center}
@@ -1167,11 +1213,11 @@
   \footnotesize
   \begin{align*}
     y &= \arctan(x) \\[0.8ex]
-    \onslide<2-> \frac{d}{dx} \big(x\big) &= \frac{d}{dx} \big(\tan(y)\big) && \text{(set up notation)}\\[0.8ex]
-    \onslide<3-> 1 &= \sec^{2}(y) \frac{dy}{dx} && \text{(chain rule)} \\[0.8ex]
-    \onslide<4-> \frac{dy}{dx} &= \frac{1}{\sec^{2}(y)} \\[0.8ex]
-    \onslide<5-> &= \frac{1}{\sec^{2}(\arctan(x))} \\[0.8ex]
-    \onslide<6-> &= \frac{1}{1 + x^{2}} && \text{(use a triangle)}.
+    \frac{d}{dx} \big(x\big) &= \frac{d}{dx} \big(\tan(y)\big) && \text{(set up notation)}\\[0.8ex]
+    1 &= \sec^{2}(y) \frac{dy}{dx} && \text{(chain rule)} \\[0.8ex]
+    \frac{dy}{dx} &= \frac{1}{\sec^{2}(y)} \\[0.8ex]
+                  &= \frac{1}{\sec^{2}(\arctan(x))} \\[0.8ex]
+                  &= \frac{1}{1 + x^{2}} && \text{(use a triangle)}.
   \end{align*}
 \end{frame}
 
@@ -1193,58 +1239,58 @@
   \faStar{} Read each question and relevant instructions carefully. 
 \end{frame}
 
-\section{Misc}
-\begin{frame}[c]
+\section{Midterm Prep}
+% \begin{frame}[c]
 
-  \large
-  Pick up the problem-solving sheets (4 pages, 87 to 90).
+%   \large
+%   Pick up the problem-solving sheets (4 pages, 87 to 90).
 
-  \bigskip
+%   \bigskip
 
-  \normalsize
-  Feel free to work in groups.
+%   \normalsize
+%   Feel free to work in groups.
 
-  Treat it like a real midterm.  No notes, calculators or any aid.
+%   Treat it like a real midterm.  No notes, calculators or any aid.
 
-  The goal is to understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
+%   The goal is to understand how to solve unfamiliar problems under time pressure and figure out how to adjust your study plan for the upcoming midterm.
 
-  Feel free to ask for a one-sentence hint.
+%   Feel free to ask for a one-sentence hint.
 
-  We will stop at 8:45 and do a short iClicker reflection.
-\end{frame}
+%   We will stop at 8:45 and do a short iClicker reflection.
+% \end{frame}
 
-\begin{frame}[c]
+% \begin{frame}[c]
 
-  \large
-  Pick up a problem-solving sheet (1 page).
+%   \large
+%   Pick up a problem-solving sheet (1 page).
 
-  The PDF (week 15) is on OWL.
+%   The PDF (week 15) is on OWL.
 
-  \normalsize
-  Feel free to work in groups and ask for a hint.
+%   \normalsize
+%   Feel free to work in groups and ask for a hint.
 
-  We will do a short iClicker poll near the end.
-\end{frame}
+%   We will do a short iClicker poll near the end.
+% \end{frame}
 
-\begin{frame}
-  Please fill out the course feedback at \url{feedback.uwo.ca}.
+% \begin{frame}
+%   Please fill out the course feedback at \url{feedback.uwo.ca}.
 
-  \begin{center}
-    \qrcode[height=1.5in]{https://feedback.uwo.ca}
-  \end{center}
+%   \begin{center}
+%     \qrcode[height=1.5in]{https://feedback.uwo.ca}
+%   \end{center}
 
-  Class will resume at 11:40 am.
-\end{frame}
+%   Class will resume at 11:40 am.
+% \end{frame}
 
-\begin{frame}
-  Please fill out the course feedback at \url{feedback.uwo.ca}.
+% \begin{frame}
+%   Please fill out the course feedback at \url{feedback.uwo.ca}.
 
-  \begin{center}
-    \qrcode[height=1.5in]{https://feedback.uwo.ca}
-  \end{center}
+%   \begin{center}
+%     \qrcode[height=1.5in]{https://feedback.uwo.ca}
+%   \end{center}
 
-  Class will resume at 7:10 pm.
-\end{frame}
+%   Class will resume at 7:10 pm.
+% \end{frame}
 
 \section{Midterm Prep}
 
@@ -1550,4 +1596,92 @@
     \qrcode[height=1.5in]{https://westernu.brightspace.com/content/enforced/201580-UGRD_1269_10325/Calc1000AFW25_VA.pdf}
   \end{center}
 \end{frame}
+
+\section{MedSci 1000Y}
+\begin{frame}[c] \frametitle{a growth mindset}
+  Take a minute or so to think about the questions you felt confident on. 
+
+  \begin{center}
+    What did you do in the week before that made it possible?
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \begin{tikzpicture}[
+      trig format=deg, mindmap, grow cyclic, concept color=gray!20,
+      every child node/.style={concept, minimum size=2.4cm, text width=2.0cm,
+        align=center, font=\scriptsize,
+        execute at begin node={\hyphenpenalty=10000}},
+      level 1/.append style={sibling angle=72}]
+      \useasboundingbox (-7.5,-4) rectangle (7.5,4);
+      \node [concept, minimum size=2.6cm, text width=2.4cm, font=\small, execute at begin node={\hyphenpenalty=10000}] (root) at (0,0) {growing confidence}
+        [clockwise from=126]
+        child [concept color=main!20, level distance=3.4cm, visible on=<2->] { node {practise consistently in bite-sized chunks} }
+        child [concept color=supp!20, level distance=3.4cm, visible on=<3->] { node {learn from misadventures and successes} }
+        child [concept color=attn!20, level distance=4.4cm, visible on=<4->] { node {separate reusable ideas from mechanical recipe-like calculations} }
+        child [concept color=blue!20, level distance=3.0cm, visible on=<5->] { node {identify conceptual gaps to be filled} }
+        child [concept color=pink!50, level distance=4.4cm, visible on=<6->] { node {lean on our strengths} };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+
+  \begin{center}
+    \begin{tikzpicture}[
+      trig format=deg, mindmap, concept color=gray!20,
+      every child node/.style={concept, minimum size=2.4cm, text width=2.4cm,
+        align=center, font=\scriptsize,
+        execute at begin node={\hyphenpenalty=10000}}]
+      \useasboundingbox (-7.5,-4) rectangle (7.5,4);
+      \node [concept, minimum size=2.6cm, text width=2.4cm, font=\small, execute at begin node={\hyphenpenalty=10000}] (root) at (0,0) {expanding our comfort zone}
+        child [grow=145, level distance=4.0cm, concept color=main!20, visible on=<2->] { node {try active recall and spaced repetition to retain knowledge} }
+        child [grow=35, level distance=3.8cm, concept color=supp!20, visible on=<3->] { node {try sketching graphs to make sense of concepts} }
+        child [grow=-10, level distance=4.6cm, concept color=attn!20, visible on=<4->] { node {try explaining your understanding to a friend} }
+        child [grow=-90, level distance=3.0cm, concept color=blue!20, visible on=<5->] { node {try some independent problem solving} }
+        child [grow=190, level distance=4.6cm, concept color=pink!50, visible on=<6->] { node {try letting yourself getting stuck} };
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame} \frametitle{study efficiently, not just more}
+  Is there an aspect of your learning \emph{habit} worth tweaking?
+  
+  \pause Here is some food for thought.
+  \begin{itemize}
+    \item Can we get more out of lectures?
+    \pause
+    \item Can we get more out of practice material?
+    \pause
+    \item Can we learn to systematically break down problems into smaller pieces?
+    \pause
+    \item Can we use the midterm result to identify gaps in our understanding?
+    \pause
+    \item Can we use a helping mind?
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \frametitle{some learning resources}
+  \medskip
+  \begin{columns}[t]
+    \begin{column}{0.6\textwidth}
+      \centering
+      Math Help Centre in the Physics and Astronomy Building lower atrium.
+
+      \smallskip
+      \includegraphics[height=4.8cm]{./misc/IMG_1485.jpg}
+    \end{column}
+    \begin{column}{0.36\textwidth}
+      \centering
+      Learning Development and Success
+
+      \smallskip
+      \includegraphics[height=4.8cm]{./misc/LDS.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
 \end{document}

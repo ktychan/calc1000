@@ -6,6 +6,12 @@
 %             each critical number: main where f' = 0, supp where f' does not
 %             exist
 %   page 3 -- the same, plus the two endpoints in warn
+%   page 4 -- page 2 with each critical number marked by a dot on the x-axis
+%             (main where f' = 0, supp where f' does not exist) and a short
+%             dotted flat tangent line through each turning point, with the
+%             critical numbers labelled c as on page 3
+%   page 5 -- page 3 plus page 4's dots, moved off the x-axis and onto the
+%             graph, one at each critical point (c, f(c))
 %
 % Page 2 is the argument: a local maximum or minimum is decided entirely by
 % what the function does NEAR the point, so the stretches that page 2 throws
@@ -54,6 +60,20 @@
     width={6in},
     xmin=-0.4, xmax=9.4, ymin=-0.6, ymax=2.9,
     xtick distance={1}, ytick={0,1,2},
+  }}
+
+% Named ticks in place of the integers, shared by pages 3 and 4 so their c's
+% sit in exactly the same row.  The integer labels come off (the grid is
+% driven by xtick and stays), and the named ticks go on as extra ticks with
+% grid=none, since extra ticks otherwise draw a second set of grid lines.
+% Each page supplies its own extra x ticks and extra x tick labels.
+\pgfplotsset{named ticks/.style={
+    xticklabel={\empty},
+    % dropped clear of the axis as a row: the graph dips below it at the
+    % second c, and a label sitting at the usual height lands on that arc
+    % the label style has to go inside extra x tick style -- there is no
+    % "extra x tick label style" key
+    extra x tick style={grid=none, xticklabel style={yshift=-11pt}},
   }}
 
 % One command per piece, so pages 2 and 3 can redraw the same curves over
@@ -117,6 +137,36 @@
   \draw[dotted, thin] (axis cs:5.5,0) -- (axis cs:5.5,2.144);
   \draw[dotted, thin] (axis cs:7.5,0) -- (axis cs:7.5,1.810);}
 
+% The critical numbers as dots on the x-axis, coloured by why they are
+% critical: main for the four where f' = 0, supp for the jump at 4 where f'
+% does not exist.
+\newcommand{\criticaldots}{%
+  \fill[main] (axis cs:0.8,0) circle[radius=2.5pt];
+  \fill[main] (axis cs:2.6,0) circle[radius=2.5pt];
+  \fill[main] (axis cs:5.5,0) circle[radius=2.5pt];
+  \fill[main] (axis cs:7.5,0) circle[radius=2.5pt];
+  \fill[supp] (axis cs:4,0) circle[radius=2.5pt];}
+
+% The same dots lifted onto the graph, at the critical points (c, f(c)); the
+% heights are the ones used by \criticaldrops.  At 4 the dot lands on the
+% solid dot of the jump, since f(4) is the upper value.
+\newcommand{\criticalpointdots}{%
+  \fill[main] (axis cs:0.8,0.597) circle[radius=2.5pt];
+  \fill[main] (axis cs:2.6,-0.180) circle[radius=2.5pt];
+  \fill[main] (axis cs:5.5,2.144) circle[radius=2.5pt];
+  \fill[main] (axis cs:7.5,1.810) circle[radius=2.5pt];
+  \fill[supp] (axis cs:4,1.963) circle[radius=2.5pt];}
+
+% The flat tangent line at each turning point, at the heights used by
+% \criticaldrops.  Each runs 0.6 either side, a little past its 0.4 window,
+% so the ends stick out beyond the curve; draw it before the windows so the
+% thick curve covers the middle where the two touch.
+\newcommand{\flattangents}{%
+  \draw[densely dotted, thick] (axis cs:0.2,0.597) -- (axis cs:1.4,0.597);
+  \draw[densely dotted, thick] (axis cs:2.0,-0.180) -- (axis cs:3.2,-0.180);
+  \draw[densely dotted, thick] (axis cs:4.9,2.144) -- (axis cs:6.1,2.144);
+  \draw[densely dotted, thick] (axis cs:6.9,1.810) -- (axis cs:8.1,1.810);}
+
 \begin{document}
 
 % ---------------------------------------------------------------------
@@ -149,24 +199,56 @@
 % named the way that theorem names things: every critical number is c, and
 % the two ends of the domain are a and b.  They are not five different
 % letters because the theorem does not care which critical number is which
-% -- it says to test all of them.  The integer labels come off (the grid is
-% driven by xtick and stays), and the named ticks go on as extra ticks with
-% grid=none, since extra ticks otherwise draw a second set of grid lines.
+% -- it says to test all of them.  The tick setup is the named ticks style.
 \begin{tikzpicture}
-  \begin{axis}[neighbourhoods,
-    xticklabel={\empty},
+  \begin{axis}[neighbourhoods, named ticks,
     extra x ticks={0, 0.8, 2.6, 4, 5.5, 7.5, 9},
     extra x tick labels={\(a\), \(c\), \(c\), \(c\), \(c\), \(c\), \(b\)},
-    % dropped clear of the axis as a row: the graph dips below it at the
-    % third c, and a label sitting at the usual height lands on that arc
-    % the label style has to go inside extra x tick style -- there is no
-    % "extra x tick label style" key
-    extra x tick style={grid=none, xticklabel style={yshift=-11pt}},
     ]
     \criticaldrops{}
     \turningwindows{}
     \jumpwindow[supp]
     \domainends{}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 4 -- page 2 with the critical numbers marked on the x-axis and the
+% flat tangent lines drawn in, so the two reasons for being critical are
+% visible on the axis as well as on the curve.  Each critical number is
+% labelled c in the same row as page 3 (the named ticks style), just without
+% a and b, so going from this page to page 3 only adds the endpoints.
+\begin{tikzpicture}
+  \begin{axis}[neighbourhoods, named ticks,
+    extra x ticks={0.8, 2.6, 4, 5.5, 7.5},
+    extra x tick labels={\(c\), \(c\), \(c\), \(c\), \(c\)},
+    ]
+    \flattangents{}
+    \turningwindows{}
+    \jumpwindow[supp]
+    \criticaldots{}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 5 -- page 3 plus page 4's dots, moved off the x-axis and onto the
+% graph: each marks the critical point (c, f(c)) at the top of its dotted
+% drop.  Everything else is page 3, so the two swap with only the dots
+% appearing.  The labels take the colours of what they name: main for the
+% c's where f' = 0, supp for the one at the jump, warn for the endpoints.
+\begin{tikzpicture}
+  \begin{axis}[neighbourhoods, named ticks,
+    extra x ticks={0, 0.8, 2.6, 4, 5.5, 7.5, 9},
+    extra x tick labels={\textcolor{warn}{\(a\)}, \textcolor{main}{\(c\)},
+      \textcolor{main}{\(c\)}, \textcolor{supp}{\(c\)},
+      \textcolor{main}{\(c\)}, \textcolor{main}{\(c\)},
+      \textcolor{warn}{\(b\)}},
+    ]
+    \criticaldrops{}
+    \turningwindows{}
+    \jumpwindow[supp]
+    \domainends{}
+    \criticalpointdots{}
   \end{axis}
 \end{tikzpicture}
 \end{document}

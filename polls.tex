@@ -1171,6 +1171,17 @@
 
 \subsection{Related rates}
 
+\begin{poll}
+  Example 8.4. Using the notations we just talked about, which equation models the given scenario?
+
+  \begin{enumerate}
+    \item \(3000^{2} + 4000^{2} = 5000^{2}\)
+    \item \(3000^{2} + 4000^{2} = L^{2}\)
+    \item \(x^{2} + 4000^{2} = L^{2}\)
+    \item 
+    \item I am not sure.
+  \end{enumerate}
+\end{poll}
 
 \section{Applications of derivatives}
 
@@ -1294,6 +1305,65 @@
     \item No and no.
     \item I am not sure.
   \end{enumerate}
+\end{poll}
+
+\begin{poll}
+  Suppose \(T(\text{time})\) models the temperature of this lecture hall and
+  \[
+    T(\text{now}) = 42 \text{ degrees}.
+  \]
+  \only<1>{
+    Which of the following do you want to be true?
+
+    \begin{enumerate}
+      \item \(T'(\text{now}) > 0\) and \(T''(\text{now}) > 0\).
+      \item \(T'(\text{now}) > 0\) and \(T''(\text{now}) < 0\).
+      \item \(T'(\text{now}) < 0\) and \(T''(\text{now}) > 0\).
+      \item \(T'(\text{now}) < 0\) and \(T''(\text{now}) < 0\).
+      \item I am not sure.
+    \end{enumerate}
+  }
+
+  % one sketch per option, in the same order; the options are hidden on this
+  % slide, so each sketch carries its letter and its conditions
+  \only<2->{
+    \footnotesize
+    \begin{minipage}[t]{0.24\textwidth}
+      \centering
+      \includegraphics[page=1, width=\linewidth]{./standalones/plot-temperature-concavity}
+
+      (A) \(T' > 0\), \(T'' > 0\)\\
+      increase\\
+      faster and faster
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.24\textwidth}
+      \centering
+      \includegraphics[page=2, width=\linewidth]{./standalones/plot-temperature-concavity}
+
+      (B) \(T' > 0\), \(T'' < 0\)\\
+      increase\\
+      more and more slowly
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.24\textwidth}
+      \centering
+      \includegraphics[page=3, width=\linewidth]{./standalones/plot-temperature-concavity}
+
+      (C) \(T' < 0\), \(T'' > 0\)\\
+      decrease\\
+      more and more slowly
+    \end{minipage}\hfill
+    \begin{minipage}[t]{0.24\textwidth}
+      \centering
+      \includegraphics[page=4, width=\linewidth]{./standalones/plot-temperature-concavity}
+
+      (D) \(T' < 0\), \(T'' < 0\)\\
+      decrease\\
+      faster and faster
+    \end{minipage}
+  }
+
+  \normalsize
+  \onslide<3>{(D) is probably the desired option. \hlsupp{Remembering this activity and these four graphs will help you with curve sketching questions.}}
 \end{poll}
 
 \subsection{Optimization}
