@@ -1,15 +1,15 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Applied optimization problems}
-To optimize is to find the absolute maximum or absolute minimum of some function. The mathematical idea of modern machine learning (or AI) is to find a function (given some known data set) that \emph{minimizes} a certain type of error measurement. \updatenote{Added the missing "a".} The resulting function is used to \emph{predict} the future.
+To optimize is to find the absolute maximum or absolute minimum of some function. The mathematical idea of modern machine learning (or AI) is to find a function (given some known data set) that \emph{minimizes} a certain type of error measurement.  The resulting function is used to \emph{predict} the future.
 
 Optimization problems are good opportunities to work on our problem-solving skills. A combination of geometry, algebra skills and differential calculus usually go into solving an optimization problem.
 
-Here are the big ideas. \updatenote{"re" corrected to "are".}
+Here are the big ideas. 
 \begin{enumerate}[label=(\alph*)]
   \item We know how to find absolute extrema (or values at which absolute extrema occur) of functions in a \hlmain{single} variable.
 
-  \item However, it is often easier to \hlmain{describe} real-world problems using more than one variable. \updatenote{"variables" corrected to "variable" ("more than one" takes a singular noun).}
+  \item However, it is often easier to \hlmain{describe} real-world problems using more than one variable. 
 
   \item We need to use our algebra skill to transform a multi-variable problem to an equivalent single-variable problem.
 
@@ -51,30 +51,31 @@ Let's start with a warm-up example to get the big picture. As usual, we introduc
   \begin{enumerate}[wide, noitemsep, label=(Step~\arabic*).]
     \item Sketch the given scenario and \emph{introduce variables} to measure relevant quantities.
 
-      \blanklines{5}
+      \blanks{10}
 
-    \item Identify the \hlwarn{objective variable}. Write ``\emph{\hlattn{Goal: We want to minimize/maximize \ldots{}}}.''
+    \item Identify the \hlwarn{objective variable}. 
 
-      \blanklines{3}
+      \blanks{10}
 
     \item Use the given scenario and our sketch to figure out the \hlmain{relation} among our variables.
-      \blanklines{5}
+      \blanks{10}
 
     \item Eliminate all but one independent variable, so that the objective variable becomes a single-variable function in the remaining independent variable. Also figure out the domain of the resulting function using the given scenario.
 
-      \blanklines{10}
+      \blanks*
+      \clearpage
 
     \item \hlattn{Achieve the goal we wrote down in step (2)} using techniques from previous sections.
 
-      \blanklines{10}
+      \blanks*
   \end{enumerate}
 \end{example}
 \clearpage
 
-Example~\ref{ex:optimization-swim} is a slight variation of Example~\ref{ex:optimization-fence}. A first-attempt description of a given problem results in hidden information. Develop algebra and geometry skills to uncover potentially hidden information (mathematical relations). Hint: If you have \(n\) independent variables, then you should have at least \(n\) equations in Step~3.
+Example~\ref{ex:optimization-swim} is a slight variation of Example~\ref{ex:optimization-fence}. A first-attempt description of a given problem results in hidden information. Use algebra and geometry skills to find hidden information (mathematical relations). Hint: If you have \(n\) independent variables, then you should have at least \(n\) equations in Step~3.
 
 \begin{example} \label{ex:optimization-swim}
-  A  river is \(1\) km wide. A person is standing on the bank of the river and wants to reach the opposite side, \(2\) km down the river. \updatenote{"want" corrected to "wants".} The person can swim \(3\) km/hr and walk \(6\) km/hr.
+  A  river is \(1\) km wide. A person is standing on the bank of the river and wants to reach the opposite side, \(2\) km down the river.  The person can swim \(3\) km/hr and walk \(6\) km/hr.
 
   Minimize their travel time.
 
@@ -84,27 +85,40 @@ Example~\ref{ex:optimization-swim} is a slight variation of Example~\ref{ex:opti
   \begin{enumerate}[wide, noitemsep, label=(Step~\arabic*).]
     \item The sketch is already given. \emph{Introduce variables} to measure relevant quantities.
 
-      \blanklines{6}
+      \blanks{7}
 
-    \item Identify the \hlwarn{objective variable}. Write ``\hlattn{Goal: We want to maximize/minimize \ldots{}}''.
+    \item Identify the \hlwarn{objective variable}.
 
-      \blanklines{3}
+      \blanks{5}
 
     \item Figure out the relations among our variables.
 
-      \blanklines{12}
+      \blanklines{10}
 
     \item Eliminate all but one independent variable, so that the objective variable is a single variable function in the remaining independent variable. Also figure out the domain of the resulting function using the given scenario.
 
-      \blanklines{8}
+      \blanks*
 
       \vfill{}{\footnotesize (continues onto the next page)} \clearpage
 
     \item \hlattn{Achieve the goal we wrote down in Step (2)}. Be very clear of the mathematical problem we are about to solve.
 
-      \blanklines{50}
+      \blanks*
   \end{enumerate}
 \end{example}
+\clearpage
+
+The optimization step of the previous two problems have closed and bounded domains. This need not be the case. If the domain is unbounded, then we can use the derivative tests. The Second Derivative Test is rather convenient.
+
+\begin{exercise} \label{ex:optimization-can}
+  We wish to build a \(355\) mL cylindrical aluminum can.  Find the ratio between the height and the ratio of the can that minimizes the surface area (so that we can minimize cost).
+
+  \blanks*
+  \clearpage
+  
+  \phantom{top}
+  \blanks*
+\end{exercise}
 \clearpage
 
 \begin{exercise} \label{ex:optimization-ladder}
@@ -134,7 +148,7 @@ Example~\ref{ex:optimization-swim} is a slight variation of Example~\ref{ex:opti
 
       Hint: The functions \(f(x)\) and \(f(x)^{2}\) share the \(x\)-value at which their absolute minimum occur.  This does \emph{not} imply that \(f(x)\) and \(f(x)^{2}\) have the same absolute minimum.  If you can find the \(x\)-value, call it \(c\), at which \(f(x)^{2}\) reaches its absolute minimum, then \(f(c)\) is the absolute minimum for \(f\).  This trick only works for minima.
 
-      \blanklines{50}
+      \blanks*
   \end{enumerate}
 \end{exercise}
 \clearpage
@@ -142,14 +156,14 @@ Example~\ref{ex:optimization-swim} is a slight variation of Example~\ref{ex:opti
 \begin{exercise}
   A haunted house wants to maximize revenue for next year. This year, if the ticket price was \textdollar{20}, then the average attendance was \(500\) visitors per evening. If the ticket price was \textdollar{15}, then the average attendance was \(800\) visitors per evening.  Assume average visitor per evening is linearly related to ticket price. Find the ticket price that maximizes revenue per evening.
 
-  \blanklines{50}
+  \blanks*
 \end{exercise}
 \clearpage
 
 \begin{exercise}
   Take a standard printer paper which has dimension \(8.5 \times 11\) inches. Fold it in half to create a prism. What is the angle between the two folded sides that maximizes the volume of the resulting prism?
 
-  \blanklines{45}
+  \blanks*
 
   \faComment{} What if the paper has dimension \(1094379843 \times 43286493247839274932\) inches?? What angle maximizes the volume? Does the dimension of the paper matter at all?
 \end{exercise}
