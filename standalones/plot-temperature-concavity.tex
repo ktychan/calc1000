@@ -1,0 +1,73 @@
+%! TeX program = lualatex
+% The four ways the temperature T(time) of a room can pass through 42 degrees
+% "now", one page per sign pattern, in the order of the poll's options:
+%
+%   page 1 -- T' > 0, T'' > 0: warming up, faster and faster
+%   page 2 -- T' > 0, T'' < 0: warming up, but more and more slowly
+%   page 3 -- T' < 0, T'' > 0: cooling down, but more and more slowly
+%   page 4 -- T' < 0, T'' < 0: cooling down, faster and faster
+%
+% Each curve is 42 + s x + 0.45 k x^2 for x = time - now on [-1, 1], with
+% s = +1 or -1 the sign of T' and k = +1 or -1 the sign of T''.  Then
+% T' = s + 0.9 k x stays between 0.1 and 1.9 in size, so it never changes sign
+% on the window: every curve is strictly increasing or strictly decreasing
+% throughout, and the concavity is the only other thing that differs.  The
+% dotted line is the tangent at now, run across the whole window so its ends
+% pull clear of the curve: concave up shows as the curve sitting
+% above it and concave down as the curve sitting below it.
+%
+% The plotted height is T - 40, so the axes cross at the bottom-left corner
+% the way basic curve expects, and the one y tick at height 2 is labelled 42.
+% The axis is not to scale -- the sketch only claims the shape -- and all four
+% pages share one window so they can be compared side by side.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{temperature/.style={
+    basic curve,
+    axis equal image=false,
+    % small natural size, so the labels shrink little when four of these are
+    % scaled into a row across a slide
+    width={105pt}, height={95pt},
+    xmin=0, xmax=2.6, ymin=0, ymax=4,
+    xlabel={time}, ylabel={\(T\)},
+    % the only grid lines are through now and 42, which crosshair the point
+    xtick={1.2}, xticklabels={now},
+    ytick={2}, yticklabels={\(42\)},
+  }}
+
+% #1 is the sign of T', #2 the sign of T''
+\newcommand{\temperature}[2]{%
+  \addplot[densely dotted, thick, domain=-1:1]
+  ({x + 1.2}, {2 + #1*x});
+  \addplot[ultra thick, smooth, domain=-1:1]
+  ({x + 1.2}, {2 + #1*x + 0.45*#2*x^2});
+  \fill (axis cs:1.2,2) circle[radius=2.5pt];}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[temperature]
+    \temperature{1}{1}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[temperature]
+    \temperature{1}{-1}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[temperature]
+    \temperature{-1}{1}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[temperature]
+    \temperature{-1}{-1}
+  \end{axis}
+\end{tikzpicture}
+\end{document}
