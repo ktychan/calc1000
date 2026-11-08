@@ -1,10 +1,12 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{L'H\^opital's rule}
+\begin{document} \section{L'H\^opital's rule (for evaluating certain limits)}
+\hlmain{L'H\^opital's rule} is a technique for evaluating limits of types \(0/0\) and \(\infty/\infty\) (and a few others that converts to these two). We will see an example first.
+
 \begin{example}
   Evaluate \(\lim_{x \to 1} \frac{\ln(x)}{x - 1}\).
 
-  \blanklines{10}
+  \blanks{10}
 \end{example}
 
 A limit \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate form
@@ -14,19 +16,19 @@ A limit \(\lim_{x \to a} \frac{f(x)}{g(x)}\) is an indeterminate form
 \end{itemize}
 \hlmain{L'H\^opital's rule} can be used to evaluate indeterminate forms. We demonstrate its application and defer to the textbook (see Theorems 4.12 on page 455 and 4.13 on page 457) for its precise statement.
 
-There are seven types of indeterminate forms grouped by relevant techniques as follows.
+\faStar{} There are seven types of indeterminate forms grouped by relevant techniques as follows.
 \[
   \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
 \]
 
-\blanklines{3}
+\blanks{3}
 
 Read \(0\) as \underline{\hspace{2in}} and \(\infty\) as \underline{\hspace{2in}}.
 
 \begin{exercise}
   Evaluate \(\lim_{x \to \infty} \frac{x^{2}}{e^{x}}\).  \hfill {\footnotesize Repeatedly apply l'H\^opital's rule as necessary.}
 
-  \blanklines{15}
+  \blanks*
 \end{exercise}
 
 \clearpage
@@ -34,16 +36,16 @@ Read \(0\) as \underline{\hspace{2in}} and \(\infty\) as \underline{\hspace{2in}
 \faStar{} Indeterminate forms \(0 \cdot \infty\) and \(\infty - \infty\) can be manipulated to \(0/0\) or \(\infty/\infty\).
 The trick \(f(x) = \frac{1}{1/f(x)}\) is useful, especially for \(0 \cdot \infty\).
 
-\begin{example}
+\begin{example} \label{eg:lhopital-x-ln-x}
   Evaluate \(\lim_{x \to 0^{+}} x \ln(x)\).
 
-  \blanklines{25}
+  \blanks*
 \end{example}
 
 \begin{exercise}
   Evaluate \(\lim_{x \to 1^{+}} \left(\frac{1}{x-1} - \frac{1}{\ln(x)}\right)\).  \hfill{\footnotesize Turn the function into a single quotient.}
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
 \clearpage
 
@@ -52,7 +54,7 @@ The trick \(f(x) = \frac{1}{1/f(x)}\) is useful, especially for \(0 \cdot \infty
 \begin{example}[textbook Example~4.43 on page 463]
   Evaluate \(\lim_{x \to \infty} x^{1/x}\).
 
-  \blanklines{50}
+  \blanks*
 \end{example}
 \clearpage
 
@@ -82,33 +84,85 @@ The trick \(f(x) = \frac{1}{1/f(x)}\) is useful, especially for \(0 \cdot \infty
 \end{exercise}
 \clearpage
 
-% \textbf{Summary}. L'H\^opital's rule applies to one-sided and two-sided limits. 
-%
-% \begin{enumerate}[wide, label=(Step~\arabic*)., itemsep={2ex}]
-%   \item Figure out whether we have one of the indeterminate forms.
-%     \[
-%       \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
-%     \]
-%
-%     If the limit is not one of the above indeterminate forms, DO NOT apply l'H\^opital's rule. Look for a different method.
-%
-%   \item[{\faStar{}}] For indeterminate forms of type \(0/0\) or \(\frac{\infty}{\infty}\), \hlmain{directly apply} l'Hopital's rule.
-%
-%
-%     DO NOT apply the quotient rule. Differentiate the numerator and the denominator \hlwarn{independently}.
-%
-%   \item For all other types, manipulate your limit to type \(0/0\) or \(\frac{\infty}{\infty}\).
-%     \begin{enumerate}
-%       \item Type \(0 \cdot \infty\) or Type \(\infty - \infty\). 
-%
-%         Apply the trick \(f(x) = \frac{1}{1/f(x)}\) to \hlsupp{one} of the factors to manipulate the limit to \(0/0\) or \(\infty/\infty\). 
-%
-%       \item Type \(0^{0}\) or \(\infty^{0}\) or \(1^{\infty}\). 
-%
-%         Change base to \(e\). Alternatively, follow the method shown in textbook Example~4.43 and 4.44.
-%     \end{enumerate}
-%
-%   \item You may need to repeatedly apply l'H\^opital's rule until you fully evaluate the limit.
-% \end{enumerate}
+\textbf{Summary}. L'H\^opital's rule applies to one-sided and two-sided limits. 
 
+\begin{enumerate}[wide, label=(Step~\arabic*)., itemsep={2ex}]
+  \item Figure out whether we have one of the indeterminate forms.
+    \[
+      \frac{0}{0},\; \frac{\infty}{\infty}, \hspace{1in} 0 \cdot \infty,\; \infty - \infty, \hspace{1in} 0^{0}, \; \infty^{0}, \; 1^{\infty}.
+    \]
+
+    If the limit is not one of the above indeterminate forms, DO NOT apply l'H\^opital's rule. Look for a different method.
+
+  \item[{\faStar{}}] For indeterminate forms of type \(0/0\) or \(\frac{\infty}{\infty}\), \hlmain{directly apply} l'Hopital's rule.
+
+
+    DO NOT apply the quotient rule. Differentiate the numerator and the denominator \hlwarn{independently}.
+
+  \item For all other types, manipulate your limit to type \(0/0\) or \(\frac{\infty}{\infty}\).
+    \begin{enumerate}
+      \item Type \(0 \cdot \infty\) or Type \(\infty - \infty\). 
+
+        Apply the trick \(f(x) = \frac{1}{1/f(x)}\) to \hlsupp{one} of the factors to manipulate the limit to \(0/0\) or \(\infty/\infty\). 
+
+      \item Type \(0^{0}\) or \(\infty^{0}\) or \(1^{\infty}\). 
+
+        Change base to \(e\). Alternatively, follow the method shown in textbook Example~4.43 and 4.44.
+    \end{enumerate}
+
+  \item You may need to repeatedly apply l'H\^opital's rule until you fully evaluate the limit.
+\end{enumerate}
+\clearpage
+
+Here are more l'H\^opital's rule exercises, listed in no particular order so that you learn to recognize when the rule is useful.  To simulate an exam sitting, l'H\^opital's rule may only work on some limits.
+
+\begin{exercise}
+  Evaluate \(\lim_{h \to 0} \frac{2^{h} - 2}{h}\). 
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to \infty} \frac{\ln(x)}{\sqrt{x}}\).
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to -\infty} x e^{x}\).
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to 0^{+}} \left(\frac{1}{x} - \frac{1}{e^{x} - 1}\right)\).  
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+\begin{exercise}
+  Evaluate \(\lim_{x \to 0^{+}} x^{x}\).
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}
+  Find the mistake(s) in the following \emph{incorrect} calculation.
+  \bigskip
+
+  \begin{quote}
+    \itshape
+    By l'H\^opital's rule,
+    \[
+      \lim_{x \to 0} \frac{2x^{2} + 1}{\cos(x)} = \lim_{x \to 0} \frac{4x}{-\sin(x)} = \lim_{x \to 0} \frac{4}{-\cos(x)} = -4.
+    \]
+  \end{quote}
+
+  What is the correct value of the limit?
+
+  \blanks*
+\end{exercise}
+\clearpage
 \end{document}
