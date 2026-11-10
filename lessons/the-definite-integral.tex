@@ -1,40 +1,71 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Definite integrals}
-\updatenote{This lesson merges \enquote{Definite integrals}, \enquote{Approximating Area} and \enquote{The Sigma notation} into four subsections. It starts from what a definite integral means (net area), then asks how to find one when no area formula applies. That question motivates rectangles, then Sigma notation, then the formal definition as a limit. Before, Sigma notation came first with no long sums to shorten yet, and the area lesson defined the Riemann sum with the same limit that defined the definite integral.}
+% Update notes are hidden in this lesson for now. The original definition is
+% saved here and restored at the end of the file, so other lessons still show
+% their notes. Delete these two lines and the \let at the end to show them.
+\let\savedupdatenote\updatenote
+\renewcommand{\updatenote}[1]{}
+\updatenote{This lesson merges \enquote{Definite integrals}, \enquote{Approximating Area} and \enquote{The Sigma notation} into five subsections in three stages: the definite integral as area under the curve, its properties from the area interpretation alone, and then approximation, Sigma notation and Riemann sums as a precise way to evaluate definite integrals. Before, Sigma notation came first with no long sums to shorten yet, and the area lesson defined the Riemann sum with the same limit that defined the definite integral. A summary with diagrams is on page~\pageref{page:merge-summary}.}
 
 %==============================================================================
-\subsection{What the definite integral means} \label{subsec:defint-meaning}
-The geometric idea of \hlmain{area} is very flexible and widely applicable in science.
+\subsection{Net area} \label{subsec:defint-meaning} \updatenote{Was \enquote{Definite integrals as area under the curve}. Why: the subsection builds up net area first, and the definite integral is introduced as its notation.}
+The geometric idea of \hlmain{area} is very flexible and widely applicable in science. In each example below, a quantity changes at a rate that is constant on each piece of time, and the rate can be negative. \updatenote{New sentence. Why: every motivating example now uses a piecewise constant rate with a negative piece, so negative values appear before the definite integral does.}
 
 \begin{enumerate}[wide]
-  \item If the velocity of an object (travelling in a straight line) is a constant function \(v(t) = 5\) km per minute, then the displacement of time \(t = 1\) minute to \(t = 3\) minute is \underline{\hspace{2in}}.
+  \item \label{item:velocity-example} If the velocity of an object (travelling in a straight line) is the piecewise constant function \(v(t)\) sketched below, in km per minute, then the displacement from \(t = 1\) minute to \(t = 8\) minutes is \underline{\hspace{2in}}. \updatenote{Was \enquote{If the velocity of an object (travelling in a straight line) is a constant function \(v(t) = 5\) km per minute, then the displacement of time \(t = 1\) minute to \(t = 3\) minute is \ldots}, followed by a separate item about travelling backwards. Why: one piecewise constant velocity with a negative piece shows forward and backward motion together. The sentence \enquote{A negative velocity means the object travels backwards} was also removed, to keep the item short.}
+
+    \begin{center}
+      \includestandalone[page=1]{../standalones/plot-net-area-motivation}
+    \end{center}
 
     \blanklines{5}
 
-  \item If a medicine is administered intravenously at the rate of \(r(t) = 2\) ml per minute, then, after \(20\) minutes, a patient would have received \underline{\hspace{3in}} ml of medicine.
+  \item If a medicine is administered intravenously at the rate of \(2\) ml per minute for \(20\) minutes, and the body then removes it at \(1\) ml per minute, then the amount of medicine in the body changes at the rate \(r(t)\) sketched below, in ml per minute. After \(40\) minutes, the amount of medicine in the patient's body has changed by \underline{\hspace{2in}} ml. \updatenote{Was \enquote{If a medicine is administered intravenously at the rate of \(r(t) = 2\) ml per minute, then, after \(20\) minutes, a patient would have received \ldots{} ml of medicine.} Why: removal by the body gives a negative rate, as in the velocity example.}
+
+    \begin{center}
+      \includestandalone[page=2]{../standalones/plot-net-area-motivation}
+    \end{center}
+
+    \blanklines{5}
+
+  \item A small business tracks the rate \(c(t)\) at which money flows into its account, in dollars per day, sketched below. A negative rate means money flows out. Over these \(10\) days, the account balance changes by \underline{\hspace{2in}} dollars. \updatenote{New example. Why: income and expenses give positive and negative rates in an everyday setting.}
+
+    \begin{center}
+      \includestandalone[page=3]{../standalones/plot-net-area-motivation}
+    \end{center}
 
     \blanklines{5}
 \end{enumerate}
+\updatenote{New sketches for all three examples, which replace the formulas for \(v(t)\), \(r(t)\) and \(c(t)\). Why: each shows the region whose net area gives the answer, with area above the axis marked \(+\) and area below marked \(-\). The formulas, written out piece by piece, distracted from that region, and the sketch gives the same values.}
 
-It is scientifically important to ask: What if \(v(t)\) or \(r(t)\) is not a constant function? \updatenote{"are"/"constant functions" corrected to "is"/"a constant function" to agree with the singular subjects joined by "or".} Can we still figure out the displacement and the amount of medicine administered?
+In each case, the answer comes from the rectangles between the graph of the rate and the horizontal axis: add their areas, counting area \hlwarn{below the axis as negative}. This signed total is the \hlmain{net area}. \updatenote{New paragraph. Why: it names net area using piecewise constant rates, before the definite integral.}
 
-\blanklines{10}
+It is scientifically important to ask: What if \(v(t)\), \(r(t)\) or \(c(t)\) is not piecewise constant? Can we still figure out the displacement, the change in medicine and the change in the account balance? \updatenote{Was \enquote{What if \(v(t)\) or \(r(t)\) is not a constant function? Can we still figure out the displacement and the amount of medicine administered?} Why: the examples are now piecewise constant, and the accounting example is new.}
 
-Both scenarios, and countless more, are asking the same fundamental \hlmain{geometric} question: \updatenote{"countlessly" corrected to "countless" (adjective, not adverb).}
+Net area still makes sense: the region between the graph and the horizontal axis is no longer made of rectangles, but we can still add the area above the axis and subtract the area below it.
+\begin{definition}[net area] \label{def:net-area}
+  The \hlmain{net area bounded by \(y = f(x)\) and \(y = 0\)} \hlsupp{over the interval \([a,b]\)} is
+  \begin{align*}
+    \text{net area} = {}& \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) \\
+    & - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
+  \end{align*}
+\end{definition}
+\updatenote{New definition, built from the net area formula that used to follow the definition of the definite integral. Why: net area now comes first, so the definite integral can be introduced as its notation.}
 
-\blanklines{5}
+\begin{center}
+  \includestandalone[page=4]{../standalones/plot-net-area-motivation}
+\end{center}
 
-The definite integral answers this question, and it is defined for all functions, not just the non-negative ones. \updatenote{New sentence, adapted from \enquote{Everything we did in approximating areas using rectangles leads to the definite integral, which is defined for all functions, not just the non-negative ones}, which now opens the formal definition on page~\pageref{def:definite-integral}. Why: the definite integral now comes before approximation, so it enters as the answer to the question above. The GeoGebra link moved to Subsection~\ref{subsec:approximating-area}.}
+The definite integral is the notation for net area, and it answers the question above for all functions. \updatenote{Replaces \enquote{Both scenarios, and countless more, are asking the same fundamental geometric question:} and \enquote{The definite integral answers this question, and it is defined for all functions, not just the non-negative ones.} Why: the lesson now goes directly from net area to the definite integral. The GeoGebra link is now in Subsection~\ref{subsec:approximating-area}.}
+
+Behind the scenes, a definite integral is a \hlmain{limit of Riemann sums}: we approximate the area with many thin rectangles, add up their areas, and let the rectangles get thinner and thinner. This is the theoretical underpinning of the definite integral, and we will come back to it in Subsection~\ref{subsec:defint-formal}. Until then, we work with definite integrals as area. \updatenote{New paragraph. Why: it tells students up front that definite integrals are defined through Riemann sums, so the area interpretation in the next pages is not the whole story, and it points ahead to the formal definition.}
 
 \begin{definition} \label{def:definite-integral-net-area}
   The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(a\) to \(b\)}}, written \(\int_{a}^{b} f(x) \;dx\), represents the \hlmain{net area bounded by \(y = f(x)\) and \(y = 0\)} \hlsupp{over the interval \([a,b]\)}.  Sometimes, it is also called the net signed area.
 
   \updatenote{The limit formula and \enquote{provided that the limit exists} moved to Definition~\ref{def:definite-integral} in Subsection~\ref{subsec:defint-formal}. Why: the formula needs Riemann sums and Sigma notation, which now come later, and the examples below need only the net area meaning.}
 \end{definition}
-\[
-  \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
-\]
 
 % \includestandalone{../standalones/plot_definite_integral_intro}
 %
@@ -44,6 +75,8 @@ The definite integral answers this question, and it is defined for all functions
   Evaluate \(\int_{-2}^{6} f(x) \;dx\).
 
   \includestandalone{../standalones/plot_definite_integral_area}
+
+  \updatenote{The flat piece of the graph on \([4,6]\) is now a semicircle. Why: students now combine triangles with a piece of a circle, so this subsection still works with circular areas now that the two semicircle exercises have moved to the FTC part 2 lesson. The answer changes from \(2\) to \(2 + \pi/2\), and the total area in the next example changes from \(14\) to \(14 - \pi/2\).}
 \end{example}
 
 Definite integrals can also describe \hlmain{total area} between curves.
@@ -53,21 +86,7 @@ Definite integrals can also describe \hlmain{total area} between curves.
 
   \includestandalone{../standalones/plot_definite_integral_area}
 \end{example}
-\clearpage
-
-If the integrand is a well-known shape, then we can evaluate it by simply calculating its area using simple formulas.  However, this is a very restrictive method to evaluate definite integrals.
-
-\begin{exercise}
-  Evaluate \(\int_{0}^{1} \sqrt{1 - x^{2}} + 2 \;dx\).
-
-  \blanklines{10}
-\end{exercise}
-
-\begin{exercise}
-  Evaluate \(\int_{-1}^{1} \sqrt{1 - x^{2}} - 1 \;dx\).
-
-  \blanklines{10}
-\end{exercise}
+\updatenote{The two exercises on \(\sqrt{1 - x^{2}}\), and the sentence introducing them, moved to the end of the FTC part 2 lesson. Why: after FTC part 2, they show that area formulas still evaluate integrals whose antiderivatives are not in our integration table.}
 
 % Here is one more exercise to on the net area interpretation of definite integrals.
 % \begin{exercise}
@@ -78,7 +97,11 @@ If the integrand is a well-known shape, then we can evaluate it by simply calcul
 %
 \clearpage
 
-Definite integrals have a ``flip'' property (non-standard terminology). \updatenote{Removed \enquote{which \hlwarn{does not} have a counterpart in summations}, and moved the constant multiple, sum and difference properties that came before it to Subsection~\ref{subsec:defint-formal}. Why: summations are not introduced until Subsection~\ref{subsec:sigma}, and those three properties come from the limit definition.}
+%==============================================================================
+\subsection{Properties of definite integrals} \label{subsec:defint-properties}
+We now study properties of definite integrals. \updatenote{Removed \enquote{Because the definite integral is defined in terms of a summation, all but one of its properties mimic those of summation properties}, which now comes near the end of Subsection~\ref{subsec:defint-formal}. Why: this subsection explains the properties with the area interpretation alone, and summations come later.}
+
+Definite integrals have a ``flip'' property (non-standard terminology). \updatenote{Removed \enquote{which \hlwarn{does not} have a counterpart in summations}. That comparison now comes near the end of Subsection~\ref{subsec:defint-formal}. Why: summations are not introduced until Subsection~\ref{subsec:sigma}.}
 
 \begin{thm}
   \begin{equation} \label{eq:definite-integral-flip}
@@ -88,9 +111,25 @@ Definite integrals have a ``flip'' property (non-standard terminology). \updaten
   \textbook{Equation (5.10) on page 538}
 \end{thm}
 
-\blanklines{10}
+\begin{example}[time reversal] \label{ex:flip-time-reversal}
+  Recall the object from the first motivating example on page~\pageref{item:velocity-example}. Its displacement from \(t = 1\) to \(t = 8\) minutes is \(\int_{1}^{8} v(t) \;dt\).
 
-\faStar{} The next properties come from the net area interpretation. \updatenote{Was \enquote{All remaining properties of definite integrals come from their net area interpretation.} Why: the constant multiple, sum and difference properties now come after this point and follow from summations instead.}
+  Now play a video of the trip in reverse, so that time runs from \(t = 8\) back to \(t = 1\). The object retraces its path and ends where it started. The displacement of this rewound trip is \(\int_{8}^{1} v(t) \;dt\).
+
+  \begin{center}
+    \includestandalone[page=5]{../standalones/plot-net-area-motivation}
+  \end{center}
+
+  The two displacements have the same size but opposite directions, so
+  \[
+    \int_{8}^{1} v(t) \;dt = \underline{\hspace{1.5cm}} \int_{1}^{8} v(t) \;dt = \underline{\hspace{1.5cm}} \text{ km}.
+  \]
+
+  \blanklines{5}
+\end{example}
+\updatenote{New example, with a sketch, in place of the blank space after the flip property. Why: rewinding the trip from the first motivating example gives the flip property a physical meaning. Integrating from \(b\) to \(a\) runs time backwards, which reverses the direction of the displacement.}
+
+\faStar{} All remaining properties of definite integrals come from their net area interpretation.
 
 \begin{thm}
   \begin{equation}
@@ -139,6 +178,19 @@ Here is a typical problem involving the split/merge property.
 \end{example}
 \clearpage
 
+\begin{thm}
+  \begin{align*}
+    \int_{a}^{b} (\text{constant}) f(x) \;dx &= (\text{constant}) \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\[1ex]
+    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\[1ex]
+    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
+  \end{align*}
+
+  \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
+\end{thm}
+\updatenote{Moved here from the end of the lesson, with space added below. Why: these properties can be explained with net area, so they now sit with the other area-based properties. Multiplying \(f(x)\) by a constant stretches the region vertically, and adding \(g(x)\) stacks the heights of one function on top of the other.}
+
+\blanklines{10}
+
 The net area interpretation of a definite integral yields two comparison properties. For each part below, fill in the blanks with one of \(=, \le , \ge\) by interpreting definite integrals as net area.
 \begin{enumerate}[wide, noitemsep]
   \item If \(f(x) \le g(x)\) over \([a,b]\), then
@@ -183,7 +235,7 @@ The average value of a continuous \(f(x)\) on \([a,b]\) is
 
 %==============================================================================
 \subsection{Approximating area} \label{subsec:approximating-area}
-So far, we evaluated definite integrals using shapes with known area formulas. What about \(\int_{0}^{1} x^{2} \;dx\), the area under a parabola? We will find it using approximation: \updatenote{New question, and \enquote{We will do so} became \enquote{We will find it}. Why: it gives a reason to approximate, now that approximation comes after the definite integral.}
+So far, we evaluated definite integrals using shapes with known area formulas. What about \(\int_{0}^{1} x^{2} \;dx\), the area under a parabola? The rest of this lesson builds a precise way to evaluate definite integrals like this one, starting with approximation: \updatenote{New question and sentence, replacing \enquote{We will do so using approximation}. Why: approximation and Riemann sums now come after the area meaning and the properties, as the precise way to evaluate a definite integral when no area formula applies.}
 \url{https://www.geogebra.org/calculator/bsdvzx3f}
 
 It turns out that approximation is the theoretically advantageous starting point for finding an exact answer: If we approximate an area using \underline{\hspace{2in}} many rectangles, then we get the exact area.
@@ -418,29 +470,18 @@ Everything we did in approximating areas using rectangles leads to the definite 
 This limit makes the net area in Definition~\ref{def:definite-integral-net-area} precise. In particular, Exercise~\ref{ex:area-under-parabola} shows \(\int_{0}^{1} x^{2} \;dx = \underline{\hspace{1cm}}\). \updatenote{New paragraph. Why: it connects the formal definition back to the net area meaning in Subsection~\ref{subsec:defint-meaning}, and closes the question that motivated approximation.}
 
 \bigskip
-We now return to properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic those of summation properties on page~\pageref{page:summation-properties}. \updatenote{"that of" corrected to "those of" to agree with the plural "properties".} \updatenote{\enquote{study} became \enquote{return to}. Why: the properties from net area now come first, in Subsection~\ref{subsec:defint-meaning}.}
-
-\begin{thm}
-  \begin{align*}
-    \int_{a}^{b} (\text{constant}) f(x) \;dx &= (\text{constant}) \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\[1ex]
-    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\[1ex]
-    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
-  \end{align*}
-
-  \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
-\end{thm}
-
+Because the definite integral is defined in terms of a summation, all but one of its properties mimic those of summation properties on page~\pageref{page:summation-properties}. \updatenote{"that of" corrected to "those of" to agree with the plural "properties".} \updatenote{Moved here from the start of the properties, which are now in Subsection~\ref{subsec:defint-properties}. Why: that subsection explains the properties with net area. Once summations are available, this sentence gives a second reason they hold.}
 The flip property, Equation~\eqref{eq:definite-integral-flip}, \hlwarn{does not} have a counterpart in summations.
 Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) restricted to \(1 \le m \le n\).
 The split/merge property of definite integrals, Equation~\eqref{eq:definite-integral-split}, has \hlmain{no restriction} at all.
-\updatenote{These comparisons with summations moved here from the flip and split/merge properties in Subsection~\ref{subsec:defint-meaning}. Why: summations had not been introduced at that point.}
+\updatenote{These comparisons with summations moved here from the flip and split/merge properties in Subsection~\ref{subsec:defint-properties}. Why: summations had not been introduced at that point.}
 \clearpage
 
 %==============================================================================
 % Summary of the merge. Each change is also marked with \updatenote where it
 % happens above.
 %==============================================================================
-{\color{magenta}\Large\bfseries Summary of the merge\par}
+{\color{magenta}\Large\bfseries Summary of the merge\par} \label{page:merge-summary}
 \medskip
 \updatenote{This page summarizes how \enquote{The Sigma notation}, \enquote{Approximating Area} and \enquote{Definite integrals} became this lesson. Colours show which lesson each piece came from. Dashed magenta boxes are new text.}
 
@@ -453,7 +494,7 @@ The split/merge property of definite integrals, Equation~\eqref{eq:definite-inte
 \begin{center}
   \begin{tikzpicture}[
       every node/.append style={execute at begin node={\everymath{\textstyle}}},
-      chip/.style={draw, rounded corners=2pt, anchor=north west, align=left,
+      chip/.style={draw, rounded corners=2pt, anchor=north west, align=flush left,
         font=\footnotesize, inner sep=3pt},
       old/.style={chip, text width=6.2cm},
       new/.style={chip, text width=7.4cm},
@@ -505,34 +546,44 @@ The split/merge property of definite integrals, Equation~\eqref{eq:definite-inte
     \draw[->, line width=2pt, WesternGrey] ([xshift=2mm]L8.east) -- ++(1.3,0);
 
     % ---- After --------------------------------------------------------------
-    \node[heading] (R) at (8.3,0) {After: one lesson, four subsections};
+    \node[heading] (R) at (8.3,0) {After: one lesson, three stages};
 
-    \node[group] (Rg1) at ([yshift=-3mm]R.south west) {11.4.1 What the definite integral means};
-    \node[new, area] (R1) at ([yshift=-1.5mm]Rg1.south west) {velocity and medicine motivation};
-    \node[new, added] (R2) at ([yshift=-1mm]R1.south west) {\enquote{The definite integral answers this question}};
-    \node[new, dint] (R3) at ([yshift=-1mm]R2.south west) {net-area meaning, now its own definition};
-    \node[new, dint] (R4) at ([yshift=-1mm]R3.south west) {graph and semicircle examples};
-    \node[new, dint] (R5) at ([yshift=-1mm]R4.south west) {flip, \(\int_{a}^{a}\), split/merge, examples};
-    \node[new, dint] (R6) at ([yshift=-1mm]R5.south west) {comparison, average value};
+    \node[group] (Rg1) at ([yshift=-3mm]R.south west) {11.4.1 Net area};
+    \node[new, area] (R1) at ([yshift=-1.5mm]Rg1.south west) {velocity and medicine examples, now piecewise constant with negative rates};
+    \node[new, added] (R2) at ([yshift=-1mm]R1.south west) {accounting example; every rate given by a sketch, not a formula};
+    \node[new, added] (R2a) at ([yshift=-1mm]R2.south west) {net area, defined before the definite integral};
+    \node[new, added] (R2b) at ([yshift=-1mm]R2a.south west) {preview: integrals are limits of Riemann sums, covered later};
+    \node[new, dint] (R3) at ([yshift=-1mm]R2b.south west) {definite integral as the notation for net area};
+    \node[new, dint] (R4) at ([yshift=-1mm]R3.south west) {graph examples, now with a semicircle; the semicircle exercises moved to FTC part 2};
 
-    \node[group] (Rg2) at ([yshift=-3mm]R6.south west) {11.4.2 Approximating area};
-    \node[new, added] (R7) at ([yshift=-1.5mm]Rg2.south west) {\enquote{What about \(\int_{0}^{1} x^{2} \;dx\)?}};
-    \node[new, area] (R8) at ([yshift=-1mm]R7.south west) {GeoGebra, infinitely many rectangles};
-    \node[new, area] (R9) at ([yshift=-1mm]R8.south west) {notation list, plus a new item: the approximation as a sum};
-    \node[new, area] (R10) at ([yshift=-1mm]R9.south west) {five methods, examples, \(L_{4}\) and \(R_{4}\)};
+    \node[group] (Rg2) at ([yshift=-3mm]R4.south west) {11.4.2 Properties of definite integrals};
+    \node[new, dint] (R5) at ([yshift=-1.5mm]Rg2.south west) {flip, \(\int_{a}^{a}\), split/merge, examples};
+    \node[new, added] (R5a) at ([yshift=-1mm]R5.south west) {time-reversal example for the flip property};
+    \node[new, dint] (R6) at ([yshift=-1mm]R5a.south west) {constant multiple, sum, difference, now explained with area};
+    \node[new, dint] (R7) at ([yshift=-1mm]R6.south west) {comparison, average value};
 
-    \node[group] (Rg3) at ([yshift=-3mm]R10.south west) {11.4.3 The Sigma notation};
-    \node[new, added] (R11) at ([yshift=-1.5mm]Rg3.south west) {\enquote{Writing out \(L_{4}\) and \(R_{4}\) is tedious; imagine \(R_{100}\)}};
-    \node[new, sig] (R12) at ([yshift=-1mm]R11.south west) {all Sigma notation material, same order};
+    \node[group] (Rg3) at ([yshift=-3mm]R7.south west) {11.4.3 Approximating area};
+    \node[new, added] (R8) at ([yshift=-1.5mm]Rg3.south west) {\enquote{What about \(\int_{0}^{1} x^{2} \;dx\)?} and a precise way to evaluate it};
+    \node[new, area] (R9) at ([yshift=-1mm]R8.south west) {GeoGebra, infinitely many rectangles};
+    \node[new, area] (R10) at ([yshift=-1mm]R9.south west) {notation list, plus a new item: the approximation as a sum};
+    \node[new, area] (R11) at ([yshift=-1mm]R10.south west) {five methods, examples, \(L_{4}\) and \(R_{4}\)};
 
-    \node[group] (Rg4) at ([yshift=-3mm]R12.south west) {11.4.4 Riemann sums and the definite integral};
-    \node[new, area] (R13) at ([yshift=-1.5mm]Rg4.south west) {Riemann sum definition, now without the limit};
-    \node[new, area] (R14) at ([yshift=-1mm]R13.south west) {continuity: any choice of \(x_{i}^{*}\) works};
-    \node[new, area] (R15) at ([yshift=-1mm]R14.south west) {area under \(x^{2}\) exercise, restored};
-    \node[new, dint] (R16) at ([yshift=-1mm]R15.south west) {definition: limit formula};
-    \node[new, added] (R17) at ([yshift=-1mm]R16.south west) {\enquote{Exercise~\ref{ex:area-under-parabola} shows \(\int_{0}^{1} x^{2} \;dx = \underline{\hspace{0.6cm}}\)}};
-    \node[new, dint] (R18) at ([yshift=-1mm]R17.south west) {constant multiple, sum, difference};
-    \node[new, dint] (R19) at ([yshift=-1mm]R18.south west) {comparisons with summations, moved here};
+    \node[group] (Rg4) at ([yshift=-3mm]R11.south west) {11.4.4 The Sigma notation};
+    \node[new, added] (R12) at ([yshift=-1.5mm]Rg4.south west) {\enquote{Writing out \(L_{4}\) and \(R_{4}\) is tedious; imagine \(R_{100}\)}};
+    \node[new, sig] (R13) at ([yshift=-1mm]R12.south west) {all Sigma notation material, same order};
+
+    \node[group] (Rg5) at ([yshift=-3mm]R13.south west) {11.4.5 Riemann sums and the definite integral};
+    \node[new, area] (R14) at ([yshift=-1.5mm]Rg5.south west) {Riemann sum definition, now without the limit};
+    \node[new, area] (R15) at ([yshift=-1mm]R14.south west) {continuity: any choice of \(x_{i}^{*}\) works};
+    \node[new, area] (R16) at ([yshift=-1mm]R15.south west) {area under \(x^{2}\) exercise, restored};
+    \node[new, dint] (R17) at ([yshift=-1mm]R16.south west) {definition: limit formula};
+    \node[new, added] (R18) at ([yshift=-1mm]R17.south west) {\enquote{Exercise~\ref{ex:area-under-parabola} shows \(\int_{0}^{1} x^{2} \;dx = \underline{\hspace{0.6cm}}\)}};
+    \node[new, dint] (R19) at ([yshift=-1mm]R18.south west) {properties compared with summations, moved here};
+
+    % ---- Stage brackets -----------------------------------------------------
+    \draw[WesternGrey, thick] ([xshift=8.5cm]Rg1.north west) -- node[right, font=\footnotesize\bfseries, text=WesternGrey] {1} ([xshift=8.5cm]R4.south west);
+    \draw[WesternGrey, thick] ([xshift=8.5cm]Rg2.north west) -- node[right, font=\footnotesize\bfseries, text=WesternGrey] {2} ([xshift=8.5cm]R7.south west);
+    \draw[WesternGrey, thick] ([xshift=8.5cm]Rg3.north west) -- node[right, font=\footnotesize\bfseries, text=WesternGrey] {3} ([xshift=8.5cm]R19.south west);
   \end{tikzpicture}
 \end{center}
 \clearpage
@@ -544,32 +595,37 @@ Yellow boxes are questions and green boxes are answers. Each answer raises the n
 \begin{center}
   \begin{tikzpicture}[
       every node/.append style={execute at begin node={\everymath{\textstyle}}},
-      stage/.style={draw, rounded corners=3pt, text width=11.5cm, align=center,
+      stage/.style={draw, rounded corners=3pt, text width=11.5cm, align=flush center,
         font=\small, inner sep=4pt, minimum height=0.7cm, anchor=north},
       ask/.style={stage, fill=attn!20, draw=attn},
       ans/.style={stage, fill=main!12, draw=main},
       part/.style={WesternGrey, thick},
       partlabel/.style={left, font=\footnotesize\bfseries, text=WesternGrey},
     ]
-    \node[ask] (q1) at (0,0) {What does \(\int_{a}^{b} f(x) \;dx\) mean?};
-    \node[ans] (a1) at ([yshift=-5mm]q1.south) {Net area, and the properties that follow from it};
-    \node[ask] (q2) at ([yshift=-5mm]a1.south) {What about \(\int_{0}^{1} x^{2} \;dx\)? No area formula applies.};
-    \node[ans] (a2) at ([yshift=-5mm]q2.south) {Approximate with \(n\) rectangles: \(f(x_{1}^{*}) \Delta x + \dots + f(x_{n}^{*}) \Delta x\)};
-    \node[ask] (q3) at ([yshift=-5mm]a2.south) {The sum is long. How do we write it compactly?};
-    \node[ans] (a3) at ([yshift=-5mm]q3.south) {Sigma notation, its properties and formulas};
-    \node[ans] (a4) at ([yshift=-5mm]a3.south) {Riemann sum \(\sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\); let \(n \to \infty\) to define \(\int_{a}^{b} f(x) \;dx\)};
-    \node[ans] (a5) at ([yshift=-5mm]a4.south) {Evaluate \(\int_{0}^{1} x^{2} \;dx\) by the definition.\\ Linearity follows from the Sigma properties.};
+    \node[ask] (q0) at (0,0) {Piecewise constant rates, some negative: what is the total change?};
+    \node[ans] (a0) at ([yshift=-5mm]q0.south) {Net area of rectangles; area below the axis counts as negative};
+    \node[ask] (q1) at ([yshift=-5mm]a0.south) {What if the rate is not piecewise constant?};
+    \node[ans] (a1) at ([yshift=-5mm]q1.south) {Net area of any function, written \(\int_{a}^{b} f(x) \;dx\)};
+    \node[ask] (q2) at ([yshift=-5mm]a1.south) {What can we say about definite integrals using area alone?};
+    \node[ans] (a2) at ([yshift=-5mm]q2.south) {Flip, \(\int_{a}^{a}\), split/merge, constant multiple, sum, difference, comparison, average value};
+    \node[ask] (q3) at ([yshift=-5mm]a2.south) {What about \(\int_{0}^{1} x^{2} \;dx\)? No area formula applies.};
+    \node[ans] (a3) at ([yshift=-5mm]q3.south) {Approximate with \(n\) rectangles: \(f(x_{1}^{*}) \Delta x + \dots + f(x_{n}^{*}) \Delta x\)};
+    \node[ask] (q4) at ([yshift=-5mm]a3.south) {The sum is long. How do we write it compactly?};
+    \node[ans] (a4) at ([yshift=-5mm]q4.south) {Sigma notation, its properties and formulas};
+    \node[ans] (a5) at ([yshift=-5mm]a4.south) {Riemann sum \(\sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\); let \(n \to \infty\) to define \(\int_{a}^{b} f(x) \;dx\)};
+    \node[ans] (a6) at ([yshift=-5mm]a5.south) {Evaluate \(\int_{0}^{1} x^{2} \;dx\) by the definition.\\ The properties also follow from the Sigma properties.};
 
-    \foreach \src/\dst in {q1/a1, a1/q2, q2/a2, a2/q3, q3/a3, a3/a4, a4/a5}
+    \foreach \src/\dst in {q0/a0, a0/q1, q1/a1, a1/q2, q2/a2, a2/q3, q3/a3, a3/q4, q4/a4, a4/a5, a5/a6}
       \draw[->, thick] (\src) -- (\dst);
-    \draw[->, thick, dashed, magenta] (a5.east) to[out=0, in=0, looseness=0.6]
-      node[right, font=\footnotesize, align=left] {answers\\the question} (q2.east);
+    \draw[->, thick, dashed, magenta] (a6.east) to[out=0, in=0, looseness=0.6]
+      node[right, font=\footnotesize, align=left] {answers\\the question} (q3.east);
 
     % Brackets showing which subsection each step belongs to.
-    \draw[part] ([xshift=-3mm]q1.north west) -- node[partlabel] {11.4.1} ([xshift=-3mm]a1.south west);
+    \draw[part] ([xshift=-3mm]q0.north west) -- node[partlabel] {11.4.1} ([xshift=-3mm]a1.south west);
     \draw[part] ([xshift=-3mm]q2.north west) -- node[partlabel] {11.4.2} ([xshift=-3mm]a2.south west);
     \draw[part] ([xshift=-3mm]q3.north west) -- node[partlabel] {11.4.3} ([xshift=-3mm]a3.south west);
-    \draw[part] ([xshift=-3mm]a4.north west) -- node[partlabel] {11.4.4} ([xshift=-3mm]a5.south west);
+    \draw[part] ([xshift=-3mm]q4.north west) -- node[partlabel] {11.4.4} ([xshift=-3mm]a4.south west);
+    \draw[part] ([xshift=-3mm]a5.north west) -- node[partlabel] {11.4.5} ([xshift=-3mm]a6.south west);
   \end{tikzpicture}
 \end{center}
 
@@ -579,7 +635,7 @@ Yellow boxes are questions and green boxes are answers. Each answer raises the n
 \begin{center}
   \begin{tikzpicture}[
       every node/.append style={execute at begin node={\everymath{\textstyle}}},
-      box/.style={draw, rounded corners=3pt, align=center, font=\small, inner sep=5pt},
+      box/.style={draw, rounded corners=3pt, align=flush center, font=\small, inner sep=5pt},
       row/.style={font=\small\bfseries, anchor=east},
     ]
     % Before
@@ -602,9 +658,16 @@ Yellow boxes are questions and green boxes are answers. Each answer raises the n
 \bigskip
 \textbf{4. Other changes}
 \begin{itemize}
-  \item Wording changed to fit the new order: \enquote{lecture} to \enquote{subsection}, \enquote{study} to \enquote{return to}, \enquote{All remaining properties} to \enquote{The next properties}, \enquote{as a Riemann sum} to \enquote{as a limit of Riemann sums}, and \enquote{We will do so} to \enquote{We will find it}. Corrected \enquote{always give} to \enquote{always gives}.
+  \item Wording changed to fit the new order: \enquote{lecture} to \enquote{subsection}, \enquote{as a Riemann sum} to \enquote{as a limit of Riemann sums}, and a new opening for Subsection~\ref{subsec:approximating-area}. Corrected \enquote{always give} to \enquote{always gives}.
+  \item The motivating examples (velocity, medicine and a new accounting example) now use piecewise constant rates with negative pieces, each given by a sketch rather than a formula. Net area is defined before the definite integral, which is introduced as its notation.
+  \item A new time-reversal example, with a sketch, gives the flip property a meaning: rewinding the trip in the velocity example reverses its displacement.
+  \item In the graph for Examples~\ref{ex:definite-integral-area} and~\ref{ex:definite-integral-total-area}, the flat piece on \([4,6]\) is now a semicircle. The answers become \(2 + \pi/2\) and \(14 - \pi/2\).
+  \item The two exercises on \(\sqrt{1 - x^{2}}\), with the sentence introducing them, moved to the end of the FTC part 2 lesson (\texttt{lessons/ftc-part-two.tex}).
+  \item The constant multiple, sum and difference properties moved into Subsection~\ref{subsec:defint-properties}, with space to explain them using area. The sentence linking the properties to summations moved near the end of Subsection~\ref{subsec:defint-formal}.
   \item \texttt{main.tex}: Week~11 now lists three lessons instead of five.
   \item On the \texttt{integration-rework} branch, the files \texttt{lessons/sigma-notation.tex} and \texttt{lessons/the-area-problem.tex} were deleted. All of their content is in this file.
   \item Nothing was cut, so the lesson runs about 18 pages (about three lectures). Easy cuts: one of the two pattern-finding sums and one of the two evaluate-a-sum exercises in Subsection~\ref{subsec:sigma}.
 \end{itemize}
+% Restore the update notes for the lessons that follow.
+\let\updatenote\savedupdatenote
 \end{document}

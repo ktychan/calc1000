@@ -1,6 +1,25 @@
-\documentclass{standalone}
+%! TeX program = lualatex
+% The graph of f for the two net area examples in
+% lessons/the-definite-integral.tex: evaluating the integral over [-2, 6],
+% then describing the total area over the same interval.  f is the line 2 - x
+% on [-2, 4], then the upper half of the circle of radius 1 centred at
+% (5, -2) on [4, 6], so every piece has an area formula:
+%
+%   [-2, 2] -- a triangle above the axis, area 8
+%   [2, 4]  -- a triangle below the axis, area 2
+%   [4, 6]  -- below the axis, a 2-by-2 square less a half disk of radius 1,
+%              area 4 - pi/2
+%
+% So the integral over [-2, 6] is 8 - 2 - (4 - pi/2) = 2 + pi/2, and the total
+% area is 8 + 2 + (4 - pi/2) = 14 - pi/2.  The semicircle keeps both ends at
+% height -2, so f stays continuous, and it peaks at -1, so f stays below the
+% axis on [2, 6].  basic curve keeps equal units, so the semicircle is drawn
+% round.
+\documentclass[tikz, crop]{standalone}
+
 \input{../typography.tex.preamble}
 \input{../tikz.tex.preamble}
+
 \begin{document}
 \begin{tikzpicture}
   \begin{axis}[
@@ -11,8 +30,11 @@
     enlargelimits,
     title={The graph of \(f(x)\)},
     ]
-    \addplot[very thick,black] coordinates {(-2, 4) (4,-2)};
-    \addplot[very thick,black] coordinates {(4,-2) (6, -2)};
+    \addplot[very thick, black] coordinates {(-2, 4) (4,-2)};
+    % parametrised rather than written as -2 + sqrt(1 - (x - 5)^2), so both
+    % ends land exactly on (4, -2) and (6, -2)
+    \addplot[very thick, black, domain=0:pi, samples=100]
+    ({5 + cos(x)}, {-2 + sin(x)});
     % \node[below] at (axis cs:-2,3) {\footnotesize \(f(x)\)};
   \end{axis}
 \end{tikzpicture}

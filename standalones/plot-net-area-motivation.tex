@@ -1,0 +1,212 @@
+%! TeX program = lualatex
+% Sketches for the motivating examples in lessons/the-definite-integral.tex
+% (subsection "Net area").  Each rate is piecewise constant with a negative
+% piece, so its net area is a signed sum of rectangles.
+%
+%   page 1 -- velocity, v(t) = 5 on [1,3), -2 on [3,6), 1 on [6,8]
+%   page 2 -- medicine, r(t) = 2 on [0,20), -1 on [20,40]
+%   page 3 -- cash flow, c(t) = 300 on [0,5), -400 on [5,7), 100 on [7,10]
+%   page 4 -- net area of constant pieces, then the same idea for any function
+%   page 5 -- time reversal for the flip property: the page-1 trip played
+%             forwards (t from 1 to 8) and rewound (t from 8 to 1), drawn as
+%             positions on a line
+%
+% Area above the axis is shaded in main and area below in supp, both at 10%
+% opacity.
+%
+% Every grid cell is square: 0.6cm on pages 1 to 4, 1cm on page 5.  On pages 2
+% and 3 a grid step in t and a grid step in the rate are different amounts
+% (5 min against 0.5 ml/min, 1 day against 100 dollars/day) but the same
+% length on the page.  Include the pages at natural size -- no width= or
+% height= -- or the cells stop being square.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+% Pages 1 to 3.  basic curve supplies the axes, labels and grid, but its equal
+% units are switched off: minutes against ml/min would be a strip a few
+% millimetres tall.  Each page sets x= and y= so one grid step on either axis
+% is 0.6cm instead.  set layers puts the fills on the axis background layer,
+% under the grid and the tick labels.
+\pgfplotsset{rate graph/.style={
+    basic curve,
+    axis equal image=false,
+    set layers,
+    scaled ticks=false,
+    clip=false,
+  }}
+
+% Page 4.  The same 0.6cm cells, now in equal units, since x and y carry no
+% units here.  The tick labels come off (the grid is driven by the ticks and
+% stays): the picture is about the idea, not the values.  No set layers: with
+% two axes in one picture it loses the second axis from the bounding box, and
+% without tick labels there is nothing for the fills to cover -- the grid
+% shows through them at 10% opacity.
+\pgfplotsset{idea graph/.style={
+    basic curve,
+    axis equal image=false,
+    x=0.6cm, y=0.6cm,
+    xmin=0, xmax=9, ymin=-4, ymax=4,
+    xticklabel={\empty}, yticklabel={\empty},
+    clip=false,
+  }}
+
+\tikzset{sign/.style={font=\large}}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- velocity.
+\begin{tikzpicture}
+  \begin{axis}[
+    rate graph,
+    x=0.6cm, y=0.6cm,
+    xmin=0, xmax=9, ymin=-3, ymax=6,
+    xtick={1,...,8}, ytick={-2,...,5},
+    xlabel={\(t\) (min)}, ylabel={\(v(t)\) (km/min)},
+    ]
+    \begin{pgfonlayer}{axis background}
+      \fill[main, fill opacity=0.1] (axis cs:1,0) rectangle (axis cs:3,5);
+      \fill[supp, fill opacity=0.1] (axis cs:3,0) rectangle (axis cs:6,-2);
+      \fill[main, fill opacity=0.1] (axis cs:6,0) rectangle (axis cs:8,1);
+    \end{pgfonlayer}
+    \addplot[very thick] coordinates {(1,5) (3,5)};
+    \addplot[very thick] coordinates {(3,-2) (6,-2)};
+    \addplot[very thick] coordinates {(6,1) (8,1)};
+    \node[sign] at (axis cs:2,2.5) {\(+\)};
+    \node[sign] at (axis cs:4.5,-1.35) {\(-\)};
+    \node[sign] at (axis cs:7,0.5) {\(+\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- medicine.  One grid step is 5 min across and 0.5 ml/min up.
+\begin{tikzpicture}
+  \begin{axis}[
+    rate graph,
+    x=0.12cm, y=1.2cm,
+    xmin=0, xmax=45, ymin=-1.5, ymax=2.5,
+    xtick={5,10,...,40}, ytick={-1,-0.5,0.5,1,1.5,2},
+    xlabel={\(t\) (min)}, ylabel={\(r(t)\) (ml/min)},
+    ]
+    \begin{pgfonlayer}{axis background}
+      \fill[main, fill opacity=0.1] (axis cs:0,0) rectangle (axis cs:20,2);
+      \fill[supp, fill opacity=0.1] (axis cs:20,0) rectangle (axis cs:40,-1);
+    \end{pgfonlayer}
+    \addplot[very thick] coordinates {(0,2) (20,2)};
+    \addplot[very thick] coordinates {(20,-1) (40,-1)};
+    \node[sign] at (axis cs:10,1) {\(+\)};
+    \node[sign] at (axis cs:30,-0.75) {\(-\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 3 -- cash flow.  One grid step is 1 day across and 100 dollars/day up.
+\begin{tikzpicture}
+  \begin{axis}[
+    rate graph,
+    x=0.6cm, y=0.006cm,
+    xmin=0, xmax=11, ymin=-500, ymax=400,
+    xtick={1,...,10}, ytick={-400,-300,...,300},
+    xlabel={\(t\) (days)}, ylabel={\(c(t)\) (dollars/day)},
+    ]
+    \begin{pgfonlayer}{axis background}
+      \fill[main, fill opacity=0.1] (axis cs:0,0) rectangle (axis cs:5,300);
+      \fill[supp, fill opacity=0.1] (axis cs:5,0) rectangle (axis cs:7,-400);
+      \fill[main, fill opacity=0.1] (axis cs:7,0) rectangle (axis cs:10,100);
+    \end{pgfonlayer}
+    \addplot[very thick] coordinates {(0,300) (5,300)};
+    \addplot[very thick] coordinates {(5,-400) (7,-400)};
+    \addplot[very thick] coordinates {(7,100) (10,100)};
+    \node[sign] at (axis cs:2.5,150) {\(+\)};
+    \node[sign] at (axis cs:6,-200) {\(-\)};
+    \node[sign] at (axis cs:8.5,50) {\(+\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 4 -- from constant pieces to any function.  Both sketches change sign
+% at x = 5 over the same window, so the second reads as the first with the
+% steps smoothed out.  The curve is 3 sin(pi x / 5) on [1, 8].
+\begin{tikzpicture}
+  \begin{axis}[idea graph, name=lhs, title={constant pieces}]
+    \fill[main, fill opacity=0.1] (axis cs:1,0) rectangle (axis cs:5,3);
+    \fill[supp, fill opacity=0.1] (axis cs:5,0) rectangle (axis cs:8,-2);
+    \addplot[very thick] coordinates {(1,3) (5,3)};
+    \addplot[very thick] coordinates {(5,-2) (8,-2)};
+    \node[sign] at (axis cs:3,1.5) {\(+\)};
+    \node[sign] at (axis cs:6.5,-1) {\(-\)};
+  \end{axis}
+
+  \begin{axis}[
+    idea graph, name=rhs,
+    at={(lhs.east)}, anchor=west, xshift=2.4cm,
+    title={any function},
+    ]
+    \addplot[draw=none, fill=main, fill opacity=0.1,
+      domain=1:5] {3*sin(pi*x/5)} \closedcycle;
+    \addplot[draw=none, fill=supp, fill opacity=0.1,
+      domain=5:8] {3*sin(pi*x/5)} \closedcycle;
+    \addplot[very thick, domain=1:8] {3*sin(pi*x/5)};
+    \node[sign] at (axis cs:3,1.4) {\(+\)};
+    \node[sign] at (axis cs:6.5,-1.2) {\(-\)};
+  \end{axis}
+
+  \draw[->, thick] ([xshift=3.5mm]lhs.east)
+    -- node[above, font=\footnotesize, align=center] {same\\idea}
+    ([xshift=-3.5mm]rhs.west);
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 5 -- time reversal and the flip property.  Each row is a position line
+% with positions 0 at t = 1, 10 at t = 3, 4 at t = 6 and 6 at t = 8.  The thin
+% arrows above the line trace the trip piece by piece, stacked so they do not
+% overlap; the thick arrow below is the displacement.  Under each line is a
+% strip of 1 km squares, two cells deep, so the end of every hop can be read
+% off the grid.  The displacement labels sit on the strip's bottom edge, so
+% they get a white backing to keep the grid line out of the text.
+%
+% Math in the labels is set in text style: the typography preamble sets
+% \everymath{\displaystyle}, which would make the integral signs full size.
+\begin{tikzpicture}[x=1cm, y=1cm,
+    every node/.append style={execute at begin node={\everymath{\textstyle}}},
+    trip/.style={thick, ->},
+    hop/.style={thin, dashed},
+    net/.style={very thick, ->},
+  ]
+  \foreach \y/\title in {
+      3.6/{\textbf{Forwards:} time runs from \(t = 1\) to \(t = 8\)},
+      0/{\textbf{Rewound:} time runs from \(t = 8\) back to \(t = 1\)}} {
+    \draw[gray!20] (0,\y-1) grid (10,\y+1);
+    \node[anchor=west, font=\footnotesize] at (-0.6, \y+1.3) {\title};
+    \draw[->] (-0.6,\y) -- (11,\y) node[right, font=\footnotesize] {position (km)};
+    \foreach \x in {0,...,10}
+      \draw (\x,\y+0.07) -- (\x,\y-0.07) node[below, font=\scriptsize] {\x};
+  }
+
+  % forwards trip: 0 -> 10 -> 4 -> 6
+  \draw[trip, main] (0,3.95) -- (10,3.95);
+  \draw[hop, main] (10,3.95) -- (10,4.25);
+  \draw[trip, main] (10,4.25) -- (4,4.25);
+  \draw[hop, main] (4,4.25) -- (4,4.55);
+  \draw[trip, main] (4,4.55) -- (6,4.55);
+  \fill (0,3.6) circle (2pt) node[above left, font=\scriptsize] {\(t = 1\)};
+  \fill (6,3.6) circle (2pt) node[above right, font=\scriptsize] {\(t = 8\)};
+  \draw[net] (0,2.95)
+    -- node[below, font=\footnotesize, fill=white, inner sep=1pt] {displacement \(\int_{1}^{8} v(t) \;dt\)}
+    (6,2.95);
+
+  % rewound trip: 6 -> 4 -> 10 -> 0
+  \draw[trip, warn] (6,0.35) -- (4,0.35);
+  \draw[hop, warn] (4,0.35) -- (4,0.65);
+  \draw[trip, warn] (4,0.65) -- (10,0.65);
+  \draw[hop, warn] (10,0.65) -- (10,0.95);
+  \draw[trip, warn] (10,0.95) -- (0,0.95);
+  \fill (6,0) circle (2pt) node[above right, font=\scriptsize] {\(t = 8\)};
+  \fill (0,0) circle (2pt) node[above left, font=\scriptsize] {\(t = 1\)};
+  \draw[net] (6,-0.65)
+    -- node[below, font=\footnotesize, fill=white, inner sep=1pt] {displacement \(\int_{8}^{1} v(t) \;dt\)}
+    (0,-0.65);
+\end{tikzpicture}
+\end{document}
