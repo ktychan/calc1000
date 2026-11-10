@@ -1,36 +1,49 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Antiderivatives}
-We set up terminology and notation for integration. \updatenote{"terminologies" corrected to "terminology", and "notations" corrected to "notation" (both are mass nouns here).}
+We set up terminology and notation for integration which is the idea of \enquote{undoing} differentiation.
 
 \begin{definition} \label{def:antiderivative}
   If \(f(x)\) and \(F(x)\) are related by
   \[
     f(x) = F'(x) \text{ for every } x \text{ in the domain of } f(x),
   \]
-  then we \emph{say} \(F(x)\) is \emph{an} antiderivative of \(f(x)\).
+  then we \emph{say} \(F(x)\) is \hlwarn{an} antiderivative of \(f(x)\).
 \end{definition}
 
-Let's make sense of the above definition.
+\faStar{} In symbols, to find an antiderivative of \(f(x)\) is to fill in the blank 
+\[
+  \frac{d}{dx}\bigg( \hspace{1in} \bigg) = f(x).
+\]
+The function in the blank that makes the equation true is \emph{an} antiderivative.
+
 \begin{example}
-  Consider \(f(x) = 2xe^{x^{2}}\) and \(g(x) = e^{x^{2}}\).
+  This example is meant to help you understand the concept of an antiderivative for \(f(x)\).
 
   \begin{enumerate}[wide]
-    \item Is \(f\) an antiderivative of \(g\)?
+    \item Is \(xe^{x^{2}}\) an antiderivative of \(e^{x^{2}}\)?
 
-      \blanklines{5}
+      \blanks*
 
-    \item Is \(g\) an antiderivative of \(f\)?
+    \item Is \(e^{x^{2}}\) an antiderivative of \(2xe^{x^{2}}\)?
 
-      \blanklines{5}
+      \blanks*
+
+    \item Is \(e^{x^{2}} + (\text{constant})\) an antiderivative of \(2xe^{x^{2}}\)?
+
+      \blanks*
   \end{enumerate}
 \end{example}
 
-\begin{example}
-  Suppose \(f'(x) = x^{3}\) and \(f(0) = 1\). Find \(f(x)\).
+% Without any formulas, finding an antiderivative boils down to guess and check.
 
-  \blanklines{15}
-\end{example}
+\clearpage
+
+% \begin{example}
+%   Suppose \(f'(x) = x^{3}\) and \(f(0) = 1\). Find \(f(x)\).
+%
+%   \blanklines{15}
+% \end{example}
 % \begin{exercise}
 %   Is \(\ln(x)\) an antiderivative of \(1/x\)? Justify your answer using the definition above.
 %
@@ -46,35 +59,35 @@ Let's make sense of the above definition.
 %   \end{enumerate}
 %   \blanklines{10}
 % \end{exercise}
-\clearpage
+The fact that antideritives are not unique is captured in the following definition.
 
 \begin{definition} \label{def:indefinite-integral}
-  The \hlmain{indefinite integral} of \(f\) is a single expression representing all antiderivatives of \(f(x)\) and is denoted by \({\color{main} \int f(x) \;dx}\). If \(F(x)\) is \emph{an} antiderivative of \(f(x)\), then
+  The \emph{indefinite integral} of \(f\) is a single expression representing \hlwarn{all} antiderivatives of \(f(x)\) and is denoted by \(\int f(x) \;dx\). 
+
+  If \(\frac{d}{dx}\hlsupp{F(x)} = \hlmain{f(x)}\), then
   \[
-    \int f(x) \;dx = F(x) + (\text{constant}),
+    \int \hlmain{f(x)} \;dx = \hlsupp{F(x)} \hlwarn{\;+\;C},
   \]
-  or more conventionally, \( \int f(x) \;dx = F(x) + C\) where \(C\) represents a general constant.
+
+  To \emph{evaluate} an indefinite integral \(\int f(x) \;dx\) is to find \(F(x) + C\) where \(F'(x) = f(x)\).
 
   \textbook{Definition, page 487}
 \end{definition}
 
 \begin{example}
-  Definition~\ref{def:indefinite-integral} help us evaluate \emph{simple} integrals by recognizing that the integrand is the derivative of \emph{something}.
+  Evaluate these integrals. The integration table on page~166 is very useful.
 
   \begin{multicols}{2}
     \begin{enumerate}[itemsep={2cm}]
       \item \(\int 0 \;dx = \phantom{\text{(any constant)} + C}  \)
       \item \(\int e^{x}\;dx = \phantom{e^{x} + C}\)
-      \item \(\int 10 \;dx = \phantom{10x + C}\)
-      \item \(\int \sin(x) \;dx = \)
+      \item \(\int -\sin(x) \;dx = \)
       \item \(\int 4x^{3} \;dx = \)
-      \item \(\int x^{5} \;dx = \)
-      \item \(\int \sqrt{x} \;dx = \)
+      \item \(\int 10 \;dx = \phantom{10x + C}\)
       \item \(\int \frac{1}{\sqrt{x}} \;dx = \)
-      \item \(\int \frac{1}{1 + x^{2}} \;dx = \)
-      \item \(\int \cos(x) \;dx = \)
+      \item \(\int \frac{3}{5(1 + x^{2})} \;dx = \)
+      \item \(\int -\cos(x) \;dx = \)
       \item \(\int \sec^{2}(x) \;dx = \)
-      \item \(\int \tan(x)\sec(x) \;dx = \)
     \end{enumerate}
   \end{multicols}
 
@@ -97,35 +110,71 @@ Algebraic properties of integrals break up complex integrals into simple ones.
 \end{thm}
 
 \begin{example}
-  Evaluate \(\int \sin(x) - \sec^{2}(\pi/4) \;dx\).
+  Evaluate \(\int -\sin(x) + \sec^{2}(\pi/4) \;dx\).
 
-  \blanklines{5}
+  \blanks*
 \end{example}
 
 \begin{exercise}
   Evaluate \(\int (x-1)(x+2) \;dx\).
 
-  \blanklines{15}
+  \blanks*
 \end{exercise}
+\clearpage
 
-\begin{exercise}
+\faStar{} Recognize patterns! Integration is (a lot) harder than differentiation. Use differentiation to guess and check when possible, especially when a list of potential antiderivatives is available.
+
+\begin{example}
   Suppose \(F'(x) = (x-1)(x+2)\) and \(F(-1) = 0\).  Find \(F(x)\).
 
-  \blanklines{10}
+  \blanks{20}
+\end{example}
+
+\begin{example}[Final exam, Fall 2025]
+  Suppose \(f'(x) = \frac{\sin(x) - 1}{\cos^{2}(x)}\) and \(f(0) = 3\). 
+
+  Which of the following statements is true?
+
+  \begin{enumerate}[label=(\Alph*)]
+    \item \(f(x) = -3\frac{\cos(x) + x}{\cos^{3}(x)}\)
+    \item \(f(x) = 3\frac{\cos(x) + x}{\cos^{3}(x) \sin(x)}\)
+    \item \(f(x) = \sec(x)\tan(x) - \sec^{2}(x) - 1\)
+    \item \(f(x) = \sec(x) - \tan(x) - 3\)
+    \item \(f(x) = \sec(x) - \tan(x) + 2\)
+  \end{enumerate}
+\end{example}
+\clearpage
+
+\begin{exercise}
+  Suppose \(f''(x) = 6x + 2 + e^{x}\), \(f'(0) = 5\) and \(f(0) = 1\). Find \(f(x)\).
+
+  \blanks*
 \end{exercise}
 
+\begin{exercise}[Final exam, Fall 2024]
+  Evaluate \(\int \frac{e^{x}}{\sqrt{1 - e^{2x}}} \;dx\).
 
+  \begin{enumerate}[label=(\Alph*)]
+    \item \(\frac{1}{2} \ln\left(1 - e^{2x}\right) + C\)
+    \item \(-\sin^{-1}\left(1 - e^{2x}\right) + C\)
+    \item \(\sin^{-1}(e^{x}) + C\)
+    \item \(\tan^{-1}(e^{x}) + C\)
+    \item \(\ln\left(\sqrt{1 - e^{2x}}\right) + C\)
+  \end{enumerate}
 
+  \blanks*
+\end{exercise}
 \clearpage
+
 \begin{exercise}
   Suppose \(F'(x) = \frac{2}{\sqrt{1 - x^{2}}}\) and \(F(0) = 2\).  Find \(F(x)\).
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
 
 \begin{exercise}
-  Find the (specific) antiderivative for \(\sin(x) + \frac{x^{2}}{3}\) so that the graph of the antiderivative passes through the origin.
+  Find the antiderivative for \(\sin(x) + \frac{x^{2}}{3}\) so that the graph of the antiderivative passes through the origin.
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
 \end{document}
