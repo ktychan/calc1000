@@ -1,15 +1,36 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Definite integrals}
-Everything we did in approximating areas using rectangles leads to the definite integral, which is defined for all functions, not just the non-negative ones. \updatenote{Added a comma before the non-restrictive ``which'' clause.}
-\begin{definition} \label{def:definite-integral}
-  The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(a\) to \(b\)}} is defined by
-  \begin{equation} \label{eq:definite-integral}
-    \int_{a}^{b} f(x) \;dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x.
-  \end{equation}
-  \hlsupp{provided} that the limit exists. If this limit exists, then we say \hlmain{\(f\) is integrable on \([a, b]\)} or is an integrable function.
+\updatenote{This lesson merges \enquote{Definite integrals}, \enquote{Approximating Area} and \enquote{The Sigma notation} into four subsections. It starts from what a definite integral means (net area), then asks how to find one when no area formula applies. That question motivates rectangles, then Sigma notation, then the formal definition as a limit. Before, Sigma notation came first with no long sums to shorten yet, and the area lesson defined the Riemann sum with the same limit that defined the definite integral.}
 
-  The definite integral \(\int_{a}^{b} f(x) \;dx\) represents the \hlmain{net area bounded by \(y = f(x)\) and \(y = 0\)} \hlsupp{over the interval \([a,b]\)}.  Sometimes, it is also called the net signed area.
+%==============================================================================
+\subsection{What the definite integral means} \label{subsec:defint-meaning}
+The geometric idea of \hlmain{area} is very flexible and widely applicable in science.
+
+\begin{enumerate}[wide]
+  \item If the velocity of an object (travelling in a straight line) is a constant function \(v(t) = 5\) km per minute, then the displacement of time \(t = 1\) minute to \(t = 3\) minute is \underline{\hspace{2in}}.
+
+    \blanklines{5}
+
+  \item If a medicine is administered intravenously at the rate of \(r(t) = 2\) ml per minute, then, after \(20\) minutes, a patient would have received \underline{\hspace{3in}} ml of medicine.
+
+    \blanklines{5}
+\end{enumerate}
+
+It is scientifically important to ask: What if \(v(t)\) or \(r(t)\) is not a constant function? \updatenote{"are"/"constant functions" corrected to "is"/"a constant function" to agree with the singular subjects joined by "or".} Can we still figure out the displacement and the amount of medicine administered?
+
+\blanklines{10}
+
+Both scenarios, and countless more, are asking the same fundamental \hlmain{geometric} question: \updatenote{"countlessly" corrected to "countless" (adjective, not adverb).}
+
+\blanklines{5}
+
+The definite integral answers this question, and it is defined for all functions, not just the non-negative ones. \updatenote{New sentence, adapted from \enquote{Everything we did in approximating areas using rectangles leads to the definite integral, which is defined for all functions, not just the non-negative ones}, which now opens the formal definition on page~\pageref{def:definite-integral}. Why: the definite integral now comes before approximation, so it enters as the answer to the question above. The GeoGebra link moved to Subsection~\ref{subsec:approximating-area}.}
+
+\begin{definition} \label{def:definite-integral-net-area}
+  The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(a\) to \(b\)}}, written \(\int_{a}^{b} f(x) \;dx\), represents the \hlmain{net area bounded by \(y = f(x)\) and \(y = 0\)} \hlsupp{over the interval \([a,b]\)}.  Sometimes, it is also called the net signed area.
+
+  \updatenote{The limit formula and \enquote{provided that the limit exists} moved to Definition~\ref{def:definite-integral} in Subsection~\ref{subsec:defint-formal}. Why: the formula needs Riemann sums and Sigma notation, which now come later, and the examples below need only the net area meaning.}
 \end{definition}
 \[
   \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
@@ -50,27 +71,14 @@ If the integrand is a well-known shape, then we can evaluate it by simply calcul
 
 % Here is one more exercise to on the net area interpretation of definite integrals.
 % \begin{exercise}
-%   Consider the following function \(f(x)\).  It is known that the only zeros of \(f\) in \([a, b]\) are \(x = 2\) and \(x = 3\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
+%   Consider the following function \(f(x)\). It is known that the only zeros of \(f\) in \([a, b]\) are \(x = 2\) and \(x = 3\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
 %
 %   \includestandalone{../standalones/plot_definite_integral_intro}
 % \end{exercise}
 %
-
-\bigskip
-We now study properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic those of summation properties on page~\pageref{page:summation-properties}. \updatenote{"that of" corrected to "those of" to agree with the plural "properties".}
-
-\begin{thm}
-  \begin{align*}
-    \int_{a}^{b} (\text{constant}) f(x) \;dx &= (\text{constant}) \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\[1ex]
-    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\[1ex]
-    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
-  \end{align*}
-
-  \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
-\end{thm}
 \clearpage
 
-Definite integrals have a ``flip'' property (non-standard terminology) which \hlwarn{does not} have a counterpart in summations.
+Definite integrals have a ``flip'' property (non-standard terminology). \updatenote{Removed \enquote{which \hlwarn{does not} have a counterpart in summations}, and moved the constant multiple, sum and difference properties that came before it to Subsection~\ref{subsec:defint-formal}. Why: summations are not introduced until Subsection~\ref{subsec:sigma}, and those three properties come from the limit definition.}
 
 \begin{thm}
   \begin{equation} \label{eq:definite-integral-flip}
@@ -82,7 +90,7 @@ Definite integrals have a ``flip'' property (non-standard terminology) which \hl
 
 \blanklines{10}
 
-\faStar{} All remaining properties of definite integrals come from their net area interpretation.
+\faStar{} The next properties come from the net area interpretation. \updatenote{Was \enquote{All remaining properties of definite integrals come from their net area interpretation.} Why: the constant multiple, sum and difference properties now come after this point and follow from summations instead.}
 
 \begin{thm}
   \begin{equation}
@@ -92,8 +100,7 @@ Definite integrals have a ``flip'' property (non-standard terminology) which \hl
   \textbook{Equation (5.9) on page 537}
 \end{thm}
 
-Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) restricted to \(1 \le m \le n\).
-Definite integrals also have a split/merge property but with \hlmain{no restriction} at all.
+Definite integrals also have a split/merge property with \hlmain{no restriction} at all. \updatenote{Was \enquote{Recall summations have a split/merge property \ldots{} restricted to \(1 \le m \le n\). Definite integrals also have a split/merge property but with no restriction at all.} The comparison with summations moved to Subsection~\ref{subsec:defint-formal}. Why: summations are not introduced yet.}
 
 \begin{thm}
   \begin{equation} \label{eq:definite-integral-split}
@@ -120,7 +127,7 @@ Definite integrals also have a split/merge property but with \hlmain{no restrict
 
 Here is a typical problem involving the split/merge property.
 \begin{example} \label{ex:definite-integral-split}
-  Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\).  Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
+  Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\). Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
 
   \blanklines{10}
 \end{example}
@@ -150,15 +157,15 @@ The net area interpretation of a definite integral yields two comparison propert
 \end{enumerate}
 
 % \begin{example}
-%   A function \(f(x)\) defined on \([a,b]\) has the following properties. 
+%   A function \(f(x)\) defined on \([a,b]\) has the following properties.
 %   \begin{enumerate}
 %     \item \(f\) is continuous on \([a,b]\)
-%     \item \(f\) has local extrema \(-1, 3, -2\). 
+%     \item \(f\) has local extrema \(-1, 3, -2\).
 %     \item \(f(a) = 1\) and \(f(b) = 0\).
 %     \item \(b - a = 10\).
 %   \end{enumerate}
 %
-%   Find numbers \(A,B\) so that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer. 
+%   Find numbers \(A,B\) so that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer.
 %
 %   \blanklines{10}
 % \end{example}
@@ -172,5 +179,432 @@ The average value of a continuous \(f(x)\) on \([a,b]\) is
 \[
   f_{\text{avg}} = \frac{1}{b-a} \int_{a}^{b} f(x) \;dx.
 \]
+\clearpage
 
+%==============================================================================
+\subsection{Approximating area} \label{subsec:approximating-area}
+So far, we evaluated definite integrals using shapes with known area formulas. What about \(\int_{0}^{1} x^{2} \;dx\), the area under a parabola? We will find it using approximation: \updatenote{New question, and \enquote{We will do so} became \enquote{We will find it}. Why: it gives a reason to approximate, now that approximation comes after the definite integral.}
+\url{https://www.geogebra.org/calculator/bsdvzx3f}
+
+It turns out that approximation is the theoretically advantageous starting point for finding an exact answer: If we approximate an area using \underline{\hspace{2in}} many rectangles, then we get the exact area.
+
+To approximate the area under \(y = f(x)\) over \([a,b]\) using \(n\) rectangles, we use the following notation. \label{page:riemann-notation} \updatenote{This list was under the Riemann sum definition. Why: the five methods below use its notation, and the definition now comes later. The item \enquote{\(n\) is a constant inside the summation} stays with the definition.}
+
+\begin{enumerate}
+  \item The interval \([a,b]\) is divided into sub-intervals by points \(x_{0}, x_{1}, x_{2}, \dots, x_{n}\). \updatenote{"sub-interval" corrected to "sub-intervals".}
+  \item \(n\) represents the number of sub-intervals of the interval \([a,b]\). \updatenote{"sub-interval" corrected to "sub-intervals".}
+  \item \(\Delta x\) is a single symbol and means \(\Delta x = \frac{b-a}{n}\).
+  \item \(\Delta x\) represents the width of each sub-interval.
+  \item The \(i\)-th interval is \([x_{i-1}, x_{i}]\).
+  \item \(x_{i}^{*}\) is a \hlmain{choice} inside the \(i\)th sub-interval.
+  \item The \(i\)-th rectangle has width \(\Delta x\) and height \(f(x_{i}^{*})\), so the approximation is \(f(x_{1}^{*}) \Delta x + f(x_{2}^{*}) \Delta x + \dots + f(x_{n}^{*}) \Delta x\). \updatenote{New item. Why: it writes the approximation as a sum, which Subsection~\ref{subsec:sigma} shortens with Sigma notation.}
+\end{enumerate}
+
+The freedom to choose \(x_{i}^{*}\) gives us useful approximation techniques. \updatenote{"give" corrected to "gives" to agree with the singular subject "freedom".} Here are five simple methods.
+\begin{enumerate}
+  \item \textbf{\(L_{n}\) Left-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i-1}\) the left endpoint of the \(i\)-th interval.
+  \item \textbf{\(R_{n}\) Right-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i}\) the right endpoint of the \(i\)-th interval.
+  \item \textbf{\(M_{n}\) Mid-endpoint approximation}: Choose \(x_{i}^{*}\) to be the midpoint of the \(i\)-th interval.
+  \item \textbf{Upper sum}: Choose \(x_{i}^{*}\) to be the number in the \(i\)-th interval at which \(f(x)\) is maximized.
+  \item \textbf{Lower sum}: Choose \(x_{i}^{*}\) to be the number in the \(i\)-th interval at which \(f(x)\) is minimized.
+\end{enumerate}
+For the upper and lower sums, the Extreme Value Theorem guarantees such choices exist.
+
+\begin{example}
+  For the function \(f(x)\) below, sketch the left-endpoint, right-endpoint and midpoint approximations using \(3\) equal-width rectangles.
+
+  \hfill{}
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+  \hfill{}
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+  \hfill{}
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+  \hfill{}
+
+  \blanklines{7}
+\end{example}
+
+\begin{example}
+  Calculate the left- and right-endpoint approximations of \(f(x) = x^{2}\) over \([0, 3]\) using \(3\) equal-width rectangles, i.e., calculate \(L_{3}\) and \(R_{3}\).
+
+  \blanklines{10}
+\end{example}
+\clearpage
+
+\begin{exercise}
+  For the function \(f(x)\) below, sketch the upper and lower sums using \(3\) equal-width rectangles.
+
+  \hfill{}
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+  \hfill{}
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+  \hfill{}
+
+  \blanklines{3}
+\end{exercise}
+
+\begin{exercise} \label{ex:L4-R4}
+  Write down the expression for the left- and right-endpoint approximations for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-4, -2]\) using \(n = 4\) equal-width rectangles. In other words, write down the expressions for \(L_{4}\) and \(R_{4}\) without performing the final additions.
+
+  \blanklines{30}
+\end{exercise}
+\clearpage
+
+%==============================================================================
+\subsection{The Sigma notation} \label{subsec:sigma}
+Writing out \(L_{4}\) and \(R_{4}\) in Exercise~\ref{ex:L4-R4} is already tedious; imagine \(R_{100}\). \updatenote{New sentence. Why: it gives a reason to learn Sigma notation, which used to be taught before any long sums appeared.}
+The Sigma notation is a compact way to express the sum of a bunch of numbers and is mainly used in \thiscourse{} to express and manipulate Riemann sums (See Definitions~\ref{def:riemann-sum}~and~\ref{def:definite-integral}).  It is \hlmain{important} that you can recognize the expression in Definition~\ref{def:riemann-sum}.  Therefore, the entire purpose of this subsection is to help you feel comfortable with the Sigma notation. \updatenote{\enquote{lecture} became \enquote{subsection}. Why: Sigma notation is now one part of a longer lesson.}
+
+\blanklines{3}
+
+{\huge \[ \sum_{i=m}^{n} a_{i} = \hspace{3in}\]}
+
+\blanklines{3}
+
+\begin{example} \label{ex:sigma-notation-read}
+  Write the following summations in expanded form.
+  \begin{align*}
+    \sum_{i=3}^{5} (2i^{3} + 1)
+    &= \underline{\hspace{5in}} \\[3ex]
+    \sum_{k=10}^{13} x
+    &= \underline{\hspace{5in}}.
+  \end{align*}
+\end{example}
+
+When we need to express a sum using Sigma notation, remember that the index of summation, say \(i\), \hlwarn{must be an integer and increase by exactly \(1\)}. \updatenote{"increases" corrected to "increase" to match the verb form after "must be \ldots{} and".}
+
+\begin{example}
+  Express the following sum using Sigma notation. Look for a pattern of change across the summands and express such pattern as a multiple of \(i\).
+
+  \[
+    A = \frac{3}{2} + 3 + \frac{9}{2} + 6 = \hspace{3in}
+  \]
+  \blanklines{10}
+\end{example}
+\updatenote{The 1st and 3rd terms were swapped (was \(\frac{9}{2} + 3 + \frac{3}{2} + 6\)): as originally written the summands have no consistent common difference (\(-3/2, -3/2, +9/2\)), so no pattern exists to express as a multiple of \(i\); reordered, the terms are exactly \(\frac{3}{2}i\) for \(i=1,2,3,4\).}
+\clearpage
+
+\begin{exercise}
+  Express the total area \(A\) of the rectangles shown below using Sigma notation. The height of each rectangle is labelled on its top edge. \updatenote{"their" corrected to "its" to agree with the singular "each rectangle".} The width of each rectangle is \(1/2\).
+
+  \blanklines{4}
+  \begin{center}
+    \includestandalone{../standalones/plot_rectangles}
+  \end{center}
+
+  \blanklines{20}
+\end{exercise}
+
+\begin{exercise}
+  Express the following sum \(A\) using Sigma notation.
+  \[
+    A =  \bigg( -\frac{1}{3} \bigg)^{2} +  \bigg( 0 \bigg)^{2} +  \bigg( \frac{1}{3} \bigg)^{2} +  \bigg( \frac{2}{3} \bigg)^{2} +  \bigg( 1 \bigg)^{2} + \left( \frac{4}{3} \right)^{2} + \left( \frac{5}{3} \right)^{2}.
+  \]
+
+  \blanklines{10}
+\end{exercise}
+\clearpage
+
+\begin{thm}
+  \label{page:summation-properties}
+  Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be two lists of numbers.
+  \begin{align*}
+    \sum_{i=1}^{n} {\color{attn} \mathbf{c}} \; a_{i}
+    &= {\color{attn} \mathbf{c}} \sum_{i=1}^{n} a_{i}
+    &&\text{(constant multiple)} \\[6ex]
+    \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{+}\,} \sum_{i=1}^{n} b_{i}
+    &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{+}\,}\, b_{i})
+    &&\text{(sum)} \\[6ex]
+    \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{-}\,} \sum_{i=1}^{n} b_{i}
+    &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{-}\,} b_{i})
+    && \text{(difference)} \\[6ex]
+    \sum_{i=1}^{{\color{attn}\mathbf{n}}} a_{i}
+    &=
+    \sum_{i=1}^{{\color{attn}\mathbf{m}}} a_{i} +
+    \sum_{i={\color{attn}\mathbf{m+1}}}^{{\color{attn}\mathbf{n}}} a_{i}
+    && \text{(split/merge a sum)} \\[6ex]
+  \end{align*}
+
+  \textbook{Rule: Properties of Sigma Notation, page 509}
+\end{thm}
+
+To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition.  The formulas in Equation~\eqref{formula:summations} are useful and examinable.
+\begin{equation} \label{formula:summations}
+  \sum_{i=1}^{n} i = {\color{main} \frac{n(n+1)}{2}}, \qquad \sum_{i=1}^{n} i^{2} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{2n+1}{3}, \qquad \sum_{i=1}^{n} i^{3} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{n(n+1)}{2}.
+\end{equation}
+
+\begin{example}
+  Simplify \(\sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\).
+
+  \blanklines{15}
+\end{example}
+\clearpage
+
+% Sometimes, we have to manipulate Sigma notation before applying summation formulas.
+% \begin{equation} \label{eq:summation-reindex}
+%   \sum_{i=m}^{n} a_{i} = \sum_{j = 1}^{n - m + 1} a_{m+j-1}.
+% \end{equation}
+% This ``reindexing'' formula is obtained by performing a change of variable \(j = i - m + 1\).
+
+% \blanklines{5}
+\begin{exercise}
+  Evaluate \(\sum_{i=10}^{100} i^{3}\).
+  \hfill {\footnotesize Hint: Use the split/merge property.}
+
+  \blanklines{15}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\sum_{i=50}^{300} 6 i^{2}\).
+
+  \blanklines{15}
+\end{exercise}
+\clearpage
+
+%==============================================================================
+\subsection{Riemann sums and the definite integral} \label{subsec:defint-formal}
+Definition~\ref{def:riemann-sum} describes a major concept in integration called the Riemann sum.
+
+\begin{definition} \label{def:riemann-sum}
+  The \hlmain{Riemann sum} for a function \(f(x)\) defined over an interval \([a,b]\) is
+  \begin{equation} \label{eq:riemann-sum} \Huge
+    \sum_{{\color{main}i}=1}^{{\color{main}n}} f(x_{{\color{main}i}}^{*}) \; {\color{supp} \Delta x}.
+  \end{equation}
+
+  If \(f(x)\) is \emph{continuous} and non-negative on \([a,b]\), then \hlmain{the area under the curve \(y = f(x)\) on \([a,b]\)} is defined to be
+  \begin{equation} \label{eq:area-under-the-curve}
+    \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \; \Delta x.
+  \end{equation}
+
+  \textbook{The definitions on page 519}
+
+  \updatenote{The limit moved out of the Riemann sum. Was: the Riemann sum is \(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\), and the area is \enquote{the value of the corresponding Riemann sum}. Why: a Riemann sum is usually the finite sum, an approximation using \(n\) rectangles. Its limit is the area, and Definition~\ref{def:definite-integral} below uses the same limit, so before this change one expression had two names.}
+\end{definition}
+
+\blanklines{10}
+
+\(n\) is a constant inside the summation. The other symbols are explained on page~\pageref{page:riemann-notation}. \updatenote{The rest of the list that was here moved to page~\pageref{page:riemann-notation}. Why: the approximation methods use it before this definition.}
+
+Continuity guarantees the choice of \(x_{i}^{*}\) does not matter at all. We are free to choose anything we want from \([x_{i-1}, x_{i}]\) to be our \(x_{i}^{*}\). From a practical point of view, it means that as long as we approximate with enough rectangles we will eventually get more and more accurate answers, regardless of how we choose \(x_{i}^{*}\) (could just be a random choice). \updatenote{Moved from before the five approximation methods. Why: it is about the limit as \(n \to \infty\), so it belongs after the limit is defined.}
+
+\begin{example}
+  Express the area under the curve \(y = x^{2}\) over \([0,1]\) as a limit of Riemann sums. \updatenote{Was \enquote{as a Riemann sum}. Why: the area is now the limit of Riemann sums, not a Riemann sum itself.}
+
+  \blanklines{10}
+\end{example}
+\clearpage
+
+The freedom to choose \(x_{i}^{*}\) is important for approximation. In practice, \hlmain{choosing \(x_{i}^{*}\) to be \(x_{i}\) (the right endpoints) always gives us notationally simpler expressions} for finding area under the curve using definition.
+
+\begin{exercise} \label{ex:area-under-parabola}
+  Use the definition to find the area under the curve \(y = x^{2}\) over the interval \([0,1]\).
+
+  As a reminder, the area as defined in Equation~\eqref{eq:area-under-the-curve} is \(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\).
+
+  \blanklines{40}
+\end{exercise}
+\updatenote{Uncommented this paragraph and exercise, corrected \enquote{always give} to \enquote{always gives}, and changed \enquote{the Riemann sum as defined in} to \enquote{the area as defined in}. Why: the exercise answers the question that opened Subsection~\ref{subsec:approximating-area}, and the summation formulas it needs are now in the same lesson.}
+\clearpage
+
+Everything we did in approximating areas using rectangles leads to the definite integral, which is defined for all functions, not just the non-negative ones. \updatenote{Added a comma before the non-restrictive ``which'' clause.}
+\begin{definition} \label{def:definite-integral}
+  The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(a\) to \(b\)}} is defined by
+  \begin{equation} \label{eq:definite-integral}
+    \int_{a}^{b} f(x) \;dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x.
+  \end{equation}
+  \hlsupp{provided} that the limit exists. If this limit exists, then we say \hlmain{\(f\) is integrable on \([a, b]\)} or is an integrable function.
+\end{definition}
+
+This limit makes the net area in Definition~\ref{def:definite-integral-net-area} precise. In particular, Exercise~\ref{ex:area-under-parabola} shows \(\int_{0}^{1} x^{2} \;dx = \underline{\hspace{1cm}}\). \updatenote{New paragraph. Why: it connects the formal definition back to the net area meaning in Subsection~\ref{subsec:defint-meaning}, and closes the question that motivated approximation.}
+
+\bigskip
+We now return to properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic those of summation properties on page~\pageref{page:summation-properties}. \updatenote{"that of" corrected to "those of" to agree with the plural "properties".} \updatenote{\enquote{study} became \enquote{return to}. Why: the properties from net area now come first, in Subsection~\ref{subsec:defint-meaning}.}
+
+\begin{thm}
+  \begin{align*}
+    \int_{a}^{b} (\text{constant}) f(x) \;dx &= (\text{constant}) \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\[1ex]
+    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\[1ex]
+    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
+  \end{align*}
+
+  \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
+\end{thm}
+
+The flip property, Equation~\eqref{eq:definite-integral-flip}, \hlwarn{does not} have a counterpart in summations.
+Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) restricted to \(1 \le m \le n\).
+The split/merge property of definite integrals, Equation~\eqref{eq:definite-integral-split}, has \hlmain{no restriction} at all.
+\updatenote{These comparisons with summations moved here from the flip and split/merge properties in Subsection~\ref{subsec:defint-meaning}. Why: summations had not been introduced at that point.}
+\clearpage
+
+%==============================================================================
+% Summary of the merge. Each change is also marked with \updatenote where it
+% happens above.
+%==============================================================================
+{\color{magenta}\Large\bfseries Summary of the merge\par}
+\medskip
+\updatenote{This page summarizes how \enquote{The Sigma notation}, \enquote{Approximating Area} and \enquote{Definite integrals} became this lesson. Colours show which lesson each piece came from. Dashed magenta boxes are new text.}
+
+\bigskip
+\textbf{1. Where each piece went}
+
+% The preamble sets \everymath{\displaystyle}; switch nodes back to
+% \textstyle so inline integrals and sums stay line-sized. Boxes are
+% stacked below the previous one, so wrapped text cannot overlap.
+\begin{center}
+  \begin{tikzpicture}[
+      every node/.append style={execute at begin node={\everymath{\textstyle}}},
+      chip/.style={draw, rounded corners=2pt, anchor=north west, align=left,
+        font=\footnotesize, inner sep=3pt},
+      old/.style={chip, text width=6.2cm},
+      new/.style={chip, text width=7.4cm},
+      sig/.style={fill=attn!20, draw=attn},
+      area/.style={fill=supp!12, draw=supp},
+      dint/.style={fill=main!12, draw=main},
+      added/.style={fill=white, draw=magenta, dashed, text=magenta},
+      group/.style={anchor=north west, font=\small\bfseries, inner sep=0pt},
+      heading/.style={anchor=north west, font=\bfseries, inner sep=0pt},
+      swatch/.style={draw, rounded corners=1pt, anchor=north west,
+        minimum width=0.45cm, minimum height=0.35cm},
+    ]
+    % ---- Before -------------------------------------------------------------
+    \node[heading] (L) at (0,0) {Before: three lessons};
+
+    \node[group] (Lg1) at ([yshift=-3mm]L.south west) {The Sigma notation};
+    \node[old, sig] (L1) at ([yshift=-1.5mm]Lg1.south west) {notation, expanding a sum};
+    \node[old, sig] (L2) at ([yshift=-1mm]L1.south west) {pattern exercises, rectangles figure};
+    \node[old, sig] (L3) at ([yshift=-1mm]L2.south west) {properties, formulas, simplify example};
+    \node[old, sig] (L4) at ([yshift=-1mm]L3.south west) {evaluate-a-sum exercises};
+
+    \node[group] (Lg2) at ([yshift=-3mm]L4.south west) {Approximating Area};
+    \node[old, area] (L5) at ([yshift=-1.5mm]Lg2.south west) {velocity and medicine motivation};
+    \node[old, area] (L6) at ([yshift=-1mm]L5.south west) {GeoGebra, infinitely many rectangles};
+    \node[old, area] (L7) at ([yshift=-1mm]L6.south west) {Riemann sum definition, with the limit};
+    \node[old, area] (L8) at ([yshift=-1mm]L7.south west) {notation list: \(n\), \(\Delta x\), \(x_{i}^{*}\)};
+    \node[old, area] (L9) at ([yshift=-1mm]L8.south west) {continuity: any choice of \(x_{i}^{*}\) works};
+    \node[old, area] (L10) at ([yshift=-1mm]L9.south west) {five methods, examples, \(L_{4}\) and \(R_{4}\)};
+    \node[old, area] (L11) at ([yshift=-1mm]L10.south west) {area under \(x^{2}\) exercise (commented out)};
+
+    \node[group] (Lg3) at ([yshift=-3mm]L11.south west) {Definite integrals};
+    \node[old, dint] (L12) at ([yshift=-1.5mm]Lg3.south west) {definition: limit formula and net area};
+    \node[old, dint] (L13) at ([yshift=-1mm]L12.south west) {graph and semicircle examples};
+    \node[old, dint] (L14) at ([yshift=-1mm]L13.south west) {constant multiple, sum, difference};
+    \node[old, dint] (L15) at ([yshift=-1mm]L14.south west) {flip, \(\int_{a}^{a}\), split/merge, examples};
+    \node[old, dint] (L16) at ([yshift=-1mm]L15.south west) {comparison, average value};
+
+    % ---- Legend -------------------------------------------------------------
+    \node[swatch, sig] (k1) at ([yshift=-8mm]L16.south west) {};
+    \node[anchor=west, font=\footnotesize] at ([xshift=1.5mm]k1.east) {from The Sigma notation};
+    \node[swatch, area] (k2) at ([yshift=-2mm]k1.south west) {};
+    \node[anchor=west, font=\footnotesize] at ([xshift=1.5mm]k2.east) {from Approximating Area};
+    \node[swatch, dint] (k3) at ([yshift=-2mm]k2.south west) {};
+    \node[anchor=west, font=\footnotesize] at ([xshift=1.5mm]k3.east) {from Definite integrals};
+    \node[swatch, added] (k4) at ([yshift=-2mm]k3.south west) {};
+    \node[anchor=west, font=\footnotesize] at ([xshift=1.5mm]k4.east) {new text};
+
+    % ---- Arrow --------------------------------------------------------------
+    \draw[->, line width=2pt, WesternGrey] ([xshift=2mm]L8.east) -- ++(1.3,0);
+
+    % ---- After --------------------------------------------------------------
+    \node[heading] (R) at (8.3,0) {After: one lesson, four subsections};
+
+    \node[group] (Rg1) at ([yshift=-3mm]R.south west) {11.4.1 What the definite integral means};
+    \node[new, area] (R1) at ([yshift=-1.5mm]Rg1.south west) {velocity and medicine motivation};
+    \node[new, added] (R2) at ([yshift=-1mm]R1.south west) {\enquote{The definite integral answers this question}};
+    \node[new, dint] (R3) at ([yshift=-1mm]R2.south west) {net-area meaning, now its own definition};
+    \node[new, dint] (R4) at ([yshift=-1mm]R3.south west) {graph and semicircle examples};
+    \node[new, dint] (R5) at ([yshift=-1mm]R4.south west) {flip, \(\int_{a}^{a}\), split/merge, examples};
+    \node[new, dint] (R6) at ([yshift=-1mm]R5.south west) {comparison, average value};
+
+    \node[group] (Rg2) at ([yshift=-3mm]R6.south west) {11.4.2 Approximating area};
+    \node[new, added] (R7) at ([yshift=-1.5mm]Rg2.south west) {\enquote{What about \(\int_{0}^{1} x^{2} \;dx\)?}};
+    \node[new, area] (R8) at ([yshift=-1mm]R7.south west) {GeoGebra, infinitely many rectangles};
+    \node[new, area] (R9) at ([yshift=-1mm]R8.south west) {notation list, plus a new item: the approximation as a sum};
+    \node[new, area] (R10) at ([yshift=-1mm]R9.south west) {five methods, examples, \(L_{4}\) and \(R_{4}\)};
+
+    \node[group] (Rg3) at ([yshift=-3mm]R10.south west) {11.4.3 The Sigma notation};
+    \node[new, added] (R11) at ([yshift=-1.5mm]Rg3.south west) {\enquote{Writing out \(L_{4}\) and \(R_{4}\) is tedious; imagine \(R_{100}\)}};
+    \node[new, sig] (R12) at ([yshift=-1mm]R11.south west) {all Sigma notation material, same order};
+
+    \node[group] (Rg4) at ([yshift=-3mm]R12.south west) {11.4.4 Riemann sums and the definite integral};
+    \node[new, area] (R13) at ([yshift=-1.5mm]Rg4.south west) {Riemann sum definition, now without the limit};
+    \node[new, area] (R14) at ([yshift=-1mm]R13.south west) {continuity: any choice of \(x_{i}^{*}\) works};
+    \node[new, area] (R15) at ([yshift=-1mm]R14.south west) {area under \(x^{2}\) exercise, restored};
+    \node[new, dint] (R16) at ([yshift=-1mm]R15.south west) {definition: limit formula};
+    \node[new, added] (R17) at ([yshift=-1mm]R16.south west) {\enquote{Exercise~\ref{ex:area-under-parabola} shows \(\int_{0}^{1} x^{2} \;dx = \underline{\hspace{0.6cm}}\)}};
+    \node[new, dint] (R18) at ([yshift=-1mm]R17.south west) {constant multiple, sum, difference};
+    \node[new, dint] (R19) at ([yshift=-1mm]R18.south west) {comparisons with summations, moved here};
+  \end{tikzpicture}
+\end{center}
+\clearpage
+
+\textbf{2. The order of ideas in the new lesson}
+
+Yellow boxes are questions and green boxes are answers. Each answer raises the next question.
+
+\begin{center}
+  \begin{tikzpicture}[
+      every node/.append style={execute at begin node={\everymath{\textstyle}}},
+      stage/.style={draw, rounded corners=3pt, text width=11.5cm, align=center,
+        font=\small, inner sep=4pt, minimum height=0.7cm, anchor=north},
+      ask/.style={stage, fill=attn!20, draw=attn},
+      ans/.style={stage, fill=main!12, draw=main},
+      part/.style={WesternGrey, thick},
+      partlabel/.style={left, font=\footnotesize\bfseries, text=WesternGrey},
+    ]
+    \node[ask] (q1) at (0,0) {What does \(\int_{a}^{b} f(x) \;dx\) mean?};
+    \node[ans] (a1) at ([yshift=-5mm]q1.south) {Net area, and the properties that follow from it};
+    \node[ask] (q2) at ([yshift=-5mm]a1.south) {What about \(\int_{0}^{1} x^{2} \;dx\)? No area formula applies.};
+    \node[ans] (a2) at ([yshift=-5mm]q2.south) {Approximate with \(n\) rectangles: \(f(x_{1}^{*}) \Delta x + \dots + f(x_{n}^{*}) \Delta x\)};
+    \node[ask] (q3) at ([yshift=-5mm]a2.south) {The sum is long. How do we write it compactly?};
+    \node[ans] (a3) at ([yshift=-5mm]q3.south) {Sigma notation, its properties and formulas};
+    \node[ans] (a4) at ([yshift=-5mm]a3.south) {Riemann sum \(\sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\); let \(n \to \infty\) to define \(\int_{a}^{b} f(x) \;dx\)};
+    \node[ans] (a5) at ([yshift=-5mm]a4.south) {Evaluate \(\int_{0}^{1} x^{2} \;dx\) by the definition.\\ Linearity follows from the Sigma properties.};
+
+    \foreach \src/\dst in {q1/a1, a1/q2, q2/a2, a2/q3, q3/a3, a3/a4, a4/a5}
+      \draw[->, thick] (\src) -- (\dst);
+    \draw[->, thick, dashed, magenta] (a5.east) to[out=0, in=0, looseness=0.6]
+      node[right, font=\footnotesize, align=left] {answers\\the question} (q2.east);
+
+    % Brackets showing which subsection each step belongs to.
+    \draw[part] ([xshift=-3mm]q1.north west) -- node[partlabel] {11.4.1} ([xshift=-3mm]a1.south west);
+    \draw[part] ([xshift=-3mm]q2.north west) -- node[partlabel] {11.4.2} ([xshift=-3mm]a2.south west);
+    \draw[part] ([xshift=-3mm]q3.north west) -- node[partlabel] {11.4.3} ([xshift=-3mm]a3.south west);
+    \draw[part] ([xshift=-3mm]a4.north west) -- node[partlabel] {11.4.4} ([xshift=-3mm]a5.south west);
+  \end{tikzpicture}
+\end{center}
+
+\bigskip
+\textbf{3. The definition change}
+
+\begin{center}
+  \begin{tikzpicture}[
+      every node/.append style={execute at begin node={\everymath{\textstyle}}},
+      box/.style={draw, rounded corners=3pt, align=center, font=\small, inner sep=5pt},
+      row/.style={font=\small\bfseries, anchor=east},
+    ]
+    % Before
+    \node[row] at (-0.2,0) {Before};
+    \node[box, fill=supp!12, draw=supp] (rs0) at (1.5,0.6) {Riemann sum};
+    \node[box, fill=main!12, draw=main] (di0) at (1.5,-0.6) {\(\int_{a}^{b} f(x) \;dx\)};
+    \node[box] (lim0) at (7,0) {\(\lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\)};
+    \draw[->, thick] (rs0) -- node[above, font=\footnotesize, sloped] {defined as} (lim0);
+    \draw[->, thick] (di0) -- node[below, font=\footnotesize, sloped] {defined as} (lim0);
+    \node[anchor=west, font=\footnotesize, text=warn, align=left] at ([xshift=0.3cm]lim0.east) {one expression,\\two names};
+
+    % After
+    \node[row] at (-0.2,-2.4) {After};
+    \node[box, fill=supp!12, draw=supp] (rs1) at (1.5,-2.4) {Riemann sum\\[2pt]\(\sum_{i=1}^{n} f(x_{i}^{*}) \Delta x\)\\[2pt]{\footnotesize an approximation}};
+    \node[box, fill=main!12, draw=main] (di1) at (8,-2.4) {\(\int_{a}^{b} f(x) \;dx\)\\[2pt]{\footnotesize the area when \(f\) is}\\{\footnotesize continuous and non-negative}};
+    \draw[->, thick] (rs1) -- node[above, font=\footnotesize] {limit as \(n \to \infty\)} (di1);
+  \end{tikzpicture}
+\end{center}
+
+\bigskip
+\textbf{4. Other changes}
+\begin{itemize}
+  \item Wording changed to fit the new order: \enquote{lecture} to \enquote{subsection}, \enquote{study} to \enquote{return to}, \enquote{All remaining properties} to \enquote{The next properties}, \enquote{as a Riemann sum} to \enquote{as a limit of Riemann sums}, and \enquote{We will do so} to \enquote{We will find it}. Corrected \enquote{always give} to \enquote{always gives}.
+  \item \texttt{main.tex}: Week~11 now lists three lessons instead of five.
+  \item On the \texttt{integration-rework} branch, the files \texttt{lessons/sigma-notation.tex} and \texttt{lessons/the-area-problem.tex} were deleted. All of their content is in this file.
+  \item Nothing was cut, so the lesson runs about 18 pages (about three lectures). Easy cuts: one of the two pattern-finding sums and one of the two evaluate-a-sum exercises in Subsection~\ref{subsec:sigma}.
+\end{itemize}
 \end{document}
