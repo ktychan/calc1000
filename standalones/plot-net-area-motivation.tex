@@ -1,24 +1,39 @@
 %! TeX program = lualatex
-% Sketches for the motivating examples in lessons/the-definite-integral.tex
-% (subsection "Net area").  Each rate is piecewise constant with a negative
-% piece, so its net area is a signed sum of rectangles.
+% Sketches for lessons/the-definite-integral.tex: the motivating examples of
+% subsection "Net area" on pages 1 to 8, and the split/join property on page 9.
+% Each rate is piecewise constant with a negative piece, so its net area is a
+% signed sum of rectangles.
 %
 %   page 1 -- velocity, v(t) = 5 on [1,3), -2 on [3,6), 1 on [6,8]
 %   page 2 -- medicine, r(t) = 2 on [0,20), -1 on [20,40]
-%   page 3 -- cash flow, c(t) = 300 on [0,5), -400 on [5,7), 100 on [7,10]
-%   page 4 -- net area of constant pieces, then the same idea for any function
+%   page 3 -- cash flow, cashflow(t) = 3 on [0,5), -4 on [5,7), 1 on [7,10]
+%   page 4 -- net area of a piecewise constant function, titled "simple
+%             functions" (the left half of the old page 4)
 %   page 5 -- time reversal for the flip property: the page-1 trip played
 %             forwards (t from 1 to 8) and rewound (t from 8 to 1), drawn as
 %             positions on a line
+%   page 6 -- velocity again, now continuous and piecewise linear, to sit
+%             beside page 1: same window and same 0.6cm cells, so the pair
+%             reads as rectangles against triangles
+%   page 7 -- net area for any function (the right half of the old page 4)
+%   page 8 -- page 6 again under the heading "simple functions", the middle
+%             step of the progression constant pieces -> simple functions ->
+%             any function on pages 4, 8 and 7
+%   page 9 -- a bare wavy curve over 0 to 10 for the split/join property,
+%             with nothing labelled: the a, b and c of the splitting point
+%             get marked on it in class
 %
 % Area above the axis is shaded in main and area below in supp, both at 10%
 % opacity.
 %
-% Every grid cell is square: 0.6cm on pages 1 to 4, 1cm on page 5.  On pages 2
-% and 3 a grid step in t and a grid step in the rate are different amounts
-% (5 min against 0.5 ml/min, 1 day against 100 dollars/day) but the same
-% length on the page.  Include the pages at natural size -- no width= or
-% height= -- or the cells stop being square.
+% Every grid cell is square: 0.6cm on pages 1 to 4 and 6, 1cm on page 5.  On
+% page 2 a grid step in t and a grid step in the rate are different amounts
+% (5 min against 0.5 ml/min) but the same length on the page.  Include the
+% pages at natural size -- no width= or height= -- or the cells stop being
+% square.
+%
+% Pages 1, 3 and 6 carry no units on their axis labels: the plots are about
+% net area, and the units live in the lesson text beside them.
 \documentclass[tikz, crop]{standalone}
 
 \input{../typography.tex.preamble}
@@ -37,22 +52,57 @@
     clip=false,
   }}
 
-% Page 4.  The same 0.6cm cells, now in equal units, since x and y carry no
-% units here.  The tick labels come off (the grid is driven by the ticks and
-% stays): the picture is about the idea, not the values.  No set layers: with
-% two axes in one picture it loses the second axis from the bounding box, and
-% without tick labels there is nothing for the fills to cover -- the grid
-% shows through them at 10% opacity.
-\pgfplotsset{idea graph/.style={
+% Pages 4, 8 and 7 sit side by side in one row in the lesson, so they share a
+% window, a cell size and a tick scheme.  The window holds every curve in the
+% row -- page 7 dips to -3, page 8 peaks at 4, all three live on x in [1,8] --
+% with one unit of padding all round, so the three axes line up on the page.
+%
+% Ticks are labelled every 2 but a grid line is drawn every 1: the unit grid is
+% what areas get counted on, while a label on every line is unreadable at this
+% size.  minor grid style matches major, so the grid looks uniform.
+%
+% 0.45cm rather than the 0.6cm used elsewhere: at 0.6cm the row of three is
+% about 15pt too wide for the text block.
+\pgfplotsset{net area panel/.style={
     basic curve,
     axis equal image=false,
-    x=0.6cm, y=0.6cm,
-    xmin=0, xmax=9, ymin=-4, ymax=4,
-    xticklabel={\empty}, yticklabel={\empty},
+    set layers,
+    x=0.45cm, y=0.45cm,
+    xmin=0, xmax=9, ymin=-4, ymax=5,
+    xtick={2,4,6,8}, minor xtick={1,3,5,7},
+    ytick={-4,-2,2,4}, minor ytick={-3,-1,1,3,5},
+    grid=both,
+    major grid style={gray!20}, minor grid style={gray!20},
     clip=false,
   }}
 
 \tikzset{sign/.style={font=\large}}
+
+% Pages 6 and 8 draw the same piecewise linear velocity, so its axis and its
+% body live here rather than being typed twice.  Page 8 adds a title.
+\pgfplotsset{velocity lines/.style={
+    rate graph,
+    x=0.6cm, y=0.6cm,
+    xmin=0, xmax=9, ymin=-3, ymax=6,
+    xtick={1,...,8}, ytick={-2,...,5},
+    xlabel={\(t\)}, ylabel={\(v(t)\)},
+  }}
+
+\newcommand{\velocitylines}{%
+  \begin{pgfonlayer}{axis background}
+    \fill[main, fill opacity=0.1]
+      (axis cs:1,0) -- (axis cs:3,4) -- (axis cs:5,0) -- cycle;
+    \fill[supp, fill opacity=0.1]
+      (axis cs:5,0) -- (axis cs:6,-2) -- (axis cs:7,0) -- cycle;
+    \fill[main, fill opacity=0.1]
+      (axis cs:7,0) -- (axis cs:8,2) -- (axis cs:8,0) -- cycle;
+  \end{pgfonlayer}
+  \addplot[very thick] coordinates {(1,0) (3,4) (5,0) (6,-2) (8,2)};
+  \node[sign] at (axis cs:3,1.5) {\(+\)};
+  % both signs sit clear of the axis and of the "6" and "8" tick labels, which
+  % reach about y = -0.8 at the 0.45cm cells used on page 8
+  \node[sign] at (axis cs:6,-1.5) {\(-\)};
+  \node[sign] at (axis cs:7.7,0.8) {\(+\)};}
 
 \begin{document}
 
@@ -64,7 +114,7 @@
     x=0.6cm, y=0.6cm,
     xmin=0, xmax=9, ymin=-3, ymax=6,
     xtick={1,...,8}, ytick={-2,...,5},
-    xlabel={\(t\) (min)}, ylabel={\(v(t)\) (km/min)},
+    xlabel={\(t\)}, ylabel={\(v(t)\)},
     ]
     \begin{pgfonlayer}{axis background}
       \fill[main, fill opacity=0.1] (axis cs:1,0) rectangle (axis cs:3,5);
@@ -102,60 +152,48 @@
 \end{tikzpicture}
 
 % ---------------------------------------------------------------------
-% Page 3 -- cash flow.  One grid step is 1 day across and 100 dollars/day up.
+% Page 3 -- cash flow.  One grid step is 1 day across and 1 dollar/day up, so
+% unlike page 2 both axes now carry the same number per cell.
 \begin{tikzpicture}
   \begin{axis}[
     rate graph,
-    x=0.6cm, y=0.006cm,
-    xmin=0, xmax=11, ymin=-500, ymax=400,
-    xtick={1,...,10}, ytick={-400,-300,...,300},
-    xlabel={\(t\) (days)}, ylabel={\(c(t)\) (dollars/day)},
+    x=0.6cm, y=0.6cm,
+    xmin=0, xmax=11, ymin=-5, ymax=4,
+    xtick={1,...,10}, ytick={-4,-3,...,3},
+    xlabel={\(t\)}, ylabel={\(\text{cashflow}(t)\)},
     ]
     \begin{pgfonlayer}{axis background}
-      \fill[main, fill opacity=0.1] (axis cs:0,0) rectangle (axis cs:5,300);
-      \fill[supp, fill opacity=0.1] (axis cs:5,0) rectangle (axis cs:7,-400);
-      \fill[main, fill opacity=0.1] (axis cs:7,0) rectangle (axis cs:10,100);
+      \fill[main, fill opacity=0.1] (axis cs:0,0) rectangle (axis cs:5,3);
+      \fill[supp, fill opacity=0.1] (axis cs:5,0) rectangle (axis cs:7,-4);
+      \fill[main, fill opacity=0.1] (axis cs:7,0) rectangle (axis cs:10,1);
     \end{pgfonlayer}
-    \addplot[very thick] coordinates {(0,300) (5,300)};
-    \addplot[very thick] coordinates {(5,-400) (7,-400)};
-    \addplot[very thick] coordinates {(7,100) (10,100)};
-    \node[sign] at (axis cs:2.5,150) {\(+\)};
-    \node[sign] at (axis cs:6,-200) {\(-\)};
-    \node[sign] at (axis cs:8.5,50) {\(+\)};
+    \addplot[very thick] coordinates {(0,3) (5,3)};
+    \addplot[very thick] coordinates {(5,-4) (7,-4)};
+    \addplot[very thick] coordinates {(7,1) (10,1)};
+    \node[sign] at (axis cs:2.5,1.5) {\(+\)};
+    \node[sign] at (axis cs:6,-2) {\(-\)};
+    \node[sign] at (axis cs:8.5,0.5) {\(+\)};
   \end{axis}
 \end{tikzpicture}
 
 % ---------------------------------------------------------------------
-% Page 4 -- from constant pieces to any function.  Both sketches change sign
-% at x = 5 over the same window, so the second reads as the first with the
-% steps smoothed out.  The curve is 3 sin(pi x / 5) on [1, 8].
+% Page 4 -- a piecewise constant function.  Was the left half of a two-panel
+% page; the right half is now page 7, so the two can be placed with page 8
+% between them.  Pages 4 and 8 share the title "simple functions": both are
+% functions whose net area comes from a geometric area formula, which is what
+% sets them apart from page 7.
 \begin{tikzpicture}
-  \begin{axis}[idea graph, name=lhs, title={constant pieces}]
-    \fill[main, fill opacity=0.1] (axis cs:1,0) rectangle (axis cs:5,3);
-    \fill[supp, fill opacity=0.1] (axis cs:5,0) rectangle (axis cs:8,-2);
+  \begin{axis}[net area panel, title={simple functions}]
+    \begin{pgfonlayer}{axis background}
+      \fill[main, fill opacity=0.1] (axis cs:1,0) rectangle (axis cs:5,3);
+      \fill[supp, fill opacity=0.1] (axis cs:5,0) rectangle (axis cs:8,-2);
+    \end{pgfonlayer}
     \addplot[very thick] coordinates {(1,3) (5,3)};
     \addplot[very thick] coordinates {(5,-2) (8,-2)};
     \node[sign] at (axis cs:3,1.5) {\(+\)};
-    \node[sign] at (axis cs:6.5,-1) {\(-\)};
+    % clear of the "6" tick label, which reaches about y = -0.8 at this cell size
+    \node[sign] at (axis cs:6.5,-1.4) {\(-\)};
   \end{axis}
-
-  \begin{axis}[
-    idea graph, name=rhs,
-    at={(lhs.east)}, anchor=west, xshift=2.4cm,
-    title={any function},
-    ]
-    \addplot[draw=none, fill=main, fill opacity=0.1,
-      domain=1:5] {3*sin(pi*x/5)} \closedcycle;
-    \addplot[draw=none, fill=supp, fill opacity=0.1,
-      domain=5:8] {3*sin(pi*x/5)} \closedcycle;
-    \addplot[very thick, domain=1:8] {3*sin(pi*x/5)};
-    \node[sign] at (axis cs:3,1.4) {\(+\)};
-    \node[sign] at (axis cs:6.5,-1.2) {\(-\)};
-  \end{axis}
-
-  \draw[->, thick] ([xshift=3.5mm]lhs.east)
-    -- node[above, font=\footnotesize, align=center] {same\\idea}
-    ([xshift=-3.5mm]rhs.west);
 \end{tikzpicture}
 
 % ---------------------------------------------------------------------
@@ -208,5 +246,88 @@
   \draw[net] (6,-0.65)
     -- node[below, font=\footnotesize, fill=white, inner sep=1pt] {displacement \(\int_{8}^{1} v(t) \;dt\)}
     (0,-0.65);
+\end{tikzpicture}
+% ---------------------------------------------------------------------
+% Page 6 -- velocity made of line segments, continuous, with positive and
+% negative pieces.  Drawn in the same window as page 1 with the same 0.6cm
+% cells so the two can sit side by side: page 1 is piecewise constant and
+% jumps, this one is continuous.  The vertices are shared, so the graph is
+% one unbroken path:
+%
+%   (1,0) -- (3,4) -- (5,0) -- (6,-2) -- (8,2)
+%
+% Every piece is a triangle, so the areas are exact:
+%
+%   [1,5] -- above the axis, two triangles of area 4 each, total 8
+%   [5,7] -- below the axis, triangles of area 1 each, total 2
+%   [7,8] -- above the axis, area 1
+%
+% So the net area is 8 - 2 + 1 = 7 km and the total area is 11 km.  The last
+% segment runs from (6,-2) to (8,2) and crosses zero at t = 7, so one line
+% covers the piece below the axis and the piece above it.
+\begin{tikzpicture}
+  \begin{axis}[velocity lines]
+    \velocitylines
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 7 -- any function.  Was the right half of the old page 4: the same
+% window and the same sign change at x = 5 as page 4, so this reads as the
+% constant pieces with the steps smoothed out.  The curve is 3 sin(pi x / 5).
+\begin{tikzpicture}
+  \begin{axis}[net area panel, title={any function}]
+    \addplot[draw=none, fill=main, fill opacity=0.1,
+      domain=1:5] {3*sin(pi*x/5)} \closedcycle;
+    \addplot[draw=none, fill=supp, fill opacity=0.1,
+      domain=5:8] {3*sin(pi*x/5)} \closedcycle;
+    \addplot[very thick, domain=1:8] {3*sin(pi*x/5)};
+    \node[sign] at (axis cs:3,1.4) {\(+\)};
+    \node[sign] at (axis cs:6.5,-1.6) {\(-\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 8 -- page 6 under the heading "simple functions", for the progression
+% constant pieces (page 4) -> simple functions (here) -> any function (page 7).
+\begin{tikzpicture}
+  % net area panel rather than velocity lines: page 6 keeps \(v(t)\) and \(t\)
+  % in the velocity example, but here the panel stands for simple functions in
+  % general and has to match its two neighbours in the row.
+  \begin{axis}[net area panel, title={simple functions}]
+    \velocitylines
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 9 -- split/join.  Nothing is labelled: no ticks, no axis labels, no
+% grid and no shading, because the whole point of the sketch is that a, b and
+% the splitting point c get written onto it in class, and c may land outside
+% [a,b].  The curve therefore runs across the full window rather than stopping
+% at the interval being integrated, so there is room either side of whatever
+% a and b are chosen.
+%
+% The curve is 1.2 sin(1.1x) + 1.3 cos(0.55x): one wave riding on a slower one,
+% so it crosses the axis three times (near 2.9, 6.8 and 8.6) and has both a
+% tall swing and a shallow wiggle.  Any split point then falls somewhere
+% interesting -- inside a hump, at a crossing, or past the last one.
+%
+% Equal units on both axes, as on the other pages, so the shape is honest.
+% 0.8cm rather than the 1cm first used: the sketch is drawn smaller at the
+% source rather than scaled in \includestandalone, so the curve and the axis
+% arrows keep their natural line weight instead of thinning with the picture.
+\begin{tikzpicture}
+  \begin{axis}[
+    basic curve,
+    axis equal image=false,
+    x=0.8cm, y=0.8cm,
+    xmin=-0.6, xmax=11, ymin=-2.9, ymax=2.9,
+    xtick=\empty, ytick=\empty,
+    xlabel={}, ylabel={},
+    grid=none,
+    clip=false,
+    ]
+    \addplot[very thick, domain=0:10] {1.2*sin(1.1*x) + 1.3*cos(0.55*x)};
+  \end{axis}
 \end{tikzpicture}
 \end{document}

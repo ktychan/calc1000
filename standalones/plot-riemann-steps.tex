@@ -1,0 +1,285 @@
+%! TeX program = lualatex
+% One sketch per step of the approximation summary in
+% lessons/the-definite-integral.tex: seven for the notation list, three for
+% the named methods.
+%
+%   page 1 -- (1) [a,b] cut by x_0 ... x_n into n equal sub-intervals
+%   page 2 -- (2) Delta x = (b - a)/n, the width of each sub-interval
+%   page 3 -- (3) the i-th interval, [x_{i-1}, x_i]
+%   page 4 -- (4) one x_i^* chosen in every sub-interval, f read off at each
+%   page 5 -- (5) the rectangle each choice gives, all n of them
+%   page 6 -- L_n      page 7 -- R_n      page 8 -- M_n
+%
+% Every page draws the same skeleton -- the curve, the five division points
+% and their labels -- and adds only what its own step is about, so the ten
+% read as one picture being built up rather than ten separate pictures.
+%
+% f(x) = 0.8 + 1.9 sin(0.55x + 0.55) on [a,b] = [0.4, 4.4] with n = 4, so
+% Delta x = 1 and the division points land on 0.4, 1.4, 2.4, 3.4, 4.4.  Two
+% things are bought by those numbers.  f rises to 2.70 at x = 1.86 and falls
+% to 1.12 at b, so the left, right and midpoint rectangles on pages 8 to 10
+% differ visibly instead of all sloping the same way.  And f stays above 1.12
+% throughout, which keeps the whole strip just above the axis free for the
+% a, b and x_i^* labels.
+%
+% Heights, so the rectangles can be drawn as literals (the curve is sampled
+% by pgfplots in radians, but coordinates are not, so nothing here evaluates
+% a sine):
+%   nodes      0.4, 1.4, 2.4, 3.4, 4.4   2.1227, 2.6406, 2.6156, 2.0551, 1.1244
+%   midpoints  0.9, 1.9, 2.9, 3.9        2.4434, 2.6994, 2.3953, 1.6206
+%   x_i^*      0.70, 1.75, 2.65, 3.75    2.3287, 2.6968, 2.5217, 1.7590
+%
+% Page 3 singles out two sub-intervals, i = 3 and i = 4, so that "the i-th"
+% reads as a general instruction rather than as a fact about one particular
+% strip; they are told apart by colour, i = 3 in supp and i = 4 in main.
+% Pages 4 and 5 then do every sub-interval at once, so there is nothing left
+% to tell apart and both go back to plain main.
+%
+% The chosen points are 0.70, 1.75, 2.65 and 3.75.  None is the midpoint of
+% its sub-interval, on purpose: x_i^* is any point of it, and dots at 0.9,
+% 1.9, 2.9 and 3.9 would quietly suggest the choice has to be the middle one.
+% They are also kept at least 0.9 units apart, which is what the x_i^* labels
+% need side by side; 2.10 for the second one put its label into the third's.
+%
+% Only the last height is labelled f(x_4^*) on those two pages.  Three of the
+% four dots sit between 2.33 and 2.70, within a unit of each other, so four
+% labels cannot be placed without overlapping; the fourth has clear space to
+% its right.
+%
+% ymin is -2.4 for the two rows of braces page 2 carries, and ymax is 3.5.
+% Both are set for every page, not only the ones that need them, so the eight
+% keep cropping to one size.
+%
+% Three pages sit in a row in the lesson, so a page has to be under a third
+% of \textwidth (505.89pt).  0.95cm cells come to 146pt a page once the \(x\)
+% axis label past xmax is counted, which leaves room between the three; at
+% 1.05cm they were 161pt and a row of three overran the line.
+% Include at natural size -- no width=, no scale= in \includestandalone.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\usetikzlibrary{decorations.pathreplacing}
+
+\pgfplotsset{step panel/.style={
+    axis x line=middle,
+    axis y line=none,
+    axis equal image=false,
+    x=0.95cm, y=0.95cm,
+    xmin=0, xmax=5.0, ymin=-2.4, ymax=3.5,
+    xtick=\empty, ytick=\empty,
+    xlabel={\(x\)}, xlabel style={anchor=west},
+    title style={font=\footnotesize},
+    no markers, samples=100, smooth,
+    clip=false,
+  }}
+
+\newcommand{\stepcurve}{%
+  \addplot[main, ultra thick, domain=0.4:4.4] {0.8 + 1.9*sin(0.55*x + 0.55)};}
+
+% \divpoint{x}{f(x)}: one division point -- a tick on the axis and a dashed
+% line up to the curve, so the subdivision is visible against the graph.
+\newcommand{\divpoint}[2]{%
+  \draw[gray!50, thin, dashed] (axis cs:#1,0) -- (axis cs:#1,#2);
+  \draw[thin] (axis cs:#1,-0.13) -- (axis cs:#1,0.13);}
+
+% Every page reserves the full window, drawn or not, so all ten crop to the
+% same size.  Without it a page with a brace under the axis ends up taller
+% than one without, and since \includestandalone aligns boxes on their
+% baselines, the axis lines in a row of panels would sit at different heights.
+\newcommand{\stepframe}{%
+  \path (axis cs:0,-2.4) rectangle (axis cs:5.0,3.5);}
+
+\newcommand{\stepskeleton}{%
+  \stepframe
+  \divpoint{0.4}{2.1227}\divpoint{1.4}{2.6406}\divpoint{2.4}{2.6156}%
+  \divpoint{3.4}{2.0551}\divpoint{4.4}{1.1244}}
+
+% Page 1 only: tick marks with no dashed lines, because there is no curve
+% there for them to reach up to.
+\newcommand{\steptickson}{%
+  \stepframe
+  \draw[thin] (axis cs:0.4,-0.13) -- (axis cs:0.4,0.13);
+  \draw[thin] (axis cs:1.4,-0.13) -- (axis cs:1.4,0.13);
+  \draw[thin] (axis cs:2.4,-0.13) -- (axis cs:2.4,0.13);
+  \draw[thin] (axis cs:3.4,-0.13) -- (axis cs:3.4,0.13);
+  \draw[thin] (axis cs:4.4,-0.13) -- (axis cs:4.4,0.13);}
+
+\newcommand{\steplabels}{%
+  \node[below, font=\scriptsize] at (axis cs:0.4,-0.18) {\(x_{0}\)};
+  \node[below, font=\scriptsize] at (axis cs:1.4,-0.18) {\(x_{1}\)};
+  \node[below, font=\scriptsize] at (axis cs:2.4,-0.18) {\(x_{2}\)};
+  \node[below, font=\scriptsize] at (axis cs:3.4,-0.18) {\(x_{3}\)};
+  \node[below, font=\scriptsize] at (axis cs:4.4,-0.18) {\(x_{4}\)};}
+
+% \strip{left}{right}{height}: one rectangle standing on the axis, in the
+% same 10% main as the positive net area shading used elsewhere.
+\newcommand{\strip}[3]{%
+  \draw[draw=black!45, thin, fill=main, fill opacity=0.1]
+    (axis cs:#1,0) rectangle (axis cs:#2,#3);}
+
+% \stripc adds a fill colour, so the i = 3 and i = 4 rectangles on page 6 can
+% be told apart the same way their sub-intervals are.
+\newcommand{\stripc}[4]{%
+  \draw[draw=black!45, thin, fill=#4, fill opacity=0.1]
+    (axis cs:#1,0) rectangle (axis cs:#2,#3);}
+
+\newcommand{\samplepoint}[2]{\fill[main] (axis cs:#1,#2) circle[radius=1.7pt];}
+
+% \choiceat{x}{f(x)}{label}{colour}: the dropline, the dot on the axis, the
+% dot on the curve and the x_i^* label for one chosen point.
+\newcommand{\choiceat}[4]{%
+  \draw[gray!50, thin, dashed] (axis cs:#1,0) -- (axis cs:#1,#2);
+  \fill[#4] (axis cs:#1,0) circle[radius=1.7pt];
+  \fill[#4] (axis cs:#1,#2) circle[radius=1.7pt];
+  \node[above, font=\scriptsize, text=#4] at (axis cs:#1,0.16) {#3};}
+
+% \dxbrace{left}{right}{midpoint}: a brace under one sub-interval, labelled
+% Delta x.  A macro rather than a \foreach: pgfplots defers every axis cs
+% coordinate to \end{axis}, by which point a loop variable is long gone,
+% whereas these arguments expand to literals the moment the macro is read.
+\newcommand{\dxbrace}[3]{%
+  \draw[decorate, decoration={brace, amplitude=3pt, mirror}]
+    (axis cs:#1,-0.70) -- (axis cs:#2,-0.70);
+  \node[anchor=north, font=\scriptsize] at (axis cs:#3,-1.05) {\(\Delta x\)};}
+
+% The two worked sub-intervals, [x_2, x_3] for i = 3 and [x_3, x_4] for
+% i = 4, marked on the axis itself.  No shaded band behind them: on page 6
+% the two rectangles already say which strips are in play, and a band behind
+% only one of them would read as a difference between them.
+\newcommand{\workedaxis}{%
+  \draw[supp, very thick] (axis cs:2.4,0) -- (axis cs:3.4,0);
+  \draw[main, very thick] (axis cs:3.4,0) -- (axis cs:4.4,0);}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- (1) the division points and the count of sub-intervals they make,
+% which are now one step in the lesson.  No curve: the step is about cutting
+% up the interval, and nothing in it depends on f.  a and b go above the axis
+% rather than under x_0 and x_4, where a second row of labels would read as
+% if a and x_0 were different points; the 1 2 3 4 counting the sub-intervals
+% sits higher still, clear of them.
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={(1)}]
+    \steptickson \steplabels
+    \node[above, font=\footnotesize] at (axis cs:0.4,0.16) {\(a\)};
+    \node[above, font=\footnotesize] at (axis cs:4.4,0.16) {\(b\)};
+    \node[font=\scriptsize] at (axis cs:0.9,0.70) {1};
+    \node[font=\scriptsize] at (axis cs:1.9,0.70) {2};
+    \node[font=\scriptsize] at (axis cs:2.9,0.70) {3};
+    \node[font=\scriptsize] at (axis cs:3.9,0.70) {4};
+    \node[anchor=north west, font=\footnotesize] at (axis cs:0.05,3.45) {\(n = 4\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- (2) the four equal widths and the whole width they make up,
+% which are now one step in the lesson.  Two rows of braces, Delta x above
+% b - a, so the picture reads as the one being the other divided by four.
+% All four sub-intervals are braced rather than just one: that the four are
+% the same is half the content of the step.
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={(2)}]
+    \stepcurve \stepskeleton \steplabels
+    \dxbrace{0.4}{1.4}{0.9}\dxbrace{1.4}{2.4}{1.9}
+    \dxbrace{2.4}{3.4}{2.9}\dxbrace{3.4}{4.4}{3.9}
+    \draw[decorate, decoration={brace, amplitude=4pt, mirror}]
+      (axis cs:0.4,-1.55) -- (axis cs:4.4,-1.55);
+    \node[anchor=north, font=\scriptsize] at (axis cs:2.4,-1.97) {\(b - a\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 3 -- (3) two sub-intervals singled out, i = 3 and i = 4.  The two
+% bracket labels are staggered onto different rows: centred under 2.9 and 3.9
+% they are 0.95cm apart and about 1.1cm wide, so side by side they collide.
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={(3)}]
+    \workedaxis
+    \stepcurve \stepskeleton \steplabels
+    \node[above, font=\scriptsize, text=supp] at (axis cs:2.9,0.16) {\(i = 3\)};
+    \node[above, font=\scriptsize, text=main] at (axis cs:3.9,0.16) {\(i = 4\)};
+    \node[anchor=north, font=\scriptsize, text=supp]
+      at (axis cs:2.9,-0.80) {\([x_{2},x_{3}]\)};
+    \node[anchor=north, font=\scriptsize, text=main]
+      at (axis cs:3.9,-1.25) {\([x_{3},x_{4}]\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 4 -- (4) a choice in every sub-interval, and the value of f at each.
+% Page 5 then adds nothing but the rectangles these heights give.
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={(4)}]
+    \stepcurve \stepskeleton \steplabels
+    \choiceat{0.70}{2.3287}{\(x_{1}^{*}\)}{main}
+    \choiceat{1.75}{2.6968}{\(x_{2}^{*}\)}{main}
+    \choiceat{2.65}{2.5217}{\(x_{3}^{*}\)}{main}
+    \choiceat{3.75}{1.7590}{\(x_{4}^{*}\)}{main}
+    \node[anchor=south, font=\scriptsize, text=main]
+      at (axis cs:3.9,2.32) {\(f(x_{4}^{*})\)};
+    \draw[->, thin, main] (axis cs:3.9,2.28) -- (axis cs:3.79,1.82);
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 5 -- (5) the rectangle every one of those choices gives, which is the
+% whole approximation the step writes as a sum.  The rectangles go down
+% before the curve and the droplines, so both are drawn over them.
+%
+% Only the last rectangle is dimensioned, with a Delta x brace and the
+% f(x_4^*) label.  Repeating either on all four would restate page 2 and
+% crowd the picture; the anatomy of one rectangle is what the step needs.
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={(5)}]
+    \strip{0.4}{1.4}{2.3287}\strip{1.4}{2.4}{2.6968}
+    \strip{2.4}{3.4}{2.5217}\strip{3.4}{4.4}{1.7590}
+    \stepcurve \stepskeleton \steplabels
+    \choiceat{0.70}{2.3287}{\(x_{1}^{*}\)}{main}
+    \choiceat{1.75}{2.6968}{\(x_{2}^{*}\)}{main}
+    \choiceat{2.65}{2.5217}{\(x_{3}^{*}\)}{main}
+    \choiceat{3.75}{1.7590}{\(x_{4}^{*}\)}{main}
+    \dxbrace{3.4}{4.4}{3.9}
+    \node[anchor=south, font=\scriptsize, text=main]
+      at (axis cs:3.9,2.32) {\(f(x_{4}^{*})\)};
+    \draw[->, thin, main] (axis cs:3.9,2.28) -- (axis cs:3.9,1.84);
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Pages 6 to 8 -- the three named methods.  Each marks the points of the
+% curve the heights are read from, so the pages differ by where the dots sit
+% rather than only by the shape of the skyline.
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={\(L_{n}\)}]
+    \strip{0.4}{1.4}{2.1227}\strip{1.4}{2.4}{2.6406}
+    \strip{2.4}{3.4}{2.6156}\strip{3.4}{4.4}{2.0551}
+    \stepcurve \stepskeleton \steplabels
+    \samplepoint{0.4}{2.1227}\samplepoint{1.4}{2.6406}
+    \samplepoint{2.4}{2.6156}\samplepoint{3.4}{2.0551}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={\(R_{n}\)}]
+    \strip{0.4}{1.4}{2.6406}\strip{1.4}{2.4}{2.6156}
+    \strip{2.4}{3.4}{2.0551}\strip{3.4}{4.4}{1.1244}
+    \stepcurve \stepskeleton \steplabels
+    \samplepoint{1.4}{2.6406}\samplepoint{2.4}{2.6156}
+    \samplepoint{3.4}{2.0551}\samplepoint{4.4}{1.1244}
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[step panel, title={\(M_{n}\)}]
+    \strip{0.4}{1.4}{2.4434}\strip{1.4}{2.4}{2.6994}
+    \strip{2.4}{3.4}{2.3953}\strip{3.4}{4.4}{1.6206}
+    \stepcurve \stepskeleton \steplabels
+    \samplepoint{0.9}{2.4434}\samplepoint{1.9}{2.6994}
+    \samplepoint{2.9}{2.3953}\samplepoint{3.9}{1.6206}
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}

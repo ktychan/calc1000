@@ -1,0 +1,125 @@
+%! TeX program = lualatex
+% The four sketches for the "which approximation is this?" exercise in
+% lessons/the-definite-integral.tex.  All four show the same curve,
+% f(x) = 2 sin(0.9x + 0.6) over [0, 4], with rectangles already drawn:
+%
+%   page 1 -- (a) left-endpoint, n = 4            answer: left-endpoint
+%   page 2 -- (b) right-endpoint, n = 4           answer: right-endpoint
+%   page 3 -- (c) midpoint, n = 4                 answer: neither
+%   page 4 -- (d) left-endpoint but the strips
+%                 are not all the same width      answer: neither
+%
+% f is deliberately not monotone: it climbs to 2 at x = 1.08 and falls from
+% there, crossing the axis at x = 2.82.  On a decreasing function the
+% left-endpoint rectangles are exactly the upper sum and the right-endpoint
+% ones the lower sum, so a student can sort the pictures by "above or below
+% the curve" without ever looking at which corner touches it.  The rise over
+% the first subinterval breaks that shortcut.
+%
+% The heights, at Delta x = 1 on [0,1], [1,2], [2,3], [3,4]:
+%   left endpoints  0, 1, 2, 3        1.13,  2.00,  1.35, -0.32   L_4 = 4.16
+%   right endpoints 1, 2, 3, 4        2.00,  1.35, -0.32, -1.74   R_4 = 1.29
+%   midpoints  0.5, 1.5, 2.5, 3.5     1.73,  1.86,  0.58, -1.14   M_4 = 3.02
+% and on page 4 the strips are [0,0.5], [0.5,2], [2,3.2], [3.2,4].
+%
+% The third rectangle is where (a) and (b) part company most visibly: the
+% curve is above the axis for most of [2,3] but f(3) < 0, so the
+% right-endpoint rectangle there hangs below the axis while the
+% left-endpoint one stands above it.
+%
+% Rectangles follow the net area colouring used through the rest of the
+% lesson -- main above the axis, supp below, both at 10% -- so a rectangle
+% that counts negatively is the same colour as the negative area it stands
+% for.  No dot marks the point where a top meets the curve: finding it is
+% the exercise.
+%
+% Two pages sit side by side in each row of the exercise, so a page has to be
+% under half of \textwidth (505.89pt) including its tick labels.  1.15cm cells
+% over a 5-unit window come to about 178pt.  Include at natural size.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{identify panel/.style={
+    axis lines=middle,
+    axis equal image=false,
+    x=1.15cm, y=1.15cm,
+    xmin=-0.5, xmax=4.5, ymin=-2.3, ymax=2.4,
+    % the grid line at x = 3 is kept but its label dropped, the way the
+    % example figure drops some of its own: f crosses the axis at x = 2.82,
+    % right where that label sits, and ran through it on all four pages
+    xtick={1,2,3,4}, xticklabels={\(1\),\(2\),,\(4\)}, ytick={-2,-1,1,2},
+    xlabel={\(x\)}, xlabel style={anchor=west},
+    ylabel={\(y\)}, ylabel style={anchor=south},
+    label style={at={(ticklabel* cs:1), font=\footnotesize}},
+    grid=both, grid style={gray!20},
+    smooth, samples=100, no markers,
+    clip=false,
+  }}
+
+% \cell{left}{right}{height}{fill}: one rectangle standing on the axis.  The
+% caller picks the fill, because which one is right depends on the sign of
+% the height and the four pages between them use both.
+\newcommand{\cell}[4]{%
+  \draw[draw=black!45, thin, fill=#4, fill opacity=0.1]
+    (axis cs:#1,0) rectangle (axis cs:#2,#3);}
+
+\newcommand{\identifycurve}{%
+  \addplot[main, ultra thick, domain=0:4] {2*sin(0.9*x + 0.6)};}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- (a) left-endpoint, n = 4.
+\begin{tikzpicture}
+  \begin{axis}[identify panel, title={(a)}]
+    \cell{0}{1}{1.1293}{main}
+    \cell{1}{2}{1.9950}{main}
+    \cell{2}{3}{1.3509}{main}
+    \cell{3}{4}{-0.3155}{supp}
+    \identifycurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- (b) right-endpoint, n = 4.
+\begin{tikzpicture}
+  \begin{axis}[identify panel, title={(b)}]
+    \cell{0}{1}{1.9950}{main}
+    \cell{1}{2}{1.3509}{main}
+    \cell{2}{3}{-0.3155}{supp}
+    \cell{3}{4}{-1.7432}{supp}
+    \identifycurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 3 -- (c) midpoint, n = 4.  Neither of the two named in the question,
+% though it is still one of the five methods, which is the answer worth
+% drawing out of the room.
+\begin{tikzpicture}
+  \begin{axis}[identify panel, title={(c)}]
+    \cell{0}{1}{1.7348}{main}
+    \cell{1}{2}{1.8579}{main}
+    \cell{2}{3}{0.5750}{main}
+    \cell{3}{4}{-1.1431}{supp}
+    \identifycurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 4 -- (d) left endpoints, but the strips are 0.5, 1.5, 1.2 and 0.8 wide.
+% Every height is read at the left end, so the rule for choosing x_i^* is the
+% left-endpoint one; what fails is the equal width the definition asks for.
+\begin{tikzpicture}
+  \begin{axis}[identify panel, title={(d)}]
+    \cell{0}{0.5}{1.1293}{main}
+    \cell{0.5}{2}{1.7348}{main}
+    \cell{2}{3.2}{1.3509}{main}
+    \cell{3.2}{4}{-0.6640}{supp}
+    \identifycurve
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}
