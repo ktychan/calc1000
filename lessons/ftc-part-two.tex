@@ -18,6 +18,20 @@ Sometimes, we use the notation \([F(x)]_{a}^{b}\) to mean \(F(b) - F(a)\). Using
 
 \blanklines{10}
 
+The properties of indefinite integrals carry over to definite ones.
+\begin{thm}
+  \begin{align*}
+    \int_{a}^{b} (\text{constant}) f(x) \;dx &= (\text{constant}) \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\[1ex]
+    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\[1ex]
+    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
+  \end{align*}
+
+  \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
+\end{thm}
+\updatenote{Moved here from the properties subsection of the definite integrals lesson, where it was Theorem~11.21, together with the writing space below. The sentence introducing it is new. Why: every example and exercise that follows uses these properties, and after FTC part 2 they come straight from the matching properties of indefinite integrals.}
+
+\blanklines{10}
+
 \begin{example}
   Evaluate \(\int_{0}^{1} x^{2} - \pi \;dx\).
 
@@ -35,6 +49,21 @@ Sometimes, we use the notation \([F(x)]_{a}^{b}\) to mean \(F(b) - F(a)\). Using
   Evaluate \(\int_{1}^{2.3} 3 \sqrt{x} - \frac{1}{x} \;dx\).
 
   \blanklines{20}
+\end{exercise}
+\clearpage
+
+FTC part 2 needs an antiderivative. If the graph of the integrand is made of well-known shapes, area formulas also work, even when the antiderivative is not in our integration table. Only a few integrands allow this. \updatenote{Moved here, with the two exercises below, from the definite integrals lesson. Was \enquote{If the integrand is a well-known shape, then we can evaluate it by simply calculating its area using simple formulas. However, this is a very restrictive method to evaluate definite integrals.} Why: after FTC part 2, these exercises show that area formulas still evaluate integrals whose antiderivatives, like that of \(\sqrt{1 - x^{2}}\), are not in our table. The sentence was reworded for its new place.}
+
+\begin{exercise}
+  Evaluate \(\int_{0}^{1} \sqrt{1 - x^{2}} + 2 \;dx\).
+
+  \blanklines{10}
+\end{exercise}
+
+\begin{exercise}
+  Evaluate \(\int_{-1}^{1} \sqrt{1 - x^{2}} - 1 \;dx\).
+
+  \blanklines{10}
 \end{exercise}
 
 \end{document}

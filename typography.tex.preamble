@@ -103,6 +103,12 @@
 %     text, lists, whatever
 %   \end{sidefigure}
 %
+% Starred, the figure goes on the left and the text on the right:
+%
+%   \begin{sidefigure}*{\includestandalone[...]}
+%     text, lists, whatever
+%   \end{sidefigure}
+%
 % The optional argument is the fraction of \textwidth the figure gets
 % (default 0.38); \sidefigwidth is that width, for sizing the graphic, and
 % \sidefiggutter is the space kept between the two columns.  If the figure
@@ -111,11 +117,19 @@
 \newlength{\sidefigwidth}
 \newlength{\sidefiggutter}
 \setlength{\sidefiggutter}{1.5em}
+% \sidefiginset and \sidefigpad are dedicated registers on purpose.  Using
+% \dimen0 for the trailing pad silently lost it: \vspace*{...} runs LaTeX's
+% \@vspacer, which stashes \prevdepth in \dimen@ -- and \dimen@ IS \dimen0 --
+% so the pad was overwritten with \prevdepth before \vskip ever saw it, and
+% the text after the environment ran over the figure.
+\newlength{\sidefiginset}
+\newlength{\sidefigpad}
 \newsavebox{\sidefigbox}
-\NewDocumentEnvironment{sidefigure}{O{0.38} m}
+\makeatletter
+\NewDocumentEnvironment{sidefigure}{s O{0.38} m}
   {\par
-   \setlength{\sidefigwidth}{#1\textwidth}%
-   \sbox{\sidefigbox}{#2}%
+   \setlength{\sidefigwidth}{#2\textwidth}%
+   \sbox{\sidefigbox}{#3}%
    \edef\sidefigystart{\the\pagetotal}%
    \begingroup
    % Narrow the writing column: \hsize carries the paragraphs and the list
@@ -123,23 +137,41 @@
    % column for itself, such as \blanks.  Narrowing \rightskip instead
    % would not survive a list -- every \item resets it, and the items would
    % then run under the figure.
-   \dimen0=\dimexpr\sidefigwidth+\sidefiggutter\relax
-   \advance\hsize-\dimen0
-   \advance\linewidth-\dimen0
-   \advance\columnwidth-\dimen0
-   \noindent\rlap{\hspace*{\dimexpr\textwidth-\sidefigwidth\relax}%
-     \smash{\raisebox{-\height}{\usebox{\sidefigbox}}}}%
+   \setlength{\sidefiginset}{\dimexpr\sidefigwidth+\sidefiggutter\relax}%
+   \advance\linewidth-\sidefiginset
+   \advance\columnwidth-\sidefiginset
+   \IfBooleanTF{#1}
+     {% Figure on the left.  The text column has to start further in, so push
+      % it right with \leftskip for ordinary paragraphs and with
+      % \@totalleftmargin for lists -- \list builds its \parshape from
+      % \@totalleftmargin, and accumulates onto whatever it already holds, so
+      % setting it here carries through every nested item.
+      %
+      % \hsize is deliberately NOT advanced here.  \leftskip is glue inside
+      % \hsize, so it indents the column and shortens the line in one go;
+      % narrowing \hsize as well shrinks the column twice and leaves roughly
+      % one word per line.
+      \advance\@totalleftmargin\sidefiginset
+      \leftskip\sidefiginset
+      \noindent\rlap{\hspace*{-\sidefiginset}%
+        \smash{\raisebox{-\height}{\usebox{\sidefigbox}}}}}
+     {% Figure on the right: here nothing indents the column, so \hsize is
+      % what shortens the line.  The figure just sits past its right edge.
+      \advance\hsize-\sidefiginset
+      \noindent\rlap{\hspace*{\dimexpr\textwidth-\sidefigwidth\relax}%
+        \smash{\raisebox{-\height}{\usebox{\sidefigbox}}}}}%
    \ignorespaces}
   {\par
    \endgroup
    % How much vertical space the text took; pad out to the figure's height
    % if it took less.  Capped at the figure height so a page break inside
    % the environment cannot turn this into a runaway skip.
-   \dimen0=\dimexpr\ht\sidefigbox+\dp\sidefigbox-\pagetotal+\sidefigystart\relax
-   \ifdim\dimen0>\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax
-     \dimen0=\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax
+   \setlength{\sidefigpad}{\dimexpr\ht\sidefigbox+\dp\sidefigbox-\pagetotal+\sidefigystart\relax}%
+   \ifdim\sidefigpad>\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax
+     \setlength{\sidefigpad}{\dimexpr\ht\sidefigbox+\dp\sidefigbox\relax}%
    \fi
-   \ifdim\dimen0>0pt\relax\vspace*{\dimen0}\fi}
+   \ifdim\sidefigpad>0pt\relax\vspace*{\sidefigpad}\fi}
+\makeatother
 
 % Hints written inside an exercise but typeset later, as one list.
 %

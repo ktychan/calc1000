@@ -1,0 +1,121 @@
+%! TeX program = lualatex
+% The sequence of approximations for x^2 over [0,1] that sits under the
+% Riemann sum definition in lessons/the-definite-integral.tex.
+%
+%   page 1 -- R_2    page 2 -- R_4    page 3 -- R_8    page 4 -- R_16
+%
+% Right endpoints rather than left or midpoints, because the paragraph after
+% the example makes the case that right endpoints give the simpler
+% expressions, and the exercise that follows computes this very area that
+% way.  Right endpoints also overshoot on an increasing function, so the sums
+% come down to 1/3 from one side instead of straddling it, and the error is
+% the sliver of each rectangle standing above the curve -- visibly thinner at
+% every step.
+%
+%   R_2  = 5/8      = 0.6250      R_8  = 51/128   = 0.3984
+%   R_4  = 15/32    = 0.4688      R_16 = 187/512  = 0.3652
+%
+% from R_n = (n+1)(2n+1)/(6n^2), which tends to 1/3.  The values are printed
+% in the titles: the point of a sequence of pictures is the trend, and the
+% numbers are what make it legible at a glance.  They give nothing away about
+% the example below them, which asks for the limit itself.
+%
+% Four pages sit in a row, so each has to be under a quarter of \textwidth
+% (505.89pt) once the three \qquad gaps are counted.  \qquad is 24pt here, so
+% the budget is (505.89 - 72)/4 = 108.47pt per panel.  The drawn axis is 1.25
+% units wide, but the tick labels and the \(x\) past xmax add about 23.4pt
+% that does not scale with the cells: 2.8cm cells gave 122pt and 2.4cm gave
+% 108.8pt, both of which broke the row after three.  2.35cm gives 107.0pt,
+% which fits with about 6pt to spare.  Include at natural size.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{parabola panel/.style={
+    axis lines=middle,
+    axis equal image=false,
+    x=2.35cm, y=2.35cm,
+    xmin=-0.08, xmax=1.17, ymin=-0.08, ymax=1.12,
+    xtick={0.5,1}, ytick={0.5,1},
+    xticklabel style={font=\scriptsize}, yticklabel style={font=\scriptsize},
+    xlabel={\(x\)}, xlabel style={anchor=west},
+    ylabel={\(y\)}, ylabel style={anchor=south},
+    label style={at={(ticklabel* cs:1), font=\footnotesize}},
+    grid=both, grid style={gray!20},
+    title style={font=\footnotesize},
+    no markers, samples=100, smooth,
+    clip=false,
+  }}
+
+\newcommand{\cell}[3]{%
+  \draw[draw=black!45, very thin, fill=main, fill opacity=0.1]
+    (axis cs:#1,0) rectangle (axis cs:#2,#3);}
+
+\newcommand{\parab}{\addplot[main, ultra thick, domain=0:1] {x^2};}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% R_2 = 5/8 = 0.625000
+\begin{tikzpicture}
+  \begin{axis}[parabola panel, title={\(R_{2} = 0.6250\)}]
+    \cell{0.00000}{0.50000}{0.25000}
+    \cell{0.50000}{1.00000}{1.00000}
+    \parab
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% R_4 = 15/32 = 0.468750
+\begin{tikzpicture}
+  \begin{axis}[parabola panel, title={\(R_{4} = 0.4688\)}]
+    \cell{0.00000}{0.25000}{0.06250}
+    \cell{0.25000}{0.50000}{0.25000}
+    \cell{0.50000}{0.75000}{0.56250}
+    \cell{0.75000}{1.00000}{1.00000}
+    \parab
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% R_8 = 51/128 = 0.398438
+\begin{tikzpicture}
+  \begin{axis}[parabola panel, title={\(R_{8} = 0.3984\)}]
+    \cell{0.00000}{0.12500}{0.01562}
+    \cell{0.12500}{0.25000}{0.06250}
+    \cell{0.25000}{0.37500}{0.14062}
+    \cell{0.37500}{0.50000}{0.25000}
+    \cell{0.50000}{0.62500}{0.39062}
+    \cell{0.62500}{0.75000}{0.56250}
+    \cell{0.75000}{0.87500}{0.76562}
+    \cell{0.87500}{1.00000}{1.00000}
+    \parab
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% R_16 = 187/512 = 0.365234
+\begin{tikzpicture}
+  \begin{axis}[parabola panel, title={\(R_{16} = 0.3652\)}]
+    \cell{0.00000}{0.06250}{0.00391}
+    \cell{0.06250}{0.12500}{0.01562}
+    \cell{0.12500}{0.18750}{0.03516}
+    \cell{0.18750}{0.25000}{0.06250}
+    \cell{0.25000}{0.31250}{0.09766}
+    \cell{0.31250}{0.37500}{0.14062}
+    \cell{0.37500}{0.43750}{0.19141}
+    \cell{0.43750}{0.50000}{0.25000}
+    \cell{0.50000}{0.56250}{0.31641}
+    \cell{0.56250}{0.62500}{0.39062}
+    \cell{0.62500}{0.68750}{0.47266}
+    \cell{0.68750}{0.75000}{0.56250}
+    \cell{0.75000}{0.81250}{0.66016}
+    \cell{0.81250}{0.87500}{0.76562}
+    \cell{0.87500}{0.93750}{0.87891}
+    \cell{0.93750}{1.00000}{1.00000}
+    \parab
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}

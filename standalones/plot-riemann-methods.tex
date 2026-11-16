@@ -1,0 +1,197 @@
+%! TeX program = lualatex
+% The nine sketches for the three named approximation methods in
+% lessons/the-definite-integral.tex, three to a row under each method.
+%
+%   pages 1 to 3 -- L_3, L_6, L_8
+%   pages 4 to 6 -- R_3, R_6, R_8
+%   pages 7 to 9 -- M_3, M_6, M_8
+%
+% All nine draw the same curve over the same window, which is the point: a
+% reader comparing L_3 with R_3, or L_3 with L_8, should see only the one
+% thing that changed.  The three pages that used to sit under this list came
+% from plot-riemann-steps and showed a curve that stayed above the axis.
+%
+% f(x) = 2.2 sin(0.75x + 0.6) on [a,b] = [0,6].  It peaks at 2.2 near x =
+% 1.30, crosses the axis at x = 3.39 and bottoms out at -2.2 near x = 5.48,
+% so every method produces rectangles on both sides of the axis and the
+% sketches are about net area rather than area.  [0,6] divides evenly enough
+% for all three: Delta x is 2, 1 and 0.75.
+%
+% Rectangles follow the net area colouring used through the lesson, main
+% above the axis and supp below, both at 10%.
+%
+% Only L_3 and L_6 name their sample points on the axis.  Naming them once
+% per method would be enough to show where the heights come from, and L is
+% the case where the x_i^* sit on the left edge of each rectangle, which is
+% the reading the labels have to support.  On the other seven pages the
+% title already names the method and the labels would only repeat it; at
+% n = 8 they would also be 0.75 units apart, about as close as they are
+% wide.
+%
+% Three pages sit in a row inside an itemize, so a page has to be under a
+% third of the indented text width: 0.68cm cells over a 6.8-unit window come
+% to about 141pt.  Include at natural size -- no width=, no scale=.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{method panel/.style={
+    axis lines=middle,
+    axis equal image=false,
+    x=0.68cm, y=0.68cm,
+    xmin=-0.3, xmax=6.5, ymin=-2.5, ymax=2.5,
+    xtick={1,2,3,4,5,6}, ytick={-2,-1,1,2},
+    xticklabels=\empty, yticklabels=\empty,
+    grid=both, grid style={gray!20},
+    title style={font=\footnotesize},
+    no markers, samples=100, smooth,
+    clip=false,
+  }}
+
+% \cell{left}{right}{height}{fill}: one rectangle standing on the axis.
+\newcommand{\cell}[4]{%
+  \draw[draw=black!45, thin, fill=#4, fill opacity=0.1]
+    (axis cs:#1,0) rectangle (axis cs:#2,#3);}
+
+% \choicelabel{x}{i}: names one sample point under the axis.  The white fill
+% is what makes the first one readable: x_1^* sits at x = 0, where the y
+% axis runs straight down through it, and the later ones sit on rectangle
+% edges and grid lines.  inner sep is kept tight so the gap it punches in
+% those lines reads as a break rather than a box.
+\newcommand{\choicelabel}[2]{%
+  \node[anchor=north, font=\scriptsize, fill=white, inner sep=1pt]
+    at (axis cs:#1,-0.16) {\(x_{#2}^{*}\)};}
+
+\newcommand{\methodcurve}{%
+  \addplot[main, ultra thick, domain=0:6] {2.2*sin(0.75*x + 0.6)};}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% $L_{3}$, sum 4.335
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(L_{3}\)}]
+    \cell{0.0000}{2.0000}{1.2422}{main}
+    \cell{2.0000}{4.0000}{1.8991}{main}
+    \cell{4.0000}{6.0000}{-0.9735}{supp}
+    \methodcurve
+    \choicelabel{0}{1}\choicelabel{2}{2}\choicelabel{4}{3}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $L_{6}$, sum 2.890
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(L_{6}\)}]
+    \cell{0.0000}{1.0000}{1.2422}{main}
+    \cell{1.0000}{2.0000}{2.1466}{main}
+    \cell{2.0000}{3.0000}{1.8991}{main}
+    \cell{3.0000}{4.0000}{0.6325}{main}
+    \cell{4.0000}{5.0000}{-0.9735}{supp}
+    \cell{5.0000}{6.0000}{-2.0571}{supp}
+    \methodcurve
+    \choicelabel{0}{1}\choicelabel{1}{2}\choicelabel{2}{3}
+    \choicelabel{3}{4}\choicelabel{4}{5}\choicelabel{5}{6}
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $L_{8}$, sum 2.507
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(L_{8}\)}]
+    \cell{0.0000}{0.7500}{1.2422}{main}
+    \cell{0.7500}{1.5000}{2.0192}{main}
+    \cell{1.5000}{2.2500}{2.1739}{main}
+    \cell{2.2500}{3.0000}{1.6587}{main}
+    \cell{3.0000}{3.7500}{0.6325}{main}
+    \cell{3.7500}{4.5000}{-0.5887}{supp}
+    \cell{4.5000}{5.2500}{-1.6285}{supp}
+    \cell{5.2500}{6.0000}{-2.1664}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $R_{3}$, sum -2.223
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(R_{3}\)}]
+    \cell{0.0000}{2.0000}{1.8991}{main}
+    \cell{2.0000}{4.0000}{-0.9735}{supp}
+    \cell{4.0000}{6.0000}{-2.0368}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $R_{6}$, sum -0.389
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(R_{6}\)}]
+    \cell{0.0000}{1.0000}{2.1466}{main}
+    \cell{1.0000}{2.0000}{1.8991}{main}
+    \cell{2.0000}{3.0000}{0.6325}{main}
+    \cell{3.0000}{4.0000}{-0.9735}{supp}
+    \cell{4.0000}{5.0000}{-2.0571}{supp}
+    \cell{5.0000}{6.0000}{-2.0368}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $R_{8}$, sum 0.048
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(R_{8}\)}]
+    \cell{0.0000}{0.7500}{2.0192}{main}
+    \cell{0.7500}{1.5000}{2.1739}{main}
+    \cell{1.5000}{2.2500}{1.6587}{main}
+    \cell{2.2500}{3.0000}{0.6325}{main}
+    \cell{3.0000}{3.7500}{-0.5887}{supp}
+    \cell{3.7500}{4.5000}{-1.6285}{supp}
+    \cell{4.5000}{5.2500}{-2.1664}{supp}
+    \cell{5.2500}{6.0000}{-2.0368}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $M_{3}$, sum 1.444
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(M_{3}\)}]
+    \cell{0.0000}{2.0000}{2.1466}{main}
+    \cell{2.0000}{4.0000}{0.6325}{main}
+    \cell{4.0000}{6.0000}{-2.0571}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $M_{6}$, sum 1.344
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(M_{6}\)}]
+    \cell{0.0000}{1.0000}{1.8209}{main}
+    \cell{1.0000}{2.0000}{2.1739}{main}
+    \cell{2.0000}{3.0000}{1.3603}{main}
+    \cell{3.0000}{4.0000}{-0.1833}{supp}
+    \cell{4.0000}{5.0000}{-1.6285}{supp}
+    \cell{5.0000}{6.0000}{-2.1998}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% $M_{8}$, sum 1.330
+\begin{tikzpicture}
+  \begin{axis}[method panel, title={\(M_{8}\)}]
+    \cell{0.0000}{0.7500}{1.6974}{main}
+    \cell{0.7500}{1.5000}{2.1823}{main}
+    \cell{1.5000}{2.2500}{1.9947}{main}
+    \cell{2.2500}{3.0000}{1.1925}{main}
+    \cell{3.0000}{3.7500}{0.0228}{main}
+    \cell{3.7500}{4.5000}{-1.1540}{supp}
+    \cell{4.5000}{5.2500}{-1.9751}{supp}
+    \cell{5.2500}{6.0000}{-2.1876}{supp}
+    \methodcurve
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}

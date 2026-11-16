@@ -1,7 +1,7 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Antiderivatives}
-We set up terminology and notation for integration which is the idea of \enquote{undoing} differentiation.
+We set up terminology and notation for integration, which is the idea of \enquote{undoing} differentiation.
 
 \begin{definition} \label{def:antiderivative}
   If \(f(x)\) and \(F(x)\) are related by
@@ -11,14 +11,14 @@ We set up terminology and notation for integration which is the idea of \enquote
   then we \emph{say} \(F(x)\) is \hlwarn{an} antiderivative of \(f(x)\).
 \end{definition}
 
-\faStar{} In symbols, to find an antiderivative of a \emph{given} \(f(x)\) is to fill in the blank 
+\faStar{} In symbols, to find an antiderivative of a given \(f(x)\) is to fill in the blank 
 \[
-  \frac{d}{dx}\bigg( \hspace{1in} \bigg) = \text{ the given \(f(x)\)}.
+  \frac{d}{dx}\bigg( \hspace{1in} \bigg) = \text{(the given \(f(x)\))}.
 \]
 The function in the blank that makes the equation true is \emph{an} antiderivative.
 
 \begin{example}
-  This example is meant to help you understand the concept of an antiderivative.
+  This example is meant to help you understand the concept of an antiderivative of \(f(x)\).
 
   \begin{enumerate}[wide]
     \item Is \(xe^{x^{2}}\) an antiderivative of \(e^{x^{2}}\)?
@@ -59,14 +59,14 @@ The function in the blank that makes the equation true is \emph{an} antiderivati
 %   \end{enumerate}
 %   \blanklines{10}
 % \end{exercise}
-The fact that antideritives are not unique is captured in the following definition.
+The fact that antiderivatives are not unique is captured in the following definition. 
 
 \begin{definition} \label{def:indefinite-integral}
-  The \emph{indefinite integral} of \(f\) is a single expression representing \hlwarn{all} antiderivatives of \(f(x)\) and is denoted by \(\int f(x) \;dx\). 
+  The \emph{indefinite integral} of \(f(x)\) is a single expression representing \hlwarn{all} antiderivatives of \(f(x)\) and is denoted by \(\int f(x) \;dx\). 
 
-  If \(\frac{d}{dx}\hlsupp{F(x)} = \hlmain{f(x)}\), then
+  If \(\frac{d}{dx}\hlsupp{F(x)} = \hlmain{f(x)}\) for all \(x\) \emph{in the domain} of \(f(x)\), then
   \[
-    \int \hlmain{f(x)} \;dx = \hlsupp{F(x)} \hlwarn{\;+\;C},
+    \int \hlmain{f(x)} \;dx = \hlsupp{F(x)} \hlwarn{\;+\;C}.
   \]
 
   To \emph{evaluate} an indefinite integral \(\int f(x) \;dx\) is to find \(F(x) + C\) where \(F'(x) = f(x)\).
@@ -75,7 +75,7 @@ The fact that antideritives are not unique is captured in the following definiti
 \end{definition}
 
 \begin{example}
-  Evaluate these integrals. The integration table on page~166 is very useful.
+  Evaluate these integrals. The integration table on page~\pageref{sec:integration-formulas} is very useful.
 
   \begin{multicols}{2}
     \begin{enumerate}[itemsep={2cm}]
@@ -83,7 +83,7 @@ The fact that antideritives are not unique is captured in the following definiti
       \item \(\int e^{x}\;dx = \phantom{e^{x} + C}\)
       \item \(\int -\sin(x) \;dx = \)
       \item \(\int 4x^{3} \;dx = \)
-      \item \(\int 10 \;dx = \phantom{10x + C}\)
+      \item \(\int \frac{1}{x} \;dx = \phantom{\ln|x| + C}\)
       \item \(\int \frac{1}{\sqrt{x}} \;dx = \)
       \item \(\int \frac{3}{5(1 + x^{2})} \;dx = \)
       \item \(\int -\cos(x) \;dx = \)
@@ -94,12 +94,12 @@ The fact that antideritives are not unique is captured in the following definiti
 \end{example}
 \clearpage
 
-Algebraic properties of integrals break up complex integrals into simple ones.
+Algebraic properties of integrals break up complicated integrals into simple ones.
 
 \begin{thm}
   \begin{align*}
-    \int c f(x) \;dx
-    &= c \int f(x) \;dx && \text{(constant multiple)}\\
+    \int (\text{constant}) f(x) \;dx
+    &= (\text{constant}) \int f(x) \;dx && \text{(constant multiple)}\\
     \int f(x) + g(x) \;dx
     &= \int f(x) \;dx + \int g(x) \;dx && \text{(sum)}\\
     \int f(x) - g(x) \;dx
@@ -110,9 +110,9 @@ Algebraic properties of integrals break up complex integrals into simple ones.
 \end{thm}
 
 \begin{example}
-  Evaluate \(\int -\sin(x) + \sec^{2}(\pi/4) \;dx\).
+  Evaluate \(\int -\frac{\sin(x)}{3} + \sec^{2}(\pi/4) \;dx\).
 
-  \blanks*
+  \blanks{15}
 \end{example}
 
 \begin{exercise}
@@ -122,9 +122,7 @@ Algebraic properties of integrals break up complex integrals into simple ones.
 \end{exercise}
 \clearpage
 
-The following type of problems are called \emph{initial-value problems}.
-
-\faStar{} Recognize patterns! Integration is (a lot) harder than differentiation. Use differentiation to guess and check when possible, especially when a list of potential antiderivatives is available.
+Problems of the following type are called \emph{initial-value problems} (for integrals).
 
 \begin{example}
   Suppose \(F'(x) = (x-1)(x+2)\) and \(F(-1) = 0\).  Find \(F(x)\).
@@ -132,26 +130,27 @@ The following type of problems are called \emph{initial-value problems}.
   \blanks{20}
 \end{example}
 
-\begin{example}[Final exam, Fall 2025]
-  Suppose \(f'(x) = \frac{\sin(x) - 1}{\cos^{2}(x)}\) and \(f(0) = 3\). 
+% \begin{example}[Final exam, Fall 2025]
+%   Suppose \(f'(x) = \frac{\sin(x) - 1}{\cos^{2}(x)}\) and \(f(0) = 3\). 
+%
+%   Which of the following statements is true?
+%
+%   \begin{enumerate}[label=(\Alph*)]
+%     \item \(f(x) = -3\frac{\cos(x) + x}{\cos^{3}(x)}\)
+%     \item \(f(x) = 3\frac{\cos(x) + x}{\cos^{3}(x) \sin(x)}\)
+%     \item \(f(x) = \sec(x)\tan(x) - \sec^{2}(x) - 1\)
+%     \item \(f(x) = \sec(x) - \tan(x) - 3\)
+%     \item \(f(x) = \sec(x) - \tan(x) + 2\)
+%   \end{enumerate}
+% \end{example}
+% \clearpage
 
-  Which of the following statements is true?
-
-  \begin{enumerate}[label=(\Alph*)]
-    \item \(f(x) = -3\frac{\cos(x) + x}{\cos^{3}(x)}\)
-    \item \(f(x) = 3\frac{\cos(x) + x}{\cos^{3}(x) \sin(x)}\)
-    \item \(f(x) = \sec(x)\tan(x) - \sec^{2}(x) - 1\)
-    \item \(f(x) = \sec(x) - \tan(x) - 3\)
-    \item \(f(x) = \sec(x) - \tan(x) + 2\)
-  \end{enumerate}
-\end{example}
-\clearpage
-
-\begin{exercise}
+\begin{example}
   Suppose \(f''(x) = 6x + 2 + e^{x}\), \(f'(0) = 5\) and \(f(0) = 1\). Find \(f(x)\).
 
   \blanks*
-\end{exercise}
+\end{example}
+\clearpage
 
 % \begin{exercise}[Final exam, Fall 2024]
 %   Evaluate \(\int \frac{e^{x}}{\sqrt{1 - e^{2x}}} \;dx\).
@@ -168,14 +167,14 @@ The following type of problems are called \emph{initial-value problems}.
 % \end{exercise}
 % \clearpage
 
-% \begin{exercise}
-%   Suppose \(F'(x) = \frac{2}{\sqrt{1 - x^{2}}}\) and \(F(0) = 2\).  Find \(F(x)\).
-%
-%   \blanks*
-% \end{exercise}
+\begin{exercise}
+  Suppose \(F'(x) = \frac{2}{\sqrt{1 - x^{2}}}\) and \(F(0) = 2\).  Find \(F(x)\).
+
+  \blanks*
+\end{exercise}
 
 \begin{exercise}
-  Find the antiderivative for \(\sin(x) + \frac{x^{2}}{3}\) so that the graph of the antiderivative passes through the origin.
+  Find the antiderivative of \(\sin(x) + \frac{x^{2}}{3}\) so that the graph of the antiderivative passes through the origin.
 
   \blanks*
 \end{exercise}

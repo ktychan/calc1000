@@ -1,0 +1,95 @@
+%! TeX program = lualatex
+% The two comparison-property exercises in lessons/the-definite-integral.tex.
+%
+%   page 1 -- f(x) <= g(x) over [a,b]
+%   page 2 -- m <= f(x) <= M over [a,b], with the two levels y = m and
+%             y = M drawn
+%
+% Both pages use the same window and the same interval [a,b] = [1,5], so the
+% pair reads as one idea seen twice.  The axes are ticked only at a and b (and
+% at m and M on page 2): the exercises are about comparing net areas, and a
+% numbered grid invites counting squares instead.
+%
+% Every curve crosses the axis inside [a,b] on purpose.  If the curves stayed
+% above the axis the comparison would be a statement about plain area and
+% would not need the net area reading the exercises ask for; as drawn, each
+% integral is a positive piece minus a negative one.
+%
+% Equal 1.2cm units on both axes, as elsewhere in these notes.  Include the
+% pages at natural size -- no width= -- or the units stop matching.
+\documentclass[tikz, crop]{standalone}
+
+\input{../typography.tex.preamble}
+\input{../tikz.tex.preamble}
+
+\pgfplotsset{comparison panel/.style={
+    basic curve,
+    axis equal image=false,
+    set layers,
+    x=1.2cm, y=1.2cm,
+    xmin=-0.5, xmax=6.6,
+    xlabel={\(x\)}, ylabel={},
+    grid=none,
+    clip=false,
+  }}
+
+\begin{document}
+
+% ---------------------------------------------------------------------
+% Page 1 -- f(x) <= g(x).
+%
+% f is g shifted down by 0.8 + 0.3 sin(1.7x).  Building f from g this way
+% guarantees the inequality everywhere -- the gap runs between 0.5 and 1.1 --
+% while the second sine keeps the two curves from being parallel copies, which
+% would suggest the difference has to be constant.
+%
+% Over [1,5]: g runs from 1.42 down to -0.87 and crosses at x = 3.84, f runs
+% from 0.32 down to -1.91 and crosses at x = 3.31.
+\begin{tikzpicture}
+  \begin{axis}[
+    comparison panel,
+    ymin=-2.3, ymax=2.1,
+    xtick={1,5}, xticklabels={\(a\),\(b\)}, ytick=\empty,
+    ]
+    \draw[dashed, gray] (axis cs:1,-2.3) -- (axis cs:1,2.1);
+    \draw[dashed, gray] (axis cs:5,-2.3) -- (axis cs:5,2.1);
+    \addplot[very thick, domain=1:5] {1.3*sin(0.9*x) + 0.4};
+    \addplot[very thick, domain=1:5]
+      {1.3*sin(0.9*x) + 0.4 - (0.8 + 0.3*sin(1.7*x))};
+    \node[anchor=west] at (axis cs:5.1,-0.87) {\(y = g(x)\)};
+    \node[anchor=west] at (axis cs:5.1,-1.91) {\(y = f(x)\)};
+  \end{axis}
+\end{tikzpicture}
+
+% ---------------------------------------------------------------------
+% Page 2 -- m <= f(x) <= M.
+%
+% f(x) = 1.2 sin(1.05x) + 0.3 runs between -0.90 and 1.50 over [1,5] and
+% crosses the axis at x = 3.24, so the bounds m = -1 and M = 2 hold with a
+% little room either side: m and M are bounds, not the extreme values.
+%
+% m is negative so that the lower level sits below the axis: m(b-a) = -4 is a
+% negative net area, which is the whole point of reading the inequality that
+% way.  The upper level gives M(b-a) = 8.
+%
+% Only the two horizontal levels are drawn, not a rectangle: the regions
+% whose net areas are M(b-a) and m(b-a) are what the reader has to find, and
+% outlining them gives that away.  Each level runs from the y axis, where its
+% label sits, to b; a and b are marked by full-height verticals, as on page 1.
+\begin{tikzpicture}
+  \begin{axis}[
+    comparison panel,
+    ymin=-1.8, ymax=2.6,
+    xtick={1,5}, xticklabels={\(a\),\(b\)},
+    ytick={-1,2}, yticklabels={\(m\),\(M\)},
+    ]
+    \draw[dashed, gray] (axis cs:1,-1.8) -- (axis cs:1,2.6);
+    \draw[dashed, gray] (axis cs:5,-1.8) -- (axis cs:5,2.6);
+    \draw[dashed, gray] (axis cs:0,2)  -- (axis cs:5,2);
+    \draw[dashed, gray] (axis cs:0,-1) -- (axis cs:5,-1);
+    \addplot[very thick, domain=1:5] {1.2*sin(1.05*x) + 0.3};
+    \node[anchor=west] at (axis cs:5.1,-0.73) {\(y = f(x)\)};
+  \end{axis}
+\end{tikzpicture}
+
+\end{document}

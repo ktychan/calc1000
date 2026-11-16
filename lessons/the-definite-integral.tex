@@ -1,176 +1,496 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{Definite integrals}
-Everything we did in approximating areas using rectangles leads to the definite integral, which is defined for all functions, not just the non-negative ones. \updatenote{Added a comma before the non-restrictive ``which'' clause.}
-\begin{definition} \label{def:definite-integral}
-  The \hlmain{definite integral of a function \(f(x)\) \hlsupp{from \(a\) to \(b\)}} is defined by
-  \begin{equation} \label{eq:definite-integral}
-    \int_{a}^{b} f(x) \;dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \Delta x.
-  \end{equation}
-  \hlsupp{provided} that the limit exists. If this limit exists, then we say \hlmain{\(f\) is integrable on \([a, b]\)} or is an integrable function.
 
-  The definite integral \(\int_{a}^{b} f(x) \;dx\) represents the \hlmain{net area bounded by \(y = f(x)\) and \(y = 0\)} \hlsupp{over the interval \([a,b]\)}.  Sometimes, it is also called the net signed area.
-\end{definition}
-\[
-  \text{net area} = \bigg(\text{area below \(y = f(x)\) and above \(y = 0\)}\bigg) - \bigg(\text{area above \(y = f(x)\) and below \(y = 0\)}\bigg).
-\]
+The symbol \hlmain{\(\int_{a}^{b} f(x) \;dx\)} is the notation for a \hlmain{definite integral}, which represents net area.  This is a major concept in calculus.
 
-% \includestandalone{../standalones/plot_definite_integral_intro}
-%
-% \url{https://www.geogebra.org/calculator/gnfmamnj}
+%==============================================================================
+\subsection{Definite integrals represent net area} \label{subsec:defint-meaning} 
+The geometric idea of \hlmain{net area} is very flexible and widely applicable. In the examples below, we consider how (simple) rates of change are applied to real-life scenarios. 
 
-\begin{example} \label{ex:definite-integral-area}
-  Evaluate \(\int_{-2}^{6} f(x) \;dx\).
+\begin{enumerate}[wide]
+  \item \label{item:cashflow-example} The function \(\text{cashflow}(t)\) tracks the cash flow of a piggy bank, in quarters per day. How do we calculate the \hlattn{net balance} from day \(0\) to \(10\)?
 
-  \includestandalone{../standalones/plot_definite_integral_area}
-\end{example}
+    \begin{center}
+      \includestandalone[page=3]{../standalones/plot-net-area-motivation}
+    \end{center}
 
-Definite integrals can also describe \hlmain{total area} between curves.
-\begin{example}
-  % The function \(f(x)\) is sketched below.
-  Describe the total area enclosed between \(y = f(x)\) and the \(x\)-axis over \([-2,6]\). \label{ex:definite-integral-total-area}
+    \blanks*
 
-  \includestandalone{../standalones/plot_definite_integral_area}
-\end{example}
+  \item \label{item:velocity-example} The function \(v(t)\) models the velocity of a moving object, in metres per minute.  How do we calculate the \hlattn{net displacement} from \(t=1\) to \(t = 8\)?
+
+    \begin{center}
+      \includestandalone[page=6]{../standalones/plot-net-area-motivation}
+    \end{center}
+
+    \blanks*
+
+\end{enumerate}
 \clearpage
 
-If the integrand is a well-known shape, then we can evaluate it by simply calculating its area using simple formulas.  However, this is a very restrictive method to evaluate definite integrals.
+\hlattn{Net area} of simple functions can be extended to arbitrary functions so that we can actually compute net area.
 
-\begin{exercise}
-  Evaluate \(\int_{0}^{1} \sqrt{1 - x^{2}} + 2 \;dx\).
-
-  \blanklines{10}
-\end{exercise}
-
-\begin{exercise}
-  Evaluate \(\int_{-1}^{1} \sqrt{1 - x^{2}} - 1 \;dx\).
-
-  \blanklines{10}
-\end{exercise}
-
-% Here is one more exercise to on the net area interpretation of definite integrals.
-% \begin{exercise}
-%   Consider the following function \(f(x)\).  It is known that the only zeros of \(f\) in \([a, b]\) are \(x = 2\) and \(x = 3\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
-%
-%   \includestandalone{../standalones/plot_definite_integral_intro}
-% \end{exercise}
-%
-
-\bigskip
-We now study properties of definite integrals. Because the definite integral is defined in terms of a summation, all but one of its properties mimic those of summation properties on page~\pageref{page:summation-properties}. \updatenote{"that of" corrected to "those of" to agree with the plural "properties".}
-
-\begin{thm}
-  \begin{align*}
-    \int_{a}^{b} (\text{constant}) f(x) \;dx &= (\text{constant}) \int_{a}^{b} f(x) \;dx && \text{(constant multiple)}\\[1ex]
-    \int_{a}^{b} f(x) \;dx + \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) + g(x) \;dx && \text{(sum)} \\[1ex]
-    \int_{a}^{b} f(x) \;dx - \int_{a}^{b} g(x) \;dx &= \int_{a}^{b} f(x) - g(x) \;dx && \text{(difference)}
-  \end{align*}
-
-  \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
-\end{thm}
-\clearpage
-
-Definite integrals have a ``flip'' property (non-standard terminology) which \hlwarn{does not} have a counterpart in summations.
-
-\begin{thm}
-  \begin{equation} \label{eq:definite-integral-flip}
-    \int_{a}^{b} f(x) \;dx = - \int_{b}^{a} f(x) \;dx.
-  \end{equation}
-
-  \textbook{Equation (5.10) on page 538}
-\end{thm}
-
-\blanklines{10}
-
-\faStar{} All remaining properties of definite integrals come from their net area interpretation.
-
-\begin{thm}
-  \begin{equation}
-    \int_{a}^{a} f(x) \;dx = \underline{\hspace{1cm}}.
-  \end{equation}
-
-  \textbook{Equation (5.9) on page 537}
-\end{thm}
-
-Recall summations have a split/merge property \(\sum_{i=1}^{n} a_{i} = \sum_{i=1}^{m} a_{i} + \sum_{i=m+1}^{n} a_{i}\) restricted to \(1 \le m \le n\).
-Definite integrals also have a split/merge property but with \hlmain{no restriction} at all.
-
-\begin{thm}
-  \begin{equation} \label{eq:definite-integral-split}
-    \int_{a}^{b} f(x) \;dx = \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx.
-  \end{equation}
-
-  The number \(c\) can be anything, even outside the interval \([a,b]\), as long as both integrals on the right are well-defined.
-
-  \textbook{Equation (5.14) on page 538}
-\end{thm}
-\blanklines{10}
-\clearpage
-
-\begin{example}
-  Let \(A = \int_{a}^{b} f(x) \;dx\). Which of the following is a true statement?
+\begin{definition} \label{def:definite-integral-net-area}
+  Geometrically, the symbol \(\int_{a}^{b} f(x) \;dx\) represents the \hlattn{net area} of a function \(f(x)\) over an interval \([a,b]\):
   \[
-    A = \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx
-    \quad\text{or}\quad
-    A = - \int_{0}^{a} f(x) \;dx + \int_{0}^{b} f(x) \;dx ?
+    \int_{a}^{b} f(x) \;dx = \underbrace{\hlmain{\left(\parbox{1.75in}{\centering the area of all regions below \(y = f(x)\) and above \(y = 0\)}\right)} - \hlsupp{\left(\parbox{1.75in}{\centering the area of all regions below \(y = 0\) and above \(y = f(x)\)}\right)}}_{\text{only the portion over the interval \([a,b]\) counts}}.
   \]
 
-  \blanklines{15}
-\end{example}
+  The symbol \(\int_{a}^{b} f(x) \;dx\) is called a definite integral, \(f(x)\) the integrand, \([a,b]\) the interval of integration, \(a\) the lower bound, and \(b\) the upper bound. Depending on the information given, it can be calculated using a combination of geometry and algebraic rules.
 
-Here is a typical problem involving the split/merge property.
-\begin{example} \label{ex:definite-integral-split}
-  Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\).  Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
+  \textbook{page 532}
+\end{definition}
 
-  \blanklines{10}
-\end{example}
+\begin{center}
+  \includestandalone[page=4]{../standalones/plot-net-area-motivation}
+  \qquad
+  \includestandalone[page=8]{../standalones/plot-net-area-motivation}
+  \qquad
+  \includestandalone[page=7]{../standalones/plot-net-area-motivation}
+\end{center}
 
-\begin{example}
-  Find an expression for \(\int_{-3}^{1} |(x+2)(x-1)| \;dx \) without the absolute value.
+\faStar{} To evaluate a definite integral is to calculate the net area represented by it.
 
-  \blanklines{10}
+\begin{example} \label{ex:definite-integral-area}
+  The graph of \(f(x)\) is given below. Evaluate \(\int_{-1}^{4} f(x) \;dx\) and \(\int_{0}^{10} f(x) \;dx\).
+
+  \includestandalone{../standalones/plot_definite_integral_area}
+
+  \blanks*
 \end{example}
 \clearpage
 
-The net area interpretation of a definite integral yields two comparison properties. For each part below, fill in the blanks with one of \(=, \le , \ge\) by interpreting definite integrals as net area.
-\begin{enumerate}[wide, noitemsep]
-  \item If \(f(x) \le g(x)\) over \([a,b]\), then
-    \[
-      \int_{a}^{b} f(x) \;dx \underline{\hspace{2cm}} \int_{a}^{b} g(x) \;dx.
-    \]
+When the graphs of integrands are straight lines and semi-circles, we can evaluate definite integrals geometrically.
 
-    \blanklines{8}
+\begin{example}
+  Calculate \(\int_{-\sqrt{5}}^{\sqrt{5}} \sqrt{5 - x^{2}} + 1 \;dx\).
 
-  \item If \(m\) and \(M\) are constants such that \(m \le f(x) \le M\) on \([a,b]\), then
-    \[
-      m(b-a) \underline{\hspace{2cm}} \int_{a}^{b} f(x) \;dx \underline{\hspace{2cm}} M(b-a).
-    \]
+  \blanks{15}
+\end{example}
 
-    \blanklines{8}
+\begin{example} \label{ex:definite-integral-piecewise}
+  Suppose
+  \[
+    f(x) =
+    \begin{cases}
+      -x - 1,            & \text{if } -4 \le x < -1 \\[1ex]
+      -\sqrt{1 - x^{2}}, & \text{if } -1 \le x \le 1 \\[1ex]
+      2,                 & \text{if } 1 < x \le 4.
+    \end{cases}
+  \]
+
+  Evaluate \(\int_{-4}^{4} f(x) \;dx\) and \(\int_{0}^{0} f(x) \;dx\).
+
+  \blanks*
+\end{example}
+\clearpage
+
+
+% Here is one more exercise on the net area interpretation of definite integrals.
+% \begin{exercise} \label{ex:total-area-abstract}
+%   Consider the following function \(f(x)\). It is known that the only zeros of \(f\) in \([a, b]\) are \(x = 2\) and \(x = 3\). Express the \emph{total} area enclosed between \(y = f(x)\) and \(y = 0\) as a sum of one or more integrals.
+%
+%   \begin{center}
+%     \includestandalone{../standalones/plot_definite_integral_intro}
+%   \end{center}
+%
+%   \blanklines{8}
+% \end{exercise}
+
+\clearpage
+
+%==============================================================================
+\subsection{Properties of definite integrals} \label{subsec:defint-properties}
+
+In the preceding examples, we calculated \(\int_{a}^{b} f(x) \;dx\) by, quite naturally, taking advantage of the associated geometry. We'll work out three more properties using some concrete examples.
+
+\textbf{Flip/Time reversal}. We reconsider the cash flow example from page~\pageref{item:cashflow-example}.
+
+% 0.50 rather than the 0.38 default: the plot is included at natural size
+% (scaling it would stop its grid cells being square), and that is 7.83cm,
+% just under half of \textwidth.
+\begin{minipage}{0.5\textwidth}
+  \includestandalone[page=3]{../standalones/plot-net-area-motivation}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \footnotesize
+
+  \(\int_{0}^{10} \text{cashflow}(t) \;dt = \text{net balance \emph{from} day \(0\) \emph{to} \(10\)}\)
+
+  \vspace{5ex}
+
+  \(\int_{10}^{0} \text{cashflow}(t) \;dt = \text{net balance \emph{from} day \(10\) \emph{to} \(0\)}\)
+  
+  \vspace{10ex}
+\end{minipage}
+\blanks*
+
+\textbf{Split/Join}. We have done this naturally without naming it. However, with the flip/time reversal property, we can split/join \emph{anywhere}, even outside \([a,b]\).
+
+\includestandalone[page=9]{../standalones/plot-net-area-motivation}
+\bigskip
+
+\includestandalone[page=9]{../standalones/plot-net-area-motivation}
+
+\blanks*
+\clearpage
+
+Here is a summary.
+\begin{thm} \label{thm:definite-integrals-properties}
+  The net area interpretation of \(\int_{a}^{b} f(x)\;dx\) gives us these properties.
+  \begin{align}
+    \int_{a}^{a} f(x) \;dx &=   \text{the net area of a line} = 0 \\[1ex]
+    \int_{a}^{b} f(x) \;dx &= - \int_{b}^{a} f(x) \;dx 
+                           &&\text{(flip/time reversal)} \label{eq:definite-integral-flip} \\[1ex]
+    \int_{a}^{b} f(x) \;dx &=   \int_{a}^{c} f(x) \;dx + \int_{c}^{b} f(x) \;dx 
+                           &&\text{(split/join)} \label{eq:definite-integral-split}
+  \end{align}
+  In Equation~\eqref{eq:definite-integral-split}, \(c\) can be \emph{any} number, even one outside \([a,b]\). In other words, we can \emph{split} a definite integral anywhere, even outside \([a,b]\). 
+
+  \textbook{Equations (5.9), (5.10) and (5.14) on pages 537 and 538}
+\end{thm}
+
+Here is a typical problem requiring these properties. Sketching typically helps.
+\begin{example} \label{ex:definite-integral-split}
+  Suppose \(\int_{0}^{10} f(x) \;dx = 5\) and \(\int_{\pi}^{10} f(x) \;dx = 1\). Evaluate \(\int_{0}^{\pi} f(x) \;dx\).
+
+  \blanks*
+\end{example}
+\clearpage
+
+The net area interpretation of a definite integral yields two comparison properties. In each exercise below, fill in the blanks with one of \(=, \le , \ge\) by reading the definite integrals off the graph as net area.
+
+\begin{exercise} \label{ex:comparison-functions}
+  Suppose \(f(x) \le g(x)\) over \([a,b]\). Then
+  \[
+    \int_{a}^{b} f(x) \;dx \quad\underline{\hspace{2cm}}\quad \int_{a}^{b} g(x) \;dx.
+  \]
+
+  \begin{center}
+    \includestandalone[page=1]{../standalones/plot-comparison-properties}
+  \end{center}
+
+  \blanklines{6}
+\end{exercise}
+
+\begin{exercise} \label{ex:comparison-bounds}
+  Suppose \(m\) and \(M\) are constants with \(m \le f(x) \le M\) over \([a,b]\). Then
+  \[
+    m(b-a) \quad\underline{\hspace{2cm}}\quad \int_{a}^{b} f(x) \;dx \quad\underline{\hspace{2cm}}\quad M(b-a).
+  \]
+
+  \begin{center}
+    \includestandalone[page=2]{../standalones/plot-comparison-properties}
+  \end{center}
+
+  \blanklines{6}
+\end{exercise}
+\clearpage
+
+%==============================================================================
+\subsection{Approximating net area} \label{subsec:approximating-area}
+So far, we evaluated definite integrals using shapes with known area formulas. What about \(\int_{0}^{1} x^{2} \;dx\), the area under a parabola? The rest of this lesson builds a precise way to approximate and calculate definite integrals.  This section is notation-heavy, so we start with examples that use little of it. 
+
+\faStar{} Recognize the phrase \enquote{approximate ... using a ... endpoint approximation with ... equal-width rectangles.}
+
+\begin{example}
+  The graph of \(f(x)\) is given below.
+  Approximate \(\int_{-1}^{2} f(x)\;dx\) using a \hlmain{left-endpoint approximation} with \(3\) equal-width rectangles.
+
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+
+  \blanks*
+\end{example}
+
+\begin{example}
+  The graph of \(f(x)\) is given below.
+  Approximate \(\int_{-1}^{2} f(x)\;dx\) using a \hlmain{right-endpoint approximation} with \(3\) equal-width rectangles.
+
+  \includestandalone{../standalones/plot_riemann_sum_draw_rectangles}
+
+  \blanks*
+\end{example}
+\clearpage
+
+\begin{exercise} \label{ex:riemann-sketch-negative}
+  Approximate \(\int_{-1}^{2} f(x) \;dx\) in two different ways. First, use a \hlmain{left-endpoint approximation} with \(3\) equal-width rectangles. Then use a \hlmain{right-endpoint approximation} with \(6\) equal-width rectangles.
+
+  \hfill{}
+  \includestandalone[page=1]{../standalones/plot-riemann-negative}
+  \hfill{}
+  \includestandalone[page=1]{../standalones/plot-riemann-negative}
+  \hfill{}
+
+  \blanks*
+\end{exercise}
+
+The same geometry tells us how to approximate when \(f(x)\) is given by a formula. Sketching the sub-intervals alone is typically helpful; avoid sketching the function, which we may not know how to draw. 
+\begin{example}[Final Exam, Fall 2025]
+  Find the left-endpoint approximation of \(\int_{0}^{2\pi} t \sin(t) \;dt\) using \(4\) rectangles of equal width.
+
+  \begin{enumerate}[label=\Alph*.]
+    \item \(-\frac{\pi^{2}}{2}\)
+    \item \(-\pi\)
+    \item \(0\)
+    \item \(\pi/2\)
+    \item \(\pi\)
+  \end{enumerate}
+
+  \blanks*
+\end{example}
+\clearpage
+
+\begin{exercise}[Final Exam, Fall 2024, slightly modified] \label{ex:riemann-sketch-five}
+  Which of the following is a left-endpoint approximation using \(4\) equal-width rectangles? A right-endpoint approximation using \(4\) equal-width rectangles? Neither?
+
+  \begin{center}
+    \includestandalone[page=1]{../standalones/plot-riemann-identify}
+    \qquad
+    \includestandalone[page=2]{../standalones/plot-riemann-identify}
+    
+    \bigskip
+
+    \includestandalone[page=3]{../standalones/plot-riemann-identify}
+    \qquad
+    \includestandalone[page=4]{../standalones/plot-riemann-identify}
+  \end{center}
+\end{exercise}
+
+\begin{exercise}[Final Exam, Fall 2025]
+  Consider the integral \(\int_{0}^{4} f(x) \;dx\) where \(f(x) = x^{3} - 2x^{2} - 5x + 11\).  Calculate a left-endpoint approximation of the integral for \(n=4\).
+
+\begin{enumerate}[label=\Alph*.]
+    \item \(45\)
+    \item \(23\)
+    \item \(22\)
+    \item \(12\)
+    \item \(11\)
+  \end{enumerate}
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+Here is a summary of approximation techniques. We also introduce some notations.
+
+\faStar{} To approximate \(\int_{a}^{b} f(x) \;dx\) using \(n\) equal-width rectangles, we use the following notation. \label{page:riemann-notation} 
+
+\begin{enumerate}
+  \item The interval \([a,b]\) is divided into \(n\) equal-width sub-intervals by points \(x_{0}, x_{1}, x_{2}, \dots, x_{n}\). 
+  \item \(\Delta x\) is a single symbol and means \(\Delta x = \frac{b-a}{n}\), representing the width of each sub-interval.
+  \item The \(i\)-th interval is \([x_{i-1}, x_{i}]\).
+  \item \(x_{i}^{*}\) is a \hlmain{choice} inside the \(i\)-th sub-interval, at which we evaluate \(f(x_{i}^{*})\).
+
+    \faExclamationTriangle{} The approximation method, if specified, decides how we make such a choice in each interval. See the next page for three methods that you should remember.
+
+  \item The \(i\)-th rectangle has width \(\Delta x\) and height \(f(x_{i}^{*})\), so the approximation is 
+    \begin{equation} \label{eq:riemann-sum-expanded}
+    f(x_{1}^{*}) \Delta x + f(x_{2}^{*}) \Delta x + \dots + f(x_{n}^{*}) \Delta x.
+  \end{equation}
 \end{enumerate}
 
+Here are the sketches of each step using \(n=4\) equal-width rectangles.
+
+\begin{center}
+  \includestandalone[page=1]{../standalones/plot-riemann-steps}
+  \quad
+  \includestandalone[page=2]{../standalones/plot-riemann-steps}
+  \quad
+  \includestandalone[page=3]{../standalones/plot-riemann-steps}
+
+  \medskip
+
+  \includestandalone[page=4]{../standalones/plot-riemann-steps}
+  \qquad
+  \includestandalone[page=5]{../standalones/plot-riemann-steps}
+\end{center}
+\clearpage
+
+Here are three \emph{well-known} approximation techniques you should know.  The sketches demonstrate the geometry of the approximations. 
+
+\begin{itemize}[itemsep={2ex}]
+  \item \textbf{\(L_{n}\) Left-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i-1}\), the left endpoint of the \(i\)-th interval.
+    \[
+      L_{n} = f(x_{0}) \Delta x + f(x_{1}) \Delta x + \dots + f(x_{n-1}) \Delta x
+    \]
+
+    \begin{center}
+      \includestandalone[page=1]{../standalones/plot-riemann-methods}
+      \qquad
+      \includestandalone[page=2]{../standalones/plot-riemann-methods}
+      \qquad
+      \includestandalone[page=3]{../standalones/plot-riemann-methods}
+    \end{center}
+
+  \item \textbf{\(R_{n}\) Right-endpoint approximation}: Choose \(x_{i}^{*}\) to be \(x_{i}\), the right endpoint of the \(i\)-th interval.
+    \[
+      R_{n} = f(x_{1}) \Delta x + f(x_{2}) \Delta x + \dots + f(x_{n}) \Delta x
+    \]
+
+    \begin{center}
+      \includestandalone[page=4]{../standalones/plot-riemann-methods}
+      \qquad
+      \includestandalone[page=5]{../standalones/plot-riemann-methods}
+      \qquad
+      \includestandalone[page=6]{../standalones/plot-riemann-methods}
+    \end{center}
+
+  \item \textbf{\(M_{n}\) Midpoint approximation}: Choose \(x_{i}^{*}\) to be the midpoint of the \(i\)-th interval.
+
+    \begin{center}
+      \includestandalone[page=7]{../standalones/plot-riemann-methods}
+      \qquad
+      \includestandalone[page=8]{../standalones/plot-riemann-methods}
+      \qquad
+      \includestandalone[page=9]{../standalones/plot-riemann-methods}
+    \end{center}
+\end{itemize}
+\clearpage
+
+% \begin{exercise} \label{ex:L4-R4}
+%   Write down the expression for the left- and right-endpoint approximations for \(f(x) = \frac{1}{x^{2} - 1}\) on \([-4, -2]\) using \(n = 8\) equal-width rectangles. In other words, write down the expressions for \(L_{4}\) and \(R_{4}\) without performing the final additions.
+%
+%   \blanks*
+% \end{exercise}
+\clearpage
+
+%==============================================================================
+\subsection{The Sigma notation} \label{subsec:sigma}
+We saw in Section~\ref{subsec:approximating-area} that approximating a definite integral boils down to adding up areas of rectangles. We need the following compact notation, called the Sigma notation, to denote a long string of addition.
+
+{\huge \[ \sum_{i=m}^{n} a_{i} = \hspace{3in}\]}
+
+\blanks{3}
+
+\begin{example} \label{ex:sigma-notation-read}
+  Write the following summations in expanded form.
+  \begin{align*}
+    \sum_{i=3}^{5} (2i^{3} + 1)
+    &= \underline{\hspace{5in}} \\[3ex]
+    \sum_{k=10}^{13} x
+    &= \underline{\hspace{5in}}.
+  \end{align*}
+\end{example}
+
+\begin{example}
+  Express the total area \(A\) of the rectangles shown below using Sigma notation. The height of each rectangle is labelled on its top edge.  The width of each rectangle is \(1/2\).
+
+  \begin{center}
+    \includestandalone{../standalones/plot_rectangles}
+  \end{center}
+
+  \blanks*
+\end{example}
+\clearpage
+
+% \begin{thm}
+%   \label{page:summation-properties}
+%   Let \(c\) be a constant. Let \(a_{1}, \dots, a_{n}, b_{1}, \dots, b_{n}\) be two lists of numbers.
+%   \begin{align*}
+%     \sum_{i=1}^{n} {\color{attn} \mathbf{c}} \; a_{i}
+%     &= {\color{attn} \mathbf{c}} \sum_{i=1}^{n} a_{i}
+%     &&\text{(constant multiple)} \\[6ex]
+%     \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{+}\,} \sum_{i=1}^{n} b_{i}
+%     &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{+}\,}\, b_{i})
+%     &&\text{(sum)} \\[6ex]
+%     \sum_{i=1}^{n} a_{i} {\color{attn}\,\mathbf{-}\,} \sum_{i=1}^{n} b_{i}
+%     &= \sum_{i=1}^{n} (a_{i} {\color{attn}\,\mathbf{-}\,} b_{i})
+%     && \text{(difference)} \\[6ex]
+%     \sum_{i=1}^{{\color{attn}\mathbf{n}}} a_{i}
+%     &=
+%     \sum_{i=1}^{{\color{attn}\mathbf{m}}} a_{i} +
+%     \sum_{i={\color{attn}\mathbf{m+1}}}^{{\color{attn}\mathbf{n}}} a_{i}
+%     && \text{(split/merge a sum)} \\[6ex]
+%   \end{align*}
+%
+%   \textbook{Rule: Properties of Sigma Notation, page 509}
+% \end{thm}
+
+% To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition.  The formulas in Equation~\eqref{formula:summations} are useful and examinable.
+% \begin{equation} \label{formula:summations}
+%   \sum_{i=1}^{n} i = {\color{main} \frac{n(n+1)}{2}}, \qquad \sum_{i=1}^{n} i^{2} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{2n+1}{3}, \qquad \sum_{i=1}^{n} i^{3} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{n(n+1)}{2}.
+% \end{equation}
+
 % \begin{example}
-%   A function \(f(x)\) defined on \([a,b]\) has the following properties. 
-%   \begin{enumerate}
-%     \item \(f\) is continuous on \([a,b]\)
-%     \item \(f\) has local extrema \(-1, 3, -2\). 
-%     \item \(f(a) = 1\) and \(f(b) = 0\).
-%     \item \(b - a = 10\).
-%   \end{enumerate}
+%   Simplify \(\sum_{i=1}^{n} \frac{1}{n} \left( \frac{i}{n} \right)^{2}\).
 %
-%   Find numbers \(A,B\) so that \(A \le \int_{a}^{b} f(x) \;dx \le B\). Justify your answer. 
-%
-%   \blanklines{10}
+%   \blanklines{15}
 % \end{example}
 % \clearpage
 
-We wrap up the discussion of the geometric interpretation of definite integrals by defining the average value of a function.
+% Sometimes, we have to manipulate Sigma notation before applying summation formulas.
+% \begin{equation} \label{eq:summation-reindex}
+%   \sum_{i=m}^{n} a_{i} = \sum_{j = 1}^{n - m + 1} a_{m+j-1}.
+% \end{equation}
+% This ``reindexing'' formula is obtained by performing a change of variable \(j = i - m + 1\).
 
-\blanklines{15}
+% \blanklines{5}
+% \begin{exercise}
+%   Evaluate \(\sum_{i=10}^{100} i^{3}\).
+%   \hfill {\footnotesize Hint: Use the split/merge property.}
+%
+%   \blanklines{15}
+% \end{exercise}
 
-The average value of a continuous \(f(x)\) on \([a,b]\) is
-\[
-  f_{\text{avg}} = \frac{1}{b-a} \int_{a}^{b} f(x) \;dx.
-\]
+% \begin{exercise}
+%   Evaluate \(\sum_{i=50}^{300} 6 i^{2}\).
+%
+%   \blanklines{15}
+% \end{exercise}
+% \clearpage
 
+%==============================================================================
+\subsection{Riemann sums and the definite integral} \label{subsec:defint-formal}
+
+\begin{definition} \label{def:riemann-sum}
+  The \hlmain{Riemann sum} for a function \(f(x)\) defined over an interval \([a,b]\) is an approximation of \(\int_{a}^{b} f(x) \;dx\) using \(n\) equal-width rectangles. 
+
+  In other words, Equation~\eqref{eq:riemann-sum-expanded} is a Riemann sum which is typically expressed using the Sigma notation
+  \begin{equation} \label{eq:riemann-sum}
+    \sum_{{\color{main}i}=1}^{{\color{main}n}} f(x_{{\color{main}i}}^{*}) \; {\color{supp} \Delta x} 
+  \end{equation}
+
+  \faStar{} The limit definition of the definite integral is
+  \begin{equation} \label{eq:area-under-the-curve}
+    \int_{a}^{b} f(x) \;dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_{i}^{*}) \; \Delta x,
+  \end{equation}
+  if the limit exists.
+
+  Equation~\eqref{eq:area-under-the-curve} is always true if \(f\) is continuous over \([a,b]\), or if \(f(x)\) is bounded and has only finitely many discontinuities in \([a,b]\).
+
+  \textbook{Equation~(5.8) on page 529}
+\end{definition}
+
+Here is some right-endpoint approximations of \(\int_{0}^{1} x^{2} \;dx\). We can get the exact value if we calculate \(\lim_{n \to \infty} R_{n}\).
+
+\begin{center}
+  \includestandalone[page=1]{../standalones/plot-riemann-parabola}%
+  \quad
+  \includestandalone[page=2]{../standalones/plot-riemann-parabola}%
+  \quad
+  \includestandalone[page=3]{../standalones/plot-riemann-parabola}%
+  \quad
+  \includestandalone[page=4]{../standalones/plot-riemann-parabola}
+\end{center}
+
+\begin{example}
+  Write down the limit definition of \(\int_{0}^{1} x^{2} \;dx\) using right-endpoint approximations.
+
+  \blanks*
+\end{example}
+\clearpage
+
+To \hlmain{simplify} or to \hlmain{evaluate} a summation written in Sigma notation means to perform the specified addition.  The formulas in Equation~\eqref{formula:summations} are useful for evaluating definite integrals from their limit definition, i.e., the first principle.
+\begin{equation} \label{formula:summations}
+  \sum_{i=1}^{n} i = {\color{main} \frac{n(n+1)}{2}}, \qquad \sum_{i=1}^{n} i^{2} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{2n+1}{3}, \qquad \sum_{i=1}^{n} i^{3} = {\color{main}\frac{n(n+1)}{2}} \cdot \frac{n(n+1)}{2}.
+\end{equation}
+
+\begin{exercise}
+  Evaluate \(\int_{0}^{1} x^{2} \;dx\) from the limit definition of the definite integral, using right-endpoint approximations. 
+
+  {\footnotesize Sometimes, we also say \emph{by sampling at the right endpoint} to indicate that you should use right-endpoint approximations.}
+
+  \blanks*
+\end{exercise}
+\clearpage
 \end{document}
