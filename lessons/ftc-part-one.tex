@@ -1,7 +1,58 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
-\begin{document} \section{The Fundamental Theorem of Calculus, part 1}
-The Fundamental Theorem of Calculus has two parts.
+\begin{document} 
+\section{\enquote{Accumulation functions}}
+
+Recall we have been interpreting the integrand in \(\int_{a}^{b} f(t) \;dt\) as a rate of change. We informally call a function of this form
+\[
+  F(x) = \int_{\text{constant}}^{x} f(t) \;dt
+\]
+an \enquote{accumulation function} because it accumulates a rate of change in the following sense. 
+
+\begin{example}
+  Define \(F(x) = \int_{0}^{x} \text{cashflow}(t) \;dt\) where the graph of \(\text{cashflow}(t)\) is the one from page~\pageref{item:cashflow-example}.
+
+  \begin{center}
+    \includestandalone[page=3]{../standalones/plot-net-area-motivation}
+  \end{center}
+
+  \begin{itemize}[wide]
+    \item Over what intervals is \(F(x)\) increasing? Decreasing?
+
+      \blanks*
+
+    \item Does \(F(x)\) have any local extrema?
+      \blanks*
+
+    \item What is the rate of change of \(F(x)\) over the interval \((1,5)\)?
+      \blanks*
+  \end{itemize}
+\end{example}
+\clearpage
+
+\begin{exercise}
+  Define \(F(x) = \int_{1}^{x} f(t) \;dt\) where the graph of \(f(t)\) is given below. Find intervals of increasing/decreasing for \(F(x)\) and \(x\)-values at which its local extrema occur. 
+
+  \begin{center}
+    \includestandalone[page=1]{../standalones/plot-accumulation-jumps}
+  \end{center}
+
+  \blanks*
+\end{exercise}
+
+\begin{exercise}
+  Define \(F(x) = \int_{-3}^{x} f(t) \;dt\) where the graph of \(f(t)\) is given below. Find intervals of increasing/decreasing for \(F(x)\) and \(x\)-values at which its local extrema occur. 
+
+  \begin{center}
+    \includestandalone[page=2]{../standalones/plot-accumulation-jumps}
+  \end{center}
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+\section{The Fundamental Theorem of Calculus, part 1}
+The Fundamental Theorem of Calculus has two parts. Part 1 tells us how to differentiate an \enquote{accumulation function}.
 
 \begin{thm} \label{thm:ftc-part-one}
   If \(f(x)\) is continuous over \([a,b]\), then the function \(F(x)\) defined by
@@ -10,57 +61,29 @@ The Fundamental Theorem of Calculus has two parts.
   \]
   is differentiable on \((a,b)\) and \(F'(x) = f(x)\).
 
-  \textbook{Theorem: 5.4: Fundamental Theorem of Calculus Part 1 on page 552}
+  \textbook{Theorem 5.4: The Fundamental Theorem of Calculus Part 1 on page 552}
 \end{thm}
-\faExclamationTriangle{} The constant in FTC part 1 must be in the lower bound of the definite integral!
+\faExclamationTriangle{} The constant in FTC part 1 must be the lower bound of the definite integral!
 
-In a more compact notation, FTC part 1 can be restated as
+FTC part 1 can be restated concisely as:
 
-\blanklines{10}
-
-\begin{example}
-  Define \(F(x) = \int_{10}^{x} \sec(t) \;dt\).  Write down an expression for \(F(x + 1)\) as an integral.
-
-  \blanklines{5}
-\end{example}
+\blanks{5}
 
 \begin{example}
   Differentiate \(\int_{-1}^{x} e^{t^{2}} \;dt\).
 
-  \blanklines{5}
+  \blanks*
 \end{example}
 
 \begin{example}
   Differentiate \(\int_{\sqrt{2}}^{x^{2}} e^{t^{2}} \;dt\).
 
-  \blanklines{5}
-\end{example}
-\clearpage
-
-\begin{example}
-  Differentiate \(\int_{\sqrt{x}}^{-5} \tan(t) \;dt\).
-
-  \blanklines{15}
-\end{example}
-
-\begin{example} \label{ex:ftc-one}
-  Let \(F(x) = \int_{x^{3}}^{x^{2} + 1} e^{t^{2}} \;dt\). Find \(F'(x)\).
-  %
-  % Which of the following expression is a good start step?
-  % \begin{enumerate}[label=(\alph*)]
-  %   \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-  %   \item Write \(F(x) = \int_{x^{3}}^{0} e^{t^{2}} \;dt + \int_{0}^{x^{2}+1} e^{t^{2}} \;dt \).
-  %   \item Write \(F(x) = \int_{0}^{x^{3}} e^{t^{2}} \;dt + \int_{0}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}} e^{t^{2}} \;dt\).
-  %   \item Write \(F(x) = \int_{x^{3}}^{1} e^{t^{2}} \;dt + \int_{1}^{x^{2}+1} e^{t^{2}} \;dt \).
-  %   \item None of the above.
-  % \end{enumerate}
-
-  \blanklines{35}
+  \blanks*
 \end{example}
 \clearpage
 
 \begin{exercise}[Final exam, Fall 2024]
-  Define \(G(x) = \int_{-1}^{\sqrt{x}} 2t e^{t^{2}} \;dt\) for all \(x > 0\).  In the box below, write down an expression for \(G'(x)\). Perform all necessary differentiation and integration. \updatenote{"integraiton" corrected to "integration".}
+  Define \(G(x) = \int_{-1}^{\sqrt{x}} 2t e^{t^{2}} \;dt\) for all \(x > 0\).  In the box below, write down an expression for \(G'(x)\). Perform all necessary differentiation and integration.
 
   You do not need to simplify the final answer.
 
@@ -69,13 +92,27 @@ In a more compact notation, FTC part 1 can be restated as
     \node[right] at (0.5, 0.5) {\(G'(x) = \) \underline{\hspace{3in}}};
   \end{tikzpicture}
 
-  \blanklines{10}
+  \blanks*
 \end{exercise}
 
-\blanklines{10}
+\begin{exercise}
+  Differentiate \(\int_{\sqrt{x}}^{-5} \sin(t^{2}) \;dt\).
+
+  \blanks*
+\end{exercise}
+\clearpage
+
+If both bounds of an \enquote{accumulation function} are functions, then we must split the integral at a constant --- any constant will do --- before applying FTC part 1.
+\begin{example} \label{ex:ftc-one}
+  Let \(F(x) = \int_{x^{3}}^{x^{2} + 1} e^{t^{2}} \;dt\). Find \(F'(x)\).
+  \blanks*
+\end{example}
+\clearpage
+
+This is a fairly tedious exercise, but it's good algebra practice.
 \begin{exercise}
   Find the second derivative of \(\int_{2x}^{\ln(x)} t \sin(2t) \;dt\).
 
-  \blanklines{15}
+  \blanks*
 \end{exercise}
 \end{document}

@@ -1,7 +1,11 @@
 %! TeX program = lualatex
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The Fundamental Theorem of Calculus, part 2}
-The Fundamental Theorem of Calculus also makes a connection between definite and indefinite integrals.
+The Fundamental Theorem of Calculus also makes a connection between definite and indefinite integrals. Before we dive into the abstract statement, think of velocity and position functions again. The following statement is true.
+\[
+  \int_{a}^{b} \left(\text{velocity at time \(t\)}\right) \;dt  = (\text{position at time \(b\)}) - (\text{position at time \(a\)})
+\]
+\blanks{3}
 
 \begin{thm} \label{thm:ftc-part-two}
   If \(f(x)\) is continuous over \([a,b]\) and \(F(x)\) is any antiderivative of \(f(x)\), then
@@ -16,7 +20,7 @@ FTC part 2 is our \hlmain{workhorse theorem} to evaluate definite integrals. \hl
 
 Sometimes, we use the notation \([F(x)]_{a}^{b}\) to mean \(F(b) - F(a)\). Using this notation, FTC part 2 can be succinctly expressed as:
 
-\blanklines{10}
+\blanks*
 
 The properties of indefinite integrals carry over to definite ones.
 \begin{thm}
@@ -28,9 +32,7 @@ The properties of indefinite integrals carry over to definite ones.
 
   \textbook{Equations (5.13), (5.11) and (5.12) on page 538}
 \end{thm}
-\updatenote{Moved here from the properties subsection of the definite integrals lesson, where it was Theorem~11.21, together with the writing space below. The sentence introducing it is new. Why: every example and exercise that follows uses these properties, and after FTC part 2 they come straight from the matching properties of indefinite integrals.}
-
-\blanklines{10}
+\clearpage
 
 \begin{example}
   Evaluate \(\int_{0}^{1} x^{2} - \pi \;dx\).
@@ -52,18 +54,17 @@ The properties of indefinite integrals carry over to definite ones.
 \end{exercise}
 \clearpage
 
-FTC part 2 needs an antiderivative. If the graph of the integrand is made of well-known shapes, area formulas also work, even when the antiderivative is not in our integration table. Only a few integrands allow this. \updatenote{Moved here, with the two exercises below, from the definite integrals lesson. Was \enquote{If the integrand is a well-known shape, then we can evaluate it by simply calculating its area using simple formulas. However, this is a very restrictive method to evaluate definite integrals.} Why: after FTC part 2, these exercises show that area formulas still evaluate integrals whose antiderivatives, like that of \(\sqrt{1 - x^{2}}\), are not in our table. The sentence was reworded for its new place.}
+FTC part 2 needs an antiderivative. If the graph of the integrand is made of well-known shapes, area formulas also work, even when the antiderivative is not in our integration table. Only a few integrands allow this.
 
 \begin{exercise}
   Evaluate \(\int_{0}^{1} \sqrt{1 - x^{2}} + 2 \;dx\).
 
-  \blanklines{10}
+  \blanks*
 \end{exercise}
 
 \begin{exercise}
   Evaluate \(\int_{-1}^{1} \sqrt{1 - x^{2}} - 1 \;dx\).
 
-  \blanklines{10}
+  \blanks*
 \end{exercise}
-
 \end{document}

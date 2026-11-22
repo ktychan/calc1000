@@ -2,50 +2,76 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document} \section{The substitution rule}
 
-We have seen throughout the course that \hlmain{a change of variable} can \emph{transform} a complex problem into a simpler one. The substitution rule performs such a change of variable in integration.
+We have seen throughout the course that \hlmain{a change of variable} can \emph{transform} a complicated problem into a simpler one. The substitution rule performs such a change of variable in integration. It reverses the chain rule (in differentiation).
 
-\begin{thm}
+\begin{thm} \label{thm:substitution}
   {If {\color{main} \(u = g(x)\)} is differentiable and \(f\) is continuous on the range of \(g\), then}
   \begin{equation} \label{eq:sub-definite}
-    \int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{u(a)}^{u(b)} f({\color{main} u}) \;{\color{supp}du}.
+    \int_{a}^{b} f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int_{g(a)}^{g(b)} f({\color{main} u}) \;{\color{supp}du}.
   \end{equation}
 
-  For indefinite integrals, simply do nothing for the bounds:
+  For indefinite integrals, there are no bounds to change:
   \begin{equation} \label{eq:sub-indefinite}
-    \int f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int f(u) \;{\color{supp}du}.
+    \int f( {\color{main} g(x)} ) \, {\color{supp} g'(x) \;dx} = \int f({\color{main} u}) \;{\color{supp}du}.
   \end{equation}
+
+  The \enquote{cheat} formula \(dx = \frac{du}{u'(x)}\) can help you perform the substitution step for \(dx\).
 
   \textbook{Theorem 5.7 on page 584 and Theorem 5.8 on page 589}
 \end{thm}
-
-The substitution rule works by undoing\footnote{See pages 584 and 589 of the textbook for a short theoretical explanation if you are interested.} the chain rule.
-Once a substitution \(u\) is chosen, substitute \(dx = \frac{du}{u'}\), simplify and change the leftover into a function of \(u\). Update the bounds for definite integrals.
 
 \medskip
 \begin{example}
   Evaluate \(\int_{1}^{2} x e^{x^{2}} \;dx\).
 
-  \blanklines{25}
+  \begin{enumerate}[wide]
+    \item Choose \(u = \underline{\hspace{1in}}\) by looking for an inside function and calculate \(dx\) to prepare for the next step.
+
+      \blanks{5}
+
+    \item Perform the substitution according to Theorem~\ref{thm:substitution}. Every expression in \(x\) must be written in \(u\) at the end of this step. If we cannot do so, then the substitution is unsuccessful. 
+
+      This is a definite integral, so the bounds must also be substituted according to Equation~\eqref{eq:sub-definite}.
+
+      \blanks{10}
+
+    \item Evaluate the new integral in \(u\).
+
+      \blanks*
+  \end{enumerate}
 \end{example}
 \clearpage
 
-\textbf{Strategy} for choosing \(u\). \hlattn{Recognize} a \hlmain{pair} of functions (almost) related by differentiation and choose \(u\) to be the antiderivative.  An extra clue is that \(u\) could be an inside function of a composite function. Sometimes, there is more than one choice for \(u\) that works. \updatenote{Subject-verb agreement: "there are ... that work" corrected to "there is ... that works" ("more than one" takes a singular verb).}  Be brave and go with some trial and error to develop some intuition!
+\textbf{Strategy} for choosing \(u\).\label{page:u-sub-strategy} \hlattn{Recognize} a \hlmain{pair} of functions (almost) related by differentiation and choose \(u\) to be the antiderivative.  An extra clue is that \(u\) could be an inside function of a composite function. Sometimes, there is more than one choice for \(u\) that works. Be brave and use trial and error to develop intuition!
 
-\faExclamationTriangle{} The integration table on page~\pageref{sec:integration-formulas} \hlmain{guarantees correctness}. \updatenote{The page reference pointed to the wrong label (one that was actually attached to the "Differentiation formulas" lesson); corrected to the label on the "Integration formulas" lesson.} If something is not in the integration table, then you should manipulate it using properties of integrals and/or substitution to one or more known integrals.
+\faExclamationTriangle{} The integration table on page~\pageref{sec:integration-formulas} \hlmain{guarantees correctness}. If something is not in the integration table, then you should manipulate it into one or more known integrals, using properties of integrals and/or substitution.
 
 \begin{example} \label{ex:u-sub-1}
   Evaluate \(\int x^{2} \sqrt{1 + x^{3}} \;dx\).
 
-  \blanklines{45}
+  \begin{enumerate}[wide]
+    \item Choose \(u = \underline{\hspace{1in}}\) by looking for an inside function and calculate \(dx\) to prepare for the next step.
+
+      \blanks{10}
+
+    \item Perform the substitution according to Theorem~\ref{thm:substitution}. Every expression in \(x\) must be written in \(u\) at the end of this step. If we cannot do so, then the substitution is unsuccessful. 
+
+      \blanks{10}
+
+    \item Evaluate the new integral in \(u\). We have an indefinite integral here, so the final result needs to be written in terms of \(x\).
+
+      \blanks*
+  \end{enumerate}
 \end{example}
 \clearpage
 
-Notice how the strategy on page~\pageref{ex:u-sub-1} is used here.
+The step-by-step guidance is removed. You should use active recall to complete the following exercises.
 \begin{exercise}
   Evaluate \(\int \sin(x) e^{\cos(x)} \;dx\).
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
+\clearpage
 
 \begin{exercise}[Final exam, Fall 2024]
   Let \(D = \int_{0}^{\pi/4} \tan(x) \sec^{2}(x) \;dx\). In the box below, write down an expression for \(D\). Perform all necessary differentiation and integration.
@@ -55,9 +81,9 @@ Notice how the strategy on page~\pageref{ex:u-sub-1} is used here.
     \node[right] at (0.5, 0.5) {\(D = \) \underline{\hspace{4in}}};
   \end{tikzpicture}
 
-  (Here is some space for rough work. Please note that the answer outside of the box \emph{will not be graded}. \updatenote{Added the missing article "the" before "answer".})
+  (Here is some space for rough work. Please note that the answer outside of the box \emph{will not be graded}.)
 
-  \blanklines{20}
+  \blanks*
 \end{exercise}
 
 % When there is no obvious choice for a substitution, try reorganizing the integrand first.
